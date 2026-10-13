@@ -11,5 +11,6 @@ import type { ModuleWithLessons } from './moduleWithLessons';
 export interface CourseDetail {
   course: Course;
   description: string;
+  hasAccess: boolean;
   modules: ModuleWithLessons[];
 }

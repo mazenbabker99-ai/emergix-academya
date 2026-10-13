@@ -1167,6 +1167,7 @@ export interface ModuleWithLessons {
 export interface CourseDetail {
   course: Course;
   description: string;
+  hasAccess: boolean;
   modules: ModuleWithLessons[];
 }
 
@@ -1271,6 +1272,10 @@ export interface Lesson {
   body?: string | null;
   /** @nullable */
   assetUrl?: string | null;
+  /** @nullable */
+  assetFilename?: string | null;
+  /** @nullable */
+  assetMimeType?: string | null;
   chapters: LessonChaptersItem[];
   captions: LessonCaptionsItem[];
   /** @nullable */

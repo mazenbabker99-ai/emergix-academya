@@ -1093,25 +1093,27 @@ paths:
           $ref: "#/components/responses/NotFound"
         "429":
           $ref: "#/components/responses/RateLimited"
-  /courses/{courseSlug}/lessons/{lessonSlug}:
+  /courses/{courseSlug}/lessons/{lessonId}:
     get:
       operationId: getLesson
       tags:
         - courses
-      summary: Lesson (free preview lessons are public)
-      description: Paid lessons require a signed-in user with an entitlement.
-      security: []
+      summary: Open a course lesson
+      description: Opening any lesson requires a signed-in user. Paid lessons additionally require a matching exam entitlement unless the lesson is a free preview.
+      security:
+        - cookieAuth: []
       parameters:
         - name: courseSlug
           in: path
           required: true
           schema:
             type: string
-        - name: lessonSlug
+        - name: lessonId
           in: path
           required: true
           schema:
             type: string
+            format: uuid
       responses:
         "200":
           description: Success
@@ -1123,6 +1125,10 @@ paths:
           $ref: "#/components/responses/ValidationError"
         "404":
           $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
         "429":
           $ref: "#/components/responses/RateLimited"
   /lessons/{id}/playback-token:
@@ -9431,6 +9437,8 @@ components:
           $ref: "#/components/schemas/Course"
         description:
           type: string
+        hasAccess:
+          type: boolean
         modules:
           type: array
           items:
@@ -9438,6 +9446,7 @@ components:
       required:
         - course
         - description
+        - hasAccess
         - modules
     AdminCourse:
       type: object
@@ -9601,6 +9610,14 @@ components:
             - string
             - "null"
         assetUrl:
+          type:
+            - string
+            - "null"
+        assetFilename:
+          type:
+            - string
+            - "null"
+        assetMimeType:
           type:
             - string
             - "null"

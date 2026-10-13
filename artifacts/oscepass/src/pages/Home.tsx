@@ -5,7 +5,8 @@ import { Reveal } from '@/components/shared/Reveal';
 import { SiteLayout } from '@/components/shared/SiteLayout';
 import { VideoModal } from '@/components/shared/VideoModal';
 import { brand } from '@/config/brand';
-import { features, modules } from '@/features/home/data';
+import { CourseGrid } from '@/features/courses/CourseGrid';
+import { features } from '@/features/home/data';
 import { stations } from '@/features/neurology/data';
 import { useListExams } from '@workspace/api-client-react';
 import { usePageMeta } from '@/lib/usePageMeta';
@@ -51,11 +52,8 @@ export default function Home() {
 
       <section className="section modules-section">
         <div className="container">
-          <Reveal><div className="section-heading modules-heading"><div><span className="eyebrow">Your learning pathway</span><h2>Explore Our Modules</h2></div><Link className="link-all-courses" href="/courses">View All Courses <ArrowRight size={15} /></Link></div></Reveal>
-          <div className="module-grid">{modules.map(({ icon: Icon, title, description, color, image, href }) => <Reveal key={title}><article className="module-card">
-            <Link href={href} className="module-image-link" aria-label={`Explore ${title}`}><img src={image} alt={`${title} learning module`} loading="lazy" /><span className="module-icon" style={{ backgroundColor: color }}><Icon size={19} aria-hidden="true" /></span></Link>
-            <div className="module-content"><h3>{title}</h3><p>{description}</p><Link className="module-more" href={href}>Learn More <ArrowRight size={14} /></Link></div>
-          </article></Reveal>)}</div>
+          <Reveal><div className="section-heading modules-heading"><div><span className="eyebrow">Your learning pathway</span><h2>Choose your course</h2></div><Link className="link-all-courses" href="/courses">View All Courses <ArrowRight size={15} /></Link></div></Reveal>
+          <CourseGrid />
         </div>
       </section>
 

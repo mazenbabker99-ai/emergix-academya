@@ -3310,22 +3310,22 @@ export function useGetCourse<TData = Awaited<ReturnType<typeof getCourse>>, TErr
 
 
 export const getGetLessonUrl = (courseSlug: string,
-    lessonSlug: string,) => {
+    lessonId: string,) => {
 
 
 
 
-  return `/api/courses/${courseSlug}/lessons/${lessonSlug}`
+  return `/api/courses/${courseSlug}/lessons/${lessonId}`
 }
 
 /**
- * Paid lessons require a signed-in user with an entitlement.
- * @summary Lesson (free preview lessons are public)
+ * Opening any lesson requires a signed-in user. Paid lessons additionally require a matching exam entitlement unless the lesson is a free preview.
+ * @summary Open a course lesson
  */
 export const getLesson = async (courseSlug: string,
-    lessonSlug: string, options?: Parameters<typeof customFetch>[1]): Promise<Lesson> => {
+    lessonId: string, options?: Parameters<typeof customFetch>[1]): Promise<Lesson> => {
 
-  return customFetch<Lesson>(getGetLessonUrl(courseSlug,lessonSlug),
+  return customFetch<Lesson>(getGetLessonUrl(courseSlug,lessonId),
   {
     ...options,
     method: 'GET'
@@ -3339,47 +3339,47 @@ export const getLesson = async (courseSlug: string,
 
 
 export const getGetLessonQueryKey = (courseSlug: string,
-    lessonSlug: string,) => {
+    lessonId: string,) => {
     return [
-    `/api/courses/${courseSlug}/lessons/${lessonSlug}`
+    `/api/courses/${courseSlug}/lessons/${lessonId}`
     ] as const;
     }
 
 
-export const getGetLessonQueryOptions = <TData = Awaited<ReturnType<typeof getLesson>>, TError = ErrorType<ValidationErrorResponse | NotFoundResponse | RateLimitedResponse>>(courseSlug: string,
-    lessonSlug: string, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getLesson>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+export const getGetLessonQueryOptions = <TData = Awaited<ReturnType<typeof getLesson>>, TError = ErrorType<ValidationErrorResponse | UnauthorizedResponse | ForbiddenResponse | NotFoundResponse | RateLimitedResponse>>(courseSlug: string,
+    lessonId: string, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getLesson>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
 ) => {
 
 const {query: queryOptions, request: requestOptions} = options ?? {};
 
-  const queryKey =  queryOptions?.queryKey ?? getGetLessonQueryKey(courseSlug,lessonSlug);
+  const queryKey =  queryOptions?.queryKey ?? getGetLessonQueryKey(courseSlug,lessonId);
 
 
 
-    const queryFn: QueryFunction<Awaited<ReturnType<typeof getLesson>>> = ({ signal }) => getLesson(courseSlug,lessonSlug, { signal, ...requestOptions });
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof getLesson>>> = ({ signal }) => getLesson(courseSlug,lessonId, { signal, ...requestOptions });
 
 
 
 
 
-   return  { queryKey, queryFn, enabled: courseSlug !== null && courseSlug !== undefined && lessonSlug !== null && lessonSlug !== undefined, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getLesson>>, TError, TData> & { queryKey: QueryKey }
+   return  { queryKey, queryFn, enabled: courseSlug !== null && courseSlug !== undefined && lessonId !== null && lessonId !== undefined, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof getLesson>>, TError, TData> & { queryKey: QueryKey }
 }
 
 export type GetLessonQueryResult = NonNullable<Awaited<ReturnType<typeof getLesson>>>
-export type GetLessonQueryError = ErrorType<ValidationErrorResponse | NotFoundResponse | RateLimitedResponse>
+export type GetLessonQueryError = ErrorType<ValidationErrorResponse | UnauthorizedResponse | ForbiddenResponse | NotFoundResponse | RateLimitedResponse>
 
 
 /**
- * @summary Lesson (free preview lessons are public)
+ * @summary Open a course lesson
  */
 
-export function useGetLesson<TData = Awaited<ReturnType<typeof getLesson>>, TError = ErrorType<ValidationErrorResponse | NotFoundResponse | RateLimitedResponse>>(
+export function useGetLesson<TData = Awaited<ReturnType<typeof getLesson>>, TError = ErrorType<ValidationErrorResponse | UnauthorizedResponse | ForbiddenResponse | NotFoundResponse | RateLimitedResponse>>(
  courseSlug: string,
-    lessonSlug: string, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getLesson>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
+    lessonId: string, options?: { query?:UseQueryOptions<Awaited<ReturnType<typeof getLesson>>, TError, TData>, request?: SecondParameter<typeof customFetch>}
 
  ):  UseQueryResult<TData, TError> & { queryKey: QueryKey } {
 
-  const queryOptions = getGetLessonQueryOptions(courseSlug,lessonSlug,options)
+  const queryOptions = getGetLessonQueryOptions(courseSlug,lessonId,options)
 
   const query = useQuery(queryOptions) as  UseQueryResult<TData, TError> & { queryKey: QueryKey };
 

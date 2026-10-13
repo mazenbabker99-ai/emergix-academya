@@ -15,6 +15,8 @@ const BlogPost = lazy(() => import('@/pages/BlogPost'));
 const Calendar = lazy(() => import('@/pages/Calendar'));
 const Contact = lazy(() => import('@/pages/Contact'));
 const Courses = lazy(() => import('@/pages/Courses'));
+const CoursePage = lazy(() => import('@/pages/CoursePage'));
+const LessonPage = lazy(() => import('@/pages/LessonPage'));
 const Dashboard = lazy(() => import('@/pages/app/Dashboard'));
 const ExamDetail = lazy(() => import('@/pages/ExamDetail'));
 const Exams = lazy(() => import('@/pages/Exams'));
@@ -64,6 +66,8 @@ export function Router() {
     <Route path="/help" component={Help} />
     <Route path="/legal/:page" component={Legal} />
     <Route path="/courses" component={Courses} />
+    <Route path="/courses/:slug/lessons/:lessonId"><RequireAuth><LessonPage /></RequireAuth></Route>
+    <Route path="/courses/:slug" component={CoursePage} />
     <Route path="/practice" component={Practice} />
     <Route path="/resources" component={Resources} />
     <Route path="/about" component={About} />

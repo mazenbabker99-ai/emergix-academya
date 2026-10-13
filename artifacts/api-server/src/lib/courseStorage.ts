@@ -32,7 +32,7 @@ function getFile(storageKey: string) {
   return storage.bucket(bucketName).file(objectName);
 }
 
-export async function signCourseAssetUpload(storageKey: string, ttlSeconds: number) {
+async function signCourseAssetUrl(storageKey: string, method: "GET" | "PUT", ttlSeconds: number) {
   const file = getFile(storageKey);
   const expiresAt = new Date(Date.now() + ttlSeconds * 1000);
   const response = await fetch(`${SIDECAR}/object-storage/signed-object-url`, {
@@ -41,7 +41,7 @@ export async function signCourseAssetUpload(storageKey: string, ttlSeconds: numb
     body: JSON.stringify({
       bucket_name: file.bucket.name,
       object_name: file.name,
-      method: "PUT",
+      method,
       expires_at: expiresAt.toISOString(),
     }),
     signal: AbortSignal.timeout(30_000),
@@ -51,9 +51,19 @@ export async function signCourseAssetUpload(storageKey: string, ttlSeconds: numb
   }
   const result: unknown = await response.json();
   if (!result || typeof result !== "object" || !("signed_url" in result) || typeof result.signed_url !== "string") {
-    throw new Error("The private upload service returned an invalid response.");
+    throw new Error("The private object storage service returned an invalid response.");
   }
-  return { uploadUrl: result.signed_url, expiresAt };
+  return { url: result.signed_url, expiresAt };
+}
+
+export async function signCourseAssetUpload(storageKey: string, ttlSeconds: number) {
+  const signed = await signCourseAssetUrl(storageKey, "PUT", ttlSeconds);
+  return { uploadUrl: signed.url, expiresAt: signed.expiresAt };
+}
+
+export async function signCourseAssetRead(storageKey: string, ttlSeconds: number) {
+  const signed = await signCourseAssetUrl(storageKey, "GET", ttlSeconds);
+  return signed.url;
 }
 
 export async function getCourseAssetMetadata(storageKey: string) {

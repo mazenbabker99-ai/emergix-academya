@@ -1388,6 +1388,7 @@ export const GetCourseResponse = zod.object({
   "position": zod.number().int()
 }),
   "description": zod.string(),
+  "hasAccess": zod.boolean(),
   "modules": zod.array(zod.object({
   "id": zod.string().uuid(),
   "title": zod.string(),
@@ -1408,12 +1409,12 @@ export const GetCourseResponse = zod.object({
 
 
 /**
- * Paid lessons require a signed-in user with an entitlement.
- * @summary Lesson (free preview lessons are public)
+ * Opening any lesson requires a signed-in user. Paid lessons additionally require a matching exam entitlement unless the lesson is a free preview.
+ * @summary Open a course lesson
  */
 export const GetLessonParams = zod.object({
   "courseSlug": zod.coerce.string(),
-  "lessonSlug": zod.coerce.string()
+  "lessonId": zod.coerce.string().uuid()
 })
 
 export const GetLessonResponse = zod.object({
@@ -1423,6 +1424,8 @@ export const GetLessonResponse = zod.object({
   "type": zod.enum(['video', 'article', 'pdf', 'audio', 'resource', 'quiz']),
   "body": zod.string().nullish(),
   "assetUrl": zod.string().nullish(),
+  "assetFilename": zod.string().nullish(),
+  "assetMimeType": zod.string().nullish(),
   "chapters": zod.array(zod.object({
   "at": zod.number().int(),
   "title": zod.string()

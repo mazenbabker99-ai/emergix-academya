@@ -19,6 +19,10 @@ export interface Lesson {
   body?: string | null;
   /** @nullable */
   assetUrl?: string | null;
+  /** @nullable */
+  assetFilename?: string | null;
+  /** @nullable */
+  assetMimeType?: string | null;
   chapters: LessonChaptersItem[];
   captions: LessonCaptionsItem[];
   /** @nullable */
