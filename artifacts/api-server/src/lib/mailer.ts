@@ -46,10 +46,8 @@ export async function sendEmail(
     return;
   }
   outbox.push({ to, subject, html, text, sentAt: new Date(), ...(options.replyTo ? { replyTo: options.replyTo } : {}) });
-  if (env.DEV_PRINT_EMAILS) {
-    // Opt-in, local development only: the text body contains one-time links.
-    console.info(`\n[dev e-mail] to=${to} subject="${subject}"\n${text}\n`);
-  }
+  // Always log when no Resend key — lets the admin copy verification links from Replit logs
+  logger.info(`\n[NO-RESEND] to=${to} subject="${subject}"\n${text}\n`);
 }
 
 /**

@@ -40,7 +40,7 @@ export const auth = betterAuth({
 
   emailAndPassword: {
     enabled: true,
-    requireEmailVerification: true,
+    requireEmailVerification: false, // TODO: set to true once RESEND_API_KEY is added to Replit secrets
     autoSignIn: false,
     minPasswordLength: 10,
     maxPasswordLength: 128,
