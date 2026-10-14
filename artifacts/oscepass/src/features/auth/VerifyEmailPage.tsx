@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ArrowRight, BookOpen, MessageCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'wouter';
 import { appUrl, authClient } from '@/lib/auth-client';
@@ -40,10 +41,22 @@ export function VerifyEmailPage() {
   return (
     <AuthShell eyebrow="E-mail confirmation" title={isPending ? 'Checking…' : 'Your e-mail address is confirmed.'}>
       {!isPending && (
-        <>
-          <div className="notice" role="status">Thank you — your account is ready.</div>
-          <p className="auth-bottom">{user ? <Link href="/app">Go to your dashboard</Link> : <Link href="/login">Log in</Link>}</p>
-        </>
+        <div className="verified-onboarding">
+          <div className="notice" role="status">Thank you — your account is verified and ready! Choose how you would like to begin:</div>
+          <div style={{ display: 'grid', gap: '10px', marginTop: '16px' }}>
+            <Link href={user ? '/app/membership' : '/login?next=/app/membership'} className="btn btn-primary" style={{ justifyContent: 'center' }}>
+              <MessageCircle size={16} /> Choose course offer & Subscribe <ArrowRight size={15} />
+            </Link>
+            <Link href={user ? '/courses' : '/login?next=/courses'} className="btn btn-outline" style={{ justifyContent: 'center' }}>
+              <BookOpen size={16} /> Continue with free courses
+            </Link>
+            {user && (
+              <p className="auth-bottom" style={{ margin: '8px 0 0', textAlign: 'center' }}>
+                <Link href="/app">Go directly to dashboard</Link>
+              </p>
+            )}
+          </div>
+        </div>
       )}
     </AuthShell>
   );

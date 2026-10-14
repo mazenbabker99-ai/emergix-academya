@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Check, Minus } from 'lucide-react';
+import { ArrowRight, Check, MessageCircle, Minus } from 'lucide-react';
 import { Link } from 'wouter';
 import { useListExams, useListFaqs, useListPlans, type PublicPlan } from '@workspace/api-client-react';
 import { ErrorState, PageSkeleton } from '@/components/shared/DataState';
@@ -43,7 +43,21 @@ export default function Pricing() {
   return <SiteLayout><main>
     <PageHero eyebrow="Pricing" title="Plans for every exam." intro="Start with the free demo, then pick the plan that matches the exam you are sitting." />
     <section className="section"><div className="container">
-      <div className="notice" role="note">All prices below are PLACEHOLDERS until the owner confirms them. Checkout arrives with the billing release.</div>
+      <div className="course-membership-banner" style={{ margin: '0 0 28px' }}>
+        <div className="course-membership-content">
+          <span className="eyebrow">Active Subscription Packages</span>
+          <h2>Official Emergix Academy Course Offers</h2>
+          <p>
+            You can now subscribe to full course packages directly via WhatsApp. Choose your package, confirm payment details with our team, and receive immediate activation.
+          </p>
+          <div className="course-membership-actions">
+            <Link href="/app/membership" className="btn btn-primary">
+              <MessageCircle size={16} /> View course offers & Subscribe on WhatsApp <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="notice" role="note">All automated checkout prices below are PLACEHOLDERS until the owner confirms them. Direct course subscriptions are handled above via WhatsApp.</div>
       <div className="chip-row" role="group" aria-label="Filter plans by exam">
         <button type="button" className="chip" aria-pressed={exam === ''} onClick={() => setExam('')}>All</button>
         {exams.data?.items.map((e) => <button key={e.id} type="button" className="chip" aria-pressed={exam === e.slug} onClick={() => setExam(e.slug)}>{e.shortName}</button>)}

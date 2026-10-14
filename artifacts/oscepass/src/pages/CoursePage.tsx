@@ -1,4 +1,4 @@
-import { ArrowLeft, FileAudio, FileText, Film, HelpCircle, Lock, Paperclip } from 'lucide-react';
+import { ArrowLeft, ArrowRight, FileAudio, FileText, Film, HelpCircle, Lock, MessageCircle, Paperclip } from 'lucide-react';
 import { Link, useParams } from 'wouter';
 import { ErrorState, PageSkeleton } from '@/components/shared/DataState';
 import { SiteLayout } from '@/components/shared/SiteLayout';
@@ -41,7 +41,24 @@ export default function CoursePage() {
           {data.course.summary && <p className="shell-lead">{data.course.summary}</p>}
           {data.description && <p>{data.description}</p>}
           {!data.course.isFree && !data.hasAccess && (
-            <p className="course-access-note">Sign in to open free previews. Other lessons require an active plan for the linked exam.</p>
+            <div className="course-membership-banner" data-testid="course-membership-banner">
+              <div className="course-membership-content">
+                <span className="eyebrow">Premium Course</span>
+                <h2>Subscribe to unlock this full course</h2>
+                <p>
+                  Access all structured lessons and clinical materials with our verified course offers. 
+                  Arrange your subscription directly with our team on WhatsApp and get your access activated immediately.
+                </p>
+                <div className="course-membership-actions">
+                  <Link href="/app/membership" className="btn btn-primary">
+                    <MessageCircle size={16} /> View offers & Subscribe on WhatsApp <ArrowRight size={15} />
+                  </Link>
+                  <Link href="/courses" className="btn btn-outline">
+                    Browse free courses
+                  </Link>
+                </div>
+              </div>
+            </div>
           )}
           {data.modules.length === 0 && <p>Lessons will be added soon.</p>}
           {data.modules.map((module, index) => (
@@ -61,11 +78,11 @@ export default function CoursePage() {
                             <small>{minutes(lesson.durationSeconds)}{lesson.isFreePreview && !data.hasAccess ? ' · Preview' : ''}</small>
                           </Link>
                         ) : (
-                          <span className="course-locked">
+                          <Link href="/app/membership" className="course-locked course-locked-link" title="Subscribe to unlock this lesson">
                             <Lock size={16} />
                             <span>{lesson.title}</span>
-                            <small>Locked</small>
-                          </span>
+                            <small className="course-locked-badge">Locked · Subscribe to unlock</small>
+                          </Link>
                         )}
                       </li>
                     );

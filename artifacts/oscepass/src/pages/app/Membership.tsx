@@ -19,7 +19,14 @@ export default function Membership() {
   const number = offersQuery.data?.settings.whatsappNumber ?? '+966563169123';
 
   function whatsappUrl(offer: (typeof offers)[number]) {
-    const message = `Hello Emergix Academy, I'm ${user?.name ?? 'a learner'}${user?.email ? ` (${user.email})` : ''}. I would like to subscribe to ${offer.name}. Please confirm the payment details. I will send my payment confirmation/receipt here for verification.`;
+    const studentInfo = `${user?.name ?? 'Learner'}${user?.email ? ` (${user.email})` : ''}`;
+    const priceFormatted = money(offer.amountMinor, offer.currency);
+    const message = `مرحباً Emergix Academy،
+أنا الطالب: ${studentInfo}.
+أود الاشتراك في باقة: "${offer.name}" (${priceFormatted} / ${offer.accessMonths} أشهر).
+أرجو تزويدي بتفاصيل الدفع لإرسال إشعار التحويل لتفعيل الاشتراك.
+
+Hello Emergix Academy, I'm ${studentInfo}. I would like to subscribe to the "${offer.name}" offer (${priceFormatted} / ${offer.accessMonths} months). Please confirm payment details to send the transfer receipt for activation.`;
     return `https://wa.me/${number.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
   }
 

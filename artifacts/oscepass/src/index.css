@@ -1447,3 +1447,15 @@ body { background:#f7f5ef; color:#1f3931; }
 .lesson-pdf { width:100%;height:75vh;border:1px solid #dbe7f3;border-radius:12px;margin:14px 0; }
 .lesson-chapters { margin-top:26px;padding-top:16px;border-top:1px solid #dbe7f3; }
 .lesson-chapters h2 { font-size:1.1rem; }
+
+/* Course Membership & Subscription CTA */
+.course-membership-banner { margin:20px 0 28px;padding:24px;background:linear-gradient(135deg,#f0f7ff 0%,#e6f0fa 100%);border:1px solid #bfd8f2;border-left:4px solid #0066CC;border-radius:12px;box-shadow:0 4px 16px rgba(10,35,66,.04); }
+.course-membership-banner h2 { font-size:1.35rem;margin:6px 0 10px;color:var(--navy,#0A2342);letter-spacing:-.02em; }
+.course-membership-banner p { color:#556c82;font-size:.95rem;line-height:1.6;margin:0 0 18px;max-width:680px; }
+.course-membership-actions { display:flex;flex-wrap:wrap;align-items:center;gap:12px; }
+.course-locked-link { cursor:pointer;transition:background-color .15s ease; }
+.course-locked-link:hover { background-color:#f4f9ff;text-decoration:none; }
+.course-locked-badge { color:#0066CC !important;font-weight:600; }
+.forbidden-lesson-banner { margin-top:16px; }
+.access-empty-note { padding:14px;background:#f7f9fb;border:1px dashed #cbd5e1;border-radius:8px;display:flex;flex-direction:column;gap:4px;color:#64748b;font-size:.85rem; }
+

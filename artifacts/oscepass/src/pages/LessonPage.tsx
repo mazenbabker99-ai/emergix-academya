@@ -1,4 +1,4 @@
-import { ArrowLeft, Download } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Download, MessageCircle } from 'lucide-react';
 import { Link, useParams } from 'wouter';
 import { ApiError, useGetLesson } from '@workspace/api-client-react';
 import { ErrorState, PageSkeleton } from '@/components/shared/DataState';
@@ -17,12 +17,40 @@ export default function LessonPage() {
   }
   if (lesson.isError || !lesson.data) {
     const forbidden = lesson.error instanceof ApiError && lesson.error.status === 403;
+    if (forbidden) {
+      return (
+        <SiteLayout>
+          <main className="section">
+            <div className="container course-page">
+              {back}
+              <div className="course-membership-banner forbidden-lesson-banner" role="alert">
+                <div className="course-membership-content">
+                  <span className="eyebrow">Access required</span>
+                  <h2>This lesson requires an active course subscription</h2>
+                  <p>
+                    This lesson is part of a premium Emergix Academy course. Subscribe via WhatsApp to have your account activated by our team.
+                  </p>
+                  <div className="course-membership-actions">
+                    <Link href="/app/membership" className="btn btn-primary">
+                      <MessageCircle size={16} /> View offers & Subscribe on WhatsApp <ArrowRight size={15} />
+                    </Link>
+                    <Link href={`/courses/${slug}`} className="btn btn-outline">
+                      Back to course overview
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </SiteLayout>
+      );
+    }
     return (
       <SiteLayout>
         <main className="section">
           <div className="container course-page">
             {back}
-            <ErrorState title={forbidden ? 'This lesson is not included in your plan' : 'We could not load this lesson'} onRetry={() => void lesson.refetch()} />
+            <ErrorState title="We could not load this lesson" onRetry={() => void lesson.refetch()} />
           </div>
         </main>
       </SiteLayout>
