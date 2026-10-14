@@ -769,11 +769,75 @@ function findMigrationFile(filename: string): string | null {
   return null;
 }
 
+const EXAMS_SEED_SQL = `
+INSERT INTO "exams" ("id", "slug", "name", "short_name", "summary", "description", "format", "status", "position", "created_at", "updated_at")
+VALUES
+(
+  gen_random_uuid(),
+  'mrcem-primary',
+  'MRCEM Primary',
+  'Primary',
+  'Basic science single-best-answer examination covering clinical anatomy, applied physiology, emergency pharmacology, and pathology.',
+  'The MRCEM Primary examination is the first step in emergency medicine specialty training by the Royal College of Emergency Medicine (RCEM).',
+  '{"kind":"sba","totalQuestions":180,"totalMinutes":180,"sections":[{"name":"Paper","questions":180,"durationMinutes":180}]}'::jsonb,
+  'published',
+  1,
+  now(),
+  now()
+),
+(
+  gen_random_uuid(),
+  'mrcem-sba',
+  'MRCEM SBA',
+  'SBA',
+  'Intermediate clinical single-best-answer examination covering clinical emergency medicine practice.',
+  'The MRCEM SBA (Intermediate) examination tests clinical decision-making, emergency scenarios, and patient management.',
+  '{"kind":"sba","totalQuestions":180,"totalMinutes":240,"sections":[{"name":"Section 1","questions":90,"durationMinutes":120},{"name":"Section 2","questions":90,"durationMinutes":120}]}'::jsonb,
+  'published',
+  2,
+  now(),
+  now()
+),
+(
+  gen_random_uuid(),
+  'mrcem-osce',
+  'MRCEM OSCE',
+  'OSCE',
+  'Objective Structured Clinical Examination evaluating practical and resuscitation skills.',
+  'The MRCEM OSCE tests practical clinical performance, resuscitation, procedural skills, and doctor-patient communication in timed station circuits.',
+  '{"kind":"osce","stations":16,"restStations":2,"stationMinutes":8,"readingMinutes":1,"sections":[{"name":"Circuit","durationMinutes":162}],"totalMinutes":162}'::jsonb,
+  'published',
+  3,
+  now(),
+  now()
+)
+ON CONFLICT ("slug") DO UPDATE SET
+  "name" = EXCLUDED."name",
+  "short_name" = EXCLUDED."short_name",
+  "summary" = EXCLUDED."summary",
+  "status" = 'published',
+  "updated_at" = now();
+
+UPDATE "courses" c
+SET "exam_id" = e."id"
+FROM "exams" e
+WHERE c."slug" = 'mrcem-primary' AND e."slug" = 'mrcem-primary';
+
+UPDATE "courses" c
+SET "exam_id" = e."id"
+FROM "exams" e
+WHERE c."slug" = 'mrcem-sba' AND e."slug" = 'mrcem-sba';
+`;
+
 export async function runAutoMigrationsAndSeeds() {
   try {
     logger.info("Running automatic DB schema updates & migrations...");
     await pool.query(MEMBERSHIP_TABLES_SQL);
     logger.info("DB membership tables verified successfully.");
+
+    logger.info("Ensuring published exams and exam links...");
+    await pool.query(EXAMS_SEED_SQL);
+    logger.info("Official exams verified successfully.");
 
     logger.info("Ensuring course and lesson seed data...");
     await pool.query(UPPER_LIMB_SEED_SQL);
