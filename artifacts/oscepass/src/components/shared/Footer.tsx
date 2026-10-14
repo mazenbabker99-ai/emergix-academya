@@ -18,24 +18,29 @@ export function Footer() {
     <div className="container">
       <div className="trust-row" aria-label={`Why learners choose ${brand.name}`}>
         <div className="trust-items">
-          <span><Target aria-hidden="true" />Designed for A&amp;E and OSCE success</span>
+          <span><Target aria-hidden="true" />Designed for MRCEM Primary &amp; SBA success</span>
           <span><UserRound aria-hidden="true" />Flexible learning at your pace</span>
           <span><Star aria-hidden="true" />Expert-led and clinically relevant</span>
-          <span><Brain aria-hidden="true" />Smarter practice with AI feedback</span>
+          <span><Brain aria-hidden="true" />High-yield notes &amp; authentic mock exams</span>
         </div>
-        <p className="trust-slogan">Better preparation.<br />Greater confidence.<br /><strong>Pass your OSCE.</strong></p>
+        <p className="trust-slogan">Better preparation.<br />Greater confidence.<br /><strong>Pass your MRCEM.</strong></p>
       </div>
       <div className="footer-grid">
         <div className="footer-about">
           <Brand light />
-          <p>Real A&amp;E cases, expert guidance and AI examiner practice to build your OSCE confidence.</p>
+          <p>Quick revision notes, high-yield SBA question banks and authentic mock simulations for emergency physicians.</p>
           <ul className="footer-social" aria-label="Social media">
             {socials.filter(({ key }) => brand.social[key]).map(({ key, label, Icon }) => <li key={key}><a href={brand.social[key]} target="_blank" rel="noopener noreferrer" aria-label={label}><Icon aria-hidden="true" /></a></li>)}
           </ul>
         </div>
         <nav className="footer-column" aria-label="Learn">
           <h3>Learn</h3>
-          <Link href="/exams">Exams</Link><Link href="/calendar">Exam calendar</Link><Link href="/courses">Courses</Link><Link href="/free-demo">Free demo</Link><Link href="/neurology">OSCE stations</Link><Link href="/pricing">Pricing</Link>
+          <Link href="/courses/mrcem-primary">MRCEM Primary</Link>
+          <Link href="/courses/mrcem-sba">MRCEM SBA</Link>
+          <Link href="/courses">All Courses</Link>
+          <Link href="/app/membership">Membership Offers</Link>
+          <Link href="/exams">Exams</Link>
+          <Link href="/pricing">Pricing</Link>
         </nav>
         <nav className="footer-column" aria-label={brand.name}>
           <h3>{brand.name}</h3>
