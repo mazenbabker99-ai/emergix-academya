@@ -623,5 +623,28 @@ Inflammation of compartment 1 is de Quervain tenosynovitis.
     ON CONFLICT ("plan_id", "course_id") DO NOTHING;
   END IF;
 
+  -- 13. Also attach these 8 lessons to the "Anatomy" module in "emergix-primary" if that course exists
+  SELECT id INTO v_primary_plan_id FROM "courses" WHERE "slug" = 'emergix-primary' LIMIT 1;
+  IF v_primary_plan_id IS NOT NULL THEN
+    SELECT id INTO v_all_access_plan_id FROM "modules" 
+    WHERE "course_id" = v_primary_plan_id AND ("title" ILIKE '%Anatomy%' OR "title" ILIKE '%Upper Limb%') AND "deleted_at" IS NULL 
+    LIMIT 1;
+
+    IF v_all_access_plan_id IS NOT NULL THEN
+      INSERT INTO "lessons" ("id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at")
+      SELECT gen_random_uuid(), v_all_access_plan_id, l."slug", l."title", l."type", l."body", l."is_free_preview", l."position", 'published', now(), now()
+      FROM "lessons" l
+      WHERE l."module_id" = v_module_id AND l."deleted_at" IS NULL
+      ON CONFLICT ("module_id", "slug") DO UPDATE SET
+        "title" = EXCLUDED."title",
+        "body" = EXCLUDED."body",
+        "is_free_preview" = EXCLUDED."is_free_preview",
+        "position" = EXCLUDED."position",
+        "status" = 'published',
+        "updated_at" = now();
+      RAISE NOTICE 'Also attached 8 lessons to emergix-primary Anatomy module: module_id=%', v_all_access_plan_id;
+    END IF;
+  END IF;
+
   RAISE NOTICE 'Course and 8 lessons seeded successfully: course_id=%, module_id=%', v_course_id, v_module_id;
 END $$;
