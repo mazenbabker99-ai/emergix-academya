@@ -1,13 +1,25 @@
 import { Link } from 'wouter';
-import { ArrowRight, BookOpen, MessageCircle } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowRight, BookOpen, MessageCircle, X } from 'lucide-react';
 import { AppLayout } from '@/components/layouts/AppLayout';
 import { CourseGrid } from '@/features/courses/CourseGrid';
 import { useAuth } from '@/features/auth/AuthProvider';
 import { usePageMeta } from '@/lib/usePageMeta';
 
+const BANNER_KEY = 'emergix_onboarding_dismissed';
+
 export default function Dashboard() {
   usePageMeta('Dashboard', 'Your learning dashboard.');
   const { user } = useAuth();
+  const [bannerVisible, setBannerVisible] = useState(() => {
+    try { return !localStorage.getItem(BANNER_KEY); } catch { return true; }
+  });
+
+  const dismissBanner = () => {
+    try { localStorage.setItem(BANNER_KEY, '1'); } catch { /* ignore */ }
+    setBannerVisible(false);
+  };
+
   return (
     <AppLayout>
       <h1>Welcome, {user?.name}.</h1>
@@ -16,13 +28,26 @@ export default function Dashboard() {
       {user?.deletionScheduledAt && (
         <div className="form-alert" role="alert">Your account is scheduled for deletion on {new Date(user.deletionScheduledAt).toLocaleDateString()}. <Link href="/app/account">Cancel deletion</Link></div>
       )}
-      <section className="dashboard-access-choice" aria-labelledby="access-choice-title">
-        <div className="dashboard-access-copy"><span className="eyebrow">Choose how to begin</span><h2 id="access-choice-title">Your next course is one decision away.</h2><p>Start with a free course, or choose an MRCEM offer and arrange access with our team on WhatsApp.</p></div>
-        <div className="dashboard-access-actions">
-          <Link className="btn btn-primary" href="/app/membership"><MessageCircle size={16} /> View course offers <ArrowRight size={15} /></Link>
-          <Link className="dashboard-free-link" href="/courses"><BookOpen size={16} /> Continue with free courses</Link>
-        </div>
-      </section>
+      {bannerVisible && (
+        <section className="dashboard-access-choice" aria-labelledby="access-choice-title" style={{ position: 'relative' }}>
+          <button
+            onClick={dismissBanner}
+            aria-label="Dismiss"
+            style={{ position: 'absolute', top: '12px', right: '12px', background: 'none', border: 'none', cursor: 'pointer', opacity: 0.5 }}
+          >
+            <X size={18} />
+          </button>
+          <div className="dashboard-access-copy">
+            <span className="eyebrow">Choose how to begin</span>
+            <h2 id="access-choice-title">Your next course is one decision away.</h2>
+            <p>Start with a free course, or choose an MRCEM offer and arrange access with our team on WhatsApp.</p>
+          </div>
+          <div className="dashboard-access-actions">
+            <Link className="btn btn-primary" href="/app/membership"><MessageCircle size={16} /> View course offers <ArrowRight size={15} /></Link>
+            <Link className="dashboard-free-link" href="/courses" onClick={dismissBanner}><BookOpen size={16} /> Continue with free courses</Link>
+          </div>
+        </section>
+      )}
       <div className="account-grid">
         <section className="account-section account-section-courses"><h2>My courses</h2><p>Browse published courses and continue your lessons.</p><CourseGrid /></section>
         <section className="account-section"><h2>MRCEM question bank</h2><p>Practise single-best-answer questions in Tutor, Timed or custom sessions.</p><Link className="btn btn-primary" href="/app/qbank">Open question bank</Link></section>
