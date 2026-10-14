@@ -5,6 +5,10 @@ const router: IRouter = Router();
 
 const READINESS_TIMEOUT_MS = 3000;
 
+router.get("/", (_req, res) => {
+  res.json({ status: "ok", service: "api-server" });
+});
+
 router.get("/healthz", (_req, res) => {
   const data = HealthCheckResponse.parse({ status: "ok" });
   res.json(data);

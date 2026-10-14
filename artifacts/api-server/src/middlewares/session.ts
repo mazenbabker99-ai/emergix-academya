@@ -5,6 +5,9 @@ import { auth } from '../lib/auth';
 
 /** Loads the session (if any) from the cookie into `req.auth`. Never rejects anonymous requests. */
 export const attachSession: RequestHandler = async (req, _res, next) => {
+  if (!req.headers.cookie) {
+    return next();
+  }
   try {
     const result = await auth.api.getSession({ headers: fromNodeHeaders(req.headers) });
     if (result) {
@@ -23,6 +26,7 @@ export const attachSession: RequestHandler = async (req, _res, next) => {
     }
     next();
   } catch (err) {
-    next(err);
+    req.log?.warn?.({ err }, 'Failed to load session from cookie');
+    next();
   }
 };

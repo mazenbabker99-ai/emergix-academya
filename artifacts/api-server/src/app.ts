@@ -51,6 +51,14 @@ const limiterMessage = {
 const limiter = (limit: number) =>
   rateLimit({ windowMs: 15 * 60 * 1000, limit, standardHeaders: "draft-7", legacyHeaders: false, message: limiterMessage });
 
+// Lightweight liveness checks (respond immediately without touching DB or parsing session)
+app.get(["/healthz", "/api/healthz"], (_req, res) => {
+  res.json({ status: "ok" });
+});
+app.get(["/", "/api"], (_req, res) => {
+  res.json({ status: "ok", service: "api-server" });
+});
+
 // Better Auth must see the raw body, so it is mounted BEFORE express.json().
 app.use("/api/auth", limiter(env.AUTH_RATE_LIMIT_MAX));
 app.use(
