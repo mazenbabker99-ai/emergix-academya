@@ -10,4 +10,5 @@ export * from './quizzes';
 export * from './osce';
 export * from './learning';
 export * from './billing';
+export * from './course-access';
 export * from './content';

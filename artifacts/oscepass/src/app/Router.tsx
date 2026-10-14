@@ -10,6 +10,8 @@ const AdminHome = lazy(() => import('@/pages/admin/AdminHome'));
 const CourseEditor = lazy(() => import('@/pages/admin/CourseEditor'));
 const QuestionBank = lazy(() => import('@/pages/admin/QuestionBank'));
 const Account = lazy(() => import('@/pages/app/Account'));
+const Membership = lazy(() => import('@/pages/app/Membership'));
+const AdminAccess = lazy(() => import('@/pages/admin/Access'));
 const Blog = lazy(() => import('@/pages/Blog'));
 const BlogPost = lazy(() => import('@/pages/BlogPost'));
 const Calendar = lazy(() => import('@/pages/Calendar'));
@@ -90,10 +92,12 @@ export function Router() {
     <Route path="/app/qbank/session/:id"><RequireAuth><QbankSession /></RequireAuth></Route>
     <Route path="/app/qbank/review/:id"><RequireAuth><QbankReview /></RequireAuth></Route>
     <Route path="/app/analytics"><RequireAuth><QbankAnalytics /></RequireAuth></Route>
+    <Route path="/app/membership"><RequireAuth><Membership /></RequireAuth></Route>
     <Route path="/app"><RequireAuth><Dashboard /></RequireAuth></Route>
     <Route path="/app/account"><RequireAuth><Account /></RequireAuth></Route>
     <Route path="/admin"><RequireAuth permission="admin:access"><AdminHome /></RequireAuth></Route>
     <Route path="/admin/questions"><RequireAuth permission="admin:access"><QuestionBank /></RequireAuth></Route>
+    <Route path="/admin/access"><RequireAuth permission="admin:access"><AdminAccess /></RequireAuth></Route>
     <Route path="/admin/courses/:id"><RequireAuth permission="admin:access"><CourseEditor /></RequireAuth></Route>
     <Route path="/neurology"><Redirect to="/osce-stations?topic=neurology" replace /></Route>
     <Route path="/neurology/:station" component={LegacyStationRedirect} />

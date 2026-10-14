@@ -5,6 +5,111 @@
  * Emergix Academy API contract. Errors use { error: { code, message, details } }. List endpoints use cursor pagination { data, nextCursor }. CSRF is an Origin check (no token header). Better Auth endpoints (/api/auth/*) are not described here. x-required-role is the minimum role (learner < instructor < editor < admin < superadmin). Public site endpoints include exams, courses, FAQs, dates, documents, banners, plans, pages and blog content.
  * OpenAPI spec version: 0.4.0
  */
+export interface MembershipCourse {
+  id: string;
+  title: string;
+  slug: string;
+}
+
+export interface MembershipPlan {
+  id: string;
+  name: string;
+  description: string;
+  accessMonths: number;
+  amountMinor: number;
+  currency: string;
+  courses: MembershipCourse[];
+}
+
+export interface MembershipSettings {
+  whatsappNumber: string;
+}
+
+export interface MembershipOffersResponse {
+  settings: MembershipSettings;
+  offers: MembershipPlan[];
+}
+
+export interface MembershipSettingsInput {
+  /**
+     * @minLength 8
+     * @maxLength 20
+     */
+  whatsappNumber: string;
+}
+
+export type AdminMembershipPlanStatus = typeof AdminMembershipPlanStatus[keyof typeof AdminMembershipPlanStatus];
+
+
+export const AdminMembershipPlanStatus = {
+  draft: 'draft',
+  published: 'published',
+  archived: 'archived',
+} as const;
+
+export type AdminMembershipPlan = MembershipPlan & {
+  slug: string;
+  status: AdminMembershipPlanStatus;
+};
+
+export interface AdminMembershipResponse {
+  settings: MembershipSettings;
+  offers: AdminMembershipPlan[];
+}
+
+export type MembershipPlanInputStatus = typeof MembershipPlanInputStatus[keyof typeof MembershipPlanInputStatus];
+
+
+export const MembershipPlanInputStatus = {
+  draft: 'draft',
+  published: 'published',
+} as const;
+
+export interface MembershipPlanInput {
+  /**
+     * @minLength 2
+     * @maxLength 120
+     */
+  name: string;
+  /** @maxLength 1000 */
+  description: string;
+  /**
+     * @minimum 1
+     * @maximum 120
+     */
+  accessMonths: number;
+  /** @minimum 1 */
+  amountMinor: number;
+  /** @pattern ^[A-Z]{3}$ */
+  currency: string;
+  /** @minItems 1 */
+  courseIds: string[];
+  status: MembershipPlanInputStatus;
+}
+
+export interface AccessUser {
+  id: string;
+  name: string;
+  email: string;
+}
+
+export interface CourseAccessGrant {
+  id: string;
+  courseId: string;
+  courseTitle: string;
+  /** @nullable */
+  planName: string | null;
+  startsAt: string;
+  /** @nullable */
+  endsAt: string | null;
+  /** @nullable */
+  revokedAt: string | null;
+}
+
+export interface GrantCourseAccessInput {
+  planId: string;
+}
+
 export interface HealthStatus {
   status: string;
 }
@@ -3456,6 +3561,13 @@ cursor?: CursorParameter;
  */
 limit?: LimitParameter;
 q?: string;
+};
+
+export type AdminSearchAccessUsersParams = {
+/**
+ * @minLength 2
+ */
+q: string;
 };
 
 export type AdminListUsersParams = {

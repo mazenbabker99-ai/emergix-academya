@@ -9,6 +9,7 @@ import {
 } from "@workspace/api-zod";
 import {
   coursesTable,
+  courseEntitlementsTable,
   db,
   entitlementsTable,
   lessonsTable,
@@ -112,9 +113,25 @@ async function loadOutline(courseId: string) {
 async function canAccessCourse(req: Request, course: CourseRow) {
   if (req.auth && hasPermission(req.auth.user.role, "admin:access")) return true;
   if (course.isFree) return true;
-  if (!req.auth || !course.examId) return false;
+  if (!req.auth) return false;
 
   const now = new Date();
+  const [courseGrant] = await db
+    .select({ id: courseEntitlementsTable.id })
+    .from(courseEntitlementsTable)
+    .where(
+      and(
+        eq(courseEntitlementsTable.userId, req.auth.user.id),
+        eq(courseEntitlementsTable.courseId, course.id),
+        isNull(courseEntitlementsTable.revokedAt),
+        lte(courseEntitlementsTable.startsAt, now),
+        or(isNull(courseEntitlementsTable.endsAt), gt(courseEntitlementsTable.endsAt, now)),
+      ),
+    )
+    .limit(1);
+  if (courseGrant) return true;
+  if (!course.examId) return false;
+
   const [entitlement] = await db
     .select({ id: entitlementsTable.id })
     .from(entitlementsTable)

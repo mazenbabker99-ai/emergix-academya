@@ -37,7 +37,7 @@ export function SignupForm() {
   if (sentTo) {
     return (
       <AuthShell eyebrow="Check your inbox" title="Confirm your e-mail address.">
-        <div className="notice" role="status">If {sentTo} can be used to create an account, we have sent a confirmation link. It expires in one hour.</div>
+        <div className="notice" role="status">If {sentTo} can be used to create an account, we have sent a confirmation link. It expires in one hour. After you verify your email, sign in to choose a paid course offer or continue with the free courses.</div>
         <p className="auth-bottom">Already confirmed? <Link href="/login">Log in</Link></p>
       </AuthShell>
     );

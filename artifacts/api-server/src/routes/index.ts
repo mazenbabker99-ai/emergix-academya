@@ -17,6 +17,8 @@ import osceRouter from "./osce";
 import analyticsRouter from "./analytics";
 import quizzesRouter from "./quizzes";
 import { myNotesRouter, questionActionsRouter, questionCatalogRouter } from "./questions";
+import membershipRouter from "./membership";
+import adminMembershipRouter from "./admin-membership";
 
 const router: IRouter = Router();
 
@@ -24,6 +26,7 @@ router.use(healthRouter);
 router.use("/setup", bootstrapRouter);
 router.use("/account", requireAuth, accountRouter);
 router.use("/admin", requireAuth, requirePermission("admin:access"), adminRouter);
+router.use("/admin", requireAuth, requirePermission("admin:access"), adminMembershipRouter);
 router.use("/quizzes", requireAuth, quizzesRouter);
 router.use("/questions", requireAuth, questionActionsRouter);
 router.use("/me", requireAuth, myNotesRouter);
@@ -39,6 +42,7 @@ publicRouter.use(coursesRouter);
 publicRouter.use(questionCatalogRouter);
 publicRouter.use(contentRouter);
 publicRouter.use(plansRouter);
+publicRouter.use(membershipRouter);
 publicRouter.use(contactRouter);
 publicRouter.use(sitemapRouter);
 publicRouter.use("/osce", osceRouter);

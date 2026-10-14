@@ -8,6 +8,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
     { href: '/app', label: 'Dashboard' },
     { href: '/app/qbank', label: 'Question bank' },
     { href: '/app/analytics', label: 'Analytics' },
+    { href: '/app/membership', label: 'Course access' },
     { href: '/app/osce', label: 'OSCE practice' },
     { href: '/neurology', label: 'Study library' },
     { href: '/app/account', label: 'Account' },

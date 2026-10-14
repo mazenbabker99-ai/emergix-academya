@@ -1917,6 +1917,29 @@ export const ListPlansResponse = zod.object({
 
 
 /**
+ * @summary Public manual subscription offers for courses
+ */
+export const ListMembershipOffersResponse = zod.object({
+  "settings": zod.object({
+  "whatsappNumber": zod.string()
+}),
+  "offers": zod.array(zod.object({
+  "id": zod.string().uuid(),
+  "name": zod.string(),
+  "description": zod.string(),
+  "accessMonths": zod.number().int(),
+  "amountMinor": zod.number().int(),
+  "currency": zod.string(),
+  "courses": zod.array(zod.object({
+  "id": zod.string().uuid(),
+  "title": zod.string(),
+  "slug": zod.string()
+}))
+}))
+})
+
+
+/**
  * @summary Validate a coupon code
  */
 export const CheckCouponParams = zod.object({
@@ -4747,6 +4770,242 @@ export const AdminDeleteTestimonialParams = zod.object({
 })
 
 export const AdminDeleteTestimonialResponse = zod.void()
+
+
+/**
+ * @summary Get subscription offers and WhatsApp settings
+ */
+export const AdminGetMembershipSettingsResponse = zod.object({
+  "settings": zod.object({
+  "whatsappNumber": zod.string()
+}),
+  "offers": zod.array(zod.object({
+  "id": zod.string().uuid(),
+  "name": zod.string(),
+  "description": zod.string(),
+  "accessMonths": zod.number().int(),
+  "amountMinor": zod.number().int(),
+  "currency": zod.string(),
+  "courses": zod.array(zod.object({
+  "id": zod.string().uuid(),
+  "title": zod.string(),
+  "slug": zod.string()
+}))
+}).and(zod.object({
+  "slug": zod.string(),
+  "status": zod.enum(['draft', 'published', 'archived'])
+})))
+})
+
+
+/**
+ * @summary Update WhatsApp contact
+ */
+export const adminUpdateMembershipSettingsBodyWhatsappNumberMin = 8;
+export const adminUpdateMembershipSettingsBodyWhatsappNumberMax = 20;
+
+
+
+export const AdminUpdateMembershipSettingsBody = zod.object({
+  "whatsappNumber": zod.string().min(adminUpdateMembershipSettingsBodyWhatsappNumberMin).max(adminUpdateMembershipSettingsBodyWhatsappNumberMax)
+})
+
+export const AdminUpdateMembershipSettingsResponse = zod.object({
+  "whatsappNumber": zod.string()
+})
+
+
+/**
+ * @summary List subscription offers
+ */
+export const AdminListMembershipPlansResponseItem = zod.object({
+  "id": zod.string().uuid(),
+  "name": zod.string(),
+  "description": zod.string(),
+  "accessMonths": zod.number().int(),
+  "amountMinor": zod.number().int(),
+  "currency": zod.string(),
+  "courses": zod.array(zod.object({
+  "id": zod.string().uuid(),
+  "title": zod.string(),
+  "slug": zod.string()
+}))
+}).and(zod.object({
+  "slug": zod.string(),
+  "status": zod.enum(['draft', 'published', 'archived'])
+}))
+export const AdminListMembershipPlansResponse = zod.array(AdminListMembershipPlansResponseItem)
+
+
+/**
+ * @summary Create subscription offer
+ */
+export const adminCreateMembershipPlanBodyNameMin = 2;
+export const adminCreateMembershipPlanBodyNameMax = 120;
+
+export const adminCreateMembershipPlanBodyDescriptionMax = 1000;
+
+export const adminCreateMembershipPlanBodyAccessMonthsMax = 120;
+
+
+export const adminCreateMembershipPlanBodyCurrencyRegExp = new RegExp('^[A-Z]{3}$');
+
+
+
+export const AdminCreateMembershipPlanBody = zod.object({
+  "name": zod.string().min(adminCreateMembershipPlanBodyNameMin).max(adminCreateMembershipPlanBodyNameMax),
+  "description": zod.string().max(adminCreateMembershipPlanBodyDescriptionMax),
+  "accessMonths": zod.number().int().min(1).max(adminCreateMembershipPlanBodyAccessMonthsMax),
+  "amountMinor": zod.number().int().min(1),
+  "currency": zod.string().regex(adminCreateMembershipPlanBodyCurrencyRegExp),
+  "courseIds": zod.array(zod.string().uuid()).min(1),
+  "status": zod.enum(['draft', 'published'])
+})
+
+export const AdminCreateMembershipPlanResponse = zod.object({
+  "id": zod.string().uuid(),
+  "name": zod.string(),
+  "description": zod.string(),
+  "accessMonths": zod.number().int(),
+  "amountMinor": zod.number().int(),
+  "currency": zod.string(),
+  "courses": zod.array(zod.object({
+  "id": zod.string().uuid(),
+  "title": zod.string(),
+  "slug": zod.string()
+}))
+}).and(zod.object({
+  "slug": zod.string(),
+  "status": zod.enum(['draft', 'published', 'archived'])
+}))
+
+
+/**
+ * @summary Edit subscription offer
+ */
+export const AdminUpdateMembershipPlanParams = zod.object({
+  "id": zod.coerce.string().uuid()
+})
+
+export const adminUpdateMembershipPlanBodyNameMin = 2;
+export const adminUpdateMembershipPlanBodyNameMax = 120;
+
+export const adminUpdateMembershipPlanBodyDescriptionMax = 1000;
+
+export const adminUpdateMembershipPlanBodyAccessMonthsMax = 120;
+
+
+export const adminUpdateMembershipPlanBodyCurrencyRegExp = new RegExp('^[A-Z]{3}$');
+
+
+
+export const AdminUpdateMembershipPlanBody = zod.object({
+  "name": zod.string().min(adminUpdateMembershipPlanBodyNameMin).max(adminUpdateMembershipPlanBodyNameMax),
+  "description": zod.string().max(adminUpdateMembershipPlanBodyDescriptionMax),
+  "accessMonths": zod.number().int().min(1).max(adminUpdateMembershipPlanBodyAccessMonthsMax),
+  "amountMinor": zod.number().int().min(1),
+  "currency": zod.string().regex(adminUpdateMembershipPlanBodyCurrencyRegExp),
+  "courseIds": zod.array(zod.string().uuid()).min(1),
+  "status": zod.enum(['draft', 'published'])
+})
+
+export const AdminUpdateMembershipPlanResponse = zod.object({
+  "id": zod.string().uuid(),
+  "name": zod.string(),
+  "description": zod.string(),
+  "accessMonths": zod.number().int(),
+  "amountMinor": zod.number().int(),
+  "currency": zod.string(),
+  "courses": zod.array(zod.object({
+  "id": zod.string().uuid(),
+  "title": zod.string(),
+  "slug": zod.string()
+}))
+}).and(zod.object({
+  "slug": zod.string(),
+  "status": zod.enum(['draft', 'published', 'archived'])
+}))
+
+
+/**
+ * @summary Archive subscription offer
+ */
+export const AdminArchiveMembershipPlanParams = zod.object({
+  "id": zod.coerce.string().uuid()
+})
+
+export const AdminArchiveMembershipPlanResponse = zod.void()
+
+
+/**
+ * @summary Search learner accounts
+ */
+export const adminSearchAccessUsersQueryQMin = 2;
+
+
+
+export const AdminSearchAccessUsersQueryParams = zod.object({
+  "q": zod.coerce.string().min(adminSearchAccessUsersQueryQMin)
+})
+
+export const AdminSearchAccessUsersResponseItem = zod.object({
+  "id": zod.string(),
+  "name": zod.string(),
+  "email": zod.string().email()
+})
+export const AdminSearchAccessUsersResponse = zod.array(AdminSearchAccessUsersResponseItem)
+
+
+/**
+ * @summary List a learner's course access grants
+ */
+export const AdminListUserCourseAccessParams = zod.object({
+  "id": zod.coerce.string()
+})
+
+export const AdminListUserCourseAccessResponseItem = zod.object({
+  "id": zod.string().uuid(),
+  "courseId": zod.string().uuid(),
+  "courseTitle": zod.string(),
+  "planName": zod.string().nullable(),
+  "startsAt": zod.coerce.date(),
+  "endsAt": zod.coerce.date().nullable(),
+  "revokedAt": zod.coerce.date().nullable()
+})
+export const AdminListUserCourseAccessResponse = zod.array(AdminListUserCourseAccessResponseItem)
+
+
+/**
+ * @summary Grant a subscription offer's courses to a learner
+ */
+export const AdminGrantUserCourseAccessParams = zod.object({
+  "id": zod.coerce.string()
+})
+
+export const AdminGrantUserCourseAccessBody = zod.object({
+  "planId": zod.string().uuid()
+})
+
+export const AdminGrantUserCourseAccessResponseItem = zod.object({
+  "id": zod.string().uuid(),
+  "courseId": zod.string().uuid(),
+  "courseTitle": zod.string(),
+  "planName": zod.string().nullable(),
+  "startsAt": zod.coerce.date(),
+  "endsAt": zod.coerce.date().nullable(),
+  "revokedAt": zod.coerce.date().nullable()
+})
+export const AdminGrantUserCourseAccessResponse = zod.array(AdminGrantUserCourseAccessResponseItem)
+
+
+/**
+ * @summary Revoke a course access grant
+ */
+export const AdminRevokeCourseAccessParams = zod.object({
+  "grantId": zod.coerce.string().uuid()
+})
+
+export const AdminRevokeCourseAccessResponse = zod.void()
 
 
 /**
