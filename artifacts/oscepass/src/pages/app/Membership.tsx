@@ -21,15 +21,14 @@ export default function Membership() {
   function whatsappUrl(offer?: (typeof offers)[number]) {
     const studentInfo = `${user?.name ?? 'Learner'}${user?.email ? ` (${user.email})` : ''}`;
     const offerDetails = offer
-      ? `باقة: "${offer.name}" (${money(offer.amountMinor, offer.currency)} / ${offer.accessMonths} أشهر)`
-      : `الاشتراك الشامل في كورسات Emergix Academy`;
+      ? `Plan: "${offer.name}" (${money(offer.amountMinor, offer.currency)} / ${offer.accessMonths} months)`
+      : `Emergix Academy: MRCEM Primary Full Access`;
 
-    const message = `مرحباً Emergix Academy،
-أنا الطالب: ${studentInfo}.
-أود الاشتراك في: ${offerDetails}.
-أرجو تزويدي بتفاصيل الدفع والتحويل لتفعيل الحساب على الموقع.
+    const message = `Hello Emergix Academy Team,
+Candidate: ${studentInfo}
+Selected Plan: ${offerDetails}
 
-Hello Emergix Academy, I'm ${studentInfo}. I would like to subscribe to: ${offerDetails}. Please share payment details so I can transfer and get my access activated.`;
+I would like to subscribe to this plan. Please provide the transfer details so I can complete payment and activate full course access on the platform.`;
 
     return `https://wa.me/${number.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
   }
@@ -128,9 +127,9 @@ Hello Emergix Academy, I'm ${studentInfo}. I would like to subscribe to: ${offer
                 <span className="offer-number" style={{ background: '#0066CC', color: '#fff' }}>FULL ACCESS</span>
                 <span className="offer-duration"><Clock3 size={14} /> Comprehensive Access</span>
               </div>
-              <h3>Emergix Academy: MRCEM Primary Subscription</h3>
+              <h3>Emergix Academy: MRCEM Primary Full Access</h3>
               <p className="offer-description">
-                وصول كامل لكافة شروحات الكورس، بنك الأسئلة، موديولات الـ Anatomy والـ Physiology مع المتابعة المستمرة عبر واتساب.
+                Comprehensive access to all curriculum masterclasses, high-yield anatomy & physiology modules, complete SBA question bank, and continuous mentorship via WhatsApp.
               </p>
               <div className="offer-includes">
                 <strong>INCLUDED IN THIS PLAN</strong>

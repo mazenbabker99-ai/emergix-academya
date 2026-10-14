@@ -6,10 +6,10 @@ export function AdminLayout({ children }: { children: ReactNode }) {
     <ShellLayout
       area="Admin"
       nav={[
-        { href: '/admin', label: 'Courses (الكورسات)' },
-        { href: '/admin/access', label: 'Subscriptions & Access (تأكيد الاشتراكات)' },
-        { href: '/admin/questions', label: 'Question Bank (بنك الأسئلة)' },
-        { href: '/app', label: 'Learner View (عرض الطالب)' },
+        { href: '/admin', label: 'Courses' },
+        { href: '/admin/access', label: 'Subscriptions & Access' },
+        { href: '/admin/questions', label: 'Question Bank' },
+        { href: '/app', label: 'Learner View' },
       ]}
     >
       {children}

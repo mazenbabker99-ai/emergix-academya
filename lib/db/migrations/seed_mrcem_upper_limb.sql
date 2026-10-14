@@ -655,9 +655,9 @@ Inflammation of compartment 1 is de Quervain tenosynovitis.
     ) VALUES (
       gen_random_uuid(),
       'mrcem-primary-full-access',
-      'MRCEM Primary Full Access (باقة الكورس الشامل)',
-      'وصول كامل لكافة دروس وشروحات الكورس، بنك الأسئلة، والموديولات السريرية مع دعم مباشر.',
-      '["Full access to Upper Limb Anatomy", "Anatomy, Physiology & Pathology modules", "Examiner clinical pearls & high-yield summaries", "Active WhatsApp mentorship"]'::jsonb,
+      'MRCEM Primary Full Access (Comprehensive Master Bundle)',
+      'Complete access to all curriculum masterclasses, complete SBA question bank, clinical anatomy, physiology, and mock simulations with continuous instructor support.',
+      '["Full access to all course modules", "Anatomy, Physiology, Pharmacology & Pathology", "Complete SBA Question Bank & Mock Simulations", "Active WhatsApp mentorship & direct support"]'::jsonb,
       3,
       'whatsapp-manual',
       'WhatsApp Verified Access',
@@ -672,6 +672,12 @@ Inflammation of compartment 1 is de Quervain tenosynovitis.
     INSERT INTO "plan_prices" ("id", "plan_id", "currency", "region", "amount_minor", "created_at", "updated_at")
     VALUES (gen_random_uuid(), v_whatsapp_plan_id, 'SAR', 'ALL', 29900, now(), now())
     ON CONFLICT DO NOTHING;
+  ELSE
+    UPDATE "plans" SET
+      "name" = 'MRCEM Primary Full Access (Comprehensive Master Bundle)',
+      "description" = 'Complete access to all curriculum masterclasses, complete SBA question bank, clinical anatomy, physiology, and mock simulations with continuous instructor support.',
+      "updated_at" = now()
+    WHERE "id" = v_whatsapp_plan_id;
   END IF;
 
   -- Link all published courses to this WhatsApp plan
