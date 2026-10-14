@@ -779,13 +779,11 @@ export async function runAutoMigrationsAndSeeds() {
     await pool.query(UPPER_LIMB_SEED_SQL);
     logger.info("Base course & lesson seed completed successfully.");
 
-    // Master curriculum seeds (Anatomy, Physiology, Pharmacology, Pathology/Micro, Question Bank)
+    // Flagship Courses: MRCEM Primary (221 lessons, 21 modules) and MRCEM SBA (47 lessons, 5 modules)
     const masterSeeds = [
-      "seed_mrcem_anatomy.sql",
-      "seed_mrcem_physiology.sql",
-      "seed_mrcem_pharmacology.sql",
-      "seed_mrcem_pathology_micro.sql",
-      "seed_mrcem_question_bank.sql",
+      "seed_flagship_mrcem_primary.sql",
+      "seed_flagship_mrcem_sba.sql",
+      "cleanup_courses.sql",
     ];
 
     for (const seedFile of masterSeeds) {

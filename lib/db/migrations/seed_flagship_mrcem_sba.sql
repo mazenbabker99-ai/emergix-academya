@@ -1,5 +1,5 @@
 -- ==========================================================================
--- SEED SCRIPT: MRCEM Primary: SBA Question Bank & Mock Simulations
+-- FLAGSHIP COURSE: MRCEM SBA
 -- ==========================================================================
 DO $$
 DECLARE
@@ -10,41 +10,44 @@ DECLARE
   v_primary_plan_id uuid;
   v_all_access_plan_id uuid;
 BEGIN
-  SELECT id INTO v_exam_id FROM "exams" WHERE "slug" = 'mrcem-primary' LIMIT 1;
+  -- 1. Locate MRCEM SBA exam (fallback to primary if exam slug differs)
+  SELECT id INTO v_exam_id FROM "exams" WHERE "slug" = 'mrcem-sba' LIMIT 1;
+  IF v_exam_id IS NULL THEN
+    SELECT id INTO v_exam_id FROM "exams" WHERE "slug" = 'mrcem-primary' LIMIT 1;
+  END IF;
 
-  -- Upsert Course
-  SELECT id INTO v_course_id FROM "courses" WHERE "slug" = 'mrcem-question-bank' LIMIT 1;
+  -- 2. Upsert Course: mrcem-sba
+  SELECT id INTO v_course_id FROM "courses" WHERE "slug" = 'mrcem-sba' LIMIT 1;
   IF v_course_id IS NULL THEN
     INSERT INTO "courses" (
       "id", "exam_id", "slug", "title", "summary", "description", "is_free", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(),
       v_exam_id,
-      'mrcem-question-bank',
-      'MRCEM Primary: SBA Question Bank & Mock Simulations',
-      '41 High-yield topical SBA quizzes and 3 full mock exam simulation papers (6 complete papers) with clinical explanations.',
-      'Master the MRCEM Primary examination format with over 600 single best answer questions. Test your clinical reasoning across anatomy, physiology, pharmacology, and pathology with detailed rationales, examiner tips, and high-yield pearls.',
+      'mrcem-sba',
+      'MRCEM SBA',
+      'High-yield Single Best Answer (SBA) question bank and timed mock exam simulation papers with full clinical rationales.',
+      'Master the MRCEM SBA (Intermediate) examination with over 600 single best answer questions. Features 41 topical SBA quizzes and 3 full mock exam simulation papers with comprehensive explanations, examiner pearls, and diagnostic algorithms.',
       false,
-      5,
+      2,
       'published',
       now(),
       now()
     ) RETURNING "id" INTO v_course_id;
   ELSE
     UPDATE "courses" SET
-      "title" = 'MRCEM Primary: SBA Question Bank & Mock Simulations',
+      "title" = 'MRCEM SBA',
       "exam_id" = COALESCE(v_exam_id, "exam_id"),
-      "summary" = '41 High-yield topical SBA quizzes and 3 full mock exam simulation papers (6 complete papers) with clinical explanations.',
-      "description" = 'Master the MRCEM Primary examination format with over 600 single best answer questions. Test your clinical reasoning across anatomy, physiology, pharmacology, and pathology with detailed rationales, examiner tips, and high-yield pearls.',
-      "position" = 5,
+      "summary" = 'High-yield Single Best Answer (SBA) question bank and timed mock exam simulation papers with full clinical rationales.',
+      "description" = 'Master the MRCEM SBA (Intermediate) examination with over 600 single best answer questions. Features 41 topical SBA quizzes and 3 full mock exam simulation papers with comprehensive explanations, examiner pearls, and diagnostic algorithms.',
+      "position" = 2,
       "status" = 'published',
+      "deleted_at" = NULL,
       "updated_at" = now()
     WHERE "id" = v_course_id;
   END IF;
 
-  -- ==========================================
   -- Module 1: High-Yield SBA Quizzes: Part 1 (Quizzes 01 - 10)
-  -- ==========================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'High-Yield SBA Quizzes: Part 1 (Quizzes 01 - 10)' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -54,7 +57,7 @@ BEGIN
     UPDATE "modules" SET "position" = 0, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Quiz Lesson: Quiz _ 1
+  -- Lesson: Quiz _ 1
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -66,7 +69,7 @@ BEGIN
     '# Quiz _ 1
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -513,7 +516,7 @@ Previous Next
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 2
+  -- Lesson: Quiz _ 2
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -525,7 +528,7 @@ Previous Next
     '# Quiz _ 2
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -961,7 +964,7 @@ Previous Next
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 3
+  -- Lesson: Quiz _ 3
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -973,7 +976,7 @@ Previous Next
     '# Quiz _ 3
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -1359,7 +1362,7 @@ plexus) RECALL
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 4
+  -- Lesson: Quiz _ 4
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1371,7 +1374,7 @@ plexus) RECALL
     '# Quiz _ 4
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -1825,7 +1828,7 @@ Previous Next
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 5
+  -- Lesson: Quiz _ 5
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1837,7 +1840,7 @@ Previous Next
     '# Quiz _ 5
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -2224,7 +2227,7 @@ id (RECALL).
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 6
+  -- Lesson: Quiz _ 6
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -2236,7 +2239,7 @@ id (RECALL).
     '# Quiz _ 6
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -2688,7 +2691,7 @@ muscarinic receptor and block parasympathetic
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 7
+  -- Lesson: Quiz _ 7
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -2700,7 +2703,7 @@ muscarinic receptor and block parasympathetic
     '# Quiz _ 7
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -3055,7 +3058,7 @@ By the age of 21= L1/L2
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 8
+  -- Lesson: Quiz _ 8
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -3067,7 +3070,7 @@ By the age of 21= L1/L2
     '# Quiz _ 8
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -3416,7 +3419,7 @@ glenohumeral joint (RECALL).
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 9
+  -- Lesson: Quiz _ 9
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -3428,7 +3431,7 @@ glenohumeral joint (RECALL).
     '# Quiz _ 9
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -3893,7 +3896,7 @@ Previous Next
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 10
+  -- Lesson: Quiz _ 10
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -3905,7 +3908,7 @@ Previous Next
     '# Quiz _ 10
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -4272,9 +4275,7 @@ Previous Next
     "status" = 'published',
     "updated_at" = now();
 
-  -- ==========================================
   -- Module 2: High-Yield SBA Quizzes: Part 2 (Quizzes 11 - 20)
-  -- ==========================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'High-Yield SBA Quizzes: Part 2 (Quizzes 11 - 20)' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -4284,7 +4285,7 @@ Previous Next
     UPDATE "modules" SET "position" = 1, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Quiz Lesson: Quiz _ 11
+  -- Lesson: Quiz _ 11
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -4296,7 +4297,7 @@ Previous Next
     '# Quiz _ 11
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -4685,7 +4686,7 @@ presentation?
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 12
+  -- Lesson: Quiz _ 12
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -4697,7 +4698,7 @@ presentation?
     '# Quiz _ 12
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -5114,7 +5115,7 @@ ALL).
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 13
+  -- Lesson: Quiz _ 13
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5126,7 +5127,7 @@ ALL).
     '# Quiz _ 13
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -5525,7 +5526,7 @@ ent with muscular disease.
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 14
+  -- Lesson: Quiz _ 14
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5537,7 +5538,7 @@ ent with muscular disease.
     '# Quiz _ 14
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -5981,7 +5982,7 @@ verall contribution to resistance.
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 15
+  -- Lesson: Quiz _ 15
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5993,7 +5994,7 @@ verall contribution to resistance.
     '# Quiz _ 15
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -6456,7 +6457,7 @@ Previous Next
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 16
+  -- Lesson: Quiz _ 16
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6468,7 +6469,7 @@ Previous Next
     '# Quiz _ 16
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -6933,7 +6934,7 @@ Mark as Complete
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 17
+  -- Lesson: Quiz _ 17
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6945,7 +6946,7 @@ Mark as Complete
     '# Quiz _ 17
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -7340,7 +7341,7 @@ Mark as Complete
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 18
+  -- Lesson: Quiz _ 18
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7352,7 +7353,7 @@ Mark as Complete
     '# Quiz _ 18
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -7855,7 +7856,7 @@ ation and hypokalemia (Recall).
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 19
+  -- Lesson: Quiz _ 19
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7867,7 +7868,7 @@ ation and hypokalemia (Recall).
     '# Quiz _ 19
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -8284,7 +8285,7 @@ o Chloroquine.
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 20
+  -- Lesson: Quiz _ 20
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8296,7 +8297,7 @@ o Chloroquine.
     '# Quiz _ 20
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -8631,9 +8632,7 @@ Previous Next
     "status" = 'published',
     "updated_at" = now();
 
-  -- ==========================================
   -- Module 3: High-Yield SBA Quizzes: Part 3 (Quizzes 21 - 30)
-  -- ==========================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'High-Yield SBA Quizzes: Part 3 (Quizzes 21 - 30)' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -8643,7 +8642,7 @@ Previous Next
     UPDATE "modules" SET "position" = 2, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Quiz Lesson: Quiz _ 21
+  -- Lesson: Quiz _ 21
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8655,7 +8654,7 @@ Previous Next
     '# Quiz _ 21
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -9038,7 +9037,7 @@ ed interstitial fluid)
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 22
+  -- Lesson: Quiz _ 22
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9050,7 +9049,7 @@ ed interstitial fluid)
     '# Quiz _ 22
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -9435,7 +9434,7 @@ ding. (Recall)
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 23
+  -- Lesson: Quiz _ 23
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9447,7 +9446,7 @@ ding. (Recall)
     '# Quiz _ 23
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -9816,7 +9815,7 @@ utaneous branches of the femoral nerve)
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 24
+  -- Lesson: Quiz _ 24
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9828,7 +9827,7 @@ utaneous branches of the femoral nerve)
     '# Quiz _ 24
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -10199,7 +10198,7 @@ Previous Next
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 25
+  -- Lesson: Quiz _ 25
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10211,7 +10210,7 @@ Previous Next
     '# Quiz _ 25
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -10616,7 +10615,7 @@ complication of placing CVP in subclavian vein?
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 26
+  -- Lesson: Quiz _ 26
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10628,7 +10627,7 @@ complication of placing CVP in subclavian vein?
     '# Quiz _ 26
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -11024,7 +11023,7 @@ Previous Next
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz_ 27
+  -- Lesson: Quiz_ 27
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11036,7 +11035,7 @@ Previous Next
     '# Quiz_ 27
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For Diet ii Late 2026)
 Overview  Comments
@@ -11551,7 +11550,7 @@ of popliteal fossa
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 28
+  -- Lesson: Quiz _ 28
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11563,7 +11562,7 @@ of popliteal fossa
     '# Quiz _ 28
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -12042,7 +12041,7 @@ ao ₂
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 29
+  -- Lesson: Quiz _ 29
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12054,7 +12053,7 @@ ao ₂
     '# Quiz _ 29
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -12528,7 +12527,7 @@ eatment of idiopathic hypercalciuria.
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 30
+  -- Lesson: Quiz _ 30
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12540,7 +12539,7 @@ eatment of idiopathic hypercalciuria.
     '# Quiz _ 30
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -13156,9 +13155,7 @@ Mark as Complete
     "status" = 'published',
     "updated_at" = now();
 
-  -- ==========================================
   -- Module 4: High-Yield SBA Quizzes: Part 4 (Quizzes 31 - 41)
-  -- ==========================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'High-Yield SBA Quizzes: Part 4 (Quizzes 31 - 41)' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -13168,7 +13165,7 @@ Mark as Complete
     UPDATE "modules" SET "position" = 3, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Quiz Lesson: Quiz _ 31
+  -- Lesson: Quiz _ 31
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13180,7 +13177,7 @@ Mark as Complete
     '# Quiz _ 31
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -13764,7 +13761,7 @@ S4/5: The perianal area.
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 32
+  -- Lesson: Quiz _ 32
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13776,7 +13773,7 @@ S4/5: The perianal area.
     '# Quiz _ 32
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -14462,7 +14459,7 @@ us and pyramidalis muscle
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 33
+  -- Lesson: Quiz _ 33
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14474,7 +14471,7 @@ us and pyramidalis muscle
     '# Quiz _ 33
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -15214,7 +15211,7 @@ Previous Next
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 34
+  -- Lesson: Quiz _ 34
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15226,7 +15223,7 @@ Previous Next
     '# Quiz _ 34
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -15896,7 +15893,7 @@ Previous Next
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 35
+  -- Lesson: Quiz _ 35
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15908,7 +15905,7 @@ Previous Next
     '# Quiz _ 35
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -16470,7 +16467,7 @@ Somatostatin
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 36
+  -- Lesson: Quiz _ 36
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16482,7 +16479,7 @@ Somatostatin
     '# Quiz _ 36
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -17109,7 +17106,7 @@ High Yield:
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 37
+  -- Lesson: Quiz _ 37
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17121,7 +17118,7 @@ High Yield:
     '# Quiz _ 37
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -17873,7 +17870,7 @@ Mark as Complete
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 38
+  -- Lesson: Quiz _ 38
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17885,7 +17882,7 @@ Mark as Complete
     '# Quiz _ 38
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -18360,7 +18357,7 @@ iformis (RECALL)
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 39
+  -- Lesson: Quiz _ 39
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -18372,7 +18369,7 @@ iformis (RECALL)
     '# Quiz _ 39
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -18773,7 +18770,7 @@ Ape hand= median nerve
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 40
+  -- Lesson: Quiz _ 40
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -18785,7 +18782,7 @@ Ape hand= median nerve
     '# Quiz _ 40
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -19328,7 +19325,7 @@ Hypotension
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Quiz _ 41
+  -- Lesson: Quiz _ 41
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -19340,7 +19337,7 @@ Hypotension
     '# Quiz _ 41
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -19616,19 +19613,17 @@ Mark as Complete
     "status" = 'published',
     "updated_at" = now();
 
-  -- ==========================================
-  -- Module 5: MRCEM Primary Full Mock Simulations
-  -- ==========================================
-  SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'MRCEM Primary Full Mock Simulations' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 5: MRCEM SBA Mock Simulations
+  SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'MRCEM SBA Mock Simulations' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_course_id, 'MRCEM Primary Full Mock Simulations', 4, now(), now())
+    VALUES (gen_random_uuid(), v_course_id, 'MRCEM SBA Mock Simulations', 4, now(), now())
     RETURNING "id" INTO v_module_id;
   ELSE
     UPDATE "modules" SET "position" = 4, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Quiz Lesson: Mock – I Paper – Ii
+  -- Lesson: Mock – I Paper – Ii
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -19640,7 +19635,7 @@ Mark as Complete
     '# Mock – I Paper – Ii
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -21727,7 +21722,7 @@ glenohumeral joint (RECALL).
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Mock - I Paper - I
+  -- Lesson: Mock - I Paper - I
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -21739,7 +21734,7 @@ glenohumeral joint (RECALL).
     '# Mock - I Paper - I
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For Diet ii Late 2026)
 Overview  Comments
@@ -23969,7 +23964,7 @@ the sinoatrial and atrioventricular node
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Mock Ii - Paper Ii
+  -- Lesson: Mock Ii - Paper Ii
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -23981,7 +23976,7 @@ the sinoatrial and atrioventricular node
     '# Mock Ii - Paper Ii
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For Diet ii Late 2026)
 Overview  Comments
@@ -26411,7 +26406,7 @@ Fracture complications
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Mock – Ii Paper – I
+  -- Lesson: Mock – Ii Paper – I
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -26423,7 +26418,7 @@ Fracture complications
     '# Mock – Ii Paper – I
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -28851,7 +28846,7 @@ tooth extraction surgery: Staph viridians
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Mock Iii Paper I
+  -- Lesson: Mock Iii Paper I
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -28863,7 +28858,7 @@ tooth extraction surgery: Staph viridians
     '# Mock Iii Paper I
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For
 Diet ii Late 2026)
@@ -32447,7 +32442,7 @@ JG apparatus (negative feedback)
     "status" = 'published',
     "updated_at" = now();
 
-  -- Quiz Lesson: Mock Iii Paper Ii
+  -- Lesson: Mock Iii Paper Ii
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -32459,7 +32454,7 @@ JG apparatus (negative feedback)
     '# Mock Iii Paper Ii
 
 > [!NOTE]
-> **Practice Session Instructions:** Review each single best answer (SBA) scenario carefully. Consider your answer before reviewing the clinical explanation and high-yield pearls.
+> **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
 
 Mrcem Primary Complete Course ,High Yield Stuff and Questions Bank ( For Diet ii Late 2026)
 Overview  Comments
@@ -34990,7 +34985,7 @@ What is the most likely diagnosis?
     "status" = 'published',
     "updated_at" = now();
 
-  -- Connect Course to WhatsApp manual plan & standard plans
+  -- 3. Connect Course to WhatsApp manual plan & standard plans
   SELECT id INTO v_whatsapp_plan_id FROM "plans" WHERE "family_key" = 'whatsapp-manual' AND "deleted_at" IS NULL LIMIT 1;
   IF v_whatsapp_plan_id IS NOT NULL THEN
     INSERT INTO "plan_courses" ("id", "plan_id", "course_id", "created_at", "updated_at")
@@ -35012,5 +35007,5 @@ What is the most likely diagnosis?
     ON CONFLICT ("plan_id", "course_id") DO NOTHING;
   END IF;
 
-  RAISE NOTICE 'Successfully seeded Question Bank & Mocks (47 lessons)';
+  RAISE NOTICE 'Successfully seeded MRCEM SBA with 47 lessons across 5 modules.';
 END $$;
