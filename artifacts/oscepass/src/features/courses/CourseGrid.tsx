@@ -1,8 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
-import { ArrowRight, BookOpen, Clock3 } from 'lucide-react';
+import { ArrowRight, BookOpen, Brain, Clock3, GraduationCap, HeartPulse, ShieldCheck, Stethoscope } from 'lucide-react';
 import { Link } from 'wouter';
 import { EmptyState, ErrorState, PageSkeleton } from '@/components/shared/DataState';
 import { listCourses } from '@workspace/api-client-react';
+
+const coursePalettes = [
+  { image: '/brand/t1.jpg', color: '#0A84FF', icon: Brain },
+  { image: '/brand/t2.jpg', color: '#7C3AED', icon: Stethoscope },
+  { image: '/brand/t3.jpg', color: '#16A34A', icon: BookOpen },
+  { image: '/brand/t4.jpg', color: '#0D9488', icon: HeartPulse },
+  { image: '/brand/t5.jpg', color: '#DB2777', icon: GraduationCap },
+  { image: '/brand/t6.jpg', color: '#4F46E5', icon: ShieldCheck },
+];
 
 export function CourseGrid() {
   const courses = useQuery({
@@ -28,19 +37,36 @@ export function CourseGrid() {
   }
 
   return (
-    <div className="content-grid course-grid">
-      {courses.data.map((course) => (
-        <article className="content-card" key={course.id} data-testid={`course-card-${course.slug}`}>
-          <span className="icon-tile"><BookOpen size={21} /></span>
-          <p className="eyebrow course-card-label">{course.isFree ? 'Free course' : 'Premium course'}</p>
-          <h3>{course.title}</h3>
-          <p>{course.summary || 'Structured lessons and practice for your exam preparation.'}</p>
-          <p className="course-card-meta"><Clock3 size={13} /> {course.lessonCount} lessons</p>
-          <Link className="btn btn-light" href={`/courses/${course.slug}`}>
-            Open course <ArrowRight size={15} />
-          </Link>
-        </article>
-      ))}
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '22px' }}>
+      {courses.data.map((course, index) => {
+        const palette = coursePalettes[index % coursePalettes.length];
+        const Icon = palette.icon;
+        return (
+          <article className="module-card" key={course.id} data-testid={`course-card-${course.slug}`}>
+            <Link href={`/courses/${course.slug}`} className="module-image-link" aria-label={`Explore ${course.title}`}>
+              <img src={palette.image} alt={course.title} loading="lazy" />
+              <span className="module-icon" style={{ backgroundColor: palette.color }}>
+                <Icon size={20} aria-hidden="true" />
+              </span>
+              <span style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(10, 35, 66, 0.85)', backdropFilter: 'blur(6px)', color: '#fff', fontSize: '.7rem', fontWeight: 750, padding: '3px 10px', borderRadius: 20, letterSpacing: '.03em', textTransform: 'uppercase' }}>
+                {course.isFree ? 'Free' : 'Premium'}
+              </span>
+            </Link>
+            <div className="module-content">
+              <h3>{course.title}</h3>
+              <p>{course.summary || 'Structured lessons and clinical practice for your exam preparation.'}</p>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 14, paddingTop: 12, borderTop: '1px solid #edf2f8' }}>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5, color: '#62768c', fontSize: '.76rem', fontWeight: 600 }}>
+                  <Clock3 size={13} /> {course.lessonCount} {course.lessonCount === 1 ? 'lesson' : 'lessons'}
+                </span>
+                <Link className="module-more" href={`/courses/${course.slug}`}>
+                  Explore Course <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+          </article>
+        );
+      })}
     </div>
   );
 }
