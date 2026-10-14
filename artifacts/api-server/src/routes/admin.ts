@@ -9,11 +9,18 @@ import adminCoursesRouter from './admin-courses';
 import adminMediaRouter from './admin-media';
 import adminQuestionsRouter from './admin-questions';
 
+import { runAutoMigrationsAndSeeds } from '../lib/autoMigration';
+
 /** Mounted behind requireAuth + requirePermission('admin:access'). */
 const router: IRouter = Router();
 
 router.get('/ping', (_req, res) => {
   res.json({ status: 'ok' });
+});
+
+router.post('/sync-database', async (_req, res) => {
+  await runAutoMigrationsAndSeeds();
+  res.json({ status: 'ok', message: 'Database schema and course seeds synchronized successfully.' });
 });
 
 router.put('/users/:userId/role', requirePermission('users:set-role'), async (req, res) => {
