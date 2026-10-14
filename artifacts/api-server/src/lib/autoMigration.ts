@@ -72,6 +72,7 @@ DECLARE
   v_module_id uuid;
   v_primary_plan_id uuid;
   v_all_access_plan_id uuid;
+  v_whatsapp_plan_id uuid;
 BEGIN
   -- 1. Locate the MRCEM Primary exam
   SELECT id INTO v_exam_id FROM "exams" WHERE "slug" = 'mrcem-primary' LIMIT 1;
@@ -708,6 +709,40 @@ Inflammation of compartment 1 is de Quervain tenosynovitis.
       RAISE NOTICE 'Also attached 8 lessons to emergix-primary Anatomy module: module_id=%', v_all_access_plan_id;
     END IF;
   END IF;
+
+  -- 14. Ensure a published WhatsApp manual membership plan exists
+  SELECT id INTO v_whatsapp_plan_id FROM "plans" WHERE "family_key" = 'whatsapp-manual' AND "deleted_at" IS NULL LIMIT 1;
+  IF v_whatsapp_plan_id IS NULL THEN
+    INSERT INTO "plans" (
+      "id", "slug", "name", "description", "features", "access_months", "family_key", "family_name", "is_featured", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      'mrcem-primary-full-access',
+      'MRCEM Primary Full Access (باقة الكورس الشامل)',
+      'وصول كامل لكافة دروس وشروحات الكورس، بنك الأسئلة، والموديولات السريرية مع دعم مباشر.',
+      '["Full access to Upper Limb Anatomy", "Anatomy, Physiology & Pathology modules", "Examiner clinical pearls & high-yield summaries", "Active WhatsApp mentorship"]'::jsonb,
+      3,
+      'whatsapp-manual',
+      'WhatsApp Verified Access',
+      true,
+      1,
+      'published',
+      now(),
+      now()
+    ) RETURNING "id" INTO v_whatsapp_plan_id;
+
+    -- Add default price: 299 SAR
+    INSERT INTO "plan_prices" ("id", "plan_id", "currency", "region", "amount_minor", "created_at", "updated_at")
+    VALUES (gen_random_uuid(), v_whatsapp_plan_id, 'SAR', 'ALL', 29900, now(), now())
+    ON CONFLICT DO NOTHING;
+  END IF;
+
+  -- Link all published courses to this WhatsApp plan
+  INSERT INTO "plan_courses" ("id", "plan_id", "course_id", "created_at", "updated_at")
+  SELECT gen_random_uuid(), v_whatsapp_plan_id, c.id, now(), now()
+  FROM "courses" c
+  WHERE c.status = 'published' AND c.deleted_at IS NULL
+  ON CONFLICT ("plan_id", "course_id") DO NOTHING;
 
   RAISE NOTICE 'Course and 8 lessons seeded successfully: course_id=%, module_id=%', v_course_id, v_module_id;
 END $$;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, BookOpen, Check, Clock3, MessageCircle, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Check, Clock3, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react';
 import { useListMembershipOffers } from '@workspace/api-client-react';
 import { AppLayout } from '@/components/layouts/AppLayout';
 import { ErrorState, PageSkeleton } from '@/components/shared/DataState';
@@ -18,68 +18,161 @@ export default function Membership() {
   const offers = offersQuery.data?.offers ?? [];
   const number = offersQuery.data?.settings.whatsappNumber ?? '+966563169123';
 
-  function whatsappUrl(offer: (typeof offers)[number]) {
+  function whatsappUrl(offer?: (typeof offers)[number]) {
     const studentInfo = `${user?.name ?? 'Learner'}${user?.email ? ` (${user.email})` : ''}`;
-    const priceFormatted = money(offer.amountMinor, offer.currency);
+    const offerDetails = offer
+      ? `باقة: "${offer.name}" (${money(offer.amountMinor, offer.currency)} / ${offer.accessMonths} أشهر)`
+      : `الاشتراك الشامل في كورسات Emergix Academy`;
+
     const message = `مرحباً Emergix Academy،
 أنا الطالب: ${studentInfo}.
-أود الاشتراك في باقة: "${offer.name}" (${priceFormatted} / ${offer.accessMonths} أشهر).
-أرجو تزويدي بتفاصيل الدفع لإرسال إشعار التحويل لتفعيل الاشتراك.
+أود الاشتراك في: ${offerDetails}.
+أرجو تزويدي بتفاصيل الدفع والتحويل لتفعيل الحساب على الموقع.
 
-Hello Emergix Academy, I'm ${studentInfo}. I would like to subscribe to the "${offer.name}" offer (${priceFormatted} / ${offer.accessMonths} months). Please confirm payment details to send the transfer receipt for activation.`;
+Hello Emergix Academy, I'm ${studentInfo}. I would like to subscribe to: ${offerDetails}. Please share payment details so I can transfer and get my access activated.`;
+
     return `https://wa.me/${number.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
   }
 
-  return <AppLayout>
-    <div className="membership-page">
-      <header className="membership-intro">
-        <div>
-          <span className="eyebrow">Your learning, your pace</span>
-          <h1>Choose your course access.</h1>
-          <p>Pick a course offer and message our team on WhatsApp. An administrator will verify your payment and activate access for you.</p>
-        </div>
-        <div className="access-seal"><ShieldCheck size={23} /><span>Manual payment<br />verification</span></div>
-      </header>
+  const directWhatsappLink = whatsappUrl();
 
-      <section className="membership-steps" aria-label="How course access works">
-        <div><span className="step-index">01</span><span>Choose an offer</span></div>
-        <div><span className="step-index">02</span><span>Send payment receipt</span></div>
-        <div><span className="step-index">03</span><span>Access is activated</span></div>
-      </section>
-
-      <div className="membership-section-head">
-        <div><span className="eyebrow">Published offers</span><h2>Built for MRCEM progress</h2></div>
-        <p>Payment is arranged directly with our team. No online checkout.</p>
-      </div>
-
-      {offersQuery.isLoading && <div className="membership-loading"><PageSkeleton rows={2} label="Loading course offers" /></div>}
-      {offersQuery.isError && <ErrorState onRetry={() => void offersQuery.refetch()} />}
-      {!offersQuery.isLoading && !offersQuery.isError && offers.length === 0 && <div className="membership-empty" data-testid="empty-membership-offers">
-        <BookOpen size={27} /><h3>No offers are available just yet</h3><p>You can still make a start with the free courses in the academy.</p>
-      </div>}
-
-      {offers.length > 0 && <div className="offer-grid">
-        {offers.map((offer, index) => <article className={`offer-card${selected === offer.id ? ' offer-card-selected' : ''}`} key={offer.id} data-testid={`card-offer-${offer.id}`}>
-          <div className="offer-card-head"><span className="offer-number">OFFER / {String(index + 1).padStart(2, '0')}</span><span className="offer-duration"><Clock3 size={14} /> {offer.accessMonths} {offer.accessMonths === 1 ? 'month' : 'months'}</span></div>
-          <h3>{offer.name}</h3>
-          <p className="offer-description">{offer.description}</p>
-          <div className="offer-price">{money(offer.amountMinor, offer.currency)}<span> / {offer.accessMonths} months</span></div>
-          <div className="offer-includes"><strong>COURSES INCLUDED</strong>
-            <ul>{offer.courses.map((course) => <li key={course.id}><Check size={15} />{course.title}</li>)}</ul>
+  return (
+    <AppLayout>
+      <div className="membership-page">
+        <header className="membership-intro">
+          <div>
+            <span className="eyebrow">Direct Verification & Instant Activation</span>
+            <h1>Choose your course access.</h1>
+            <p>Pick a course offer and message our team directly on WhatsApp. An administrator will verify your payment and activate your access immediately.</p>
           </div>
-          <a className="btn btn-primary offer-cta" href={whatsappUrl(offer)} target="_blank" rel="noreferrer" onClick={() => setSelected(offer.id)} data-testid={`link-whatsapp-${offer.id}`}>
-            <MessageCircle size={17} /> Continue on WhatsApp <ArrowUpRight size={16} />
-          </a>
-          <p className="offer-footnote">Send your payment confirmation or receipt to complete verification.</p>
-        </article>)}
-      </div>}
+          <div className="access-seal">
+            <ShieldCheck size={23} />
+            <span>Manual payment<br />verification</span>
+          </div>
+        </header>
 
-      <section className="free-course-panel">
-        <div className="free-mark"><BookOpen size={21} /></div>
-        <div><span className="eyebrow">A good place to begin</span><h2>Prefer to start with free courses?</h2><p>Explore the courses available at no cost, and choose paid access whenever you’re ready.</p></div>
-        <a className="btn btn-outline" href="/courses" data-testid="link-free-courses">Browse free courses <ArrowUpRight size={16} /></a>
-      </section>
-      <aside className="membership-assurance"><ShieldCheck size={18} /><span>Your access is granted by our team only after payment is checked. Need help? WhatsApp us at <strong>{number}</strong>.</span></aside>
-    </div>
-  </AppLayout>;
+        <section className="membership-steps" aria-label="How course access works">
+          <div><span className="step-index">01</span><span>Choose your course</span></div>
+          <div><span className="step-index">02</span><span>Chat & Transfer on WhatsApp</span></div>
+          <div><span className="step-index">03</span><span>Instant Activation</span></div>
+        </section>
+
+        <div className="membership-section-head">
+          <div>
+            <span className="eyebrow">Available Subscriptions</span>
+            <h2>Built for MRCEM progress</h2>
+          </div>
+          <p>Payment is arranged directly with our administration team. No automated card charges.</p>
+        </div>
+
+        {offersQuery.isLoading && (
+          <div className="membership-loading"><PageSkeleton rows={2} label="Loading course offers" /></div>
+        )}
+
+        {offersQuery.isError && (
+          <ErrorState onRetry={() => void offersQuery.refetch()} />
+        )}
+
+        {/* Dynamic offers list if available */}
+        {!offersQuery.isLoading && offers.length > 0 && (
+          <div className="offer-grid">
+            {offers.map((offer, index) => (
+              <article
+                className={`offer-card${selected === offer.id ? ' offer-card-selected' : ''}`}
+                key={offer.id}
+                data-testid={`card-offer-${offer.id}`}
+              >
+                <div className="offer-card-head">
+                  <span className="offer-number">OFFER / {String(index + 1).padStart(2, '0')}</span>
+                  <span className="offer-duration">
+                    <Clock3 size={14} /> {offer.accessMonths} {offer.accessMonths === 1 ? 'month' : 'months'}
+                  </span>
+                </div>
+                <h3>{offer.name}</h3>
+                <p className="offer-description">{offer.description}</p>
+                <div className="offer-price">
+                  {money(offer.amountMinor, offer.currency)}
+                  <span> / {offer.accessMonths} months</span>
+                </div>
+                <div className="offer-includes">
+                  <strong>COURSES INCLUDED</strong>
+                  <ul>
+                    {offer.courses.map((course) => (
+                      <li key={course.id}>
+                        <Check size={15} />{course.title}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a
+                  className="btn btn-primary offer-cta"
+                  href={whatsappUrl(offer)}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setSelected(offer.id)}
+                  data-testid={`link-whatsapp-${offer.id}`}
+                >
+                  <MessageCircle size={17} /> Continue on WhatsApp <ArrowUpRight size={16} />
+                </a>
+                <p className="offer-footnote">Direct chat with administration to send payment receipt.</p>
+              </article>
+            ))}
+          </div>
+        )}
+
+        {/* Fallback direct WhatsApp offer card if no dynamic offers configured yet */}
+        {!offersQuery.isLoading && !offersQuery.isError && offers.length === 0 && (
+          <div className="offer-grid" style={{ gridTemplateColumns: 'minmax(0, 560px)' }}>
+            <article className="offer-card offer-card-selected" style={{ border: '2px solid #0066CC' }}>
+              <div className="offer-card-head">
+                <span className="offer-number" style={{ background: '#0066CC', color: '#fff' }}>FULL ACCESS</span>
+                <span className="offer-duration"><Clock3 size={14} /> Comprehensive Access</span>
+              </div>
+              <h3>Emergix Academy: MRCEM Primary Subscription</h3>
+              <p className="offer-description">
+                وصول كامل لكافة شروحات الكورس، بنك الأسئلة، موديولات الـ Anatomy والـ Physiology مع المتابعة المستمرة عبر واتساب.
+              </p>
+              <div className="offer-includes">
+                <strong>INCLUDED IN THIS PLAN</strong>
+                <ul>
+                  <li><Check size={15} /> Full access to MRCEM Upper Limb Anatomy & all modules</li>
+                  <li><Check size={15} /> Complete MRCEM SBA question bank</li>
+                  <li><Check size={15} /> Instant manual verification & activation by our team</li>
+                </ul>
+              </div>
+              <a
+                className="btn btn-primary offer-cta"
+                href={directWhatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                style={{ fontSize: '1rem', padding: '14px 20px' }}
+              >
+                <MessageCircle size={19} /> Subscribe & Activate via WhatsApp <ArrowUpRight size={16} />
+              </a>
+              <p className="offer-footnote">
+                Chat directly with our team at {number} to arrange payment and activate your account.
+              </p>
+            </article>
+          </div>
+        )}
+
+        <section className="free-course-panel" style={{ marginTop: 36 }}>
+          <div className="free-mark"><BookOpen size={21} /></div>
+          <div>
+            <span className="eyebrow">Free options</span>
+            <h2>Prefer to start with free courses?</h2>
+            <p>Explore all preview lessons and free materials, and subscribe whenever you’re ready.</p>
+          </div>
+          <a className="btn btn-outline" href="/courses" data-testid="link-free-courses">
+            Browse free courses <ArrowUpRight size={16} />
+          </a>
+        </section>
+
+        <aside className="membership-assurance">
+          <ShieldCheck size={18} />
+          <span>Access is activated immediately after confirming transfer receipt. Need assistance? Message us on WhatsApp: <strong>{number}</strong></span>
+        </aside>
+      </div>
+    </AppLayout>
+  );
 }

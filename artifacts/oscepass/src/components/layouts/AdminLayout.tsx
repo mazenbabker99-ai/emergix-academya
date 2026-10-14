@@ -2,5 +2,17 @@ import type { ReactNode } from 'react';
 import { ShellLayout } from './ShellLayout';
 
 export function AdminLayout({ children }: { children: ReactNode }) {
-  return <ShellLayout area="Admin" nav={[{ href: '/admin', label: 'Courses' }, { href: '/admin/questions', label: 'Question bank' }, { href: '/admin/access', label: 'Course access' }, { href: '/app', label: 'Learner view' }]}>{children}</ShellLayout>;
+  return (
+    <ShellLayout
+      area="Admin"
+      nav={[
+        { href: '/admin', label: 'Courses (الكورسات)' },
+        { href: '/admin/access', label: 'Subscriptions & Access (تأكيد الاشتراكات)' },
+        { href: '/admin/questions', label: 'Question Bank (بنك الأسئلة)' },
+        { href: '/app', label: 'Learner View (عرض الطالب)' },
+      ]}
+    >
+      {children}
+    </ShellLayout>
+  );
 }
