@@ -3,6 +3,7 @@ import { Redirect, Route, Switch, useLocation, useParams } from 'wouter';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { PageSkeleton } from '@/components/shared/DataState';
 import { RequireAuth } from '@/features/auth/guards';
+import { useAuth } from '@/features/auth/AuthProvider';
 
 // Route-level code splitting: each page is its own chunk.
 const About = lazy(() => import('@/pages/About'));
@@ -48,6 +49,14 @@ const AdminSetup = lazy(() => import('@/pages/AdminSetup'));
 const Signup = lazy(() => import('@/pages/Signup'));
 const VerifyEmail = lazy(() => import('@/pages/VerifyEmail'));
 
+/** Redirects signed-in users to the dashboard; guests see the public landing page. */
+function HomeRoute() {
+  const { user, isPending } = useAuth();
+  if (isPending) return <PageSkeleton />;
+  if (user) return <Redirect to="/app" replace />;
+  return <Home />;
+}
+
 function LegacyStationRedirect() {
   const { station = '' } = useParams<{ station: string }>();
   const slug = station.replace(/\.html$/i, '');
@@ -57,7 +66,7 @@ function LegacyStationRedirect() {
 export function Router() {
   const [location] = useLocation();
   return <ErrorBoundary resetKey={location}><Suspense fallback={<PageSkeleton />}><Switch>
-    <Route path="/" component={Home} />
+    <Route path="/" component={HomeRoute} />
     <Route path="/exams" component={Exams} />
     <Route path="/exams/:slug" component={ExamDetail} />
     <Route path="/calendar" component={Calendar} />
