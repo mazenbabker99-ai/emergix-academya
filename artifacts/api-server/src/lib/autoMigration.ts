@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { pool } from "@workspace/db";
 import { logger } from "./logger";
 
@@ -748,6 +750,19 @@ Inflammation of compartment 1 is de Quervain tenosynovitis.
 END $$;
 `;
 
+function findMigrationFile(filename: string): string | null {
+  const candidates = [
+    path.resolve(process.cwd(), "lib", "db", "migrations", filename),
+    path.resolve(process.cwd(), "..", "..", "lib", "db", "migrations", filename),
+    path.resolve(__dirname, "..", "..", "..", "..", "lib", "db", "migrations", filename),
+    path.resolve(__dirname, "..", "..", "lib", "db", "migrations", filename),
+  ];
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  return null;
+}
+
 export async function runAutoMigrationsAndSeeds() {
   try {
     logger.info("Running automatic DB schema updates & migrations...");
@@ -756,7 +771,39 @@ export async function runAutoMigrationsAndSeeds() {
 
     logger.info("Ensuring course and lesson seed data...");
     await pool.query(UPPER_LIMB_SEED_SQL);
-    logger.info("Course & lesson seed completed successfully.");
+    logger.info("Base course & lesson seed completed successfully.");
+
+    // Master curriculum seeds (Anatomy, Physiology, Pharmacology, Pathology/Micro, Question Bank)
+    const masterSeeds = [
+      "seed_mrcem_anatomy.sql",
+      "seed_mrcem_physiology.sql",
+      "seed_mrcem_pharmacology.sql",
+      "seed_mrcem_pathology_micro.sql",
+      "seed_mrcem_question_bank.sql",
+    ];
+
+    for (const seedFile of masterSeeds) {
+      const resolved = findMigrationFile(seedFile);
+      if (resolved) {
+        logger.info(`Running master curriculum seed: ${seedFile}...`);
+        const sql = fs.readFileSync(resolved, "utf-8");
+        await pool.query(sql);
+        logger.info(`Master curriculum seed ${seedFile} applied successfully.`);
+      } else {
+        logger.warn(`Master curriculum seed file ${seedFile} not found on disk, skipping.`);
+      }
+    }
+
+    // Ensure all published courses are attached to the WhatsApp manual plan
+    await pool.query(`
+      INSERT INTO "plan_courses" ("id", "plan_id", "course_id", "created_at", "updated_at")
+      SELECT gen_random_uuid(), p.id, c.id, now(), now()
+      FROM "plans" p
+      CROSS JOIN "courses" c
+      WHERE p.family_key = 'whatsapp-manual' AND c.status = 'published' AND c.deleted_at IS NULL
+      ON CONFLICT ("plan_id", "course_id") DO NOTHING;
+    `);
+    logger.info("All published courses synced to WhatsApp membership plan.");
   } catch (err) {
     logger.error({ err }, "Auto-migration or seed encountered an error (continuing startup)");
   }

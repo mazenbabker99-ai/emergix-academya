@@ -48,3 +48,8 @@ Thumbs.db
 .cache/
 .local/
 /generated-artifacts/
+
+# Python cache & raw source PDFs
+__pycache__/
+*.pyc
+*.pdf

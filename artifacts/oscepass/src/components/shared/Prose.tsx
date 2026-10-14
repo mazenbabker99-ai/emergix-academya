@@ -1,6 +1,42 @@
 import { Fragment } from 'react';
 import { Link } from 'wouter';
+import { AlertCircle, BookOpen, Lightbulb } from 'lucide-react';
 import { parseBlocks, type Inline } from '@/lib/prose';
+
+const calloutStyles = {
+  tip: {
+    bg: '#f0fdf4',
+    border: '#86efac',
+    iconColor: '#16a34a',
+    titleColor: '#166534',
+    Icon: Lightbulb,
+    defaultTitle: 'Examiner Pearl / High Yield',
+  },
+  note: {
+    bg: '#eff6ff',
+    border: '#93c5fd',
+    iconColor: '#2563eb',
+    titleColor: '#1e40af',
+    Icon: BookOpen,
+    defaultTitle: 'Clinical Note / Mnemonic',
+  },
+  warning: {
+    bg: '#fffbeb',
+    border: '#fcd34d',
+    iconColor: '#d97706',
+    titleColor: '#92400e',
+    Icon: AlertCircle,
+    defaultTitle: 'Clinical Warning / Caution',
+  },
+  info: {
+    bg: '#f8fafc',
+    border: '#cbd5e1',
+    iconColor: '#475569',
+    titleColor: '#1e293b',
+    Icon: BookOpen,
+    defaultTitle: 'Note',
+  },
+};
 
 function renderInline(nodes: Inline[]) {
   return nodes.map((node, i) => {
@@ -30,6 +66,8 @@ export function Prose({ text, className = '' }: { text: string; className?: stri
     <div className={`prose-lite ${className}`.trim()}>
       {parseBlocks(text).map((block, i) => {
         switch (block.type) {
+          case 'h1':
+            return <h1 key={i} style={{ fontSize: '1.75rem', fontWeight: 800, marginTop: '1.6rem', marginBottom: '1rem', color: '#0a2342' }}>{block.text}</h1>;
           case 'h2':
             return <h2 key={i}>{block.text}</h2>;
           case 'h3':
@@ -38,6 +76,53 @@ export function Prose({ text, className = '' }: { text: string; className?: stri
             return <p key={i}>{renderInline(block.inline)}</p>;
           case 'ul':
             return <ul key={i}>{block.items.map((item, j) => <li key={j}>{renderInline(item)}</li>)}</ul>;
+          case 'blockquote':
+            return (
+              <blockquote
+                key={i}
+                style={{
+                  borderLeft: '4px solid #0066CC',
+                  paddingLeft: '16px',
+                  margin: '20px 0',
+                  color: '#334155',
+                  fontStyle: 'italic',
+                  background: '#f8fafc',
+                  padding: '12px 18px',
+                  borderRadius: '0 8px 8px 0',
+                }}
+              >
+                {renderInline(block.inline)}
+              </blockquote>
+            );
+          case 'callout': {
+            const style = calloutStyles[block.variant] || calloutStyles.tip;
+            const Icon = style.Icon;
+            return (
+              <aside
+                key={i}
+                role="note"
+                style={{
+                  background: style.bg,
+                  border: `1px solid ${style.border}`,
+                  borderLeft: `5px solid ${style.iconColor}`,
+                  borderRadius: '8px',
+                  padding: '16px 20px',
+                  margin: '24px 0',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                  <Icon size={18} color={style.iconColor} />
+                  <strong style={{ color: style.titleColor, fontSize: '.92rem', letterSpacing: '.01em' }}>
+                    {block.title || style.defaultTitle}
+                  </strong>
+                </div>
+                <div style={{ fontSize: '.95rem', lineHeight: '1.65', color: '#1e293b' }}>
+                  {renderInline(block.inline)}
+                </div>
+              </aside>
+            );
+          }
         }
       })}
     </div>

@@ -1,6 +1,6 @@
-import { ArrowLeft, ArrowRight, Download, MessageCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, BookOpen, Clock3, Download, MessageCircle } from 'lucide-react';
 import { Link, useParams } from 'wouter';
-import { ApiError, useGetLesson } from '@workspace/api-client-react';
+import { ApiError, useGetCourse, useGetLesson } from '@workspace/api-client-react';
 import { ErrorState, PageSkeleton } from '@/components/shared/DataState';
 import { Prose } from '@/components/shared/Prose';
 import { SiteLayout } from '@/components/shared/SiteLayout';
@@ -9,8 +9,14 @@ import { usePageMeta } from '@/lib/usePageMeta';
 export default function LessonPage() {
   const { slug = '', lessonId = '' } = useParams<{ slug: string; lessonId: string }>();
   const lesson = useGetLesson(slug, lessonId);
+  const course = useGetCourse(slug);
   usePageMeta(lesson.data?.title ?? 'Lesson', 'Course lesson.');
   const back = <Link href={`/courses/${slug}`} className="course-back"><ArrowLeft size={15} /> Back to course</Link>;
+
+  const allLessons = course.data?.modules.flatMap((m) => m.lessons) ?? [];
+  const currentIndex = allLessons.findIndex((l) => l.id === lessonId || l.slug === lessonId);
+  const prevLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
+  const nextLesson = currentIndex >= 0 && currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
 
   if (lesson.isLoading) {
     return <SiteLayout><main className="section"><div className="container"><PageSkeleton /></div></main></SiteLayout>;
@@ -68,10 +74,21 @@ export default function LessonPage() {
   return (
     <SiteLayout>
       <main className="section">
-        <div className="container course-page">
-          {back}
-          <span className="eyebrow">Course lesson</span>
-          <h1>{title}</h1>
+        <div className="container course-page" style={{ maxWidth: '860px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+            {back}
+            {allLessons.length > 0 && currentIndex >= 0 && (
+              <span style={{ fontSize: '.82rem', fontWeight: 700, color: '#64748b', background: '#f1f5f9', padding: '4px 12px', borderRadius: 20 }}>
+                Lesson {currentIndex + 1} of {allLessons.length}
+              </span>
+            )}
+          </div>
+
+          <span className="eyebrow">MRCEM Primary Preparation</span>
+          <h1 style={{ fontSize: '2.1rem', fontWeight: 850, letterSpacing: '-0.02em', color: '#0a2342', marginBottom: '1.2rem' }}>
+            {title}
+          </h1>
+
           {assetUrl && isVideo && (
             <video className="lesson-player" controls controlsList="nodownload" playsInline preload="metadata">
               <source src={assetUrl} type={mime || undefined} />
@@ -86,14 +103,59 @@ export default function LessonPage() {
           {assetUrl && !isVideo && !isAudio && !isPdf && (
             <p><a className="btn btn-light" href={assetUrl} target="_blank" rel="noopener noreferrer"><Download size={15} /> Open {filename}</a></p>
           )}
+
           {body && <Prose text={body} />}
           {!assetUrl && !body && <p>Content for this lesson will be added soon.</p>}
+
           {chapters.length > 0 && (
             <section className="lesson-chapters" aria-label="Lesson chapters">
               <h2>Chapters</h2>
               <ul>{chapters.map((chapter, index) => <li key={`${chapter.at}-${index}`}>{chapter.title}</li>)}</ul>
             </section>
           )}
+
+          {/* Navigation Footer */}
+          <div
+            className="lesson-nav-footer"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginTop: 48,
+              paddingTop: 24,
+              borderTop: '1px solid #e2e8f0',
+              gap: 16,
+              flexWrap: 'wrap',
+            }}
+          >
+            {prevLesson ? (
+              <Link
+                href={`/courses/${slug}/lessons/${prevLesson.slug || prevLesson.id}`}
+                className="btn btn-outline"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
+              >
+                <ArrowLeft size={16} /> Previous: {prevLesson.title}
+              </Link>
+            ) : <div />}
+
+            {nextLesson ? (
+              <Link
+                href={`/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}`}
+                className="btn btn-primary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
+              >
+                Next: {nextLesson.title} <ArrowRight size={16} />
+              </Link>
+            ) : (
+              <Link
+                href={`/courses/${slug}`}
+                className="btn btn-primary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
+              >
+                Back to Course Overview <ArrowRight size={16} />
+              </Link>
+            )}
+          </div>
         </div>
       </main>
     </SiteLayout>

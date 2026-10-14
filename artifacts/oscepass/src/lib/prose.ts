@@ -10,7 +10,9 @@ export type Inline =
   | { type: 'link'; href: string; children: Inline[] };
 
 export type Block =
-  | { type: 'h2' | 'h3'; text: string }
+  | { type: 'h1' | 'h2' | 'h3'; text: string }
+  | { type: 'callout'; variant: 'tip' | 'note' | 'warning' | 'info'; title?: string; inline: Inline[] }
+  | { type: 'blockquote'; inline: Inline[] }
   | { type: 'p'; inline: Inline[] }
   | { type: 'ul'; items: Inline[][] };
 
@@ -46,27 +48,72 @@ export function parseBlocks(src: string): Block[] {
   const blocks: Block[] = [];
   let paragraph: string[] = [];
   let list: Inline[][] | null = null;
+  let quoteLines: string[] = [];
+
+  const flushQuote = () => {
+    if (!quoteLines.length) return;
+    const first = quoteLines[0] || '';
+    const tipMatch = first.match(/^\[!(TIP|NOTE|WARNING|IMPORTANT|CAUTION)\]/i);
+    if (tipMatch) {
+      const rawVariant = tipMatch[1].toLowerCase();
+      const variant: 'tip' | 'note' | 'warning' | 'info' =
+        rawVariant === 'tip' ? 'tip' :
+        rawVariant === 'warning' || rawVariant === 'caution' ? 'warning' : 'note';
+      
+      const restLines = quoteLines.slice(1);
+      let title: string | undefined;
+      let contentLines = restLines;
+      if (restLines.length > 0 && restLines[0].startsWith('**') && restLines[0].endsWith('**')) {
+        title = restLines[0].slice(2, -2).trim();
+        contentLines = restLines.slice(1);
+      }
+      blocks.push({
+        type: 'callout',
+        variant,
+        title,
+        inline: parseInline(contentLines.join(' ')),
+      });
+    } else {
+      blocks.push({
+        type: 'blockquote',
+        inline: parseInline(quoteLines.join(' ')),
+      });
+    }
+    quoteLines = [];
+  };
+
   const flush = () => {
     if (paragraph.length) blocks.push({ type: 'p', inline: parseInline(paragraph.join(' ')) });
     if (list) blocks.push({ type: 'ul', items: list });
+    flushQuote();
     paragraph = [];
     list = null;
   };
+
   for (const raw of src.replace(/\r\n?/g, '\n').split('\n')) {
     const line = raw.trim();
     if (!line) {
       flush();
+    } else if (line.startsWith('> ') || line === '>') {
+      if (paragraph.length) flush();
+      if (list) flush();
+      quoteLines.push(line.replace(/^>\s?/, ''));
     } else if (line.startsWith('### ')) {
       flush();
       blocks.push({ type: 'h3', text: line.slice(4).trim() });
     } else if (line.startsWith('## ')) {
       flush();
       blocks.push({ type: 'h2', text: line.slice(3).trim() });
+    } else if (line.startsWith('# ')) {
+      flush();
+      blocks.push({ type: 'h1', text: line.slice(2).trim() });
     } else if (line.startsWith('- ')) {
       if (paragraph.length) flush();
+      flushQuote();
       (list ??= []).push(parseInline(line.slice(2).trim()));
     } else {
       if (list) flush();
+      flushQuote();
       paragraph.push(line);
     }
   }
