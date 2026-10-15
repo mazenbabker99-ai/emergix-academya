@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { ArrowRight, Download, ExternalLink } from 'lucide-react';
+import { ArrowRight, BookOpen, CheckCircle2, Clock3, Download, ExternalLink, MessageCircle, Play } from 'lucide-react';
 import { Link, useParams } from 'wouter';
-import { ApiError, useGetExam } from '@workspace/api-client-react';
+import { ApiError, useGetCourse, useGetExam } from '@workspace/api-client-react';
 import { EmptyState, ErrorState, PageSkeleton } from '@/components/shared/DataState';
 import { PageHero } from '@/components/shared/PageHero';
 import { Prose } from '@/components/shared/Prose';
@@ -18,7 +18,13 @@ import NotFound from './not-found';
 export default function ExamDetail() {
   const { slug = '' } = useParams<{ slug: string }>();
   const { data: exam, isLoading, error, refetch } = useGetExam(slug);
+  const courseQuery = useGetCourse(slug);
   const notFound = error instanceof ApiError && error.status === 404;
+
+  const course = courseQuery.data;
+  const hasAccess = Boolean(course?.hasAccess);
+  const lessonCount = course?.course?.lessonCount ?? (slug === 'mrcem-primary' ? 221 : slug === 'mrcem-sba' ? 47 : 0);
+  const moduleCount = course?.modules?.length ?? (slug === 'mrcem-primary' ? 21 : slug === 'mrcem-sba' ? 5 : 0);
 
   usePageMeta(
     exam ? exam.name : 'Exam',
@@ -40,6 +46,46 @@ export default function ExamDetail() {
         <div>
           <h2 id="overview-heading">At a glance</h2>
           <ExamFacts exam={exam} />
+
+          {/* Flagship Course Integration Card */}
+          <div style={{ background: '#fff', border: '1.5px solid #dbe7f3', borderRadius: 14, padding: '24px 26px', margin: '28px 0', boxShadow: '0 8px 24px rgba(10,35,66,.04)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, marginBottom: 12 }}>
+              <span className="eyebrow" style={{ margin: 0 }}>FLAGSHIP PREPARATION COURSE</span>
+              {hasAccess && (
+                <span style={{ background: '#e6f7ec', color: '#166534', border: '1px solid #bbf7d0', borderRadius: 20, padding: '3px 12px', fontSize: '.74rem', fontWeight: 750, display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+                  <CheckCircle2 size={14} /> Subscribed &amp; Unlocked
+                </span>
+              )}
+            </div>
+            <h3 style={{ fontSize: '1.45rem', color: 'var(--navy)', margin: '0 0 8px', letterSpacing: '-.03em' }}>
+              {exam.name} Master Course
+            </h3>
+            <p style={{ color: '#586d84', fontSize: '.92rem', lineHeight: 1.65, margin: '0 0 16px' }}>
+              Study {lessonCount} high-yield lessons structured across {moduleCount} system modules. Includes concise revision notes, clinical callouts, mnemonics, and topical single-best-answer practice.
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap', color: '#62768c', fontSize: '.82rem', fontWeight: 600, marginBottom: 18 }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                <BookOpen size={16} color="var(--blue)" /> {moduleCount} Modules
+              </span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                <Clock3 size={16} color="var(--blue)" /> {lessonCount} Lessons
+              </span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                <CheckCircle2 size={16} color="var(--blue)" /> 100% RCEM Aligned
+              </span>
+            </div>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              <Link className="btn btn-primary" href={`/courses/${exam.slug}`}>
+                {hasAccess ? <><Play size={16} /> Open Course &amp; Continue Lessons</> : <><BookOpen size={16} /> View Curriculum &amp; Free Preview</>} <ArrowRight size={15} />
+              </Link>
+              {!hasAccess && (
+                <Link className="btn btn-light" href="/app/membership">
+                  <MessageCircle size={15} /> Subscribe on WhatsApp
+                </Link>
+              )}
+            </div>
+          </div>
+
           {exam.sections.length > 0 && <>
             <h2>Structure</h2>
             <div className="table-wrap" role="region" aria-label="Exam structure" tabIndex={0}>
@@ -57,10 +103,35 @@ export default function ExamDetail() {
           <Prose text={exam.content} className="exam-content" />
         </div>
         <aside className="exam-aside" aria-label="Next steps">
-          <h2>Prepare with {brand.shortName}</h2>
-          <Link className="btn btn-primary" href="/free-demo">Try the free demo <ArrowRight size={16} aria-hidden="true" /></Link>
-          <Link className="btn btn-light" href="/pricing">See plans</Link>
-          {exam.officialUrl && <a className="btn btn-light" href={exam.officialUrl} target="_blank" rel="noopener noreferrer">Official exam information <ExternalLink size={15} aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>}
+          <h2>Official Course Access</h2>
+
+          {hasAccess ? (
+            <div style={{ background: '#eef8f2', border: '1px solid #b7ebc9', borderRadius: 12, padding: '16px', marginBottom: 14 }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#15803d', fontWeight: 800, fontSize: '.84rem', marginBottom: 6 }}>
+                <CheckCircle2 size={17} /> Full Access Unlocked
+              </span>
+              <p style={{ color: '#2d6a4f', fontSize: '.82rem', margin: '0 0 12px', lineHeight: 1.5 }}>
+                Your account has active full access. Start studying the {lessonCount} lessons and question banks now.
+              </p>
+              <Link className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} href={`/courses/${exam.slug}`}>
+                <Play size={16} /> Open Course ({lessonCount} Lessons) <ArrowRight size={15} />
+              </Link>
+            </div>
+          ) : (
+            <div style={{ display: 'grid', gap: 10, marginBottom: 14 }}>
+              <Link className="btn btn-primary" href={`/courses/${exam.slug}`}>
+                <BookOpen size={16} /> Explore Course ({lessonCount} Lessons) <ArrowRight size={16} />
+              </Link>
+              <Link className="btn btn-light" href="/app/membership">
+                <MessageCircle size={15} /> Subscribe on WhatsApp <ArrowRight size={15} />
+              </Link>
+              <Link className="btn btn-ghost" href="/free-demo" style={{ border: '1px solid #dce8f5' }}>
+                <CheckCircle2 size={15} /> Try Free Sample Questions
+              </Link>
+            </div>
+          )}
+
+          {exam.officialUrl && <a className="btn btn-light" href={exam.officialUrl} target="_blank" rel="noopener noreferrer">Official RCEM information <ExternalLink size={15} aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>}
           {exam.lastReviewedAt && <p className="muted">Last reviewed {formatLongDate(exam.lastReviewedAt)}</p>}
         </aside>
       </div></section>

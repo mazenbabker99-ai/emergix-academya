@@ -88,6 +88,28 @@
   :focus-visible { outline: 3px solid #0A84FF; outline-offset: 3px; }
 }
 
+/* Skip link for accessibility - hidden until focused */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 12px 24px;
+  background: #0A84FF;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 20px;
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
 :root { --navy: #173d32; --blue: #d9684d; --pale: #f2eee4; --line: #ddd8cb; --ink-muted: #66756d; }
 .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
 .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--blue); font-size: .75rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
