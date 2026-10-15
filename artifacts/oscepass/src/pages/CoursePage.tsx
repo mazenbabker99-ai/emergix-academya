@@ -1,3 +1,4 @@
+import { useMemo, useState } from 'react';
 import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, ChevronRight, Clock3, FileAudio, FileText, Film, HelpCircle, Lock, MessageCircle, Paperclip, Play } from 'lucide-react';
 import { Link, useParams } from 'wouter';
 import { ErrorState, PageSkeleton } from '@/components/shared/DataState';
@@ -43,6 +44,35 @@ export default function CoursePage() {
   const allLessons = data.modules.flatMap((m) => m.lessons);
   const firstPreviewLesson = allLessons.find((l) => l.isFreePreview || data.hasAccess);
 
+  const isQuizModule = (m: (typeof data.modules)[number]) => {
+    const t = m.title.toLowerCase();
+    return (
+      t.includes('quiz') ||
+      t.includes('mock') ||
+      t.includes('sba') ||
+      t.includes('exam') ||
+      t.includes('test') ||
+      t.includes('simulation') ||
+      m.lessons.some((l) => l.type === 'quiz' || /quiz|mock|sba|paper|test/i.test(l.title))
+    );
+  };
+
+  const quizModules = useMemo(() => data.modules.filter(isQuizModule), [data.modules]);
+  const lectureModules = useMemo(() => data.modules.filter((m) => !isQuizModule(m)), [data.modules]);
+  const totalQuizLessons = useMemo(() => quizModules.reduce((acc, m) => acc + m.lessons.length, 0), [quizModules]);
+  const totalLectureLessons = useMemo(() => lectureModules.reduce((acc, m) => acc + m.lessons.length, 0), [lectureModules]);
+
+  const isPredominantlyQuizCourse = quizModules.length >= lectureModules.length && quizModules.length > 0;
+  const [activeTab, setActiveTab] = useState<'lessons' | 'quizzes' | 'all'>(
+    isPredominantlyQuizCourse ? 'quizzes' : 'lessons'
+  );
+
+  const displayedModules = useMemo(() => {
+    if (activeTab === 'lessons') return lectureModules;
+    if (activeTab === 'quizzes') return quizModules;
+    return data.modules;
+  }, [activeTab, lectureModules, quizModules, data.modules]);
+
   return (
     <SiteLayout>
       <main>
@@ -78,9 +108,20 @@ export default function CoursePage() {
             <h1>{data.course.title}</h1>
             {data.course.summary && <p>{data.course.summary}</p>}
             <div className="course-meta" style={{ marginTop: 20, display: 'flex', gap: 20, flexWrap: 'wrap', color: '#c5d6e8', fontSize: '.84rem' }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><BookOpen size={16} /> {data.modules.length} {data.modules.length === 1 ? 'module' : 'modules'}</span>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><Clock3 size={16} /> {allLessons.length} lessons</span>
-              {data.hasAccess && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#68d391' }}><CheckCircle2 size={16} /> Full access unlocked</span>}
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                <BookOpen size={16} /> {totalLectureLessons} Lessons
+              </span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                <HelpCircle size={16} /> {totalQuizLessons} SBA Quizzes &amp; Mocks
+              </span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                <Clock3 size={16} /> {data.modules.length} modules
+              </span>
+              {data.hasAccess && (
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#68d391' }}>
+                  <CheckCircle2 size={16} /> Full access unlocked
+                </span>
+              )}
             </div>
           </div>
         </section>
@@ -121,83 +162,238 @@ export default function CoursePage() {
 
               <Reveal>
                 <div className="section-heading" style={{ marginBottom: 20 }}>
-                  <span className="eyebrow">Curriculum</span>
-                  <h2>Course Modules and Lessons</h2>
-                  <p>Study lesson-by-lesson with clear clinical structure, mnemonics, and exam recall pearls.</p>
+                  <span className="eyebrow">Curriculum Pathways</span>
+                  <h2>Course Content & Practice</h2>
+                  <p>Study system-by-system lessons or practice topical SBA quizzes with instant feedback.</p>
                 </div>
               </Reveal>
 
-              {data.modules.length === 0 ? (
-                <p>Lessons will be added soon.</p>
+              {/* Curriculum Mode Tabs */}
+              <div
+                style={{
+                  display: 'flex',
+                  gap: 8,
+                  marginBottom: 24,
+                  flexWrap: 'wrap',
+                  borderBottom: '2px solid #e2e8f0',
+                  paddingBottom: 12,
+                }}
+                role="tablist"
+                aria-label="Course curriculum sections"
+              >
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={activeTab === 'lessons'}
+                  onClick={() => setActiveTab('lessons')}
+                  style={{
+                    padding: '9px 18px',
+                    borderRadius: '24px',
+                    border: 0,
+                    background: activeTab === 'lessons' ? '#0066cc' : '#f1f5f9',
+                    color: activeTab === 'lessons' ? '#ffffff' : '#334155',
+                    fontWeight: 700,
+                    fontSize: '.86rem',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    transition: 'all .15s ease',
+                  }}
+                >
+                  <BookOpen size={16} /> Lessons & Modules ({totalLectureLessons})
+                </button>
+
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={activeTab === 'quizzes'}
+                  onClick={() => setActiveTab('quizzes')}
+                  style={{
+                    padding: '9px 18px',
+                    borderRadius: '24px',
+                    border: 0,
+                    background: activeTab === 'quizzes' ? '#0066cc' : '#f1f5f9',
+                    color: activeTab === 'quizzes' ? '#ffffff' : '#334155',
+                    fontWeight: 700,
+                    fontSize: '.86rem',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    transition: 'all .15s ease',
+                  }}
+                >
+                  <HelpCircle size={16} /> SBA Quizzes & Mock Exams ({totalQuizLessons})
+                </button>
+
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={activeTab === 'all'}
+                  onClick={() => setActiveTab('all')}
+                  style={{
+                    padding: '9px 18px',
+                    borderRadius: '24px',
+                    border: 0,
+                    background: activeTab === 'all' ? '#0a2342' : '#f1f5f9',
+                    color: activeTab === 'all' ? '#ffffff' : '#334155',
+                    fontWeight: 600,
+                    fontSize: '.86rem',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    transition: 'all .15s ease',
+                  }}
+                >
+                  All Items ({allLessons.length})
+                </button>
+              </div>
+
+              {/* Cross-course banner if current tab is empty */}
+              {activeTab === 'quizzes' && quizModules.length === 0 && (
+                <div
+                  style={{
+                    background: '#eff6ff',
+                    border: '1px solid #bfdbfe',
+                    borderRadius: '12px',
+                    padding: '24px',
+                    marginBottom: 24,
+                    textAlign: 'center',
+                  }}
+                >
+                  <HelpCircle size={32} color="#0066cc" style={{ margin: '0 auto 10px' }} />
+                  <h3 style={{ color: '#0a2342', margin: '0 0 8px' }}>Looking for Topical SBA Quizzes & Mock Exams?</h3>
+                  <p style={{ color: '#475569', fontSize: '.92rem', maxWidth: '520px', margin: '0 auto 18px', lineHeight: 1.5 }}>
+                    The 41 Topical SBA Quizzes and 6 full mock simulation papers are organized in our flagship <strong>MRCEM SBA</strong> course.
+                  </p>
+                  <Link href="/courses/mrcem-sba" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                    Open MRCEM SBA Question Bank & Quizzes <ArrowRight size={15} />
+                  </Link>
+                </div>
+              )}
+
+              {activeTab === 'lessons' && lectureModules.length === 0 && (
+                <div
+                  style={{
+                    background: '#eff6ff',
+                    border: '1px solid #bfdbfe',
+                    borderRadius: '12px',
+                    padding: '24px',
+                    marginBottom: 24,
+                    textAlign: 'center',
+                  }}
+                >
+                  <BookOpen size={32} color="#0066cc" style={{ margin: '0 auto 10px' }} />
+                  <h3 style={{ color: '#0a2342', margin: '0 0 8px' }}>Looking for Comprehensive Revision Lectures?</h3>
+                  <p style={{ color: '#475569', fontSize: '.92rem', maxWidth: '520px', margin: '0 auto 18px', lineHeight: 1.5 }}>
+                    Comprehensive Basic Science revision topics (Anatomy, Physiology, Pathology, Pharmacology) are organized in our <strong>MRCEM Primary</strong> course.
+                  </p>
+                  <Link href="/courses/mrcem-primary" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                    Explore MRCEM Primary Lectures <ArrowRight size={15} />
+                  </Link>
+                </div>
+              )}
+
+              {displayedModules.length === 0 && activeTab === 'all' ? (
+                <p>Content will be added soon.</p>
               ) : (
-                data.modules.map((module, index) => (
-                  <details className="topic-card" key={module.id} open={index === 0}>
-                    <summary style={{ fontSize: '1.02rem' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                        <span style={{ color: 'var(--blue)', fontWeight: 800 }}>{String(index + 1).padStart(2, '0')}.</span>
-                        <span>{module.title}</span>
-                      </span>
-                      <span style={{ color: '#62768c', fontSize: '.78rem', fontWeight: 600 }}>
-                        {module.lessons.length} {module.lessons.length === 1 ? 'lesson' : 'lessons'}
-                      </span>
-                    </summary>
-                    <div className="topic-card-body">
-                      {module.lessons.length === 0 ? (
-                        <p style={{ margin: 0, color: '#7a8c9e', fontStyle: 'italic' }}>No lessons in this section yet.</p>
-                      ) : (
-                        <ul style={{ listStyle: 'none', padding: 0, margin: '6px 0 0', display: 'grid', gap: 6 }}>
-                          {module.lessons.map((lesson) => {
-                            const Icon = icons[lesson.type] || FileText;
-                            const open = data.hasAccess || lesson.isFreePreview;
-                            return (
-                              <li key={lesson.id} style={{ borderBottom: '1px solid #edf3f9', paddingBottom: 6 }}>
-                                {open ? (
-                                  <Link
-                                    href={`/courses/${data.course.slug}/lessons/${lesson.id}`}
-                                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, textDecoration: 'none', padding: '8px 10px', borderRadius: 8, transition: 'background .15s' }}
-                                    className="lesson-interactive-row"
-                                  >
-                                    <span style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'var(--navy)', fontWeight: 600, fontSize: '.92rem' }}>
-                                      <Icon size={16} color="#0874d5" />
-                                      <span>{lesson.title}</span>
-                                    </span>
-                                    <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                      {lesson.isFreePreview && (
-                                        <span style={{ background: '#e6f7ec', color: '#166534', border: '1px solid #bbf7d0', borderRadius: 12, padding: '2px 8px', fontSize: '.7rem', fontWeight: 700 }}>
-                                          Free preview
-                                        </span>
-                                      )}
-                                      {lesson.durationSeconds && (
-                                        <small style={{ color: '#718497' }}>{minutes(lesson.durationSeconds)}</small>
-                                      )}
-                                      <ChevronRight size={14} color="#0874d5" />
-                                    </span>
-                                  </Link>
-                                ) : (
-                                  <Link
-                                    href="/app/membership"
-                                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, textDecoration: 'none', padding: '8px 10px', borderRadius: 8, opacity: 0.85 }}
-                                    title="Subscribe to unlock this lesson"
-                                  >
-                                    <span style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#687e95', fontSize: '.92rem' }}>
-                                      <Lock size={15} color="#94a3b8" />
-                                      <span>{lesson.title}</span>
-                                    </span>
-                                    <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                                      <span style={{ background: '#f1f5f9', color: '#475569', borderRadius: 12, padding: '2px 8px', fontSize: '.7rem', fontWeight: 600 }}>
-                                        Locked
+                displayedModules.map((module, index) => {
+                  const isQuizSec = isQuizModule(module);
+                  return (
+                    <details className="topic-card" key={module.id} open={index === 0}>
+                      <summary style={{ fontSize: '1.02rem' }}>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                          <span style={{ color: isQuizSec ? '#0066cc' : 'var(--blue)', fontWeight: 800 }}>
+                            {String(index + 1).padStart(2, '0')}.
+                          </span>
+                          <span>{module.title}</span>
+                          {isQuizSec && (
+                            <span
+                              style={{
+                                background: '#eff6ff',
+                                color: '#0066cc',
+                                border: '1px solid #bfdbfe',
+                                borderRadius: '12px',
+                                padding: '1px 8px',
+                                fontSize: '.68rem',
+                                fontWeight: 800,
+                                textTransform: 'uppercase',
+                              }}
+                            >
+                              SBA Quiz Set
+                            </span>
+                          )}
+                        </span>
+                        <span style={{ color: '#62768c', fontSize: '.78rem', fontWeight: 600 }}>
+                          {module.lessons.length} {module.lessons.length === 1 ? (isQuizSec ? 'quiz' : 'lesson') : (isQuizSec ? 'quizzes' : 'lessons')}
+                        </span>
+                      </summary>
+                      <div className="topic-card-body">
+                        {module.lessons.length === 0 ? (
+                          <p style={{ margin: 0, color: '#7a8c9e', fontStyle: 'italic' }}>No lessons in this section yet.</p>
+                        ) : (
+                          <ul style={{ listStyle: 'none', padding: 0, margin: '6px 0 0', display: 'grid', gap: 6 }}>
+                            {module.lessons.map((lesson) => {
+                              const lessonIsQuiz = isQuizSec || lesson.type === 'quiz' || /quiz|mock|sba|paper/i.test(lesson.title);
+                              const Icon = lessonIsQuiz ? HelpCircle : icons[lesson.type] || FileText;
+                              const open = data.hasAccess || lesson.isFreePreview;
+                              return (
+                                <li key={lesson.id} style={{ borderBottom: '1px solid #edf3f9', paddingBottom: 6 }}>
+                                  {open ? (
+                                    <Link
+                                      href={`/courses/${data.course.slug}/lessons/${lesson.id}`}
+                                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, textDecoration: 'none', padding: '8px 10px', borderRadius: 8, transition: 'background .15s' }}
+                                      className="lesson-interactive-row"
+                                    >
+                                      <span style={{ display: 'flex', alignItems: 'center', gap: 10, color: 'var(--navy)', fontWeight: 600, fontSize: '.92rem' }}>
+                                        <Icon size={16} color={lessonIsQuiz ? '#0066cc' : '#0874d5'} />
+                                        <span>{lesson.title}</span>
                                       </span>
-                                    </span>
-                                  </Link>
-                                )}
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      )}
-                    </div>
-                  </details>
-                ))
+                                      <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                        {lessonIsQuiz && (
+                                          <span style={{ background: '#e0f2fe', color: '#0369a1', borderRadius: 12, padding: '2px 8px', fontSize: '.68rem', fontWeight: 700 }}>
+                                            Interactive Quiz
+                                          </span>
+                                        )}
+                                        {lesson.isFreePreview && (
+                                          <span style={{ background: '#e6f7ec', color: '#166534', border: '1px solid #bbf7d0', borderRadius: 12, padding: '2px 8px', fontSize: '.7rem', fontWeight: 700 }}>
+                                            Free preview
+                                          </span>
+                                        )}
+                                        {lesson.durationSeconds && (
+                                          <small style={{ color: '#718497' }}>{minutes(lesson.durationSeconds)}</small>
+                                        )}
+                                        <ChevronRight size={14} color="#0874d5" />
+                                      </span>
+                                    </Link>
+                                  ) : (
+                                    <Link
+                                      href="/app/membership"
+                                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, textDecoration: 'none', padding: '8px 10px', borderRadius: 8, opacity: 0.85 }}
+                                      title="Subscribe to unlock this lesson"
+                                    >
+                                      <span style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#687e95', fontSize: '.92rem' }}>
+                                        <Lock size={15} color="#94a3b8" />
+                                        <span>{lesson.title}</span>
+                                      </span>
+                                      <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                                        <span style={{ background: '#f1f5f9', color: '#475569', borderRadius: 12, padding: '2px 8px', fontSize: '.7rem', fontWeight: 600 }}>
+                                          Locked
+                                        </span>
+                                      </span>
+                                    </Link>
+                                  )}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        )}
+                      </div>
+                    </details>
+                  );
+                })
               )}
             </div>
 

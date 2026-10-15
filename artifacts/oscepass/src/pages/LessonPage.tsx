@@ -1,9 +1,12 @@
+import { useMemo } from 'react';
 import { ArrowLeft, ArrowRight, BookOpen, Clock3, Download, MessageCircle } from 'lucide-react';
 import { Link, useParams } from 'wouter';
 import { ApiError, useGetCourse, useGetLesson } from '@workspace/api-client-react';
 import { ErrorState, PageSkeleton } from '@/components/shared/DataState';
 import { Prose } from '@/components/shared/Prose';
 import { SiteLayout } from '@/components/shared/SiteLayout';
+import { InteractiveQuiz } from '@/components/quiz/InteractiveQuiz';
+import { parseSbaQuestions } from '@/components/quiz/parseQuestions';
 import { usePageMeta } from '@/lib/usePageMeta';
 
 export default function LessonPage() {
@@ -71,6 +74,14 @@ export default function LessonPage() {
   const isAudio = type === 'audio' || mime.startsWith('audio/');
   const isPdf = type === 'pdf' || mime === 'application/pdf';
 
+  const parsedQuiz = useMemo(() => {
+    if (!body) return { introText: '', questions: [] };
+    return parseSbaQuestions(body);
+  }, [body]);
+
+  const hasInteractiveQuiz = parsedQuiz.questions.length > 0;
+  const isQuiz = type === 'quiz' || hasInteractiveQuiz || /quiz|mock|sba|paper|test/i.test(title);
+
   return (
     <SiteLayout>
       <main className="section">
@@ -79,12 +90,12 @@ export default function LessonPage() {
             {back}
             {allLessons.length > 0 && currentIndex >= 0 && (
               <span style={{ fontSize: '.82rem', fontWeight: 700, color: '#64748b', background: '#f1f5f9', padding: '4px 12px', borderRadius: 20 }}>
-                Lesson {currentIndex + 1} of {allLessons.length}
+                {isQuiz ? 'Quiz' : 'Lesson'} {currentIndex + 1} of {allLessons.length}
               </span>
             )}
           </div>
 
-          <span className="eyebrow">MRCEM Primary Preparation</span>
+          <span className="eyebrow">{isQuiz ? 'MRCEM SBA Practice & Quiz Simulation' : 'MRCEM Primary Preparation'}</span>
           <h1 style={{ fontSize: '2.1rem', fontWeight: 850, letterSpacing: '-0.02em', color: '#0a2342', marginBottom: '1.2rem' }}>
             {title}
           </h1>
@@ -104,7 +115,25 @@ export default function LessonPage() {
             <p><a className="btn btn-light" href={assetUrl} target="_blank" rel="noopener noreferrer"><Download size={15} /> Open {filename}</a></p>
           )}
 
-          {body && <Prose text={body} />}
+          {/* If the lesson contains questions, render them interactively */}
+          {hasInteractiveQuiz ? (
+            <>
+              {parsedQuiz.introText && (
+                <div style={{ marginBottom: 24 }}>
+                  <Prose text={parsedQuiz.introText} />
+                </div>
+              )}
+              <InteractiveQuiz
+                quizTitle={title}
+                questions={parsedQuiz.questions}
+                nextLessonHref={nextLesson ? `/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}` : undefined}
+                nextLessonTitle={nextLesson?.title}
+              />
+            </>
+          ) : (
+            body && <Prose text={body} />
+          )}
+
           {!assetUrl && !body && <p>Content for this lesson will be added soon.</p>}
 
           {chapters.length > 0 && (

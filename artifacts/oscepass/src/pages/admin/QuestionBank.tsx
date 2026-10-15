@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type FormEvent } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { ArrowDown, ArrowUpRight, BookOpenCheck, Check, ChevronDown, CirclePlus, ExternalLink, FileText, Filter, Pencil, Plus, Search, ShieldCheck, Trash2, X } from 'lucide-react';
@@ -331,7 +331,7 @@ export default function QuestionBank() {
             <span className="qb-empty-icon"><FileText size={23} /></span>
             <h2>{search || statusFilter || examFilter ? 'No questions match these filters' : 'Start a question set'}</h2>
             <p>{search || statusFilter || examFilter ? 'Clear one or more filters, or try a different search.' : 'Create an exam question with its rationale and clinical references ready for review.'}</p>
-            {search || statusFilter || examFilter ? <button className="qb-button qb-button-outline" type="button" onClick={() => { setSearch(''); setStatusFilter(''); setExamFilter(''); setTopicFilter(''); setCursor(undefined); }}>Clear filters</button> : <button className="qb-button qb-button-primary" type="button" onClick={openNew}><Plus size={16} /> Create first question</button>}
+            {search || statusFilter || examFilter ? <button className="qb-button qb-button-outline" type="button" onClick={() => { setSearch(''); setStatusFilter(''); setExamFilter(''); setTopicFilter(''); resetListPages(); }}>Clear filters</button> : <button className="qb-button qb-button-primary" type="button" onClick={openNew}><Plus size={16} /> Create first question</button>}
           </div>
         ) : (
           <>
@@ -352,7 +352,7 @@ export default function QuestionBank() {
                 })}</tbody>
               </table>
             </div>
-            {questionsQuery.data?.nextCursor && <div className="qb-pagination"><span>Showing {questions.length} questions</span><button className="qb-button qb-button-outline" type="button" onClick={() => setCursor(questionsQuery.data?.nextCursor ?? undefined)}>Load next page <ArrowDown size={15} /></button></div>}
+            {questionsQuery.data?.nextCursor && <div className="qb-pagination"><span>Showing {questions.length} questions</span><button className="qb-button qb-button-outline" type="button" onClick={() => setPageCursors((prev) => [...prev, questionsQuery.data?.nextCursor ?? undefined])}>Load next page <ArrowDown size={15} /></button></div>}
           </>
         )}
         <footer className="qb-footer"><span>Question content stays in draft until moved through review.</span><span><i /> Secure editorial workspace</span></footer>
