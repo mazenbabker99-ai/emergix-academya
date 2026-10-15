@@ -1414,7 +1414,7 @@ export const GetCourseResponse = zod.object({
  */
 export const GetLessonParams = zod.object({
   "courseSlug": zod.coerce.string(),
-  "lessonId": zod.coerce.string().uuid()
+  "lessonId": zod.coerce.string().min(1)
 })
 
 export const GetLessonResponse = zod.object({

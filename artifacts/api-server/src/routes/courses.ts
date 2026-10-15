@@ -251,7 +251,10 @@ router.get("/courses/:courseSlug/lessons/:lessonId", requireAuth, async (req, re
     .innerJoin(modulesTable, eq(modulesTable.id, lessonsTable.moduleId))
     .where(
       and(
-        eq(lessonsTable.id, params.data.lessonId),
+        or(
+          eq(lessonsTable.id, params.data.lessonId),
+          eq(lessonsTable.slug, params.data.lessonId),
+        ),
         eq(modulesTable.courseId, course.id),
         eq(lessonsTable.status, "published"),
         isNull(lessonsTable.deletedAt),
@@ -263,6 +266,7 @@ router.get("/courses/:courseSlug/lessons/:lessonId", requireAuth, async (req, re
     sendError(res, 404, "not_found", "Lesson not found.");
     return;
   }
+
   const lesson = row.lesson;
 
   if (!lesson.isFreePreview && !(await canAccessCourse(req, course))) {
