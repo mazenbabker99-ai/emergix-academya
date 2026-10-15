@@ -6,19 +6,21 @@ import { SiteLayout } from '@/components/shared/SiteLayout';
 import { brand } from '@/config/brand';
 import { usePageMeta } from '@/lib/usePageMeta';
 
-type Topic = 'course-information' | 'osce-practice' | 'examiner-sessions' | 'student-access' | 'other';
+type Topic = 'course-information' | 'sba-questions' | 'exam-strategy' | 'student-access' | 'technical' | 'other';
 interface FormValues { name: string; email: string; topic: Topic; message: string; website: string }
 
 const topics: { value: Topic; label: string }[] = [
   { value: 'course-information', label: 'Course information' },
-  { value: 'osce-practice', label: 'OSCE practice cases' },
-  { value: 'examiner-sessions', label: 'Examiner sessions' },
-  { value: 'student-access', label: 'Student access' },
+  { value: 'sba-questions', label: 'SBA question bank' },
+  { value: 'exam-strategy', label: 'Exam strategy & preparation' },
+  { value: 'student-access', label: 'Account & course access' },
+  { value: 'technical', label: 'Technical issue' },
   { value: 'other', label: 'Other' },
 ];
 
+
 export default function Contact() {
-  usePageMeta('Contact', `Contact the ${brand.name} team about exams, courses, student access and examiner sessions.`);
+  usePageMeta('Contact', `Contact the ${brand.name} team about MRCEM courses, SBA questions, exam strategy and account access.`);
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormValues>({ defaultValues: { topic: 'course-information', website: '' } });
   const send = useSubmitContact();
   const rateLimited = send.error instanceof ApiError && send.error.status === 429;

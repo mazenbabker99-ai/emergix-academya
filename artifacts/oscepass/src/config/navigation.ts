@@ -10,30 +10,28 @@ export interface NavItem extends NavLink {
 }
 
 /**
- * Header navigation (docs/PLATFORM_PLAN.md 5.1).
- * TODO(phase 05): Question Bank -> /question-bank. TODO(phase 06): OSCE Stations -> /osce-stations.
- * Until those pages exist the links point at the closest working pages.
+ * Header navigation — MRCEM Primary & SBA focused platform.
  */
 export const primaryNav: NavItem[] = [
   { label: 'Exams', href: '/exams', menu: 'exams' },
   { label: 'Courses', href: '/courses' },
-  { label: 'Question Bank', href: '/practice' },
-  { label: 'OSCE Stations', href: '/osce-stations' },
+  { label: 'Question Bank', href: '/app/qbank' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Resources', href: '/resources', menu: 'resources' },
   { label: 'About', href: '/about' },
-  { label: 'Help', href: '/help' },
 ];
 
 export const examsMenuExtras: NavLink[] = [
   { label: 'Compare all exams', href: '/exams', description: 'Format, length and structure side by side' },
-  { label: 'Exam calendar and fees', href: '/calendar', description: 'Dates, fees and calendar export' },
+  { label: 'MRCEM Primary', href: '/exams/mrcem-primary', description: 'Basic sciences: anatomy, physiology, pathology' },
+  { label: 'MRCEM SBA', href: '/exams/mrcem-sba', description: 'Single best answer clinical reasoning exam' },
 ];
 
 export const resourcesMenu: NavLink[] = [
-  { label: 'Study resources', href: '/resources', description: 'Guides and reference material' },
+  { label: 'Study resources', href: '/resources', description: 'High-yield guides and reference material' },
   { label: 'Blog and news', href: '/blog', description: 'Study tips and platform updates' },
-  { label: 'Free demo', href: '/free-demo', description: 'Sample questions and a lesson, no account' },
+  { label: 'Free demo', href: '/free-demo', description: 'Sample SBA questions — no account required' },
+  { label: 'Contact us', href: '/contact', description: 'Get in touch with our support team' },
 ];
 
 export const legalLinks: NavLink[] = [
