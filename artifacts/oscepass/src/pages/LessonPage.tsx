@@ -7,6 +7,7 @@ import { Prose } from '@/components/shared/Prose';
 import { SiteLayout } from '@/components/shared/SiteLayout';
 import { InteractiveQuiz } from '@/components/quiz/InteractiveQuiz';
 import { parseSbaQuestions } from '@/components/quiz/parseQuestions';
+import { getLessonTopicQuiz } from '@/components/quiz/generateTopicQuiz';
 import { usePageMeta } from '@/lib/usePageMeta';
 
 export default function LessonPage() {
@@ -80,6 +81,12 @@ export default function LessonPage() {
   }, [body]);
 
   const hasInteractiveQuiz = parsedQuiz.questions.length > 0;
+
+  const topicQuizQuestions = useMemo(() => {
+    if (hasInteractiveQuiz || !title) return [];
+    return getLessonTopicQuiz(title, body || '');
+  }, [hasInteractiveQuiz, title, body]);
+
   const isQuiz = type === 'quiz' || hasInteractiveQuiz || /quiz|mock|sba|paper|test/i.test(title);
 
   return (
@@ -131,7 +138,30 @@ export default function LessonPage() {
               />
             </>
           ) : (
-            body && <Prose text={body} />
+            <>
+              {body && <Prose text={body} />}
+              {topicQuizQuestions.length > 0 && (
+                <div style={{ marginTop: 44, paddingTop: 32, borderTop: '2px dashed #cbd5e1' }}>
+                  <div style={{ marginBottom: 20 }}>
+                    <span style={{ fontSize: '.78rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#0066cc', background: '#eff6ff', padding: '4px 10px', borderRadius: 6, display: 'inline-block' }}>
+                      Interactive Assessment
+                    </span>
+                    <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#0a2342', marginTop: 10, marginBottom: 6 }}>
+                      Topic Knowledge Check: Single Best Answer Practice
+                    </h2>
+                    <p style={{ color: '#64748b', fontSize: '.92rem', margin: 0 }}>
+                      Test your understanding of the clinical concepts covered in this lesson with these high-yield MRCEM single best answer questions.
+                    </p>
+                  </div>
+                  <InteractiveQuiz
+                    quizTitle={`Knowledge Check: ${title}`}
+                    questions={topicQuizQuestions}
+                    nextLessonHref={nextLesson ? `/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}` : undefined}
+                    nextLessonTitle={nextLesson?.title}
+                  />
+                </div>
+              )}
+            </>
           )}
 
           {!assetUrl && !body && <p>Content for this lesson will be added soon.</p>}

@@ -30,20 +30,17 @@ export function parseSbaQuestions(markdown: string): {
   }
 
   // Check if text has any SBA-style options (- **A.** or similar)
-  const hasOptions = /- \*\*([A-E])\.\*\*/i.test(markdown) || /- \(([A-E])\)/i.test(markdown);
+  const hasOptions =
+    /- \*\*([A-E])\.\*\*/i.test(markdown) ||
+    /- \(([A-E])\)/i.test(markdown) ||
+    /^[A-E]\.\s+/im.test(markdown);
+
   if (!hasOptions) {
     return { introText: markdown, questions: [] };
   }
 
   // Normalize line endings
   const lines = markdown.replace(/\r\n/g, '\n').split('\n');
-
-  // Find all option indices
-  interface OptionLine {
-    lineIndex: number;
-    key: string;
-    text: string;
-  }
 
   const optionRegex = /^(?:[-*]\s+)?(?:\*\*)?([A-E])[\.)]\s*(?:\*\*)?\s*(.+)$/i;
 
@@ -71,13 +68,11 @@ export function parseSbaQuestions(markdown: string): {
           options: [{ key, text }],
         };
       } else {
-        // If this option key is sequential or continuing
         currentBlock.endIndex = i;
         currentBlock.options.push({ key, text });
       }
     } else {
       if (currentBlock) {
-        // Only accept blocks with at least 2 options (A, B, ...)
         if (currentBlock.options.length >= 2) {
           optionBlocks.push(currentBlock);
         }
@@ -95,74 +90,97 @@ export function parseSbaQuestions(markdown: string): {
   }
 
   const questions: ParsedQuestion[] = [];
-  let introEndIndex = 0;
+  let introEndIndex = -1;
 
   for (let b = 0; b < optionBlocks.length; b++) {
     const block = optionBlocks[b];
     const prevBlock = b > 0 ? optionBlocks[b - 1] : null;
 
-    // Stem is between the previous block's end (or start of doc) and this block's start
+    // The lines leading up to this option block
     const stemStart = prevBlock ? prevBlock.endIndex + 1 : 0;
     const stemLines = lines.slice(stemStart, block.startIndex);
 
-    // If this is the first question, check if there's general intro text before it
     let stem = '';
     let explanationForPrev = '';
 
     if (b === 0) {
-      // Find where intro ends and question stem begins
-      // A question stem usually begins after the intro or under a Question header
-      const qHeaderIdx = stemLines.findIndex((l) => /##\s*Question\s*\d+/i.test(l));
-      if (qHeaderIdx > 0) {
-        introEndIndex = qHeaderIdx;
-        stem = stemLines.slice(qHeaderIdx).join('\n').trim();
+      // In Question 1:
+      // Check if there is an initial header/metadata (e.g. # Quiz _ 1, > [!NOTE], etc.)
+      // The scenario text is right above the options
+      let scenarioStartIndex = 0;
+      for (let s = 0; s < stemLines.length; s++) {
+        const line = stemLines[s].trim();
+        // Skip markdown titles, badges, and percentage lines
+        if (
+          line.startsWith('#') ||
+          line.startsWith('>') ||
+          line.toLowerCase().includes('overview') ||
+          line.toLowerCase().includes('diet ii') ||
+          line.toLowerCase().includes('linkedin') ||
+          /^\d+%$/.test(line)
+        ) {
+          scenarioStartIndex = s + 1;
+        }
+      }
+
+      if (scenarioStartIndex > 0 && scenarioStartIndex < stemLines.length) {
+        introEndIndex = scenarioStartIndex;
+        stem = stemLines.slice(scenarioStartIndex).join('\n').trim();
       } else {
         stem = stemLines.join('\n').trim();
       }
     } else {
       // In between two option blocks:
-      // The first part belongs to the PREVIOUS question's explanation!
-      // The second part (leading up to this question's options) is THIS question's stem.
-      // Often separated by a "## Question X" header or a new scenario.
-      const qHeaderIdx = stemLines.findIndex((l) => /##\s*Question\s*\d+/i.test(l));
-      if (qHeaderIdx >= 0) {
-        explanationForPrev = stemLines.slice(0, qHeaderIdx).join('\n').trim();
-        stem = stemLines.slice(qHeaderIdx).join('\n').trim();
-      } else {
-        // Split roughly half or look for question mark
-        const lastQMark = stemLines.findLastIndex((l) => l.includes('?'));
-        if (lastQMark >= 0) {
-          // Look backwards a few lines for the scenario
-          const scenarioStart = Math.max(0, lastQMark - 4);
-          explanationForPrev = stemLines.slice(0, scenarioStart).join('\n').trim();
-          stem = stemLines.slice(scenarioStart).join('\n').trim();
-        } else {
-          // 60% explanation, 40% next stem
-          const splitPoint = Math.floor(stemLines.length * 0.6);
-          explanationForPrev = stemLines.slice(0, splitPoint).join('\n').trim();
-          stem = stemLines.slice(splitPoint).join('\n').trim();
+      // The text after the previous block's options starts with that question's explanation,
+      // and ends with the NEXT question's clinical stem.
+      // Search from the end backwards for question separators or question marks
+      let splitIndex = -1;
+
+      // Look backwards for "## Question X"
+      for (let s = stemLines.length - 1; s >= 0; s--) {
+        if (/##\s*Question\s*\d+/i.test(stemLines[s])) {
+          // The scenario usually begins right before or right after this header
+          // If the line before has a question mark or sentence, check
+          splitIndex = Math.max(0, s - 3);
+          break;
         }
       }
+
+      // If no question header found, find the last question mark '?'
+      if (splitIndex < 0) {
+        for (let s = stemLines.length - 1; s >= 0; s--) {
+          if (stemLines[s].includes('?')) {
+            splitIndex = Math.max(0, s - 4);
+            break;
+          }
+        }
+      }
+
+      // Fallback: 60% explanation, 40% next stem
+      if (splitIndex < 0) {
+        splitIndex = Math.floor(stemLines.length * 0.6);
+      }
+
+      explanationForPrev = stemLines.slice(0, splitIndex).join('\n').trim();
+      stem = stemLines.slice(splitIndex).join('\n').trim();
 
       if (questions.length > 0 && explanationForPrev) {
         questions[questions.length - 1].explanation = explanationForPrev;
       }
     }
 
-    // Clean up question header from stem
+    // Clean up headers like "## Question X of Y" from stem
     const cleanedStem = stem
       .replace(/##\s*Question\s*\d+\s*(?:of\s*\d+)?/gi, '')
       .replace(/^>.*$/gm, '')
       .trim();
 
-    // Clean explanation for the last block if it's the last question
     let explanation = '';
     if (b === optionBlocks.length - 1) {
       explanation = lines.slice(block.endIndex + 1).join('\n').trim();
     }
 
     // Determine correct answer
-    // 1. Look for explicit "Correct answer: X" or "Answer: X" in explanation or stem
     let correctKey = 'A';
     const answerPattern = /(?:correct\s+(?:answer|option)|answer\s*is|answer:?)\s*[:*-]?\s*([A-E])\b/i;
     const matchAns = (explanation + ' ' + cleanedStem).match(answerPattern);
@@ -170,7 +188,6 @@ export function parseSbaQuestions(markdown: string): {
     if (matchAns) {
       correctKey = matchAns[1].toUpperCase();
     } else {
-      // 2. Score each option against the explanation text
       let maxScore = 0;
       let bestKey = block.options[0]?.key || 'A';
 
@@ -192,7 +209,6 @@ export function parseSbaQuestions(markdown: string): {
           }
         }
 
-        // Exact match of full option text in explanation
         if (expLower.includes(opt.text.toLowerCase().trim())) {
           score += 10;
         }

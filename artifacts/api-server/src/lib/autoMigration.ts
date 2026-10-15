@@ -917,13 +917,34 @@ export async function runAutoMigrationsAndSeeds() {
     logger.info("Free-demo page seed completed successfully.");
 
     // Flagship Courses: MRCEM Primary (221 lessons, 21 modules) and MRCEM SBA (47 lessons, 5 modules)
-    const masterSeeds = [
-      "seed_flagship_mrcem_primary.sql",
-      "seed_flagship_mrcem_sba.sql",
-      "cleanup_courses.sql",
+    // Avoid re-executing multi-megabyte SQL seed scripts on every reboot if already populated.
+    let primaryLessonCount = 0;
+    let sbaLessonCount = 0;
+    try {
+      const primaryRes = await pool.query(
+        `SELECT count(*)::int as c FROM "lessons" l JOIN "modules" m ON m."id" = l."module_id" JOIN "courses" c ON c."id" = m."course_id" WHERE c."slug" = 'mrcem-primary' AND l."deleted_at" IS NULL`
+      );
+      primaryLessonCount = primaryRes.rows[0]?.c ?? 0;
+
+      const sbaRes = await pool.query(
+        `SELECT count(*)::int as c FROM "lessons" l JOIN "modules" m ON m."id" = l."module_id" JOIN "courses" c ON c."id" = m."course_id" WHERE c."slug" = 'mrcem-sba' AND l."deleted_at" IS NULL`
+      );
+      sbaLessonCount = sbaRes.rows[0]?.c ?? 0;
+    } catch {
+      // If query fails, proceed cautiously
+    }
+
+    const masterSeeds: { file: string; shouldRun: boolean }[] = [
+      { file: "seed_flagship_mrcem_primary.sql", shouldRun: primaryLessonCount < 100 },
+      { file: "seed_flagship_mrcem_sba.sql", shouldRun: sbaLessonCount < 30 },
+      { file: "cleanup_courses.sql", shouldRun: true },
     ];
 
-    for (const seedFile of masterSeeds) {
+    for (const { file: seedFile, shouldRun } of masterSeeds) {
+      if (!shouldRun) {
+        logger.info(`Curriculum seed ${seedFile} already populated (Primary: ${primaryLessonCount}, SBA: ${sbaLessonCount}). Skipping to accelerate startup.`);
+        continue;
+      }
       const resolved = findMigrationFile(seedFile);
       if (resolved) {
         logger.info(`Running master curriculum seed: ${seedFile}...`);

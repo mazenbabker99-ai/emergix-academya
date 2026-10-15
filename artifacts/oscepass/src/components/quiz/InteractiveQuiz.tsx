@@ -53,16 +53,22 @@ export function InteractiveQuiz({
     return () => clearInterval(interval);
   }, [isSubmitted]);
 
-  const currentQ = questions[currentIndex];
-  const totalQuestions = questions.length;
+  const totalQuestions = questions ? questions.length : 0;
+  const safeIndex = Math.max(0, Math.min(currentIndex, Math.max(0, totalQuestions - 1)));
+  const currentQ = questions && questions[safeIndex] ? questions[safeIndex] : null;
 
   // Score statistics
   const scoreStats = useMemo(() => {
+    if (!questions || questions.length === 0) {
+      return { correct: 0, incorrect: 0, unanswered: 0, total: 0, percentage: 0, isPassed: false };
+    }
+
     let correct = 0;
     let incorrect = 0;
     let unanswered = 0;
 
     questions.forEach((q, idx) => {
+      if (!q) return;
       const selected = selectedAnswers[idx];
       if (!selected) {
         unanswered++;
@@ -96,7 +102,7 @@ export function InteractiveQuiz({
     if (isSubmitted && mode === 'exam') return;
     setSelectedAnswers((prev) => ({
       ...prev,
-      [currentIndex]: key,
+      [safeIndex]: key,
     }));
   };
 
@@ -128,7 +134,7 @@ export function InteractiveQuiz({
     setElapsedSeconds(0);
   };
 
-  if (questions.length === 0) {
+  if (!questions || questions.length === 0 || !currentQ) {
     return null;
   }
 
@@ -136,6 +142,7 @@ export function InteractiveQuiz({
   const filteredQuestions = questions
     .map((q, idx) => ({ q, idx }))
     .filter(({ q, idx }) => {
+      if (!q) return false;
       if (reviewFilter === 'incorrect') {
         const sel = selectedAnswers[idx];
         return sel && sel !== q.correctKey;
@@ -372,10 +379,12 @@ export function InteractiveQuiz({
             ) : (
               filteredQuestions.map(({ q, idx }) => {
                 const userChoice = selectedAnswers[idx];
-                const isCorrect = userChoice === q.correctKey;
+                const isItemCorrect = userChoice === q.correctKey;
+                const opts = q.options || [];
+
                 return (
                   <article
-                    key={q.id}
+                    key={q.id || `res-${idx}`}
                     style={{
                       border: '1px solid #e2e8f0',
                       borderRadius: '12px',
@@ -393,15 +402,15 @@ export function InteractiveQuiz({
                           fontWeight: 700,
                           padding: '3px 10px',
                           borderRadius: '12px',
-                          background: isCorrect ? '#dcfce7' : '#fee2e2',
-                          color: isCorrect ? '#15803d' : '#b91c1c',
+                          background: isItemCorrect ? '#dcfce7' : '#fee2e2',
+                          color: isItemCorrect ? '#15803d' : '#b91c1c',
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: 4,
                         }}
                       >
-                        {isCorrect ? <Check size={13} /> : <X size={13} />}
-                        {isCorrect ? 'Correct' : userChoice ? 'Incorrect' : 'Unanswered'}
+                        {isItemCorrect ? <Check size={13} /> : <X size={13} />}
+                        {isItemCorrect ? 'Correct' : userChoice ? 'Incorrect' : 'Unanswered'}
                       </span>
                     </div>
 
@@ -411,7 +420,7 @@ export function InteractiveQuiz({
 
                     {/* Options list */}
                     <div style={{ display: 'grid', gap: 8, marginBottom: 16 }}>
-                      {q.options.map((opt) => {
+                      {opts.map((opt) => {
                         const isChosen = userChoice === opt.key;
                         const isRight = opt.key === q.correctKey;
                         let border = '#e2e8f0';
@@ -492,10 +501,11 @@ export function InteractiveQuiz({
   }
 
   // ACTIVE INTERACTIVE QUESTION SOLVER VIEW
-  const selectedKey = selectedAnswers[currentIndex];
+  const selectedKey = selectedAnswers[safeIndex];
   const isAnswered = selectedKey !== undefined;
-  const isCorrect = selectedKey === currentQ.correctKey;
-  const isFlagged = flaggedQuestions.has(currentIndex);
+  const isCurrentCorrect = selectedKey === currentQ.correctKey;
+  const isFlagged = flaggedQuestions.has(safeIndex);
+  const currentOptions = currentQ.options || [];
 
   return (
     <div className="interactive-quiz-container" style={{ margin: '28px 0 45px' }}>
@@ -526,7 +536,7 @@ export function InteractiveQuiz({
               MRCEM SBA
             </span>
             <span style={{ fontSize: '.92rem', fontWeight: 700, color: '#f1f5f9' }}>
-              Question {currentIndex + 1} of {totalQuestions}
+              Question {safeIndex + 1} of {totalQuestions}
             </span>
           </div>
 
@@ -592,7 +602,7 @@ export function InteractiveQuiz({
             {/* Flag question */}
             <button
               type="button"
-              onClick={() => toggleFlag(currentIndex)}
+              onClick={() => toggleFlag(safeIndex)}
               style={{
                 border: 0,
                 background: isFlagged ? '#f59e0b' : 'rgba(255,255,255,0.15)',
@@ -619,7 +629,7 @@ export function InteractiveQuiz({
             style={{
               height: '100%',
               background: '#0066cc',
-              width: `${Math.round(((currentIndex + 1) / totalQuestions) * 100)}%`,
+              width: `${Math.round(((safeIndex + 1) / totalQuestions) * 100)}%`,
               transition: 'width .2s ease',
             }}
           />
@@ -643,7 +653,7 @@ export function InteractiveQuiz({
 
           {/* Options (A, B, C, D, E) */}
           <div style={{ display: 'grid', gap: 10, marginBottom: 28 }} role="radiogroup">
-            {currentQ.options.map((opt) => {
+            {currentOptions.map((opt) => {
               const isSelected = selectedKey === opt.key;
               const isRight = opt.key === currentQ.correctKey;
               const showTutorResult = mode === 'tutor' && isAnswered;
@@ -733,8 +743,8 @@ export function InteractiveQuiz({
                 marginTop: 20,
                 padding: '20px 22px',
                 borderRadius: '12px',
-                background: isCorrect ? '#f0fdf4' : '#fff7ed',
-                border: isCorrect ? '1px solid #86efac' : '1px solid #fdba74',
+                background: isCurrentCorrect ? '#f0fdf4' : '#fff7ed',
+                border: isCurrentCorrect ? '1px solid #86efac' : '1px solid #fdba74',
                 color: '#1f2937',
               }}
             >
@@ -745,12 +755,12 @@ export function InteractiveQuiz({
                   gap: 8,
                   fontSize: '.94rem',
                   fontWeight: 800,
-                  color: isCorrect ? '#15803d' : '#c2410c',
+                  color: isCurrentCorrect ? '#15803d' : '#c2410c',
                   marginBottom: 8,
                 }}
               >
-                {isCorrect ? <CheckCircle2 size={19} /> : <AlertCircle size={19} />}
-                {isCorrect ? 'Correct Answer! Outstanding' : `Incorrect. The correct answer is Option ${currentQ.correctKey}`}
+                {isCurrentCorrect ? <CheckCircle2 size={19} /> : <AlertCircle size={19} />}
+                {isCurrentCorrect ? 'Correct Answer! Outstanding' : `Incorrect. The correct answer is Option ${currentQ.correctKey}`}
               </div>
 
               {currentQ.explanation && (
@@ -773,14 +783,14 @@ export function InteractiveQuiz({
               gap: 16,
             }}
           >
-            {/* Quick jump circles */}
+            {/* Quick jump circles (render up to 30 nicely, or current range) */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
               <span style={{ fontSize: '.76rem', fontWeight: 700, color: '#64748b', marginRight: 4 }}>
-                Questions:
+                Questions ({totalQuestions}):
               </span>
-              {questions.map((_, i) => {
+              {questions.slice(0, 30).map((_, i) => {
                 const answered = selectedAnswers[i] !== undefined;
-                const isCur = i === currentIndex;
+                const isCur = i === safeIndex;
                 const flagged = flaggedQuestions.has(i);
 
                 let bg = '#f1f5f9';
@@ -833,6 +843,11 @@ export function InteractiveQuiz({
                   </button>
                 );
               })}
+              {totalQuestions > 30 && (
+                <span style={{ fontSize: '.75rem', color: '#64748b', fontWeight: 600 }}>
+                  +{totalQuestions - 30} more
+                </span>
+              )}
             </div>
 
             {/* Bottom buttons: Prev, Next, Submit */}
@@ -848,13 +863,13 @@ export function InteractiveQuiz({
               <button
                 type="button"
                 onClick={() => setCurrentIndex((c) => Math.max(0, c - 1))}
-                disabled={currentIndex === 0}
+                disabled={safeIndex === 0}
                 className="btn btn-outline"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 6,
-                  opacity: currentIndex === 0 ? 0.4 : 1,
+                  opacity: safeIndex === 0 ? 0.4 : 1,
                   fontSize: '.85rem',
                 }}
               >
@@ -862,7 +877,7 @@ export function InteractiveQuiz({
               </button>
 
               <div style={{ display: 'flex', gap: 10 }}>
-                {currentIndex < totalQuestions - 1 ? (
+                {safeIndex < totalQuestions - 1 ? (
                   <button
                     type="button"
                     onClick={() => setCurrentIndex((c) => Math.min(totalQuestions - 1, c + 1))}
