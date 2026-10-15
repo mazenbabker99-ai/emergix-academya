@@ -1,5 +1,38 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="180" height="180" rx="36" fill="#173d32"/>
-  <path d="M62 42h58v18H83v17h34v18H83v17h39v18H62z" fill="#f7f5ef"/>
-  <rect x="62" y="132" width="60" height="7" rx="3.5" fill="#d9684d"/>
+  <defs>
+    <linearGradient id="emg-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071A32"/>
+      <stop offset="50%" stop-color="#0A2342"/>
+      <stop offset="100%" stop-color="#0F3868"/>
+    </linearGradient>
+    <linearGradient id="emg-shield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066CC"/>
+      <stop offset="100%" stop-color="#0A2342"/>
+    </linearGradient>
+    <linearGradient id="emg-pulse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0066CC"/>
+    </linearGradient>
+    <filter id="emg-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0066CC" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Background Rounded Canvas -->
+  <rect width="180" height="180" rx="42" fill="url(#emg-bg)"/>
+  <rect x="2" y="2" width="176" height="176" rx="40" stroke="rgba(56, 189, 248, 0.25)" stroke-width="2"/>
+
+  <!-- Clinical Shield with Soft Shadow -->
+  <g filter="url(#emg-glow)">
+    <path d="M90 28L40 48.5V90C40 126 65 149 90 156C115 149 140 126 140 90V48.5L90 28Z" fill="url(#emg-shield)" stroke="#38BDF8" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Subtle Emergency Cross Structure -->
+  <path d="M90 56V124M56 90H124" stroke="rgba(255, 255, 255, 0.18)" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Dynamic ECG / Pulse Wave across center -->
+  <path d="M50 90H74L82 66L95 114L105 78L113 90H130" stroke="url(#emg-pulse)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Academic Excellence Star -->
+  <circle cx="90" cy="52" r="5" fill="#38BDF8"/>
 </svg>
