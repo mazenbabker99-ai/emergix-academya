@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { ArrowRight, BookOpen, CheckCircle2, Clock3, Download, ExternalLink, MessageCircle, Play } from 'lucide-react';
+import { ArrowRight, BookOpen, CheckCircle2, Clock3, Download, ExternalLink, HelpCircle, MessageCircle, Play } from 'lucide-react';
 import { Link, useParams } from 'wouter';
 import { ApiError, useGetCourse, useGetExam } from '@workspace/api-client-react';
 import { EmptyState, ErrorState, PageSkeleton } from '@/components/shared/DataState';
@@ -75,8 +75,14 @@ export default function ExamDetail() {
               </span>
             </div>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <Link className="btn btn-primary" href={`/courses/${exam.slug}`}>
-                {hasAccess ? <><Play size={16} /> Open Course &amp; Continue Lessons</> : <><BookOpen size={16} /> View Curriculum &amp; Free Preview</>} <ArrowRight size={15} />
+              <Link className="btn btn-primary" href={exam.slug === 'mrcem-sba' ? '/question-bank' : `/courses/${exam.slug}`}>
+                {exam.slug === 'mrcem-sba' ? (
+                  <><HelpCircle size={16} /> Open SBA Question Bank &amp; Mocks</>
+                ) : hasAccess ? (
+                  <><Play size={16} /> Open Course &amp; Continue Lessons</>
+                ) : (
+                  <><BookOpen size={16} /> View Curriculum &amp; Free Preview</>
+                )} <ArrowRight size={15} />
               </Link>
               {!hasAccess && (
                 <Link className="btn btn-light" href="/app/membership">

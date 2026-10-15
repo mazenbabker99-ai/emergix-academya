@@ -15,7 +15,7 @@ export interface NavItem extends NavLink {
 export const primaryNav: NavItem[] = [
   { label: 'Exams', href: '/exams', menu: 'exams' },
   { label: 'Courses', href: '/courses' },
-  { label: 'Question Bank', href: '/app/qbank' },
+  { label: 'Question Bank', href: '/question-bank' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Resources', href: '/resources', menu: 'resources' },
   { label: 'About', href: '/about' },

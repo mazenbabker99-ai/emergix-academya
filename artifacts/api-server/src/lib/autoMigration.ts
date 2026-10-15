@@ -964,8 +964,22 @@ export async function runAutoMigrationsAndSeeds() {
       CROSS JOIN "courses" c
       WHERE p.family_key = 'whatsapp-manual' AND c.status = 'published' AND c.deleted_at IS NULL
       ON CONFLICT ("plan_id", "course_id") DO NOTHING;
+
+      INSERT INTO "course_entitlements" ("id", "user_id", "course_id", "plan_id", "starts_at", "ends_at")
+      SELECT gen_random_uuid(), s.user_id, pc.course_id, s.plan_id, now(), now() + interval '5 years'
+      FROM "subscriptions" s
+      JOIN "plan_courses" pc ON pc.plan_id = s.plan_id
+      WHERE s.status = 'active'
+      ON CONFLICT DO NOTHING;
+
+      INSERT INTO "course_entitlements" ("id", "user_id", "course_id", "starts_at", "ends_at")
+      SELECT gen_random_uuid(), e.user_id, c.id, now(), now() + interval '5 years'
+      FROM "entitlements" e
+      CROSS JOIN "courses" c
+      WHERE (e.revoked_at IS NULL) AND (e.ends_at IS NULL OR e.ends_at > now()) AND c.status = 'published' AND c.deleted_at IS NULL
+      ON CONFLICT DO NOTHING;
     `);
-    logger.info("All published courses synced to WhatsApp membership plan.");
+    logger.info("All published courses synced to WhatsApp membership plan and active subscribers.");
   } catch (err) {
     logger.error({ err }, "Auto-migration or seed encountered an error (continuing startup)");
   }

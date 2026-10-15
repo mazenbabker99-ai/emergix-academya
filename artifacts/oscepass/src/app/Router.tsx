@@ -38,6 +38,7 @@ const OsceStationPreview = lazy(() => import('@/features/osce/pages/OsceStationP
 const OsceStationPrint = lazy(() => import('@/features/osce/pages/OsceStationPrint'));
 const Practice = lazy(() => import('@/pages/Practice'));
 const Pricing = lazy(() => import('@/pages/Pricing'));
+const QuestionBankPage = lazy(() => import('@/pages/QuestionBankPage'));
 const QbankHome = lazy(() => import('@/features/qbank/pages').then((module) => ({ default: module.QbankHome })));
 const NewQbankSession = lazy(() => import('@/features/qbank/pages').then((module) => ({ default: module.NewQbankSession })));
 const QbankSession = lazy(() => import('@/features/qbank/pages').then((module) => ({ default: module.QbankSession })));
@@ -79,6 +80,8 @@ export function Router() {
     <Route path="/courses" component={Courses} />
     <Route path="/courses/:slug/lessons/:lessonId"><RequireAuth><LessonPage /></RequireAuth></Route>
     <Route path="/courses/:slug" component={CoursePage} />
+    <Route path="/question-bank" component={QuestionBankPage} />
+    <Route path="/qbank"><Redirect to="/question-bank" replace /></Route>
     <Route path="/practice" component={Practice} />
     <Route path="/resources" component={Resources} />
     <Route path="/about" component={About} />

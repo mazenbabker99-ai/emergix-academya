@@ -15,6 +15,8 @@ import {
   lessonsTable,
   mediaAssetsTable,
   modulesTable,
+  planCoursesTable,
+  subscriptionsTable,
 } from "@workspace/db";
 import { and, asc, count, eq, gt, inArray, isNull, lte, or } from "drizzle-orm";
 import { Router, type IRouter, type Request } from "express";
@@ -109,13 +111,15 @@ async function loadOutline(courseId: string) {
   }));
 }
 
-/** Free courses, admins, or current entitlements for the exam linked to the course. */
+/** Free courses, admins, active subscribers, or current entitlements for the exam/course. */
 async function canAccessCourse(req: Request, course: CourseRow) {
   if (req.auth && hasPermission(req.auth.user.role, "admin:access")) return true;
   if (course.isFree) return true;
   if (!req.auth) return false;
 
   const now = new Date();
+
+  // 1. Direct course entitlement
   const [courseGrant] = await db
     .select({ id: courseEntitlementsTable.id })
     .from(courseEntitlementsTable)
@@ -130,8 +134,38 @@ async function canAccessCourse(req: Request, course: CourseRow) {
     )
     .limit(1);
   if (courseGrant) return true;
+
+  // 2. Active plan subscription containing this course
+  const [activePlanSub] = await db
+    .select({ id: subscriptionsTable.id })
+    .from(subscriptionsTable)
+    .innerJoin(planCoursesTable, eq(planCoursesTable.planId, subscriptionsTable.planId))
+    .where(
+      and(
+        eq(subscriptionsTable.userId, req.auth.user.id),
+        eq(planCoursesTable.courseId, course.id),
+        eq(subscriptionsTable.status, "active"),
+      ),
+    )
+    .limit(1);
+  if (activePlanSub) return true;
+
+  // 3. Any active platform subscription (All-access / WhatsApp manual bundle)
+  const [anyActiveSub] = await db
+    .select({ id: subscriptionsTable.id })
+    .from(subscriptionsTable)
+    .where(
+      and(
+        eq(subscriptionsTable.userId, req.auth.user.id),
+        eq(subscriptionsTable.status, "active"),
+      ),
+    )
+    .limit(1);
+  if (anyActiveSub) return true;
+
   if (!course.examId) return false;
 
+  // 4. Exam-wide entitlement
   const [entitlement] = await db
     .select({ id: entitlementsTable.id })
     .from(entitlementsTable)

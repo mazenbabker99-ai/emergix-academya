@@ -68,6 +68,8 @@ export default function LessonPage() {
   }
 
   const { title, type, body, chapters, captions } = lesson.data;
+  const captionsList = Array.isArray(captions) ? captions : [];
+  const chaptersList = Array.isArray(chapters) ? chapters : [];
   const assetUrl = lesson.data.assetUrl ?? null;
   const mime = lesson.data.assetMimeType ?? '';
   const filename = lesson.data.assetFilename || 'lesson file';
@@ -110,7 +112,7 @@ export default function LessonPage() {
           {assetUrl && isVideo && (
             <video className="lesson-player" controls controlsList="nodownload" playsInline preload="metadata">
               <source src={assetUrl} type={mime || undefined} />
-              {captions.map((caption, index) => (
+              {captionsList.map((caption, index) => (
                 <track key={`${caption.lang}-${index}`} kind="captions" src={caption.url} srcLang={caption.lang} label={caption.lang} default={index === 0} />
               ))}
               Your browser does not support embedded video.
@@ -166,10 +168,10 @@ export default function LessonPage() {
 
           {!assetUrl && !body && <p>Content for this lesson will be added soon.</p>}
 
-          {chapters.length > 0 && (
+          {chaptersList.length > 0 && (
             <section className="lesson-chapters" aria-label="Lesson chapters">
               <h2>Chapters</h2>
-              <ul>{chapters.map((chapter, index) => <li key={`${chapter.at}-${index}`}>{chapter.title}</li>)}</ul>
+              <ul>{chaptersList.map((chapter, index) => <li key={`${chapter.at}-${index}`}>{chapter.title}</li>)}</ul>
             </section>
           )}
 

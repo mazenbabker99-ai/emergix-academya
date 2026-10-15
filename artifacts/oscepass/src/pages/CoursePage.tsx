@@ -168,130 +168,118 @@ export default function CoursePage() {
                 </div>
               </Reveal>
 
-              {/* Curriculum Mode Tabs */}
-              <div
-                style={{
-                  display: 'flex',
-                  gap: 8,
-                  marginBottom: 24,
-                  flexWrap: 'wrap',
-                  borderBottom: '2px solid #e2e8f0',
-                  paddingBottom: 12,
-                }}
-                role="tablist"
-                aria-label="Course curriculum sections"
-              >
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={activeTab === 'lessons'}
-                  onClick={() => setActiveTab('lessons')}
-                  style={{
-                    padding: '9px 18px',
-                    borderRadius: '24px',
-                    border: 0,
-                    background: activeTab === 'lessons' ? '#0066cc' : '#f1f5f9',
-                    color: activeTab === 'lessons' ? '#ffffff' : '#334155',
-                    fontWeight: 700,
-                    fontSize: '.86rem',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 8,
-                    transition: 'all .15s ease',
-                  }}
-                >
-                  <BookOpen size={16} /> Lessons & Modules ({totalLectureLessons})
-                </button>
-
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={activeTab === 'quizzes'}
-                  onClick={() => setActiveTab('quizzes')}
-                  style={{
-                    padding: '9px 18px',
-                    borderRadius: '24px',
-                    border: 0,
-                    background: activeTab === 'quizzes' ? '#0066cc' : '#f1f5f9',
-                    color: activeTab === 'quizzes' ? '#ffffff' : '#334155',
-                    fontWeight: 700,
-                    fontSize: '.86rem',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 8,
-                    transition: 'all .15s ease',
-                  }}
-                >
-                  <HelpCircle size={16} /> SBA Quizzes & Mock Exams ({totalQuizLessons})
-                </button>
-
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={activeTab === 'all'}
-                  onClick={() => setActiveTab('all')}
-                  style={{
-                    padding: '9px 18px',
-                    borderRadius: '24px',
-                    border: 0,
-                    background: activeTab === 'all' ? '#0a2342' : '#f1f5f9',
-                    color: activeTab === 'all' ? '#ffffff' : '#334155',
-                    fontWeight: 600,
-                    fontSize: '.86rem',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: 8,
-                    transition: 'all .15s ease',
-                  }}
-                >
-                  All Items ({allLessons.length})
-                </button>
-              </div>
-
-              {/* Cross-course banner if current tab is empty */}
-              {activeTab === 'quizzes' && quizModules.length === 0 && (
+              {/* Curriculum Mode Tabs — Only show if the course actually mixes lectures and quizzes */}
+              {quizModules.length > 0 && lectureModules.length > 0 && (
                 <div
                   style={{
-                    background: '#eff6ff',
-                    border: '1px solid #bfdbfe',
-                    borderRadius: '12px',
-                    padding: '24px',
+                    display: 'flex',
+                    gap: 8,
                     marginBottom: 24,
-                    textAlign: 'center',
+                    flexWrap: 'wrap',
+                    borderBottom: '2px solid #e2e8f0',
+                    paddingBottom: 12,
                   }}
+                  role="tablist"
+                  aria-label="Course curriculum sections"
                 >
-                  <HelpCircle size={32} color="#0066cc" style={{ margin: '0 auto 10px' }} />
-                  <h3 style={{ color: '#0a2342', margin: '0 0 8px' }}>Looking for Topical SBA Quizzes & Mock Exams?</h3>
-                  <p style={{ color: '#475569', fontSize: '.92rem', maxWidth: '520px', margin: '0 auto 18px', lineHeight: 1.5 }}>
-                    The 41 Topical SBA Quizzes and 6 full mock simulation papers are organized in our flagship <strong>MRCEM SBA</strong> course.
-                  </p>
-                  <Link href="/courses/mrcem-sba" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-                    Open MRCEM SBA Question Bank & Quizzes <ArrowRight size={15} />
-                  </Link>
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={activeTab === 'lessons'}
+                    onClick={() => setActiveTab('lessons')}
+                    style={{
+                      padding: '9px 18px',
+                      borderRadius: '24px',
+                      border: 0,
+                      background: activeTab === 'lessons' ? '#0066cc' : '#f1f5f9',
+                      color: activeTab === 'lessons' ? '#ffffff' : '#334155',
+                      fontWeight: 700,
+                      fontSize: '.86rem',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      transition: 'all .15s ease',
+                    }}
+                  >
+                    <BookOpen size={16} /> Lessons & Modules ({totalLectureLessons})
+                  </button>
+
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={activeTab === 'quizzes'}
+                    onClick={() => setActiveTab('quizzes')}
+                    style={{
+                      padding: '9px 18px',
+                      borderRadius: '24px',
+                      border: 0,
+                      background: activeTab === 'quizzes' ? '#0066cc' : '#f1f5f9',
+                      color: activeTab === 'quizzes' ? '#ffffff' : '#334155',
+                      fontWeight: 700,
+                      fontSize: '.86rem',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      transition: 'all .15s ease',
+                    }}
+                  >
+                    <HelpCircle size={16} /> SBA Quizzes & Mock Exams ({totalQuizLessons})
+                  </button>
+
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={activeTab === 'all'}
+                    onClick={() => setActiveTab('all')}
+                    style={{
+                      padding: '9px 18px',
+                      borderRadius: '24px',
+                      border: 0,
+                      background: activeTab === 'all' ? '#0a2342' : '#f1f5f9',
+                      color: activeTab === 'all' ? '#ffffff' : '#334155',
+                      fontWeight: 600,
+                      fontSize: '.86rem',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      transition: 'all .15s ease',
+                    }}
+                  >
+                    All Items ({allLessons.length})
+                  </button>
                 </div>
               )}
 
-              {activeTab === 'lessons' && lectureModules.length === 0 && (
+              {/* Question Bank spotlight banner for lecture courses */}
+              {quizModules.length === 0 && (
                 <div
                   style={{
                     background: '#eff6ff',
                     border: '1px solid #bfdbfe',
                     borderRadius: '12px',
-                    padding: '24px',
+                    padding: '20px 24px',
                     marginBottom: 24,
-                    textAlign: 'center',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: 16,
                   }}
                 >
-                  <BookOpen size={32} color="#0066cc" style={{ margin: '0 auto 10px' }} />
-                  <h3 style={{ color: '#0a2342', margin: '0 0 8px' }}>Looking for Comprehensive Revision Lectures?</h3>
-                  <p style={{ color: '#475569', fontSize: '.92rem', maxWidth: '520px', margin: '0 auto 18px', lineHeight: 1.5 }}>
-                    Comprehensive Basic Science revision topics (Anatomy, Physiology, Pathology, Pharmacology) are organized in our <strong>MRCEM Primary</strong> course.
-                  </p>
-                  <Link href="/courses/mrcem-primary" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-                    Explore MRCEM Primary Lectures <ArrowRight size={15} />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                    <HelpCircle size={28} color="#0066cc" />
+                    <div>
+                      <strong style={{ color: '#0a2342', fontSize: '.95rem' }}>Looking for Single Best Answer Practice?</strong>
+                      <p style={{ color: '#475569', fontSize: '.86rem', margin: '2px 0 0' }}>
+                        All 41 topical quizzes and 6 full mock exam papers are in the dedicated Question Bank.
+                      </p>
+                    </div>
+                  </div>
+                  <Link href="/question-bank" className="btn btn-outline" style={{ fontSize: '.84rem', borderColor: '#0066cc', color: '#0066cc', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                    Open Question Bank <ArrowRight size={14} />
                   </Link>
                 </div>
               )}

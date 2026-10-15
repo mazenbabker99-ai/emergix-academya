@@ -501,6 +501,10 @@ export function InteractiveQuiz({
   }
 
   // ACTIVE INTERACTIVE QUESTION SOLVER VIEW
+  if (!currentQ) {
+    return null;
+  }
+
   const selectedKey = selectedAnswers[safeIndex];
   const isAnswered = selectedKey !== undefined;
   const isCurrentCorrect = selectedKey === currentQ.correctKey;
