@@ -829,6 +829,54 @@ FROM "exams" e
 WHERE c."slug" = 'mrcem-sba' AND e."slug" = 'mrcem-sba';
 `;
 
+const FREE_DEMO_DATA = {
+  questions: [
+    {
+      id: "demo-q1",
+      stem: "A 28-year-old male sustains a stab wound to the axilla. On examination, he has marked weakness of forearm flexion and loss of sensation over the lateral aspect of the forearm. Which nerve has most likely been injured?",
+      options: [
+        { key: "A", text: "Median nerve", rationale: "Innervates most forearm flexors and thenar muscles, but forearm flexion is primarily biceps/brachialis." },
+        { key: "B", text: "Musculocutaneous nerve", rationale: "Innervates biceps brachii and brachialis (primary forearm flexors) and terminates as the lateral cutaneous nerve of the forearm." },
+        { key: "C", text: "Radial nerve", rationale: "Innervates triceps and forearm extensors; injury causes wrist drop." },
+        { key: "D", text: "Ulnar nerve", rationale: "Innervates FCU, medial FDP, and intrinsic hand muscles; injury causes claw hand." },
+        { key: "E", text: "Axillary nerve", rationale: "Innervates deltoid and teres minor; sensory loss over regimental badge." }
+      ],
+      correct: "B",
+      keyPoint: "Musculocutaneous nerve (C5-C7) supplies biceps brachii and brachialis, continuing as the lateral cutaneous nerve of the forearm."
+    },
+    {
+      id: "demo-q2",
+      stem: "A 22-year-old female presents to the Emergency Department 6 hours after ingesting 20 grams of paracetamol. Her serum paracetamol concentration is well above the treatment line on the nomogram. Which agent is the specific antidote of choice?",
+      options: [
+        { key: "A", text: "Naloxone", rationale: "Opioid receptor antagonist, not indicated for paracetamol hepatotoxicity." },
+        { key: "B", text: "N-acetylcysteine (NAC)", rationale: "Replenishes hepatocellular glutathione stores to detoxify toxic NAPQI." },
+        { key: "C", text: "Atropine", rationale: "Antimuscarinic used for organophosphate poisoning and symptomatic bradycardia." },
+        { key: "D", text: "Flumazenil", rationale: "Benzodiazepine antagonist, carries risk of inducing refractory seizures." },
+        { key: "E", text: "Deferoxamine", rationale: "Iron chelator, not indicated for paracetamol ingestion." }
+      ],
+      correct: "B",
+      keyPoint: "N-acetylcysteine (NAC) restores glutathione stores, preventing toxic NAPQI-induced centrilobular hepatic necrosis."
+    },
+    {
+      id: "demo-q3",
+      stem: "In a healthy adult subject, increasing ventricular end-diastolic volume directly increases stroke volume during the subsequent contraction. What cellular mechanism accounts for this Frank-Starling response?",
+      options: [
+        { key: "A", text: "Increased resting membrane potential", rationale: "Resting membrane potential changes do not mediate length-dependent inotropy." },
+        { key: "B", text: "Optimized actin-myosin overlap and increased troponin C calcium sensitivity", rationale: "Myocardial stretch brings cross-bridges into optimal spacing and increases troponin C affinity for calcium." },
+        { key: "C", text: "Direct beta-1 adrenergic phosphorylation", rationale: "Beta-1 stimulation increases contractility via cAMP, but Frank-Starling is an intrinsic myogenic property." },
+        { key: "D", text: "Decreased sarcoplasmic reticulum calcium release", rationale: "Decreased calcium release would decrease rather than augment contractile force." },
+        { key: "E", text: "Inhibition of the Na+/K+ ATPase pump", rationale: "This describes digitalis glycoside action, not Starling's law." }
+      ],
+      correct: "B",
+      keyPoint: "The Frank-Starling mechanism relies on length-dependent activation: myofilament stretch optimizes actin-myosin overlap and enhances troponin C affinity for calcium."
+    }
+  ],
+  lesson: {
+    title: "High-Yield Summary: Anatomy of the Cubital Fossa",
+    body: "### Boundaries and Contents of the Cubital Fossa\n\nThe cubital fossa is a triangular depression on the anterior aspect of the elbow.\n\n#### Boundaries\n- **Superior:** Imaginary horizontal line connecting the medial and lateral epicondyles of the humerus.\n- **Medial:** Lateral border of the pronator teres muscle.\n- **Lateral:** Medial border of the brachioradialis muscle.\n- **Floor:** Brachialis (proximally) and supinator (distally).\n- **Roof:** Skin, superficial fascia containing the median cubital vein, bicipital aponeurosis, and deep fascia.\n\n#### Contents (From Medial to Lateral: M-B-B-R)\n1. **Median Nerve:** Leaves the fossa between the two heads of pronator teres.\n2. **Brachial Artery:** Bifurcates into radial and ulnar arteries at the apex of the fossa.\n3. **Biceps Brachii Tendon:** Inserts into the radial tuberosity; lateral to the brachial artery.\n4. **Radial Nerve:** Lies deep in the groove between brachialis and brachioradialis.\n\n> [!TIP]\n> **Examiner Pearl:** The bicipital aponeurosis separates the superficial median cubital vein from the deep brachial artery, protecting the artery during venipuncture."
+  }
+};
+
 const FREE_DEMO_PAGE_SQL = `
 INSERT INTO "pages" ("id", "slug", "title", "body", "kind", "data", "status", "created_at", "updated_at")
 VALUES (
@@ -837,53 +885,7 @@ VALUES (
   'MRCEM Primary Free Demo',
   'Sample high-yield MRCEM Primary questions and high-yield revision lesson.',
   'demo',
-  $json${
-    "questions": [
-      {
-        "id": "demo-q1",
-        "stem": "A 28-year-old male sustains a stab wound to the axilla. On examination, he has marked weakness of forearm flexion and loss of sensation over the lateral aspect of the forearm. Which nerve has most likely been injured?",
-        "options": [
-          { "key": "A", "text": "Median nerve", "rationale": "Innervates most forearm flexors and thenar muscles, but forearm flexion is primarily biceps/brachialis." },
-          { "key": "B", "text": "Musculocutaneous nerve", "rationale": "Innervates biceps brachii and brachialis (primary forearm flexors) and terminates as the lateral cutaneous nerve of the forearm." },
-          { "key": "C", "text": "Radial nerve", "rationale": "Innervates triceps and forearm extensors; injury causes wrist drop." },
-          { "key": "D", "text": "Ulnar nerve", "rationale": "Innervates FCU, medial FDP, and intrinsic hand muscles; injury causes claw hand." },
-          { "key": "E", "text": "Axillary nerve", "rationale": "Innervates deltoid and teres minor; sensory loss over regimental badge." }
-        ],
-        "correct": "B",
-        "keyPoint": "Musculocutaneous nerve (C5-C7) supplies biceps brachii and brachialis, continuing as the lateral cutaneous nerve of the forearm."
-      },
-      {
-        "id": "demo-q2",
-        "stem": "A 22-year-old female presents to the Emergency Department 6 hours after ingesting 20 grams of paracetamol. Her serum paracetamol concentration is well above the treatment line on the nomogram. Which agent is the specific antidote of choice?",
-        "options": [
-          { "key": "A", "text": "Naloxone", "rationale": "Opioid receptor antagonist, not indicated for paracetamol hepatotoxicity." },
-          { "key": "B", "text": "N-acetylcysteine (NAC)", "rationale": "Replenishes hepatocellular glutathione stores to detoxify toxic NAPQI." },
-          { "key": "C", "text": "Atropine", "rationale": "Antimuscarinic used for organophosphate poisoning and symptomatic bradycardia." },
-          { "key": "D", "text": "Flumazenil", "rationale": "Benzodiazepine antagonist, carries risk of inducing refractory seizures." },
-          { "key": "E", "text": "Deferoxamine", "rationale": "Iron chelator, not indicated for paracetamol ingestion." }
-        ],
-        "correct": "B",
-        "keyPoint": "N-acetylcysteine (NAC) restores glutathione stores, preventing toxic NAPQI-induced centrilobular hepatic necrosis."
-      },
-      {
-        "id": "demo-q3",
-        "stem": "In a healthy adult subject, increasing ventricular end-diastolic volume directly increases stroke volume during the subsequent contraction. What cellular mechanism accounts for this Frank-Starling response?",
-        "options": [
-          { "key": "A", "text": "Increased resting membrane potential", "rationale": "Resting membrane potential changes do not mediate length-dependent inotropy." },
-          { "key": "B", "text": "Optimized actin-myosin overlap and increased troponin C calcium sensitivity", "rationale": "Myocardial stretch brings cross-bridges into optimal spacing and increases troponin C affinity for calcium." },
-          { "key": "C", "text": "Direct beta-1 adrenergic phosphorylation", "rationale": "Beta-1 stimulation increases contractility via cAMP, but Frank-Starling is an intrinsic myogenic property." },
-          { "key": "D", "text": "Decreased sarcoplasmic reticulum calcium release", "rationale": "Decreased calcium release would decrease rather than augment contractile force." },
-          { "key": "E", "text": "Inhibition of the Na+/K+ ATPase pump", "rationale": "This describes digitalis glycoside action, not Starling's law." }
-        ],
-        "correct": "B",
-        "keyPoint": "The Frank-Starling mechanism relies on length-dependent activation: myofilament stretch optimizes actin-myosin overlap and enhances troponin C affinity for calcium."
-      }
-    ],
-    "lesson": {
-      "title": "High-Yield Summary: Anatomy of the Cubital Fossa",
-      "body": "### Boundaries and Contents of the Cubital Fossa\\n\\nThe cubital fossa is a triangular depression on the anterior aspect of the elbow.\\n\\n#### Boundaries\\n- **Superior:** Imaginary horizontal line connecting the medial and lateral epicondyles of the humerus.\\n- **Medial:** Lateral border of the pronator teres muscle.\\n- **Lateral:** Medial border of the brachioradialis muscle.\\n- **Floor:** Brachialis (proximally) and supinator (distally).\\n- **Roof:** Skin, superficial fascia containing the median cubital vein, bicipital aponeurosis, and deep fascia.\\n\\n#### Contents (From Medial to Lateral: M-B-B-R)\\n1. **Median Nerve:** Leaves the fossa between the two heads of pronator teres.\\n2. **Brachial Artery:** Bifurcates into radial and ulnar arteries at the apex of the fossa.\\n3. **Biceps Brachii Tendon:** Inserts into the radial tuberosity; lateral to the brachial artery.\\n4. **Radial Nerve:** Lies deep in the groove between brachialis and brachioradialis.\\n\\n> [!TIP]\\n> **Examiner Pearl:** The bicipital aponeurosis separates the superficial median cubital vein from the deep brachial artery, protecting the artery during venipuncture."
-    }
-  }$json$::jsonb,
+  $1::jsonb,
   'published',
   now(),
   now()
@@ -911,7 +913,7 @@ export async function runAutoMigrationsAndSeeds() {
     logger.info("Base course & lesson seed completed successfully.");
 
     logger.info("Ensuring free-demo page data...");
-    await pool.query(FREE_DEMO_PAGE_SQL);
+    await pool.query(FREE_DEMO_PAGE_SQL, [JSON.stringify(FREE_DEMO_DATA)]);
     logger.info("Free-demo page seed completed successfully.");
 
     // Flagship Courses: MRCEM Primary (221 lessons, 21 modules) and MRCEM SBA (47 lessons, 5 modules)
