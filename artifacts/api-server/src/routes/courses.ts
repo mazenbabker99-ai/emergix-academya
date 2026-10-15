@@ -245,16 +245,20 @@ router.get("/courses/:courseSlug/lessons/:lessonId", requireAuth, async (req, re
     return;
   }
 
+  // PostgreSQL cannot cast a non-UUID string to the uuid type, even inside an OR.
+  // Only compare against the id (uuid) column when the input actually looks like a UUID.
+  const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  const lessonLookup = UUID_RE.test(params.data.lessonId)
+    ? or(eq(lessonsTable.id, params.data.lessonId), eq(lessonsTable.slug, params.data.lessonId))
+    : eq(lessonsTable.slug, params.data.lessonId);
+
   const [row] = await db
     .select({ lesson: lessonsTable })
     .from(lessonsTable)
     .innerJoin(modulesTable, eq(modulesTable.id, lessonsTable.moduleId))
     .where(
       and(
-        or(
-          eq(lessonsTable.id, params.data.lessonId),
-          eq(lessonsTable.slug, params.data.lessonId),
-        ),
+        lessonLookup,
         eq(modulesTable.courseId, course.id),
         eq(lessonsTable.status, "published"),
         isNull(lessonsTable.deletedAt),
