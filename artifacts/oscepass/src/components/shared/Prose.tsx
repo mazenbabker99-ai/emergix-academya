@@ -94,6 +94,54 @@ export function Prose({ text, className = '' }: { text: string; className?: stri
                 {renderInline(block.inline)}
               </blockquote>
             );
+          case 'image':
+            return (
+              <figure key={i} style={{ margin: '28px 0', textAlign: 'center' }}>
+                <div
+                  style={{
+                    maxWidth: '100%',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    border: '1px solid #e2e8f0',
+                    boxShadow: '0 4px 20px rgba(10, 35, 66, 0.08)',
+                    background: '#ffffff',
+                    display: 'inline-block',
+                    padding: '8px',
+                  }}
+                >
+                  <img
+                    src={block.src}
+                    alt={block.alt || 'Clinical Illustration'}
+                    loading="lazy"
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      maxHeight: '580px',
+                      objectFit: 'contain',
+                      margin: '0 auto',
+                      borderRadius: '8px',
+                    }}
+                  />
+                </div>
+                {block.caption && (
+                  <figcaption
+                    style={{
+                      marginTop: '10px',
+                      fontSize: '0.86rem',
+                      color: '#475569',
+                      fontWeight: 600,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '6px',
+                    }}
+                  >
+                    <span>📷</span> {block.caption}
+                  </figcaption>
+                )}
+              </figure>
+            );
           case 'callout': {
             const style = calloutStyles[block.variant] || calloutStyles.tip;
             const Icon = style.Icon;

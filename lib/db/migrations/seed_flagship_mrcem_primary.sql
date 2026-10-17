@@ -1,5 +1,6 @@
 -- ==========================================================================
--- FLAGSHIP COURSE: MRCEM Primary
+-- COURSE SEED: MRCEM Primary: Complete Flagship Masterclass
+-- Generated with 100% full curriculum text & embedded clinical illustrations
 -- ==========================================================================
 DO $$
 DECLARE
@@ -22,9 +23,9 @@ BEGIN
       gen_random_uuid(),
       v_exam_id,
       'mrcem-primary',
-      'MRCEM Primary',
-      'Comprehensive preparation covering clinical anatomy, applied physiology, emergency pharmacology, pathology, and microbiology.',
-      'Master the complete basic sciences curriculum for the Royal College of Emergency Medicine (RCEM) Primary examination. Features high-yield clinical pearls, anatomical dissection landmarks, systemic physiology, emergency pharmacokinetics, and microbial classifications organized into 21 high-yield topics.',
+      'MRCEM Primary: Complete Flagship Masterclass',
+      'Comprehensive basic sciences curriculum covering clinical anatomy, applied physiology, emergency pharmacology, pathology, and microbiology.',
+      'The complete flagship preparation course for the Royal College of Emergency Medicine (RCEM) Primary examination. Includes all 21 core curriculum modules, 221 detailed lecture notes, 269 embedded anatomical and clinical figures, and interactive topic knowledge checks.',
       false,
       1,
       'published',
@@ -33,10 +34,10 @@ BEGIN
     ) RETURNING "id" INTO v_course_id;
   ELSE
     UPDATE "courses" SET
-      "title" = 'MRCEM Primary',
+      "title" = 'MRCEM Primary: Complete Flagship Masterclass',
       "exam_id" = COALESCE(v_exam_id, "exam_id"),
-      "summary" = 'Comprehensive preparation covering clinical anatomy, applied physiology, emergency pharmacology, pathology, and microbiology.',
-      "description" = 'Master the complete basic sciences curriculum for the Royal College of Emergency Medicine (RCEM) Primary examination. Features high-yield clinical pearls, anatomical dissection landmarks, systemic physiology, emergency pharmacokinetics, and microbial classifications organized into 21 high-yield topics.',
+      "summary" = 'Comprehensive basic sciences curriculum covering clinical anatomy, applied physiology, emergency pharmacology, pathology, and microbiology.',
+      "description" = 'The complete flagship preparation course for the Royal College of Emergency Medicine (RCEM) Primary examination. Includes all 21 core curriculum modules, 221 detailed lecture notes, 269 embedded anatomical and clinical figures, and interactive topic knowledge checks.',
       "position" = 1,
       "status" = 'published',
       "deleted_at" = NULL,
@@ -44,7 +45,9 @@ BEGIN
     WHERE "id" = v_course_id;
   END IF;
 
-  -- Module 1: Upper Limb Anatomy
+  -- ==========================================================================
+  -- Module 1: Upper Limb Anatomy (8 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Upper Limb Anatomy' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -54,7 +57,7 @@ BEGIN
     UPDATE "modules" SET "position" = 0, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Arterial Supply of Upper Limb
+  -- Lesson: Arterial Supply of Upper Limb (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -101,10 +104,7 @@ major, the brachial artery gives rise to the profunda brachii
 groove of the humerus and supplies structures in the
 posterior aspect of the upper arm (e.g., triceps brachii).
 
-Diet ii Late 2026)
 Overview  Comments
-
-1/4
 
 ### 4: Superior ulnar collateral artery, which follows the ulnar
 
@@ -148,7 +148,6 @@ called Volkmann''s ischemic contracture.
 Guyon''s or Ulnar canal: The ulnar (Guyon''s) canal is a fibro-
 osseous tunnel located at the level of the palm. The ulnar canal
 
-2/4
 conveys the ulnar neurovascular bundle into the hand.
 Contents: Ulnar nerve, ulnar artery and Venae comitantes of
 ulnar artery
@@ -178,10 +177,7 @@ metacarpal bone. It is formed as a continuation of the radial
 artery, and it terminates by anastomosing with the deep
 branch of the ulnar artery.
 Blood supply: Blood supply to digits and wrist joint.
-Previous Next
-
-3/4
-4/4',
+Previous Next',
     true,
     0,
     'published',
@@ -193,9 +189,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Innervation of Upper Limb
+  -- Lesson: Innervation of Upper Limb (13 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -247,10 +244,7 @@ Posterior cord: Posterior union of all three trunks
 
 ### 5: Branches:
 
-Diet ii Late 2026)
 Overview  Comments
-
-1/9
 
 ## Branches Of Lateral Cord   "Lml"
 
@@ -290,7 +284,9 @@ plexus (C3, C4 ) gives sensory innervation to upper half of
 deltoid.
 Anatomical course:
 
-2/9
+![Innervation of Upper Limb - Clinical Figure 1](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_01_p2.png)
+*Innervation of Upper Limb — Clinical Figure 1 (Page 2 Reference)*
+
 Axillary nerve arises in the axilla passes medially to the surgical
 neck of the humerus, where it divides into three terminal
 branches:
@@ -326,7 +322,9 @@ nerve enters the anterior compartment of the forearm via the
 cubital fossa
 Branches of Median Nerve in the Forearm
 
-3/9
+![Innervation of Upper Limb - Clinical Figure 2](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_02_p3.png)
+*Innervation of Upper Limb — Clinical Figure 2 (Page 3 Reference)*
+
 Branches of Median Nerve in the Hand
 After giving off the anterior interosseous and palmar cutaneous
 branches, the median nerve enters the hand via the carpal
@@ -352,7 +350,15 @@ Radial Nerve:
 The radial nerve is the terminal continuation of the posterior
 cord of the brachial plexus
 
-4/9
+![Innervation of Upper Limb - Clinical Figure 3](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_03_p4.png)
+*Innervation of Upper Limb — Clinical Figure 3 (Page 4 Reference)*
+
+![Innervation of Upper Limb - Clinical Figure 4](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_04_p4.png)
+*Innervation of Upper Limb — Clinical Figure 4 (Page 4 Reference)*
+
+![Innervation of Upper Limb - Clinical Figure 5](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_05_p4.png)
+*Innervation of Upper Limb — Clinical Figure 5 (Page 4 Reference)*
+
 Radial nerve arises from the posterior cord and the largest
 branch of the brachial plexus.
 The nerve arises in the axilla region, where it is situated
@@ -387,14 +393,15 @@ skin down the middle of the posterior forearm.
 > Radial nerve injury:
 > Wrist Drop:
 
-> 5/9
-> Injury to the radial nerve is commonly caused by a fracture of
-> the midshaft of the humerus. Radial nerve injury results in loss
-> of function in the extensors of the forearm, hand, metacarpals,
-> and phalanges. It also results in the loss of wrist extension,
-> leading to wrist drop, and produces weakness of abduction and
-> adduction of the hand.
+![Innervation of Upper Limb - Clinical Figure 6](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_06_p5.png)
+*Innervation of Upper Limb — Clinical Figure 6 (Page 5 Reference)*
 
+Injury to the radial nerve is commonly caused by a fracture of
+the midshaft of the humerus. Radial nerve injury results in loss
+of function in the extensors of the forearm, hand, metacarpals,
+and phalanges. It also results in the loss of wrist extension,
+leading to wrist drop, and produces weakness of abduction and
+adduction of the hand.
 Note: When the radial nerve is injured in proximal humerus
 fracture triceps brachii muscle will be affected and patient
 presents with unable to extend at the forearm. While midshaft
@@ -411,7 +418,12 @@ descends together with the superior ulnar collateral branch
 of the brachial artery. It then Descends behind the medial
 epicondyle in a tunnel (cubital tunnel), where it is readily
 
-6/9
+![Innervation of Upper Limb - Clinical Figure 7](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_07_p6.png)
+*Innervation of Upper Limb — Clinical Figure 7 (Page 6 Reference)*
+
+![Innervation of Upper Limb - Clinical Figure 8](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_08_p6.png)
+*Innervation of Upper Limb — Clinical Figure 8 (Page 6 Reference)*
+
 palpated and most commonly injured. It may be damaged
 by a fracture of the medial epicondyle. When irritated, it
 causes funny bone symptoms of pain, numbness, and
@@ -446,7 +458,12 @@ joints.
 Partial claw hand deformity is due to an isolated ulnar nerve
 injury.
 
-7/9
+![Innervation of Upper Limb - Clinical Figure 9](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_09_p7.png)
+*Innervation of Upper Limb — Clinical Figure 9 (Page 7 Reference)*
+
+![Innervation of Upper Limb - Clinical Figure 10](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_10_p7.png)
+*Innervation of Upper Limb — Clinical Figure 10 (Page 7 Reference)*
+
 Complete claw hand deformity: Involves all digits and results
 from combined ulnar and median nerve injury.
 Ulnar nerve injury at elbow and wrist:
@@ -456,7 +473,12 @@ Musculocutaneous Nerve:
 The musculocutaneous nerve is the terminal branch of the
 lateral cord of the brachial plexus.
 
-8/9
+![Innervation of Upper Limb - Clinical Figure 11](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_11_p8.png)
+*Innervation of Upper Limb — Clinical Figure 11 (Page 8 Reference)*
+
+![Innervation of Upper Limb - Clinical Figure 12](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_12_p8.png)
+*Innervation of Upper Limb — Clinical Figure 12 (Page 8 Reference)*
+
 Anatomical Course:
 Musculocutaneous nerve (C5-C7) Pierces the coracobrachialis
 muscle and descends between the biceps and brachialis
@@ -477,7 +499,8 @@ lateral cutaneous nerve of forearm.
 
 Previous Next
 
-9/9',
+![Innervation of Upper Limb - Clinical Figure 13](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_13_p9.png)
+*Innervation of Upper Limb — Clinical Figure 13 (Page 9 Reference)*',
     false,
     1,
     'published',
@@ -489,9 +512,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Joints of the Upper Limb
+  -- Lesson: Joints of the Upper Limb (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -517,10 +541,8 @@ Collectively, the conoid and trapezoid ligaments are known as
 the coracoclavicular ligament. It is the strongest ligament
 and suspends weight of the upper limb
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/8
 Acromioclavicular joint dislocation
 A severe blow on the point of the shoulder, as is incurred
 during blocking or tackling in football or any severe fall,
@@ -535,7 +557,9 @@ Type: Synovial typed Saddle joint
 Sternoclavicular joint is formed between the clavicle,
 manubrium of the sternum and the first costal cartilage.
 
-2/8
+![Joints of the Upper Limb - Clinical Figure 1](/lessons/images/upper-limb-anatomy/joints-of-the-upper-limb/figure_01_p2.png)
+*Joints of the Upper Limb — Clinical Figure 1 (Page 2 Reference)*
+
 Ligaments of Sternoclavicular Joint
 Sternoclavicular ligaments (anterior and posterior)
 strengthen the joint anteriorly and posteriorly.
@@ -577,7 +601,6 @@ ulna
 > Complications: The ulnar collateral ligament is usually torn
 > and there can also be ulnar nerve involvement.
 
-3/8
 Radioulnar joints (Pronator and
 supinator of the forearm)
 Type: Pivot typed synovial joint
@@ -600,7 +623,6 @@ usually torn and there can also be ulnar nerve involvement
 The ulnar collateral ligament is usually torn and there can
 also be ulnar nerve involvement.
 
-4/8
 Wrist joint
 Type: Synovial condyloid joint
 Formed between the distal end of the radius and the articular
@@ -623,7 +645,9 @@ Radial collateral: Runs from the radial styloid process to the
 scaphoid and trapezium. It acts to prevent excessive ulnar
 (medial) deviation of the hand.
 
-5/8
+![Joints of the Upper Limb - Clinical Figure 2](/lessons/images/upper-limb-anatomy/joints-of-the-upper-limb/figure_02_p5.png)
+*Joints of the Upper Limb — Clinical Figure 2 (Page 5 Reference)*
+
 Movements of the wrist joint: Wrist joint allow for movement
 along two axes. This means that flexion, extension, adduction
 and abduction can all occur at the wrist joint
@@ -663,7 +687,6 @@ head.
 Stability of the shoulder joint:
 Rotator cuff muscles [SITS MUSCLES]
 
-6/8
 Glenoid labrum: A fibrocartilaginous ridge surrounding the
 glenoid cavity.
 Ligaments: Extra Capsular ligaments form the
@@ -688,7 +711,9 @@ arm
 
 Humeral head often palpated anteriorly.
 
-7/8
+![Joints of the Upper Limb - Clinical Figure 3](/lessons/images/upper-limb-anatomy/joints-of-the-upper-limb/figure_03_p7.png)
+*Joints of the Upper Limb — Clinical Figure 3 (Page 7 Reference)*
+
 Patient cannot touch contralateral shoulder with hand of
 affected extremity.
 Complications of anterior shoulder dislocation:
@@ -707,9 +732,7 @@ Fracture of posterior glenoid labrum
 Fracture of humeral shaft or lesser tuberosity
 Note: Light bulb sign on the X-ray is the diagnostic feature of
 posterior shoulder dislocation
-Previous Next
-
-8/8',
+Previous Next',
     false,
     2,
     'published',
@@ -721,9 +744,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Lymphatic Drainage of Upper Limb
+  -- Lesson: Lymphatic Drainage of Upper Limb (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -768,10 +792,8 @@ from breast tissue.
 Axillary nodes (75%): Receives lymphatic drainage from lateral
 and superior quadrant of breast.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 parasternal nodes (20%): Receives lymphatic drainage from
 medial quadrant.
 Note: Breast cancer in axillary tail of breast most commonly
@@ -784,9 +806,7 @@ involved lymph node is axillary
 > there is also a risk of damage to either of the long thoracic
 > nerve or the thoracodorsal nerve causing winged scapula.
 
-Previous Next
-
-2/2',
+Previous Next',
     false,
     3,
     'published',
@@ -798,9 +818,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Muscles of the Upper Limb
+  -- Lesson: Muscles of the Upper Limb (15 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -820,10 +841,17 @@ Anterior Forearm muscles deep compartment:
 Key Point: All the muscles of anterior forearm are innervated
 by median nerve except flexor carpi ulnaris and medial half of
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/10
+![Muscles of the Upper Limb - Clinical Figure 1](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_01_p1.png)
+*Muscles of the Upper Limb — Clinical Figure 1 (Page 1 Reference)*
+
+![Muscles of the Upper Limb - Clinical Figure 2](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_02_p1.png)
+*Muscles of the Upper Limb — Clinical Figure 2 (Page 1 Reference)*
+
+![Muscles of the Upper Limb - Clinical Figure 3](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_03_p1.png)
+*Muscles of the Upper Limb — Clinical Figure 3 (Page 1 Reference)*
+
 flexor digitorum profundus innervated by ulnar nerve.
 Digital attachment of flexor muscles
 of forearm:
@@ -839,7 +867,12 @@ at shoulder joint.
 Innervation: Radial nerve
 Muscles of posterior forearm
 
-2/10
+![Muscles of the Upper Limb - Clinical Figure 4](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_04_p2.png)
+*Muscles of the Upper Limb — Clinical Figure 4 (Page 2 Reference)*
+
+![Muscles of the Upper Limb - Clinical Figure 5](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_05_p2.png)
+*Muscles of the Upper Limb — Clinical Figure 5 (Page 2 Reference)*
+
 The muscles in the posterior compartment of the forearm are
 commonly known as the extensor muscles.
 Extensor muscles are divided into superficial and deep
@@ -870,7 +903,12 @@ not fully developed in terms of strength, and thus, the radial
 head can slip out of position.
 Muscles of the hand:
 
-3/10
+![Muscles of the Upper Limb - Clinical Figure 6](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_06_p3.png)
+*Muscles of the Upper Limb — Clinical Figure 6 (Page 3 Reference)*
+
+![Muscles of the Upper Limb - Clinical Figure 7](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_07_p3.png)
+*Muscles of the Upper Limb — Clinical Figure 7 (Page 3 Reference)*
+
 Thenar muscles:
 Three short muscles located in the base of the thumb. All are
 innervated by median nerve.
@@ -893,9 +931,13 @@ Flexion at the MCP joint and extension at the interphalangeal
 > **Clinical pearls:**
 > Denervation of these muscles is the basis of claw hand and
 
-> 4/10
-> hand of benediction.
+![Muscles of the Upper Limb - Clinical Figure 8](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_08_p4.png)
+*Muscles of the Upper Limb — Clinical Figure 8 (Page 4 Reference)*
 
+![Muscles of the Upper Limb - Clinical Figure 9](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_09_p4.png)
+*Muscles of the Upper Limb — Clinical Figure 9 (Page 4 Reference)*
+
+hand of benediction.
 Interossei muscles: Located between the metacarpals of the
 hand. Divided into Dorsal and palmar Interossei
 All the interossei muscles are innervated by ulnar nerve.
@@ -915,7 +957,8 @@ Superficial: Trapezius and Latissimus dorsi
 Deep: Levator Scapulae, Rhomboid minor and Rhomboid
 major
 
-5/10
+![Muscles of the Upper Limb - Clinical Figure 10](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_10_p5.png)
+*Muscles of the Upper Limb — Clinical Figure 10 (Page 5 Reference)*
 
 > [!TIP]
 > **Clinical pearl: Ask the patient to shrug his/her shoulder if**
@@ -929,7 +972,12 @@ the four rotator cuff muscles (supraspinatus, infraspinatus,
 subscapularis and teres minor).
 Note: All the rotator cuff muscles (SITS) are lateral rotators of
 
-6/10
+![Muscles of the Upper Limb - Clinical Figure 11](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_11_p6.png)
+*Muscles of the Upper Limb — Clinical Figure 11 (Page 6 Reference)*
+
+![Muscles of the Upper Limb - Clinical Figure 12](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_12_p6.png)
+*Muscles of the Upper Limb — Clinical Figure 12 (Page 6 Reference)*
+
 arm except "S" Subscapularis
 
 > [!TIP]
@@ -942,7 +990,12 @@ Supraspinatus is the most commonly injured rotator
 cuff muscle.
 Muscles of pectoral region:
 
-7/10
+![Muscles of the Upper Limb - Clinical Figure 13](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_13_p7.png)
+*Muscles of the Upper Limb — Clinical Figure 13 (Page 7 Reference)*
+
+![Muscles of the Upper Limb - Clinical Figure 14](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_14_p7.png)
+*Muscles of the Upper Limb — Clinical Figure 14 (Page 7 Reference)*
+
 Pectoralis Major: large fan shaped and most superficial muscle
 of the pectoral region.
 Origin:
@@ -970,8 +1023,6 @@ Function: holds the scapula against the ribcage and assist in
 protraction and rotation of scapula
 Innervation: Long thoracic nerve
 
-8/10
-
 > [!TIP]
 > **Clinical pearl:**
 > winging of scapula: Scapula no longer held against the rib
@@ -985,8 +1036,8 @@ Function: Anchors and depresses clavicle
 Innervation: Nerve to subclavius.
 Previous Next
 
-9/10
-10/10',
+![Muscles of the Upper Limb - Clinical Figure 15](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_15_p9.png)
+*Muscles of the Upper Limb — Clinical Figure 15 (Page 9 Reference)*',
     false,
     4,
     'published',
@@ -998,9 +1049,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Upper Limb Dermatomes, Myotomes and Reflexes
+  -- Lesson: Upper Limb Dermatomes, Myotomes and Reflexes (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1021,13 +1073,18 @@ Myotome: Group of muscles innervated by a single spinal
 nerve
 Reflexes of upper Limb:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Upper Limb Dermatomes, Myotomes and Reflexes - Clinical Figure 1](/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_01_p1.png)
+*Upper Limb Dermatomes, Myotomes and Reflexes — Clinical Figure 1 (Page 1 Reference)*
+
+![Upper Limb Dermatomes, Myotomes and Reflexes - Clinical Figure 2](/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_02_p1.png)
+*Upper Limb Dermatomes, Myotomes and Reflexes — Clinical Figure 2 (Page 1 Reference)*
+
 Previous Next
 
-2/2',
+![Upper Limb Dermatomes, Myotomes and Reflexes - Clinical Figure 3](/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_03_p2.png)
+*Upper Limb Dermatomes, Myotomes and Reflexes — Clinical Figure 3 (Page 2 Reference)*',
     false,
     5,
     'published',
@@ -1039,9 +1096,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Upper Limb Other Important Structures
+  -- Lesson: Upper Limb Other Important Structures (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1069,10 +1127,13 @@ is a triangular depression found on the lateral aspect of the
 dorsum of the hand. It is best seen when the thumb is
 extended.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
+![Upper Limb Other Important Structures - Clinical Figure 1](/lessons/images/upper-limb-anatomy/upper-limb-other-important-structures/figure_01_p1.png)
+*Upper Limb Other Important Structures — Clinical Figure 1 (Page 1 Reference)*
+
+![Upper Limb Other Important Structures - Clinical Figure 2](/lessons/images/upper-limb-anatomy/upper-limb-other-important-structures/figure_02_p1.png)
+*Upper Limb Other Important Structures — Clinical Figure 2 (Page 1 Reference)*
 
 > [!TIP]
 > **Clinical Pearl:**
@@ -1116,7 +1177,6 @@ the flexor pollicis longus and the median nerve pass into the
 hand posterior to the flexor retinaculum, within the carpal
 tunnel.
 
-2/4
 Extensor Retinaculum:
 The extensor retinaculum lies obliquely across the extensor
 surface of the wrist joint, thickened part of the antecubital
@@ -1159,7 +1219,6 @@ pain, swelling, and difficulty moving a joint. Rupture of the
 tendon sheath (puncture injury of the palm) may cause the
 spread of infection to the mid-palmar space and to the carpal
 
-3/4
 tunnel. Likewise, tenosynovitis in the thumb may spread to the
 radial bursa and in the little finger to the ulnar bursa.
 Note: Infection in the middle three fingers is usually contained
@@ -1196,9 +1255,7 @@ trunk injury and, occasionally, Horner syndrome because of
 sympathetic ganglion compression (ptosis, anhidrosis, and
 pupillary constriction). It can also cause thoracic outlet
 syndrome.
-Previous Next
-
-4/4',
+Previous Next',
     false,
     6,
     'published',
@@ -1210,9 +1267,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Venous Drainage of Upper Limb
+  -- Lesson: Venous Drainage of Upper Limb (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1256,11 +1314,7 @@ of the axillary artery. Continues as the subclavian vein at the
 inferior margin of the first rib.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-2/2',
+Overview  Comments',
     false,
     7,
     'published',
@@ -1272,9 +1326,12 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 2: Lower Limb Anatomy
+  -- ==========================================================================
+  -- Module 2: Lower Limb Anatomy (9 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Lower Limb Anatomy' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -1284,7 +1341,7 @@ Overview  Comments
     UPDATE "modules" SET "position" = 1, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Arterial Supply of Lower Limb
+  -- Lesson: Arterial Supply of Lower Limb (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1328,10 +1385,8 @@ medial, and posterior fascial compartments of the thigh.
 Popliteal artery is a continuation of femoral artery. It extends
 from the opening in the adductor magnus to the lower border
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 of popliteus muscle, where it divides into anterior and posterior
 tibial arteries.
 Anterior Tibial Artery:
@@ -1369,7 +1424,6 @@ Femoral artery: This enters the thigh behind the inguinal
 ligament at a point midway between the anterior superior
 iliac spine and the symphysis pubis.
 
-2/3
 Popliteal artery: This artery can be felt by gentle palpation in
 the depths of the popliteal space, provided that the deep
 fascia is fully relaxed by passively flexing the knee joint.
@@ -1382,9 +1436,7 @@ malleolus, beneath the flexor retinaculum, and lies between
 the tendons of flexor digitorum longus and the flexor hallucis
 longus. The pulsations of the artery can be felt midway
 between the medial malleolus and the heel.
-Previous Next
-
-3/3',
+Previous Next',
     true,
     0,
     'published',
@@ -1396,9 +1448,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Bones of the Lower Limb
+  -- Lesson: Bones of the Lower Limb (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1438,10 +1491,8 @@ Pubic symphysis Is a cartilaginous or fibrocartilaginous joint
 between the pubic bones in the median plane.
 Sacrotuberous and sacrospinous ligaments:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
 Patella:
 Patella is largest sesamoid bone lies within the tendon of
 quadriceps femoris muscle.
@@ -1462,7 +1513,9 @@ The lateral femoral condyle on the lateral aspect of the
 trochlear groove is normally slightly higher than the medial
 aspect, providing a buttress to the patella on the lateral side.
 
-2/4
+![Bones of the Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/bones-of-the-lower-limb/figure_01_p2.png)
+*Bones of the Lower Limb — Clinical Figure 1 (Page 2 Reference)*
+
 Patellar dislocation: Most common dislocations of the occur
 laterally and are caused by high force impact on the patella.
 Bones of the foot:
@@ -1479,10 +1532,10 @@ Proximal group: Talus and Calcaneus
 Intermediate: Navicular
 Distal group: Cuboid and Cuneiforms
 
-3/4
 Previous Next
 
-4/4',
+![Bones of the Lower Limb - Clinical Figure 2](/lessons/images/lower-limb-anatomy/bones-of-the-lower-limb/figure_02_p4.png)
+*Bones of the Lower Limb — Clinical Figure 2 (Page 4 Reference)*',
     false,
     1,
     'published',
@@ -1494,9 +1547,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Dermatomes, Myotomes and Reflexes of Lower Limb
+  -- Lesson: Dermatomes, Myotomes and Reflexes of Lower Limb (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1512,12 +1566,13 @@ Limb:
 Lower Limb Reflexes:
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Dermatomes, Myotomes and Reflexes of Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/dermatomes-myotomes-and-reflexes-of-lower-limb/figure_01_p1.png)
+*Dermatomes, Myotomes and Reflexes of Lower Limb — Clinical Figure 1 (Page 1 Reference)*
 
-2/2',
+![Dermatomes, Myotomes and Reflexes of Lower Limb - Clinical Figure 2](/lessons/images/lower-limb-anatomy/dermatomes-myotomes-and-reflexes-of-lower-limb/figure_02_p1.png)
+*Dermatomes, Myotomes and Reflexes of Lower Limb — Clinical Figure 2 (Page 1 Reference)*',
     false,
     2,
     'published',
@@ -1529,9 +1584,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Joints of the Lower Limb
+  -- Lesson: Joints of the Lower Limb (4 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1556,10 +1612,11 @@ prevents hyperextension of the hip joint.
 Ischiofemoral:  Reinforcing the capsule posteriorly. Preventing
 hyperextension and medial rotation of the femur at hip joint
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/6
+![Joints of the Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_01_p1.png)
+*Joints of the Lower Limb — Clinical Figure 1 (Page 1 Reference)*
+
 Pubofemoral:  Reinforcing the capsule anteriorly and inferiorly
 preventing excessive abduction and extension.
 Note: Most common hip dislocation is posterior and sciatic
@@ -1593,7 +1650,6 @@ intercondylar region of the tibia where it blends with the
 medial meniscus. It ascends posteriorly to attach to the femur
 in the intercondylar fossa. It prevents anterior dislocation of
 
-2/6
 the tibia onto the femur. ACL relax during flexion and taut
 during extension torn in hyperextension injury.
 Posterior cruciate ligament: Attaches at the posterior
@@ -1625,7 +1681,6 @@ Menisci of knee joint:
 The medial and lateral menisci are fibrocartilage structures in
 the knee that serve two functions:
 
-3/6
 Deepen the articular surface of the tibia, thus increasing
 stability of the joint.
 Acting as a shock absorber by increasing surface area to
@@ -1661,15 +1716,20 @@ depression of the medial arch of the foot. The spring ligament
 takes the weight of the body from the talus and transmits it to
 the forefoot.
 
-4/6
 Tibiofibular joint
 Sub talar joint:
 Talocalcaneonavicular joint:
 
-5/6
-Previous Next
+![Joints of the Lower Limb - Clinical Figure 2](/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_02_p5.png)
+*Joints of the Lower Limb — Clinical Figure 2 (Page 5 Reference)*
 
-6/6',
+![Joints of the Lower Limb - Clinical Figure 3](/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_03_p5.png)
+*Joints of the Lower Limb — Clinical Figure 3 (Page 5 Reference)*
+
+![Joints of the Lower Limb - Clinical Figure 4](/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_04_p5.png)
+*Joints of the Lower Limb — Clinical Figure 4 (Page 5 Reference)*
+
+Previous Next',
     false,
     3,
     'published',
@@ -1681,9 +1741,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Lower Limb Other Significant Structures
+  -- Lesson: Lower Limb Other Significant Structures (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1720,10 +1781,11 @@ vein and femoral canal.
 Note: The femoral nerve does not lie within the femoral sheath,
 but instead lies lateral to it.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Lower Limb Other Significant Structures - Clinical Figure 1](/lessons/images/lower-limb-anatomy/lower-limb-other-significant-structures/figure_01_p1.png)
+*Lower Limb Other Significant Structures — Clinical Figure 1 (Page 1 Reference)*
+
 Femoral Canal:
 The Femoral canal lies most medial of the femoral sheath.
 Borders of the femoral canal: (Useful mnemonic LAMP: FILP)
@@ -1752,7 +1814,9 @@ Diamond shaped area located on the posterior aspect of the
 knee, and is the pathway to pass by which vessels and nerves
 pass between the thigh and the leg.
 
-2/3
+![Lower Limb Other Significant Structures - Clinical Figure 2](/lessons/images/lower-limb-anatomy/lower-limb-other-significant-structures/figure_02_p2.png)
+*Lower Limb Other Significant Structures — Clinical Figure 2 (Page 2 Reference)*
+
 Boundaries and Contents of Popliteal
 Fossa:
 Contents (From medial to lateral): Popliteal artery, popliteal
@@ -1765,7 +1829,8 @@ tendon, travelling along the lateral margin of the popliteal
 Tibial nerve lies more medial to common fibular nerve.
 Previous Next
 
-3/3',
+![Lower Limb Other Significant Structures - Clinical Figure 3](/lessons/images/lower-limb-anatomy/lower-limb-other-significant-structures/figure_03_p3.png)
+*Lower Limb Other Significant Structures — Clinical Figure 3 (Page 3 Reference)*',
     false,
     4,
     'published',
@@ -1777,9 +1842,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Lymphatic Drainage of Lower Limb
+  -- Lesson: Lymphatic Drainage of Lower Limb (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1819,13 +1885,9 @@ abdomen.
 > Testes= lumber or para-aortic lymph nodes
 > prostate= internal iliac nodes
 
-> Diet ii Late 2026)
 > Overview  Comments
 
-> 1/2
-> Previous Next
-
-> 2/2',
+Previous Next',
     false,
     5,
     'published',
@@ -1837,9 +1899,10 @@ abdomen.
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Muscles of the Lower Limb
+  -- Lesson: Muscles of the Lower Limb (9 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -1869,17 +1932,20 @@ muscle.
 > [!TIP]
 > **Clinical pearls:**
 
-> Diet ii Late 2026)
 > Overview  Comments
 
-> 1/6
-> Trendelenburg Sign: Trendelenburg gait or waddling gait
-> occurs when your hip abductor muscles are weakened. This
-> muscle group includes the gluteus Medius and minimus
-> innervated by superior gluteal nerve. The weakness of these
-> muscles causes drooping of the pelvis to the contralateral
-> side while walking.
+![Muscles of the Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_01_p1.png)
+*Muscles of the Lower Limb — Clinical Figure 1 (Page 1 Reference)*
 
+![Muscles of the Lower Limb - Clinical Figure 2](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_02_p1.png)
+*Muscles of the Lower Limb — Clinical Figure 2 (Page 1 Reference)*
+
+Trendelenburg Sign: Trendelenburg gait or waddling gait
+occurs when your hip abductor muscles are weakened. This
+muscle group includes the gluteus Medius and minimus
+innervated by superior gluteal nerve. The weakness of these
+muscles causes drooping of the pelvis to the contralateral
+side while walking.
 The Trendelenburg sign is produced when the patient is asked
 to stand without support on each leg. In a positive sign, pelvic
 drop will occur on the unsupported leg. For example, if the
@@ -1899,7 +1965,9 @@ Medial compartment consists of five Indvidual muscles.
 All the muscles of medial compartment of thigh causes
 adduction of thigh at hip joint except obturator externus which
 
-2/6
+![Muscles of the Lower Limb - Clinical Figure 3](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_03_p2.png)
+*Muscles of the Lower Limb — Clinical Figure 3 (Page 2 Reference)*
+
 causes lateral rotation of thigh at hip joint.
 Gracilis along with adduction at hip joint also assist in flexion at
 knee joint.
@@ -1911,7 +1979,11 @@ femoris is also lateral rotator of thigh at hip joint and
 Semitendinosus and Semimembranosus also medial rotators of
 thigh at hip joint
 
-3/6
+![Muscles of the Lower Limb - Clinical Figure 4](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_04_p3.png)
+*Muscles of the Lower Limb — Clinical Figure 4 (Page 3 Reference)*
+
+![Muscles of the Lower Limb - Clinical Figure 5](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_05_p3.png)
+*Muscles of the Lower Limb — Clinical Figure 5 (Page 3 Reference)*
 
 > [!TIP]
 > **Clinical pearls: All the muscles of the posterior thigh originate**
@@ -1933,8 +2005,10 @@ Anterior leg consists of four muscles
 > innervated by tibial nerve
 > Superficial group: Mnemonic (GPS)
 
-> 4/6
-> Deep muscles in the posterior leg:
+![Muscles of the Lower Limb - Clinical Figure 6](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_06_p4.png)
+*Muscles of the Lower Limb — Clinical Figure 6 (Page 4 Reference)*
+
+Deep muscles in the posterior leg:
 
 > [!TIP]
 > **Clinical pearls:**
@@ -1948,7 +2022,12 @@ of leg:
 Consists of two muscles, fibularis longus and brevis also
 called peroneus longus and peroneus brevis.
 
-5/6
+![Muscles of the Lower Limb - Clinical Figure 7](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_07_p5.png)
+*Muscles of the Lower Limb — Clinical Figure 7 (Page 5 Reference)*
+
+![Muscles of the Lower Limb - Clinical Figure 8](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_08_p5.png)
+*Muscles of the Lower Limb — Clinical Figure 8 (Page 5 Reference)*
+
 Muscles of the Sole of foot:
 Muscles of sole of foot. (4 layers) = Must remember
 highlighted one
@@ -1966,7 +2045,8 @@ Note: Plantar arteries and nerves lie within the first and
 second layer of the sole of foot.
 Previous Next
 
-6/6',
+![Muscles of the Lower Limb - Clinical Figure 9](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_09_p6.png)
+*Muscles of the Lower Limb — Clinical Figure 9 (Page 6 Reference)*',
     false,
     6,
     'published',
@@ -1978,9 +2058,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Nerves of the Lower Limb
+  -- Lesson: Nerves of the Lower Limb (4 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -2024,10 +2105,11 @@ Branch to pectineus
 Saphenous nerve
 Branches to quadriceps femoris
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/6
+![Nerves of the Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/nerves-of-the-lower-limb/figure_01_p1.png)
+*Nerves of the Lower Limb — Clinical Figure 1 (Page 1 Reference)*
+
 Note: In posterior abdominal wall. Femoral nerve supplies
 branches to the iliacus and pectineus muscles prior to entering
 the thigh.
@@ -2058,7 +2140,9 @@ Clinical: Damage to the obturator nerve causes weakness of
 adduction, resulting in a lateral swinging of the limb during
 walking
 
-2/6
+![Nerves of the Lower Limb - Clinical Figure 2](/lessons/images/lower-limb-anatomy/nerves-of-the-lower-limb/figure_02_p2.png)
+*Nerves of the Lower Limb — Clinical Figure 2 (Page 2 Reference)*
+
 Sensory Loss: Loss of sensation over upper medial thigh
 Sciatic nerve
 Is the largest nerve in the body. Derived from the
@@ -2098,7 +2182,6 @@ nerves.
 
 The region can be divided into quadrants using 2 lines.
 
-3/6
 One line descends vertically from the highest point on the
 iliac crest.
 Other line passes through vertical line halfway between the
@@ -2124,11 +2207,12 @@ Sensory branches of tibial nerve:
 > plantar flexion of the foot and impaired inversion. This
 > presents with difficulty in getting the heel off the ground and a
 
-> 4/6
-> shuffling gait, resulting in characteristic clawing of the toes and
-> sensory loss on the sole of the foot, affecting posture and
-> locomotion.
+![Nerves of the Lower Limb - Clinical Figure 3](/lessons/images/lower-limb-anatomy/nerves-of-the-lower-limb/figure_03_p4.png)
+*Nerves of the Lower Limb — Clinical Figure 3 (Page 4 Reference)*
 
+shuffling gait, resulting in characteristic clawing of the toes and
+sensory loss on the sole of the foot, affecting posture and
+locomotion.
 Common fibular (Peroneal
 nerve)
 Arises as the smaller terminal portion of the sciatic nerve at the
@@ -2150,7 +2234,9 @@ Superficial fibular nerve root: L4-S1.
 
 fibular (peroneal) nerve may occur as a result of fracture of the
 
-5/6
+![Nerves of the Lower Limb - Clinical Figure 4](/lessons/images/lower-limb-anatomy/nerves-of-the-lower-limb/figure_04_p5.png)
+*Nerves of the Lower Limb — Clinical Figure 4 (Page 5 Reference)*
+
 head or neck of the fibula because it passes behind the head of
 the fibula and then winds laterally around the neck. The nerve
 damage results in foot drop (loss of dorsiflexion) and loss of
@@ -2175,9 +2261,7 @@ Sensory Loss: Loss of sensation over webspace between 1st and
 2nd toes.
 Note: Footdrop is due to Common fibular or common
 peroneal nerve or also due to deep fibular nerve injury.
-Previous Next
-
-6/6',
+Previous Next',
     false,
     7,
     'published',
@@ -2189,9 +2273,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Venous Drainage of Lower Limb
+  -- Lesson: Venous Drainage of Lower Limb (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -2223,12 +2308,7 @@ knee.
 
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-
-2/2',
+Overview  Comments',
     false,
     8,
     'published',
@@ -2240,9 +2320,12 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 3: Thorax Anatomy & Mediastinum
+  -- ==========================================================================
+  -- Module 3: Thorax Anatomy & Mediastinum (11 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Thorax Anatomy & Mediastinum' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -2252,7 +2335,7 @@ Overview  Comments
     UPDATE "modules" SET "position" = 2, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Bones of Thorax
+  -- Lesson: Bones of Thorax (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -2298,10 +2381,8 @@ contains intercostal muscles. Since there are 12 ribs on each
 side, there are 11 intercostal spaces, each numbered for the rib
 superior to it. Intercostal nerves, arteries and veins lie in the
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 costal groove along the inferior margin of the rib, lying in a
 plane between the internal and innermost intercostal muscles.
 
@@ -2317,9 +2398,7 @@ penetrating injury to the upper aspect of the intercostal space.
 Any needle or tube inserted in the intercostal space should be
 placed immediately above the superior margin of a rib to avoid
 injury to the intercostal neurovascular bundle.
-Previous Next
-
-2/2',
+Previous Next',
     true,
     0,
     'published',
@@ -2331,9 +2410,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Dermatomes of Trunk
+  -- Lesson: Dermatomes of Trunk (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -2350,11 +2430,13 @@ Dermatomal supply of trunk:
 > **High yield:**
 > Previous Next
 
-> Diet ii Late 2026)
 > Overview  Comments
 
-> 1/2
-> 2/2',
+![Dermatomes of Trunk - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/dermatomes-of-trunk/figure_01_p1.png)
+*Dermatomes of Trunk — Clinical Figure 1 (Page 1 Reference)*
+
+![Dermatomes of Trunk - Clinical Figure 2](/lessons/images/thorax-anatomy-mediastinum/dermatomes-of-trunk/figure_02_p1.png)
+*Dermatomes of Trunk — Clinical Figure 2 (Page 1 Reference)*',
     false,
     1,
     'published',
@@ -2366,9 +2448,10 @@ Dermatomal supply of trunk:
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Muscles of Thorax
+  -- Lesson: Muscles of Thorax (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -2396,10 +2479,11 @@ Diaphragm has two attachments peripheral and central.
 
 ### 1: Peripheral attachments: Three peripheral attachments
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
+![Muscles of Thorax - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/muscles-of-thorax/figure_01_p1.png)
+*Muscles of Thorax — Clinical Figure 1 (Page 1 Reference)*
+
 Xiphoid process of sternum
 Costal cartilages ribs 7 - 10, ends of ribs 11 and 12
 Arcuate ligaments and lumbar vertebrae
@@ -2430,11 +2514,12 @@ the parietal pleura.
 > **Clinical pearls:**
 > Congenital Diaphragmatic Hernia
 
-> 2/4
-> Congenital diaphragmatic hernia is a diaphragmatic defect,
-> and are frequently diagnosed prenatally with US, which
-> expedites proper initial newborn resuscitation.
+![Muscles of Thorax - Clinical Figure 2](/lessons/images/thorax-anatomy-mediastinum/muscles-of-thorax/figure_02_p2.png)
+*Muscles of Thorax — Clinical Figure 2 (Page 2 Reference)*
 
+Congenital diaphragmatic hernia is a diaphragmatic defect,
+and are frequently diagnosed prenatally with US, which
+expedites proper initial newborn resuscitation.
 Most commonly left sided.
 The diaphragmatic defect allows intra-abdominal contents,
 including stomach, bowel, and, occasionally, liver, to enter
@@ -2466,10 +2551,7 @@ symptoms of acid reflux.
 > muscles
 > Forced expiration: Internal intercostal muscle and rectus
 > abdominus
-> Previous Next
-
-> 3/4
-> 4/4',
+> Previous Next',
     false,
     2,
     'published',
@@ -2481,9 +2563,10 @@ symptoms of acid reflux.
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Structures of the Thorax - Mediastinum
+  -- Lesson: Structures of the Thorax - Mediastinum (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -2505,12 +2588,7 @@ aorta, azygos and hemiazygos veins, thoracic duct, vagus
 nerves, and sympathetic splanchnic nerves
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-
-2/2',
+Overview  Comments',
     false,
     3,
     'published',
@@ -2522,9 +2600,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Structures of the Thorax - Tracheobronchial Tree
+  -- Lesson: Structures of the Thorax - Tracheobronchial Tree (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -2564,10 +2643,8 @@ the right and left main bronchi. They undergo further
 branching to produce the secondary bronchi.
 Structure
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Right main bronchus: Wider, shorter, and descends more
 vertically than left bronchus.
 Clinically, this results in a higher incidence of foreign body
@@ -2587,9 +2664,7 @@ ultimately to bronchioles (conducting bronchioles, terminal
 bronchioles, respiratory bronchioles)
 The respiratory bronchioles continue as alveolar ducts and
 sacs, the walls of which form alveoli.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     4,
     'published',
@@ -2601,9 +2676,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Structures of the Thorax - Heart and Pericardium
+  -- Lesson: Structures of the Thorax - Heart and Pericardium (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -2643,10 +2719,8 @@ Innervation of the pericardium
 The visceral pericardium: Receives autonomic innervation
 from the cardiac plexus.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/6
 The parietal and fibrous pericardium are innervated mainly by
 the phrenic nerve, for this reason that pain related to a
 pericardial problem may be referred to the supraclavicular
@@ -2685,7 +2759,6 @@ fibers)
 valves of the heart
 Borders
 
-2/6
 The heart has four borders:
 The right border: right atrium and is in line with the superior
 and inferior vena cavae.
@@ -2721,7 +2794,6 @@ superior end of the crista terminalis at the junction of the
 superior vena cava and the right atrium. Impulses generated
 by the sinoatrial node are propagated by the atrial
 
-3/6
 myocardium to the atrioventricular node, Here the impulse is
 briefly delayed before being spread to the ventricles.
 The atrioventricular bundle (bundle of His) is a direct
@@ -2772,8 +2844,6 @@ take place through pulmonary valve
 delivering it to the left side of the heart to be pumped back
 around the body.
 
-4/6
-
 ### 5. Aorta: Largest artery carry oxygenated blood pumped by left
 
 side of the heart to all body. The aorta arises from the aortic
@@ -2800,7 +2870,7 @@ The right atrium and most of right ventricle
 The sinoatrial and atrioventricular node
 Posterior interventricular artery, also known as the posterior
 descending artery (PDA), is a branch of the right coronary
-artery supply posterior 1/3 of interventricular septum and
+artery supply posterior  of interventricular septum and
 posterior aspect of right and left ventricle. Most common
 artery infracted in posterior wall MI
 Note: Occlusion of right coronary artery can result into
@@ -2811,7 +2881,9 @@ or heart block
 
 Anterior interventricular branch (LAD)
 
-5/6
+![Structures of the Thorax - Heart and Pericardium - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-heart-and-pericardium/figure_01_p5.png)
+*Structures of the Thorax - Heart and Pericardium — Clinical Figure 1 (Page 5 Reference)*
+
 LCX
 
 > [!TIP]
@@ -2826,7 +2898,11 @@ branch) occluded.
 Lateral wall MI: LCX occluded.
 Previous Next
 
-6/6',
+![Structures of the Thorax - Heart and Pericardium - Clinical Figure 2](/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-heart-and-pericardium/figure_02_p6.png)
+*Structures of the Thorax - Heart and Pericardium — Clinical Figure 2 (Page 6 Reference)*
+
+![Structures of the Thorax - Heart and Pericardium - Clinical Figure 3](/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-heart-and-pericardium/figure_03_p6.png)
+*Structures of the Thorax - Heart and Pericardium — Clinical Figure 3 (Page 6 Reference)*',
     false,
     5,
     'published',
@@ -2838,9 +2914,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Structures of the Thorax - Lungs and Pleurae
+  -- Lesson: Structures of the Thorax - Lungs and Pleurae (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -2876,10 +2953,11 @@ bronchioles and bronchi toward the hilum, where they drain to
 the pulmonary (intrapulmonary) and then bronchopulmonary
 nodes, which in turn drain to the inferior and superior
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/6
+![Structures of the Thorax - Lungs and Pleurae - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-lungs-and-pleurae/figure_01_p1.png)
+*Structures of the Thorax - Lungs and Pleurae — Clinical Figure 1 (Page 1 Reference)*
+
 tracheobronchial nodes, the tracheal (paratracheal) nodes,
 broncho mediastinal nodes and trunks, and eventually to the
 thoracic duct on the left and right lymphatic duct on the right.
@@ -2919,7 +2997,6 @@ bronchial artery
 Innervation of lung: The nerve supply to the lungs is from the
 anterior and posterior pulmonary plexus (networks of nerves
 
-2/6
 derived from the sympathetic trunk and vagus nerve).
 Lobes of the lung: The left lung is divided into two lobes, an
 upper and a lower, by an interlobular fissure, which extends
@@ -2957,7 +3034,6 @@ Pancoast tumor (superior pulmonary sulcus tumor) is a
 malignant neoplasm of the lung aper may cause a lower trunk
 brachial plexopathy and a lesion of cervical sympathetic chain
 
-3/6
 ganglion and Horner syndrome (ptosis, enophthalmos,
 miosis, anhidrosis, and vasodilation).
 Thoracotomy: surgical procedure to gain access into the
@@ -2991,7 +3067,6 @@ fluid can collect i.e., in a pleural effusion
 Costo diaphragmatic: located between the costal pleurae
 and the diaphragmatic pleura.
 
-4/6
 Costo mediastinal: located between the costal pleurae and
 the mediastinal pleurae, behind the sternum.
 Surface markings of pleura:
@@ -3031,11 +3106,8 @@ not below the ninth intercostal space
 Note: A needle should be inserted immediately above the
 superior margin of a rib to avoid injury to the intercostal
 
-5/6
 neurovascular bundle, which travels in a notch below each rib
-Previous Next
-
-6/6',
+Previous Next',
     false,
     6,
     'published',
@@ -3047,9 +3119,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Structures of the Thorax - Oesophagus
+  -- Lesson: Structures of the Thorax - Oesophagus (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -3087,16 +3160,15 @@ Abdominal constriction: at oesophageal hiatus at T10/11
 vertebral
 Relations of the oesophagus
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Structures of the Thorax - Oesophagus - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-oesophagus/figure_01_p1.png)
+*Structures of the Thorax - Oesophagus — Clinical Figure 1 (Page 1 Reference)*
+
 Innervation of the oesophagus:
 sympathetic trunk (sympathetic fibres)
 vagal plexus (parasympathetic fibres)
-Previous Next
-
-2/2',
+Previous Next',
     false,
     7,
     'published',
@@ -3108,9 +3180,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Structures of the Thorax - Thymus
+  -- Lesson: Structures of the Thorax - Thymus (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -3153,10 +3226,8 @@ thoracic arteries. Venous blood drains into the left
 brachiocephalic and internal thoracic veins
 Innervation of the thymus:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 The thymus gland is innervated by sympathetic nerves
 arising from the cervical sympathetic ganglia. These
 sympathetic nerves regulate blood flow to the thymus and
@@ -3166,9 +3237,7 @@ innervation of the thymus gland nevertheless an autonomic
 nervous system of both sympathetic and parasympathetic
 components plays a role in regulating function of thymus
 gland.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     8,
     'published',
@@ -3180,9 +3249,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Thoracic Wall Movements
+  -- Lesson: Thoracic Wall Movements (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -3218,10 +3288,7 @@ anteroposterior axis result in raising and lowering the middle
 of the rib, the "buckethandle" movement. In elevation, this
 increases the transverse diameter of the thorax.
 
-Diet ii Late 2026)
 Overview  Comments
-
-1/2
 
 > [!TIP]
 > **Clinical pearls:**
@@ -3243,7 +3310,8 @@ Lower rib fractures may tear the diaphragm, resulting in a
 diaphragmatic hernia.
 Previous Next
 
-2/2',
+![Thoracic Wall Movements - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/thoracic-wall-movements/figure_01_p2.png)
+*Thoracic Wall Movements — Clinical Figure 1 (Page 2 Reference)*',
     false,
     9,
     'published',
@@ -3255,9 +3323,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Transverse Thoracic Plane - Thoracic Inlet and Outlet
+  -- Lesson: Transverse Thoracic Plane - Thoracic Inlet and Outlet (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -3300,10 +3369,8 @@ Sympathetic trunks
 Left and right common carotid arteries.
 left subclavian arteries.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Internal jugular veins
 Brachiocephalic veins
 Subclavian veins
@@ -3317,9 +3384,7 @@ lymph nodes and lymphatic vessels
 > Compression of brachial plexus
 > Compression of subclavian artery
 > Compression of subclavian vein
-> Previous Next
-
-> 2/2',
+> Previous Next',
     false,
     10,
     'published',
@@ -3331,9 +3396,12 @@ lymph nodes and lymphatic vessels
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 4: Abdomen & Peritoneum
+  -- ==========================================================================
+  -- Module 4: Abdomen & Peritoneum (9 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Abdomen & Peritoneum' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -3343,7 +3411,7 @@ lymph nodes and lymphatic vessels
     UPDATE "modules" SET "position" = 3, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Abdominal Wall Muscles
+  -- Lesson: Abdominal Wall Muscles (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -3378,10 +3446,8 @@ situated near midline of body
 Innervation: The anterior abdominal wall muscles are
 innervated by the anterior rami of T7-T12 and L1.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
 Other contents
 Rectus sheath: The rectus sheath is formed by the
 aponeuroses of the three flat muscles and encloses the
@@ -3398,7 +3464,9 @@ the sheath; the rectus abdominis is in direct contact with the
 transversalis fascia. Point, where the posterior layer of the
 rectus sheath ends, is the arcuate line.
 
-2/4
+![Abdominal Wall Muscles - Clinical Figure 1](/lessons/images/abdomen-peritoneum/abdominal-wall-muscles/figure_01_p2.png)
+*Abdominal Wall Muscles — Clinical Figure 1 (Page 2 Reference)*
+
 Contents of the rectus sheath
 Rectus abdominus and the pyramidalis muscle
 The superior and inferior epigastric vessels
@@ -3424,10 +3492,13 @@ inserting to the lesser trochanter of the femur.
 > when thigh is flexed pain is felt in lower abdominal wall,
 > indication of appendicitis.
 
-3/4
-Previous Next
+![Abdominal Wall Muscles - Clinical Figure 2](/lessons/images/abdomen-peritoneum/abdominal-wall-muscles/figure_01_p3.png)
+*Abdominal Wall Muscles — Clinical Figure 2 (Page 3 Reference)*
 
-4/4',
+![Abdominal Wall Muscles - Clinical Figure 3](/lessons/images/abdomen-peritoneum/abdominal-wall-muscles/figure_02_p3.png)
+*Abdominal Wall Muscles — Clinical Figure 3 (Page 3 Reference)*
+
+Previous Next',
     true,
     0,
     'published',
@@ -3439,9 +3510,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Accessory Organs of the Abdomen
+  -- Lesson: Accessory Organs of the Abdomen (8 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -3479,10 +3551,11 @@ The diaphragmatic surface of the liver is related anteriorly to
 the anterior abdominal wall and rib cage and superiorly to
 the diaphragm.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/10
+![Accessory Organs of the Abdomen - Clinical Figure 1](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_01_p1.png)
+*Accessory Organs of the Abdomen — Clinical Figure 1 (Page 1 Reference)*
+
 The visceral surface of the liver is related to the oesophagus,
 right anterior part of the stomach, superior part of the
 duodenum, lesser omentum, gallbladder, right colic flexure,
@@ -3508,7 +3581,12 @@ fossa produced by the ligamentum venosum.
 The quadrate lobe is located on the lower aspect of the
 visceral surface. It lies between the gallbladder and a fossa
 
-2/10
+![Accessory Organs of the Abdomen - Clinical Figure 2](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_02_p2.png)
+*Accessory Organs of the Abdomen — Clinical Figure 2 (Page 2 Reference)*
+
+![Accessory Organs of the Abdomen - Clinical Figure 3](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_03_p2.png)
+*Accessory Organs of the Abdomen — Clinical Figure 3 (Page 2 Reference)*
+
 produced by the ligamentum trees.
 Between the caudate and quadrate lobes is a deep fissure,
 known as the porta hepatis. It transmits all the vessels,
@@ -3534,7 +3612,8 @@ plexus and parasympathetic fibers from vagus nerve
 These fibers enter the liver at the porta hepatis and follow
 the course of branches of the hepatic artery and portal vein
 
-3/10
+![Accessory Organs of the Abdomen - Clinical Figure 4](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_04_p3.png)
+*Accessory Organs of the Abdomen — Clinical Figure 4 (Page 3 Reference)*
 
 > [!TIP]
 > **Clinical pearls:**
@@ -3574,7 +3653,6 @@ thrombocytopenia and easy bruising
 Hepatomegaly due to fatty changes
 Gall bladdar:
 
-4/10
 Is a pear-shaped sac located in a fossa between the right and
 quadrate lobe of liver
 The gallbladder has:
@@ -3607,7 +3685,6 @@ left hepatic ducts.
 Common hepatic duct is accompanied by the proper hepatic
 artery and the portal vein.
 
-5/10
 3.Cystic duct Has spiral folds (valves) to keep it constantly
 open, and thus bile can pass upward into the gallbladder when
 the common bile duct is closed.
@@ -3647,7 +3724,6 @@ The uncinate process is a projection of the inferior part of
 the head that extends medially behind the superior
 mesenteric vessels.
 
-6/10
 The neck connects the head and body of the pancreas and
 lies anterior to the Junction of the superior mesenteric and
 splenic veins, forming the hepatic portal vein.
@@ -3685,15 +3761,13 @@ irritation of the parietal peritoneum covering the pancreas.
 > abdomen typically epigastrium radiating to back
 > Spleen:
 
-> 7/10
-> is a large vascular lymphatic organ lying against the
-> diaphragm and ribs 9 to 11 in the hypochondriac region,
-> covered by peritoneum except at the hilum, and supported by
-> the  splenogastric and splenorenal ligaments
-> Relations:The spleen lies posterior to the stomach, superior to
-> the left colic flexure and lateral to the left kidney and tail of the
-> pancreas.
-
+is a large vascular lymphatic organ lying against the
+diaphragm and ribs 9 to 11 in the hypochondriac region,
+covered by peritoneum except at the hilum, and supported by
+the  splenogastric and splenorenal ligaments
+Relations:The spleen lies posterior to the stomach, superior to
+the left colic flexure and lateral to the left kidney and tail of the
+pancreas.
 Functional overview: Composed of white pulp and red pulp.
 White pulp: which consists of primarily lymphatic tissue
 around the central arteries and is the primary site of immune
@@ -3715,11 +3789,12 @@ stages of life.
 > **Clinical pearls: Spleen injury most Likely associated with**
 > fracture of rib 10
 
-> 8/10
-> Adrenal glands:
-> Paired endocrine glands located over medial aspect of upper
-> poles of each kidney.
+![Accessory Organs of the Abdomen - Clinical Figure 5](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_05_p8.png)
+*Accessory Organs of the Abdomen — Clinical Figure 5 (Page 8 Reference)*
 
+Adrenal glands:
+Paired endocrine glands located over medial aspect of upper
+poles of each kidney.
 Perinephric(or renal) fascia encloses the adrenal glands and
 the kidneys.
 The adrenal glands sit in close proximity to many other
@@ -3728,10 +3803,16 @@ Innervation:
 The adrenal glands are innervated by the coeliac plexus and
 greater splanchnic nerves.
 
-9/10
-Previous Next
+![Accessory Organs of the Abdomen - Clinical Figure 6](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_06_p9.png)
+*Accessory Organs of the Abdomen — Clinical Figure 6 (Page 9 Reference)*
 
-10/10',
+![Accessory Organs of the Abdomen - Clinical Figure 7](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_07_p9.png)
+*Accessory Organs of the Abdomen — Clinical Figure 7 (Page 9 Reference)*
+
+![Accessory Organs of the Abdomen - Clinical Figure 8](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_08_p9.png)
+*Accessory Organs of the Abdomen — Clinical Figure 8 (Page 9 Reference)*
+
+Previous Next',
     false,
     1,
     'published',
@@ -3743,9 +3824,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Areas of Abdomen
+  -- Lesson: Areas of Abdomen (6 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -3770,10 +3852,13 @@ Midpoint of the inguinal ligament: Halfway between the
 pubic tubercle and the anterior superior iliac spine. The
 opening to the inguinal canal is located just above this point.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/5
+![Areas of Abdomen - Clinical Figure 1](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_01_p1.png)
+*Areas of Abdomen — Clinical Figure 1 (Page 1 Reference)*
+
+![Areas of Abdomen - Clinical Figure 2](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_02_p1.png)
+*Areas of Abdomen — Clinical Figure 2 (Page 1 Reference)*
 
 > [!TIP]
 > **High yield clinical**
@@ -3801,7 +3886,9 @@ Clinical significance:  Direct inguinal hernia protrudes
 through Hesselbach''s triangle.
 The Peritoneum
 
-2/5
+![Areas of Abdomen - Clinical Figure 3](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_03_p2.png)
+*Areas of Abdomen — Clinical Figure 3 (Page 2 Reference)*
+
 Continuous double-layered membrane which lines the
 abdominal cavity and covers the abdominal viscera.
 Consists of parietal and visceral peritoneum
@@ -3837,7 +3924,6 @@ R: rectum
 Greater and lesser sac
 The peritoneal cavity is divided into greater and lesser sacs
 
-3/5
 Note:
 Supracolic compartment: Contains stomach, liver and
 spleen, lies under cover of costal limits of thoracic cage.
@@ -3853,10 +3939,16 @@ lesser omentum
 Mesenteries: Peritoneal fold that attaches Visceras to the
 posterior abdominal wall
 
-4/5
+![Areas of Abdomen - Clinical Figure 4](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_04_p4.png)
+*Areas of Abdomen — Clinical Figure 4 (Page 4 Reference)*
+
+![Areas of Abdomen - Clinical Figure 5](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_05_p4.png)
+*Areas of Abdomen — Clinical Figure 5 (Page 4 Reference)*
+
 Previous Next
 
-5/5',
+![Areas of Abdomen - Clinical Figure 6](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_06_p5.png)
+*Areas of Abdomen — Clinical Figure 6 (Page 5 Reference)*',
     false,
     2,
     'published',
@@ -3868,15 +3960,16 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Dermatomes of Trunk
+  -- Lesson: Dermatomes of Trunk (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
     gen_random_uuid(),
     v_module_id,
-    'dermatomes-of-trunk-2',
+    'dermatomes-of-trunk',
     'Dermatomes of Trunk',
     'article',
     '# Dermatomes of Trunk
@@ -3887,11 +3980,13 @@ Dermatomal supply of trunk
 > **High yield:**
 > Previous Next
 
-> Diet ii Late 2026)
 > Overview  Comments
 
-> 1/2
-> 2/2',
+![Dermatomes of Trunk - Clinical Figure 1](/lessons/images/abdomen-peritoneum/dermatomes-of-trunk/figure_01_p1.png)
+*Dermatomes of Trunk — Clinical Figure 1 (Page 1 Reference)*
+
+![Dermatomes of Trunk - Clinical Figure 2](/lessons/images/abdomen-peritoneum/dermatomes-of-trunk/figure_02_p1.png)
+*Dermatomes of Trunk — Clinical Figure 2 (Page 1 Reference)*',
     false,
     3,
     'published',
@@ -3903,9 +3998,10 @@ Dermatomal supply of trunk
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Gastrointestinal Tract
+  -- Lesson: Gastrointestinal Tract (4 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -3945,10 +4041,11 @@ Blood supply:
 The arterial supply to the stomach is derived from all three
 branches (left gastric, splenic, and common hepatic branches)
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/10
+![Gastrointestinal Tract - Clinical Figure 1](/lessons/images/abdomen-peritoneum/gastrointestinal-tract/figure_01_p1.png)
+*Gastrointestinal Tract — Clinical Figure 1 (Page 1 Reference)*
+
 of the coeliac trunk.
 Innervation:
 Parasympathetic from anterior and posterior vagal trunk
@@ -3981,11 +4078,10 @@ inferior vena cava.
 The common bile duct and main pancreatic duct (these
 ducts usually unite to form the hepatopancreatic ampulla of
 Vater) enter the posteromedial wall of this part of the
-duodenum, about 2/3 of the way along its length.
+duodenum, about  of the way along its length.
 The lesser duodenal papilla lies about 6-8 cm distal to the
 pylorus and has at its summit the opening of the accessory
 
-2/10
 pancreatic duct.
 Third part: The inferior or horizontal part of the duodenum
 Runs transversely to the left, passing over the IVC, aorta, and L3
@@ -4022,7 +4118,9 @@ Duodenal ulcer most likely erosion of the gastroduodenal
 artery
 Small intestine jejunum and ileum:
 
-3/10
+![Gastrointestinal Tract - Clinical Figure 2](/lessons/images/abdomen-peritoneum/gastrointestinal-tract/figure_02_p3.png)
+*Gastrointestinal Tract — Clinical Figure 2 (Page 3 Reference)*
+
 Blood supply: Superior mesenteric artery
 
 > [!TIP]
@@ -4055,7 +4153,6 @@ the large intestine
 It lies in the right iliac fossa.
 Surrounded by peritoneum.
 
-4/10
 Colon
 Has ascending and descending colons that are
 retroperitoneal and transverse and sigmoid colons that are
@@ -4071,14 +4168,16 @@ Transverse Colon
 The transverse colon extends from the right colic flexure to
 the spleen, where it turns another 90 degrees to point
 
-5/10
+![Gastrointestinal Tract - Clinical Figure 3](/lessons/images/abdomen-peritoneum/gastrointestinal-tract/figure_03_p5.png)
+*Gastrointestinal Tract — Clinical Figure 3 (Page 5 Reference)*
+
 inferiorly. This turn is known as the left colic flexure (or
 splenic flexure)
 Blood supply of colon:
 Cecum, Appendix, the ascending colon, hepatic flexure and
-proximal 2/3 of the transverse colon are supplied by the
+proximal  of the transverse colon are supplied by the
 superior mesenteric artery.
-Distal 1/3 of transverse colon, Splenic flexure and the
+Distal  of transverse colon, Splenic flexure and the
 descending and sigmoid colons are supplied by the inferior
 mesenteric artery.
 Lymphatic nodes:
@@ -4091,10 +4190,10 @@ mesenteric nodes passes into the intestinal lymph trunks,
 and on to the cisterna chyli, where it ultimately empties into
 the thoracic duct.
 Innervation:
-Ascending colon and proximal 2/3 of the transverse colon:
+Ascending colon and proximal  of the transverse colon:
 receive their sympathetic, parasympathetic and sensory
 supply via nerves from the superior mesenteric plexus.
-Distal 1/3 of the transverse colon, descending colon and
+Distal  of the transverse colon, descending colon and
 sigmoid colon: receive their sympathetic, parasympathetic
 and sensory supply via nerves from the inferior mesenteric
 plexus:
@@ -4109,7 +4208,6 @@ Causes spasm and distention when inflamed, resulting in
 pain that is referred to the periumbilical region and moves
 down and to the right.
 
-6/10
 Has a base that lies deep to McBurney point, which occurs at
 the junction of the lateral one-third of an imaginary line
 between the right anterior superior iliac spine and the
@@ -4152,14 +4250,13 @@ sigmoid colon to the anal canal and follows the curvature of
 sacrum and coccyx.
 Rectum is retroperitoneal structure.
 
-7/10
 In men the rectum lies posterior to the bladder, prostate and
 seminal vesicle.
 In woman lies posterior to uterus, vagina and cervix.
 Peritoneal Coverings: In the superior third of the rectum, the
 anterior surface and lateral sides are covered by peritoneum.
 The middle third only has an anterior peritoneal covering
-Lower 1/3 has no peritoneum associated with it.
+Lower  has no peritoneum associated with it.
 In males, the reflection of peritoneum from the rectum to the
 posterior bladder wall forms the rectovesical pouch.
 In females, the peritoneum reflects to the posterior vagina
@@ -4192,13 +4289,12 @@ Bony structures, such as the sacrum and coccyx, may also be
 palpated in both sexes.
 Anal canal:
 
-8/10
 Lies below the pelvic diaphragm and ends at the anus
 Anal sphincter:
 Internal anal sphincter: Consists of involuntary smooth
-muscle that surrounds the upper 2/3 of the anal canal.
+muscle that surrounds the upper  of the anal canal.
 External anal sphincter: voluntary muscle that surrounds
-the lower 2/3 of the anal canal (and so overlaps with the
+the lower  of the anal canal (and so overlaps with the
 internal sphincter). It blends superiorly with the puborectalis
 muscle of the pelvic floor.
 Iin the anal canal, the mucosa is organized into longitudinal
@@ -4230,8 +4326,6 @@ anal sphincters closes the anal canal.
 Neurovascular supply and lymphatic drainage of anal
 canal:
 
-9/10
-
 > [!TIP]
 > **Clinical pearls:**
 > Hemorrhoids are dilated internal and external venous
@@ -4246,7 +4340,8 @@ hemorrhoids because their pain fibers are carried by Somatic
 fibers of the inferior rectal nerves.
 Previous Next
 
-10/10',
+![Gastrointestinal Tract - Clinical Figure 4](/lessons/images/abdomen-peritoneum/gastrointestinal-tract/figure_04_p10.png)
+*Gastrointestinal Tract — Clinical Figure 4 (Page 10 Reference)*',
     false,
     4,
     'published',
@@ -4258,9 +4353,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Lumbar Spine and Plexus
+  -- Lesson: Lumbar Spine and Plexus (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -4284,17 +4380,19 @@ lumbar nerves and a part of the fourth lumbar nerve.
 Lies anterior to the transverse processes of the lumbar
 vertebrae within the substance of psoas major muscle.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Lumbar Spine and Plexus - Clinical Figure 1](/lessons/images/abdomen-peritoneum/lumbar-spine-and-plexus/figure_01_p1.png)
+*Lumbar Spine and Plexus — Clinical Figure 1 (Page 1 Reference)*
+
 Note:Sub-costal nerve: (T12)Largest thoracic spinal nerve
 originates from anterior ramus of spinal nerve T12, Innervates
 external oblique, internal oblique, transversus abdominus,
 rectus abdominus and pyramidalis muscle
 Previous Next
 
-2/2',
+![Lumbar Spine and Plexus - Clinical Figure 2](/lessons/images/abdomen-peritoneum/lumbar-spine-and-plexus/figure_02_p2.png)
+*Lumbar Spine and Plexus — Clinical Figure 2 (Page 2 Reference)*',
     false,
     5,
     'published',
@@ -4306,9 +4404,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Male and Female Reproductive System
+  -- Lesson: Male and Female Reproductive System (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -4351,10 +4450,8 @@ Ductus deferens:
 Is continuous with the tail of the epididymis and serves to
 transport sperm to the ejaculatory ducts prior to ejaculation.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/7
 Is a thick-walled tube that ascends within the spermatic cord
 to enter the pelvis at the deep inguinal ring lateral to the
 inferior epigastric artery.
@@ -4383,7 +4480,9 @@ segments and spinal ganglia.
 Sensory and sympathetic innervation to the skin and glans
 penis is supplied by the dorsal nerve of the penis, a branch of
 
-2/7
+![Male and Female Reproductive System - Clinical Figure 1](/lessons/images/abdomen-peritoneum/male-and-female-reproductive-system/figure_01_p2.png)
+*Male and Female Reproductive System — Clinical Figure 1 (Page 2 Reference)*
+
 the pudendal nerve.
 Parasympathetic innervation is carried by cavernous nerves
 from the peri-prostatic nerve plexus and is responsible for
@@ -4422,12 +4521,10 @@ transformation.
 > **Clinical pearls: Hypertrophy of the prostate is a benign**
 > enlargement of the prostate that affects older men and occurs
 
-> 3/7
-> most often in the transitional zone, obstructing the internal
-> urethral orifice and thus leading to nocturia (excessive
-> urination at night), dysuria (difficulty or pain in urination), and
-> urgency (sudden desire to urinate).
-
+most often in the transitional zone, obstructing the internal
+urethral orifice and thus leading to nocturia (excessive
+urination at night), dysuria (difficulty or pain in urination), and
+urgency (sudden desire to urinate).
 Prostate cancer is a slow-growing cancer that occurs
 particularly in the peripheral zone.
 Blood supply: Prostatic arteries derived from internal iliac
@@ -4457,7 +4554,6 @@ Blood supply: Are supplied primarily by the ovarian arteries,
 which are contained in the suspensory ligament and
 anastomose with branches of the uterine artery.
 
-4/7
 Venous drainage:
 Are drained by the ovarian veins; the right ovarian vein joins the
 inferior vena cava, and the left ovarian vein joins the left renal
@@ -4476,7 +4572,9 @@ Note: Ectopic pregnancy most commonly occurs in the
 ampulla (70% of cases).
 Uterus:
 
-5/7
+![Male and Female Reproductive System - Clinical Figure 2](/lessons/images/abdomen-peritoneum/male-and-female-reproductive-system/figure_02_p5.png)
+*Male and Female Reproductive System — Clinical Figure 2 (Page 5 Reference)*
+
 Contains a fundus, body, isthmus and cervix and is supported
 by ligaments.
 Relations:
@@ -4508,7 +4606,6 @@ portion: branch of the internal iliac artery
 Vaginal artery and internal pudendal arteries supply the middle
 and inferior parts: branches of the internal iliac artery.
 
-6/7
 Venous drainage: Uterovaginal plexus: drains into internal iliac
 veins
 Innervation
@@ -4528,9 +4625,7 @@ Somatic afferents: accompany pudendal nerve to S2-S4.
 > posterior fornix
 > ovaries, uterine tubes, ureters and ischial spines through the
 > lateral fornices
-> Previous Next
-
-> 7/7',
+> Previous Next',
     false,
     6,
     'published',
@@ -4542,9 +4637,10 @@ Somatic afferents: accompany pudendal nerve to S2-S4.
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Pelvic Diaphragm and Supporting Structures
+  -- Lesson: Pelvic Diaphragm and Supporting Structures (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -4587,10 +4683,8 @@ Enters the inguinal canal at the deep inguinal ring, emerges
 from the superficial ring and becomes lost in the
 subcutaneous tissue of the labium majora.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Ovarian ligament: Is a fibromuscular cord that extends from
 the ovary to the uterus below the uterine tube, running within
 the layers of the broad ligament.
@@ -4605,9 +4699,7 @@ contains peritoneal fluid and some of the small intestine.
 Rectovesical pouch: Is a peritoneal recess between the bladder
 and the rectum in males, and the vesicouterine pouch is a
 peritoneal sac between the bladder and the uterus in females
-Previous Next
-
-2/2',
+Previous Next',
     false,
     7,
     'published',
@@ -4619,9 +4711,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Urinary Tract
+  -- Lesson: Urinary Tract (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -4653,10 +4746,11 @@ the renal plexus which contains parasympathetic fibers from
 the vagus nerve and sympathetic fibers from the thoracic
 splanchnic nerves.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/6
+![Urinary Tract - Clinical Figure 1](/lessons/images/abdomen-peritoneum/urinary-tract/figure_01_p1.png)
+*Urinary Tract — Clinical Figure 1 (Page 1 Reference)*
+
 Lymphatic drainage: (Important to remember): Lumbar (Para-
 aortic lymph nodes) located at origin of renal arteries.
 Ureter:
@@ -4679,7 +4773,6 @@ aspect in an oblique manner. This creates a one-way valve,
 where high intramural pressure collapses the ureters,
 preventing the backflow of urine.
 
-2/6
 Innervation: Sensory fibres from the ureters enter the spinal
 cord at T11-L2, with ureteric pain referred to those dermatomal
 areas.
@@ -4699,7 +4792,9 @@ uterine bleeding.
 In men, instead of the uterine arteries, the vas deferens cross
 the ureters anteriorly and lies Infront of seminal vesicles
 
-3/6
+![Urinary Tract - Clinical Figure 2](/lessons/images/abdomen-peritoneum/urinary-tract/figure_02_p3.png)
+*Urinary Tract — Clinical Figure 2 (Page 3 Reference)*
+
 before entering the posterolateral aspect of the bladder.
 Ureteric calculus:
 There are three locations where the ureters are at their
@@ -4734,7 +4829,6 @@ Female urethra
 is approximately 4 cm long, and its external urethral orifice is
 situated between the labia minora, anterior to the vaginal
 
-4/6
 opening, and posterior to the glans clitoris.
 Blood supply:
 Penile (spongy) urethra and Membranous urethra: Supplied
@@ -4770,7 +4864,6 @@ sphincter in order to prevent seminal reflux into the bladder
 
 splanchnic nerves pass through the pelvic (inferior hypogastric)
 
-5/6
 plexus to synapse within the bladder wall; postganglionic fibers
 to the bladder musculature induce a reflex contraction of the
 detrusor muscle and relaxation of the internal urethral
@@ -4803,9 +4896,7 @@ will be paralyzed, unable to contract.
 The spinal reflex does not function. In this scenario, the
 bladder will fill uncontrollably, becoming abnormally
 distended until overflow incontinence occurs.
-Previous Next
-
-6/6',
+Previous Next',
     false,
     8,
     'published',
@@ -4817,9 +4908,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 5: Head & Neck Anatomy
+  -- ==========================================================================
+  -- Module 5: Head & Neck Anatomy (5 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Head & Neck Anatomy' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -4829,7 +4923,7 @@ Previous Next
     UPDATE "modules" SET "position" = 4, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Anterior and Posterior Triangle of Neck
+  -- Lesson: Anterior and Posterior Triangle of Neck (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -4868,10 +4962,8 @@ belly and the anterior and posterior bellies of digastric into 4
 Triangles:
 Digastric (submandibular): submandibular gland.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Submental (suprahyoid): Submental Lymph Nodes.
 Carotid: 3C (CNXII, Ansa cervicalis & carotid sheath)
 Muscular (inferior carotid): Thyroid and Parathyroid Glands.
@@ -4886,8 +4978,8 @@ artery
 Nerves: Nerve to Mylohyoid, CN XII & Ansa Cervicalis
 Previous Next
 
-2/3
-3/3',
+![Anterior and Posterior Triangle of Neck - Clinical Figure 1](/lessons/images/head-neck-anatomy/anterior-and-posterior-triangle-of-neck/figure_01_p2.jpg)
+*Anterior and Posterior Triangle of Neck — Clinical Figure 1 (Page 2 Reference)*',
     true,
     0,
     'published',
@@ -4899,9 +4991,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Muscles of the Neck
+  -- Lesson: Muscles of the Neck (5 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -4922,15 +5015,26 @@ Suprahyoid and infrahyoid
 muscles
 Suprahyoid muscles
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Muscles of the Neck - Clinical Figure 1](/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_01_p1.png)
+*Muscles of the Neck — Clinical Figure 1 (Page 1 Reference)*
+
+![Muscles of the Neck - Clinical Figure 2](/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_02_p1.png)
+*Muscles of the Neck — Clinical Figure 2 (Page 1 Reference)*
+
 Infrahyoid muscles
 Musculature of tongue
 Previous Next
 
-2/2',
+![Muscles of the Neck - Clinical Figure 3](/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_03_p2.png)
+*Muscles of the Neck — Clinical Figure 3 (Page 2 Reference)*
+
+![Muscles of the Neck - Clinical Figure 4](/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_04_p2.png)
+*Muscles of the Neck — Clinical Figure 4 (Page 2 Reference)*
+
+![Muscles of the Neck - Clinical Figure 5](/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_05_p2.jpg)
+*Muscles of the Neck — Clinical Figure 5 (Page 2 Reference)*',
     false,
     1,
     'published',
@@ -4942,9 +5046,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Structure of the Eyeball and Eyelid
+  -- Lesson: Structure of the Eyeball and Eyelid (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -4992,10 +5097,8 @@ ocular muscles)
 All the extraocular muscles are innervated by oculomotor
 nerve except LR-6 and S0-4
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Eye Lid:
 The eyelids are thin, soft tissue structures that cover the
 eyeball anteriorly. They offer protection from excessive light
@@ -5022,7 +5125,9 @@ Actions:
 Palpebral part: gently closes the eyelids.
 Lacrimal part: involved in the drainage of tears.
 
-2/3
+![Structure of the Eyeball and Eyelid - Clinical Figure 1](/lessons/images/head-neck-anatomy/structure-of-the-eyeball-and-eyelid/figure_01_p2.png)
+*Structure of the Eyeball and Eyelid — Clinical Figure 1 (Page 2 Reference)*
+
 Orbital part: tightly closes the eyelids.
 Other muscles: (High Yield)
 The levator palpebrae superioris muscle: innervated by the
@@ -5052,9 +5157,7 @@ prevents the eyelids from sticking together when closed.
 > blockages or inflammation, can lead to reduced tear stability
 > and dry eye.
 
-Previous Next
-
-3/3',
+Previous Next',
     false,
     2,
     'published',
@@ -5066,9 +5169,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Thyroid Gland
+  -- Lesson: Thyroid Gland (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5090,10 +5194,11 @@ each lobe extends from middle of thyroid cartilage to 4th or
 5th tracheal ring.
 isthmus extends from 2nd to 3rd tracheal ring.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Thyroid Gland - Clinical Figure 1](/lessons/images/head-neck-anatomy/thyroid-gland/figure_01_p1.jpg)
+*Thyroid Gland — Clinical Figure 1 (Page 1 Reference)*
+
 Relations of the lobe
 Anterolateral:
 sternothyroid
@@ -5128,10 +5233,7 @@ Inferior thyroid vein
 Anterior jugular vein
 Parathyroid gland
 Oesophagus
-Previous Next
-
-2/3
-3/3',
+Previous Next',
     false,
     3,
     'published',
@@ -5143,9 +5245,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Visual Pathway
+  -- Lesson: Visual Pathway (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5187,13 +5290,12 @@ pathway known as Meyers'' loop, to reach the visual cortex.
 > [!NOTE]
 > **Remember the lesions of visual pathway (High yield)**
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Previous Next
 
-2/2',
+![Visual Pathway - Clinical Figure 1](/lessons/images/head-neck-anatomy/visual-pathway/figure_01_p2.jpg)
+*Visual Pathway — Clinical Figure 1 (Page 2 Reference)*',
     false,
     4,
     'published',
@@ -5205,9 +5307,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 6: Central Nervous System & Spine
+  -- ==========================================================================
+  -- Module 6: Central Nervous System & Spine (11 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Central Nervous System & Spine' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -5217,7 +5322,7 @@ Previous Next
     UPDATE "modules" SET "position" = 5, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Brainstem, Pons
+  -- Lesson: Brainstem, Pons (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5252,10 +5357,8 @@ functions of the brain, such as voluntary movement, reward
 processing, and working memory. The largest populations of
 these neurons sit within the midbrain in substantia nigra.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Vasculature of the mid brain:
 The midbrain receives vascular supply from the basilar artery,
 and its branches. The major vessels are:
@@ -5285,17 +5388,16 @@ Cochlear nuclei (central nerve deafness
 > clinically important because of its closeness to cranial nerves
 > Clinical features:
 
-> 2/3
-> Unilateral hearing loss (85%), speech impediments,
-> disequilibrium, tremors or other loss of motor control.
+![Brainstem, Pons - Clinical Figure 1](/lessons/images/central-nervous-system-spine/brainstem-pons/figure_01_p2.png)
+*Brainstem, Pons — Clinical Figure 1 (Page 2 Reference)*
 
+Unilateral hearing loss (85%), speech impediments,
+disequilibrium, tremors or other loss of motor control.
 Facial paralysis (compression of CN VII), Reduced corneal
 reflex (involvement of both CN V and CN VII), Trigeminal palsy
 (compression of CN V) and Ipsilateral cerebellar signs in large
 tumors noted
-Previous Next
-
-3/3',
+Previous Next',
     true,
     0,
     'published',
@@ -5307,9 +5409,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Basal Ganglia
+  -- Lesson: Basal Ganglia (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5352,11 +5455,7 @@ functionally as a part of the basal ganglia
 > shuffling gait
 > Previous Next
 
-> Diet ii Late 2026)
-> Overview  Comments
-
-> 1/2
-> 2/2',
+> Overview  Comments',
     false,
     1,
     'published',
@@ -5368,9 +5467,10 @@ functionally as a part of the basal ganglia
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Central Nervous System - Overview
+  -- Lesson: Central Nervous System - Overview (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5412,10 +5512,8 @@ pathways connecting the brain and spinal cord.
 The grey matter is rich in nerve cell bodies which are divided
 into four main columns.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Anterior horn (Ventral horn): largely contains motor neurons
 that exit the spinal cord to innervate skeletal muscle.
 Posterior division (Dorsal horn): Receive somatosensory
@@ -5449,10 +5547,7 @@ The paired posterior spinal arteries arise from either the
 posterior inferior cerebellar artery or directly from the
 vertebral artery and supply the posterior third of the spinal
 cord including the posterior horns and columns.
-Previous Next
-
-2/3
-3/3',
+Previous Next',
     false,
     2,
     'published',
@@ -5464,9 +5559,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cerebellum
+  -- Lesson: Cerebellum (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5507,15 +5603,14 @@ Scanning speech
 Hypotonia
 Cerebellar vascular lesion:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Note: Dysphagia is the differentiating symptom between AICA
 and PICA. Way to remember PICA can''t chew.
 Previous Next
 
-2/2',
+![Cerebellum - Clinical Figure 1](/lessons/images/central-nervous-system-spine/cerebellum/figure_01_p2.png)
+*Cerebellum — Clinical Figure 1 (Page 2 Reference)*',
     false,
     3,
     'published',
@@ -5527,9 +5622,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cerebrum
+  -- Lesson: Cerebrum (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5568,10 +5664,8 @@ The cerebral hemispheres fill the area of the skull above the
 tentorium cerebelli and are subdivided into lobes based on
 their position relative to the major sulci:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Note:
 
 ### 1: The Broca speech area (in the dominant hemisphere only) is
@@ -5589,10 +5683,16 @@ artery
 > [!TIP]
 > **High Yield: Clinical effects of occlusion of cerebral arteries**
 
-> 2/3
-> Previous Next
+![Cerebrum - Clinical Figure 1](/lessons/images/central-nervous-system-spine/cerebrum/figure_01_p2.png)
+*Cerebrum — Clinical Figure 1 (Page 2 Reference)*
 
-> 3/3',
+Previous Next
+
+![Cerebrum - Clinical Figure 2](/lessons/images/central-nervous-system-spine/cerebrum/figure_01_p3.png)
+*Cerebrum — Clinical Figure 2 (Page 3 Reference)*
+
+![Cerebrum - Clinical Figure 3](/lessons/images/central-nervous-system-spine/cerebrum/figure_02_p3.png)
+*Cerebrum — Clinical Figure 3 (Page 3 Reference)*',
     false,
     4,
     'published',
@@ -5604,9 +5704,10 @@ artery
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Medulla
+  -- Lesson: Medulla (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5625,12 +5726,10 @@ pons and below with the spinal cord
 > **Clinical pearls:**
 > Previous Next
 
-> Diet ii Late 2026)
 > Overview  Comments
 
-> 1/2
-
-> 2/2',
+![Medulla - Clinical Figure 1](/lessons/images/central-nervous-system-spine/medulla/figure_01_p1.png)
+*Medulla — Clinical Figure 1 (Page 1 Reference)*',
     false,
     5,
     'published',
@@ -5642,9 +5741,10 @@ pons and below with the spinal cord
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Spinal Cord Syndrome
+  -- Lesson: Spinal Cord Syndrome (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5661,11 +5761,13 @@ Spinal cord syndrome:
 > **High yield:**
 > Previous Next
 
-> Diet ii Late 2026)
 > Overview  Comments
 
-> 1/2
-> 2/2',
+![Spinal Cord Syndrome - Clinical Figure 1](/lessons/images/central-nervous-system-spine/spinal-cord-syndrome/figure_01_p1.png)
+*Spinal Cord Syndrome — Clinical Figure 1 (Page 1 Reference)*
+
+![Spinal Cord Syndrome - Clinical Figure 2](/lessons/images/central-nervous-system-spine/spinal-cord-syndrome/figure_02_p1.png)
+*Spinal Cord Syndrome — Clinical Figure 2 (Page 1 Reference)*',
     false,
     6,
     'published',
@@ -5677,9 +5779,10 @@ Spinal cord syndrome:
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Spinal Cord Tracts
+  -- Lesson: Spinal Cord Tracts (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5701,11 +5804,13 @@ Ascending tracts of the spinal cord:
 Descending Tracts of the Spinal Cord:
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-2/2',
+![Spinal Cord Tracts - Clinical Figure 1](/lessons/images/central-nervous-system-spine/spinal-cord-tracts/figure_01_p1.png)
+*Spinal Cord Tracts — Clinical Figure 1 (Page 1 Reference)*
+
+![Spinal Cord Tracts - Clinical Figure 2](/lessons/images/central-nervous-system-spine/spinal-cord-tracts/figure_02_p1.png)
+*Spinal Cord Tracts — Clinical Figure 2 (Page 1 Reference)*',
     false,
     7,
     'published',
@@ -5717,9 +5822,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Thalamus
+  -- Lesson: Thalamus (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5745,12 +5851,7 @@ alertness through RAS
 Role in emotions & recent memory
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-
-2/2',
+Overview  Comments',
     false,
     8,
     'published',
@@ -5762,9 +5863,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: The Ventricles
+  -- Lesson: The Ventricles (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5808,18 +5910,14 @@ subarachnoid cisterns in the subarachnoid space located
 between the arachnoid mater and pia mater (bathing the
 brain).
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 CSF Reabsorption:
 From the subarachnoid cisterns, CSF is reabsorbed by
 arachnoid granulations, which protrude into the dura mater,
 into the Dural venous sinuses and from here back into the
 circulation.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     9,
     'published',
@@ -5831,9 +5929,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Vasculature of the CNS
+  -- Lesson: Vasculature of the CNS (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5876,10 +5975,8 @@ The middle cerebral artery (supplying the lateral cerebral
 hemispheres)
 Branches of vertebral arteries
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 The two vertebral arteries (left and right), branches of the
 subclavian arteries, ascend through the transverse foramina of
 the upper six cervical vertebrae before entering the cranial
@@ -5920,7 +6017,6 @@ optic chiasma and cause bitemporal hemianopia, aneurysm
 of posterior communicating artery may cause 3rd nerve
 palsy.
 
-2/3
 Rupture of berry aneurysm is a common cause of
 spontaneous subarachnoid hemorrhage.
 Vasculature of spinal cord:
@@ -5934,9 +6030,7 @@ The paired posterior spinal arteries arise from either the
 posterior inferior cerebellar artery or directly from the
 vertebral artery and supply the posterior third of the spinal
 cord including the posterior horns and columns.
-Previous Next
-
-3/3',
+Previous Next',
     false,
     10,
     'published',
@@ -5948,9 +6042,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 7: Cranial Nerves In-Depth
+  -- ==========================================================================
+  -- Module 7: Cranial Nerves In-Depth (12 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Cranial Nerves In-Depth' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -5960,7 +6057,7 @@ Previous Next
     UPDATE "modules" SET "position" = 6, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Cranial Nerve 1 - Olfactory Nerve
+  -- Lesson: Cranial Nerve 1 - Olfactory Nerve (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -5977,12 +6074,10 @@ from the nasal epithelium via the cribriform plate of the
 ethmoid bone to the primary olfactory cortex
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Cranial Nerve 1 - Olfactory Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-1-olfactory-nerve/figure_01_p1.png)
+*Cranial Nerve 1 - Olfactory Nerve — Clinical Figure 1 (Page 1 Reference)*',
     true,
     0,
     'published',
@@ -5994,9 +6089,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cranial Nerve Iii_ Oculomotor Nerve
+  -- Lesson: Cranial Nerve Iii_ Oculomotor Nerve (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6013,12 +6109,10 @@ aspect of cavernous sinus and exits skull through the superior
 orbital fissure
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Cranial Nerve Iii_ Oculomotor Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-iii-oculomotor-nerve/figure_01_p1.png)
+*Cranial Nerve Iii_ Oculomotor Nerve — Clinical Figure 1 (Page 1 Reference)*',
     false,
     1,
     'published',
@@ -6030,9 +6124,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cranial Nerve Ii_ Optic Nerve
+  -- Lesson: Cranial Nerve Ii_ Optic Nerve (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6064,13 +6159,12 @@ nerve disease
 > optic chiasm,tumor of pituitary gland compresses optic nerve
 > at chiasm produces visual defect called bitemporal hemianopia
 
-> Diet ii Late 2026)
 > Overview  Comments
 
-> 1/2
-> Previous Next
+![Cranial Nerve Ii_ Optic Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-ii-optic-nerve/figure_01_p1.png)
+*Cranial Nerve Ii_ Optic Nerve — Clinical Figure 1 (Page 1 Reference)*
 
-> 2/2',
+Previous Next',
     false,
     2,
     'published',
@@ -6082,9 +6176,10 @@ nerve disease
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cranial Nerve Iv_ Trochlear Nerve
+  -- Lesson: Cranial Nerve Iv_ Trochlear Nerve (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6102,12 +6197,10 @@ travels through lateral aspect of cavernous sinus, exits skull
 through superior orbital fissure.
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Cranial Nerve Iv_ Trochlear Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-iv-trochlear-nerve/figure_01_p1.png)
+*Cranial Nerve Iv_ Trochlear Nerve — Clinical Figure 1 (Page 1 Reference)*',
     false,
     3,
     'published',
@@ -6119,9 +6212,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cranial Nerve Ix_ Glassopharyngeal Nerve
+  -- Lesson: Cranial Nerve Ix_ Glassopharyngeal Nerve (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6141,12 +6235,10 @@ branches but parotid gland is innervated by
 glossopharyngeal nerve
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Cranial Nerve Ix_ Glassopharyngeal Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-ix-glassopharyngeal-nerve/figure_01_p1.png)
+*Cranial Nerve Ix_ Glassopharyngeal Nerve — Clinical Figure 1 (Page 1 Reference)*',
     false,
     4,
     'published',
@@ -6158,9 +6250,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cranial Nerve Viii_ Vestibulocochlear Nerve
+  -- Lesson: Cranial Nerve Viii_ Vestibulocochlear Nerve (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6177,12 +6270,10 @@ from the brainstem at the cerebellopontine angle, enters
 internal acoustic meatus of temporal bone.
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Cranial Nerve Viii_ Vestibulocochlear Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-viii-vestibulocochlear-nerve/figure_01_p1.png)
+*Cranial Nerve Viii_ Vestibulocochlear Nerve — Clinical Figure 1 (Page 1 Reference)*',
     false,
     5,
     'published',
@@ -6194,9 +6285,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cranial Nerve Vii_ Facial Nerve
+  -- Lesson: Cranial Nerve Vii_ Facial Nerve (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6239,10 +6331,8 @@ Nerve to the stylohyoid muscle: Innervates the stylohyoid
 muscle, one of the suprahyoid muscles of neck responsible
 for raising the hyoid bone.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Note: Greater auricular nerve cutaneous branch of the cervical
 plexus provides sensory innervation to ear lobule, skin over the
 parotid gland and mastoid process of the temporal bone. Pain
@@ -6264,16 +6354,14 @@ the lower lip and chin
 > [!TIP]
 > **High yield:**
 > The chorda tympani branch of the facial nerve supplies taste
-> sensation to the anterior 2/3 of the tongue.
+> sensation to the anterior  of the tongue.
 
-In the anterior 2/3, general sensation is supplied by the
+In the anterior , general sensation is supplied by the
 trigeminal nerve (CNV). Specifically, the lingual nerve, a
 branch of the mandibular nerve (CN V3).
-The posterior 1/3 of the tongue both touch and taste are
+The posterior  of the tongue both touch and taste are
 carried by the glossopharyngeal nerve (CNIX)
-Previous Next
-
-2/2',
+Previous Next',
     false,
     6,
     'published',
@@ -6285,9 +6373,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cranial Nerve Vi_ Abducent Nerve
+  -- Lesson: Cranial Nerve Vi_ Abducent Nerve (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6304,12 +6393,10 @@ pons of the midbrain, travels through cavernous sinus, exits
 skull through superior orbital fissure.
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Cranial Nerve Vi_ Abducent Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-vi-abducent-nerve/figure_01_p1.png)
+*Cranial Nerve Vi_ Abducent Nerve — Clinical Figure 1 (Page 1 Reference)*',
     false,
     7,
     'published',
@@ -6321,9 +6408,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cranial Nerve V_ Trigeminal Nerve
+  -- Lesson: Cranial Nerve V_ Trigeminal Nerve (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6345,13 +6433,12 @@ brainstem from pons It has three main divisions:
 
 ### 3: Mandibular V3
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Previous Next
 
-2/2',
+![Cranial Nerve V_ Trigeminal Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-v-trigeminal-nerve/figure_01_p2.png)
+*Cranial Nerve V_ Trigeminal Nerve — Clinical Figure 1 (Page 2 Reference)*',
     false,
     8,
     'published',
@@ -6363,9 +6450,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cranial Nerve Xii_ Hypoglossal Nerve
+  -- Lesson: Cranial Nerve Xii_ Hypoglossal Nerve (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6383,12 +6471,10 @@ subarachnoid space, exits the cranium via the hypoglossal
 canal of the occipital bone.
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Cranial Nerve Xii_ Hypoglossal Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-xii-hypoglossal-nerve/figure_01_p1.png)
+*Cranial Nerve Xii_ Hypoglossal Nerve — Clinical Figure 1 (Page 1 Reference)*',
     false,
     9,
     'published',
@@ -6400,9 +6486,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cranial Nerve Xi_ Spinal Accessory Nerve
+  -- Lesson: Cranial Nerve Xi_ Spinal Accessory Nerve (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6421,12 +6508,10 @@ Outside the cranium, it descends along the internal carotid
 artery and innervate sternocleidomastoid muscle.
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Cranial Nerve Xi_ Spinal Accessory Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-xi-spinal-accessory-nerve/figure_01_p1.png)
+*Cranial Nerve Xi_ Spinal Accessory Nerve — Clinical Figure 1 (Page 1 Reference)*',
     false,
     10,
     'published',
@@ -6438,9 +6523,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cranial Nerve X_ Vagus Nerve
+  -- Lesson: Cranial Nerve X_ Vagus Nerve (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6476,15 +6562,15 @@ respectively.
 > initial increase in sympathetic outflow followed by a rebound
 > reduction in sympathetic activity leaving unopposed
 
-> Diet ii Late 2026)
 > Overview  Comments
 
-> 1/2
-> parasympathetic activity causing vasodilatation, bradycardia,
-> and hypotension
-> Orthostatic syncope: Defined as an orthostatic drop of >20
-> mm systolic blood pressure or >10 mm diastolic blood pressure.
+![Cranial Nerve X_ Vagus Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-x-vagus-nerve/figure_01_p1.png)
+*Cranial Nerve X_ Vagus Nerve — Clinical Figure 1 (Page 1 Reference)*
 
+parasympathetic activity causing vasodilatation, bradycardia,
+and hypotension
+Orthostatic syncope: Defined as an orthostatic drop of >20
+mm systolic blood pressure or >10 mm diastolic blood pressure.
 This may be due to absolute volume depletion from
 dehydration or haemorrhage or to venodilatation caused by
 medications or autonomic insufficiency (eg as occurs in
@@ -6492,7 +6578,8 @@ Parkinsons disease).
 Causes of syncope:
 Previous Next
 
-2/2',
+![Cranial Nerve X_ Vagus Nerve - Clinical Figure 2](/lessons/images/cranial-nerves-in-depth/cranial-nerve-x-vagus-nerve/figure_02_p2.png)
+*Cranial Nerve X_ Vagus Nerve — Clinical Figure 2 (Page 2 Reference)*',
     false,
     11,
     'published',
@@ -6504,9 +6591,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 8: Cell Physiology & Membrane Transport
+  -- ==========================================================================
+  -- Module 8: Cell Physiology & Membrane Transport (10 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Cell Physiology & Membrane Transport' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -6516,7 +6606,7 @@ Previous Next
     UPDATE "modules" SET "position" = 7, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Action Potential
+  -- Lesson: Action Potential (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6560,10 +6650,8 @@ Delayed closure of these rectifier K+ channels cause a
 transient hyperpolarization.
 Refractory Period
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Following the action potential, Na+ channels remain inactive
 for a time in a period known as the absolute refractory period
 where they cannot be opened by any amount of
@@ -6575,9 +6663,7 @@ response to a larger than normal stimulus.
 The refractory period limits the frequency at which action
 potentials can be generated, and ensures that, once initiated,
 an action potential can travel only in one direction.
-Previous Next
-
-2/2',
+Previous Next',
     true,
     0,
     'published',
@@ -6589,9 +6675,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cell Membrane Transport
+  -- Lesson: Cell Membrane Transport (4 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6620,10 +6707,11 @@ Decrease membrane thickness.
 Increase oil/ water partition co- efficient.
 Active transport
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Cell Membrane Transport - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_01_p1.png)
+*Cell Membrane Transport — Clinical Figure 1 (Page 1 Reference)*
+
 Filtration, osmosis and tonicity:
 Note:
 Example of hypotonic fluid: Pure water we drink is
@@ -6632,8 +6720,14 @@ Example of Isotonic fluid: NS 0.9% , Ringer''s lactate
 Example of hypertonic fluid: 3% Hypertonic saline
 Previous Next
 
-2/3
-3/3',
+![Cell Membrane Transport - Clinical Figure 2](/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_02_p2.png)
+*Cell Membrane Transport — Clinical Figure 2 (Page 2 Reference)*
+
+![Cell Membrane Transport - Clinical Figure 3](/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_03_p2.png)
+*Cell Membrane Transport — Clinical Figure 3 (Page 2 Reference)*
+
+![Cell Membrane Transport - Clinical Figure 4](/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_04_p2.png)
+*Cell Membrane Transport — Clinical Figure 4 (Page 2 Reference)*',
     false,
     1,
     'published',
@@ -6645,9 +6739,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Homeostasis
+  -- Lesson: Homeostasis (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6673,17 +6768,18 @@ constitute ¾ of ECF.
 ### 2: Intracellular fluid: Fluid inside the cells
 
 Average 70 kg adult has approximately 40 liters of water.
-Around 2/3 is ICF
+Around  is ICF
 Total body water= 0.6 x bodyweight
 ECF 0.2X Body weight
 ICF 0.4X Body weight
 Electrolytes distribution in ECF and
 ICF
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Homeostasis - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/homeostasis/figure_01_p1.png)
+*Homeostasis — Clinical Figure 1 (Page 1 Reference)*
+
 Operating mechanism for
 homeostasis:
 
@@ -6710,7 +6806,8 @@ Sensation of needing to urinate.
 Follicular phase of menstrual cycle
 Previous Next
 
-2/2',
+![Homeostasis - Clinical Figure 2](/lessons/images/cell-physiology-membrane-transport/homeostasis/figure_02_p2.png)
+*Homeostasis — Clinical Figure 2 (Page 2 Reference)*',
     false,
     2,
     'published',
@@ -6722,9 +6819,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Nerve Muscle
+  -- Lesson: Nerve Muscle (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6761,13 +6859,12 @@ Cardiac
 Smooth
 Comparison between them:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Previous Next
 
-2/2',
+![Nerve Muscle - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/nerve-muscle/figure_01_p2.png)
+*Nerve Muscle — Clinical Figure 1 (Page 2 Reference)*',
     false,
     3,
     'published',
@@ -6779,9 +6876,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Neuromuscular Junction
+  -- Lesson: Neuromuscular Junction (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6810,12 +6908,7 @@ Destruction: Released Ach is destroyed by acetylcholinesterase
 in basal lamina; this prevents re-excitation.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-
-2/2',
+Overview  Comments',
     false,
     4,
     'published',
@@ -6827,9 +6920,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Organisation of Cell
+  -- Lesson: Organisation of Cell (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6881,10 +6975,8 @@ intracellular Ca2+ and is the major site of lipid production.
 
 ### 4: Golgi body: Secretory vesicles found
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 The Golgi apparatus packages proteins for delivery to specific
 intracellular destinations or into vesicles which can then be
 secreted from the cell for extracellular action.
@@ -6898,9 +6990,7 @@ responsible for ribosomes production.
 protein synthesis takes place. They can be found in the
 cytoplasm (free ribosomes) or attached to the endoplasmic
 reticulum (bound ribosomes).
-Previous Next
-
-2/2',
+Previous Next',
     false,
     5,
     'published',
@@ -6912,9 +7002,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Osmolality and Osmolal Gap
+  -- Lesson: Osmolality and Osmolal Gap (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6928,12 +7019,10 @@ Previous Next
 Osmolality and osmolal gap
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Osmolality and Osmolal Gap - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/osmolality-and-osmolal-gap/figure_01_p1.png)
+*Osmolality and Osmolal Gap — Clinical Figure 1 (Page 1 Reference)*',
     false,
     6,
     'published',
@@ -6945,9 +7034,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Skeletal Muscle Excitation Contraction Coupling
+  -- Lesson: Skeletal Muscle Excitation Contraction Coupling (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -6987,11 +7077,7 @@ Actin filaments are pulled inward by myosin cross-bridges
 occurs.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-2/2',
+Overview  Comments',
     false,
     7,
     'published',
@@ -7003,9 +7089,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Teatnus and Rigor Mortis
+  -- Lesson: Teatnus and Rigor Mortis (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7032,12 +7119,7 @@ It remains until after 15 to 20 hours, when the muse protein
 detoriates.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-
-2/2',
+Overview  Comments',
     false,
     8,
     'published',
@@ -7049,9 +7131,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Vessel Fluid Dynamics
+  -- Lesson: Vessel Fluid Dynamics (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7095,19 +7178,15 @@ where,
 Pt = Transmural Pressure
 T = Wall Tension
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 w = Wall Thickness
 r = Radius
 Laplace''s Law also means that a large, dilated heart (e.g., heart
 failure) has to develop more wall tension (contractile force) in
 order to obtain the same ventricular pressure, making it less
 efficient.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     9,
     'published',
@@ -7119,9 +7198,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 9: Cardiovascular Physiology & Hemodynamics
+  -- ==========================================================================
+  -- Module 9: Cardiovascular Physiology & Hemodynamics (14 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Cardiovascular Physiology & Hemodynamics' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -7131,7 +7213,7 @@ Previous Next
     UPDATE "modules" SET "position" = 8, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Cardiac Cycle
+  -- Lesson: Cardiac Cycle (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7157,7 +7239,7 @@ potential that is initiated in the sinus node of the right atrium
 near the opening of the superior vena cava.
 The action potential travels through both atria and the A-V
 node and bundle into the ventricles. A delay of more than
-1/10 of a second occurs in the A-V node and bundle, which
+of a second occurs in the A-V node and bundle, which
 allows the atria to contract before the ventricles contract.
 Phases of Cardiac Cycle
 Two,
@@ -7172,22 +7254,20 @@ Intra-ventricular pressure falls aortic and pulmonary valves
 close.
 But ventricular vol. does not change.
 
-### 2.  Period of Rapid Filling of Ventricles (First 1/3): During this,
+### 2.  Period of Rapid Filling of Ventricles (First ): During this,
 
 atrial pressure becomes greater than    intra-ventricular
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 pressure (just after systole is over), AV valves (tricuspid and
 mitral) open, and blood flows rapidly into respective ventricles.
 
-### 3. Diastasis (Middle 1/3): During this, blood continues to empty
+### 3. Diastasis (Middle ): During this, blood continues to empty
 
 into atria from veins and passes on thru atria directly into
 ventricles
-4.Atrial Systole (Late 1/3): During this, atria contracts and
+4.Atrial Systole (Late ): During this, atria contracts and
 pump 20-30% blood into ventricles. Systolic pressure of right
 atrium rises to 4-6 mm Hg. and that of left atrium to 7-8 mm
 Hg.
@@ -7208,9 +7288,9 @@ slightly above 80 mm Hg and right ventricular pressure slightly
 above 8 mm Hg. These pressures push aortic and pulmonary
 valves open and empty blood into the aorta and pulmonary
 trunk. Divided into.
-Period of Rapid Ejection: During first 1/3, 70% emptying
+Period of Rapid Ejection: During first , 70% emptying
 occurs.
-Period of Slow Ejection During last 2/3, 30% emptying occur.
+Period of Slow Ejection During last , 30% emptying occur.
 Relationship of the
 Electrocardiogram to the Cardiac
 Cycle
@@ -7220,7 +7300,6 @@ increases just after the P wave.
 The QRS waves appear as a result of ventricular
 depolarization about 0.16 second after the onset of the P
 
-2/3
 wave, and this initiates ventricular contraction; then the
 ventricular pressure begins to increase.
 The ventricular T wave is caused by repolarization of the
@@ -7231,9 +7310,7 @@ from ventricles to atria during systole.
 Semilunar (aortic and pulmonary) valves prevent backflow
 of blood from aorta and pulmonary trunk into ventricles
 during diastole.
-Previous Next
-
-3/3',
+Previous Next',
     true,
     0,
     'published',
@@ -7245,9 +7322,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cardiac Excitation Contraction Coupling
+  -- Lesson: Cardiac Excitation Contraction Coupling (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7288,11 +7366,7 @@ three Na+ ions in, using the Na+ electrochemical gradient as
 an energy source.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-2/2',
+Overview  Comments',
     false,
     1,
     'published',
@@ -7304,9 +7378,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cardiac Myocyte
+  -- Lesson: Cardiac Myocyte (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7322,12 +7397,10 @@ Cardiac myocyte and comparison with other
 cells
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Cardiac Myocyte - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/cardiac-myocyte/figure_01_p1.png)
+*Cardiac Myocyte — Clinical Figure 1 (Page 1 Reference)*',
     false,
     2,
     'published',
@@ -7339,9 +7412,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Components of the Vasculature
+  -- Lesson: Components of the Vasculature (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7391,10 +7465,8 @@ based on the size of their pores. There are three basic types:
 Continuous capillaries, found in the skin, lungs, muscles and
 CNS, are the most selective with low permeability, as
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 junctions between the endothelial cells are very tight,
 restricting the flow of molecules with MW > 10,000.
 Fenestrated capillaries, found in renal glomeruli, endocrine
@@ -7435,10 +7507,7 @@ Arterioles, 50 mm Hg
 Capillaries, 20 mm Hg
 Vena cava, 4 mm Hg
 
-2/3
-Previous Next
-
-3/3',
+Previous Next',
     false,
     3,
     'published',
@@ -7450,9 +7519,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Conducting System of Heart
+  -- Lesson: Conducting System of Heart (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7492,11 +7562,7 @@ Note: AV nodal abnormality is responsible for prolonged PR
 interval (1st degree heart block)
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-2/2',
+Overview  Comments',
     false,
     4,
     'published',
@@ -7508,9 +7574,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Electrocardiography (ecg)
+  -- Lesson: Electrocardiography (ecg) (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7538,12 +7605,10 @@ The three limb electrodes, I, II and III form a triangle
 left leg (LL).
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Electrocardiography (ecg) - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/electrocardiography-ecg/figure_01_p1.png)
+*Electrocardiography (ecg) — Clinical Figure 1 (Page 1 Reference)*',
     false,
     5,
     'published',
@@ -7555,9 +7620,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Harmonal Control of Blood Flow
+  -- Lesson: Harmonal Control of Blood Flow (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7599,10 +7665,8 @@ demand, compensatory vasodilation of coronary vessels
 occurs and, accordingly, both blood flow and O2 delivery to
 the contracting heart muscle increase (active hyperemia).
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 During systole, mechanical compression of the coronary
 vessels reduces blood flow. After        the period of occlusion,
 blood flow increases to repay the O2 debt (reactive
@@ -7644,7 +7708,6 @@ The local vasodilator substances are lactate, adenosine, and
 K. Mechanical effects during exercise temporarily compress
 the arteries and decrease blood flow. During the post
 
-2/3
 occlusion period, reactive hyperemia increases blood flow to
 repay the O2 debt.
 Skin: Skin has extensive sympathetic innervation. Cutaneous
@@ -7659,7 +7722,8 @@ filtration.
 Vasoconstricting and Vasodilating agent:
 Previous Next
 
-3/3',
+![Harmonal Control of Blood Flow - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/harmonal-control-of-blood-flow/figure_01_p3.png)
+*Harmonal Control of Blood Flow — Clinical Figure 1 (Page 3 Reference)*',
     false,
     6,
     'published',
@@ -7671,9 +7735,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Heart Sounds, Mechanical Events and Correspondance with ECG
+  -- Lesson: Heart Sounds, Mechanical Events and Correspondance with ECG (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7688,12 +7753,10 @@ Heart sounds, Mechanical event and correspondence with
 ECG
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Heart Sounds, Mechanical Events and Correspondance with ECG - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/heart-sounds-mechanical-events-and-correspondance-with-ecg/figure_01_p1.png)
+*Heart Sounds, Mechanical Events and Correspondance with ECG — Clinical Figure 1 (Page 1 Reference)*',
     false,
     7,
     'published',
@@ -7705,9 +7768,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Heart Volumes
+  -- Lesson: Heart Volumes (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7729,8 +7793,8 @@ Cardiac output (CO) = Stroke volume x Heart rate = 70
 mL/beat x 70 beats/min = 4900 mL/min
 Mean arterial pressure: Average arterial pressure during
 single cardiac cycle. MAP can be calculated by:  Diastolic
-pressure + 1/3 of pulse pressure (SBP-DBP) OR 80+ 1/3 (120-
-80) = 93mmhg where BP 120/80
+pressure +  of pulse pressure (SBP-DBP) OR 80+  (120-
+80) = 93mmhg where BP
 End-Diastolic Volume: The volume of blood in each ventricle
 at the end of the diastole is called end-diastolic volume.
 (Value:120-130ml)
@@ -7741,12 +7805,7 @@ Ejection Fraction: Fraction of end-diastolic volume that is
 ejected during systole, is called ejection fraction. (Value: 60%)
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-
-2/2',
+Overview  Comments',
     false,
     8,
     'published',
@@ -7758,9 +7817,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Microcirculation and Lymph
+  -- Lesson: Microcirculation and Lymph (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7804,10 +7864,8 @@ Function of lymph: Normally, filtration of fluid out of the
 capillaries is slightly greater than absorption of fluid into the
 capillaries. The excess filtered fluid is returned to the circulation
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 via the lymph also returns any filtered protein to the
 circulation.
 Unidirectional flow of lymph One-way flap valves permit
@@ -7837,9 +7895,7 @@ monophosphate (cGMP)
 NO is one form of endothelial-derived relaxing factor (EDRF).
 Circulating Acetylcholine causes vasodilation by stimulating
 the production of NO in vascular smooth muscle.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     9,
     'published',
@@ -7851,9 +7907,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Reflex Control of Heart
+  -- Lesson: Reflex Control of Heart (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7876,12 +7933,7 @@ Parasympathetic stimulation decreases heart rate and
 strength, thereby decreasing cardiac pumping.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-
-2/2',
+Overview  Comments',
     false,
     10,
     'published',
@@ -7893,9 +7945,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Regulation of Blood Pressure
+  -- Lesson: Regulation of Blood Pressure (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7929,10 +7982,11 @@ Constriction of arterioles causes intense peripheral
 vasoconstriction and increased TPR. Blood flow to other
 organs (e.g., kidneys) is significantly reduced to preserve
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Regulation of Blood Pressure - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/regulation-of-blood-pressure/figure_01_p1.png)
+*Regulation of Blood Pressure — Clinical Figure 1 (Page 1 Reference)*
+
 blood flow to the brain. Mean arterial pressure can increase to
 life-threatening levels.
 The Cushing reaction is an example of the response to cerebral
@@ -7941,9 +7995,7 @@ of the cerebral blood vessels, leading to cerebral ischemia and
 increased cerebral Pco ₂ . The vasomotor center directs an
 increase in sympathetic outflow to the heart and blood vessels,
 which causes a profound increase in arterial pressure.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     11,
     'published',
@@ -7955,9 +8007,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Regulation of Cardiac Pumping
+  -- Lesson: Regulation of Cardiac Pumping (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -7999,10 +8052,8 @@ increased EDV/ preload there is increased in Stroke volume
 this intrinsic relationship between EDV and stroke volume is
 known as frank starling law of heart.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Afterload is the pressure that the chambers of the heart
 must generate in order to eject blood out of the heart occurs
 in systole.
@@ -8039,7 +8090,9 @@ rate (positive chronotrope) occur as a result of β 1 receptor
 stimulation. Systemic vascular resistance is increased
 overall because the stimulation of α 1 receptors results in
 
-2/3
+![Regulation of Cardiac Pumping - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/regulation-of-cardiac-pumping/figure_01_p2.png)
+*Regulation of Cardiac Pumping — Clinical Figure 1 (Page 2 Reference)*
+
 peripheral vasoconstriction, which counters the vasodilation
 due to β 2 receptor activation.
 Digoxin slows the removal of Ca2+ from the cell by inhibiting
@@ -8053,9 +8106,7 @@ chronotropic agent, increases both heart rate and
 contractility.
 Dopamine is positive inotropic drug increases contractility.
 Digoxin is positive inotrope and negative chronotrope.
-Previous Next
-
-3/3',
+Previous Next',
     false,
     12,
     'published',
@@ -8067,9 +8118,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Ventricular Myocyte Vs Pacemaker Action Potential
+  -- Lesson: Ventricular Myocyte Vs Pacemaker Action Potential (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8094,13 +8146,15 @@ Slow calcium channels activation and calcium influx
 initiates depolarization unlike of other ventricular muscle Na
 influx initiates depolarization
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Ventricular Myocyte Vs Pacemaker Action Potential - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/ventricular-myocyte-vs-pacemaker-action-potential/figure_01_p1.png)
+*Ventricular Myocyte Vs Pacemaker Action Potential — Clinical Figure 1 (Page 1 Reference)*
+
 Previous Next
 
-2/2',
+![Ventricular Myocyte Vs Pacemaker Action Potential - Clinical Figure 2](/lessons/images/cardiovascular-physiology-hemodynamics/ventricular-myocyte-vs-pacemaker-action-potential/figure_02_p2.png)
+*Ventricular Myocyte Vs Pacemaker Action Potential — Clinical Figure 2 (Page 2 Reference)*',
     false,
     13,
     'published',
@@ -8112,9 +8166,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 10: Respiratory Physiology & Ventilation
+  -- ==========================================================================
+  -- Module 10: Respiratory Physiology & Ventilation (15 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Respiratory Physiology & Ventilation' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -8124,7 +8181,7 @@ Previous Next
     UPDATE "modules" SET "position" = 9, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Alveolar Arterial Gradient
+  -- Lesson: Alveolar Arterial Gradient (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8162,11 +8219,7 @@ Alveolar PAo2, diffusion defect, V/Q defects and right to left
 shunt
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-2/2',
+Overview  Comments',
     true,
     0,
     'published',
@@ -8178,9 +8231,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Breathing Cycle - Description of Pressure and Airflow
+  -- Lesson: Breathing Cycle - Description of Pressure and Airflow (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8223,10 +8277,8 @@ At the peak of inspiration, lung volume is the FRC plus one
 Tidal volume.
 During expiration:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Alveolar pressure becomes greater than atmospheric
 pressure. "The alveolar pressure becomes greater (i.e. becomes
 positive) because alveolar gas is compressed by the elastic
@@ -8245,9 +8297,7 @@ resistance at the mouth, airway pressure is increased and
 prevents the airway collapse that may occur with a forced
 expiration.
 Lung volume returns to FRC.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     1,
     'published',
@@ -8259,9 +8309,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Central Control of Breathing
+  -- Lesson: Central Control of Breathing (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8307,10 +8358,8 @@ and glossopharyngeal nerves. The vagus nerve relays
 information from peripheral chemoreceptors in the lung. The
 glossopharyngeal nerve relays information from peripheral
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 chemoreceptors and Output from the dorsal respiratory
 group travels, via the phrenic nerve, to the diaphragm
 B: Ventral respiratory group is primarily responsible for
@@ -8338,9 +8387,7 @@ therefore, a person can voluntarily hyper ventilate or hypo
 ventilate.
 Note: Hypoventilation (breath-holding) is limited by the
 resulting increase in Pco2 and decrease in P02
-Previous Next
-
-2/2',
+Previous Next',
     false,
     2,
     'published',
@@ -8352,9 +8399,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Control of Ventilation
+  -- Lesson: Control of Ventilation (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8373,11 +8421,13 @@ Central chemoreceptor Vs Peripheral
 chemoreceptor
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-2/2',
+![Control of Ventilation - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/control-of-ventilation/figure_01_p1.png)
+*Control of Ventilation — Clinical Figure 1 (Page 1 Reference)*
+
+![Control of Ventilation - Clinical Figure 2](/lessons/images/respiratory-physiology-ventilation/control-of-ventilation/figure_02_p1.png)
+*Control of Ventilation — Clinical Figure 2 (Page 1 Reference)*',
     false,
     3,
     'published',
@@ -8389,9 +8439,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Dead Space
+  -- Lesson: Dead Space (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8420,12 +8471,7 @@ anatomic dead space in lung diseases in which the
 ventilation/perfusion (V/Q) defects.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-
-2/2',
+Overview  Comments',
     false,
     4,
     'published',
@@ -8437,9 +8483,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Diffusion and Diffusion Capacity
+  -- Lesson: Diffusion and Diffusion Capacity (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8483,10 +8530,8 @@ diffusion coefficient of the gas and surface area and inversely
 proportional to thickness of the barrier. DLCO is measured with
 carbon monoxide (i.e., DLCO).
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 DLCO increases during exercise because there are more
 open capillaries and thus more surface area for diffusion.
 DLCO decreases in emphysema (because of decreased
@@ -8495,7 +8540,8 @@ of increased diffusion distance).
 High DLCO and Low DLCO
 Previous Next
 
-2/2',
+![Diffusion and Diffusion Capacity - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/diffusion-and-diffusion-capacity/figure_01_p2.png)
+*Diffusion and Diffusion Capacity — Clinical Figure 1 (Page 2 Reference)*',
     false,
     5,
     'published',
@@ -8507,9 +8553,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Gas Exchange
+  -- Lesson: Gas Exchange (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8550,16 +8597,14 @@ liquid.
 So, breathing gas at higher-than-normal pressures will cause
 their bodies to absorb more gases than are absorbed at lower
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 pressures. Absorbed gases can cause decompression
 sickness as well as toxic effects.
 Henry law is applicable in Scuva diving or deep-sea diver.
 The following calculation uses O2 in arterial blood as an
 example: Dissolved [O2] =Po2 × Solubility of O2 in blood 100
-mm Hg x 0.003 mL 02/100 mL/mm Hg =0.3 mL 0/100 mL
+mm Hg x 0.003 mL  mL/mm Hg =0.3 mL  mL
 blood
 where:
 [02] =02concentration in blood
@@ -8568,7 +8613,8 @@ Po2partial pressure of O2 in blood
 Partial pressure of O2 and Co2 (mm Hg)
 Previous Next
 
-2/2',
+![Gas Exchange - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/gas-exchange/figure_01_p2.png)
+*Gas Exchange — Clinical Figure 1 (Page 2 Reference)*',
     false,
     6,
     'published',
@@ -8580,9 +8626,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Lung Elastance and Compliance
+  -- Lesson: Lung Elastance and Compliance (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8618,12 +8665,7 @@ system will seek a new, lower FRC so that the two opposing
 forces can be balanced again.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-
-2/2',
+Overview  Comments',
     false,
     7,
     'published',
@@ -8635,9 +8677,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Lung Receptors
+  -- Lesson: Lung Receptors (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8676,13 +8719,9 @@ Increase in duration of expiration.
 Hering-Breuer Deflation reflex: Decrease in duration of
 expiration produced by marked deflation of lung.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-Previous Next
-
-2/2',
+Previous Next',
     false,
     8,
     'published',
@@ -8694,9 +8733,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Lung Volumes and Capacities
+  -- Lesson: Lung Volumes and Capacities (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8737,10 +8777,8 @@ using spirometry.
 Normal FRC is 3500ml.
 Factors affecting FRC.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Factors increasing FRC: Emphysema, Air trapping in asthma,
 Ageing (due to loss of elastic properties) and Increasing
 height of patient.
@@ -8785,7 +8823,6 @@ Residual volume and thus (FRC and TLC) can be measured
 using helium dilution.
 Peak Expiratory flow rate:
 
-2/3
 The easiest and quickest measurement is the peak expiratory
 flow rate (PEFR)
 Airway resistance and lung compliance can be assessed
@@ -8795,9 +8832,7 @@ Lung volumes can be measured with spirometry.
 PEFR is reduced if airway resistance is increased in
 obstructive disease and is commonly used to monitor
 asthma.
-Previous Next
-
-3/3',
+Previous Next',
     false,
     9,
     'published',
@@ -8809,9 +8844,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Oxygen Haemoglobin Dissociation Curve
+  -- Lesson: Oxygen Haemoglobin Dissociation Curve (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8857,10 +8893,8 @@ Decreased H+
 Decreased 2-3DPG.
 CO poisoning
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Methemoglobinemia
 Fetal hemoglobin
 Note:
@@ -8877,9 +8911,7 @@ release o2 near tissue and 2,3DPG only binds with beta
 globulin chains, fetal hemoglobin (HbF) lack of beta
 globulin chains that''s why fetal hemoglobin has higher
 affinity for O2
-Previous Next
-
-2/2',
+Previous Next',
     false,
     10,
     'published',
@@ -8891,9 +8923,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Resistance of the Airways
+  -- Lesson: Resistance of the Airways (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8932,11 +8965,7 @@ Sympathetic stimulation and sympathetic agonists
 the radius, and decrease the resistance to airflow.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-2/2',
+Overview  Comments',
     false,
     11,
     'published',
@@ -8948,9 +8977,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Surface Tention and Surfactant
+  -- Lesson: Surface Tention and Surfactant (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -8993,17 +9023,13 @@ surface of the alveolus
 Neonatal respiratory distress syndrome: can occur in
 premature infants because of the lack of surfactant. The infant
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 exhibits atelectasis (lungs collapse), difficulty reinflating the
 lungs (as a result of decreased compliance), decreased V/Q and
 right-to-left shunt, and hypoxemia (as a result of decreased V/Q
 and right-to-left shunt).
-Previous Next
-
-2/2',
+Previous Next',
     false,
     12,
     'published',
@@ -9015,9 +9041,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Transport of Gases in Circulation
+  -- Lesson: Transport of Gases in Circulation (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9060,13 +9087,9 @@ Each gram of haemoglobin binds with up to 1.34 mL oxygen,
 so with a haemoglobin concentration of 140 g/L, blood
 contains a maximum of 187 mL/L
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-Previous Next
-
-2/2',
+Previous Next',
     false,
     13,
     'published',
@@ -9078,9 +9101,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Ventilation Perfusion Mismatch
+  -- Lesson: Ventilation Perfusion Mismatch (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9127,10 +9151,8 @@ decreased)
 If blood flow to a lung is completely blocked (e.g., by an
 embolism occluding a pulmonary artery), then blood flow to
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 that lung is zero. If ventilation is normal, then V/Q is infinite,
 which is called dead space.
 Partial pressure of pulmonary CO2 decreases while that of
@@ -9154,7 +9176,8 @@ left shunts commonly result in a low arterial PO2 but a
 normal or low PCO2.
 Previous Next
 
-2/2',
+![Ventilation Perfusion Mismatch - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/ventilation-perfusion-mismatch/figure_01_p2.png)
+*Ventilation Perfusion Mismatch — Clinical Figure 1 (Page 2 Reference)*',
     false,
     14,
     'published',
@@ -9166,9 +9189,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 11: Renal Physiology & Acid-Base Balance
+  -- ==========================================================================
+  -- Module 11: Renal Physiology & Acid-Base Balance (13 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Renal Physiology & Acid-Base Balance' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -9178,7 +9204,7 @@ Previous Next
     UPDATE "modules" SET "position" = 10, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Acid Base Balance
+  -- Lesson: Acid Base Balance (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9220,10 +9246,8 @@ Organic phosphates e.g., AMP, ADP, ATP, 2,3-
 disphosphoglycerate (DPG)
 Hemoglobin is a major IC buffer.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
 In the physiologic PH range deoxyhemoglobin is a better
 buffer than oxyhemoglobin.
 Renal acid base
@@ -9264,7 +9288,6 @@ Angiotensin II stimulates Na-H exchange and thus increases
 HCO3- reabsorption, contributing to the contraction alkalosis
 that occurs secondary to ECF volume contraction.
 
-2/4
 Excretion of fixed H
 Fixed H+ produced from the catabolism of protein and
 phospholipid is excreted by two mechanism, titratable acid
@@ -9307,12 +9330,9 @@ decrease in H excretion as NH4 (Type 4 renal tubular
 acidosis). For example, Hypoaldosteronism causes
 hyperkalemia and thus also causes type 4 RTA. Conversely,
 
-3/4
 hypokalemia stimulates NH3 synthesis, which produces an
 increase in H excretion.
-Previous Next
-
-4/4',
+Previous Next',
     true,
     0,
     'published',
@@ -9324,9 +9344,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Acid Base Disorder
+  -- Lesson: Acid Base Disorder (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9371,10 +9392,8 @@ determines the presence of unmeasured anions. These
 usually include proteins, sulphate, phosphate and organic
 acids.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/5
 Normal value of serum anion gap is 12meq/L (range 8-
 16meq/L)
 In metabolic acidosis, serum [HCO3-] decreases. For
@@ -9417,7 +9436,6 @@ Salicylates
 Note: The most common cause of low anion gap
 is hypoalbuminemia
 
-2/5
 Metabolic alkalosis
 Loss of fixed H+ or gain of base produces an increase in
 arterial [HCO3-]. This increase is the primary disturbance in
@@ -9451,7 +9469,6 @@ Milk alkali syndrome
 severe potassium depletion (serum potassium <2 mmol/L)
 Respiratory acidosis
 
-3/5
 Respiratory acidosis is carbon dioxide (CO2) accumulation
 (hypercapnia) due to a decrease in respiratory rate and/or
 respiratory volume (hypoventilation).
@@ -9492,7 +9509,6 @@ causes a deficit of H in the renal cells for secretion. The
 resulting decrease in serum [HCO3] helps to normalize the
 PH.
 
-4/5
 In acute respiratory alkalosis, renal compensation has not
 yet occurred.
 In chronic respiratory alkalosis, renal compensation
@@ -9510,9 +9526,7 @@ Hyperventilation (Due to heart disorder or other, including
 improper mechanical ventilation)
 Vocal cord paralysis (compensation for loss of vocal volume
 results in over-breathing/breathlessness).
-Previous Next
-
-5/5',
+Previous Next',
     false,
     1,
     'published',
@@ -9524,9 +9538,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Aldosterone, ADH and ANP
+  -- Lesson: Aldosterone, ADH and ANP (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9569,10 +9584,8 @@ including Na pump, Na-H antiporter; and Na, K channels in
 principal cells and H- ATPase in intercalated cells. Thereby
 enhancing the Na and H2O reabsorption and H, K secretion.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 ADH release is inhibited by
 Hypoosmolality
 Alcohol
@@ -9597,9 +9610,7 @@ Suppress the production of renin, ADH, aldosterone.
 Causes renal vasodilation thereby increasing the GFR.
 Inhibits Na reabsorption in distal nephron by inhibiting the
 ENaC in principal cells.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     2,
     'published',
@@ -9611,9 +9622,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Autoregulation
+  -- Lesson: Autoregulation (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9656,11 +9668,7 @@ macula densa and cause afferent arteriolar vasoconstriction,
 providing restoration of filtration and autoregulation of RBF.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-2/2',
+Overview  Comments',
     false,
     3,
     'published',
@@ -9672,9 +9680,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Concentration and Dilution of Urine
+  -- Lesson: Concentration and Dilution of Urine (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9716,10 +9725,8 @@ medullary interstitial fluid is also augmented by ADH (by
 stimulating UT1 transporter)
 Vasa recta
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/5
 Are the capillaries that supply the LOH. They maintain the
 corticopapillary gradient by serving as osmotic exchanger.
 Vasa recta blood equilibrates osmotically with interstitial fluid
@@ -9758,7 +9765,6 @@ Collecting ducts - high ADH
 As in the late distal tubule, ADH increases the H2O
 permeability of the principal cells of the collecting ducts.
 
-2/5
 As tubular fluid flows through the collecting ducts, it passes
 through the corticopapillary gradient (regions of increasingly
 higher osmolarity), which was previously established by
@@ -9797,7 +9803,6 @@ collecting ducts are impermeable to water.
 Thus, even though the tubular fluid flows through the
 corticopapillary osmotic gradient, osmotic equilibration does
 
-3/5
 not occur.
 The osmolarity of final urine will be diluted with an osmolarity
 as low as 50mOsm/L.
@@ -9830,10 +9835,7 @@ insipidus or nephrogenic diabetes insipidus.
 Urine that is hyperosmotic to plasma (high ADH)
 CH2O is negative.
 It is produced in water deprivation or SIADH.
-Previous Next
-
-4/5
-5/5',
+Previous Next',
     false,
     4,
     'published',
@@ -9845,9 +9847,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Creatinine Clearance
+  -- Lesson: Creatinine Clearance (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9883,12 +9886,7 @@ parallels inulin clearance and is independent of production rate
 (excretion rises as plasma concentration increases
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-
-2/2',
+Overview  Comments',
     false,
     5,
     'published',
@@ -9900,9 +9898,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Functional Anatomy of Kidney
+  -- Lesson: Functional Anatomy of Kidney (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -9946,10 +9945,8 @@ number about 1.3 million per kidney.
 There are two types of nephrons, cortical nephrons (85% of
 nephrons) and juxtamedullary nephrons (15% of nephrons)
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
 A nephron has two main parts - tubules (proximal
 convoluted tubule, the loop of Henle and the distal
 convoluted tubule, collecting duct) and renal corpuscle
@@ -9988,7 +9985,6 @@ The juxtaglomerular cells (granular cells) of the afferent
 arteriole, synthesize and store renin, which is secreted in
 response to specific stimuli (e.g., low blood flow, decreased
 
-2/4
 NaCl delivery). The juxtaglomerular cells could be considered
 the "effector arm" of the renin-angiotensin-aldosterone axis.
 The macula densa, a region of the distal convoluted tubule
@@ -10036,7 +10032,6 @@ solutes e.g., Albumin.
 
 space; the podocytes have foot processes directly contacting
 
-3/4
 the basement membrane.
 Regular gaps between foot processes (pedicles) are called
 filtration slits, across these slits a protein network forms slit
@@ -10044,9 +10039,7 @@ pores in the epithelial lining which prevent the passage of
 larger molecules through this final layer.
 Podocytes also exhibit phagocytic and contractile activity like
 that of mesangial cells.
-Previous Next
-
-4/4',
+Previous Next',
     false,
     6,
     'published',
@@ -10058,9 +10051,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Glomerular Filtration Rate
+  -- Lesson: Glomerular Filtration Rate (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10101,10 +10095,8 @@ bowman''s space.
 Net filtration pressure = PGC- π GC - PBS
 = 45 - 24 - 8 = 13mmhg
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Filtration at the glomeruli depends
 upon starling forces.
 Glomerular capillaries have very high hydrostatic pressure;
@@ -10127,9 +10119,7 @@ Renal disease, circulating and local vasoconstrictors,
 sympathetic stimulation all reduce GFR, however angiotensin
 II preferentially constricts efferent arterioles therefore
 increases GFR.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     7,
     'published',
@@ -10141,9 +10131,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Hyperkalemia and Hypokalemia
+  -- Lesson: Hyperkalemia and Hypokalemia (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10194,7 +10185,6 @@ Sinus wave appearance
 Late 2026)
 Overview  Comments
 
-1/4
 Treatment of hyperkalemia
 If there are ECG changes: Stabilize the cardiac membrane
 first, e.g., with IV calcium gluconate (10 ml of 10% solution IV
@@ -10215,7 +10205,9 @@ Thiazide or loop diuretics
 Renal tubular acidosis
 Hypomagnesaemia
 
-2/4
+![Hyperkalemia and Hypokalemia - Clinical Figure 1](/lessons/images/renal-physiology-acid-base-balance/hyperkalemia-and-hypokalemia/figure_01_p2.png)
+*Hyperkalemia and Hypokalemia — Clinical Figure 1 (Page 2 Reference)*
+
 Drugs causing increased K+ excretion like penicillin,
 aminoglycosides, amphotericin
 GI loss
@@ -10245,22 +10237,15 @@ Treat the underlying disorder.
 Oral and/or IV potassium replacement
 Magnesium replacement, if hypomagnesemia is present.
 Causes of increased distal K secretion
-High K diet
-Hyperaldosteronism
-Alkalosis
+High K Alkalosis
 Thiazide diuretics
 Loop diuretics
 Luminal anions
 Causes of decreased distal K secretion
-Low K diet
-Hypoaldosteronism
-Acidosis
+Low K Acidosis
 K sparing diuretics
 
-3/4
-Previous Next
-
-4/4',
+Previous Next',
     false,
     8,
     'published',
@@ -10272,9 +10257,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: NACL Regulation
+  -- Lesson: NACL Regulation (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10316,10 +10302,8 @@ phosphate and lactate.
 Na is reabsorbed by cotransport with glucose, amino acids,
 phosphate and lactate. These cotransport processes account
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 for the reabsorption of all the filtered glucose and amino
 acids.
 Na is also reabsorbed by counter transport via Na-H
@@ -10359,7 +10343,6 @@ Together reabsorb 8% of filtered Na.
 Early DCT:
 Reabsorbs NaCl by a Na-Cl cotransporter.
 
-2/3
 Is the site of action of thiazide diuretics
 Is impermeable to water, as thick ascending limb. Thus,
 reabsorption of NaCl occurs without water, which further
@@ -10392,9 +10375,7 @@ Alpha intercalated cells:
 Secretes H+ by an H-adenosine triphosphatase (H-ATPase),
 which is stimulated by aldosterone.
 Reabsorbs K+ by an H-K-ATPase
-Previous Next
-
-3/3',
+Previous Next',
     false,
     9,
     'published',
@@ -10406,9 +10387,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Potassium Regulation
+  -- Lesson: Potassium Regulation (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10439,8 +10421,7 @@ Either reabsorbs or secretes K+ depending on dietary K
 intake.
 Reabsorption of K+ involves an H-K ATPase in the luminal
 membrane of the alpha intercalated cells of late DCT, and its
-occurs only on a low K+ diet (K+ depletion). Under these
-conditions, K+ excretion can be as low as 1% of the filtered
+occurs only on a low K+ conditions, K+ excretion can be as low as 1% of the filtered
 load because the kidney conserves as much K as possible.
 Secretion occurs in the principal cells. It is variable and
 accounts for the wide range of urinary K+ excretion. It
@@ -10451,10 +10432,8 @@ At the basolateral membrane, K+ is actively transported into
 the cell by the Na-K pump, as in all cells this maintains a high
 intracellular K+ conc.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 At the luminal membrane, K+ is passively secreted into the
 lumen through K+ channels. The magnitude of this passive
 secretion 1st determined by the chemical and electrical
@@ -10465,8 +10444,7 @@ the electrochemical driving force for K+ across the luminal
 membrane is increased. Secretion is decreased when the
 electrochemical driving force is decreased.
 Dietary K
-A diet high in K+ increases K+ secretion, and a diet low in K+
-decreases K+ secretion.
+A decreases K+ secretion.
 On a high K+ diet, intracellular K+ increases so that the
 driving force for K+ secretion also increases.
 On a low K+ diet, intracellular K+ decreases so that the
@@ -10493,7 +10471,6 @@ Acid base
 Effectively, H and K exchange for each other across the
 basolateral cell membrane.
 
-2/3
 Acidosis decreases K secretion. The blood contains
 excessive H+; therefore, H+ enters the cell across the
 basolateral membrane and K+ leaves the cell and moves into
@@ -10523,9 +10500,7 @@ Luminal anions
 Excess anions (HCO3-) in the lumen cause an increase in K+
 secretion by increasing the negativity of the lumen and
 increasing the driving force for K+ secretion.
-Previous Next
-
-3/3',
+Previous Next',
     false,
     10,
     'published',
@@ -10537,9 +10512,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Renal Regulation of Urea, Phosphate, Calcium and Magnessium
+  -- Lesson: Renal Regulation of Urea, Phosphate, Calcium and Magnessium (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10584,10 +10560,8 @@ increased urinary cAMP.
 PO4 is a urinary buffer for H+; excretion of H2PO4 is called
 titratable acid.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Calcium
 60% of plasma Ca is filtered across the glomerular capillaries.
 Together the proximal tubule and thick ascending limb
@@ -10615,9 +10589,7 @@ reabsorption; therefore, hypercalcemia causes an increase in
 Mg excretion (by inhibiting Mg reabsorption). Likewise,
 hypermagnesemia causes an increase in Ca excretion (by
 inhibiting Ca reabsorption)
-Previous Next
-
-2/2',
+Previous Next',
     false,
     11,
     'published',
@@ -10629,9 +10601,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Renin Angiotensin Aldosterone System
+  -- Lesson: Renin Angiotensin Aldosterone System (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10675,10 +10648,8 @@ peptide (ANP), which is released by stretched atria in response
 to increases in blood pressure.
 Angiotensin II production
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Angiotensinogen is a precursor protein produced in the liver
 and cleaved by renin to form angiotensin I. Angiotensin I is then
 converted to angiotensin II by angiotensin converting
@@ -10712,10 +10683,7 @@ Activation of Na-H pump thereby increasing the reabsorption
 of Na from proximal tubule.
 Inhibits the renin production from granular cells of JG
 apparatus (negative feedback)
-Previous Next
-
-2/3
-3/3',
+Previous Next',
     false,
     12,
     'published',
@@ -10727,9 +10695,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 12: Gastrointestinal (GIT) Physiology
+  -- ==========================================================================
+  -- Module 12: Gastrointestinal (GIT) Physiology (20 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Gastrointestinal (GIT) Physiology' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -10739,7 +10710,7 @@ Previous Next
     UPDATE "modules" SET "position" = 11, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Absorption of Vitamins in Small Intestine
+  -- Lesson: Absorption of Vitamins in Small Intestine (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10767,14 +10738,7 @@ intrinsic factor complex and thus requires injection of
 vitamin B12
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/3
-
-2/3
-
-3/3',
+Overview  Comments',
     true,
     0,
     'published',
@@ -10786,9 +10750,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Bile and Bile Salts
+  -- Lesson: Bile and Bile Salts (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10833,10 +10798,8 @@ the gallbladder and duodenum.
 Bile is continuously produced, but we only need it during and
 after meals. Therefore, the gallbladder concentrates and
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 stores bile, by removing the water and ions.
 After eating, the hormone cholecystokinin is released from
 the duodenum (in response to small peptides and fatty acids
@@ -10873,7 +10836,6 @@ The bile acids are conjugated with glycine or taurine to form
 their respective bile salts.
 Function of bile acids
 
-2/3
 Emulsification of lipids to increase the surface area available
 for digestion by pancreatic lipase.
 Micelles formation to facilitate lipid transport and absorption.
@@ -10881,9 +10843,7 @@ Stimulate the bile production by osmotically attracting water
 and electrolytes into the bile canaliculi.
 Regulation of bile acid synthesis via negative feedback
 mechanism
-Previous Next
-
-3/3',
+Previous Next',
     false,
     1,
     'published',
@@ -10895,9 +10855,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Calcium Absorption
+  -- Lesson: Calcium Absorption (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10919,14 +10880,7 @@ inadequate intestinal Ca+ absorption, causing rickets in
 children and osteomalacia in adults.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/3
-
-2/3
-
-3/3',
+Overview  Comments',
     false,
     2,
     'published',
@@ -10938,9 +10892,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Defecation
+  -- Lesson: Defecation (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -10976,14 +10931,7 @@ the external sphincter is usually sufficient to override the
 reflexes that anal distension initiates.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/3
-
-2/3
-
-3/3',
+Overview  Comments',
     false,
     3,
     'published',
@@ -10995,9 +10943,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Digestion and Absorption of Carbohydrates
+  -- Lesson: Digestion and Absorption of Carbohydrates (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11009,8 +10958,7 @@ Overview  Comments
     '# Digestion and Absorption of Carbohydrates
 
 Carbohydrate
-Carbohydrates in the diet provide the major exogenous source
-for glucose, which is the primary energy source for cells. They
+Carbohydrates in the for glucose, which is the primary energy source for cells. They
 provide 17kJ (4kcal) of energy per gram. Most of the dietary
 carbohydrates are in the form of polysaccharides, the principal
 ingested polysaccharides are starch which is derived from
@@ -11036,10 +10984,8 @@ Conditions that decrease the secretion of these enzymes result
 in malabsorption and maldigestion.
 Digestion
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Glucose and galactose are absorbed via sodium-glucose linked
 transporters (SGLTs) in the intestinal epithelial cells and
 translocated into the circulation via glucose transporter 2
@@ -11055,9 +11001,8 @@ fiber adds bulk to the bowel contents and increases the gut
 motility.
 Previous Next
 
-2/3
-
-3/3',
+![Digestion and Absorption of Carbohydrates - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-carbohydrates/figure_01_p2.png)
+*Digestion and Absorption of Carbohydrates — Clinical Figure 1 (Page 2 Reference)*',
     false,
     4,
     'published',
@@ -11069,9 +11014,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Digestion and Absorption of Lipids
+  -- Lesson: Digestion and Absorption of Lipids (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11083,15 +11029,13 @@ Previous Next
     '# Digestion and Absorption of Lipids
 
 Lipid
-Fats in the diet are a more concentrated form of energy than
-carbohydrates and have an energy yield of 37 kJ (9
+Fats in the carbohydrates and have an energy yield of 37 kJ (9
 kilocalories) per gram. Adipose (fatty) tissue in the fat depots
 of the body serves as an energy reserve as well as helping to
 insulate the body and cushion the internal organs.
 The lipids of nutritional importance are triglycerides (fats and
 oils), phospholipids (e.g., lecithin), and sterols (e.g.,
-cholesterol). Lipids in the diet transport the four fat-soluble
-vitamins (vitamins A, D, E, and K) and assist in their
+cholesterol). Lipids in the vitamins (vitamins A, D, E, and K) and assist in their
 absorption in the small intestine.
 Digestion and absorption of lipid
 Digestion
@@ -11116,10 +11060,8 @@ into the circulation so that they can be used by cells around
 the body. Bile salts cluster around the products of fat
 digestion to form structures called micelles, which help the
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 fats get close enough to the microvilli of intestinal cells so
 that they can be absorbed.
 Absorption of lipids
@@ -11147,10 +11089,13 @@ exocytosis. Because chylomicrons are too large to enter the
 capillaries, they are transferred to lymph vessels (lacteals) and
 are added to the bloodstream via the thoracic duct.
 
-2/3
+![Digestion and Absorption of Lipids - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-lipids/figure_01_p2.png)
+*Digestion and Absorption of Lipids — Clinical Figure 1 (Page 2 Reference)*
+
 Previous Next
 
-3/3',
+![Digestion and Absorption of Lipids - Clinical Figure 2](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-lipids/figure_02_p3.png)
+*Digestion and Absorption of Lipids — Clinical Figure 2 (Page 3 Reference)*',
     false,
     5,
     'published',
@@ -11162,9 +11107,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Digestion and Absorption of Proteins
+  -- Lesson: Digestion and Absorption of Proteins (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11208,10 +11154,8 @@ Ectopeptidase includes carboxypeptidase A and
 carboxypeptidase B. Carboxypeptidase A acts on neutral AA
 and carboxypeptidase B acts on basic AA. The process of
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 digestion of protein is completed in the small intestine with
 brush border and pancreatic enzymes.
 Absorption:
@@ -11225,9 +11169,8 @@ dependent cotransporters and once inside the cell are
 hydrolyzed to amino acids.
 Previous Next
 
-2/3
-
-3/3',
+![Digestion and Absorption of Proteins - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-proteins/figure_01_p2.png)
+*Digestion and Absorption of Proteins — Clinical Figure 1 (Page 2 Reference)*',
     false,
     6,
     'published',
@@ -11239,9 +11182,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Exocrine Pancreas
+  -- Lesson: Exocrine Pancreas (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11275,10 +11219,11 @@ the initial pancreatic secretion by secreting HCO3- and
 absorbing CL- via CL- -HCO3- exchange mechanism in the
 luminal membrane.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Exocrine Pancreas - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/exocrine-pancreas/figure_01_p1.png)
+*Exocrine Pancreas — Clinical Figure 1 (Page 1 Reference)*
+
 Enzymes secreted:
 Most of the proteolytic enzymes are secreted in an inactive
 form termed zymogens or proenzymes to protect the pancreas
@@ -11318,13 +11263,11 @@ cells.
 > precursor of trypsin) is activated to trypsin in the small
 > intestine, where it aids in protein digestion. However, in cases
 
-> 2/3
-> of pancreatitis, trypsin can become prematurely activated
-> within the pancreas itself due to factors like alcohol
-> consumption or other triggers. This activation of trypsin within
-> the pancreas can lead to the autodigestion of pancreatic tissue,
-> causing inflammation.
-
+of pancreatitis, trypsin can become prematurely activated
+within the pancreas itself due to factors like alcohol
+consumption or other triggers. This activation of trypsin within
+the pancreas can lead to the autodigestion of pancreatic tissue,
+causing inflammation.
 Chymotrypsinogen is the inactive precursor of chymotrypsin.
 Activation of chymotrypsinogen to its active form,
 chymotrypsin, occurs through the action of trypsin. Once
@@ -11333,9 +11276,7 @@ can then activate chymotrypsinogen by cleaving it to
 chymotrypsin. Chymotrypsin further breaks down protein
 molecules into smaller peptides and amino acids that can be
 absorbed by the body.
-Previous Next
-
-3/3',
+Previous Next',
     false,
     7,
     'published',
@@ -11347,9 +11288,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Gastrointestinal Hormones
+  -- Lesson: Gastrointestinal Hormones (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11389,10 +11331,8 @@ Stimulate pepsinogen secretion from chief cells.
 Stimulate growth of gastric mucosa by stimulating the
 synthesis of RNA and new protein
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
 Zollinger-Ellison syndrome (Gastrinoma)
 Occurs when gastrin is secreted by non-β-cell tumors of the
 pancreas.
@@ -11427,7 +11367,6 @@ duodenum
 Triglycerides do not stimulate the release of CCK because
 they cannot cross intestinal cell membranes.
 
-2/4
 Inhibiting factors
 The release of cholecystokinin is inhibited by somatostatin.
 Action of CCK
@@ -11454,7 +11393,9 @@ Due to its effect on growth hormone, it is also referred to as
 growth hormone inhibiting hormone.
 Somatostatin secretion is inhibited by vagal stimulation.
 
-3/4
+![Gastrointestinal Hormones - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/gastrointestinal-hormones/figure_01_p3.png)
+*Gastrointestinal Hormones — Clinical Figure 1 (Page 3 Reference)*
+
 Somatostatin inhibits the gastric acid secretion both directly
 at the parietal cell via a G-protein coupled receptor and
 indirectly via inhibition gastrin and histamine secretion.
@@ -11468,9 +11409,7 @@ Decrease pancreatic exocrine and endocrine function.
 Paracrine inhibition of insulin and glucagon secretion from α
 and β -cells of the Islets of Langerhans
 Decrease blood glucose concentration.
-Previous Next
-
-4/4',
+Previous Next',
     false,
     8,
     'published',
@@ -11482,15 +11421,16 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Gastrointestinal Tract
+  -- Lesson: Gastrointestinal Tract (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
     gen_random_uuid(),
     v_module_id,
-    'gastrointestinal-tract-2',
+    'gastrointestinal-tract',
     'Gastrointestinal Tract',
     'article',
     '# Gastrointestinal Tract
@@ -11517,10 +11457,8 @@ Absorption of nutrients and water
 Excretion of waste as feces
 Immunity
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Structures of GI tract:
 All segments of the GI tract are divided into four layers (from
 innermost to outer most) are:
@@ -11537,7 +11475,9 @@ the surface area for secretion or absorption)
 tissue, large blood vessels and lymphatic vessels and
 submucosal plexus
 
-2/3
+![Gastrointestinal Tract - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/gastrointestinal-tract/figure_01_p2.png)
+*Gastrointestinal Tract — Clinical Figure 1 (Page 2 Reference)*
+
 3.The muscularis externa composed of:
 The inner circular muscle layer (contraction causes a
 decrease in diameter of the lumen of the GI tract)
@@ -11549,9 +11489,7 @@ of muscle
 ### 4. The outer most serosa (another connective tissue layer
 
 covered with squamous mesothelial cells)
-Previous Next
-
-3/3',
+Previous Next',
     false,
     9,
     'published',
@@ -11563,9 +11501,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Innervation of Gi Tract
+  -- Lesson: Innervation of Gi Tract (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11593,23 +11532,22 @@ Meissner and Myenteric plexus
 > **Clinical pearls:**
 > Achalasia cardia:
 
-> Diet ii Late 2026)
 > Overview  Comments
 
-> 1/3
-> Primary esophageal motility disorder characterized by the
-> impaired relaxation of the lower esophageal sphincter (LES)
-> and absence of peristalsis in the esophagus. This condition is
-> primarily attributed to dysfunction in the myenteric plexus,
-> which is a network of nerve fibers and ganglion cells located
-> between the circular and longitudinal muscle layers of the
-> esophagus.
+![Innervation of Gi Tract - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/innervation-of-gi-tract/figure_01_p1.png)
+*Innervation of Gi Tract — Clinical Figure 1 (Page 1 Reference)*
 
-Previous Next
+![Innervation of Gi Tract - Clinical Figure 2](/lessons/images/gastrointestinal-git-physiology/innervation-of-gi-tract/figure_02_p1.png)
+*Innervation of Gi Tract — Clinical Figure 2 (Page 1 Reference)*
 
-2/3
-
-3/3',
+Primary esophageal motility disorder characterized by the
+impaired relaxation of the lower esophageal sphincter (LES)
+and absence of peristalsis in the esophagus. This condition is
+primarily attributed to dysfunction in the myenteric plexus,
+which is a network of nerve fibers and ganglion cells located
+between the circular and longitudinal muscle layers of the
+esophagus.
+Previous Next',
     false,
     10,
     'published',
@@ -11621,9 +11559,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Iron Handling
+  -- Lesson: Iron Handling (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11668,10 +11607,8 @@ Vitamin C increases absorption (converts Fe3+ →  Fe2+).
 Calcium decreases absorption (due to chelation of iron).
 A minority of iron is absorbed as ferric iron (Fe3+).
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Heme iron can be directly absorbed into intestinal cells.
 Iron transport
 Ferroportin (inhibited by hepcidin) transports ferrous iron
@@ -11699,12 +11636,12 @@ Iron loss
 Shedding of skin and mucosal epithelial cell →  daily loss of 1-
 2 mg of iron
 
-2/3
+![Iron Handling - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/iron-handling/figure_01_p2.png)
+*Iron Handling — Clinical Figure 1 (Page 2 Reference)*
+
 Any source of bleeding (e.g., menstruation, occult GI bleed)
 increases iron loss.
-Previous Next
-
-3/3',
+Previous Next',
     false,
     11,
     'published',
@@ -11716,9 +11653,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Large Intestine
+  -- Lesson: Large Intestine (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11762,10 +11700,8 @@ absorption of electrolytes. Sodium is actively absorbed in the
 colon by sodium channels. Potassium is either absorbed or
 secreted depending on the concentration in the lumen and
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 the electrochemical gradient created by the active
 absorption of sodium.
 Chloride and bicarbonate - the movement of sodium into the
@@ -11783,9 +11719,8 @@ the colon plays a significant role in minimizing vitamin
 disparity.
 Previous Next
 
-2/3
-
-3/3',
+![Large Intestine - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/large-intestine/figure_01_p2.png)
+*Large Intestine — Clinical Figure 1 (Page 2 Reference)*',
     false,
     12,
     'published',
@@ -11797,9 +11732,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Liver
+  -- Lesson: Liver (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11842,10 +11778,8 @@ Synthesis of plasma proteins (e.g., albumin, globulins,
 clotting factors, acute-phase reactants such as ferritin, CRP,
 and hepcidin)
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Cholesterol biosynthesis
 Fatty acid synthesis
 Bile acid synthesis
@@ -11877,11 +11811,7 @@ birth
 Immunological function: The liver is part of the mononuclear
 phagocyte system. Cells involved in immune activity, Kupffer
 cells, are found in high numbers in the liver.
-Previous Next
-
-2/3
-
-3/3',
+Previous Next',
     false,
     13,
     'published',
@@ -11893,9 +11823,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Mastication and Swallowing
+  -- Lesson: Mastication and Swallowing (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -11937,10 +11868,8 @@ Deglutition (swallowing)
 Ingested food moves from oral cavity into the stomach by
 deglutition.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 There are three stages of swallowing: oral, pharyngeal and
 esophageal. Oral stage is voluntary the other two are
 involuntary.
@@ -11981,10 +11910,7 @@ that pushes the bolus down), the larynx lowers, returning to
 its normal position. The cricopharyngeal muscle then
 contracts to prevent reflux and respiration begins again.
 
-2/3
-Previous Next
-
-3/3',
+Previous Next',
     false,
     14,
     'published',
@@ -11996,9 +11922,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Saliva
+  -- Lesson: Saliva (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12043,10 +11970,8 @@ which modify the initial saliva. When saliva production is
 stimulated, myoepithelial cells, which lines the acinus and
 initial ducts, contract and eject saliva into the mouth.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Each of the glands produces a slightly different secretion.
 The parotid glands produce serous saliva: a watery secretion
 that is rich in enzymes. The secretion from the sub-lingual
@@ -12082,7 +12007,6 @@ is most active during the day, whilst eating and creates
 waterier, or serous saliva; predominantly produced by the
 parotid gland, and partly by the submandibular gland.
 
-2/3
 The parasympathetic system turns up the flow of saliva by
 releasing a chemical, acetylcholine, which stimulates the
 glands to make more saliva. If these glands get diseased,
@@ -12102,7 +12026,8 @@ parasympathetic nervous system e.g., sleep dehydration
 anticholinergic drugs (e.g., atropine)
 Previous Next
 
-3/3',
+![Saliva - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/saliva/figure_01_p3.png)
+*Saliva — Clinical Figure 1 (Page 3 Reference)*',
     false,
     15,
     'published',
@@ -12114,9 +12039,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Small Intestine
+  -- Lesson: Small Intestine (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12160,10 +12086,8 @@ Vitamin B12 and bile salts are absorbed in the terminal ileum
 (i.e., enterohepatic circulation).
 Immunity
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Intestinal villi
 Finger-like projections of mucosa
 Shortest in the duodenum
@@ -12199,10 +12123,7 @@ from the enterocyte via the Na+ pumps, allowing water via
 osmosis to follow either transcellularly or paracellularly
 (between the tight junctions of the enterocytes). Water as
 well as Na+ ions can then diffuse into the capillaries.
-Previous Next
-
-2/3
-3/3',
+Previous Next',
     false,
     16,
     'published',
@@ -12214,9 +12135,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Stomach
+  -- Lesson: Stomach (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12246,10 +12168,11 @@ Function of stomach
 Mechanical digestion: peristalsis of the stomach against a
 closed pyloric sphincter →  breakdown of food into smaller
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/6
+![Stomach - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/stomach/figure_01_p1.png)
+*Stomach — Clinical Figure 1 (Page 1 Reference)*
+
 particles
 Chemical digestion: enzymatic breakdown of food into
 chyme (a semifluid mixture of digested food and digestive
@@ -12278,7 +12201,9 @@ secreted by parietal cells in the stomach. Its main function is
 to:
 Maintaining the acidic environment of the stomach.
 
-2/6
+![Stomach - Clinical Figure 2](/lessons/images/gastrointestinal-git-physiology/stomach/figure_02_p2.png)
+*Stomach — Clinical Figure 2 (Page 2 Reference)*
+
 Converts pepsinogen to pepsin for chemical digestion (aids
 protein digestion).
 Provide optimal PH environment for pepsin.
@@ -12315,7 +12240,6 @@ Negative feedback mechanism inhibits the secretion of H+
 by parietal cell
 Low pH (< 3) in the stomach
 
-3/6
 Prostaglandins (inhibit the gastric H+ secretion, maintain the
 mucosal barrier and stimulate the HCO3- secretion, thus
 protecting the gastric mucosa from damaging effects of H+)
@@ -12353,7 +12277,6 @@ and is essential for vitamin B12 absorption.
 Motor functions of stomach (storage,
 mixing, and slow emptying)
 
-4/6
 The mixing of the food with gastric secretions takes place in
 the distal body and antrum of the stomach where the
 muscularis externa layer is thicker. The stomach has an
@@ -12393,7 +12316,6 @@ contraction of pyloric sphincter --> gastric emptying
 slowed/inhibited, so that the pH of the contents can be
 optimized.
 
-5/6
 Fat/protein breakdown products in duodenum: fat is the
 most potent inhibitor of gastric emptying (acting via
 CCK); Entry of fats in duodenum -> release of CCK from "I"
@@ -12403,9 +12325,7 @@ slowly and in small amounts into duodenum.)
 Hormones CCK, secretin, gastric inhibitory peptide (GIP) all
 cause constriction of pyloric sphincter, hence slow gastric
 emptying.
-Previous Next
-
-6/6',
+Previous Next',
     false,
     17,
     'published',
@@ -12417,9 +12337,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Summary of Harmones and Secretion of GIT
+  -- Lesson: Summary of Harmones and Secretion of GIT (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12430,10 +12351,8 @@ Previous Next
     'article',
     '# Summary of Harmones and Secretion of GIT
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Summary of hormones and
 secretion of git
 Gastric secretory and Regulatory
@@ -12441,8 +12360,11 @@ products
 Small intestine regulatory products:
 Previous Next
 
-2/3
-3/3',
+![Summary of Harmones and Secretion of GIT - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/summary-of-harmones-and-secretion-of-git/figure_01_p2.png)
+*Summary of Harmones and Secretion of GIT — Clinical Figure 1 (Page 2 Reference)*
+
+![Summary of Harmones and Secretion of GIT - Clinical Figure 2](/lessons/images/gastrointestinal-git-physiology/summary-of-harmones-and-secretion-of-git/figure_02_p2.png)
+*Summary of Harmones and Secretion of GIT — Clinical Figure 2 (Page 2 Reference)*',
     false,
     18,
     'published',
@@ -12454,9 +12376,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Vitamins Overview
+  -- Lesson: Vitamins Overview (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12470,14 +12393,10 @@ Previous Next
 Vitamins
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
-
-2/3
-
-3/3',
+![Vitamins Overview - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/vitamins-overview/figure_01_p1.png)
+*Vitamins Overview — Clinical Figure 1 (Page 1 Reference)*',
     false,
     19,
     'published',
@@ -12489,9 +12408,12 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 13: Endocrine Physiology & Metabolism
+  -- ==========================================================================
+  -- Module 13: Endocrine Physiology & Metabolism (19 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Endocrine Physiology & Metabolism' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -12501,7 +12423,7 @@ Overview  Comments
     UPDATE "modules" SET "position" = 12, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Adrenal Gland
+  -- Lesson: Adrenal Gland (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12542,13 +12464,7 @@ Aldosterone is under tonic control by ACTH but is separately
 regulated by the renin-angiotensin system and by potassium.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/3
-2/3
-
-3/3',
+Overview  Comments',
     true,
     0,
     'published',
@@ -12560,9 +12476,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Adrenal Insufficiency
+  -- Lesson: Adrenal Insufficiency (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12621,7 +12538,6 @@ Short ACTH-stimulation Test:  It involves administration of 250
 Normal = cortisol increase> 500 nmol/1 (> 18 µg/dL)
 Overview  Comments
 
-1/3
 Adrenal insufficiency = cortisol fails to increase (both primary
 & secondary)
 Primary adrenal insufficiency will have High ACTH.
@@ -12670,7 +12586,6 @@ necrosis)
 Pituitary gland is removed, or radiation treatment of the
 pituitary gland.
 
-2/3
 Hypothalamic tumors
 Treatment
 Only glucocorticoid.
@@ -12689,7 +12604,8 @@ no hyperkalemia or metabolic acidosis (because aldosterone
 levels are normal)
 Previous Next
 
-3/3',
+![Adrenal Insufficiency - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/adrenal-insufficiency/figure_01_p3.png)
+*Adrenal Insufficiency — Clinical Figure 1 (Page 3 Reference)*',
     false,
     1,
     'published',
@@ -12701,9 +12617,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Adrenal Medulla and Pheochromocytoma
+  -- Lesson: Adrenal Medulla and Pheochromocytoma (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12728,10 +12645,11 @@ tissues. Binding triggers tissue-specific responses. This leads to
 sympathetic activation to prepare the human body for a fight-
 or-flight reaction.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Adrenal Medulla and Pheochromocytoma - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/adrenal-medulla-and-pheochromocytoma/figure_01_p1.png)
+*Adrenal Medulla and Pheochromocytoma — Clinical Figure 1 (Page 1 Reference)*
+
 Pheochromocytoma
 Pheochromocytoma is a type of neuroendocrine tumor that
 grows from cells called chromaffin cells. These cells produce
@@ -12762,10 +12680,7 @@ be instituted to control tachycardia.
 Beta blockers must never be given before alpha-blocker as
 this may cause a paradoxical rise in blood pressure due to
 unopposed a-mediated vasoconstriction.
-Previous Next
-
-2/3
-3/3',
+Previous Next',
     false,
     2,
     'published',
@@ -12777,9 +12692,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Aldosterone
+  -- Lesson: Aldosterone (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12823,17 +12739,11 @@ This aldosterone induced changes produce a concentration
 gradient →  Na+ reabsorption →  water reabsorption and K+
 secretion into the urine.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Ultimately, these effects →  ↑ blood pressure, hypokalemia
 and ↑ pH level
-Previous Next
-
-2/3
-
-3/3',
+Previous Next',
     false,
     3,
     'published',
@@ -12845,9 +12755,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Antidiuretic Harmone
+  -- Lesson: Antidiuretic Harmone (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12887,19 +12798,16 @@ increases in blood pressure, as well as alcohol and certain
 medications.
 Regulation of ADH secretion
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Clinical relevance
 Elevated in SIADH despite plasma hypoosmolality.
 ADH deficiency or resistance can lead to diabetes insipidus.
 Alcohol inhibits ADH release and causes diuresis.
 Previous Next
 
-2/3
-
-3/3',
+![Antidiuretic Harmone - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/antidiuretic-harmone/figure_01_p2.png)
+*Antidiuretic Harmone — Clinical Figure 1 (Page 2 Reference)*',
     false,
     4,
     'published',
@@ -12911,9 +12819,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Calcitonin
+  -- Lesson: Calcitonin (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12938,14 +12847,7 @@ effects of calcitonin counter the effects of parathyroid
 hormone that acts to increase serum calcium concentration.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/3
-
-2/3
-
-3/3',
+Overview  Comments',
     false,
     5,
     'published',
@@ -12957,9 +12859,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Calcium Homeostasis
+  -- Lesson: Calcium Homeostasis (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -12999,21 +12902,15 @@ PTH
 to proteins →  ↑ ionized Ca2+ concentration compensatory ↓
 PTH
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Ionized calcium: the calcium fraction that is not bound to
 any proteins but is physiologically active 45% of the total
 serum calcium.
 Functions as the main regulator of PTH secretion
 Excess causes true hypercalcemia whereas deficiency
 causes true hypocalcemia.
-Previous Next
-
-2/3
-
-3/3',
+Previous Next',
     false,
     6,
     'published',
@@ -13025,9 +12922,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cartisol
+  -- Lesson: Cartisol (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13067,13 +12965,7 @@ cortisol production in adrenal zona fasciculata. Excess cortisol
 mechanism
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/3
-2/3
-
-3/3',
+Overview  Comments',
     false,
     7,
     'published',
@@ -13085,9 +12977,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cushing Syndrome
+  -- Lesson: Cushing Syndrome (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13131,10 +13024,8 @@ Dyslipidemia
 Weight gain characterized by central obesity, moon facies,
 and a dorsocervical fat pad (buffalo hump)
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 ♂ : Decreased libido
 ♀ : Decreased libido, virilization, and/or irregular menstrual
 cycles (e.g., amenorrhea)
@@ -13153,10 +13044,10 @@ surgery)
 Second-line or adjunctive therapy: pharmacological
 treatment
 
-2/3
 Previous Next
 
-3/3',
+![Cushing Syndrome - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/cushing-syndrome/figure_01_p3.png)
+*Cushing Syndrome — Clinical Figure 1 (Page 3 Reference)*',
     false,
     8,
     'published',
@@ -13168,9 +13059,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Diabetes Insipidus and Siadh
+  -- Lesson: Diabetes Insipidus and Siadh (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13211,10 +13103,8 @@ Neurologic features like confusion, disorientation, seizures
 An ADH stimulation test can distinguish between cranial and
 nephrogenic DI, as nephrogenic DI shows an inability to
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 concentrate urine even after administration of synthetic
 
 ## Adh.
@@ -13246,11 +13136,7 @@ Lethargy; confusion, disorientation, seizures
 Treatment:
 Fluid restriction is the cornerstone of SIADH treatment.
 Demeclocycline: ADH receptor antagonist.
-Previous Next
-
-2/3
-
-3/3',
+Previous Next',
     false,
     9,
     'published',
@@ -13262,9 +13148,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Endocrine Glands and Their Harmones
+  -- Lesson: Endocrine Glands and Their Harmones (4 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13292,21 +13179,27 @@ glands which release their secretions through ducts. Endocrine
 glands play an important role in homeostasis and control of
 various other activities in the body through their hormones.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
 Endocrinology hormones overview:
 Harmons secreted by adrenal gland:
 
-2/4
+![Endocrine Glands and Their Harmones - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_01_p2.png)
+*Endocrine Glands and Their Harmones — Clinical Figure 1 (Page 2 Reference)*
+
 Hormone secreted by Gonads.
 Hormone secreted by other organs.
 
-3/4
+![Endocrine Glands and Their Harmones - Clinical Figure 2](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_02_p3.png)
+*Endocrine Glands and Their Harmones — Clinical Figure 2 (Page 3 Reference)*
+
+![Endocrine Glands and Their Harmones - Clinical Figure 3](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_03_p3.png)
+*Endocrine Glands and Their Harmones — Clinical Figure 3 (Page 3 Reference)*
+
 Previous Next
 
-4/4',
+![Endocrine Glands and Their Harmones - Clinical Figure 4](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_04_p4.png)
+*Endocrine Glands and Their Harmones — Clinical Figure 4 (Page 4 Reference)*',
     false,
     10,
     'published',
@@ -13318,9 +13211,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Hyperaldosteronism and Renal Insufficiency
+  -- Lesson: Hyperaldosteronism and Renal Insufficiency (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13373,15 +13267,12 @@ Renin-secreting renal
 tumor
 Overview  Comments
 
-1/2
 Lab Findings:
 Elevated aldosterone
 Elevated plasma renin
 Treatment:
 Spironolactone
-Previous Next
-
-2/2',
+Previous Next',
     false,
     11,
     'published',
@@ -13393,9 +13284,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Hypothyroidism and Hyperthyroidism
+  -- Lesson: Hypothyroidism and Hyperthyroidism (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13409,19 +13301,16 @@ Previous Next
 Hypothyroidism and
 Hyperthyroidism:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Hypothyroidism and Hyperthyroidism - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/hypothyroidism-and-hyperthyroidism/figure_01_p2.png)
+*Hypothyroidism and Hyperthyroidism — Clinical Figure 1 (Page 2 Reference)*
 
-2/3
 Note: Propranolol is the preferred agent in hyperthyroidism
 and thyroid storm due to its additional effect of blocking the
 peripheral conversion of inactive T4 to active form T3. They are
 highly effective for symptomatic relief (tachycardia, tremors)
-Previous Next
-
-3/3',
+Previous Next',
     false,
     12,
     'published',
@@ -13433,9 +13322,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Insulin and Glucagon
+  -- Lesson: Insulin and Glucagon (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13471,10 +13361,8 @@ glucose to be conserved to provide the brain with adequate
 glucose and to allow other tissues to metabolize fatty acids
 and glycogen stored in the cells.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
 Function of insulin
 Insulin can be considered the "anabolic"or building hormone it
 assists processes that build compounds for storage and
@@ -13501,7 +13389,9 @@ The major factor that regulates glucagon secretion is the
 blood glucose concentration. Decreased blood glucose
 stimulates glucagon secretion.
 
-2/4
+![Insulin and Glucagon - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/insulin-and-glucagon/figure_01_p2.png)
+*Insulin and Glucagon — Clinical Figure 1 (Page 2 Reference)*
+
 Increased blood amino acids stimulate glucagon secretion,
 which prevents hypoglycemia caused by unopposed insulin
 in response to a high protein meal.
@@ -13517,10 +13407,13 @@ Increased ketogenesis
 increases lipolysis in adipose tissue.
 Difference between Insulin and Glucagon
 
-3/4
+![Insulin and Glucagon - Clinical Figure 2](/lessons/images/endocrine-physiology-metabolism/insulin-and-glucagon/figure_02_p3.png)
+*Insulin and Glucagon — Clinical Figure 2 (Page 3 Reference)*
+
 Previous Next
 
-4/4',
+![Insulin and Glucagon - Clinical Figure 3](/lessons/images/endocrine-physiology-metabolism/insulin-and-glucagon/figure_03_p4.png)
+*Insulin and Glucagon — Clinical Figure 3 (Page 4 Reference)*',
     false,
     13,
     'published',
@@ -13532,9 +13425,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Pancreas
+  -- Lesson: Pancreas (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13558,14 +13452,10 @@ Langerhans contain the following cell types, each of which
 produce different endocrine hormone.
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
-
-2/3
-
-3/3',
+![Pancreas - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/pancreas/figure_01_p1.png)
+*Pancreas — Clinical Figure 1 (Page 1 Reference)*',
     false,
     14,
     'published',
@@ -13577,9 +13467,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Parathyroid Harmone
+  -- Lesson: Parathyroid Harmone (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13620,18 +13511,12 @@ Increases active vitamin D (calcitriol) production via
 stimulation of 1-alpha-hydroxylase synthesis in the kidneys.
 GIT
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 PTH increases intestinal Ca+ and phosphate absorption,
 indirectly by stimulating the production of 1,25-
 dihydroxycholecalciferol in the kidney.
-Previous Next
-
-2/3
-
-3/3',
+Previous Next',
     false,
     15,
     'published',
@@ -13643,9 +13528,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Pituitary Gland
+  -- Lesson: Pituitary Gland (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13687,10 +13573,8 @@ The anterior pituitary is derived from oral ectoderm (Rathke''s
 pouch). The anterior lobe of pituitary gland is linked to
 hypothalamus by the hypothalamic-pituitary hypophysial
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 portal system. Thus, blood from hypothalamus that contain
 high concentration of hypothalamic hormone is delivered
 directly to the anterior pituitary. Hypothalamic hormone (e.g.,
@@ -13716,11 +13600,14 @@ both made in hypothalamus (supra optic nuclei and
 paraventricular nuclei) and transported to posterior pituitary
 via neurophysins (carrier protein)
 
-2/3
+![Pituitary Gland - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/pituitary-gland/figure_01_p2.png)
+*Pituitary Gland — Clinical Figure 1 (Page 2 Reference)*
+
 Hormones of posterior pituitary gland
 Previous Next
 
-3/3',
+![Pituitary Gland - Clinical Figure 2](/lessons/images/endocrine-physiology-metabolism/pituitary-gland/figure_02_p3.png)
+*Pituitary Gland — Clinical Figure 2 (Page 3 Reference)*',
     false,
     16,
     'published',
@@ -13732,15 +13619,16 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Thyroid Gland
+  -- Lesson: Thyroid Gland (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
     gen_random_uuid(),
     v_module_id,
-    'thyroid-gland-2',
+    'thyroid-gland',
     'Thyroid Gland',
     'article',
     '# Thyroid Gland
@@ -13764,10 +13652,11 @@ In the spaces between the follicles, parafollicular cells can be
 found. These cells secrete calcitonin, which is involved in the
 regulation of calcium metabolism in the body.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Thyroid Gland - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/thyroid-gland/figure_01_p1.png)
+*Thyroid Gland — Clinical Figure 1 (Page 1 Reference)*
+
 Thyroid gland secretes three hormones:
 Tetraiodothyronine or T4 (thyroxine)
 Triiodothyronine or T3
@@ -13805,7 +13694,6 @@ Only free hormone is active. T3 is most active (5 times more
 potent than T4)
 Functions of thyroid hormones (t3, t4)
 
-2/3
 Brain maturation
 Bone growth (synergism with GH)
 B-adrenergic effects. ↑ B ₁  receptors in heart→ ↑ CO, HR, SV,
@@ -13816,9 +13704,7 @@ consumption, RR, body temperature
 Blood sugar (increase glycogenolysis, gluconeogenesis)
 Breakdown of lipids increase lipolysis.
 Stimulates surfactant synthesis in babies.
-Previous Next
-
-3/3',
+Previous Next',
     false,
     17,
     'published',
@@ -13830,9 +13716,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Vitamin - D Synthesis
+  -- Lesson: Vitamin - D Synthesis (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13862,16 +13749,13 @@ activity →  ↑ 1,25-dihydroxyvitamin D biosynthesis
 ↑ Calcium, ↑ phosphate, and ↑ 1,25-dihydroxyvitamin D
 (feedback inhibition) →  ↓ 1 α -hydroxylase activity →  ↓ 1,25-
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Vitamin - D Synthesis - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/vitamin-d-synthesis/figure_01_p1.png)
+*Vitamin - D Synthesis — Clinical Figure 1 (Page 1 Reference)*
+
 dihydroxyvitamin D biosynthesis
-Previous Next
-
-2/3
-
-3/3',
+Previous Next',
     false,
     18,
     'published',
@@ -13883,9 +13767,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 14: Blood Physiology & Coagulation Pathways
+  -- ==========================================================================
+  -- Module 14: Blood Physiology & Coagulation Pathways (8 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Blood Physiology & Coagulation Pathways' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -13895,7 +13782,7 @@ Previous Next
     UPDATE "modules" SET "position" = 13, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Acquired Coagulation Disorder of Blood
+  -- Lesson: Acquired Coagulation Disorder of Blood (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13923,10 +13810,11 @@ that release procoagulant material into the circulation or cause
 widespread endothelial damage or platelet aggregation.
 Lab values of Disseminated intravascular.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Acquired Coagulation Disorder of Blood - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/acquired-coagulation-disorder-of-blood/figure_01_p1.png)
+*Acquired Coagulation Disorder of Blood — Clinical Figure 1 (Page 1 Reference)*
+
 Low platelet count
 Low fibrinogen concentration
 Prolonged PT
@@ -13937,7 +13825,8 @@ Features of hemolysis
 Coagulation tests:
 Previous Next
 
-2/2',
+![Acquired Coagulation Disorder of Blood - Clinical Figure 2](/lessons/images/blood-physiology-coagulation-pathways/acquired-coagulation-disorder-of-blood/figure_02_p2.png)
+*Acquired Coagulation Disorder of Blood — Clinical Figure 2 (Page 2 Reference)*',
     true,
     0,
     'published',
@@ -13949,9 +13838,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Antiplatelet and Anticoagulant Drugs
+  -- Lesson: Antiplatelet and Anticoagulant Drugs (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -13966,12 +13856,10 @@ Antiplatelet and anticoagulant
 drugs
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Antiplatelet and Anticoagulant Drugs - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/antiplatelet-and-anticoagulant-drugs/figure_01_p1.png)
+*Antiplatelet and Anticoagulant Drugs — Clinical Figure 1 (Page 1 Reference)*',
     false,
     1,
     'published',
@@ -13983,9 +13871,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Haemoglobin
+  -- Lesson: Haemoglobin (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14026,13 +13915,12 @@ There are three types of haemoglobin in normal adult blood:
 haemoglobin A, A2 and F.
 Fetal HB has high affinity for o2 as compared to adult.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Previous Next
 
-2/2',
+![Haemoglobin - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/haemoglobin/figure_01_p2.png)
+*Haemoglobin — Clinical Figure 1 (Page 2 Reference)*',
     false,
     2,
     'published',
@@ -14044,9 +13932,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Haemostasis
+  -- Lesson: Haemostasis (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14065,11 +13954,10 @@ Platelet plug formation.
 Coagulation of blood
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-2/2',
+![Haemostasis - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/haemostasis/figure_01_p1.png)
+*Haemostasis — Clinical Figure 1 (Page 1 Reference)*',
     false,
     3,
     'published',
@@ -14081,9 +13969,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Heriditary Coagulation Disorder of Blood
+  -- Lesson: Heriditary Coagulation Disorder of Blood (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14098,12 +13987,10 @@ Coagulation disorder
 Hereditary coagulation disorder:
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Heriditary Coagulation Disorder of Blood - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/heriditary-coagulation-disorder-of-blood/figure_01_p1.png)
+*Heriditary Coagulation Disorder of Blood — Clinical Figure 1 (Page 1 Reference)*',
     false,
     4,
     'published',
@@ -14115,9 +14002,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Platelate and Platelate Plug
+  -- Lesson: Platelate and Platelate Plug (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14160,10 +14048,8 @@ Its membrane has Adenyl Cyclase that causes formation of
 cyclic AMP that excites other activities of platelets.
 Formation of Platelet Plug
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Platelets get adhered to the collagen of ruptured blood
 vessel and secrete adenosine diphosphate (ADP) and
 thromboxane A2. These two substances attract more and
@@ -14199,13 +14085,10 @@ Prevent to convert the fibrinogen to fibrin.
 Heparin: It increases the activity of antithrombin III by 1000
 times
 
-2/3
 Plasmin:  It breaks already formed clot.
 Released by all the tissues.
 Convert the inactive plasminogen to plasmin.
-Previous Next
-
-3/3',
+Previous Next',
     false,
     5,
     'published',
@@ -14217,9 +14100,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Plateletes Bleeding Disorder
+  -- Lesson: Plateletes Bleeding Disorder (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14239,13 +14123,15 @@ TTP and haemolytic uremic syndrome.
 Note: Difference between TTP and haemolytic uremic
 syndrome
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-Previous Next
+![Plateletes Bleeding Disorder - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/plateletes-bleeding-disorder/figure_01_p1.png)
+*Plateletes Bleeding Disorder — Clinical Figure 1 (Page 1 Reference)*
 
-2/2',
+![Plateletes Bleeding Disorder - Clinical Figure 2](/lessons/images/blood-physiology-coagulation-pathways/plateletes-bleeding-disorder/figure_02_p1.png)
+*Plateletes Bleeding Disorder — Clinical Figure 2 (Page 1 Reference)*
+
+Previous Next',
     false,
     6,
     'published',
@@ -14257,9 +14143,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Sites of Haemopoiesis
+  -- Lesson: Sites of Haemopoiesis (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14276,12 +14163,13 @@ Haemopoietic Stem Cells: All blood cells
 develop from Haemopoietic Stem Cells
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Sites of Haemopoiesis - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/sites-of-haemopoiesis/figure_01_p1.png)
+*Sites of Haemopoiesis — Clinical Figure 1 (Page 1 Reference)*
 
-2/2',
+![Sites of Haemopoiesis - Clinical Figure 2](/lessons/images/blood-physiology-coagulation-pathways/sites-of-haemopoiesis/figure_02_p1.png)
+*Sites of Haemopoiesis — Clinical Figure 2 (Page 1 Reference)*',
     false,
     7,
     'published',
@@ -14293,9 +14181,12 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 15: Respiratory Pharmacology & Asthma Management
+  -- ==========================================================================
+  -- Module 15: Respiratory Pharmacology & Asthma Management (5 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Respiratory Pharmacology & Asthma Management' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -14305,7 +14196,7 @@ Overview  Comments
     UPDATE "modules" SET "position" = 14, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Anaphylaxis Management
+  -- Lesson: Anaphylaxis Management (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14337,10 +14228,11 @@ rocuronium) and contrast media
 >Food: e.g.: peanut, egg seafood (most common in children).
 >Insect sting
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
+![Anaphylaxis Management - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/anaphylaxis-management/figure_01_p1.png)
+*Anaphylaxis Management — Clinical Figure 1 (Page 1 Reference)*
+
 >latex
 >idiopathic
 >C1 esterase etc.
@@ -14363,7 +14255,9 @@ be resistant to the therapeutic effects of adrenaline.
 minutes interval. After 2 doses, adrenaline infusion should be
 started.
 
-2/4
+![Anaphylaxis Management - Clinical Figure 2](/lessons/images/respiratory-pharmacology-asthma-management/anaphylaxis-management/figure_02_p2.png)
+*Anaphylaxis Management — Clinical Figure 2 (Page 2 Reference)*
+
 >Nice recommend: consider fast-track discharge after 2 hours
 observation from resolution of anaphylaxis if : Good response
 (within 5-10 minutes) to a singles dose of adrenaline given
@@ -14398,10 +14292,7 @@ mediated
 >Anaphylaxis: further exposure/ Pt has exposed to allergen
 previously (history) and immune mediated.
 
-3/4
-Previous Next
-
-4/4',
+Previous Next',
     true,
     0,
     'published',
@@ -14413,9 +14304,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Anti - Histamine Drugs
+  -- Lesson: Anti - Histamine Drugs (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14441,12 +14333,10 @@ Insomnia
 Divided into 2 groups:
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Anti - Histamine Drugs - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/anti-histamine-drugs/figure_01_p1.png)
+*Anti - Histamine Drugs — Clinical Figure 1 (Page 1 Reference)*',
     false,
     1,
     'published',
@@ -14458,9 +14348,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Asthma in Adults Management
+  -- Lesson: Asthma in Adults Management (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14483,10 +14374,11 @@ asthma along with any one feature of life-threatening
 asthma (as in above scenario his saturation is below <92%)
 would be classified as having life-threatening asthma.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Asthma in Adults Management - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/asthma-in-adults-management/figure_01_p1.png)
+*Asthma in Adults Management — Clinical Figure 1 (Page 1 Reference)*
+
 Management of acute asthma in
 adults in the emergency department
 Discharge plan
@@ -14501,10 +14393,10 @@ Arrange GP follow-up within 2 working days post-discharge.
 Fax or email discharge letter to GP
 Refer to asthma liaison nurse/chest clinic.
 
-2/3
-Previous Next
+![Asthma in Adults Management - Clinical Figure 2](/lessons/images/respiratory-pharmacology-asthma-management/asthma-in-adults-management/figure_02_p2.png)
+*Asthma in Adults Management — Clinical Figure 2 (Page 2 Reference)*
 
-3/3',
+Previous Next',
     false,
     2,
     'published',
@@ -14516,9 +14408,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Bronchodilator Drugs
+  -- Lesson: Bronchodilator Drugs (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14547,10 +14440,11 @@ Heavy drinking
 Drugs (Enzyme inducers)
 Enzyme inducers and Enzyme inhibitors
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Bronchodilator Drugs - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/bronchodilator-drugs/figure_01_p1.png)
+*Bronchodilator Drugs — Clinical Figure 1 (Page 1 Reference)*
+
 Aminophylline:
 Aminophylline is a compound of theophylline with
 ethylenediamine in a 2:1 ratio. The ethylenediamine improves
@@ -14572,8 +14466,8 @@ recommended by the current ALS guidelines as an alternative
 treatment for bradycardias.
 Previous Next
 
-2/3
-3/3',
+![Bronchodilator Drugs - Clinical Figure 2](/lessons/images/respiratory-pharmacology-asthma-management/bronchodilator-drugs/figure_02_p2.png)
+*Bronchodilator Drugs — Clinical Figure 2 (Page 2 Reference)*',
     false,
     3,
     'published',
@@ -14585,9 +14479,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Corticosteroids
+  -- Lesson: Corticosteroids (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14628,10 +14523,8 @@ Oral and intravenous steroids: (prednisolone, dexamethasone,
 hydrocortisone).
 Specific uses:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Prednisolone: Has mainly glucocorticoid action 4 times more
 potent than hydrocortisone primary used for disease
 suppression in autoimmune/Rheumatoid conditions, Temporal
@@ -14667,7 +14560,6 @@ Temporal arteritis
 Side effects
 Patients on long-term steroid use are at risk of the following:
 
-2/3
 Adrenal suppression: In long-term use, e.g., prednisolone
 >7.5mg a day →  adrenal atrophy due to corticotrophin
 suppression, therefore, withdraw steroid slowly to prevent
@@ -14691,9 +14583,7 @@ All patients on long-term steroids should carry a ''steroid card''
 to inform medical practitioners that they are on steroids or
 have been on steroids (for up to a year as adrenal suppression
 can be prolonged).
-Previous Next
-
-3/3',
+Previous Next',
     false,
     4,
     'published',
@@ -14705,9 +14595,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 16: Cardiovascular Pharmacology & Anticoagulants
+  -- ==========================================================================
+  -- Module 16: Cardiovascular Pharmacology & Anticoagulants (8 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Cardiovascular Pharmacology & Anticoagulants' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -14717,7 +14610,7 @@ Previous Next
     UPDATE "modules" SET "position" = 15, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs
+  -- Lesson: Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14732,12 +14625,10 @@ Anti-platelet, Statins, nitrate and
 fibrinolytic drugs:
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/anti-platelet-statins-nitrate-and-fibrinolytic-drugs/figure_01_p1.png)
+*Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs — Clinical Figure 1 (Page 1 Reference)*',
     true,
     0,
     'published',
@@ -14749,9 +14640,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Anticoagulant Drugs
+  -- Lesson: Anticoagulant Drugs (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14780,10 +14672,11 @@ People with active bleeding history or active peptic or
 duodenal ulcer
 Previous history of Heparin induced thrombocytopenia .
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
+![Anticoagulant Drugs - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_01_p1.png)
+*Anticoagulant Drugs — Clinical Figure 1 (Page 1 Reference)*
+
 Low molecular weight heparin vs Un
 fractioned heparin:
 Warfarin:
@@ -14814,7 +14707,9 @@ If given in 2nd or 3rd trimester can cause optic atrophy,
 cataracts, microcephaly, microphthalmia, intellectual disability
 and fetal and/or maternal haemorrhage.
 
-2/4
+![Anticoagulant Drugs - Clinical Figure 2](/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_02_p2.png)
+*Anticoagulant Drugs — Clinical Figure 2 (Page 2 Reference)*
+
 Contraindications:
 Active bleeding
 Active peptic ulcer
@@ -14852,10 +14747,10 @@ anticoagulant effects of warfarin. While enzyme inhibitor
 drugs decrease hepatic clearance and increase pharmacologic
 effect/increased anticoagulant effects and risk of bleeding.
 
-3/4
 Previous Next
 
-4/4',
+![Anticoagulant Drugs - Clinical Figure 3](/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_03_p4.png)
+*Anticoagulant Drugs — Clinical Figure 3 (Page 4 Reference)*',
     false,
     1,
     'published',
@@ -14867,9 +14762,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Basic Life Support and Advanced Life Support
+  -- Lesson: Basic Life Support and Advanced Life Support (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14885,10 +14781,14 @@ support algorithms
 - Key difference b/w Paeds &
 adult ALS
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Basic Life Support and Advanced Life Support - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/basic-life-support-and-advanced-life-support/figure_01_p1.png)
+*Basic Life Support and Advanced Life Support — Clinical Figure 1 (Page 1 Reference)*
+
+![Basic Life Support and Advanced Life Support - Clinical Figure 2](/lessons/images/cardiovascular-pharmacology-anticoagulants/basic-life-support-and-advanced-life-support/figure_02_p1.png)
+*Basic Life Support and Advanced Life Support — Clinical Figure 2 (Page 1 Reference)*
+
 - Identify and treat reversible causes
 Hypoxia
 Hypovolemia (massive blood/fluid loss).
@@ -14908,8 +14808,8 @@ Identify and treat the cause.
 Targeted temperature management
 Previous Next
 
-2/3
-3/3',
+![Basic Life Support and Advanced Life Support - Clinical Figure 3](/lessons/images/cardiovascular-pharmacology-anticoagulants/basic-life-support-and-advanced-life-support/figure_03_p2.png)
+*Basic Life Support and Advanced Life Support — Clinical Figure 3 (Page 2 Reference)*',
     false,
     2,
     'published',
@@ -14921,9 +14821,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Betablocker and Calcium Channel Blockers
+  -- Lesson: Betablocker and Calcium Channel Blockers (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -14951,10 +14852,11 @@ together with alpha blocker.
 
 Digoxin Inhibits the Na/K ATPase in cardiac myocytes.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Betablocker and Calcium Channel Blockers - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/betablocker-and-calcium-channel-blockers/figure_01_p1.png)
+*Betablocker and Calcium Channel Blockers — Clinical Figure 1 (Page 1 Reference)*
+
 Flecainide Blocks Na+ channel in heart, slowing conduction
 of the cardiac impulse.
 Lidocaine Blocks Na+ channels in heart, slowing conduction
@@ -14966,9 +14868,7 @@ in the AV node.
 Amiodarone: Blocks Na+ and K+ channels and beta
 adrenoreceptors prolonging phase 3 of cardiac action
 potential and slowing conduction at SA and AV nodes.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     3,
     'published',
@@ -14980,9 +14880,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Bradycardias
+  -- Lesson: Bradycardias (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15021,10 +14922,8 @@ Clonidine
 Digoxin
 Organophosphate
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Management approach (unstable Pt)
 The ALS bradycardia algorithm recommends Atropine 500
 mcg IV up to 3mg maximum if any Pt presents with the
@@ -15061,7 +14960,6 @@ therefore blocks the effects of the vagus nerve on both the SA
 node and
 the AV node, increasing sinus automaticity and facilitating AV
 
-2/3
 node conduction.
 Side effects: (Anti-muscarinic effects)
 - Dry mouth
@@ -15072,9 +14970,7 @@ Side effects: (Anti-muscarinic effects)
 Note: Anti-muscarinic should be avoided in Myasthenia
 gravis, paralytic ileus, GI obstruction, Urinary retention and
 prostatic enlargement
-Previous Next
-
-3/3',
+Previous Next',
     false,
     4,
     'published',
@@ -15086,9 +14982,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Digoxin
+  -- Lesson: Digoxin (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15132,10 +15029,8 @@ and monitoring critically important to ensure the medication''s
 safety, effectiveness and to prevent toxicity. The
 therapeutic plasma levels of digoxin are usually between 1.0-1.5
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 nmol/l. The likelihood of toxicity rises dramatically at levels
 above 2 nmol/l.
 Dose adjustments in renal failure and liver failure:
@@ -15159,9 +15054,7 @@ Tachyarrhythmias or bradyarrhythmia''s
 Xanthopsia (yellow-green vision)
 Treatment: Digoxin immune fab is the reversal agent
 (Antidote) of digoxin toxicity.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     5,
     'published',
@@ -15173,9 +15066,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Hypertensive Emergency
+  -- Lesson: Hypertensive Emergency (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15205,10 +15099,11 @@ in pregnancy.
 Clinical features
 Physical examination
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Hypertensive Emergency - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/hypertensive-emergency/figure_01_p1.png)
+*Hypertensive Emergency — Clinical Figure 1 (Page 1 Reference)*
+
 Cardiovascular finding: Elevated JVP, the difference in pulse
 and BP in limbs, 3rd heart sound, pulmonary crepitation.
 Central neurological: Reduced level of consciousness/focal
@@ -15240,10 +15135,7 @@ choice for phaeochromocytoma
 Fenoldopam choice for AKI
 IV labetalol/ hydralazine drug of choice for pre-eclampsia
 and MgSo4 for eclampsia.
-Previous Next
-
-2/3
-3/3',
+Previous Next',
     false,
     6,
     'published',
@@ -15255,9 +15147,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Tachyarrhythmia
+  -- Lesson: Tachyarrhythmia (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15290,10 +15183,11 @@ Long QT syndrome
 Severe hypotension
 Decompensated heart failure
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
+![Tachyarrhythmia - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/tachyarrhythmia/figure_01_p1.png)
+*Tachyarrhythmia — Clinical Figure 1 (Page 1 Reference)*
+
 Tachycardia Unstable Pt
 Adverse features
 Shock (SBP<90, confusion, drowsiness, cold extremities,
@@ -15326,7 +15220,6 @@ AF which is accepted without attempted cardioversion, or
 which cannot be terminated by cardioversion.
 Pathophysiology
 
-2/4
 The primary pathological change seen in AF is progressive
 atrial fibrosis.
 Prothrombotic state: Structural and functional changes in
@@ -15362,7 +15255,6 @@ limiting CCB) as the first-line strategy for people with atrial
 fibrillation, except in people:
 whose atrial fibrillation has a reversible cause.
 
-3/4
 who have heart failure thought to be primarily caused by
 atrial fibrillation.
 with new-onset atrial fibrillation (<48hrs)
@@ -15382,9 +15274,7 @@ Note: if Pt with AF is uncertain of time or greater than 48
 hrs then anti-coagulate this pt for 3 weeks before
 cardioversion and rate should be controlled with Beta
 blockers.
-Previous Next
-
-4/4',
+Previous Next',
     false,
     7,
     'published',
@@ -15396,9 +15286,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 17: CNS Pharmacology & Analgesia
+  -- ==========================================================================
+  -- Module 17: CNS Pharmacology & Analgesia (7 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'CNS Pharmacology & Analgesia' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -15408,7 +15301,7 @@ Previous Next
     UPDATE "modules" SET "position" = 16, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Analgesics
+  -- Lesson: Analgesics (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15448,10 +15341,8 @@ effects.
 ibuprofen (Safest NSAID) but low anti-inflammatory
 properties not useful in inflammatory conditions.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
 Naproxen: Good efficacy, lower side effects but greater
 than ibuprofen. Used in musculoskeletal
 disorders, Rheumatoid arthritis, Gout and dysmenorrhea.
@@ -15490,7 +15381,6 @@ Gout with heart failure: Colchicine
 Chronic gout: Allopurinol also reduces further attacks of gout
 by reducing uric acid.
 
-2/4
 Note: In gout under polarized light, gout crystals appear
 needle-shaped and yellow, a property called negative
 birefringence. Gout crystals are monosodium urate crystals
@@ -15515,13 +15405,13 @@ Raised ICP
 Paralytic ileus
 Acute respiratory depression
 
-3/4
+![Analgesics - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/analgesics/figure_01_p3.png)
+*Analgesics — Clinical Figure 1 (Page 3 Reference)*
+
 Exacerbation of Asthma
 Opioid toxicity: Severe respiratory depression coma
 Antidote: Naloxone rapidly reverse the symptoms.
-Previous Next
-
-4/4',
+Previous Next',
     true,
     0,
     'published',
@@ -15533,9 +15423,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Anti - Psychotic Drugs
+  -- Lesson: Anti - Psychotic Drugs (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15566,12 +15457,7 @@ Hyperprolactinemia (Dopamine inhibits release of prolactin)
 QT-interval prolongation
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/2
-
-2/2',
+Overview  Comments',
     false,
     1,
     'published',
@@ -15583,9 +15469,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Anti - Emetic Drugs
+  -- Lesson: Anti - Emetic Drugs (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15609,12 +15496,10 @@ Note: Extrapyramidal symptoms are most commonly
 associated with antiemetics and antipsychotics
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Anti - Emetic Drugs - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/anti-emetic-drugs/figure_01_p1.png)
+*Anti - Emetic Drugs — Clinical Figure 1 (Page 1 Reference)*',
     false,
     2,
     'published',
@@ -15626,9 +15511,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Anti - Epileptic Drugs
+  -- Lesson: Anti - Epileptic Drugs (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15656,10 +15542,11 @@ Phenytoin: Hemorrhagic disease of the newborn., Risk of
 congenital malformations e.g. cleft lip, hypospadias and
 cardiovascular defects.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Anti - Epileptic Drugs - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/anti-epileptic-drugs/figure_01_p1.png)
+*Anti - Epileptic Drugs — Clinical Figure 1 (Page 1 Reference)*
+
 Sodium valproate: Risk of major congenital malformations e.g.
 neural tube, cardiac, craniofacial and limb defects.
 Antiepileptic drug interaction:
@@ -15673,9 +15560,7 @@ pregnancy and thus pregnancy happens.
 Note: Sodium valproate is metabolized in liver all the enzyme
 inhibitor drugs decrease rate of metabolism of valproate and
 toxicity occur.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     3,
     'published',
@@ -15687,9 +15572,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Lithium
+  -- Lesson: Lithium (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15730,19 +15616,15 @@ Slurred speech
 Polyuria
 Muscle weakness
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Late features:
 Ataxia, coarse hand tremor
 Blurred vision
 Seizures, Stupor
 Severe hypotension
 Coma and death
-Previous Next
-
-2/2',
+Previous Next',
     false,
     4,
     'published',
@@ -15754,9 +15636,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Status Epilepticus Management
+  -- Lesson: Status Epilepticus Management (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15770,12 +15653,10 @@ Previous Next
 Status epilepticus management
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Status Epilepticus Management - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/status-epilepticus-management/figure_01_p1.jpg)
+*Status Epilepticus Management — Clinical Figure 1 (Page 1 Reference)*',
     false,
     5,
     'published',
@@ -15787,9 +15668,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Tricyclic - Antidepressants
+  -- Lesson: Tricyclic - Antidepressants (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15834,10 +15716,8 @@ Urinary retention
 Ophthalmic signs - Divergent squint, internuclear
 ophthalmoplegic and gaze paralysis; nystagmus may also be
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 seen.
 Neurological signs - Ataxia, and myoclonic and
 choreoathetoid movements, may be seen. Increased muscle
@@ -15867,9 +15747,7 @@ Activated charcoal: 1 g/kg orally as a single dose, or 50g in
 adults repeat every 1-2 hours if required.
 Pt with QRS >100 milliseconds or pH <7.45 - Give sodium
 bicarbonate bolus followed by infusion.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     6,
     'published',
@@ -15881,9 +15759,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 18: Anesthesia & Sedation Drugs
+  -- ==========================================================================
+  -- Module 18: Anesthesia & Sedation Drugs (1 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Anesthesia & Sedation Drugs' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -15893,7 +15774,7 @@ Previous Next
     UPDATE "modules" SET "position" = 17, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Anesthetic Drugs
+  -- Lesson: Anesthetic Drugs (4 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15909,15 +15790,23 @@ Local anesthetic drugs:
 Anesthetic induction and
 maintenance agents:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Anesthetic Drugs - Clinical Figure 1](/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_01_p1.png)
+*Anesthetic Drugs — Clinical Figure 1 (Page 1 Reference)*
+
+![Anesthetic Drugs - Clinical Figure 2](/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_02_p1.png)
+*Anesthetic Drugs — Clinical Figure 2 (Page 1 Reference)*
+
 Anesthetic induction and
 maintenance agents: (Continues)
 Previous Next
 
-2/2',
+![Anesthetic Drugs - Clinical Figure 3](/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_03_p2.png)
+*Anesthetic Drugs — Clinical Figure 3 (Page 2 Reference)*
+
+![Anesthetic Drugs - Clinical Figure 4](/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_04_p2.png)
+*Anesthetic Drugs — Clinical Figure 4 (Page 2 Reference)*',
     true,
     0,
     'published',
@@ -15929,9 +15818,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 19: Emergency Toxicology & Antidotes
+  -- ==========================================================================
+  -- Module 19: Emergency Toxicology & Antidotes (3 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Emergency Toxicology & Antidotes' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -15941,7 +15833,7 @@ Previous Next
     UPDATE "modules" SET "position" = 18, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Drugs Toxicity and Antidotes
+  -- Lesson: Drugs Toxicity and Antidotes (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -15954,12 +15846,10 @@ Previous Next
 
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Drugs Toxicity and Antidotes - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/drugs-toxicity-and-antidotes/figure_01_p1.png)
+*Drugs Toxicity and Antidotes — Clinical Figure 1 (Page 1 Reference)*',
     true,
     0,
     'published',
@@ -15971,9 +15861,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Poisoning, Overdose and Toxidromes
+  -- Lesson: Poisoning, Overdose and Toxidromes (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16005,16 +15896,20 @@ major cause of poisoning. It may be accidental or deliberate
 and involve the use of prescribed or illicit drugs.
 Table - A: Drugs and clinical features
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Table - B: Toxidromes
 
-2/3
+![Poisoning, Overdose and Toxidromes - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/poisoning-overdose-and-toxidromes/figure_01_p2.png)
+*Poisoning, Overdose and Toxidromes — Clinical Figure 1 (Page 2 Reference)*
+
 Previous Next
 
-3/3',
+![Poisoning, Overdose and Toxidromes - Clinical Figure 2](/lessons/images/emergency-toxicology-antidotes/poisoning-overdose-and-toxidromes/figure_01_p3.png)
+*Poisoning, Overdose and Toxidromes — Clinical Figure 2 (Page 3 Reference)*
+
+![Poisoning, Overdose and Toxidromes - Clinical Figure 3](/lessons/images/emergency-toxicology-antidotes/poisoning-overdose-and-toxidromes/figure_02_p3.png)
+*Poisoning, Overdose and Toxidromes — Clinical Figure 3 (Page 3 Reference)*',
     false,
     1,
     'published',
@@ -16026,9 +15921,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Summary of Drugs and Their Side Effects
+  -- Lesson: Summary of Drugs and Their Side Effects (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16043,12 +15939,10 @@ Summary Of Drugs And Their Side
 Effects
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Summary of Drugs and Their Side Effects - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/summary-of-drugs-and-their-side-effects/figure_01_p1.png)
+*Summary of Drugs and Their Side Effects — Clinical Figure 1 (Page 1 Reference)*',
     false,
     2,
     'published',
@@ -16060,9 +15954,12 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 20: General Pathology, Inflammation & Anemia
+  -- ==========================================================================
+  -- Module 20: General Pathology, Inflammation & Anemia (11 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'General Pathology, Inflammation & Anemia' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -16072,7 +15969,7 @@ Overview  Comments
     UPDATE "modules" SET "position" = 19, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Anemia
+  -- Lesson: Anemia (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16098,10 +15995,11 @@ Alcoholic liver disease
 Hypothyroidism
 Myelodysplastic syndrome
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Anemia - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/anemia/figure_01_p1.png)
+*Anemia — Clinical Figure 1 (Page 1 Reference)*
+
 Laboratory Features
 Megaloblastic anaemia is characterized by:
 Macrocytic anaemia with oval macrocytes and hyper
@@ -16114,7 +16012,8 @@ Hypercellular bone marrow, megaloblastic erythropoiesis and
 giant metamyelocytes
 Previous Next
 
-2/2',
+![Anemia - Clinical Figure 2](/lessons/images/general-pathology-inflammation-anemia/anemia/figure_02_p2.png)
+*Anemia — Clinical Figure 2 (Page 2 Reference)*',
     true,
     0,
     'published',
@@ -16126,9 +16025,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Antibodies and Hypersensitivity Reactions
+  -- Lesson: Antibodies and Hypersensitivity Reactions (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16139,16 +16039,17 @@ Previous Next
     'article',
     '# Antibodies and Hypersensitivity Reactions
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Antibodies:
 Hypersensitivity reaction:
 Previous Next
 
-2/3
-3/3',
+![Antibodies and Hypersensitivity Reactions - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/antibodies-and-hypersensitivity-reactions/figure_01_p2.png)
+*Antibodies and Hypersensitivity Reactions — Clinical Figure 1 (Page 2 Reference)*
+
+![Antibodies and Hypersensitivity Reactions - Clinical Figure 2](/lessons/images/general-pathology-inflammation-anemia/antibodies-and-hypersensitivity-reactions/figure_02_p2.png)
+*Antibodies and Hypersensitivity Reactions — Clinical Figure 2 (Page 2 Reference)*',
     false,
     1,
     'published',
@@ -16160,9 +16061,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Blood Groups
+  -- Lesson: Blood Groups (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16188,10 +16090,10 @@ and thus is the universal recipient.
 Blood group A has A antigens and anti-B antibodies, and
 blood group B has B antigens and anti-A antibodies.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Blood Groups - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/blood-groups/figure_01_p1.png)
+*Blood Groups — Clinical Figure 1 (Page 1 Reference)*
 
 ## Rh-D
 
@@ -16217,11 +16119,11 @@ Spontaneous abortion/ectopic pregnancy.
 Amniocentesis.
 Any bleeding in pregnancy/threatened miscarriage.
 
-2/3
-After delivery at any gestation within 72Hours.
-Previous Next
+![Blood Groups - Clinical Figure 2](/lessons/images/general-pathology-inflammation-anemia/blood-groups/figure_02_p2.png)
+*Blood Groups — Clinical Figure 2 (Page 2 Reference)*
 
-3/3',
+After delivery at any gestation within 72Hours.
+Previous Next',
     false,
     2,
     'published',
@@ -16233,9 +16135,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Cell Death
+  -- Lesson: Cell Death (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16249,12 +16152,10 @@ Previous Next
 Cell death
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Cell Death - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/cell-death/figure_01_p1.png)
+*Cell Death — Clinical Figure 1 (Page 1 Reference)*',
     false,
     3,
     'published',
@@ -16266,9 +16167,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Complement Cascade
+  -- Lesson: Complement Cascade (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16308,10 +16210,8 @@ invading organisms and toxins (0-PLAN-CIA)
 Note: C3 deficiency leads to increased susceptibility of infection
 with encapsulated organisms (e.g., S. pneumoniae, H.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 influenzae).
 C5 - C9 deficiency results in increased susceptibility to
 Neisseria infections.
@@ -16333,9 +16233,7 @@ inhibitors e.g., decay accelerating factor or C1 inhibitor.
 Deficiency in C1 inhibitor results in hereditary angioedema.
 Deficiency in complement decay-accelerating factor results in
 paroxysmal nocturnal hemoglobinuria.
-Previous Next
-
-2/2',
+Previous Next',
     false,
     4,
     'published',
@@ -16347,9 +16245,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Inflammation
+  -- Lesson: Inflammation (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16385,16 +16284,15 @@ IL-1: Fever
 IL-2: T cell stimulator
 IL-3: Marrow stimulator
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
+![Inflammation - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/inflammation/figure_01_p1.png)
+*Inflammation — Clinical Figure 1 (Page 1 Reference)*
+
 IL-4: IgE stimulator
 IL-5: Class switching to IgA
 IL-6: Stimulates Acute Phase Protein Production
-Previous Next
-
-2/2',
+Previous Next',
     false,
     5,
     'published',
@@ -16406,9 +16304,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Innate Vs Acquired Immunity
+  -- Lesson: Innate Vs Acquired Immunity (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16424,12 +16323,10 @@ Immune responses: Capacity of the body to resist pathogenic
 agents.
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Innate Vs Acquired Immunity - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/innate-vs-acquired-immunity/figure_01_p1.png)
+*Innate Vs Acquired Immunity — Clinical Figure 1 (Page 1 Reference)*',
     false,
     6,
     'published',
@@ -16441,9 +16338,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Lymphocytes
+  -- Lesson: Lymphocytes (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16457,12 +16355,10 @@ Overview  Comments
 Types of lymphocytes
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Lymphocytes - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/lymphocytes/figure_01_p1.png)
+*Lymphocytes — Clinical Figure 1 (Page 1 Reference)*',
     false,
     7,
     'published',
@@ -16474,9 +16370,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Plasma Autoantibodies
+  -- Lesson: Plasma Autoantibodies (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16490,12 +16387,10 @@ Overview  Comments
 Plasma autoantibodies
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
-
-2/2',
+![Plasma Autoantibodies - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/plasma-autoantibodies/figure_01_p1.png)
+*Plasma Autoantibodies — Clinical Figure 1 (Page 1 Reference)*',
     false,
     8,
     'published',
@@ -16507,9 +16402,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Sickle Cell Disease
+  -- Lesson: Sickle Cell Disease (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16555,15 +16451,11 @@ infection and osteomyelitis.
 Lab values:
 CBC= Normocytic anemia with raised reticulocyte count
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/2
 Peripheral film: Sickle cells, Howell- jolly bodies
 Diagnosis: HB Electrophoresis most accurate test
-Previous Next
-
-2/2',
+Previous Next',
     false,
     9,
     'published',
@@ -16575,9 +16467,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Wound Healing
+  -- Lesson: Wound Healing (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16622,10 +16515,8 @@ contains type III collagen (weak collagen) that must be
 remodeled. Remodeling increases the tensile strength of scar
 tissue.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 1 month: Replacement of collagen type III with collagen type I
 (has greater tensile strength) due to action of collagenase
 enzyme.
@@ -16664,7 +16555,6 @@ Diabetes mellitus
 Anaemia
 Malnutrition
 
-2/3
 Immunodeficiency
 Immunosuppressive medications
 Age
@@ -16690,9 +16580,7 @@ Malnutrition
 Infection
 Corticosteroids therapy
 Poor blood supply
-Previous Next
-
-3/3',
+Previous Next',
     false,
     10,
     'published',
@@ -16704,9 +16592,12 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Module 21: Clinical Microbiology, Bacteria & Antibiotics
+  -- ==========================================================================
+  -- Module 21: Clinical Microbiology, Bacteria & Antibiotics (22 lessons)
+  -- ==========================================================================
   SELECT id INTO v_module_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Clinical Microbiology, Bacteria & Antibiotics' AND "deleted_at" IS NULL LIMIT 1;
   IF v_module_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -16716,7 +16607,7 @@ Previous Next
     UPDATE "modules" SET "position" = 20, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Clostridium Spp - Bacteria
+  -- Lesson: Clostridium Spp - Bacteria (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16750,16 +16641,19 @@ delayed for more than six hours are high risk even if the
 contamination was not initially heavy
 Tetanus immunization schedule:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Clostridium Spp - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/clostridium-spp-bacteria/figure_01_p1.png)
+*Clostridium Spp - Bacteria — Clinical Figure 1 (Page 1 Reference)*
+
 More easy to remeber:
 Previous Next
 
-2/3
+![Clostridium Spp - Bacteria - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/clostridium-spp-bacteria/figure_02_p2.png)
+*Clostridium Spp - Bacteria — Clinical Figure 2 (Page 2 Reference)*
 
-3/3',
+![Clostridium Spp - Bacteria - Clinical Figure 3](/lessons/images/clinical-microbiology-bacteria-antibiotics/clostridium-spp-bacteria/figure_03_p2.png)
+*Clostridium Spp - Bacteria — Clinical Figure 3 (Page 2 Reference)*',
     true,
     0,
     'published',
@@ -16771,9 +16665,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Culture Medium for Bacterial Growth
+  -- Lesson: Culture Medium for Bacterial Growth (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16788,14 +16683,10 @@ Culture Medium For Bacterial
 Growth
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
-
-2/3
-
-3/3',
+![Culture Medium for Bacterial Growth - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/culture-medium-for-bacterial-growth/figure_01_p1.png)
+*Culture Medium for Bacterial Growth — Clinical Figure 1 (Page 1 Reference)*',
     false,
     1,
     'published',
@@ -16807,9 +16698,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Escherichia Coli, Klebsiella, Salmonella - Bacteria
+  -- Lesson: Escherichia Coli, Klebsiella, Salmonella - Bacteria (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16834,10 +16726,14 @@ ingestion of contaminated poultry, eggs, and uncooked
 meat
 Treatment:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Escherichia Coli, Klebsiella, Salmonella - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/escherichia-coli-klebsiella-salmonella-bacteria/figure_01_p1.png)
+*Escherichia Coli, Klebsiella, Salmonella - Bacteria — Clinical Figure 1 (Page 1 Reference)*
+
+![Escherichia Coli, Klebsiella, Salmonella - Bacteria - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/escherichia-coli-klebsiella-salmonella-bacteria/figure_02_p1.png)
+*Escherichia Coli, Klebsiella, Salmonella - Bacteria — Clinical Figure 2 (Page 1 Reference)*
+
 Salmonella enterocolitis: Usually supportive management in
 resistant cases ciprofloxacin
 Enteric fever: First line ciprofloxacin if organism sensitive, and
@@ -16851,11 +16747,7 @@ in resistant cases cefotaxime or azithromycin
 > The most common cause in sickle cell disease: Salmonella
 > Most common cause after hip replacement surgery: Staph
 > epidermidis
-> Previous Next
-
-> 2/3
-
-> 3/3',
+> Previous Next',
     false,
     2,
     'published',
@@ -16867,9 +16759,10 @@ in resistant cases cefotaxime or azithromycin
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Gastrointestinal Virus
+  -- Lesson: Gastrointestinal Virus (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16883,14 +16776,10 @@ in resistant cases cefotaxime or azithromycin
 Gastrointestinal Virus:
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
-
-2/3
-
-3/3',
+![Gastrointestinal Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/gastrointestinal-virus/figure_01_p1.png)
+*Gastrointestinal Virus — Clinical Figure 1 (Page 1 Reference)*',
     false,
     3,
     'published',
@@ -16902,9 +16791,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Hellicobacter Pylori and Compylobacter Jejuni - Bacteria
+  -- Lesson: Hellicobacter Pylori and Compylobacter Jejuni - Bacteria (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16924,14 +16814,13 @@ Organisms causing reactive arthritis: Chlamydia,
 Salmonella, Campylobacter jejuni and Shigella
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Hellicobacter Pylori and Compylobacter Jejuni - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/hellicobacter-pylori-and-compylobacter-jejuni-bacteria/figure_01_p1.png)
+*Hellicobacter Pylori and Compylobacter Jejuni - Bacteria — Clinical Figure 1 (Page 1 Reference)*
 
-2/3
-
-3/3',
+![Hellicobacter Pylori and Compylobacter Jejuni - Bacteria - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/hellicobacter-pylori-and-compylobacter-jejuni-bacteria/figure_02_p1.png)
+*Hellicobacter Pylori and Compylobacter Jejuni - Bacteria — Clinical Figure 2 (Page 1 Reference)*',
     false,
     4,
     'published',
@@ -16943,9 +16832,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Hepatitis - Virus
+  -- Lesson: Hepatitis - Virus (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -16956,10 +16846,8 @@ Overview  Comments
     'article',
     '# Hepatitis - Virus
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Hepatitis:
 Note: Emergency hepatitis B vaccination
 If you have been exposed to the hepatitis B virus and have
@@ -16981,8 +16869,8 @@ hepatitis in pregnant woman.
 No progression to chronic hepatitis
 Previous Next
 
-2/3
-3/3',
+![Hepatitis - Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/hepatitis-virus/figure_01_p2.png)
+*Hepatitis - Virus — Clinical Figure 1 (Page 2 Reference)*',
     false,
     5,
     'published',
@@ -16994,9 +16882,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Herpes Simplex and Varicella Zooster Virus
+  -- Lesson: Herpes Simplex and Varicella Zooster Virus (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17014,10 +16903,14 @@ The incubation period is 10 - 21 days (Recall) (mean time is
 Primary infection typically occurs in 4-10 years children.
 Diagnosis is usually clinical.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Herpes Simplex and Varicella Zooster Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/herpes-simplex-and-varicella-zooster-virus/figure_01_p1.png)
+*Herpes Simplex and Varicella Zooster Virus — Clinical Figure 1 (Page 1 Reference)*
+
+![Herpes Simplex and Varicella Zooster Virus - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/herpes-simplex-and-varicella-zooster-virus/figure_02_p1.png)
+*Herpes Simplex and Varicella Zooster Virus — Clinical Figure 2 (Page 1 Reference)*
+
 After primary infection virus lies dormant in posterior root
 ganglion and reactivates in 20% of patients causing shingles
 School exclusion period: when all lesions are crusted over
@@ -17053,10 +16946,7 @@ attend the antenatal clinic.
 If you have chickenpox, avoid contact with other pregnant
 women and new babies until at least five days after the rash
 appears, or until all the blisters have crusted over.
-Previous Next
-
-2/3
-3/3',
+Previous Next',
     false,
     6,
     'published',
@@ -17068,9 +16958,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Human Immune Virus
+  -- Lesson: Human Immune Virus (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17113,10 +17004,8 @@ object). Deep injury, visible blood, or injury with a device
 that has been used intravascularly, all increase the risk of
 HIV transmission.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Contact of mucous membrane or non-intact skin (e.g.,
 exposed skin that is chapped, abraded, or afflicted with
 dermatitis). If the skin remains intact, there is no risk of HIV
@@ -17136,12 +17025,12 @@ opportunistic pathogens like Tuberculosis, Pneumocystis
 jiroveci pneumonia, Pneumonia, Mycobacterium avium
 complex and toxoplasmosis Gondi
 
-2/3
 Diagnosis: Combined HIV antibody and p24 antigen test
 Monitoring: HIV viral load (PCR) and CD4+ count
 Previous Next
 
-3/3',
+![Human Immune Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/human-immune-virus/figure_01_p3.png)
+*Human Immune Virus — Clinical Figure 1 (Page 3 Reference)*',
     false,
     7,
     'published',
@@ -17153,9 +17042,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Measles, Mumps, Rubella - Virus
+  -- Lesson: Measles, Mumps, Rubella - Virus (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17189,10 +17079,11 @@ Incubation period: 14-21 days
 Infectious period: Patients are considered infectious for 4
 days from onset of the rash and seven days before the rash
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Measles, Mumps, Rubella - Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/measles-mumps-rubella-virus/figure_01_p1.png)
+*Measles, Mumps, Rubella - Virus — Clinical Figure 1 (Page 1 Reference)*
+
 appears.
 Patients are advised to stay away from school in infectious
 period.
@@ -17204,11 +17095,7 @@ in the first trimester it can have serious consequences for
 the baby''s health for example congenital abnormalities such
 as heart defects, cataracts, intrauterine growth restriction,
 central nervous system defects and deafness.
-Previous Next
-
-2/3
-
-3/3',
+Previous Next',
     false,
     8,
     'published',
@@ -17220,9 +17107,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Mycobacterium Tuberculosis - Bacteria
+  -- Lesson: Mycobacterium Tuberculosis - Bacteria (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17260,14 +17148,7 @@ tuberculin into the skin of your forearm. It''s also called the
 tuberculin skin test (TST).
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/3
-
-2/3
-
-3/3',
+Overview  Comments',
     false,
     9,
     'published',
@@ -17279,9 +17160,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Neisseria Spp - Bacteria
+  -- Lesson: Neisseria Spp - Bacteria (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17312,10 +17194,11 @@ appearance of CSF, Neutrophil predominant, High protein
 and low glucose (<40mg/dl)
 The most important to remember here:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Neisseria Spp - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/neisseria-spp-bacteria/figure_01_p1.png)
+*Neisseria Spp - Bacteria — Clinical Figure 1 (Page 1 Reference)*
+
 Treatment:
 If meningococcal disease is suspected out of hospital,
 patients should receive a single dose of parenteral (IM or IV)
@@ -17325,9 +17208,8 @@ In Hospital when diagnosis is made Ceftriaxone antibiotic of
 choice
 Previous Next
 
-2/3
-
-3/3',
+![Neisseria Spp - Bacteria - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/neisseria-spp-bacteria/figure_02_p2.png)
+*Neisseria Spp - Bacteria — Clinical Figure 2 (Page 2 Reference)*',
     false,
     10,
     'published',
@@ -17339,9 +17221,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Notifiable Disease
+  -- Lesson: Notifiable Disease (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17389,19 +17272,13 @@ Smallpox
 Tetanus
 Tuberculosis
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
 Typhus
 Viral hemorrhagic fever (VHF)
 Whooping cough
 Yellow fever
-Previous Next
-
-2/3
-
-3/3',
+Previous Next',
     false,
     11,
     'published',
@@ -17413,9 +17290,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Pathogens - Fungi
+  -- Lesson: Pathogens - Fungi (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17432,14 +17310,10 @@ tract, and female genital tract
 Candidiasis and treatment
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
-
-2/3
-
-3/3',
+![Pathogens - Fungi - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/pathogens-fungi/figure_01_p1.png)
+*Pathogens - Fungi — Clinical Figure 1 (Page 1 Reference)*',
     false,
     12,
     'published',
@@ -17451,9 +17325,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Pathogens - Protozoa
+  -- Lesson: Pathogens - Protozoa (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17493,13 +17368,7 @@ resistant especially southern Vietnam Quinine is best given in
 pregnancy.
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/3
-2/3
-
-3/3',
+Overview  Comments',
     false,
     13,
     'published',
@@ -17511,9 +17380,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Pathogens - Worms
+  -- Lesson: Pathogens - Worms (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17552,13 +17422,7 @@ stool
 Treatment: Mebendazole
 Previous Next
 
-Diet ii Late 2026)
-Overview  Comments
-
-1/3
-2/3
-
-3/3',
+Overview  Comments',
     false,
     14,
     'published',
@@ -17570,9 +17434,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Principles of Investigation
+  -- Lesson: Principles of Investigation (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17586,14 +17451,10 @@ Overview  Comments
 Principles of Investigations
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
-
-2/3
-
-3/3',
+![Principles of Investigation - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-investigation/figure_01_p1.png)
+*Principles of Investigation — Clinical Figure 1 (Page 1 Reference)*',
     false,
     15,
     'published',
@@ -17605,9 +17466,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Principles of Microbiology
+  -- Lesson: Principles of Microbiology (4 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17637,10 +17499,11 @@ blood-borne viruses such as hepatitis B and HIV can be
 transmitted.
 Pathogen and Types:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Principles of Microbiology - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_01_p1.png)
+*Principles of Microbiology — Clinical Figure 1 (Page 1 Reference)*
+
 Control of infection/ Hospital-acquired infection
 Disinfection: Process that inactivates many diseases
 producing microbes on inanimate objects with exception
@@ -17660,7 +17523,12 @@ Giardia lamblia=Attaches to gut mucosa via a specialized
 sucking disc
 Mechanism of immune evasion
 
-2/3
+![Principles of Microbiology - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_02_p2.png)
+*Principles of Microbiology — Clinical Figure 2 (Page 2 Reference)*
+
+![Principles of Microbiology - Clinical Figure 3](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_03_p2.png)
+*Principles of Microbiology — Clinical Figure 3 (Page 2 Reference)*
+
 Spread of infection:
 Food supply (issues of hygiene standards, temperature of
 food, transport to ward
@@ -17678,7 +17546,8 @@ transmitted to air conditioning system
 Route of transmission of microorganisms
 Previous Next
 
-3/3',
+![Principles of Microbiology - Clinical Figure 4](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_04_p3.png)
+*Principles of Microbiology — Clinical Figure 4 (Page 3 Reference)*',
     false,
     16,
     'published',
@@ -17690,9 +17559,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Pseudomonas Aeruginosa, Legionella Pneumophilia and Bortonella Henslae - Bacteria
+  -- Lesson: Pseudomonas Aeruginosa, Legionella Pneumophilia and Bortonella Henslae - Bacteria (1 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17720,14 +17590,15 @@ caused by Bartonella henselae most often results from a
 scratch or bite of a cat.
 Previous Next
 
-Diet ii Late 2026)
 Overview  Comments
-05/10/2026, 10:54 PSEUDOMONAS AERUGINOSA, LEGIONELLA PNEUMOPHILIA AND BORTONELLA HENSLAE-BACTERIA | MRCEM EX…
-1/3
-05/10/2026, 10:54 PSEUDOMONAS AERUGINOSA, LEGIONELLA PNEUMOPHILIA AND BORTONELLA HENSLAE-BACTERIA | MRCEM EX…
-2/3
-05/10/2026, 10:54 PSEUDOMONAS AERUGINOSA, LEGIONELLA PNEUMOPHILIA AND BORTONELLA HENSLAE-BACTERIA | MRCEM EX…
-3/3',
+/2026, 10:54 PSEUDOMONAS AERUGINOSA, LEGIONELLA PNEUMOPHILIA AND BORTONELLA HENSLAE-BACTERIA | MRCEM EX…
+
+![Pseudomonas Aeruginosa, Legionella Pneumophilia and Bortonella Henslae - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/pseudomonas-aeruginosa-legionella-pneumophilia-and-bortonella-henslae-bacteria/figure_01_p1.png)
+*Pseudomonas Aeruginosa, Legionella Pneumophilia and Bortonella Henslae - Bacteria — Clinical Figure 1 (Page 1 Reference)*
+
+/2026, 10:54 PSEUDOMONAS AERUGINOSA, LEGIONELLA PNEUMOPHILIA AND BORTONELLA HENSLAE-BACTERIA | MRCEM EX…
+
+/2026, 10:54 PSEUDOMONAS AERUGINOSA, LEGIONELLA PNEUMOPHILIA AND BORTONELLA HENSLAE-BACTERIA | MRCEM EX…',
     false,
     17,
     'published',
@@ -17739,9 +17610,10 @@ Overview  Comments
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Respiratory Viruses
+  -- Lesson: Respiratory Viruses (0 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17785,10 +17657,8 @@ Either wheeze or crackles on chest auscultation (or both).
 Other common symptoms include:
 Fever (usually of less than 39°C).
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/5
 Poor feeding (typically after 3 to 5 days of illness).
 Apnoea without other clinical signs in young infants (in
 particular those under 6 weeks of age).
@@ -17827,7 +17697,6 @@ heart disease, asthma
 immunocompromised individuals e.g., asplenism, HIV/AIDs
 and patients on chemotherapy
 
-2/5
 Whooping cough:
 Whooping cough, also known as pertussis, is a highly
 infectious disease caused by the bacterium Bordetella
@@ -17869,7 +17738,6 @@ cough onset.
 Definitive test for diagnosis, with a specificity of 100%.
 Sensitivity is 30% to 60% if the specimen is obtained <2
 
-3/5
 weeks after symptoms start.
 Nucleic acid amplification test (NAAT) of nasopharyngeal
 aspirate or posterior nasopharyngeal swab
@@ -17906,10 +17774,7 @@ Erythromycin for pregnant women.
 Note:The recommended exclusion period from nursery or
 school is 48 hours after start of antibiotics or 21 days from
 start of symptoms
-Previous Next
-
-4/5
-5/5',
+Previous Next',
     false,
     18,
     'published',
@@ -17921,9 +17786,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Sexually Transmitted Bacteria
+  -- Lesson: Sexually Transmitted Bacteria (2 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -17960,15 +17826,15 @@ Comparison Between Neisseria
 Gonorrhea and
 Chlamydia trachomatis:
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Sexually Transmitted Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/sexually-transmitted-bacteria/figure_01_p1.png)
+*Sexually Transmitted Bacteria — Clinical Figure 1 (Page 1 Reference)*
+
 Previous Next
 
-2/3
-
-3/3',
+![Sexually Transmitted Bacteria - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/sexually-transmitted-bacteria/figure_02_p2.png)
+*Sexually Transmitted Bacteria — Clinical Figure 2 (Page 2 Reference)*',
     false,
     19,
     'published',
@@ -17980,9 +17846,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Streptococcus and Staphylococcus Bactera
+  -- Lesson: Streptococcus and Staphylococcus Bactera (4 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -18013,10 +17880,14 @@ Staphylococcus epidermidis is part of the normal flora of the
 skin and nasopharynx, and infection is usually endogenous.
 Streptococcus Viridans
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/4
+![Streptococcus and Staphylococcus Bactera - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/streptococcus-and-staphylococcus-bactera/figure_01_p1.png)
+*Streptococcus and Staphylococcus Bactera — Clinical Figure 1 (Page 1 Reference)*
+
+![Streptococcus and Staphylococcus Bactera - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/streptococcus-and-staphylococcus-bactera/figure_02_p1.png)
+*Streptococcus and Staphylococcus Bactera — Clinical Figure 2 (Page 1 Reference)*
+
 Streptococcus Pneumoniae:
 Gram positive Alpha hemolytic encapsulated diplococci
 transmitted via respiratory droplets causing pneumonia,
@@ -18035,7 +17906,9 @@ in hospital.
 Severity assessment and management (NICE & BTS
 guideline)
 
-2/4
+![Streptococcus and Staphylococcus Bactera - Clinical Figure 3](/lessons/images/clinical-microbiology-bacteria-antibiotics/streptococcus-and-staphylococcus-bactera/figure_03_p2.png)
+*Streptococcus and Staphylococcus Bactera — Clinical Figure 3 (Page 2 Reference)*
+
 Choice of antibiotics
 Staphylococcus aureus:
 Staphylococcus aureus is a catalase-positive, coagulase-
@@ -18050,7 +17923,9 @@ by clothing or other fomites
 Disease: Primary skin infection (e.g., impetigo, abscess and
 cellulitis)
 
-3/4
+![Streptococcus and Staphylococcus Bactera - Clinical Figure 4](/lessons/images/clinical-microbiology-bacteria-antibiotics/streptococcus-and-staphylococcus-bactera/figure_04_p3.png)
+*Streptococcus and Staphylococcus Bactera — Clinical Figure 4 (Page 3 Reference)*
+
 Secondary skin infections (e.g., in eczema, surgical wounds,
 intravenous devices)
 Pneumonia
@@ -18072,9 +17947,7 @@ active young adults.
 Treatment: Flucloxacillin: Antibiotic of choice
 Vancomycin is used to treat methicillin Resistant Staph
 Aureus
-Previous Next
-
-4/4',
+Previous Next',
     false,
     20,
     'published',
@@ -18086,9 +17959,10 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Lesson: Uk - Immunization Schedule
+  -- Lesson: Uk - Immunization Schedule (3 images)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
@@ -18104,17 +17978,21 @@ The routine immunization schedule
 from February 2022
 Note: Trade name is not necessary to remember.
 
-Diet ii Late 2026)
 Overview  Comments
 
-1/3
+![Uk - Immunization Schedule - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/uk-immunization-schedule/figure_01_p1.png)
+*Uk - Immunization Schedule — Clinical Figure 1 (Page 1 Reference)*
+
 Selective immunisation programmes
 Additional vaccines for individuals
 with underlying medical conditions
 Previous Next
 
-2/3
-3/3',
+![Uk - Immunization Schedule - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/uk-immunization-schedule/figure_02_p2.png)
+*Uk - Immunization Schedule — Clinical Figure 2 (Page 2 Reference)*
+
+![Uk - Immunization Schedule - Clinical Figure 3](/lessons/images/clinical-microbiology-bacteria-antibiotics/uk-immunization-schedule/figure_03_p2.png)
+*Uk - Immunization Schedule — Clinical Figure 3 (Page 2 Reference)*',
     false,
     21,
     'published',
@@ -18126,6 +18004,7 @@ Previous Next
     "is_free_preview" = EXCLUDED."is_free_preview",
     "position" = EXCLUDED."position",
     "status" = 'published',
+    "deleted_at" = NULL,
     "updated_at" = now();
 
   -- 3. Connect Course to WhatsApp manual plan & standard plans
@@ -18150,5 +18029,5 @@ Previous Next
     ON CONFLICT ("plan_id", "course_id") DO NOTHING;
   END IF;
 
-  RAISE NOTICE 'Successfully seeded MRCEM Primary with 221 lessons across 21 modules.';
+  RAISE NOTICE 'Successfully seeded MRCEM Primary: Complete Flagship Masterclass (221 lessons, 269 images)';
 END $$;

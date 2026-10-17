@@ -38,13 +38,15 @@ def clean_lesson_markdown(raw_text: str, title: str) -> str:
     text = re.sub(r'0%\s*Complete\s*', '', text, flags=re.IGNORECASE)
     text = re.sub(r'Mark as Complete\s*', '', text, flags=re.IGNORECASE)
     text = re.sub(r'Page\s+\d+\s+of\s+\d+', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\b\d+\s*/\s*\d+\b', '', text)
     text = re.sub(r'Mrcem Primary Complete Course[^\n]*\n', '', text, flags=re.IGNORECASE)
     text = re.sub(r'Overview\s+Comments[^\n]*\n', '', text, flags=re.IGNORECASE)
     text = re.sub(r'Restart quiz[^\n]*\n', '', text, flags=re.IGNORECASE)
     text = re.sub(r'LinkedIn\s*Facebook\s*Twitter[^\n]*\n', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'Diet\s+[^\n]*\n', '', text, flags=re.IGNORECASE)
     
     # Strip private use or broken characters
-    text = re.sub(r'[\ue000-\uf8ff]', '', text)
+    text = re.sub(r'[\ue000-\uf8ff\ufffd]', '', text)
     
     # Fix common symbols
     text = text.replace('–', '-').replace('—', '-')
@@ -85,7 +87,7 @@ def clean_lesson_markdown(raw_text: str, title: str) -> str:
             continue
             
         # Section titles in ALL CAPS with length between 4 and 40
-        if line.isupper() and len(line) > 3 and len(line) < 45 and not line.startswith('-'):
+        if line.isupper() and len(line) > 3 and len(line) < 45 and not line.startswith('-') and re.search(r'[A-Za-z]', line):
             cleaned_lines.append("")
             cleaned_lines.append(f"## {line.title()}")
             cleaned_lines.append("")

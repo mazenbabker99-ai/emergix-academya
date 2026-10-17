@@ -13,6 +13,7 @@ export type Block =
   | { type: 'h1' | 'h2' | 'h3'; text: string }
   | { type: 'callout'; variant: 'tip' | 'note' | 'warning' | 'info'; title?: string; inline: Inline[] }
   | { type: 'blockquote'; inline: Inline[] }
+  | { type: 'image'; src: string; alt: string; caption?: string }
   | { type: 'p'; inline: Inline[] }
   | { type: 'ul'; items: Inline[][] };
 
@@ -98,6 +99,25 @@ export function parseBlocks(src: string): Block[] {
       if (paragraph.length) flush();
       if (list) flush();
       quoteLines.push(line.replace(/^>\s?/, ''));
+    } else if (/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)$/.test(line)) {
+      flush();
+      const imgMatch = line.match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)$/);
+      if (imgMatch) {
+        const alt = imgMatch[1] || 'Clinical Illustration';
+        const rawSrc = imgMatch[2];
+        const caption = imgMatch[3] || alt;
+        const src = safeHref(rawSrc) || rawSrc;
+        blocks.push({ type: 'image', src, alt, caption });
+      }
+    } else if (
+      line.startsWith('*') &&
+      line.endsWith('*') &&
+      !line.startsWith('**') &&
+      blocks.length > 0 &&
+      blocks[blocks.length - 1].type === 'image'
+    ) {
+      const imgBlock = blocks[blocks.length - 1] as { type: 'image'; src: string; alt: string; caption?: string };
+      imgBlock.caption = line.slice(1, -1).trim();
     } else if (line.startsWith('### ')) {
       flush();
       blocks.push({ type: 'h3', text: line.slice(4).trim() });
@@ -124,10 +144,11 @@ export function parseBlocks(src: string): Block[] {
 /** Plain text (no markup) for JSON-LD and meta descriptions. */
 export function stripMarkdown(src: string): string {
   return src
+    .replace(/!\[([^\]]*)\]\([^)]*\)/g, '')
     .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
     .replace(/\*\*(.+?)\*\*/g, '$1')
     .replace(/\*(.+?)\*/g, '$1')
-    .replace(/^#{2,3}\s+/gm, '')
+    .replace(/^#{1,3}\s+/gm, '')
     .replace(/^-\s+/gm, '')
     .replace(/\s+/g, ' ')
     .trim();

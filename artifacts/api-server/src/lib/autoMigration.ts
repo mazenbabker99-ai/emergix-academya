@@ -916,33 +916,58 @@ export async function runAutoMigrationsAndSeeds() {
     await pool.query(FREE_DEMO_PAGE_SQL, [JSON.stringify(FREE_DEMO_DATA)]);
     logger.info("Free-demo page seed completed successfully.");
 
-    // Flagship Courses: MRCEM Primary (221 lessons, 21 modules) and MRCEM SBA (47 lessons, 5 modules)
-    // Avoid re-executing multi-megabyte SQL seed scripts on every reboot if already populated.
+    // Flagship & Specialty Courses:
+    // MRCEM Primary (221 lessons), Anatomy (65 lessons), Physiology (99 lessons),
+    // Pharmacology (24 lessons), Pathology & Micro (33 lessons), and SBA QBank (47 quizzes).
     let primaryLessonCount = 0;
+    let anatomyLessonCount = 0;
+    let physiologyLessonCount = 0;
+    let pharmaLessonCount = 0;
+    let pathLessonCount = 0;
     let sbaLessonCount = 0;
-    try {
-      const primaryRes = await pool.query(
-        `SELECT count(*)::int as c FROM "lessons" l JOIN "modules" m ON m."id" = l."module_id" JOIN "courses" c ON c."id" = m."course_id" WHERE c."slug" = 'mrcem-primary' AND l."deleted_at" IS NULL`
-      );
-      primaryLessonCount = primaryRes.rows[0]?.c ?? 0;
+    let imageEmbedCount = 0;
 
-      const sbaRes = await pool.query(
-        `SELECT count(*)::int as c FROM "lessons" l JOIN "modules" m ON m."id" = l."module_id" JOIN "courses" c ON c."id" = m."course_id" WHERE c."slug" = 'mrcem-sba' AND l."deleted_at" IS NULL`
+    try {
+      const countsRes = await pool.query(`
+        SELECT c."slug", count(l."id")::int as c
+        FROM "courses" c
+        LEFT JOIN "modules" m ON m."course_id" = c."id" AND m."deleted_at" IS NULL
+        LEFT JOIN "lessons" l ON l."module_id" = m."id" AND l."deleted_at" IS NULL
+        WHERE c."slug" IN ('mrcem-primary', 'mrcem-anatomy', 'mrcem-physiology', 'mrcem-pharmacology', 'mrcem-pathology-micro', 'mrcem-sba')
+        GROUP BY c."slug";
+      `);
+      for (const row of countsRes.rows) {
+        if (row.slug === 'mrcem-primary') primaryLessonCount = row.c;
+        if (row.slug === 'mrcem-anatomy') anatomyLessonCount = row.c;
+        if (row.slug === 'mrcem-physiology') physiologyLessonCount = row.c;
+        if (row.slug === 'mrcem-pharmacology') pharmaLessonCount = row.c;
+        if (row.slug === 'mrcem-pathology-micro') pathLessonCount = row.c;
+        if (row.slug === 'mrcem-sba') sbaLessonCount = row.c;
+      }
+
+      const imgRes = await pool.query(
+        `SELECT count(*)::int as c FROM "lessons" WHERE "body" LIKE '%/lessons/images/%' AND "deleted_at" IS NULL;`
       );
-      sbaLessonCount = sbaRes.rows[0]?.c ?? 0;
+      imageEmbedCount = imgRes.rows[0]?.c ?? 0;
     } catch {
       // If query fails, proceed cautiously
     }
 
+    const hasEmbeddedImages = imageEmbedCount >= 100;
+
     const masterSeeds: { file: string; shouldRun: boolean }[] = [
-      { file: "seed_flagship_mrcem_primary.sql", shouldRun: primaryLessonCount < 100 },
-      { file: "seed_flagship_mrcem_sba.sql", shouldRun: sbaLessonCount < 30 },
+      { file: "seed_flagship_mrcem_primary.sql", shouldRun: !hasEmbeddedImages || primaryLessonCount < 200 },
+      { file: "seed_mrcem_anatomy.sql", shouldRun: !hasEmbeddedImages || anatomyLessonCount < 60 },
+      { file: "seed_mrcem_physiology.sql", shouldRun: !hasEmbeddedImages || physiologyLessonCount < 90 },
+      { file: "seed_mrcem_pharmacology.sql", shouldRun: !hasEmbeddedImages || pharmaLessonCount < 20 },
+      { file: "seed_mrcem_pathology_micro.sql", shouldRun: !hasEmbeddedImages || pathLessonCount < 30 },
+      { file: "seed_flagship_mrcem_sba.sql", shouldRun: sbaLessonCount < 40 },
       { file: "cleanup_courses.sql", shouldRun: true },
     ];
 
     for (const { file: seedFile, shouldRun } of masterSeeds) {
       if (!shouldRun) {
-        logger.info(`Curriculum seed ${seedFile} already populated (Primary: ${primaryLessonCount}, SBA: ${sbaLessonCount}). Skipping to accelerate startup.`);
+        logger.info(`Curriculum seed ${seedFile} already populated and verified. Skipping to accelerate startup.`);
         continue;
       }
       const resolved = findMigrationFile(seedFile);
