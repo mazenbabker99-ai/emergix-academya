@@ -1,0 +1,2628 @@
+{
+  "innervation-of-upper-limb": {
+    "title": "Innervation of Upper Limb",
+    "module": "Upper Limb Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "upper-limb-anatomy",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_01_p2.png",
+        "sizeBytes": 46405
+      },
+      {
+        "page": 3,
+        "filename": "figure_02_p3.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_02_p3.png",
+        "sizeBytes": 279489
+      },
+      {
+        "page": 4,
+        "filename": "figure_03_p4.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_03_p4.png",
+        "sizeBytes": 160744
+      },
+      {
+        "page": 4,
+        "filename": "figure_04_p4.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_04_p4.png",
+        "sizeBytes": 143141
+      },
+      {
+        "page": 4,
+        "filename": "figure_05_p4.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_05_p4.png",
+        "sizeBytes": 548307
+      },
+      {
+        "page": 5,
+        "filename": "figure_06_p5.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_06_p5.png",
+        "sizeBytes": 165220
+      },
+      {
+        "page": 6,
+        "filename": "figure_07_p6.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_07_p6.png",
+        "sizeBytes": 563381
+      },
+      {
+        "page": 6,
+        "filename": "figure_08_p6.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_08_p6.png",
+        "sizeBytes": 209579
+      },
+      {
+        "page": 7,
+        "filename": "figure_09_p7.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_09_p7.png",
+        "sizeBytes": 147281
+      },
+      {
+        "page": 7,
+        "filename": "figure_10_p7.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_10_p7.png",
+        "sizeBytes": 299428
+      },
+      {
+        "page": 8,
+        "filename": "figure_11_p8.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_11_p8.png",
+        "sizeBytes": 663994
+      },
+      {
+        "page": 8,
+        "filename": "figure_12_p8.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_12_p8.png",
+        "sizeBytes": 443951
+      },
+      {
+        "page": 9,
+        "filename": "figure_13_p9.png",
+        "url": "/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_13_p9.png",
+        "sizeBytes": 108705
+      }
+    ]
+  },
+  "joints-of-the-upper-limb": {
+    "title": "Joints of the Upper Limb",
+    "module": "Upper Limb Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "upper-limb-anatomy",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/upper-limb-anatomy/joints-of-the-upper-limb/figure_01_p2.png",
+        "sizeBytes": 443950
+      },
+      {
+        "page": 5,
+        "filename": "figure_02_p5.png",
+        "url": "/lessons/images/upper-limb-anatomy/joints-of-the-upper-limb/figure_02_p5.png",
+        "sizeBytes": 264477
+      },
+      {
+        "page": 7,
+        "filename": "figure_03_p7.png",
+        "url": "/lessons/images/upper-limb-anatomy/joints-of-the-upper-limb/figure_03_p7.png",
+        "sizeBytes": 294987
+      }
+    ]
+  },
+  "muscles-of-the-upper-limb": {
+    "title": "Muscles of the Upper Limb",
+    "module": "Upper Limb Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "upper-limb-anatomy",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_01_p1.png",
+        "sizeBytes": 33428
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_02_p1.png",
+        "sizeBytes": 89193
+      },
+      {
+        "page": 1,
+        "filename": "figure_03_p1.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_03_p1.png",
+        "sizeBytes": 183170
+      },
+      {
+        "page": 2,
+        "filename": "figure_04_p2.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_04_p2.png",
+        "sizeBytes": 239546
+      },
+      {
+        "page": 2,
+        "filename": "figure_05_p2.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_05_p2.png",
+        "sizeBytes": 197011
+      },
+      {
+        "page": 3,
+        "filename": "figure_06_p3.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_06_p3.png",
+        "sizeBytes": 348419
+      },
+      {
+        "page": 3,
+        "filename": "figure_07_p3.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_07_p3.png",
+        "sizeBytes": 242292
+      },
+      {
+        "page": 4,
+        "filename": "figure_08_p4.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_08_p4.png",
+        "sizeBytes": 146850
+      },
+      {
+        "page": 4,
+        "filename": "figure_09_p4.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_09_p4.png",
+        "sizeBytes": 135532
+      },
+      {
+        "page": 5,
+        "filename": "figure_10_p5.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_10_p5.png",
+        "sizeBytes": 466129
+      },
+      {
+        "page": 6,
+        "filename": "figure_11_p6.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_11_p6.png",
+        "sizeBytes": 263943
+      },
+      {
+        "page": 6,
+        "filename": "figure_12_p6.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_12_p6.png",
+        "sizeBytes": 471127
+      },
+      {
+        "page": 7,
+        "filename": "figure_13_p7.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_13_p7.png",
+        "sizeBytes": 411265
+      },
+      {
+        "page": 7,
+        "filename": "figure_14_p7.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_14_p7.png",
+        "sizeBytes": 234263
+      },
+      {
+        "page": 9,
+        "filename": "figure_15_p9.png",
+        "url": "/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_15_p9.png",
+        "sizeBytes": 284977
+      }
+    ]
+  },
+  "upper-limb-dermatomes-myotomes-and-reflexes": {
+    "title": "Upper Limb Dermatomes, Myotomes and Reflexes",
+    "module": "Upper Limb Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "upper-limb-anatomy",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_01_p1.png",
+        "sizeBytes": 192415
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_02_p1.png",
+        "sizeBytes": 89414
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_03_p2.png",
+        "sizeBytes": 77138
+      }
+    ]
+  },
+  "upper-limb-other-important-structures": {
+    "title": "Upper Limb Other Important Structures",
+    "module": "Upper Limb Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "upper-limb-anatomy",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/upper-limb-anatomy/upper-limb-other-important-structures/figure_01_p1.png",
+        "sizeBytes": 70783
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/upper-limb-anatomy/upper-limb-other-important-structures/figure_02_p1.png",
+        "sizeBytes": 162403
+      }
+    ]
+  },
+  "bones-of-the-lower-limb": {
+    "title": "Bones of the Lower Limb",
+    "module": "Lower Limb Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "lower-limb-anatomy",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/lower-limb-anatomy/bones-of-the-lower-limb/figure_01_p2.png",
+        "sizeBytes": 320420
+      },
+      {
+        "page": 4,
+        "filename": "figure_02_p4.png",
+        "url": "/lessons/images/lower-limb-anatomy/bones-of-the-lower-limb/figure_02_p4.png",
+        "sizeBytes": 399890
+      }
+    ]
+  },
+  "dermatomes-myotomes-and-reflexes-of-lower-limb": {
+    "title": "Dermatomes, Myotomes and Reflexes of Lower Limb",
+    "module": "Lower Limb Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "lower-limb-anatomy",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/lower-limb-anatomy/dermatomes-myotomes-and-reflexes-of-lower-limb/figure_01_p1.png",
+        "sizeBytes": 212763
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/lower-limb-anatomy/dermatomes-myotomes-and-reflexes-of-lower-limb/figure_02_p1.png",
+        "sizeBytes": 30466
+      }
+    ]
+  },
+  "joints-of-the-lower-limb": {
+    "title": "Joints of the Lower Limb",
+    "module": "Lower Limb Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "lower-limb-anatomy",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_01_p1.png",
+        "sizeBytes": 96981
+      },
+      {
+        "page": 5,
+        "filename": "figure_02_p5.png",
+        "url": "/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_02_p5.png",
+        "sizeBytes": 233556
+      },
+      {
+        "page": 5,
+        "filename": "figure_03_p5.png",
+        "url": "/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_03_p5.png",
+        "sizeBytes": 172827
+      },
+      {
+        "page": 5,
+        "filename": "figure_04_p5.png",
+        "url": "/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_04_p5.png",
+        "sizeBytes": 149835
+      }
+    ]
+  },
+  "lower-limb-other-significant-structures": {
+    "title": "Lower Limb Other Significant Structures",
+    "module": "Lower Limb Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "lower-limb-anatomy",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/lower-limb-anatomy/lower-limb-other-significant-structures/figure_01_p1.png",
+        "sizeBytes": 129277
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/lower-limb-anatomy/lower-limb-other-significant-structures/figure_02_p2.png",
+        "sizeBytes": 207453
+      },
+      {
+        "page": 3,
+        "filename": "figure_03_p3.png",
+        "url": "/lessons/images/lower-limb-anatomy/lower-limb-other-significant-structures/figure_03_p3.png",
+        "sizeBytes": 329928
+      }
+    ]
+  },
+  "muscles-of-the-lower-limb": {
+    "title": "Muscles of the Lower Limb",
+    "module": "Lower Limb Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "lower-limb-anatomy",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_01_p1.png",
+        "sizeBytes": 206751
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_02_p1.png",
+        "sizeBytes": 194490
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_03_p2.png",
+        "sizeBytes": 114974
+      },
+      {
+        "page": 3,
+        "filename": "figure_04_p3.png",
+        "url": "/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_04_p3.png",
+        "sizeBytes": 232345
+      },
+      {
+        "page": 3,
+        "filename": "figure_05_p3.png",
+        "url": "/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_05_p3.png",
+        "sizeBytes": 225440
+      },
+      {
+        "page": 4,
+        "filename": "figure_06_p4.png",
+        "url": "/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_06_p4.png",
+        "sizeBytes": 347211
+      },
+      {
+        "page": 5,
+        "filename": "figure_07_p5.png",
+        "url": "/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_07_p5.png",
+        "sizeBytes": 125004
+      },
+      {
+        "page": 5,
+        "filename": "figure_08_p5.png",
+        "url": "/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_08_p5.png",
+        "sizeBytes": 186296
+      },
+      {
+        "page": 6,
+        "filename": "figure_09_p6.png",
+        "url": "/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_09_p6.png",
+        "sizeBytes": 179773
+      }
+    ]
+  },
+  "nerves-of-the-lower-limb": {
+    "title": "Nerves of the Lower Limb",
+    "module": "Lower Limb Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "lower-limb-anatomy",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/lower-limb-anatomy/nerves-of-the-lower-limb/figure_01_p1.png",
+        "sizeBytes": 68770
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/lower-limb-anatomy/nerves-of-the-lower-limb/figure_02_p2.png",
+        "sizeBytes": 100328
+      },
+      {
+        "page": 4,
+        "filename": "figure_03_p4.png",
+        "url": "/lessons/images/lower-limb-anatomy/nerves-of-the-lower-limb/figure_03_p4.png",
+        "sizeBytes": 237974
+      },
+      {
+        "page": 5,
+        "filename": "figure_04_p5.png",
+        "url": "/lessons/images/lower-limb-anatomy/nerves-of-the-lower-limb/figure_04_p5.png",
+        "sizeBytes": 314515
+      }
+    ]
+  },
+  "dermatomes-of-trunk": {
+    "title": "Dermatomes of Trunk",
+    "module": "Abdomen & Peritoneum",
+    "category": "anatomy",
+    "moduleSlug": "abdomen-peritoneum",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/abdomen-peritoneum/dermatomes-of-trunk/figure_01_p1.png",
+        "sizeBytes": 92685
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/abdomen-peritoneum/dermatomes-of-trunk/figure_02_p1.png",
+        "sizeBytes": 222965
+      }
+    ]
+  },
+  "muscles-of-thorax": {
+    "title": "Muscles of Thorax",
+    "module": "Thorax Anatomy & Mediastinum",
+    "category": "anatomy",
+    "moduleSlug": "thorax-anatomy-mediastinum",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/thorax-anatomy-mediastinum/muscles-of-thorax/figure_01_p1.png",
+        "sizeBytes": 248097
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/thorax-anatomy-mediastinum/muscles-of-thorax/figure_02_p2.png",
+        "sizeBytes": 53506
+      }
+    ]
+  },
+  "structures-of-the-thorax-heart-and-pericardium": {
+    "title": "Structures of the Thorax - Heart and Pericardium",
+    "module": "Thorax Anatomy & Mediastinum",
+    "category": "anatomy",
+    "moduleSlug": "thorax-anatomy-mediastinum",
+    "images": [
+      {
+        "page": 5,
+        "filename": "figure_01_p5.png",
+        "url": "/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-heart-and-pericardium/figure_01_p5.png",
+        "sizeBytes": 69653
+      },
+      {
+        "page": 6,
+        "filename": "figure_02_p6.png",
+        "url": "/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-heart-and-pericardium/figure_02_p6.png",
+        "sizeBytes": 60744
+      },
+      {
+        "page": 6,
+        "filename": "figure_03_p6.png",
+        "url": "/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-heart-and-pericardium/figure_03_p6.png",
+        "sizeBytes": 114542
+      }
+    ]
+  },
+  "structures-of-the-thorax-lungs-and-pleurae": {
+    "title": "Structures of the Thorax - Lungs and Pleurae",
+    "module": "Thorax Anatomy & Mediastinum",
+    "category": "anatomy",
+    "moduleSlug": "thorax-anatomy-mediastinum",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-lungs-and-pleurae/figure_01_p1.png",
+        "sizeBytes": 116349
+      }
+    ]
+  },
+  "structures-of-the-thorax-oesophagus": {
+    "title": "Structures of the Thorax - Oesophagus",
+    "module": "Thorax Anatomy & Mediastinum",
+    "category": "anatomy",
+    "moduleSlug": "thorax-anatomy-mediastinum",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-oesophagus/figure_01_p1.png",
+        "sizeBytes": 111882
+      }
+    ]
+  },
+  "thoracic-wall-movements": {
+    "title": "Thoracic Wall Movements",
+    "module": "Thorax Anatomy & Mediastinum",
+    "category": "anatomy",
+    "moduleSlug": "thorax-anatomy-mediastinum",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/thorax-anatomy-mediastinum/thoracic-wall-movements/figure_01_p2.png",
+        "sizeBytes": 243212
+      }
+    ]
+  },
+  "abdominal-wall-muscles": {
+    "title": "Abdominal Wall Muscles",
+    "module": "Abdomen & Peritoneum",
+    "category": "anatomy",
+    "moduleSlug": "abdomen-peritoneum",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/abdomen-peritoneum/abdominal-wall-muscles/figure_01_p2.png",
+        "sizeBytes": 836634
+      },
+      {
+        "page": 3,
+        "filename": "figure_02_p3.png",
+        "url": "/lessons/images/abdomen-peritoneum/abdominal-wall-muscles/figure_02_p3.png",
+        "sizeBytes": 213839
+      }
+    ]
+  },
+  "accessory-organs-of-the-abdomen": {
+    "title": "Accessory Organs of the Abdomen",
+    "module": "Abdomen & Peritoneum",
+    "category": "anatomy",
+    "moduleSlug": "abdomen-peritoneum",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_01_p1.png",
+        "sizeBytes": 141632
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_02_p2.png",
+        "sizeBytes": 307768
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_03_p2.png",
+        "sizeBytes": 99466
+      },
+      {
+        "page": 3,
+        "filename": "figure_04_p3.png",
+        "url": "/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_04_p3.png",
+        "sizeBytes": 278417
+      },
+      {
+        "page": 8,
+        "filename": "figure_05_p8.png",
+        "url": "/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_05_p8.png",
+        "sizeBytes": 161469
+      },
+      {
+        "page": 9,
+        "filename": "figure_06_p9.png",
+        "url": "/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_06_p9.png",
+        "sizeBytes": 220613
+      },
+      {
+        "page": 9,
+        "filename": "figure_07_p9.png",
+        "url": "/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_07_p9.png",
+        "sizeBytes": 510865
+      },
+      {
+        "page": 9,
+        "filename": "figure_08_p9.png",
+        "url": "/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_08_p9.png",
+        "sizeBytes": 133498
+      }
+    ]
+  },
+  "areas-of-abdomen": {
+    "title": "Areas of Abdomen",
+    "module": "Abdomen & Peritoneum",
+    "category": "anatomy",
+    "moduleSlug": "abdomen-peritoneum",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_01_p1.png",
+        "sizeBytes": 137576
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_02_p1.png",
+        "sizeBytes": 174020
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_03_p2.png",
+        "sizeBytes": 183814
+      },
+      {
+        "page": 4,
+        "filename": "figure_04_p4.png",
+        "url": "/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_04_p4.png",
+        "sizeBytes": 54891
+      },
+      {
+        "page": 4,
+        "filename": "figure_05_p4.png",
+        "url": "/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_05_p4.png",
+        "sizeBytes": 225023
+      },
+      {
+        "page": 5,
+        "filename": "figure_06_p5.png",
+        "url": "/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_06_p5.png",
+        "sizeBytes": 258209
+      }
+    ]
+  },
+  "gastrointestinal-tract": {
+    "title": "Gastrointestinal Tract",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/gastrointestinal-tract/figure_01_p2.png",
+        "sizeBytes": 130334
+      }
+    ]
+  },
+  "lumbar-spine-and-plexus": {
+    "title": "Lumbar Spine and Plexus",
+    "module": "Abdomen & Peritoneum",
+    "category": "anatomy",
+    "moduleSlug": "abdomen-peritoneum",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/abdomen-peritoneum/lumbar-spine-and-plexus/figure_01_p1.png",
+        "sizeBytes": 346031
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/abdomen-peritoneum/lumbar-spine-and-plexus/figure_02_p2.png",
+        "sizeBytes": 480149
+      }
+    ]
+  },
+  "male-and-female-reproductive-system": {
+    "title": "Male and Female Reproductive System",
+    "module": "Abdomen & Peritoneum",
+    "category": "anatomy",
+    "moduleSlug": "abdomen-peritoneum",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/abdomen-peritoneum/male-and-female-reproductive-system/figure_01_p2.png",
+        "sizeBytes": 82344
+      },
+      {
+        "page": 5,
+        "filename": "figure_02_p5.png",
+        "url": "/lessons/images/abdomen-peritoneum/male-and-female-reproductive-system/figure_02_p5.png",
+        "sizeBytes": 232064
+      }
+    ]
+  },
+  "urinary-tract": {
+    "title": "Urinary Tract",
+    "module": "Abdomen & Peritoneum",
+    "category": "anatomy",
+    "moduleSlug": "abdomen-peritoneum",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/abdomen-peritoneum/urinary-tract/figure_01_p1.png",
+        "sizeBytes": 231637
+      },
+      {
+        "page": 3,
+        "filename": "figure_02_p3.png",
+        "url": "/lessons/images/abdomen-peritoneum/urinary-tract/figure_02_p3.png",
+        "sizeBytes": 515561
+      }
+    ]
+  },
+  "anterior-and-posterior-triangle-of-neck": {
+    "title": "Anterior and Posterior Triangle of Neck",
+    "module": "Head & Neck Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "head-neck-anatomy",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.jpg",
+        "url": "/lessons/images/head-neck-anatomy/anterior-and-posterior-triangle-of-neck/figure_01_p2.jpg",
+        "sizeBytes": 34275
+      }
+    ]
+  },
+  "muscles-of-the-neck": {
+    "title": "Muscles of the Neck",
+    "module": "Head & Neck Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "head-neck-anatomy",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_01_p1.png",
+        "sizeBytes": 94413
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_02_p1.png",
+        "sizeBytes": 454548
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_03_p2.png",
+        "sizeBytes": 345378
+      },
+      {
+        "page": 2,
+        "filename": "figure_04_p2.png",
+        "url": "/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_04_p2.png",
+        "sizeBytes": 203347
+      },
+      {
+        "page": 2,
+        "filename": "figure_05_p2.jpg",
+        "url": "/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_05_p2.jpg",
+        "sizeBytes": 102683
+      }
+    ]
+  },
+  "structure-of-the-eyeball-and-eyelid": {
+    "title": "Structure of the Eyeball and Eyelid",
+    "module": "Head & Neck Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "head-neck-anatomy",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/head-neck-anatomy/structure-of-the-eyeball-and-eyelid/figure_01_p2.png",
+        "sizeBytes": 173873
+      }
+    ]
+  },
+  "thyroid-gland": {
+    "title": "Thyroid Gland",
+    "module": "Endocrine Physiology & Metabolism",
+    "category": "physiology",
+    "moduleSlug": "endocrine-physiology-metabolism",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/thyroid-gland/figure_01_p1.png",
+        "sizeBytes": 158907
+      }
+    ]
+  },
+  "visual-pathway": {
+    "title": "Visual Pathway",
+    "module": "Head & Neck Anatomy",
+    "category": "anatomy",
+    "moduleSlug": "head-neck-anatomy",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.jpg",
+        "url": "/lessons/images/head-neck-anatomy/visual-pathway/figure_01_p2.jpg",
+        "sizeBytes": 117253
+      }
+    ]
+  },
+  "brainstem-pons": {
+    "title": "Brainstem, Pons",
+    "module": "Central Nervous System & Spine",
+    "category": "anatomy",
+    "moduleSlug": "central-nervous-system-spine",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/central-nervous-system-spine/brainstem-pons/figure_01_p2.png",
+        "sizeBytes": 427818
+      }
+    ]
+  },
+  "cerebellum": {
+    "title": "Cerebellum",
+    "module": "Central Nervous System & Spine",
+    "category": "anatomy",
+    "moduleSlug": "central-nervous-system-spine",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/central-nervous-system-spine/cerebellum/figure_01_p2.png",
+        "sizeBytes": 411320
+      }
+    ]
+  },
+  "cerebrum": {
+    "title": "Cerebrum",
+    "module": "Central Nervous System & Spine",
+    "category": "anatomy",
+    "moduleSlug": "central-nervous-system-spine",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/central-nervous-system-spine/cerebrum/figure_01_p2.png",
+        "sizeBytes": 1669999
+      },
+      {
+        "page": 3,
+        "filename": "figure_02_p3.png",
+        "url": "/lessons/images/central-nervous-system-spine/cerebrum/figure_02_p3.png",
+        "sizeBytes": 168657
+      }
+    ]
+  },
+  "medulla": {
+    "title": "Medulla",
+    "module": "Central Nervous System & Spine",
+    "category": "anatomy",
+    "moduleSlug": "central-nervous-system-spine",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/central-nervous-system-spine/medulla/figure_01_p1.png",
+        "sizeBytes": 437659
+      }
+    ]
+  },
+  "spinal-cord-syndrome": {
+    "title": "Spinal Cord Syndrome",
+    "module": "Central Nervous System & Spine",
+    "category": "anatomy",
+    "moduleSlug": "central-nervous-system-spine",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/central-nervous-system-spine/spinal-cord-syndrome/figure_01_p1.png",
+        "sizeBytes": 108582
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/central-nervous-system-spine/spinal-cord-syndrome/figure_02_p1.png",
+        "sizeBytes": 180946
+      }
+    ]
+  },
+  "spinal-cord-tracts": {
+    "title": "Spinal Cord Tracts",
+    "module": "Central Nervous System & Spine",
+    "category": "anatomy",
+    "moduleSlug": "central-nervous-system-spine",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/central-nervous-system-spine/spinal-cord-tracts/figure_01_p1.png",
+        "sizeBytes": 604560
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/central-nervous-system-spine/spinal-cord-tracts/figure_02_p1.png",
+        "sizeBytes": 204410
+      }
+    ]
+  },
+  "cranial-nerve-1-olfactory-nerve": {
+    "title": "Cranial Nerve 1 - Olfactory Nerve",
+    "module": "Cranial Nerves In-Depth",
+    "category": "anatomy",
+    "moduleSlug": "cranial-nerves-in-depth",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-1-olfactory-nerve/figure_01_p1.png",
+        "sizeBytes": 179712
+      }
+    ]
+  },
+  "cranial-nerve-iii-oculomotor-nerve": {
+    "title": "Cranial Nerve Iii_ Oculomotor Nerve",
+    "module": "Cranial Nerves In-Depth",
+    "category": "anatomy",
+    "moduleSlug": "cranial-nerves-in-depth",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-iii-oculomotor-nerve/figure_01_p1.png",
+        "sizeBytes": 83390
+      }
+    ]
+  },
+  "cranial-nerve-ii-optic-nerve": {
+    "title": "Cranial Nerve Ii_ Optic Nerve",
+    "module": "Cranial Nerves In-Depth",
+    "category": "anatomy",
+    "moduleSlug": "cranial-nerves-in-depth",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-ii-optic-nerve/figure_01_p1.png",
+        "sizeBytes": 404081
+      }
+    ]
+  },
+  "cranial-nerve-iv-trochlear-nerve": {
+    "title": "Cranial Nerve Iv_ Trochlear Nerve",
+    "module": "Cranial Nerves In-Depth",
+    "category": "anatomy",
+    "moduleSlug": "cranial-nerves-in-depth",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-iv-trochlear-nerve/figure_01_p1.png",
+        "sizeBytes": 443562
+      }
+    ]
+  },
+  "cranial-nerve-ix-glassopharyngeal-nerve": {
+    "title": "Cranial Nerve Ix_ Glassopharyngeal Nerve",
+    "module": "Cranial Nerves In-Depth",
+    "category": "anatomy",
+    "moduleSlug": "cranial-nerves-in-depth",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-ix-glassopharyngeal-nerve/figure_01_p1.png",
+        "sizeBytes": 497277
+      }
+    ]
+  },
+  "cranial-nerve-viii-vestibulocochlear-nerve": {
+    "title": "Cranial Nerve Viii_ Vestibulocochlear Nerve",
+    "module": "Cranial Nerves In-Depth",
+    "category": "anatomy",
+    "moduleSlug": "cranial-nerves-in-depth",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-viii-vestibulocochlear-nerve/figure_01_p1.png",
+        "sizeBytes": 249688
+      }
+    ]
+  },
+  "cranial-nerve-vi-abducent-nerve": {
+    "title": "Cranial Nerve Vi_ Abducent Nerve",
+    "module": "Cranial Nerves In-Depth",
+    "category": "anatomy",
+    "moduleSlug": "cranial-nerves-in-depth",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-vi-abducent-nerve/figure_01_p1.png",
+        "sizeBytes": 345635
+      }
+    ]
+  },
+  "cranial-nerve-v-trigeminal-nerve": {
+    "title": "Cranial Nerve V_ Trigeminal Nerve",
+    "module": "Cranial Nerves In-Depth",
+    "category": "anatomy",
+    "moduleSlug": "cranial-nerves-in-depth",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-v-trigeminal-nerve/figure_01_p2.png",
+        "sizeBytes": 1152434
+      }
+    ]
+  },
+  "cranial-nerve-xii-hypoglossal-nerve": {
+    "title": "Cranial Nerve Xii_ Hypoglossal Nerve",
+    "module": "Cranial Nerves In-Depth",
+    "category": "anatomy",
+    "moduleSlug": "cranial-nerves-in-depth",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-xii-hypoglossal-nerve/figure_01_p1.png",
+        "sizeBytes": 279017
+      }
+    ]
+  },
+  "cranial-nerve-xi-spinal-accessory-nerve": {
+    "title": "Cranial Nerve Xi_ Spinal Accessory Nerve",
+    "module": "Cranial Nerves In-Depth",
+    "category": "anatomy",
+    "moduleSlug": "cranial-nerves-in-depth",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-xi-spinal-accessory-nerve/figure_01_p1.png",
+        "sizeBytes": 348315
+      }
+    ]
+  },
+  "cranial-nerve-x-vagus-nerve": {
+    "title": "Cranial Nerve X_ Vagus Nerve",
+    "module": "Cranial Nerves In-Depth",
+    "category": "anatomy",
+    "moduleSlug": "cranial-nerves-in-depth",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-x-vagus-nerve/figure_01_p1.png",
+        "sizeBytes": 463685
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/cranial-nerves-in-depth/cranial-nerve-x-vagus-nerve/figure_02_p2.png",
+        "sizeBytes": 66370
+      }
+    ]
+  },
+  "cell-membrane-transport": {
+    "title": "Cell Membrane Transport",
+    "module": "Cell Physiology & Membrane Transport",
+    "category": "physiology",
+    "moduleSlug": "cell-physiology-membrane-transport",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_01_p1.png",
+        "sizeBytes": 135596
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_02_p2.png",
+        "sizeBytes": 167369
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_03_p2.png",
+        "sizeBytes": 257159
+      },
+      {
+        "page": 2,
+        "filename": "figure_04_p2.png",
+        "url": "/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_04_p2.png",
+        "sizeBytes": 136701
+      }
+    ]
+  },
+  "homeostasis": {
+    "title": "Homeostasis",
+    "module": "Cell Physiology & Membrane Transport",
+    "category": "physiology",
+    "moduleSlug": "cell-physiology-membrane-transport",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cell-physiology-membrane-transport/homeostasis/figure_01_p1.png",
+        "sizeBytes": 79986
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/cell-physiology-membrane-transport/homeostasis/figure_02_p2.png",
+        "sizeBytes": 135475
+      }
+    ]
+  },
+  "nerve-muscle": {
+    "title": "Nerve Muscle",
+    "module": "Cell Physiology & Membrane Transport",
+    "category": "physiology",
+    "moduleSlug": "cell-physiology-membrane-transport",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/cell-physiology-membrane-transport/nerve-muscle/figure_01_p2.png",
+        "sizeBytes": 236812
+      }
+    ]
+  },
+  "osmolality-and-osmolal-gap": {
+    "title": "Osmolality and Osmolal Gap",
+    "module": "Cell Physiology & Membrane Transport",
+    "category": "physiology",
+    "moduleSlug": "cell-physiology-membrane-transport",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cell-physiology-membrane-transport/osmolality-and-osmolal-gap/figure_01_p1.png",
+        "sizeBytes": 153888
+      }
+    ]
+  },
+  "cardiac-myocyte": {
+    "title": "Cardiac Myocyte",
+    "module": "Cardiovascular Physiology & Hemodynamics",
+    "category": "physiology",
+    "moduleSlug": "cardiovascular-physiology-hemodynamics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cardiovascular-physiology-hemodynamics/cardiac-myocyte/figure_01_p1.png",
+        "sizeBytes": 236812
+      }
+    ]
+  },
+  "electrocardiography-ecg": {
+    "title": "Electrocardiography (ecg)",
+    "module": "Cardiovascular Physiology & Hemodynamics",
+    "category": "physiology",
+    "moduleSlug": "cardiovascular-physiology-hemodynamics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cardiovascular-physiology-hemodynamics/electrocardiography-ecg/figure_01_p1.png",
+        "sizeBytes": 62649
+      }
+    ]
+  },
+  "harmonal-control-of-blood-flow": {
+    "title": "Harmonal Control of Blood Flow",
+    "module": "Cardiovascular Physiology & Hemodynamics",
+    "category": "physiology",
+    "moduleSlug": "cardiovascular-physiology-hemodynamics",
+    "images": [
+      {
+        "page": 3,
+        "filename": "figure_01_p3.png",
+        "url": "/lessons/images/cardiovascular-physiology-hemodynamics/harmonal-control-of-blood-flow/figure_01_p3.png",
+        "sizeBytes": 105532
+      }
+    ]
+  },
+  "heart-sounds-mechanical-events-and-correspondance-with-ecg": {
+    "title": "Heart Sounds, Mechanical Events and Correspondance with ECG",
+    "module": "Cardiovascular Physiology & Hemodynamics",
+    "category": "physiology",
+    "moduleSlug": "cardiovascular-physiology-hemodynamics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cardiovascular-physiology-hemodynamics/heart-sounds-mechanical-events-and-correspondance-with-ecg/figure_01_p1.png",
+        "sizeBytes": 254433
+      }
+    ]
+  },
+  "regulation-of-blood-pressure": {
+    "title": "Regulation of Blood Pressure",
+    "module": "Cardiovascular Physiology & Hemodynamics",
+    "category": "physiology",
+    "moduleSlug": "cardiovascular-physiology-hemodynamics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cardiovascular-physiology-hemodynamics/regulation-of-blood-pressure/figure_01_p1.png",
+        "sizeBytes": 236163
+      }
+    ]
+  },
+  "regulation-of-cardiac-pumping": {
+    "title": "Regulation of Cardiac Pumping",
+    "module": "Cardiovascular Physiology & Hemodynamics",
+    "category": "physiology",
+    "moduleSlug": "cardiovascular-physiology-hemodynamics",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/cardiovascular-physiology-hemodynamics/regulation-of-cardiac-pumping/figure_01_p2.png",
+        "sizeBytes": 72457
+      }
+    ]
+  },
+  "ventricular-myocyte-vs-pacemaker-action-potential": {
+    "title": "Ventricular Myocyte Vs Pacemaker Action Potential",
+    "module": "Cardiovascular Physiology & Hemodynamics",
+    "category": "physiology",
+    "moduleSlug": "cardiovascular-physiology-hemodynamics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cardiovascular-physiology-hemodynamics/ventricular-myocyte-vs-pacemaker-action-potential/figure_01_p1.png",
+        "sizeBytes": 97012
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/cardiovascular-physiology-hemodynamics/ventricular-myocyte-vs-pacemaker-action-potential/figure_02_p2.png",
+        "sizeBytes": 127529
+      }
+    ]
+  },
+  "control-of-ventilation": {
+    "title": "Control of Ventilation",
+    "module": "Respiratory Physiology & Ventilation",
+    "category": "physiology",
+    "moduleSlug": "respiratory-physiology-ventilation",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/respiratory-physiology-ventilation/control-of-ventilation/figure_01_p1.png",
+        "sizeBytes": 88741
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/respiratory-physiology-ventilation/control-of-ventilation/figure_02_p1.png",
+        "sizeBytes": 245395
+      }
+    ]
+  },
+  "diffusion-and-diffusion-capacity": {
+    "title": "Diffusion and Diffusion Capacity",
+    "module": "Respiratory Physiology & Ventilation",
+    "category": "physiology",
+    "moduleSlug": "respiratory-physiology-ventilation",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/respiratory-physiology-ventilation/diffusion-and-diffusion-capacity/figure_01_p2.png",
+        "sizeBytes": 107518
+      }
+    ]
+  },
+  "gas-exchange": {
+    "title": "Gas Exchange",
+    "module": "Respiratory Physiology & Ventilation",
+    "category": "physiology",
+    "moduleSlug": "respiratory-physiology-ventilation",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/respiratory-physiology-ventilation/gas-exchange/figure_01_p2.png",
+        "sizeBytes": 60207
+      }
+    ]
+  },
+  "ventilation-perfusion-mismatch": {
+    "title": "Ventilation Perfusion Mismatch",
+    "module": "Respiratory Physiology & Ventilation",
+    "category": "physiology",
+    "moduleSlug": "respiratory-physiology-ventilation",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/respiratory-physiology-ventilation/ventilation-perfusion-mismatch/figure_01_p2.png",
+        "sizeBytes": 71469
+      }
+    ]
+  },
+  "hyperkalemia-and-hypokalemia": {
+    "title": "Hyperkalemia and Hypokalemia",
+    "module": "Renal Physiology & Acid-Base Balance",
+    "category": "physiology",
+    "moduleSlug": "renal-physiology-acid-base-balance",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/renal-physiology-acid-base-balance/hyperkalemia-and-hypokalemia/figure_01_p2.png",
+        "sizeBytes": 114154
+      }
+    ]
+  },
+  "digestion-and-absorption-of-carbohydrates": {
+    "title": "Digestion and Absorption of Carbohydrates",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-carbohydrates/figure_01_p2.png",
+        "sizeBytes": 221646
+      }
+    ]
+  },
+  "digestion-and-absorption-of-lipids": {
+    "title": "Digestion and Absorption of Lipids",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-lipids/figure_01_p2.png",
+        "sizeBytes": 201100
+      },
+      {
+        "page": 3,
+        "filename": "figure_02_p3.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-lipids/figure_02_p3.png",
+        "sizeBytes": 345653
+      }
+    ]
+  },
+  "digestion-and-absorption-of-proteins": {
+    "title": "Digestion and Absorption of Proteins",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-proteins/figure_01_p2.png",
+        "sizeBytes": 57706
+      }
+    ]
+  },
+  "exocrine-pancreas": {
+    "title": "Exocrine Pancreas",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/exocrine-pancreas/figure_01_p1.png",
+        "sizeBytes": 414552
+      }
+    ]
+  },
+  "gastrointestinal-hormones": {
+    "title": "Gastrointestinal Hormones",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 3,
+        "filename": "figure_01_p3.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/gastrointestinal-hormones/figure_01_p3.png",
+        "sizeBytes": 677680
+      }
+    ]
+  },
+  "innervation-of-gi-tract": {
+    "title": "Innervation of Gi Tract",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/innervation-of-gi-tract/figure_01_p1.png",
+        "sizeBytes": 325032
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/innervation-of-gi-tract/figure_02_p1.png",
+        "sizeBytes": 174822
+      }
+    ]
+  },
+  "iron-handling": {
+    "title": "Iron Handling",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/iron-handling/figure_01_p2.png",
+        "sizeBytes": 184760
+      }
+    ]
+  },
+  "large-intestine": {
+    "title": "Large Intestine",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/large-intestine/figure_01_p2.png",
+        "sizeBytes": 533932
+      }
+    ]
+  },
+  "saliva": {
+    "title": "Saliva",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 3,
+        "filename": "figure_01_p3.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/saliva/figure_01_p3.png",
+        "sizeBytes": 143020
+      }
+    ]
+  },
+  "stomach": {
+    "title": "Stomach",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/stomach/figure_01_p1.png",
+        "sizeBytes": 98188
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/stomach/figure_02_p2.png",
+        "sizeBytes": 113841
+      }
+    ]
+  },
+  "summary-of-harmones-and-secretion-of-git": {
+    "title": "Summary of Harmones and Secretion of GIT",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/summary-of-harmones-and-secretion-of-git/figure_01_p2.png",
+        "sizeBytes": 702126
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/summary-of-harmones-and-secretion-of-git/figure_02_p2.png",
+        "sizeBytes": 888886
+      }
+    ]
+  },
+  "vitamins-overview": {
+    "title": "Vitamins Overview",
+    "module": "Gastrointestinal (GIT) Physiology",
+    "category": "physiology",
+    "moduleSlug": "gastrointestinal-git-physiology",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/gastrointestinal-git-physiology/vitamins-overview/figure_01_p1.png",
+        "sizeBytes": 694201
+      }
+    ]
+  },
+  "adrenal-insufficiency": {
+    "title": "Adrenal Insufficiency",
+    "module": "Endocrine Physiology & Metabolism",
+    "category": "physiology",
+    "moduleSlug": "endocrine-physiology-metabolism",
+    "images": [
+      {
+        "page": 3,
+        "filename": "figure_01_p3.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/adrenal-insufficiency/figure_01_p3.png",
+        "sizeBytes": 170986
+      }
+    ]
+  },
+  "adrenal-medulla-and-pheochromocytoma": {
+    "title": "Adrenal Medulla and Pheochromocytoma",
+    "module": "Endocrine Physiology & Metabolism",
+    "category": "physiology",
+    "moduleSlug": "endocrine-physiology-metabolism",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/adrenal-medulla-and-pheochromocytoma/figure_01_p1.png",
+        "sizeBytes": 321649
+      }
+    ]
+  },
+  "antidiuretic-harmone": {
+    "title": "Antidiuretic Harmone",
+    "module": "Endocrine Physiology & Metabolism",
+    "category": "physiology",
+    "moduleSlug": "endocrine-physiology-metabolism",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/antidiuretic-harmone/figure_01_p2.png",
+        "sizeBytes": 120394
+      }
+    ]
+  },
+  "cushing-syndrome": {
+    "title": "Cushing Syndrome",
+    "module": "Endocrine Physiology & Metabolism",
+    "category": "physiology",
+    "moduleSlug": "endocrine-physiology-metabolism",
+    "images": [
+      {
+        "page": 3,
+        "filename": "figure_01_p3.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/cushing-syndrome/figure_01_p3.png",
+        "sizeBytes": 177751
+      }
+    ]
+  },
+  "endocrine-glands-and-their-harmones": {
+    "title": "Endocrine Glands and Their Harmones",
+    "module": "Endocrine Physiology & Metabolism",
+    "category": "physiology",
+    "moduleSlug": "endocrine-physiology-metabolism",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_01_p2.png",
+        "sizeBytes": 203030
+      },
+      {
+        "page": 3,
+        "filename": "figure_02_p3.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_02_p3.png",
+        "sizeBytes": 137254
+      },
+      {
+        "page": 3,
+        "filename": "figure_03_p3.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_03_p3.png",
+        "sizeBytes": 89806
+      },
+      {
+        "page": 4,
+        "filename": "figure_04_p4.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_04_p4.png",
+        "sizeBytes": 160016
+      }
+    ]
+  },
+  "hypothyroidism-and-hyperthyroidism": {
+    "title": "Hypothyroidism and Hyperthyroidism",
+    "module": "Endocrine Physiology & Metabolism",
+    "category": "physiology",
+    "moduleSlug": "endocrine-physiology-metabolism",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/hypothyroidism-and-hyperthyroidism/figure_01_p2.png",
+        "sizeBytes": 2091316
+      }
+    ]
+  },
+  "insulin-and-glucagon": {
+    "title": "Insulin and Glucagon",
+    "module": "Endocrine Physiology & Metabolism",
+    "category": "physiology",
+    "moduleSlug": "endocrine-physiology-metabolism",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/insulin-and-glucagon/figure_01_p2.png",
+        "sizeBytes": 169778
+      },
+      {
+        "page": 3,
+        "filename": "figure_02_p3.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/insulin-and-glucagon/figure_02_p3.png",
+        "sizeBytes": 165500
+      },
+      {
+        "page": 4,
+        "filename": "figure_03_p4.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/insulin-and-glucagon/figure_03_p4.png",
+        "sizeBytes": 812763
+      }
+    ]
+  },
+  "pancreas": {
+    "title": "Pancreas",
+    "module": "Endocrine Physiology & Metabolism",
+    "category": "physiology",
+    "moduleSlug": "endocrine-physiology-metabolism",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/pancreas/figure_01_p1.png",
+        "sizeBytes": 247322
+      }
+    ]
+  },
+  "pituitary-gland": {
+    "title": "Pituitary Gland",
+    "module": "Endocrine Physiology & Metabolism",
+    "category": "physiology",
+    "moduleSlug": "endocrine-physiology-metabolism",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/pituitary-gland/figure_01_p2.png",
+        "sizeBytes": 695858
+      },
+      {
+        "page": 3,
+        "filename": "figure_02_p3.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/pituitary-gland/figure_02_p3.png",
+        "sizeBytes": 255893
+      }
+    ]
+  },
+  "vitamin-d-synthesis": {
+    "title": "Vitamin - D Synthesis",
+    "module": "Endocrine Physiology & Metabolism",
+    "category": "physiology",
+    "moduleSlug": "endocrine-physiology-metabolism",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/endocrine-physiology-metabolism/vitamin-d-synthesis/figure_01_p1.png",
+        "sizeBytes": 144194
+      }
+    ]
+  },
+  "acquired-coagulation-disorder-of-blood": {
+    "title": "Acquired Coagulation Disorder of Blood",
+    "module": "Blood Physiology & Coagulation Pathways",
+    "category": "physiology",
+    "moduleSlug": "blood-physiology-coagulation-pathways",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/blood-physiology-coagulation-pathways/acquired-coagulation-disorder-of-blood/figure_01_p1.png",
+        "sizeBytes": 119182
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/blood-physiology-coagulation-pathways/acquired-coagulation-disorder-of-blood/figure_02_p2.png",
+        "sizeBytes": 339922
+      }
+    ]
+  },
+  "antiplatelet-and-anticoagulant-drugs": {
+    "title": "Antiplatelet and Anticoagulant Drugs",
+    "module": "Blood Physiology & Coagulation Pathways",
+    "category": "physiology",
+    "moduleSlug": "blood-physiology-coagulation-pathways",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/blood-physiology-coagulation-pathways/antiplatelet-and-anticoagulant-drugs/figure_01_p1.png",
+        "sizeBytes": 483786
+      }
+    ]
+  },
+  "haemoglobin": {
+    "title": "Haemoglobin",
+    "module": "Blood Physiology & Coagulation Pathways",
+    "category": "physiology",
+    "moduleSlug": "blood-physiology-coagulation-pathways",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/blood-physiology-coagulation-pathways/haemoglobin/figure_01_p2.png",
+        "sizeBytes": 78147
+      }
+    ]
+  },
+  "haemostasis": {
+    "title": "Haemostasis",
+    "module": "Blood Physiology & Coagulation Pathways",
+    "category": "physiology",
+    "moduleSlug": "blood-physiology-coagulation-pathways",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/blood-physiology-coagulation-pathways/haemostasis/figure_01_p1.png",
+        "sizeBytes": 27728
+      }
+    ]
+  },
+  "heriditary-coagulation-disorder-of-blood": {
+    "title": "Heriditary Coagulation Disorder of Blood",
+    "module": "Blood Physiology & Coagulation Pathways",
+    "category": "physiology",
+    "moduleSlug": "blood-physiology-coagulation-pathways",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/blood-physiology-coagulation-pathways/heriditary-coagulation-disorder-of-blood/figure_01_p1.png",
+        "sizeBytes": 340674
+      }
+    ]
+  },
+  "plateletes-bleeding-disorder": {
+    "title": "Plateletes Bleeding Disorder",
+    "module": "Blood Physiology & Coagulation Pathways",
+    "category": "physiology",
+    "moduleSlug": "blood-physiology-coagulation-pathways",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/blood-physiology-coagulation-pathways/plateletes-bleeding-disorder/figure_01_p1.png",
+        "sizeBytes": 323292
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/blood-physiology-coagulation-pathways/plateletes-bleeding-disorder/figure_02_p1.png",
+        "sizeBytes": 54345
+      }
+    ]
+  },
+  "sites-of-haemopoiesis": {
+    "title": "Sites of Haemopoiesis",
+    "module": "Blood Physiology & Coagulation Pathways",
+    "category": "physiology",
+    "moduleSlug": "blood-physiology-coagulation-pathways",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/blood-physiology-coagulation-pathways/sites-of-haemopoiesis/figure_01_p1.png",
+        "sizeBytes": 98043
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/blood-physiology-coagulation-pathways/sites-of-haemopoiesis/figure_02_p1.png",
+        "sizeBytes": 74021
+      }
+    ]
+  },
+  "anaphylaxis-management": {
+    "title": "Anaphylaxis Management",
+    "module": "Respiratory Pharmacology & Asthma Management",
+    "category": "pharmacology",
+    "moduleSlug": "respiratory-pharmacology-asthma-management",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/respiratory-pharmacology-asthma-management/anaphylaxis-management/figure_01_p1.png",
+        "sizeBytes": 226188
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/respiratory-pharmacology-asthma-management/anaphylaxis-management/figure_02_p2.png",
+        "sizeBytes": 81870
+      }
+    ]
+  },
+  "anti-histamine-drugs": {
+    "title": "Anti - Histamine Drugs",
+    "module": "Respiratory Pharmacology & Asthma Management",
+    "category": "pharmacology",
+    "moduleSlug": "respiratory-pharmacology-asthma-management",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/respiratory-pharmacology-asthma-management/anti-histamine-drugs/figure_01_p1.png",
+        "sizeBytes": 59253
+      }
+    ]
+  },
+  "asthma-in-adults-management": {
+    "title": "Asthma in Adults Management",
+    "module": "Respiratory Pharmacology & Asthma Management",
+    "category": "pharmacology",
+    "moduleSlug": "respiratory-pharmacology-asthma-management",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/respiratory-pharmacology-asthma-management/asthma-in-adults-management/figure_01_p1.png",
+        "sizeBytes": 124831
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/respiratory-pharmacology-asthma-management/asthma-in-adults-management/figure_02_p2.png",
+        "sizeBytes": 285823
+      }
+    ]
+  },
+  "bronchodilator-drugs": {
+    "title": "Bronchodilator Drugs",
+    "module": "Respiratory Pharmacology & Asthma Management",
+    "category": "pharmacology",
+    "moduleSlug": "respiratory-pharmacology-asthma-management",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/respiratory-pharmacology-asthma-management/bronchodilator-drugs/figure_01_p1.png",
+        "sizeBytes": 225124
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/respiratory-pharmacology-asthma-management/bronchodilator-drugs/figure_02_p2.png",
+        "sizeBytes": 174987
+      }
+    ]
+  },
+  "anti-platelet-statins-nitrate-and-fibrinolytic-drugs": {
+    "title": "Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs",
+    "module": "Cardiovascular Pharmacology & Anticoagulants",
+    "category": "pharmacology",
+    "moduleSlug": "cardiovascular-pharmacology-anticoagulants",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cardiovascular-pharmacology-anticoagulants/anti-platelet-statins-nitrate-and-fibrinolytic-drugs/figure_01_p1.png",
+        "sizeBytes": 87120
+      }
+    ]
+  },
+  "anticoagulant-drugs": {
+    "title": "Anticoagulant Drugs",
+    "module": "Cardiovascular Pharmacology & Anticoagulants",
+    "category": "pharmacology",
+    "moduleSlug": "cardiovascular-pharmacology-anticoagulants",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_01_p1.png",
+        "sizeBytes": 483786
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_02_p2.png",
+        "sizeBytes": 134941
+      },
+      {
+        "page": 4,
+        "filename": "figure_03_p4.png",
+        "url": "/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_03_p4.png",
+        "sizeBytes": 174987
+      }
+    ]
+  },
+  "basic-life-support-and-advanced-life-support": {
+    "title": "Basic Life Support and Advanced Life Support",
+    "module": "Cardiovascular Pharmacology & Anticoagulants",
+    "category": "pharmacology",
+    "moduleSlug": "cardiovascular-pharmacology-anticoagulants",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cardiovascular-pharmacology-anticoagulants/basic-life-support-and-advanced-life-support/figure_01_p1.png",
+        "sizeBytes": 118186
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/cardiovascular-pharmacology-anticoagulants/basic-life-support-and-advanced-life-support/figure_02_p1.png",
+        "sizeBytes": 141077
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/cardiovascular-pharmacology-anticoagulants/basic-life-support-and-advanced-life-support/figure_03_p2.png",
+        "sizeBytes": 108695
+      }
+    ]
+  },
+  "betablocker-and-calcium-channel-blockers": {
+    "title": "Betablocker and Calcium Channel Blockers",
+    "module": "Cardiovascular Pharmacology & Anticoagulants",
+    "category": "pharmacology",
+    "moduleSlug": "cardiovascular-pharmacology-anticoagulants",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cardiovascular-pharmacology-anticoagulants/betablocker-and-calcium-channel-blockers/figure_01_p1.png",
+        "sizeBytes": 284656
+      }
+    ]
+  },
+  "hypertensive-emergency": {
+    "title": "Hypertensive Emergency",
+    "module": "Cardiovascular Pharmacology & Anticoagulants",
+    "category": "pharmacology",
+    "moduleSlug": "cardiovascular-pharmacology-anticoagulants",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cardiovascular-pharmacology-anticoagulants/hypertensive-emergency/figure_01_p1.png",
+        "sizeBytes": 23036
+      }
+    ]
+  },
+  "tachyarrhythmia": {
+    "title": "Tachyarrhythmia",
+    "module": "Cardiovascular Pharmacology & Anticoagulants",
+    "category": "pharmacology",
+    "moduleSlug": "cardiovascular-pharmacology-anticoagulants",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cardiovascular-pharmacology-anticoagulants/tachyarrhythmia/figure_01_p1.png",
+        "sizeBytes": 190925
+      }
+    ]
+  },
+  "analgesics": {
+    "title": "Analgesics",
+    "module": "CNS Pharmacology & Analgesia",
+    "category": "pharmacology",
+    "moduleSlug": "cns-pharmacology-analgesia",
+    "images": [
+      {
+        "page": 3,
+        "filename": "figure_01_p3.png",
+        "url": "/lessons/images/cns-pharmacology-analgesia/analgesics/figure_01_p3.png",
+        "sizeBytes": 70057
+      }
+    ]
+  },
+  "anti-emetic-drugs": {
+    "title": "Anti - Emetic Drugs",
+    "module": "CNS Pharmacology & Analgesia",
+    "category": "pharmacology",
+    "moduleSlug": "cns-pharmacology-analgesia",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cns-pharmacology-analgesia/anti-emetic-drugs/figure_01_p1.png",
+        "sizeBytes": 122477
+      }
+    ]
+  },
+  "anti-epileptic-drugs": {
+    "title": "Anti - Epileptic Drugs",
+    "module": "CNS Pharmacology & Analgesia",
+    "category": "pharmacology",
+    "moduleSlug": "cns-pharmacology-analgesia",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/cns-pharmacology-analgesia/anti-epileptic-drugs/figure_01_p1.png",
+        "sizeBytes": 232401
+      }
+    ]
+  },
+  "status-epilepticus-management": {
+    "title": "Status Epilepticus Management",
+    "module": "CNS Pharmacology & Analgesia",
+    "category": "pharmacology",
+    "moduleSlug": "cns-pharmacology-analgesia",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.jpg",
+        "url": "/lessons/images/cns-pharmacology-analgesia/status-epilepticus-management/figure_01_p1.jpg",
+        "sizeBytes": 323473
+      }
+    ]
+  },
+  "anesthetic-drugs": {
+    "title": "Anesthetic Drugs",
+    "module": "Anesthesia & Sedation Drugs",
+    "category": "pharmacology",
+    "moduleSlug": "anesthesia-sedation-drugs",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_01_p1.png",
+        "sizeBytes": 317210
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_02_p1.png",
+        "sizeBytes": 283283
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_03_p2.png",
+        "sizeBytes": 230399
+      },
+      {
+        "page": 2,
+        "filename": "figure_04_p2.png",
+        "url": "/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_04_p2.png",
+        "sizeBytes": 184774
+      }
+    ]
+  },
+  "drugs-toxicity-and-antidotes": {
+    "title": "Drugs Toxicity and Antidotes",
+    "module": "Emergency Toxicology & Antidotes",
+    "category": "pharmacology",
+    "moduleSlug": "emergency-toxicology-antidotes",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/emergency-toxicology-antidotes/drugs-toxicity-and-antidotes/figure_01_p1.png",
+        "sizeBytes": 83814
+      }
+    ]
+  },
+  "poisoning-overdose-and-toxidromes": {
+    "title": "Poisoning, Overdose and Toxidromes",
+    "module": "Emergency Toxicology & Antidotes",
+    "category": "pharmacology",
+    "moduleSlug": "emergency-toxicology-antidotes",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/emergency-toxicology-antidotes/poisoning-overdose-and-toxidromes/figure_01_p2.png",
+        "sizeBytes": 1370423
+      },
+      {
+        "page": 3,
+        "filename": "figure_02_p3.png",
+        "url": "/lessons/images/emergency-toxicology-antidotes/poisoning-overdose-and-toxidromes/figure_02_p3.png",
+        "sizeBytes": 544683
+      }
+    ]
+  },
+  "summary-of-drugs-and-their-side-effects": {
+    "title": "Summary of Drugs and Their Side Effects",
+    "module": "Emergency Toxicology & Antidotes",
+    "category": "pharmacology",
+    "moduleSlug": "emergency-toxicology-antidotes",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/emergency-toxicology-antidotes/summary-of-drugs-and-their-side-effects/figure_01_p1.png",
+        "sizeBytes": 1114722
+      }
+    ]
+  },
+  "anemia": {
+    "title": "Anemia",
+    "module": "General Pathology, Inflammation & Anemia",
+    "category": "pathology-micro",
+    "moduleSlug": "general-pathology-inflammation-anemia",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/general-pathology-inflammation-anemia/anemia/figure_01_p1.png",
+        "sizeBytes": 742809
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/general-pathology-inflammation-anemia/anemia/figure_02_p2.png",
+        "sizeBytes": 425613
+      }
+    ]
+  },
+  "antibodies-and-hypersensitivity-reactions": {
+    "title": "Antibodies and Hypersensitivity Reactions",
+    "module": "General Pathology, Inflammation & Anemia",
+    "category": "pathology-micro",
+    "moduleSlug": "general-pathology-inflammation-anemia",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/general-pathology-inflammation-anemia/antibodies-and-hypersensitivity-reactions/figure_01_p2.png",
+        "sizeBytes": 77605
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/general-pathology-inflammation-anemia/antibodies-and-hypersensitivity-reactions/figure_02_p2.png",
+        "sizeBytes": 163949
+      }
+    ]
+  },
+  "blood-groups": {
+    "title": "Blood Groups",
+    "module": "General Pathology, Inflammation & Anemia",
+    "category": "pathology-micro",
+    "moduleSlug": "general-pathology-inflammation-anemia",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/general-pathology-inflammation-anemia/blood-groups/figure_01_p1.png",
+        "sizeBytes": 83830
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/general-pathology-inflammation-anemia/blood-groups/figure_02_p2.png",
+        "sizeBytes": 124114
+      }
+    ]
+  },
+  "cell-death": {
+    "title": "Cell Death",
+    "module": "General Pathology, Inflammation & Anemia",
+    "category": "pathology-micro",
+    "moduleSlug": "general-pathology-inflammation-anemia",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/general-pathology-inflammation-anemia/cell-death/figure_01_p1.png",
+        "sizeBytes": 537198
+      }
+    ]
+  },
+  "inflammation": {
+    "title": "Inflammation",
+    "module": "General Pathology, Inflammation & Anemia",
+    "category": "pathology-micro",
+    "moduleSlug": "general-pathology-inflammation-anemia",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/general-pathology-inflammation-anemia/inflammation/figure_01_p1.png",
+        "sizeBytes": 145770
+      }
+    ]
+  },
+  "innate-vs-acquired-immunity": {
+    "title": "Innate Vs Acquired Immunity",
+    "module": "General Pathology, Inflammation & Anemia",
+    "category": "pathology-micro",
+    "moduleSlug": "general-pathology-inflammation-anemia",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/general-pathology-inflammation-anemia/innate-vs-acquired-immunity/figure_01_p1.png",
+        "sizeBytes": 393738
+      }
+    ]
+  },
+  "lymphocytes": {
+    "title": "Lymphocytes",
+    "module": "General Pathology, Inflammation & Anemia",
+    "category": "pathology-micro",
+    "moduleSlug": "general-pathology-inflammation-anemia",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/general-pathology-inflammation-anemia/lymphocytes/figure_01_p1.png",
+        "sizeBytes": 436281
+      }
+    ]
+  },
+  "plasma-autoantibodies": {
+    "title": "Plasma Autoantibodies",
+    "module": "General Pathology, Inflammation & Anemia",
+    "category": "pathology-micro",
+    "moduleSlug": "general-pathology-inflammation-anemia",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/general-pathology-inflammation-anemia/plasma-autoantibodies/figure_01_p1.png",
+        "sizeBytes": 67147
+      }
+    ]
+  },
+  "clostridium-spp-bacteria": {
+    "title": "Clostridium Spp - Bacteria",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/clostridium-spp-bacteria/figure_01_p1.png",
+        "sizeBytes": 328574
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/clostridium-spp-bacteria/figure_02_p2.png",
+        "sizeBytes": 278498
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/clostridium-spp-bacteria/figure_03_p2.png",
+        "sizeBytes": 258436
+      }
+    ]
+  },
+  "culture-medium-for-bacterial-growth": {
+    "title": "Culture Medium for Bacterial Growth",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/culture-medium-for-bacterial-growth/figure_01_p1.png",
+        "sizeBytes": 149791
+      }
+    ]
+  },
+  "escherichia-coli-klebsiella-salmonella-bacteria": {
+    "title": "Escherichia Coli, Klebsiella, Salmonella - Bacteria",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/escherichia-coli-klebsiella-salmonella-bacteria/figure_01_p1.png",
+        "sizeBytes": 256479
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/escherichia-coli-klebsiella-salmonella-bacteria/figure_02_p1.png",
+        "sizeBytes": 250508
+      }
+    ]
+  },
+  "gastrointestinal-virus": {
+    "title": "Gastrointestinal Virus",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/gastrointestinal-virus/figure_01_p1.png",
+        "sizeBytes": 324487
+      }
+    ]
+  },
+  "hellicobacter-pylori-and-compylobacter-jejuni-bacteria": {
+    "title": "Hellicobacter Pylori and Compylobacter Jejuni - Bacteria",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/hellicobacter-pylori-and-compylobacter-jejuni-bacteria/figure_01_p1.png",
+        "sizeBytes": 347046
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/hellicobacter-pylori-and-compylobacter-jejuni-bacteria/figure_02_p1.png",
+        "sizeBytes": 297929
+      }
+    ]
+  },
+  "hepatitis-virus": {
+    "title": "Hepatitis - Virus",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 2,
+        "filename": "figure_01_p2.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/hepatitis-virus/figure_01_p2.png",
+        "sizeBytes": 613071
+      }
+    ]
+  },
+  "herpes-simplex-and-varicella-zooster-virus": {
+    "title": "Herpes Simplex and Varicella Zooster Virus",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/herpes-simplex-and-varicella-zooster-virus/figure_01_p1.png",
+        "sizeBytes": 306616
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/herpes-simplex-and-varicella-zooster-virus/figure_02_p1.png",
+        "sizeBytes": 859389
+      }
+    ]
+  },
+  "human-immune-virus": {
+    "title": "Human Immune Virus",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 3,
+        "filename": "figure_01_p3.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/human-immune-virus/figure_01_p3.png",
+        "sizeBytes": 176907
+      }
+    ]
+  },
+  "measles-mumps-rubella-virus": {
+    "title": "Measles, Mumps, Rubella - Virus",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/measles-mumps-rubella-virus/figure_01_p1.png",
+        "sizeBytes": 178191
+      }
+    ]
+  },
+  "neisseria-spp-bacteria": {
+    "title": "Neisseria Spp - Bacteria",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/neisseria-spp-bacteria/figure_01_p1.png",
+        "sizeBytes": 76893
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/neisseria-spp-bacteria/figure_02_p2.png",
+        "sizeBytes": 157424
+      }
+    ]
+  },
+  "pathogens-fungi": {
+    "title": "Pathogens - Fungi",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/pathogens-fungi/figure_01_p1.png",
+        "sizeBytes": 152281
+      }
+    ]
+  },
+  "principles-of-investigation": {
+    "title": "Principles of Investigation",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-investigation/figure_01_p1.png",
+        "sizeBytes": 271510
+      }
+    ]
+  },
+  "principles-of-microbiology": {
+    "title": "Principles of Microbiology",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_01_p1.png",
+        "sizeBytes": 386007
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_02_p2.png",
+        "sizeBytes": 353998
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_03_p2.png",
+        "sizeBytes": 363910
+      },
+      {
+        "page": 3,
+        "filename": "figure_04_p3.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_04_p3.png",
+        "sizeBytes": 358877
+      }
+    ]
+  },
+  "pseudomonas-aeruginosa-legionella-pneumophilia-and-bortonella-henslae-bacteria": {
+    "title": "Pseudomonas Aeruginosa, Legionella Pneumophilia and Bortonella Henslae - Bacteria",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/pseudomonas-aeruginosa-legionella-pneumophilia-and-bortonella-henslae-bacteria/figure_01_p1.png",
+        "sizeBytes": 243767
+      }
+    ]
+  },
+  "sexually-transmitted-bacteria": {
+    "title": "Sexually Transmitted Bacteria",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/sexually-transmitted-bacteria/figure_01_p1.png",
+        "sizeBytes": 66263
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/sexually-transmitted-bacteria/figure_02_p2.png",
+        "sizeBytes": 521807
+      }
+    ]
+  },
+  "streptococcus-and-staphylococcus-bactera": {
+    "title": "Streptococcus and Staphylococcus Bactera",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/streptococcus-and-staphylococcus-bactera/figure_01_p1.png",
+        "sizeBytes": 124122
+      },
+      {
+        "page": 1,
+        "filename": "figure_02_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/streptococcus-and-staphylococcus-bactera/figure_02_p1.png",
+        "sizeBytes": 119561
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/streptococcus-and-staphylococcus-bactera/figure_03_p2.png",
+        "sizeBytes": 104203
+      },
+      {
+        "page": 3,
+        "filename": "figure_04_p3.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/streptococcus-and-staphylococcus-bactera/figure_04_p3.png",
+        "sizeBytes": 212334
+      }
+    ]
+  },
+  "uk-immunization-schedule": {
+    "title": "Uk - Immunization Schedule",
+    "module": "Clinical Microbiology, Bacteria & Antibiotics",
+    "category": "pathology-micro",
+    "moduleSlug": "clinical-microbiology-bacteria-antibiotics",
+    "images": [
+      {
+        "page": 1,
+        "filename": "figure_01_p1.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/uk-immunization-schedule/figure_01_p1.png",
+        "sizeBytes": 253882
+      },
+      {
+        "page": 2,
+        "filename": "figure_02_p2.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/uk-immunization-schedule/figure_02_p2.png",
+        "sizeBytes": 155366
+      },
+      {
+        "page": 2,
+        "filename": "figure_03_p2.png",
+        "url": "/lessons/images/clinical-microbiology-bacteria-antibiotics/uk-immunization-schedule/figure_03_p2.png",
+        "sizeBytes": 201227
+      }
+    ]
+  }
+}
