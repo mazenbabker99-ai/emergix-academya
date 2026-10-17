@@ -46,19 +46,30 @@ function DefaultFallback({ error, resetError }: ErrorFallbackProps) {
           This part of the app hit an error. The rest of the app is still
           running.
         </p>
-        {/* Dev only: messages can carry API responses and other internals. */}
-        {import.meta.env.DEV ? (
-          <pre className="mt-4 overflow-x-auto rounded bg-gray-100 p-3 text-left text-xs text-gray-800">
+        <details className="mt-4 text-left text-xs bg-gray-100 rounded p-3 border border-gray-200">
+          <summary className="cursor-pointer font-semibold text-gray-700">
+            Error Details
+          </summary>
+          <pre className="mt-2 overflow-x-auto whitespace-pre-wrap font-mono text-[11px] text-red-600">
             {error.message || String(error)}
+            {error.stack ? `\n\n${error.stack}` : ''}
           </pre>
-        ) : null}
-        <button
-          type="button"
-          onClick={resetError}
-          className="mt-4 rounded bg-gray-900 px-4 py-2 text-sm text-white hover:bg-gray-700"
-        >
-          Try again
-        </button>
+        </details>
+        <div className="mt-4 flex items-center justify-center gap-3">
+          <button
+            type="button"
+            onClick={resetError}
+            className="rounded bg-gray-900 px-4 py-2 text-sm text-white hover:bg-gray-700 font-medium"
+          >
+            Try again
+          </button>
+          <a
+            href="/"
+            className="rounded border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 font-medium"
+          >
+            Return to Home
+          </a>
+        </div>
       </div>
     </div>
   );

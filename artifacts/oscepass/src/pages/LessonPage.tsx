@@ -22,6 +22,22 @@ export default function LessonPage() {
   const prevLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
   const nextLesson = currentIndex >= 0 && currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
 
+  const lessonData = lesson.data;
+  const rawBody = lessonData?.body;
+  const rawTitle = lessonData?.title;
+
+  const parsedQuiz = useMemo(() => {
+    if (!rawBody) return { introText: '', questions: [] };
+    return parseSbaQuestions(rawBody);
+  }, [rawBody]);
+
+  const hasInteractiveQuiz = parsedQuiz.questions.length > 0;
+
+  const topicQuizQuestions = useMemo(() => {
+    if (hasInteractiveQuiz || !rawTitle) return [];
+    return getLessonTopicQuiz(rawTitle, rawBody || '');
+  }, [hasInteractiveQuiz, rawTitle, rawBody]);
+
   if (lesson.isLoading) {
     return <SiteLayout><main className="section"><div className="container"><PageSkeleton /></div></main></SiteLayout>;
   }
@@ -76,18 +92,6 @@ export default function LessonPage() {
   const isVideo = type === 'video' || mime.startsWith('video/');
   const isAudio = type === 'audio' || mime.startsWith('audio/');
   const isPdf = type === 'pdf' || mime === 'application/pdf';
-
-  const parsedQuiz = useMemo(() => {
-    if (!body) return { introText: '', questions: [] };
-    return parseSbaQuestions(body);
-  }, [body]);
-
-  const hasInteractiveQuiz = parsedQuiz.questions.length > 0;
-
-  const topicQuizQuestions = useMemo(() => {
-    if (hasInteractiveQuiz || !title) return [];
-    return getLessonTopicQuiz(title, body || '');
-  }, [hasInteractiveQuiz, title, body]);
 
   const isQuiz = type === 'quiz' || hasInteractiveQuiz || /quiz|mock|sba|paper|test/i.test(title);
 

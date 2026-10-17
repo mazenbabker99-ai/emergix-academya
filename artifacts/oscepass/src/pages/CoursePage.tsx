@@ -20,10 +20,40 @@ function minutes(seconds: number | null | undefined) {
   return seconds ? `${Math.max(1, Math.round(seconds / 60))} min` : '';
 }
 
+function isQuizModule(m: { title: string; lessons: Array<{ title: string; type?: string }> }) {
+  const t = m.title.toLowerCase();
+  return (
+    t.includes('quiz') ||
+    t.includes('mock') ||
+    t.includes('sba') ||
+    t.includes('exam') ||
+    t.includes('test') ||
+    t.includes('simulation') ||
+    m.lessons.some((l) => l.type === 'quiz' || /quiz|mock|sba|paper|test/i.test(l.title))
+  );
+}
+
 export default function CoursePage() {
   const { slug = '' } = useParams<{ slug: string }>();
   const course = useGetCourse(slug);
   usePageMeta(course.data?.course.title ?? 'Course', course.data?.course.summary || 'Course lessons and practice.');
+
+  const modules = useMemo(() => course.data?.modules ?? [], [course.data?.modules]);
+  const quizModules = useMemo(() => modules.filter(isQuizModule), [modules]);
+  const lectureModules = useMemo(() => modules.filter((m) => !isQuizModule(m)), [modules]);
+  const totalQuizLessons = useMemo(() => quizModules.reduce((acc, m) => acc + m.lessons.length, 0), [quizModules]);
+  const totalLectureLessons = useMemo(() => lectureModules.reduce((acc, m) => acc + m.lessons.length, 0), [lectureModules]);
+
+  const isPredominantlyQuizCourse = quizModules.length >= lectureModules.length && quizModules.length > 0;
+  const [userTab, setUserTab] = useState<'lessons' | 'quizzes' | 'all' | null>(null);
+  const activeTab = userTab ?? (isPredominantlyQuizCourse ? 'quizzes' : 'lessons');
+  const setActiveTab = (tab: 'lessons' | 'quizzes' | 'all') => setUserTab(tab);
+
+  const displayedModules = useMemo(() => {
+    if (activeTab === 'lessons') return lectureModules;
+    if (activeTab === 'quizzes') return quizModules;
+    return modules;
+  }, [activeTab, lectureModules, quizModules, modules]);
 
   if (course.isLoading) {
     return <SiteLayout><main className="section"><div className="container"><PageSkeleton /></div></main></SiteLayout>;
@@ -43,35 +73,6 @@ export default function CoursePage() {
   const data = course.data;
   const allLessons = data.modules.flatMap((m) => m.lessons);
   const firstPreviewLesson = allLessons.find((l) => l.isFreePreview || data.hasAccess);
-
-  const isQuizModule = (m: (typeof data.modules)[number]) => {
-    const t = m.title.toLowerCase();
-    return (
-      t.includes('quiz') ||
-      t.includes('mock') ||
-      t.includes('sba') ||
-      t.includes('exam') ||
-      t.includes('test') ||
-      t.includes('simulation') ||
-      m.lessons.some((l) => l.type === 'quiz' || /quiz|mock|sba|paper|test/i.test(l.title))
-    );
-  };
-
-  const quizModules = useMemo(() => data.modules.filter(isQuizModule), [data.modules]);
-  const lectureModules = useMemo(() => data.modules.filter((m) => !isQuizModule(m)), [data.modules]);
-  const totalQuizLessons = useMemo(() => quizModules.reduce((acc, m) => acc + m.lessons.length, 0), [quizModules]);
-  const totalLectureLessons = useMemo(() => lectureModules.reduce((acc, m) => acc + m.lessons.length, 0), [lectureModules]);
-
-  const isPredominantlyQuizCourse = quizModules.length >= lectureModules.length && quizModules.length > 0;
-  const [activeTab, setActiveTab] = useState<'lessons' | 'quizzes' | 'all'>(
-    isPredominantlyQuizCourse ? 'quizzes' : 'lessons'
-  );
-
-  const displayedModules = useMemo(() => {
-    if (activeTab === 'lessons') return lectureModules;
-    if (activeTab === 'quizzes') return quizModules;
-    return data.modules;
-  }, [activeTab, lectureModules, quizModules, data.modules]);
 
   return (
     <SiteLayout>
