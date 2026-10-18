@@ -99,7 +99,113 @@ export default function LessonPage() {
 
   const isQuiz = type === 'quiz' || hasInteractiveQuiz || /quiz|mock|sba|paper|test/i.test(title);
 
-  // ─── Full-screen Exam Overlay ──────────────────────────────────────────────
+  // Dedicated quiz check: quiz type, mrcem-sba course, quiz slug/title, or 3+ parsed questions
+  const isDedicatedQuiz = useMemo(() => {
+    if (!hasInteractiveQuiz) return false;
+    if (type === 'quiz') return true;
+    if (slug === 'mrcem-sba') return true;
+    const slugOrId = `${lessonId} ${slug} ${lessonData?.slug || ''}`;
+    if (/quiz|mock|sba|paper|exam|test/i.test(slugOrId)) return true;
+    if (/quiz|mock|sba|paper|exam|test/i.test(title || '')) return true;
+    if (parsedQuiz.questions.length >= 3) return true;
+    return false;
+  }, [hasInteractiveQuiz, type, slug, lessonId, lessonData?.slug, title, parsedQuiz.questions.length]);
+
+  // ─── Dedicated Quiz View (Direct Amboss / UWorld interactive test player) ───
+  if (isDedicatedQuiz) {
+    return (
+      <SiteLayout>
+        <main className="section" style={{ minHeight: '80vh', padding: '24px 0 60px' }}>
+          <div className="container course-page" style={{ maxWidth: '980px', margin: '0 auto' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
+              {back}
+              {allLessons.length > 0 && currentIndex >= 0 && (
+                <span
+                  style={{
+                    fontSize: '.82rem',
+                    fontWeight: 700,
+                    color: '#64748b',
+                    background: '#f1f5f9',
+                    padding: '4px 14px',
+                    borderRadius: 20,
+                  }}
+                >
+                  Quiz {currentIndex + 1} of {allLessons.length}
+                </span>
+              )}
+            </div>
+
+            {parsedQuiz.introText && (
+              <div
+                style={{
+                  marginBottom: 20,
+                  background: '#ffffff',
+                  borderRadius: '14px',
+                  padding: '18px 22px',
+                  border: '1px solid #dbe7f3',
+                  boxShadow: '0 2px 8px rgba(10,35,66,0.03)',
+                }}
+              >
+                <Prose text={parsedQuiz.introText} />
+              </div>
+            )}
+
+            <InteractiveQuiz
+              quizTitle={title}
+              questions={parsedQuiz.questions}
+              nextLessonHref={nextLesson ? `/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}` : undefined}
+              nextLessonTitle={nextLesson?.title}
+            />
+
+            {/* Navigation Footer */}
+            <div
+              className="lesson-nav-footer"
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginTop: 48,
+                paddingTop: 24,
+                borderTop: '1px solid #e2e8f0',
+                gap: 16,
+                flexWrap: 'wrap',
+              }}
+            >
+              {prevLesson ? (
+                <Link
+                  href={`/courses/${slug}/lessons/${prevLesson.slug || prevLesson.id}`}
+                  className="btn btn-outline"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
+                >
+                  <ArrowLeft size={16} /> Previous: {prevLesson.title}
+                </Link>
+              ) : <div />}
+
+              {nextLesson ? (
+                <Link
+                  href={`/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}`}
+                  className="btn btn-primary"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
+                >
+                  Next: {nextLesson.title} <ArrowRight size={16} />
+                </Link>
+              ) : (
+                <Link
+                  href={`/courses/${slug}`}
+                  className="btn btn-primary"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
+                >
+                  Back to Course Overview <ArrowRight size={16} />
+                </Link>
+              )}
+            </div>
+          </div>
+        </main>
+      </SiteLayout>
+    );
+  }
+
+  // ─── Full-screen Exam Overlay (for lecture knowledge checks) ─────────────────
   if (examOpen && hasInteractiveQuiz) {
     return (
       <div
@@ -340,7 +446,10 @@ export default function LessonPage() {
               </div>
 
               {/* Rendered Clinical Text */}
-              <Prose text={body} fontSize={readerFontSize} />
+              <Prose
+                text={hasInteractiveQuiz && parsedQuiz.introText && parsedQuiz.introText.length > 50 ? parsedQuiz.introText : body}
+                fontSize={readerFontSize}
+              />
             </article>
           )}
 

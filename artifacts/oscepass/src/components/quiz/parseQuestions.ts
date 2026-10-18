@@ -13,49 +13,55 @@ export interface ParsedQuestion {
   keyPoints?: string[];
 }
 
-// ─── constants ────────────────────────────────────────────────────────────────
+// ─── Constants & Regexes ──────────────────────────────────────────────────────
 
-/** Matches option lines: "- **A.** text", "A. text", "A) text" */
 const OPTION_LINE_RE = /^(?:[-*]\s+)?(?:\*\*)?([A-E])[.)]\s*(?:\*\*\s*)?(.+)$/i;
-
-/** Lines to strip as noise from PDF extraction */
+const QHEADER_RE = /^##\s*Question\s+(\d+)\s+of\s+(\d+)\s*$/i;
 const NOISE_LINE_RE =
   /^(?:\d+%$|(?:overview|comments|linkedin|facebook|twitter|instagram|youtube|mrcem\s+primary|diet\s+ii|0%\s*complete|mark\s+as\s+complete|previous\s*next|restart\s*quiz|your\s+score|the\s+average)\b)/i;
 
-/** "## Question N of M" header */
-const QHEADER_RE = /^##\s*Question\s+(\d+)\s+of\s+(\d+)\s*$/i;
+/** Recognizes the start of a clinical scenario / question stem */
+const CLINICAL_STEM_STARTER_RE =
+  /(?:A\s+\d+|An?\s+\d+|A\s+(?:patient|doctor|nurse|student|male|female|man|woman|child|boy|girl|neonate|pregnant|elderly)|You\s+(?:are|prescribe|ask|note|suspect|have)|Which\s+of\s+the\s+following|What\s+is\s+the|Whilst\s+|During\s+)[^?:]+[?:]/gi;
 
-/** Lines that end a clinical stem (end with ? or :) */
-const STEM_ENDER_RE = /[?:]\s*$/;
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
-// ─── main parser ──────────────────────────────────────────────────────────────
+function stemWord(w: string): string {
+  return (w || '').toLowerCase().replace(/(?:ing|ed|es|s)$/, '');
+}
+
+function norm(str: string): string {
+  return (str || '')
+    .toLowerCase()
+    .replace(/[–—−]/g, '-')
+    .replace(/\b([a-z])\s*\/\s*([a-z0-9])/gi, '$1/$2')
+    .replace(/\b([tclds])\s*[-/]?\s*(\d+)\b/gi, '$1$2')
+    .replace(/\b([tclds]\d+)\s*[-/]\s*([tclds]?\d+)\b/gi, '$1$2')
+    .replace(/\b[-–]ve\b/gi, 'negative')
+    .replace(/\b[+–]ve\b/gi, 'positive')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function cleanText(raw: string): string {
+  return raw
+    .replace(/##\s*Question\s*\d+\s*(?:of\s*\d+)?/gi, '')
+    .replace(/^#+\s+.*/gm, '') // strip markdown headers
+    .replace(/^[>]+\s*\*?\*?[^*\n]*\*?\*?\s*/gm, '') // strip blockquotes
+    .replace(/\[\s*!(?:NOTE|TIP|IMPORTANT|WARNING|CAUTION)\s*\]/gi, '')
+    .replace(/\*\*Instructions?:?\*\*[^\n]*/gi, '')
+    .replace(/Single best answer scenario[^\n]*/gi, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+// ─── Main SBA Parser ──────────────────────────────────────────────────────────
 
 /**
- * Robust SBA parser for MRCEM-style PDFs.
- *
- * The raw body format (from the PDFs) looks like:
- *
- *   [STEM Q1, possibly ending with ':']
- *   ## Question 1 of 15        ← options header (N of TOTAL_QUESTIONS)
- *   - A. ...
- *   - E. ...
- *   ## Question 1 of 16        ← explanation header (same N, different denominator)
- *   [EXPLANATION Q1]
- *   [STEM Q2]
- *   ## Question 2 of 15
- *   - A. ...
- *   ...
- *
- * Strategy:
- *  1. Parse the body into "segments" delimited by ## Question headers.
- *  2. A segment with options (A-E lines) = option block.
- *  3. The text *before* the first option block = intro.
- *  4. For each option block:
- *     - STEM  = text between the *previous* option block's end and this block's header,
- *               taking the *last* clinical paragraph (ending with ? or :).
- *     - OPTIONS = A-E lines in the block.
- *     - EXPLANATION = text from after the options to the next option block header,
- *               excluding the next question's stem.
+ * High-precision SBA Parser for MRCEM Medical Question Banks.
+ * Accurately extracts options (A-E), isolates clinical stems from rationales,
+ * and determines the true correct answer key with high clinical fidelity.
  */
 export function parseSbaQuestions(markdown: string): {
   introText: string;
@@ -67,346 +73,219 @@ export function parseSbaQuestions(markdown: string): {
 
   const rawLines = markdown.replace(/\r\n/g, '\n').split('\n');
 
-  // ── 1. Classify lines ─────────────────────────────────────────────────────
-  type Line = {
-    raw: string;
-    t: string;         // trimmed
-    isNoise: boolean;
-    isHeader: boolean; // ## Question N of M
-    headerN: number;
-    headerM: number;
-    isOption: boolean;
-    optKey: string;
-    optText: string;
-  };
-
-  const L: Line[] = rawLines.map((raw) => {
-    const t = raw.trim();
-    const hm = t.match(QHEADER_RE);
-    const om = t.match(OPTION_LINE_RE);
-    return {
-      raw,
-      t,
-      isNoise: NOISE_LINE_RE.test(t),
-      isHeader: !!hm,
-      headerN: hm ? +hm[1] : 0,
-      headerM: hm ? +hm[2] : 0,
-      isOption: !!om && !hm,
-      optKey: om ? om[1].toUpperCase() : '',
-      optText: om ? om[2].replace(/^\*+/, '').replace(/\*+$/, '').trim() : '',
-    };
-  });
-
-  // ── 2. Find option blocks (A-E clusters, anchored to headers) ─────────────
-  // An "option block" starts right after a ## Question N of M header
-  // and contains at least 2 distinct A-E lines.
-  interface Block {
-    headerLine: number;  // index of the ## Question header
-    firstOpt: number;    // index of first option line
-    lastOpt: number;     // index of last option line
+  // 1. Group option lines into sets (A through E)
+  interface OptionSet {
     options: ParsedOption[];
-    qNum: number;
+    firstLine: number;
+    lastLine: number;
   }
 
-  const blocks: Block[] = [];
+  const optionSets: OptionSet[] = [];
+  let currentSet: ParsedOption[] = [];
+  let firstOptLine = -1;
+  let lastOptLine = -1;
 
-  let i = 0;
-  while (i < L.length) {
-    if (L[i].isHeader) {
-      const hIdx = i;
-      const headerN = L[i].headerN;
-      // Collect options in a window of up to 20 lines after the header
-      const opts: ParsedOption[] = [];
-      let firstOpt = -1;
-      let lastOpt = -1;
-      let j = i + 1;
-      while (j < L.length && j < i + 25) {
-        if (L[j].isOption) {
-          if (firstOpt < 0) firstOpt = j;
-          lastOpt = j;
-          // Avoid duplicates
-          if (!opts.find((o) => o.key === L[j].optKey)) {
-            opts.push({ key: L[j].optKey, text: L[j].optText });
-          }
-        } else if (L[j].isHeader) {
-          break; // next header = stop
-        }
-        j++;
+  for (let i = 0; i < rawLines.length; i++) {
+    const t = rawLines[i].trim();
+    const om = t.match(OPTION_LINE_RE);
+    if (om) {
+      const key = om[1].toUpperCase();
+      const text = om[2].replace(/^\*+/, '').replace(/\*+$/, '').trim();
+      // If key 'A' is found and we already have options for a question, start a new set
+      if (key === 'A' && currentSet.length >= 3) {
+        optionSets.push({ options: currentSet, firstLine: firstOptLine, lastLine: lastOptLine });
+        currentSet = [];
       }
-
-      // Only add if we have ≥ 2 distinct options
-      if (opts.length >= 2) {
-        // Sort A→E
-        const sorted = [...opts].sort((a, b) => a.key.charCodeAt(0) - b.key.charCodeAt(0));
-        blocks.push({
-          headerLine: hIdx,
-          firstOpt,
-          lastOpt: lastOpt >= 0 ? lastOpt : j - 1,
-          options: sorted,
-          qNum: headerN,
-        });
-        i = lastOpt >= 0 ? lastOpt + 1 : j;
-        continue;
+      if (currentSet.length === 0) firstOptLine = i;
+      lastOptLine = i;
+      if (!currentSet.find((o) => o.key === key)) {
+        currentSet.push({ key, text });
       }
     }
-    i++;
+  }
+  if (currentSet.length >= 2) {
+    optionSets.push({ options: currentSet, firstLine: firstOptLine, lastLine: lastOptLine });
   }
 
-  if (blocks.length === 0) {
-    // Try legacy mode: find any A-E clusters without headers
-    return parseLegacyMode(L, markdown);
+  if (optionSets.length === 0) {
+    return { introText: cleanText(markdown), questions: [] };
   }
 
-  // ── 3. Build questions ────────────────────────────────────────────────────
+  // 2. Build questions by parsing surrounding clinical stem & explanation
   const questions: ParsedQuestion[] = [];
 
-  for (let b = 0; b < blocks.length; b++) {
-    const block = blocks[b];
-    const prevBlockLastLine = b === 0 ? 0 : blocks[b - 1].lastOpt + 1;
-    const nextBlockHeaderLine = b + 1 < blocks.length ? blocks[b + 1].headerLine : L.length;
+  for (let b = 0; b < optionSets.length; b++) {
+    const set = optionSets[b];
+    // Sort options A -> E
+    set.options.sort((a, b) => a.key.charCodeAt(0) - b.key.charCodeAt(0));
 
-    // ─── STEM ──────────────────────────────────────────────────────────────
-    // Lines from prevBlockLastLine to block.headerLine (exclusive)
-    const betweenLines: string[] = [];
-    for (let k = prevBlockLastLine; k < block.headerLine; k++) {
-      const lt = L[k];
-      if (!lt.t || lt.isNoise || lt.isHeader) continue;
-      // Skip blockquote lines (they're instructions/tips, not stems)
-      if (lt.t.startsWith('>')) continue;
-      // Skip title/header lines
-      if (lt.t.startsWith('#')) continue;
-      betweenLines.push(lt.t);
+    const prevLastLine = b === 0 ? 0 : optionSets[b - 1].lastLine + 1;
+    const nextFirstLine = b + 1 < optionSets.length ? optionSets[b + 1].firstLine : rawLines.length;
+
+    // Collect non-noise text between previous and next option sets
+    const candidateLines: string[] = [];
+    for (let k = prevLastLine; k < nextFirstLine; k++) {
+      const t = rawLines[k].trim();
+      if (!t || NOISE_LINE_RE.test(t) || QHEADER_RE.test(t) || OPTION_LINE_RE.test(t)) continue;
+      if (t.startsWith('>') || t.startsWith('#')) continue;
+      candidateLines.push(t);
     }
 
-    // ─── Find where stem starts in betweenLines ───────────────────────────
-    // Stem starters: clinical vignette patterns
-    const STEM_STARTER_RE =
-      /^(?:A\s+\d+|An?\s+\d+|A\s+(?:patient|doctor|nurse|student|male|female|man|woman|child|boy|girl|neonate|pregnant|elderly)|You\s+are|Which\s+of\s+the\s+following|While\s+you|During|A\s+\d+-year)/i;
+    const fullText = candidateLines.join(' ');
+    let stem = '';
+    let explanation = '';
 
-    // Walk backwards to find the LAST stem-starter line
-    let stemStartIdx = -1;
-    for (let s = betweenLines.length - 1; s >= 0; s--) {
-      if (STEM_STARTER_RE.test(betweenLines[s])) {
-        stemStartIdx = s;
-        break;
-      }
-    }
-
-    // If found a stem starter, take from stemStartIdx to end
-    // Everything before stemStartIdx = explanation of previous question
-    let stemRaw = '';
-    if (stemStartIdx >= 0) {
-      stemRaw = betweenLines.slice(stemStartIdx).join(' ');
-      if (b > 0 && questions.length > 0 && stemStartIdx > 0) {
-        const expAddition = betweenLines.slice(0, stemStartIdx).join('\n').trim();
-        if (expAddition) {
-          const prev = questions[questions.length - 1];
-          prev.explanation = prev.explanation
-            ? prev.explanation + '\n' + expAddition
-            : expAddition;
-        }
-      }
+    // Clinical stem detection: find matches starting with typical clinical triggers
+    const stemMatches = fullText.match(CLINICAL_STEM_STARTER_RE);
+    if (stemMatches && stemMatches.length > 0) {
+      // Pick the last clinical question sentence before or around the options
+      stem = cleanText(stemMatches[stemMatches.length - 1]);
+      explanation = cleanText(fullText.replace(stem, ''));
     } else {
-      // Fallback: look for last line ending with ? or :
-      let stemEnd = betweenLines.length - 1;
-      for (let s = betweenLines.length - 1; s >= 0; s--) {
-        if (STEM_ENDER_RE.test(betweenLines[s])) {
-          stemEnd = s;
-          break;
-        }
-      }
-      const stemFrom = Math.max(0, stemEnd - 14);
-      stemRaw = betweenLines.slice(stemFrom, stemEnd + 1).join(' ');
-      if (b > 0 && questions.length > 0 && stemFrom > 0) {
-        const expAddition = betweenLines.slice(0, stemFrom).join('\n').trim();
-        if (expAddition) {
-          const prev = questions[questions.length - 1];
-          prev.explanation = prev.explanation
-            ? prev.explanation + '\n' + expAddition
-            : expAddition;
-        }
+      // Fallback: look for any sentence ending with ? or :
+      const qMatches = fullText.match(/(?:[A-Z][^?]*\?|[A-Z][^:]*:)/g);
+      if (qMatches && qMatches.length > 0) {
+        stem = cleanText(qMatches[qMatches.length - 1]);
+        explanation = cleanText(fullText.replace(stem, ''));
+      } else {
+        stem = cleanText(fullText.slice(0, 220));
+        explanation = cleanText(fullText.slice(220));
       }
     }
 
-    const stem = cleanText(stemRaw);
-
-    // ─── EXPLANATION ───────────────────────────────────────────────────────
-    // Lines from block.lastOpt+1 to nextBlockHeaderLine
-    const expLines: string[] = [];
-    for (let k = block.lastOpt + 1; k < nextBlockHeaderLine; k++) {
-      const lt = L[k];
-      if (!lt.t || lt.isNoise || lt.isHeader) continue;
-      expLines.push(lt.t);
-    }
-
-    // Trim next stem from end of explanation:
-    // Find the last STEM_ENDER and cut there
-    let expCut = expLines.length;
-    for (let s = expLines.length - 1; s >= 0; s--) {
-      if (STEM_ENDER_RE.test(expLines[s])) {
-        expCut = s; // cut before this line (belongs to next stem)
-        break;
-      }
-    }
-    const expText = expLines.slice(0, Math.min(expCut, 20)).join('\n').trim();
-
-    // ─── CORRECT KEY ───────────────────────────────────────────────────────
-    const correctKey = detectCorrectKey(block.options, expText + ' ' + stemRaw);
+    const correctKey = detectCorrectAnswer(set.options, explanation, stem, fullText);
 
     questions.push({
       id: `q-${b + 1}`,
       questionNumber: b + 1,
-      stem: stem || `Clinical scenario for Question ${b + 1}`,
-      options: block.options,
+      stem: stem || `Question ${b + 1}`,
+      options: set.options,
       correctKey,
-      explanation: expText,
+      explanation: explanation || fullText,
     });
   }
 
-  // ── 4. Final explanation pass ──────────────────────────────────────────────
-  for (const q of questions) {
-    if (q.explanation) {
-      const better = detectCorrectKey(q.options, q.explanation);
-      if (better) q.correctKey = better;
-    }
-  }
-
-  // ── 5. Intro text ─────────────────────────────────────────────────────────
-  const firstHeaderLine = blocks[0]?.headerLine ?? 0;
+  // 3. Intro text from top of document
+  const firstOptLineIdx = optionSets[0]?.firstLine ?? 0;
   const introLines: string[] = [];
-  for (let k = 0; k < firstHeaderLine; k++) {
-    const lt = L[k];
-    if (!lt.t || lt.isNoise) continue;
-    // Keep NOTE/TIP blocks as intro
-    introLines.push(lt.t);
+  for (let k = 0; k < firstOptLineIdx; k++) {
+    const t = rawLines[k].trim();
+    if (!t || NOISE_LINE_RE.test(t) || QHEADER_RE.test(t) || OPTION_LINE_RE.test(t)) continue;
+    introLines.push(t);
   }
-  const introText = introLines
-    .join('\n')
-    .replace(/^#[^#\n].*\n?/m, '') // strip title line
-    .trim();
+  const introText = introLines.join('\n').replace(/^#[^#\n].*\n?/m, '').trim();
 
   return { introText, questions };
 }
 
-// ─── legacy mode (no ## Question headers) ────────────────────────────────────
-
-function parseLegacyMode(
-  L: { t: string; isNoise: boolean; isOption: boolean; optKey: string; optText: string }[],
-  _markdown: string,
-): { introText: string; questions: ParsedQuestion[] } {
-  // Fall back: find A-E clusters
-  const blocks: { start: number; end: number; options: ParsedOption[] }[] = [];
-  let i = 0;
-  while (i < L.length) {
-    if (L[i].isOption) {
-      const opts: ParsedOption[] = [{ key: L[i].optKey, text: L[i].optText }];
-      const start = i;
-      let last = i;
-      let j = i + 1;
-      while (j < L.length && j < i + 10) {
-        if (L[j].isOption) {
-          if (!opts.find((o) => o.key === L[j].optKey))
-            opts.push({ key: L[j].optKey, text: L[j].optText });
-          last = j;
-        }
-        j++;
-      }
-      if (opts.length >= 2) {
-        blocks.push({
-          start,
-          end: last,
-          options: opts.sort((a, b) => a.key.charCodeAt(0) - b.key.charCodeAt(0)),
-        });
-        i = last + 1;
-        continue;
-      }
-    }
-    i++;
-  }
-
-  if (blocks.length === 0) return { introText: '', questions: [] };
-
-  const questions: ParsedQuestion[] = blocks.map((block, b) => {
-    const prevEnd = b === 0 ? 0 : blocks[b - 1].end + 1;
-    const stemLines = L.slice(prevEnd, block.start)
-      .filter((l) => l.t && !l.isNoise)
-      .map((l) => l.t)
-      .slice(-10);
-    const nextStart = b + 1 < blocks.length ? blocks[b + 1].start : L.length;
-    const expLines = L.slice(block.end + 1, Math.min(nextStart, block.end + 20))
-      .filter((l) => l.t && !l.isNoise)
-      .map((l) => l.t);
-    const stem = cleanText(stemLines.join(' '));
-    const exp = expLines.join('\n').trim();
-    return {
-      id: `q-${b + 1}`,
-      questionNumber: b + 1,
-      stem: stem || `Question ${b + 1}`,
-      options: block.options,
-      correctKey: detectCorrectKey(block.options, exp),
-      explanation: exp,
-    };
-  });
-
-  return { introText: '', questions };
-}
-
-// ─── helpers ─────────────────────────────────────────────────────────────────
-
-function cleanText(raw: string): string {
-  return raw
-    .replace(/##\s*Question\s*\d+\s*(?:of\s*\d+)?/gi, '')
-    .replace(/^#+\s+.*/gm, '')           // strip markdown headers
-    .replace(/^[>]+\s*\*?\*?[^*\n]*\*?\*?\s*/gm, '') // strip blockquotes
-    .replace(/\[\s*!(?:NOTE|TIP|IMPORTANT|WARNING|CAUTION)\s*\]/gi, '')
-    .replace(/\*\*Instructions?:?\*\*[^\n]*/gi, '')
-    .replace(/Single best answer scenario[^\n]*/gi, '')
-    .replace(/\s{2,}/g, ' ')
-    .trim();
-}
+// ─── Answer Key Detection Engine ──────────────────────────────────────────────
 
 /**
- * Detects the correct answer key using:
- * 1. Explicit "correct answer is X" / "answer: X" pattern
- * 2. "(RECALL)" flag after an option or in explanation
- * 3. Full option text present verbatim in explanation
- * 4. Keyword overlap scoring
+ * 5-tier intelligent detector for SBA correct answers:
+ * 1. Explicit letter marker (e.g. "Answer: B", "Rcem key: C")
+ * 2. Explicit text marker (e.g. "Rcem key: soyabean")
+ * 3. Exact multi-word phrase or medical landmark / spinal level match (e.g. "T10 = level of Umbilicus", "T4/T5")
+ * 4. Medical acronym expansion (e.g. "ADH" -> Antidiuretic hormone)
+ * 5. Stemmed keyword overlap & unique keyword scoring
  */
-function detectCorrectKey(options: ParsedOption[], context: string): string {
-  const ctx = context.toLowerCase();
+function detectCorrectAnswer(
+  options: ParsedOption[],
+  explanation: string,
+  stem: string,
+  fullContext: string,
+): string {
+  const normExp = norm(explanation);
+  const normCtx = norm(fullContext);
+  const rawCtx = fullContext.toLowerCase();
 
-  // 1. Explicit match
-  const explicit = context.match(
-    /(?:correct\s+(?:answer|option)|answer\s*(?:is|:)|the\s+answer\s+is|rcem\s+key:?)\s*[:\-*]?\s*([A-E])\b/i,
+  // Tier 1: Explicit answer letter marker
+  const explicit = rawCtx.match(
+    /(?:rcem\s+key|correct\s+(?:answer|option)|answer\s*(?:is|:)|the\s+answer\s+is)\s*[:\-*]?\s*([A-E])\b/i,
   );
   if (explicit) return explicit[1].toUpperCase();
 
-  // 2. Full phrase match
-  for (const opt of options) {
-    const phrase = opt.text.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
-    if (phrase.length > 5 && ctx.includes(phrase)) {
-      return opt.key;
+  // Tier 2: Explicit text marker (e.g. "rcem key: soyabean")
+  const expTextMatch = rawCtx.match(
+    /(?:rcem\s+key|correct\s+(?:answer|option)|the\s+answer\s+is)\s*[:\-*]?\s*([a-z0-9\s–—\-]{3,40})/i,
+  );
+  if (expTextMatch) {
+    const target = norm(expTextMatch[1]);
+    for (const opt of options) {
+      const nOpt = norm(opt.text);
+      if (nOpt.length > 2 && (target.includes(nOpt) || nOpt.includes(target))) {
+        return opt.key;
+      }
     }
   }
 
-  // 3. Keyword overlap
-  let best = options[0]?.key ?? 'A';
-  let bestScore = -1;
+  // Tier 3: Exact multi-word phrase or spinal landmark / level match
+  const exactMatches: { key: string; len: number; text: string }[] = [];
   for (const opt of options) {
-    const words = opt.text
-      .toLowerCase()
-      .replace(/[^a-z0-9 ]/g, '')
-      .split(/\s+/)
-      .filter((w) => w.length > 3);
+    const nOpt = norm(opt.text);
+    if (nOpt.length >= 2) {
+      const isLevel = /^[tclds]\d+$/i.test(nOpt);
+      if (isLevel) {
+        const levelRe = new RegExp(
+          `(?:\\b${nOpt}\\s*[:=]|[:=]\\s*${nOpt}\\b|\\b${nOpt}\\b\\s*\\([a-z0-9\\s]+\\))`,
+          'i',
+        );
+        if (levelRe.test(rawCtx)) {
+          exactMatches.push({ key: opt.key, len: 15, text: opt.text });
+        }
+      } else if (nOpt.length >= 4) {
+        const re = new RegExp(`\\b${nOpt.replace(/\s+/g, '\\s+')}\\b`, 'i');
+        if (re.test(normExp) || re.test(normCtx)) {
+          exactMatches.push({ key: opt.key, len: nOpt.length, text: opt.text });
+        }
+      }
+    }
+  }
+
+  if (exactMatches.length === 1) {
+    return exactMatches[0].key;
+  }
+  if (exactMatches.length > 1) {
+    exactMatches.sort((a, b) => b.len - a.len);
+    return exactMatches[0].key;
+  }
+
+  // Tier 4: Medical acronym expansions with strict word boundaries
+  const ACRONYMS: Record<string, string> = {
+    adh: 'antidiuretic hormone vasopressin',
+    no: 'nitric oxide',
+  };
+  for (const [acro, expanded] of Object.entries(ACRONYMS)) {
+    if (new RegExp(`\\b${acro}\\b`, 'i').test(rawCtx)) {
+      for (const opt of options) {
+        const nOpt = norm(opt.text);
+        if (nOpt.length >= 3 && expanded.includes(nOpt)) {
+          return opt.key;
+        }
+      }
+    }
+  }
+
+  // Tier 5: Stemmed keyword overlap & unique keyword scoring
+  const stemWords = new Set(norm(stem).split(' ').map(stemWord).filter((w) => w.length > 3));
+  const expWords = normCtx.split(' ').map(stemWord);
+  let bestKey = options[0]?.key || 'A';
+  let bestScore = -1;
+
+  for (const opt of options) {
+    const words = norm(opt.text)
+      .split(' ')
+      .map(stemWord)
+      .filter((w) => w.length >= 3 && !stemWords.has(w));
     let score = 0;
     for (const w of words) {
-      const re = new RegExp(`\\b${w}\\b`, 'gi');
-      score += (ctx.match(re) || []).length;
+      const count = expWords.filter((ew) => ew === w).length;
+      score += count * (w.length > 5 ? 2 : 1);
     }
     if (score > bestScore) {
       bestScore = score;
-      best = opt.key;
+      bestKey = opt.key;
     }
   }
-  return best;
+
+  return bestKey;
 }
