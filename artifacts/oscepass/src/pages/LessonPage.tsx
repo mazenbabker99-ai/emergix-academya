@@ -34,6 +34,13 @@ export default function LessonPage() {
 
   // Controls whether the full-screen exam overlay is open
   const [examOpen, setExamOpen] = useState(false);
+  const [readerFontSize, setReaderFontSize] = useState<'normal' | 'large' | 'xlarge'>('normal');
+
+  const readingTime = useMemo(() => {
+    if (!rawBody) return 2;
+    const words = rawBody.split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.ceil(words / 170));
+  }, [rawBody]);
 
   if (lesson.isLoading) {
     return <SiteLayout><main className="section"><div className="container"><PageSkeleton /></div></main></SiteLayout>;
@@ -182,7 +189,7 @@ export default function LessonPage() {
   return (
     <SiteLayout>
       <main className="section">
-        <div className="container course-page" style={{ maxWidth: '860px', margin: '0 auto' }}>
+        <div className="container course-page" style={{ maxWidth: '920px', margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
             {back}
             {allLessons.length > 0 && currentIndex >= 0 && (
@@ -212,8 +219,130 @@ export default function LessonPage() {
             <p><a className="btn btn-light" href={assetUrl} target="_blank" rel="noopener noreferrer"><Download size={15} /> Open {filename}</a></p>
           )}
 
-          {/* Lesson body content */}
-          {body && <Prose text={body} />}
+          {/* Lesson body content inside an elegant medical textbook reader card */}
+          {body && (
+            <article
+              className="lesson-reader-paper"
+              style={{
+                background: '#ffffff',
+                borderRadius: '20px',
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 4px 30px rgba(10, 35, 66, 0.05)',
+                padding: 'clamp(24px, 5vw, 48px)',
+                marginTop: '24px',
+              }}
+            >
+              {/* Reader Header Toolbar */}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '12px',
+                  paddingBottom: '20px',
+                  marginBottom: '26px',
+                  borderBottom: '1px solid #edf2f7',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span
+                    style={{
+                      background: '#eff6ff',
+                      color: '#0066cc',
+                      fontSize: '.78rem',
+                      fontWeight: 800,
+                      textTransform: 'uppercase',
+                      letterSpacing: '.06em',
+                      padding: '4px 12px',
+                      borderRadius: '20px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                    }}
+                  >
+                    <BookOpen size={13} /> Curriculum Notes
+                  </span>
+                  <span style={{ fontSize: '.84rem', color: '#64748b', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                    <Clock3 size={13} /> ~{readingTime} min read
+                  </span>
+                </div>
+
+                {/* Font Size Toggle Buttons */}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    background: '#f1f5f9',
+                    padding: '3px',
+                    borderRadius: '10px',
+                  }}
+                >
+                  <span style={{ fontSize: '.72rem', fontWeight: 700, color: '#64748b', padding: '0 8px', textTransform: 'uppercase' }}>
+                    Font Size:
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setReaderFontSize('normal')}
+                    style={{
+                      border: 0,
+                      background: readerFontSize === 'normal' ? '#ffffff' : 'transparent',
+                      color: readerFontSize === 'normal' ? '#0066cc' : '#64748b',
+                      boxShadow: readerFontSize === 'normal' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                      padding: '3px 10px',
+                      borderRadius: '6px',
+                      fontSize: '.82rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                    }}
+                    title="Standard Text (18px)"
+                  >
+                    A
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setReaderFontSize('large')}
+                    style={{
+                      border: 0,
+                      background: readerFontSize === 'large' ? '#ffffff' : 'transparent',
+                      color: readerFontSize === 'large' ? '#0066cc' : '#64748b',
+                      boxShadow: readerFontSize === 'large' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                      padding: '3px 10px',
+                      borderRadius: '6px',
+                      fontSize: '.9rem',
+                      fontWeight: 800,
+                      cursor: 'pointer',
+                    }}
+                    title="Large Text (20px)"
+                  >
+                    A+
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setReaderFontSize('xlarge')}
+                    style={{
+                      border: 0,
+                      background: readerFontSize === 'xlarge' ? '#ffffff' : 'transparent',
+                      color: readerFontSize === 'xlarge' ? '#0066cc' : '#64748b',
+                      boxShadow: readerFontSize === 'xlarge' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                      padding: '3px 10px',
+                      borderRadius: '6px',
+                      fontSize: '.98rem',
+                      fontWeight: 900,
+                      cursor: 'pointer',
+                    }}
+                    title="Extra Large Text (22px)"
+                  >
+                    A++
+                  </button>
+                </div>
+              </div>
+
+              {/* Rendered Clinical Text */}
+              <Prose text={body} fontSize={readerFontSize} />
+            </article>
+          )}
 
           {/* Quiz Launch Card — shown after lesson content if quiz questions exist */}
           {hasInteractiveQuiz && (

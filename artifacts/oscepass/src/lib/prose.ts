@@ -10,7 +10,7 @@ export type Inline =
   | { type: 'link'; href: string; children: Inline[] };
 
 export type Block =
-  | { type: 'h1' | 'h2' | 'h3'; text: string }
+  | { type: 'h1' | 'h2' | 'h3' | 'h4'; text: string; stepNumber?: string }
   | { type: 'callout'; variant: 'tip' | 'note' | 'warning' | 'info'; title?: string; inline: Inline[] }
   | { type: 'blockquote'; inline: Inline[] }
   | { type: 'image'; src: string; alt: string; caption?: string }
@@ -118,6 +118,9 @@ export function parseBlocks(src: string): Block[] {
     ) {
       const imgBlock = blocks[blocks.length - 1] as { type: 'image'; src: string; alt: string; caption?: string };
       imgBlock.caption = line.slice(1, -1).trim();
+    } else if (line.startsWith('#### ')) {
+      flush();
+      blocks.push({ type: 'h4', text: line.slice(5).trim() });
     } else if (line.startsWith('### ')) {
       flush();
       blocks.push({ type: 'h3', text: line.slice(4).trim() });
@@ -132,9 +135,27 @@ export function parseBlocks(src: string): Block[] {
       flushQuote();
       (list ??= []).push(parseInline(line.slice(2).trim()));
     } else {
-      if (list) flush();
-      flushQuote();
-      paragraph.push(line);
+      // Check for numbered anatomical or curriculum headings like:
+      // "1: Root:" or "1. Root:" or "2: Trunk:" or "3: Division:" or "1: Femoral Artery:"
+      const numMatch = line.match(/^(\d+)[:.]\s*([A-Za-z0-9\s\(\)\-\'\"]+?)[:.]?$/);
+      if (
+        numMatch &&
+        numMatch[2].trim().length > 1 &&
+        numMatch[2].trim().length < 65 &&
+        !line.includes('http') &&
+        !line.includes('www.')
+      ) {
+        flush();
+        blocks.push({
+          type: 'h3',
+          stepNumber: numMatch[1],
+          text: numMatch[2].trim(),
+        });
+      } else {
+        if (list) flush();
+        flushQuote();
+        paragraph.push(line);
+      }
     }
   }
   flush();
@@ -148,7 +169,7 @@ export function stripMarkdown(src: string): string {
     .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
     .replace(/\*\*(.+?)\*\*/g, '$1')
     .replace(/\*(.+?)\*/g, '$1')
-    .replace(/^#{1,3}\s+/gm, '')
+    .replace(/^#{1,4}\s+/gm, '')
     .replace(/^-\s+/gm, '')
     .replace(/\s+/g, ' ')
     .trim();
