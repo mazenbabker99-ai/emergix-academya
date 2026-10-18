@@ -100,16 +100,13 @@ export default function LessonPage() {
   const isQuiz = type === 'quiz' || hasInteractiveQuiz || /quiz|mock|sba|paper|test/i.test(title);
 
   // Dedicated quiz check: quiz type, mrcem-sba course, quiz slug/title, or 3+ parsed questions
-  const isDedicatedQuiz = useMemo(() => {
-    if (!hasInteractiveQuiz) return false;
-    if (type === 'quiz') return true;
-    if (slug === 'mrcem-sba') return true;
-    const slugOrId = `${lessonId} ${slug} ${lessonData?.slug || ''}`;
-    if (/quiz|mock|sba|paper|exam|test/i.test(slugOrId)) return true;
-    if (/quiz|mock|sba|paper|exam|test/i.test(title || '')) return true;
-    if (parsedQuiz.questions.length >= 3) return true;
-    return false;
-  }, [hasInteractiveQuiz, type, slug, lessonId, lessonData?.slug, title, parsedQuiz.questions.length]);
+  const isDedicatedQuiz =
+    hasInteractiveQuiz &&
+    (type === 'quiz' ||
+      slug === 'mrcem-sba' ||
+      /quiz|mock|sba|paper|exam|test/i.test(`${lessonId} ${slug} ${lessonData?.slug || ''}`) ||
+      /quiz|mock|sba|paper|exam|test/i.test(title || '') ||
+      parsedQuiz.questions.length >= 3);
 
   // ─── Dedicated Quiz View (Direct Amboss / UWorld interactive test player) ───
   if (isDedicatedQuiz) {
