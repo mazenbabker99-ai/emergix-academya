@@ -66,9 +66,7 @@ BEGIN
     'anemia',
     'Anemia',
     'article',
-    '# Anemia
-
-Anemia
+    'Anemia
 Anemia: Reduction in Hb concentration below the normal
 range
 Range: Men= Hct < 41% or HB less than 13.5 g/dl
@@ -122,9 +120,7 @@ giant metamyelocytes
     'antibodies-and-hypersensitivity-reactions',
     'Antibodies and Hypersensitivity Reactions',
     'article',
-    '# Antibodies and Hypersensitivity Reactions
-
-Antibodies:
+    'Antibodies:
 Hypersensitivity reaction:
 
 ![Antibodies and Hypersensitivity Reactions - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/antibodies-and-hypersensitivity-reactions/figure_01_p2.png)
@@ -155,9 +151,7 @@ Hypersensitivity reaction:
     'blood-groups',
     'Blood Groups',
     'article',
-    '# Blood Groups
-
-Blood group
+    'Blood group
 The ABO blood group phenotypes are O (genotype OO), A
 (genotype AA or AO), B (genotype BB or BO) and AB (genotype
 
@@ -226,9 +220,7 @@ After delivery at any gestation within 72Hours.',
     'cell-death',
     'Cell Death',
     'article',
-    '# Cell Death
-
-Cell death
+    'Cell death
 
 ![Cell Death - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/cell-death/figure_01_p1.png)
 *Cell Death — Clinical Figure 1 (Page 1 Reference)*',
@@ -255,9 +247,7 @@ Cell death
     'complement-cascade',
     'Complement Cascade',
     'article',
-    '# Complement Cascade
-
-Complement cascade:
+    'Complement cascade:
 Collection of twenty proteins many of which are enzyme
 precursors. constituting an amplification enzyme system which
 is capable of lysis of bacteria or blood cells or opsonization of
@@ -330,9 +320,7 @@ paroxysmal nocturnal hemoglobinuria.',
     'inflammation',
     'Inflammation',
     'article',
-    '# Inflammation
-
-Inflammation
+    'Inflammation
 Note: Chronic nonspecific inflammation: Nonspecific
 inflammatory cell infiltration seen in chronic osteomyelitis, lung
 abscess
@@ -386,9 +374,7 @@ IL-6: Stimulates Acute Phase Protein Production',
     'innate-vs-acquired-immunity',
     'Innate Vs Acquired Immunity',
     'article',
-    '# Innate Vs Acquired Immunity
-
-Innate vs Acquired immunity.
+    'Innate vs Acquired immunity.
 Immune responses: Capacity of the body to resist pathogenic
 agents.
 
@@ -417,9 +403,7 @@ agents.
     'lymphocytes',
     'Lymphocytes',
     'article',
-    '# Lymphocytes
-
-Types of lymphocytes
+    'Types of lymphocytes
 
 ![Lymphocytes - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/lymphocytes/figure_01_p1.png)
 *Lymphocytes — Clinical Figure 1 (Page 1 Reference)*',
@@ -446,9 +430,7 @@ Types of lymphocytes
     'plasma-autoantibodies',
     'Plasma Autoantibodies',
     'article',
-    '# Plasma Autoantibodies
-
-Plasma autoantibodies
+    'Plasma autoantibodies
 
 ![Plasma Autoantibodies - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/plasma-autoantibodies/figure_01_p1.png)
 *Plasma Autoantibodies — Clinical Figure 1 (Page 1 Reference)*',
@@ -475,9 +457,7 @@ Plasma autoantibodies
     'sickle-cell-disease',
     'Sickle Cell Disease',
     'article',
-    '# Sickle Cell Disease
-
-Sickle cell disease:
+    'Sickle cell disease:
 Autosomal recessive disorder
 Type of normocytic anemia with high reticulocyte count
 Clinical features:
@@ -537,9 +517,7 @@ Diagnosis: HB Electrophoresis most accurate test',
     'wound-healing',
     'Wound Healing',
     'article',
-    '# Wound Healing
-
-Wound healing
+    'Wound healing
 Healing is the process of replacing dead and damaging tissue
 with healthy tissue; this may occur through regeneration or
 repair.
@@ -671,9 +649,7 @@ Poor blood supply',
     'clostridium-spp-bacteria',
     'Clostridium Spp - Bacteria',
     'article',
-    '# Clostridium Spp - Bacteria
-
-Clostridium Species
+    'Clostridium Species
 All the Clostridium species are Gram +Ve spore forming
 obligate anaerobes.
 Tetanus prone wound:
@@ -729,9 +705,7 @@ More easy to remeber:
     'culture-medium-for-bacterial-growth',
     'Culture Medium for Bacterial Growth',
     'article',
-    '# Culture Medium for Bacterial Growth
-
-Culture Medium For Bacterial
+    'Culture Medium For Bacterial
 Growth
 
 ![Culture Medium for Bacterial Growth - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/culture-medium-for-bacterial-growth/figure_01_p1.png)
@@ -759,9 +733,7 @@ Growth
     'escherichia-coli-klebsiella-salmonella-bacteria',
     'Escherichia Coli, Klebsiella, Salmonella - Bacteria',
     'article',
-    '# Escherichia Coli, Klebsiella, Salmonella - Bacteria
-
-Escherichia Coli:
+    'Escherichia Coli:
 Note: E. coli serotype O157 causes bloody diarrhoea associated
 with hemolytic uremic syndrome in children, characterized by
 hemolytic anemia, thrombocytopenia and acute renal failure.
@@ -817,9 +789,7 @@ in resistant cases cefotaxime or azithromycin
     'gastrointestinal-virus',
     'Gastrointestinal Virus',
     'article',
-    '# Gastrointestinal Virus
-
-Gastrointestinal Virus:
+    'Gastrointestinal Virus:
 
 ![Gastrointestinal Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/gastrointestinal-virus/figure_01_p1.png)
 *Gastrointestinal Virus — Clinical Figure 1 (Page 1 Reference)*',
@@ -846,9 +816,7 @@ Gastrointestinal Virus:
     'hellicobacter-pylori-and-compylobacter-jejuni-bacteria',
     'Hellicobacter Pylori and Compylobacter Jejuni - Bacteria',
     'article',
-    '# Hellicobacter Pylori and Compylobacter Jejuni - Bacteria
-
-Helicobacter Pylori
+    'Helicobacter Pylori
 Campylobacter Jejuni
 Note:
 Reactive arthritis (Reiter''s syndrome) is a triad of urethritis,
@@ -884,9 +852,7 @@ Salmonella, Campylobacter jejuni and Shigella
     'hepatitis-virus',
     'Hepatitis - Virus',
     'article',
-    '# Hepatitis - Virus
-
-Hepatitis:
+    'Hepatitis:
 Note: Emergency hepatitis B vaccination
 If you have been exposed to the hepatitis B virus and have
 not been vaccinated before, you should get immediate
@@ -931,9 +897,7 @@ No progression to chronic hepatitis
     'herpes-simplex-and-varicella-zooster-virus',
     'Herpes Simplex and Varicella Zooster Virus',
     'article',
-    '# Herpes Simplex and Varicella Zooster Virus
-
-Herpes Virus:
+    'Herpes Virus:
 Varicella zoster Key Points
 The incubation period is 10 - 21 days (Recall) (mean time is
 14 days).
@@ -1004,9 +968,7 @@ appears, or until all the blisters have crusted over.',
     'human-immune-virus',
     'Human Immune Virus',
     'article',
-    '# Human Immune Virus
-
-Human Immune virus (HIV)
+    'Human Immune virus (HIV)
 High-risk source for HIV
 MSM (men who have sex with men)
 Female sexual contacts of MSM
@@ -1085,9 +1047,7 @@ Monitoring: HIV viral load (PCR) and CD4+ count
     'measles-mumps-rubella-virus',
     'Measles, Mumps, Rubella - Virus',
     'article',
-    '# Measles, Mumps, Rubella - Virus
-
-Measles:
+    'Measles:
 Acute viral illness transmitted by respiratory droplets
 characterized by 3C Cough, coryza, conjunctivitis and fever.
 Measles rash: Maculopapular rash appearing first behind the
@@ -1147,9 +1107,7 @@ central nervous system defects and deafness.',
     'mycobacterium-tuberculosis-bacteria',
     'Mycobacterium Tuberculosis - Bacteria',
     'article',
-    '# Mycobacterium Tuberculosis - Bacteria
-
-Mycobacterium Tuberculosis
+    'Mycobacterium Tuberculosis
 Acid fast bacilli Causes tuberculosis transmitted via respiratory
 aerosol and characterized by chronic granulomatous
 inflammation.
@@ -1197,9 +1155,7 @@ tuberculin skin test (TST).',
     'neisseria-spp-bacteria',
     'Neisseria Spp - Bacteria',
     'article',
-    '# Neisseria Spp - Bacteria
-
-Neisseria species
+    'Neisseria species
 Neisseria Gonorrhea and Neisseria meningitis
 General features:
 Neisseria meningitis:
@@ -1255,9 +1211,7 @@ choice
     'notifiable-disease',
     'Notifiable Disease',
     'article',
-    '# Notifiable Disease
-
-Diseases notifiable to local authority
+    'Diseases notifiable to local authority
 proper officers under the Health
 Protection (Notification) Regulations
 2010:
@@ -1321,9 +1275,7 @@ Yellow fever',
     'pathogens-fungi',
     'Pathogens - Fungi',
     'article',
-    '# Pathogens - Fungi
-
-Fungi:
+    'Fungi:
 Candida: Form part of the normal flora which includes skin, GI
 tract, and female genital tract
 Candidiasis and treatment
@@ -1353,9 +1305,7 @@ Candidiasis and treatment
     'pathogens-protozoa',
     'Pathogens - Protozoa',
     'article',
-    '# Pathogens - Protozoa
-
-Malaria
+    'Malaria
 Caused by protozoan plasmodium.
 There are four different Plasmodium species relevant in
 humans:
@@ -1405,9 +1355,7 @@ pregnancy.',
     'pathogens-worms',
     'Pathogens - Worms',
     'article',
-    '# Pathogens - Worms
-
-Thread worm
+    'Thread worm
 is the most common helminth in the UK, commonly infect
 children.
 Mebendazole is the drug of choice, and you must treat
@@ -1456,9 +1404,7 @@ Treatment: Mebendazole',
     'principles-of-investigation',
     'Principles of Investigation',
     'article',
-    '# Principles of Investigation
-
-Principles of Investigations
+    'Principles of Investigations
 
 ![Principles of Investigation - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-investigation/figure_01_p1.png)
 *Principles of Investigation — Clinical Figure 1 (Page 1 Reference)*',
@@ -1485,9 +1431,7 @@ Principles of Investigations
     'principles-of-microbiology',
     'Principles of Microbiology',
     'article',
-    '# Principles of Microbiology
-
-Microbiology Principles:
+    'Microbiology Principles:
 
 > [!TIP]
 > **High yield:**
@@ -1575,9 +1519,7 @@ Route of transmission of microorganisms
     'pseudomonas-aeruginosa-legionella-pneumophilia-and-bortonella-henslae-bacteria',
     'Pseudomonas Aeruginosa, Legionella Pneumophilia and Bortonella Henslae - Bacteria',
     'article',
-    '# Pseudomonas Aeruginosa, Legionella Pneumophilia and Bortonella Henslae - Bacteria
-
-Pseudomonas Aeruginosa
+    'Pseudomonas Aeruginosa
 Gram-negative rod transmitted via direct/indirect contact
 likely in the hospital environment.
 Legionella Pneumophilia
@@ -1624,9 +1566,7 @@ scratch or bite of a cat.
     'respiratory-viruses',
     'Respiratory Viruses',
     'article',
-    '# Respiratory Viruses
-
-Croup:
+    'Croup:
 Croup (laryngotracheobronchitis) is a common respiratory
 disease that typically occurs in children aged between 6
 months and 3 years.
@@ -1795,9 +1735,7 @@ start of symptoms',
     'sexually-transmitted-bacteria',
     'Sexually Transmitted Bacteria',
     'article',
-    '# Sexually Transmitted Bacteria
-
-Sexually Transmitted Bacteria:
+    'Sexually Transmitted Bacteria:
 Chlamydia Trachomatis:
 Obligate intracellular bacterium transmitted vis sexual and
 peripartum causing Chlamydia, trachoma, ophthalmia
@@ -1851,9 +1789,7 @@ Chlamydia trachomatis:
     'streptococcus-and-staphylococcus-bactera',
     'Streptococcus and Staphylococcus Bactera',
     'article',
-    '# Streptococcus and Staphylococcus Bactera
-
-Streptococcus spp
+    'Streptococcus spp
 Common features:
 Streptococcus Spp
 (Beta hemolytic group A) Is gram +Ve Cocci in chains
@@ -1961,9 +1897,7 @@ Aureus',
     'uk-immunization-schedule',
     'Uk - Immunization Schedule',
     'article',
-    '# Uk - Immunization Schedule
-
-UK Immunization Schedule:
+    'UK Immunization Schedule:
 The routine immunization schedule
 from February 2022
 Note: Trade name is not necessary to remember.

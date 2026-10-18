@@ -66,9 +66,7 @@ BEGIN
     'arterial-supply-of-upper-limb',
     'Arterial Supply of Upper Limb',
     'article',
-    '# Arterial Supply of Upper Limb
-
-Axillary Artery:
+    'Axillary Artery:
 Is considered to be the central structure of the axilla. Extends
 from the outer border of the first rib to the inferior border of
 the teres major muscle, where it becomes the brachial artery.
@@ -91,7 +89,8 @@ It descends through the anterior compartment of the arm on
 the brachialis muscle enters the cubital fossa, and then ends
 at the level of the neck of the radius by dividing into the
 radial and the ulnar arteries.
-Branches of Brachial artery:
+
+#### Branches of Brachial artery
 
 ### 1: Muscular branches
 
@@ -150,7 +149,9 @@ ulnar artery
 Ulnar canal syndrome refers to compression of the ulnar nerve
 within the ulnar canal. The most common causes are ganglion
 cyst, lipoma and trauma.
-Superficial and Deep palmar arches:
+
+#### Superficial and Deep palmar arches
+
 The hand has a rich arterial supply with many anastomoses
 between vessels
 
@@ -196,9 +197,7 @@ Blood supply: Blood supply to digits and wrist joint.',
     'innervation-of-upper-limb',
     'Innervation of Upper Limb',
     'article',
-    '# Innervation of Upper Limb
-
-Brachial Plexus:
+    'Brachial Plexus:
 The brachial plexus is a network of nerve fibers that supply the
 skin and muscles of upper extremity. The plexus is formed by
 the anterior rami (divisions) of cervical spinal nerves C5, C6, C7,
@@ -239,21 +238,27 @@ Posterior cord: Posterior union of all three trunks
 
 ### 5: Branches:
 
-## Branches Of Lateral Cord   "Lml"
+#### BRANCHES OF LATERAL CORD   "LML"
 
-Lateral pectoral nerve
+#### Lateral pectoral nerve
+
 Musculocutaneous nerve
-Lateral root of median nerve
 
-## Branches Of Medial Cord     "M4U"
+#### Lateral root of median nerve
 
-Medial pectoral nerve
-Medial cutaneous nerve of arm
-Medial cutaneous nerve of forearm
-Medial root of median nerve
+#### BRANCHES OF MEDIAL CORD     "M4U"
+
+#### Medial pectoral nerve
+
+#### Medial cutaneous nerve of arm
+
+#### Medial cutaneous nerve of forearm
+
+#### Medial root of median nerve
+
 Ulnar nerve
 
-## Branches Of Posterior Cord   "Ultra"
+#### BRANCHES OF POSTERIOR CORD   "ULTRA"
 
 Upper subscapular nerve
 Lower subscapular nerve
@@ -313,12 +318,14 @@ brachial artery. Halfway down the arm, the nerve crosses over
 the brachial artery, and becomes situated medially. The median
 nerve enters the anterior compartment of the forearm via the
 cubital fossa
-Branches of Median Nerve in the Forearm
+
+#### Branches of Median Nerve in the Forearm
 
 ![Innervation of Upper Limb - Clinical Figure 2](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_02_p3.png)
 *Innervation of Upper Limb — Clinical Figure 2 (Page 3 Reference)*
 
-Branches of Median Nerve in the Hand
+#### Branches of Median Nerve in the Hand
+
 After giving off the anterior interosseous and palmar cutaneous
 branches, the median nerve enters the hand via the carpal
 tunnel where it terminates by dividing into two branches
@@ -515,9 +522,7 @@ lateral cutaneous nerve of forearm.
     'joints-of-the-upper-limb',
     'Joints of the Upper Limb',
     'article',
-    '# Joints of the Upper Limb
-
-Acromioclavicular Joint:
+    'Acromioclavicular Joint:
 TYPE= Plane type synovial joint
 The acromioclavicular joint consists of an articulation between
 the lateral end of the clavicle and the acromion of the scapula
@@ -744,9 +749,7 @@ posterior shoulder dislocation',
     'lymphatic-drainage-of-upper-limb',
     'Lymphatic Drainage of Upper Limb',
     'article',
-    '# Lymphatic Drainage of Upper Limb
-
-Lymphatic drainage of the Upper
+    'Lymphatic drainage of the Upper
 Limb:
 The superficial lymph vessels ascend the limb in the superficial
 fascia and accompany the superficial veins. The deep lymph
@@ -814,14 +817,17 @@ involved lymph node is axillary
     'muscles-of-the-upper-limb',
     'Muscles of the Upper Limb',
     'article',
-    '# Muscles of the Upper Limb
+    'Forearm muscles
 
-Forearm muscles
-Anterior forearm muscles superficial
+#### Anterior forearm muscles superficial
+
 compartment
-Anterior Forearm muscles intermediate
+
+#### Anterior Forearm muscles intermediate
+
 compartment:
-Anterior Forearm muscles deep compartment:
+
+#### Anterior Forearm muscles deep compartment
 
 > [!TIP]
 > **Key Point: All the muscles of anterior forearm are innervated**
@@ -861,8 +867,10 @@ The muscles in the posterior compartment of the forearm are
 commonly known as the extensor muscles.
 Extensor muscles are divided into superficial and deep
 compartment.
-Superficial compartment:
-Deep Compartment:
+
+#### Superficial compartment
+
+#### Deep Compartment
 
 > [!TIP]
 > **Clinical pearl:**
@@ -1044,9 +1052,7 @@ Innervation: Nerve to subclavius.
     'upper-limb-dermatomes-myotomes-and-reflexes',
     'Upper Limb Dermatomes, Myotomes and Reflexes',
     'article',
-    '# Upper Limb Dermatomes, Myotomes and Reflexes
-
-Dermatomes of Upper Limb:
+    'Dermatomes of Upper Limb:
 Dermatome: A dermatome is defined as ''a strip of skin that is
 innervated by a single spinal nerve and clinically very
 important and help in diagnosis of spinal cord injury
@@ -1087,9 +1093,7 @@ Reflexes of upper Limb:
     'upper-limb-other-important-structures',
     'Upper Limb Other Important Structures',
     'article',
-    '# Upper Limb Other Important Structures
-
-Carpal Tunnel:
+    'Carpal Tunnel:
 The carpel tunnel is the space that lies between the flexor
 retinaculum.
 Contents of the carpal tunnel
@@ -1253,9 +1257,7 @@ syndrome.',
     'venous-drainage-of-upper-limb',
     'Venous Drainage of Upper Limb',
     'article',
-    '# Venous Drainage of Upper Limb
-
-Venous Drainage of the Upper Limb
+    'Venous Drainage of the Upper Limb
 Deep and superficial venous arches: Are formed by a pair of
 venae comitantes, which accompany each of the deep and
 superficial palmar arterial arches.
@@ -1321,9 +1323,7 @@ inferior margin of the first rib.',
     'arterial-supply-of-lower-limb',
     'Arterial Supply of Lower Limb',
     'article',
-    '# Arterial Supply of Lower Limb
-
-### 1: Femoral Artery:
+    '### 1: Femoral Artery:
 
 The femoral artery is a continuation of the external iliac artery.
 It begins behind the inguinal ligament, where it lies midway
@@ -1336,7 +1336,9 @@ popliteal space as the popliteal artery.
 Note: In the femoral triangle, the artery is related laterally to
 the femoral nerve and medially, in the upper part of its
 course, to the femoral vein
-Branches of femoral artery:
+
+#### Branches of femoral artery
+
 Superficial circumflex iliac artery, which arises just below the
 inguinal ligament and runs laterally toward the anterior
 superior iliac spine.
@@ -1356,7 +1358,9 @@ medial, and posterior fascial compartments of the thigh.
 Popliteal artery is a continuation of femoral artery. It extends
 from the opening in the adductor magnus to the lower border of popliteus muscle, where it divides into anterior and posterior
 tibial arteries.
-Anterior Tibial Artery:
+
+#### Anterior Tibial Artery
+
 The anterior tibial artery arises at the bifurcation of the
 popliteal artery in the popliteal fossa. It passes forward
 between the tibia and the fibula through the upper part of
@@ -1364,20 +1368,26 @@ the interosseus membrane and enters the anterior
 compartment of the leg. It then descends with the deep
 peroneal nerve to the front of the ankle joint, where it
 becomes the dorsalis pedis artery
-Posterior Tibial Artery
+
+#### Posterior Tibial Artery
+
 The posterior tibial artery arises at the bifurcation of the
 popliteal artery in the popliteal fossa. It descends in the
 posterior compartment of the leg and is accompanied by the
 tibial nerve. The artery terminates behind the medial malleolus
 by dividing into the medial and the lateral plantar arteries.
-Medial Plantar Artery
+
+#### Medial Plantar Artery
+
 The medial plantar artery is the smaller of the terminal
 branches of the posterior tibial artery. It runs forward along the
 medial border of the foot with the medial plantar nerve, and it
 gives off many muscular and cutaneous branches.
-Lateral Plantar Artery
+
+#### Lateral Plantar Artery
+
 The lateral plantar artery is the larger of the terminal
-branches of the posterior tibial artery. It runs for- ward deep
+branches of the posterior tibial artery. It runs forward deep
 to the abductor hallucis and the flexor digitorum brevis
 muscles with the lateral plantar nerve, and it ends by curving
 medially to form the plantar arch through anastomosis with
@@ -1429,9 +1439,7 @@ between the medial malleolus and the heel.',
     'bones-of-the-lower-limb',
     'Bones of the Lower Limb',
     'article',
-    '# Bones of the Lower Limb
-
-Hip Bone:
+    'Hip Bone:
 The bones of the pelvis consist of the right and left hip bones,
 the sacrum and the coccyx.
 The hip bones articulate posteriorly with the sacrum at the
@@ -1524,9 +1532,7 @@ Distal group: Cuboid and Cuneiforms
     'dermatomes-myotomes-and-reflexes-of-lower-limb',
     'Dermatomes, Myotomes and Reflexes of Lower Limb',
     'article',
-    '# Dermatomes, Myotomes and Reflexes of Lower Limb
-
-Dermatomes and Myotomes of Lower
+    'Dermatomes and Myotomes of Lower
 Limb:
 Lower Limb Reflexes:
 
@@ -1558,9 +1564,7 @@ Lower Limb Reflexes:
     'joints-of-the-lower-limb',
     'Joints of the Lower Limb',
     'article',
-    '# Joints of the Lower Limb
-
-Joints of the lower limb:
+    'Joints of the lower limb:
 
 ### 1: Ligaments of the hip joint:
 
@@ -1709,9 +1713,7 @@ Talocalcaneonavicular joint:
     'lower-limb-other-significant-structures',
     'Lower Limb Other Significant Structures',
     'article',
-    '# Lower Limb Other Significant Structures
-
-Femoral Triangle:
+    'Femoral Triangle:
 The wedge-shaped area is located within the superomedial
 aspect of the anterior thigh.
 
@@ -1807,12 +1809,12 @@ Tibial nerve lies more medial to common fibular nerve.
     'lymphatic-drainage-of-lower-limb',
     'Lymphatic Drainage of Lower Limb',
     'article',
-    '# Lymphatic Drainage of Lower Limb
-
-Inguinal lymph Nodes:
+    'Inguinal lymph Nodes:
 The inguinal lymph nodes are found in the upper aspect of the
 femoral triangle.
-Superficial Inguinal Nodes:
+
+#### Superficial Inguinal Nodes
+
 The superficial inguinal lymph nodes are located in the
 superficial fascia, forming a line below the inguinal ligament,
 and medially extending inferiorly along the terminal part of the
@@ -1821,7 +1823,9 @@ region, lower abdominal wall, perineum, and superficial regions
 of the lower limb.
 Superficial inguinal lymph nodes drain into deep inguinal
 nodes.
-Deep Inguinal Nodes:
+
+#### Deep Inguinal Nodes
+
 Lie along the medial side of femoral vein within the femoral
 canal. They receive all lymph from superficial inguinal lymph
 nodes, deep lymphatics associated with the femoral vessels
@@ -1860,9 +1864,7 @@ abdomen.
     'muscles-of-the-lower-limb',
     'Muscles of the Lower Limb',
     'article',
-    '# Muscles of the Lower Limb
-
-Muscles of Gluteal Region:
+    'Muscles of Gluteal Region:
 Muscles of the gluteal region are divided into two groups.
 
 ### 1: Superficial gluteal muscles
@@ -1898,7 +1900,9 @@ to stand without support on each leg. In a positive sign, pelvic
 drop will occur on the unsupported leg. For example, if the
 right gluteal muscles are weak, the left side of the pelvis will
 drop.
-Anterior compartment of thigh
+
+#### Anterior compartment of thigh
+
 muscles:
 Note: All the muscles of anterior compartment of thigh are
 flexors of thigh at hip joint, while quadriceps femoris is
@@ -1906,7 +1910,9 @@ extensor of thigh at knee joint and Sartorius also flexes thigh at
 knee.
 Note:    Sartorius originates from anterior superior iliac spine
 Rectus femoris originates from anterior inferior iliac spine.
-Medial Compartment of thigh
+
+#### Medial Compartment of thigh
+
 muscles:
 Medial compartment consists of five Indvidual muscles.
 All the muscles of medial compartment of thigh causes
@@ -1942,7 +1948,8 @@ thigh at hip joint
 
 Muscles in the anterior compartment
 of leg:
-Anterior leg consists of four muscles
+
+#### Anterior leg consists of four muscles
 
 > [!TIP]
 > **Clinical pearls: Foot Drop (Discussed in nerves of the lower**
@@ -1955,7 +1962,7 @@ Anterior leg consists of four muscles
 ![Muscles of the Lower Limb - Clinical Figure 6](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_06_p4.png)
 *Muscles of the Lower Limb — Clinical Figure 6 (Page 4 Reference)*
 
-Deep muscles in the posterior leg:
+#### Deep muscles in the posterior leg
 
 > [!TIP]
 > **Clinical pearls:**
@@ -2016,9 +2023,7 @@ second layer of the sole of foot.
     'nerves-of-the-lower-limb',
     'Nerves of the Lower Limb',
     'article',
-    '# Nerves of the Lower Limb
-
-Femoral nerve
+    'Femoral nerve
 Nerve roots: L2-L4
 Motor functions: Innervates the anterior thigh muscles.
 Sensory functions:
@@ -2042,7 +2047,8 @@ divisions
 
 ### 1: Anterior division of the femoral nerve
 
-Anterior cutaneous branches
+#### Anterior cutaneous branches
+
 Branch to sartorius
 Branch to pectineus
 
@@ -2228,9 +2234,8 @@ peroneal nerve or also due to deep fibular nerve injury.',
     'venous-drainage-of-lower-limb',
     'Venous Drainage of Lower Limb',
     'article',
-    '# Venous Drainage of Lower Limb
+    '#### Superficial Veins of the Lower Limb
 
-Superficial Veins of the Lower Limb
 The great saphenous vein: originate from medial side of the
 dorsal venous arch in the foot, passes anterior to the medial
 malleolus (not posterior), travels up the medial side of leg,
@@ -2283,9 +2288,7 @@ knee.
     'bones-of-thorax',
     'Bones of Thorax',
     'article',
-    '# Bones of Thorax
-
-Ribs:
+    'Ribs:
 Consist of 12 pairs of bones that form the main part of the bony
 thoracic wall, extending from the vertebrae posteriorly to or
 toward the sternum anteriorly. Increase the anteroposterior
@@ -2356,9 +2359,7 @@ injury to the intercostal neurovascular bundle.',
     'dermatomes-of-trunk',
     'Dermatomes of Trunk',
     'article',
-    '# Dermatomes of Trunk
-
-Dermatomal supply of trunk:
+    'Dermatomal supply of trunk:
 
 > [!TIP]
 > **High yield:**
@@ -2391,9 +2392,7 @@ Dermatomal supply of trunk:
     'muscles-of-thorax',
     'Muscles of Thorax',
     'article',
-    '# Muscles of Thorax
-
-Muscles of the thoracic cage:
+    'Muscles of the thoracic cage:
 These are five muscles that make the thoracic cage
 External intercostals
 Internal intercostals
@@ -2503,9 +2502,7 @@ symptoms of acid reflux.
     'structures-of-the-thorax-mediastinum',
     'Structures of the Thorax - Mediastinum',
     'article',
-    '# Structures of the Thorax - Mediastinum
-
-Mediastinum:
+    'Mediastinum:
 The mediastinum is an interpleural space and consists of the
 superior mediastinum and inferior mediastinum. The inferior
 mediastinum further divides into the anterior, middle, and
@@ -2537,9 +2534,7 @@ nerves, and sympathetic splanchnic nerves',
     'structures-of-the-thorax-tracheobronchial-tree',
     'Structures of the Thorax - Tracheobronchial Tree',
     'article',
-    '# Structures of the Thorax - Tracheobronchial Tree
-
-Tracheobronchial Tree
+    'Tracheobronchial Tree
 Trachea:
 The trachea marks the beginning of the tracheobronchial tree,
 arises at the lower border of cricoid cartilage in the neck (C6),
@@ -2610,9 +2605,7 @@ sacs, the walls of which form alveoli.',
     'structures-of-the-thorax-heart-and-pericardium',
     'Structures of the Thorax - Heart and Pericardium',
     'article',
-    '# Structures of the Thorax - Heart and Pericardium
-
-Heart and pericardium
+    'Heart and pericardium
 Pericardium
 Fibro-serous, fluid-filled sack that surrounds the muscular
 body of the heart and the roots of the great vessels. Great
@@ -2736,8 +2729,10 @@ Great Vessels of the heart: Mnemonic
 
 ## (Sippa)
 
-Superior vena cava
-Inferior vena cava
+#### Superior vena cava
+
+#### Inferior vena cava
+
 Pulmonary arteries
 Pulmonary veins
 Aorta
@@ -2843,9 +2838,7 @@ Lateral wall MI: LCX occluded.
     'structures-of-the-thorax-lungs-and-pleurae',
     'Structures of the Thorax - Lungs and Pleurae',
     'article',
-    '# Structures of the Thorax - Lungs and Pleurae
-
-## Lung:
+    '## Lung:
 
 Lungs lie either side of the mediastinum, within the thoracic
 cavity. Each lung is surrounded by pleural cavity, which is
@@ -3039,9 +3032,7 @@ superior margin of a rib to avoid injury to the intercostal neurovascular bundle
     'structures-of-the-thorax-oesophagus',
     'Structures of the Thorax - Oesophagus',
     'article',
-    '# Structures of the Thorax - Oesophagus
-
-Oesophagus:
+    'Oesophagus:
 Fibromuscular tube that transports food from pharynx to
 stomach, divided into three parts:
 Cervical: continuous with the oropharynx, commences at the
@@ -3097,9 +3088,7 @@ vagal plexus (parasympathetic fibres)',
     'structures-of-the-thorax-thymus',
     'Structures of the Thorax - Thymus',
     'article',
-    '# Structures of the Thorax - Thymus
-
-The thymus
+    'The thymus
 lobulated lymphoid organ, located in the thoracic cavity and
 neck. In the adolescent, it is involved the development of the
 immune system
@@ -3163,9 +3152,7 @@ gland.',
     'thoracic-wall-movements',
     'Thoracic Wall Movements',
     'article',
-    '# Thoracic Wall Movements
-
-Thoracic wall movements:
+    'Thoracic wall movements:
 In general, the ribs move around two axes, Movement of the
 ribs at the costovertebral joints in respiration results in the
 ''pump handle'' and ''bucket handle'' movements:
@@ -3234,9 +3221,7 @@ diaphragmatic hernia.
     'transverse-thoracic-plane-thoracic-inlet-and-outlet',
     'Transverse Thoracic Plane - Thoracic Inlet and Outlet',
     'article',
-    '# Transverse Thoracic Plane - Thoracic Inlet and Outlet
-
-Transverse thoracic plane
+    'Transverse thoracic plane
 lies at the level of 2nd intercostal space and intervertebral disc
 between T4 & T5
 CLAPTRAP is a useful mnemonic to remember structures
@@ -3316,9 +3301,7 @@ lymph nodes and lymphatic vessels
     'abdominal-wall-muscles',
     'Abdominal Wall Muscles',
     'article',
-    '# Abdominal Wall Muscles
-
-Layers of the Abdominal Wall
+    'Layers of the Abdominal Wall
 (external to internal)
 Skin
 Superficial fascia (Camper''s fascia: Superficial fatty
@@ -3326,7 +3309,9 @@ layer Scarpa''s fascia: deep fibrous layer )
 Muscles
 Transversalis fascia
 Parietal peritoneum
-Anterior abdominal wall muscles
+
+#### Anterior abdominal wall muscles
+
 The muscles of the anterolateral abdominal wall can be
 divided into two main groups that lie deep in the superficial
 fascia.
@@ -3366,7 +3351,9 @@ Rectus abdominus and the pyramidalis muscle
 The superior and inferior epigastric vessels
 The termination of intercostal nerves T7-T11
 The 12th thoracic nerve and the accompanying vessels
-Posterior abdominal wall muscle
+
+#### Posterior abdominal wall muscle
+
 Important posterior abdominal wall muscles are the psoas
 major, minor, the iliacus and the quadratus lumborum which
 each possess a strong fascial covering.
@@ -3414,9 +3401,7 @@ inserting to the lesser trochanter of the femur.
     'accessory-organs-of-the-abdomen',
     'Accessory Organs of the Abdomen',
     'article',
-    '# Accessory Organs of the Abdomen
-
-The Liver:
+    'The Liver:
 largest visceral organ and the largest gland in the human body.
 Plays an important role in production and secretion of bile
 used in emulsification of fats and detoxification by filtering the
@@ -3724,9 +3709,7 @@ greater splanchnic nerves.
     'areas-of-abdomen',
     'Areas of Abdomen',
     'article',
-    '# Areas of Abdomen
-
-Areas of the abdomen
+    'Areas of the abdomen
 Inguinal canal: pathway by which structures can pass from
 the abdominal wall to the external genitalia.
 Inguinal canal boundaries
@@ -3856,9 +3839,7 @@ posterior abdominal wall
     'dermatomes-of-trunk',
     'Dermatomes of Trunk',
     'article',
-    '# Dermatomes of Trunk
-
-Dermatomal supply of trunk
+    'Dermatomal supply of trunk
 
 > [!TIP]
 > **High yield:**
@@ -3891,9 +3872,7 @@ Dermatomal supply of trunk
     'gastrointestinal-tract',
     'Gastrointestinal Tract',
     'article',
-    '# Gastrointestinal Tract
-
-Stomach:
+    'Stomach:
 Intraperitoneal organ located between oesophagus and
 duodenum, lie in epigastrium, umblical and left
 hypochondrium.
@@ -4241,9 +4220,7 @@ fibers of the inferior rectal nerves.
     'lumbar-spine-and-plexus',
     'Lumbar Spine and Plexus',
     'article',
-    '# Lumbar Spine and Plexus
-
-Lumbar spine:
+    'Lumbar spine:
 located between the thoracic and sacral vertebral segments.
 Ligaments of the lumbar spine
 Note: In the cervical spine, the interspinous and supraspinous
@@ -4289,9 +4266,7 @@ rectus abdominus and pyramidalis muscle
     'male-and-female-reproductive-system',
     'Male and Female Reproductive System',
     'article',
-    '# Male and Female Reproductive System
-
-Male Genital organs:
+    'Male Genital organs:
 Testis and Epididymis:
 Paired structure located within the scrotum
 Testis and Epididymis are Suspended in the scrotum by the
@@ -4370,7 +4345,9 @@ Prostate gland:
 largest accessory structure of male reproductive system lies
 immediately inferior to the bladder and the internal urethral
 sphincter
-Anterior to the rectum
+
+#### Anterior to the rectum
+
 superior to the external urethral sphincter
 Functional anatomy: Secretes a fluid that produces the
 characteristic odor of semen. This fluid, the secretion from the
@@ -4517,9 +4494,7 @@ Somatic afferents: accompany pudendal nerve to S2-S4.
     'pelvic-diaphragm-and-supporting-structures',
     'Pelvic Diaphragm and Supporting Structures',
     'article',
-    '# Pelvic Diaphragm and Supporting Structures
-
-Pelvic diaphragm and supporting
+    'Pelvic diaphragm and supporting
 structures:
 Pelvic Diaphragm:
 Forms the pelvic floor and supports all of the pelvic viscera.
@@ -4588,9 +4563,7 @@ peritoneal sac between the bladder and the uterus in females',
     'urinary-tract',
     'Urinary Tract',
     'article',
-    '# Urinary Tract
-
-Kidney
+    'Kidney
 The kidneys are two bean-shaped organs, located on either
 side of the spine, in the retroperitoneal space, extend
 between vertebrae T12 - L3.
@@ -4672,14 +4645,18 @@ semen.
 Male urethra: Male urethra is approximately 20 cm long and
 consists of: prostatic, membranous, bulbous and spongy
 urethra.
-Anterior urethra:
+
+#### Anterior urethra
+
 Penile (spongy) urethra (16 cm long): encased by corpus
 spongiosum of the penis (the longest portion).
 Bulbar (bulbous) urethra traverses the root of the penis, it
 receives the ducts from the bulbourethral glands and the
 glands of Littre
 .
-Posterior urethra
+
+#### Posterior urethra
+
 Membranous urethra (1 cm long): passes through the
 urogenital diaphragm, surrounded by sphincter urethrae. The
 shortest and narrowest portion. The lowest part of the
@@ -4792,12 +4769,13 @@ distended until overflow incontinence occurs.',
     'anterior-and-posterior-triangle-of-neck',
     'Anterior and Posterior Triangle of Neck',
     'article',
-    '# Anterior and Posterior Triangle of Neck
+    '#### Posterior triangle
 
-Posterior triangle
 Borders:
 Posterior border of the sternocleidomastoid muscle
-Anterior border of the trapezius muscle
+
+#### Anterior border of the trapezius muscle
+
 Superior border of the clavicle.
 Roof:
 Platysma and the investing (superficial) layer of the deep
@@ -4810,10 +4788,15 @@ Arteries: Third part of subclavian artery, Transverse cervical and
 suprascapular arteries.
 Nerves: Accessory nerve (CN XI), Phrenic nerve, Branches of
 cervical plexus and Root and trunks of brachial plexus,
-Anterior triangle
+
+#### Anterior triangle
+
 Borders:
-Anterior border of the sternocleidomastoid
-Anterior midline of the neck
+
+#### Anterior border of the sternocleidomastoid
+
+#### Anterior midline of the neck
+
 Inferior border of the mandible.
 Roof:
 Platysma and the investing layer of the deep cervical fascia.
@@ -4860,9 +4843,7 @@ Nerves: Nerve to Mylohyoid, CN XII & Ansa Cervicalis
     'muscles-of-the-neck',
     'Muscles of the Neck',
     'article',
-    '# Muscles of the Neck
-
-Platysma
+    'Platysma
 Superficial muscle of the neck, covers most of the anterior and
 lateral aspect of the neck
 Sternocleidomastoid muscle
@@ -4912,9 +4893,7 @@ Musculature of tongue
     'structure-of-the-eyeball-and-eyelid',
     'Structure of the Eyeball and Eyelid',
     'article',
-    '# Structure of the Eyeball and Eyelid
-
-Structure of the Eyeball
+    'Structure of the Eyeball
 The eyeball consists of 3 coats:
 
 ### 1. External protective fibrous coat: Made up of anterior
@@ -5031,9 +5010,7 @@ prevents the eyelids from sticking together when closed.
     'thyroid-gland',
     'Thyroid Gland',
     'article',
-    '# Thyroid Gland
-
-Thyroid Gland
+    'Thyroid Gland
 The thyroid gland is an endocrine organ which regulates basal
 metabolic rate & stimulates growth
 Parts
@@ -5077,8 +5054,11 @@ Lymphatic Drainage: deep cervical Lymph nodes
 
 Recurrent laryngeal nerve
 Thyroid Ima artery
-Inferior thyroid vein
-Anterior jugular vein
+
+#### Inferior thyroid vein
+
+#### Anterior jugular vein
+
 Parathyroid gland
 Oesophagus',
     false,
@@ -5104,9 +5084,7 @@ Oesophagus',
     'visual-pathway',
     'Visual Pathway',
     'article',
-    '# Visual Pathway
-
-Visual pathway
+    'Visual pathway
 The visual pathway consists of the retina, optic nerves, optic
 chiasm, optic tracts, lateral geniculate bodies, optic radiations,
 and visual cortex.
@@ -5174,9 +5152,7 @@ pathway known as Meyers'' loop, to reach the visual cortex.
     'brainstem-pons',
     'Brainstem, Pons',
     'article',
-    '# Brainstem, Pons
-
-Brainstem:
+    'Brainstem:
 Consists of midbrain, pons and medulla.
 Mid brain:
 Smallest of the three regions lies predominantly in the
@@ -5204,8 +5180,11 @@ Vasculature of the mid brain:
 The midbrain receives vascular supply from the basilar artery,
 and its branches. The major vessels are:
 Posterior cerebral artery and its peduncular branch
-Superior cerebellar artery
-Posterior choroidal artery
+
+#### Superior cerebellar artery
+
+#### Posterior choroidal artery
+
 Interpeduncular branches of the basilar artery
 Pons:
 largest part of the brainstem, located above the medulla and
@@ -5261,9 +5240,7 @@ tumors noted',
     'basal-ganglia',
     'Basal Ganglia',
     'article',
-    '# Basal Ganglia
-
-Basal Ganglia:
+    'Basal Ganglia:
 The cluster of sub-cortical nuclei located deep to cerebral
 hemispheres. Basal ganglia''s largest component is corpus
 striatum which contains the caudate and lenticular nuclei
@@ -5316,9 +5293,7 @@ functionally as a part of the basal ganglia
     'central-nervous-system-overview',
     'Central Nervous System - Overview',
     'article',
-    '# Central Nervous System - Overview
-
-Central Nervous system overview
+    'Central Nervous system overview
 The central nervous system consists of the brain and the spinal
 cord. The peripheral nervous system consists of the extensions
 of neural structures beyond the central nervous system and
@@ -5405,9 +5380,7 @@ cord including the posterior horns and columns.',
     'cerebellum',
     'Cerebellum',
     'article',
-    '# Cerebellum
-
-Cerebellum:
+    'Cerebellum:
 The cerebellum is located at the back of the brain, immediately
 inferior to the occipital and temporal lobes. It is separated from
 these lobes by the tentorium cerebelli
@@ -5465,9 +5438,7 @@ and PICA. Way to remember PICA can''t chew.
     'cerebrum',
     'Cerebrum',
     'article',
-    '# Cerebrum
-
-Cerebrum:
+    'Cerebrum:
 The cerebrum is the largest part of the brain, located
 superiorly and anteriorly in relation to the brainstem.
 It consists of two cerebral hemispheres (left and right),
@@ -5543,9 +5514,7 @@ artery
     'medulla',
     'Medulla',
     'article',
-    '# Medulla
-
-Medulla:
+    'Medulla:
 The most inferior of the three and is continuous above with the
 pons and below with the spinal cord
 
@@ -5577,9 +5546,7 @@ pons and below with the spinal cord
     'spinal-cord-syndrome',
     'Spinal Cord Syndrome',
     'article',
-    '# Spinal Cord Syndrome
-
-Spinal cord syndrome:
+    'Spinal cord syndrome:
 
 > [!TIP]
 > **High yield:**
@@ -5612,9 +5579,7 @@ Spinal cord syndrome:
     'spinal-cord-tracts',
     'Spinal Cord Tracts',
     'article',
-    '# Spinal Cord Tracts
-
-Tracts of Spinal Cord:
+    'Tracts of Spinal Cord:
 The spinal cord consists of various groups of nerve fibers
 carrying sensory information toward the brain and receiving
 motor information from the brain.
@@ -5652,9 +5617,7 @@ Descending Tracts of the Spinal Cord:
     'thalamus',
     'Thalamus',
     'article',
-    '# Thalamus
-
-Thalamus:
+    'Thalamus:
 Paired grey matter structure located around the third ventricle
 made up of at least 50 thalamic nuclei
 Thalamus function:
@@ -5690,9 +5653,7 @@ Role in emotions & recent memory',
     'the-ventricles',
     'The Ventricles',
     'article',
-    '# The Ventricles
-
-The Ventricles:
+    'The Ventricles:
 The ventricles are a set of communicating cavities within the
 brain that are responsible for the production, transport and
 removal of cerebrospinal fluid (CSF), which bathes the central
@@ -5753,9 +5714,7 @@ circulation.',
     'vasculature-of-the-cns',
     'Vasculature of the CNS',
     'article',
-    '# Vasculature of the CNS
-
-Vasculature of the central nervous
+    'Vasculature of the central nervous
 system:
 Vasculature of brain:
 Two paired arteries are responsible for the blood supply to
@@ -5766,7 +5725,9 @@ Within the cranial vault, the terminal branches of these
 arteries form an anastomotic circle, called the Circle of Willis.
 From this circle, branches arise which supply the majority of
 the cerebrum.
-Branches of internal carotid artery:
+
+#### Branches of internal carotid artery
+
 The two internal carotid arteries arise from the common
 carotid arteries at the level of vertebra C4 and enter the cranial
 cavity through the carotid canal in the temporal bone. Entering
@@ -5785,7 +5746,8 @@ The anterior communicating artery (joining the two anterior
 cerebral arteries)
 The middle cerebral artery (supplying the lateral cerebral
 hemispheres)
-Branches of vertebral arteries
+
+#### Branches of vertebral arteries
 
 The two vertebral arteries (left and right), branches of the
 subclavian arteries, ascend through the transverse foramina of
@@ -5875,9 +5837,7 @@ cord including the posterior horns and columns.',
     'cranial-nerve-1-olfactory-nerve',
     'Cranial Nerve 1 - Olfactory Nerve',
     'article',
-    '# Cranial Nerve 1 - Olfactory Nerve
-
-Olfactory nerve:
+    'Olfactory nerve:
 First and shortest cranial nerve transmits sensory information
 from the nasal epithelium via the cribriform plate of the
 ethmoid bone to the primary olfactory cortex
@@ -5907,9 +5867,7 @@ ethmoid bone to the primary olfactory cortex
     'cranial-nerve-iii-oculomotor-nerve',
     'Cranial Nerve Iii_ Oculomotor Nerve',
     'article',
-    '# Cranial Nerve Iii_ Oculomotor Nerve
-
-Oculomotor Nerve (CN III):
+    'Oculomotor Nerve (CN III):
 Motor nerve arises from midbrain, passes through the lateral
 aspect of cavernous sinus and exits skull through the superior
 orbital fissure
@@ -5939,9 +5897,7 @@ orbital fissure
     'cranial-nerve-ii-optic-nerve',
     'Cranial Nerve Ii_ Optic Nerve',
     'article',
-    '# Cranial Nerve Ii_ Optic Nerve
-
-Optic nerve:
+    'Optic nerve:
 Transmit special sensory information from the retina of the eye
 to the primary visual cortex of the brain.
 Enters skull via optic canal of the sphenoid bone
@@ -5987,9 +5943,7 @@ nerve disease
     'cranial-nerve-iv-trochlear-nerve',
     'Cranial Nerve Iv_ Trochlear Nerve',
     'article',
-    '# Cranial Nerve Iv_ Trochlear Nerve
-
-Trochlear Nerve:
+    'Trochlear Nerve:
 smallest cranial nerve (by number of axons) yet has the longest
 intracranial course. Emerges from posterior aspect of midbrain,
 travels through lateral aspect of cavernous sinus, exits skull
@@ -6020,9 +5974,7 @@ through superior orbital fissure.
     'cranial-nerve-ix-glassopharyngeal-nerve',
     'Cranial Nerve Ix_ Glassopharyngeal Nerve',
     'article',
-    '# Cranial Nerve Ix_ Glassopharyngeal Nerve
-
-Glossopharyngeal Nerve (CN IX):
+    'Glossopharyngeal Nerve (CN IX):
 originates in the medulla oblongata of the brain, moves
 laterally in the posterior cranial fossa, and leaves the skull
 through jugular foramen.
@@ -6055,9 +6007,7 @@ glossopharyngeal nerve
     'cranial-nerve-viii-vestibulocochlear-nerve',
     'Cranial Nerve Viii_ Vestibulocochlear Nerve',
     'article',
-    '# Cranial Nerve Viii_ Vestibulocochlear Nerve
-
-Vestibulocochlear Nerve (CN VIII):
+    'Vestibulocochlear Nerve (CN VIII):
 Comprised of two vestibular and cochlear portions, emerges
 from the brainstem at the cerebellopontine angle, enters
 internal acoustic meatus of temporal bone.
@@ -6087,9 +6037,7 @@ internal acoustic meatus of temporal bone.
     'cranial-nerve-vii-facial-nerve',
     'Cranial Nerve Vii_ Facial Nerve',
     'article',
-    '# Cranial Nerve Vii_ Facial Nerve
-
-Facial nerve:
+    'Facial nerve:
 The facial nerve exits the cranial cavity through the internal
 acoustic meatus and enters the facial canal of the temporal
 bone. The nerve then exits the skull through the Stylomastoid
@@ -6172,9 +6120,7 @@ carried by the glossopharyngeal nerve (CNIX)',
     'cranial-nerve-vi-abducent-nerve',
     'Cranial Nerve Vi_ Abducent Nerve',
     'article',
-    '# Cranial Nerve Vi_ Abducent Nerve
-
-Abducent nerve:
+    'Abducent nerve:
 Purely motor nerve supplying lateral rectus muscle, arises from
 pons of the midbrain, travels through cavernous sinus, exits
 skull through superior orbital fissure.
@@ -6204,9 +6150,7 @@ skull through superior orbital fissure.
     'cranial-nerve-v-trigeminal-nerve',
     'Cranial Nerve V_ Trigeminal Nerve',
     'article',
-    '# Cranial Nerve V_ Trigeminal Nerve
-
-Trigeminal nerve:
+    'Trigeminal nerve:
 Mixed motor and sensory nerve. It is also the largest cranial
 nerve. Arises from several nuclei in the brainstem, exits
 brainstem from pons It has three main divisions:
@@ -6242,9 +6186,7 @@ brainstem from pons It has three main divisions:
     'cranial-nerve-xii-hypoglossal-nerve',
     'Cranial Nerve Xii_ Hypoglossal Nerve',
     'article',
-    '# Cranial Nerve Xii_ Hypoglossal Nerve
-
-Hypoglossal Nerve:
+    'Hypoglossal Nerve:
 Pure motor nerve arises from medulla oblongata passes
 laterally across the posterior cranial fossa, within the
 subarachnoid space, exits the cranium via the hypoglossal
@@ -6275,9 +6217,7 @@ canal of the occipital bone.
     'cranial-nerve-xi-spinal-accessory-nerve',
     'Cranial Nerve Xi_ Spinal Accessory Nerve',
     'article',
-    '# Cranial Nerve Xi_ Spinal Accessory Nerve
-
-Spinal Accessory Nerve (CN XI):
+    'Spinal Accessory Nerve (CN XI):
 Arises from cervical segments C1 - C5/C6, enters cranial cavity
 through foramen magnum, travels through posterior cranial
 fossa and exits skull through jugular foramen.
@@ -6309,25 +6249,25 @@ artery and innervate sternocleidomastoid muscle.
     'cranial-nerve-x-vagus-nerve',
     'Cranial Nerve X_ Vagus Nerve',
     'article',
-    '# Cranial Nerve X_ Vagus Nerve
-
-Vagus nerve
+    'Vagus nerve
 originates in the medulla oblongata of the brain and leaves
 skull through jugular foramen together with CN IX and CN XI
 respectively.
 
 > [!TIP]
 > **High yield:**
-> Branches of vagus nerve:
-> Superior laryngeal nerve: innervate cricothyroid muscle and
-> gives sensory innervation to laryngopharynx and superior part
-> of the larynx
-> Right Recurrent laryngeal nerve: Hooks underneath right
-> subclavian artery and ascends towards larynx and innervate
-> muscles of larynx
-> Left Recurrent laryngeal nerve: Hooks underneath the arch of
-> aorta, and ascends towards larynx and innervate muscles of
-> larynx
+
+#### Branches of vagus nerve
+
+Superior laryngeal nerve: innervate cricothyroid muscle and
+gives sensory innervation to laryngopharynx and superior part
+of the larynx
+Right Recurrent laryngeal nerve: Hooks underneath right
+subclavian artery and ascends towards larynx and innervate
+muscles of larynx
+Left Recurrent laryngeal nerve: Hooks underneath the arch of
+aorta, and ascends towards larynx and innervate muscles of
+larynx
 
 > [!TIP]
 > **Clinical pearls:**
@@ -6386,9 +6326,7 @@ Causes of syncope:
     'action-potential',
     'Action Potential',
     'article',
-    '# Action Potential
-
-Generation of Action potential
+    'Generation of Action potential
 Once triggered an action potential will travel over the entire
 surface of an excitable cell and will always have the same
 amplitude. An action potential is an all or nothing response;
@@ -6455,9 +6393,7 @@ an action potential can travel only in one direction.',
     'cell-membrane-transport',
     'Cell Membrane Transport',
     'article',
-    '# Cell Membrane Transport
-
-Cell membrane transport
+    'Cell membrane transport
 Cell membrane transport: Occurs through large pores, career
 proteins and ion channels.
 Fick''s law of diffusion: (Net rate of
@@ -6516,9 +6452,7 @@ Example of hypertonic fluid: 3% Hypertonic saline
     'homeostasis',
     'Homeostasis',
     'article',
-    '# Homeostasis
-
-Homeostasis
+    'Homeostasis
 Maintenance of steady states in body by coordinated
 physiologic mechanisms.
 
@@ -6593,9 +6527,7 @@ Follicular phase of menstrual cycle
     'nerve-muscle',
     'Nerve Muscle',
     'article',
-    '# Nerve Muscle
-
-Nerve muscle
+    'Nerve muscle
 Skeletal muscle structure:
 The connective tissue surrounding the whole muscle is called
 the epimysium. The connective tissue that extends beyond
@@ -6646,9 +6578,7 @@ Comparison between them:
     'neuromuscular-junction',
     'Neuromuscular Junction',
     'article',
-    '# Neuromuscular Junction
-
-Neuromuscular junction
+    'Neuromuscular junction
 Junction between a nerve ending and muscle membrane.
 Synapse: Junction between excitable cells that allows
 transmission of a signal from first cell to next is called synapse
@@ -6687,9 +6617,7 @@ in basal lamina; this prevents re-excitation.',
     'organisation-of-cell',
     'Organisation of Cell',
     'article',
-    '# Organisation of Cell
-
-Organization of cell
+    'Organization of cell
 A typical cell is made up of four basic structures, which from
 outside to inside are:
 Cell membrane
@@ -6766,9 +6694,7 @@ reticulum (bound ribosomes).',
     'osmolality-and-osmolal-gap',
     'Osmolality and Osmolal Gap',
     'article',
-    '# Osmolality and Osmolal Gap
-
-Osmolality and osmolal gap
+    'Osmolality and osmolal gap
 
 ![Osmolality and Osmolal Gap - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/osmolality-and-osmolal-gap/figure_01_p1.png)
 *Osmolality and Osmolal Gap — Clinical Figure 1 (Page 1 Reference)*',
@@ -6795,9 +6721,7 @@ Osmolality and osmolal gap
     'skeletal-muscle-excitation-contraction-coupling',
     'Skeletal Muscle Excitation Contraction Coupling',
     'article',
-    '# Skeletal Muscle Excitation Contraction Coupling
-
-Skeletal excitation contraction
+    'Skeletal excitation contraction
 coupling
 Muscle contraction occurs when the concentration of
 intracellular Ca2+ rises.
@@ -6847,9 +6771,7 @@ occurs.',
     'teatnus-and-rigor-mortis',
     'Teatnus and Rigor Mortis',
     'article',
-    '# Teatnus and Rigor Mortis
-
-Tetanus and Rigor mortis
+    'Tetanus and Rigor mortis
 Tetanus: During repeated stimulation of a muscle fiber,
 Calcium is released from the sarcoplasmic reticulum (SR) more
 quickly than it can be reaccumulated; therefore, the
@@ -6886,9 +6808,7 @@ detoriates.',
     'vessel-fluid-dynamics',
     'Vessel Fluid Dynamics',
     'article',
-    '# Vessel Fluid Dynamics
-
-Vessel fluid dynamics
+    'Vessel fluid dynamics
 Flow rate(Q) = vA (where v is flow velocity and A cross sectional
 vector Area
 Tube flow:
@@ -6960,9 +6880,7 @@ efficient.',
     'cardiac-cycle',
     'Cardiac Cycle',
     'article',
-    '# Cardiac Cycle
-
-Heart as pump
+    'Heart as pump
 The heart is a →  chambered muscular organ that contracts
 rhythmically to pump blood into arteries and receive it back
 through veins, thereby keeping blood in constant circulation.
@@ -7065,9 +6983,7 @@ during diastole.',
     'cardiac-excitation-contraction-coupling',
     'Cardiac Excitation Contraction Coupling',
     'article',
-    '# Cardiac Excitation Contraction Coupling
-
-Cardiac excitation contraction
+    'Cardiac excitation contraction
 coupling:
 Calcium entry during action potential is essential for
 contraction but it accounts for only 25% of the rise in
@@ -7118,9 +7034,7 @@ an energy source.',
     'cardiac-myocyte',
     'Cardiac Myocyte',
     'article',
-    '# Cardiac Myocyte
-
-Cardiac myocyte
+    'Cardiac myocyte
 Cardiac myocyte and comparison with other
 cells
 
@@ -7149,9 +7063,7 @@ cells
     'components-of-the-vasculature',
     'Components of the Vasculature',
     'article',
-    '# Components of the Vasculature
-
-Components of the vasculature
+    'Components of the vasculature
 
 ### 1: Arteries:
 
@@ -7250,9 +7162,7 @@ Vena cava, 4 mm Hg',
     'conducting-system-of-heart',
     'Conducting System of Heart',
     'article',
-    '# Conducting System of Heart
-
-Conducting system of heart
+    'Conducting system of heart
 Special system of heart that generates rhythmical impulses
 and conducts these impulses through heart, is called excitatory
 and conductive system of heart. Consists of:
@@ -7302,9 +7212,7 @@ interval (1st degree heart block)',
     'electrocardiography-ecg',
     'Electrocardiography (ecg)',
     'article',
-    '# Electrocardiography (ecg)
-
-ECG
+    'ECG
 12 Conventional ECG leads record the difference in potential.
 Six extremity limb leads and six chest pericardial leads.
 Six Extremity leads: Three bipolar leads (I, II, III) and three
@@ -7345,9 +7253,7 @@ left leg (LL).
     'harmonal-control-of-blood-flow',
     'Harmonal Control of Blood Flow',
     'article',
-    '# Harmonal Control of Blood Flow
-
-Hormonal Control of Blood Flow
+    'Hormonal Control of Blood Flow
 Histamine: causes arteriolar dilation and venous constriction.
 The combined effects of arteriolar dilation and venous
 constriction cause increased capillary hydrostatic pressure and
@@ -7455,9 +7361,7 @@ Vasoconstricting and Vasodilating agent:
     'heart-sounds-mechanical-events-and-correspondance-with-ecg',
     'Heart Sounds, Mechanical Events and Correspondance with ECG',
     'article',
-    '# Heart Sounds, Mechanical Events and Correspondance with ECG
-
-Heart sounds, Mechanical event and correspondence with
+    'Heart sounds, Mechanical event and correspondence with
 ECG
 
 ![Heart Sounds, Mechanical Events and Correspondance with ECG - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/heart-sounds-mechanical-events-and-correspondance-with-ecg/figure_01_p1.png)
@@ -7485,9 +7389,7 @@ ECG
     'heart-volumes',
     'Heart Volumes',
     'article',
-    '# Heart Volumes
-
-Heart volume
+    'Heart volume
 The total blood volume in the circulatory system of a healthy
 adult is about 5 L.
 Stroke Volume Output: The volume of blood that is ejected
@@ -7531,9 +7433,7 @@ ejected during systole, is called ejection fraction. (Value: 60%)',
     'microcirculation-and-lymph',
     'Microcirculation and Lymph',
     'article',
-    '# Microcirculation and Lymph
-
-Microcirculation and Lymph
+    'Microcirculation and Lymph
 Structure of capillary beds
 Metarterioles branch into the capillary beds. At the junction
 of the arterioles and capillaries is a smooth muscle band
@@ -7616,9 +7516,7 @@ the production of NO in vascular smooth muscle.',
     'reflex-control-of-heart',
     'Reflex Control of Heart',
     'article',
-    '# Reflex Control of Heart
-
-Reflex control of heart by
+    'Reflex control of heart by
 autonomic nervous system
 Sympathetic stimulation increases heart rate and strength,
 thereby increasing cardiac pumping. Sympathetic
@@ -7651,9 +7549,7 @@ strength, thereby decreasing cardiac pumping.',
     'regulation-of-blood-pressure',
     'Regulation of Blood Pressure',
     'article',
-    '# Regulation of Blood Pressure
-
-Regulation of Blood pressure
+    'Regulation of Blood pressure
 Mechanism of baroreceptor and
 chemoreceptor reflex:
 Impaired baroreceptor reflex:
@@ -7710,9 +7606,7 @@ which causes a profound increase in arterial pressure.',
     'regulation-of-cardiac-pumping',
     'Regulation of Cardiac Pumping',
     'article',
-    '# Regulation of Cardiac Pumping
-
-Regulation of Cardiac Pumping
+    'Regulation of Cardiac Pumping
 Cardiac pumping (i.e., volume of blood pumped by heart) is
 regulated by:
 Intrinsic regulation: pumping in response to changes in
@@ -7818,9 +7712,7 @@ Digoxin is positive inotrope and negative chronotrope.',
     'ventricular-myocyte-vs-pacemaker-action-potential',
     'Ventricular Myocyte Vs Pacemaker Action Potential',
     'article',
-    '# Ventricular Myocyte Vs Pacemaker Action Potential
-
-Ventricular myocyte action
+    'Ventricular myocyte action
 potential
 RMP of Ventricular myocyte is -90mv depolarization initiates
 when RMP reaches threshold of -65mv
@@ -7874,9 +7766,7 @@ influx initiates depolarization
     'alveolar-arterial-gradient',
     'Alveolar Arterial Gradient',
     'article',
-    '# Alveolar Arterial Gradient
-
-A-a gradient
+    'A-a gradient
 Difference between alveolar Po2 and arterial Po2
 A-a gradient: PA02-Pao2 (where PA02 alveolar po2 and Pao2
 is arterial po2)
@@ -7924,9 +7814,7 @@ shunt',
     'breathing-cycle-description-of-pressure-and-airflow',
     'Breathing Cycle - Description of Pressure and Airflow',
     'article',
-    '# Breathing Cycle - Description of Pressure and Airflow
-
-Breathing cycle (description of
+    'Breathing cycle (description of
 pressures and airflow)
 At rest (before inspiration begins):
 Alveolar pressure equals atmospheric pressure, because lung
@@ -7999,9 +7887,7 @@ Lung volume returns to FRC.',
     'central-control-of-breathing',
     'Central Control of Breathing',
     'article',
-    '# Central Control of Breathing
-
-Involuntary respiration
+    'Involuntary respiration
 Involuntary respiration is under subconscious control. The
 diaphragm and intercostal muscles are the primary respiratory
 muscles. They are stimulated by groups of neurons located in
@@ -8084,9 +7970,7 @@ resulting increase in Pco2 and decrease in P02',
     'control-of-ventilation',
     'Control of Ventilation',
     'article',
-    '# Control of Ventilation
-
-Control of ventilation is mediated via
+    'Control of ventilation is mediated via
 central and Peripheral
 chemoreceptors.
 Chemoreceptor overview:
@@ -8121,9 +8005,7 @@ chemoreceptor
     'dead-space',
     'Dead Space',
     'article',
-    '# Dead Space
-
-Dead Space
+    'Dead Space
 Anatomic dead space
 Refers to volume of conducting airways.
 Normally approximately 150 ml
@@ -8162,9 +8044,7 @@ ventilation/perfusion (V/Q) defects.',
     'diffusion-and-diffusion-capacity',
     'Diffusion and Diffusion Capacity',
     'article',
-    '# Diffusion and Diffusion Capacity
-
-Diffusion of gases such as 02
+    'Diffusion of gases such as 02
 and CO ₂
 The diffusion rates of O2 and CO2 depend on the partial
 pressure differences across the membrane and the area
@@ -8229,9 +8109,7 @@ High DLCO and Low DLCO
     'gas-exchange',
     'Gas Exchange',
     'article',
-    '# Gas Exchange
-
-## Gas Exchange
+    '## Gas Exchange
 
 Dalton law of partial pressures
 Daltons law of partial pressure can be expressed by the
@@ -8297,9 +8175,7 @@ Partial pressure of O2 and Co2 (mm Hg)
     'lung-elastance-and-compliance',
     'Lung Elastance and Compliance',
     'article',
-    '# Lung Elastance and Compliance
-
-Lung elastance and Lung
+    'Lung elastance and Lung
 Compliance:
 Lung elastance: Tendency of lungs to collapse.
 Compliance: The ease with which the lungs can expand
@@ -8345,9 +8221,7 @@ forces can be balanced again.',
     'lung-receptors',
     'Lung Receptors',
     'article',
-    '# Lung Receptors
-
-Lung receptors:
+    'Lung receptors:
 Irritant Receptors in the Airways: The epithelium of the
 trachea, bronchi, and bronchioles is supplied with sensory
 nerve endings called pulmonary irritant receptors that are
@@ -8397,9 +8271,7 @@ expiration produced by marked deflation of lung.',
     'lung-volumes-and-capacities',
     'Lung Volumes and Capacities',
     'article',
-    '# Lung Volumes and Capacities
-
-Lung volume and capacities
+    'Lung volume and capacities
 Tidal Volume (TV): The volume of air that is inhaled and then
 exhaled with each normal breath.
 Normal tidal volume is 500ml or 7ml/kg.
@@ -8505,9 +8377,7 @@ asthma.',
     'oxygen-haemoglobin-dissociation-curve',
     'Oxygen Haemoglobin Dissociation Curve',
     'article',
-    '# Oxygen Haemoglobin Dissociation Curve
-
-Oxygen-Haemoglobin
+    'Oxygen-Haemoglobin
 Dissociation Curve
 The Haemoglobin oxygen Dissociation Curve is a plot of
 percent saturation of haemoglobin as a function of po2.
@@ -8581,9 +8451,7 @@ affinity for O2',
     'resistance-of-the-airways',
     'Resistance of the Airways',
     'article',
-    '# Resistance of the Airways
-
-Resistance of the airways
+    'Resistance of the airways
 is described by Poiseuille law, as shown in the following
 equation: R= 8 n l/ r4 where:
 R= resistance
@@ -8632,9 +8500,7 @@ the radius, and decrease the resistance to airflow.',
     'surface-tention-and-surfactant',
     'Surface Tention and Surfactant',
     'article',
-    '# Surface Tention and Surfactant
-
-Surface tension and surfactant
+    'Surface tension and surfactant
 Surface tension of the alveoli:
 Surface tension of the alveoli results from the attractive forces
 between liquid molecules lining the alveoli at the air-liquid
@@ -8691,9 +8557,7 @@ and right-to-left shunt).',
     'transport-of-gases-in-circulation',
     'Transport of Gases in Circulation',
     'article',
-    '# Transport of Gases in Circulation
-
-Transport of Gases in Circulation:
+    'Transport of Gases in Circulation:
 Transport of CO2:
 Large amount of CO2 is continuously produced in the body.
 Under normal resting conditions each 100 ml of deoxygenated
@@ -8747,9 +8611,7 @@ contains a maximum of 187 mL/L',
     'ventilation-perfusion-mismatch',
     'Ventilation Perfusion Mismatch',
     'article',
-    '# Ventilation Perfusion Mismatch
-
-Ventilation- Perfusion mismatch
+    'Ventilation- Perfusion mismatch
 The ratio of alveolar ventilation to pulmonary blood flow is V/Q
 ratio.
 For the lung at rest, it is about 0.8.
@@ -8842,9 +8704,7 @@ normal or low PCO2.
     'acid-base-balance',
     'Acid Base Balance',
     'article',
-    '# Acid Base Balance
-
-Acid base balance
+    'Acid base balance
 Acid production
 Two types of acids are produced in the body: volatile acid and
 non-volatile acids.
@@ -8980,9 +8840,7 @@ increase in H excretion.',
     'acid-base-disorder',
     'Acid Base Disorder',
     'article',
-    '# Acid Base Disorder
-
-Acid base disorders
+    'Acid base disorders
 Acid-base disorders are pathologic changes in carbon dioxide
 partial pressure (Pco2) or serum bicarbonate (HCO3−) that
 typically produce abnormal arterial pH values.
@@ -9171,9 +9029,7 @@ results in over-breathing/breathlessness).',
     'aldosterone-adh-and-anp',
     'Aldosterone, ADH and ANP',
     'article',
-    '# Aldosterone, ADH and ANP
-
-Aldosterone
+    'Aldosterone
 Aldosterone release is stimulated by
 ACTH (It is less important as regulator, so pituitary failure
 does not severely impair the aldosterone secretion.
@@ -9252,9 +9108,7 @@ ENaC in principal cells.',
     'autoregulation',
     'Autoregulation',
     'article',
-    '# Autoregulation
-
-Autoregulation
+    'Autoregulation
 Blood flow throughout the kidney: renal artery=arcuate
 artery=afferent arteriole=glomerular capillaries=efferent
 arterioles=peritubular capillaries=vasa recta=arcuate
@@ -9307,9 +9161,7 @@ providing restoration of filtration and autoregulation of RBF.',
     'concentration-and-dilution-of-urine',
     'Concentration and Dilution of Urine',
     'article',
-    '# Concentration and Dilution of Urine
-
-Concentration and dilution of
+    'Concentration and dilution of
 urine
 Regulation of plasma osmolarity
 It is accomplished by varying the amount of H2O excreted
@@ -9469,9 +9321,7 @@ It is produced in water deprivation or SIADH.',
     'creatinine-clearance',
     'Creatinine Clearance',
     'article',
-    '# Creatinine Clearance
-
-Creatinine Clearance
+    'Creatinine Clearance
 Clearance refers to a theoretical volume of plasma from
 which a substance is removed over a period of time.
 Clearance = Urine conc of substance × Urine flow rate
@@ -9517,9 +9367,7 @@ parallels inulin clearance and is independent of production rate
     'functional-anatomy-of-kidney',
     'Functional Anatomy of Kidney',
     'article',
-    '# Functional Anatomy of Kidney
-
-Anatomy of Kidney
+    'Anatomy of Kidney
 The kidneys are two bean-shaped organs, located on either
 side of the spine, in the retroperitoneal space. The left kidney is
 situated a little higher than the right one, because of the liver
@@ -9665,9 +9513,7 @@ that of mesangial cells.',
     'glomerular-filtration-rate',
     'Glomerular Filtration Rate',
     'article',
-    '# Glomerular Filtration Rate
-
-Glomerular Filtration rate
+    'Glomerular Filtration rate
 Glomerular filtration rate is the amount of glomerular filtrate
 formed in all the of both the kidneys per minute. In a healthy
 individual, it is about 125 mL/minute.
@@ -9742,9 +9588,7 @@ increases GFR.',
     'hyperkalemia-and-hypokalemia',
     'Hyperkalemia and Hypokalemia',
     'article',
-    '# Hyperkalemia and Hypokalemia
-
-Hyperkalemia
+    'Hyperkalemia
 Normal value of serum K = 3.0- 4.5 mmol/L
 Causes
 Insulin deficiency
@@ -9869,9 +9713,7 @@ K sparing diuretics',
     'nacl-regulation',
     'NACL Regulation',
     'article',
-    '# NACL Regulation
-
-NaCl Regulation
+    'NaCl Regulation
 Tubular fluid (TF) is urine at any point along the nephron.
 Plasma (P) is systemic plasma. It is considered to be
 constant.
@@ -9994,9 +9836,7 @@ Reabsorbs K+ by an H-K-ATPase',
     'potassium-regulation',
     'Potassium Regulation',
     'article',
-    '# Potassium Regulation
-
-K+ Regulation
+    'K+ Regulation
 K is filtered, reabsorbed and secreted by nephron.
 K balance is achieved when urinary excretion of K+ exactly
 equals intake of K+ in the diet.
@@ -10118,9 +9958,7 @@ increasing the driving force for K+ secretion.',
     'renal-regulation-of-urea-phosphate-calcium-and-magnessium',
     'Renal Regulation of Urea, Phosphate, Calcium and Magnessium',
     'article',
-    '# Renal Regulation of Urea, Phosphate, Calcium and Magnessium
-
-Renal regulation of urea,
+    'Renal regulation of urea,
 phosphate, calcium and
 magnesium
 Urea
@@ -10204,9 +10042,7 @@ inhibiting Ca reabsorption)',
     'renin-angiotensin-aldosterone-system',
     'Renin Angiotensin Aldosterone System',
     'article',
-    '# Renin Angiotensin Aldosterone System
-
-Renin angiotensin aldosterone
+    'Renin angiotensin aldosterone
 system
 The Renin-Angiotensin-Aldosterone System (RAAS) is a
 hormone system within the body that is essential for the
@@ -10307,9 +10143,7 @@ apparatus (negative feedback)',
     'absorption-of-vitamins-in-small-intestine',
     'Absorption of Vitamins in Small Intestine',
     'article',
-    '# Absorption of Vitamins in Small Intestine
-
-Vitamins absorption
+    'Vitamins absorption
 Fat soluble vitamins (A, D, E, and K) are incorporated into
 micelles and absorb along with other lipids.
 Most water-soluble vitamins are absorbed by Na+ -
@@ -10347,9 +10181,7 @@ vitamin B12',
     'bile-and-bile-salts',
     'Bile and Bile Salts',
     'article',
-    '# Bile and Bile Salts
-
-Bile
+    'Bile
 Bile is an aqueous, alkaline, greenish-yellow liquid whose
 main function is to emulsify fats in the small intestine and to
 eliminate substances from the liver. The liver produces 0.25-
@@ -10447,9 +10279,7 @@ mechanism',
     'calcium-absorption',
     'Calcium Absorption',
     'article',
-    '# Calcium Absorption
-
-Calcium absorption
+    'Calcium absorption
 Absorption of calcium in small intestine depends on
 presence of adequate amounts of the active form of vitamin
 D, 1 ,25-dihydroxycholecalciferol, which is produced in the
@@ -10481,9 +10311,7 @@ children and osteomalacia in adults.',
     'defecation',
     'Defecation',
     'article',
-    '# Defecation
-
-Defecation
+    'Defecation
 There are two main anal sphincters, an internal and external
 sphincter. The internal anal sphincter is controlled by
 parasympathetic fibers which relax involuntarily. The
@@ -10529,9 +10357,7 @@ reflexes that anal distension initiates.',
     'digestion-and-absorption-of-carbohydrates',
     'Digestion and Absorption of Carbohydrates',
     'article',
-    '# Digestion and Absorption of Carbohydrates
-
-Carbohydrate
+    'Carbohydrate
 Carbohydrates in the diet provide the major exogenous source
 for glucose, which is the primary energy source for cells. They
 provide 17kJ (4kcal) of energy per gram. Most of the dietary
@@ -10598,9 +10424,7 @@ motility.
     'digestion-and-absorption-of-lipids',
     'Digestion and Absorption of Lipids',
     'article',
-    '# Digestion and Absorption of Lipids
-
-Lipid
+    'Lipid
 Fats in the diet are a more concentrated form of energy than
 carbohydrates and have an energy yield of 37 kJ (9
 kilocalories) per gram. Adipose (fatty) tissue in the fat depots
@@ -10687,9 +10511,7 @@ are added to the bloodstream via the thoracic duct.
     'digestion-and-absorption-of-proteins',
     'Digestion and Absorption of Proteins',
     'article',
-    '# Digestion and Absorption of Proteins
-
-Protein
+    'Protein
 Proteins are important nutrients that your body uses to build
 cellular structures that carry out vital functions.
 The building blocks of proteins are amino acids. Amino acids
@@ -10757,9 +10579,7 @@ hydrolyzed to amino acids.
     'exocrine-pancreas',
     'Exocrine Pancreas',
     'article',
-    '# Exocrine Pancreas
-
-Exocrine pancreas
+    'Exocrine pancreas
 The pancreas is an abdominal organ located deep in the
 retroperitoneum. It is a gland with mixed functions: both
 exocrine and endocrine. the endocrine gland containing the
@@ -10858,9 +10678,7 @@ absorbed by the body.',
     'gastrointestinal-hormones',
     'Gastrointestinal Hormones',
     'article',
-    '# Gastrointestinal Hormones
-
-Gastrointestinal hormones
+    'Gastrointestinal hormones
 GI Hormone are released from endocrine cells in the GI mucosa
 into portal circulation, enter the general circulation, and have
 physiologic actions on target cells.
@@ -10988,9 +10806,7 @@ Decrease blood glucose concentration.',
     'gastrointestinal-tract',
     'Gastrointestinal Tract',
     'article',
-    '# Gastrointestinal Tract
-
-Gastrointestinal tract
+    'Gastrointestinal tract
 The gastrointestinal tract (GI tract, digestive tract, alimentary
 canal) is the tract or passageway of the digestive system that
 leads from the mouth to the anus. The GI tract contains all the
@@ -11065,9 +10881,7 @@ covered with squamous mesothelial cells)',
     'innervation-of-gi-tract',
     'Innervation of Gi Tract',
     'article',
-    '# Innervation of Gi Tract
-
-Innervation of Gastrointestinal tract
+    'Innervation of Gastrointestinal tract
 The gastrointestinal tract is innervated by the autonomic
 nervous system.
 The autonomic system of GI tract comprises both extrinsic
@@ -11120,9 +10934,7 @@ esophagus.',
     'iron-handling',
     'Iron Handling',
     'article',
-    '# Iron Handling
-
-Iron
+    'Iron
 Iron is a vital trace element for humans, as it plays a crucial role
 in oxygen transport, oxidative metabolism, cellular proliferation,
 and many catalytic reactions.
@@ -11211,9 +11023,7 @@ increases iron loss.',
     'large-intestine',
     'Large Intestine',
     'article',
-    '# Large Intestine
-
-Large intestine
+    'Large intestine
 The large intestine is the terminal portion of the
 gastrointestinal tract and is approx. 1.5 m (5 ft) long. The large
 intestine is divided into the cecum and appendix, the
@@ -11285,9 +11095,7 @@ disparity.
     'liver',
     'Liver',
     'article',
-    '# Liver
-
-Liver
+    'Liver
 Largest gland in the body
 Weight: 1.2-1.5 kg in adults (2.6-3.3 pounds)
 Wedge-shaped
@@ -11373,9 +11181,7 @@ cells, are found in high numbers in the liver.',
     'mastication-and-swallowing',
     'Mastication and Swallowing',
     'article',
-    '# Mastication and Swallowing
-
-Mouth
+    'Mouth
 The primary function of the mouth is eating, and it has a few
 other important functions also.
 Functions of mouth include:
@@ -11468,9 +11274,7 @@ contracts to prevent reflux and respiration begins again.',
     'saliva',
     'Saliva',
     'article',
-    '# Saliva
-
-Saliva
+    'Saliva
 The body produces around 1.5 liters of saliva every day and it
 plays a vital role in lubricating food, digestion and protecting
 the oral environment.
@@ -11582,9 +11386,7 @@ anticholinergic drugs (e.g., atropine)
     'small-intestine',
     'Small Intestine',
     'article',
-    '# Small Intestine
-
-Small intestine
+    'Small intestine
 The small intestine (small bowel) is a hollow, tubular
 structure with an average adult length of 22 feet (7 meters),
 making it the longest portion of the gastrointestinal (GI) tract
@@ -11675,9 +11477,7 @@ well as Na+ ions can then diffuse into the capillaries.',
     'stomach',
     'Stomach',
     'article',
-    '# Stomach
-
-Stomach
+    'Stomach
 The stomach is a gastrointestinal organ that is responsible for
 preliminary digestion and destroying any potential pathogenic
 microorganisms that may have been ingested. It is an acidic
@@ -11874,9 +11674,7 @@ emptying.',
     'summary-of-harmones-and-secretion-of-git',
     'Summary of Harmones and Secretion of GIT',
     'article',
-    '# Summary of Harmones and Secretion of GIT
-
-Summary of hormones and
+    'Summary of hormones and
 secretion of git
 Gastric secretory and Regulatory
 products
@@ -11910,9 +11708,7 @@ Small intestine regulatory products:
     'vitamins-overview',
     'Vitamins Overview',
     'article',
-    '# Vitamins Overview
-
-Vitamins
+    'Vitamins
 
 ![Vitamins Overview - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/vitamins-overview/figure_01_p1.png)
 *Vitamins Overview — Clinical Figure 1 (Page 1 Reference)*',
@@ -11951,9 +11747,7 @@ Vitamins
     'adrenal-gland',
     'Adrenal Gland',
     'article',
-    '# Adrenal Gland
-
-Adrenal gland
+    'Adrenal gland
 Adrenal glands are paired of endocrine glands located on the
 superior pole of each kidney. they are composed of an inner
 medulla and an outer cortex, which is turn divided in to three
@@ -12004,9 +11798,7 @@ regulated by the renin-angiotensin system and by potassium.',
     'adrenal-insufficiency',
     'Adrenal Insufficiency',
     'article',
-    '# Adrenal Insufficiency
-
-Adrenal Insufficiency
+    'Adrenal Insufficiency
 Adrenal insufficiency is a failure of the adrenal glands to
 produce adequate amounts of adrenocortical hormone. It
 can be primary, secondary or tertiary.
@@ -12143,9 +11935,7 @@ levels are normal)
     'adrenal-medulla-and-pheochromocytoma',
     'Adrenal Medulla and Pheochromocytoma',
     'article',
-    '# Adrenal Medulla and Pheochromocytoma
-
-Adrenal medulla
+    'Adrenal medulla
 The adrenal medulla is composed of chromaffin cells, which
 synthesize and secrete catecholamines epinephrine and nor-
 epinephrine (adrenaline and noradrenaline) but also has other
@@ -12215,9 +12005,7 @@ unopposed a-mediated vasoconstriction.',
     'aldosterone',
     'Aldosterone',
     'article',
-    '# Aldosterone
-
-Aldosterone
+    'Aldosterone
 Aldosterone is the main mineralocorticoid steroid hormone
 produced by the zona glomerulosa of the adrenal cortex in the
 adrenal gland. It is essential for sodium conservation in the
@@ -12275,9 +12063,7 @@ and ↑ pH level',
     'antidiuretic-harmone',
     'Antidiuretic Harmone',
     'article',
-    '# Antidiuretic Harmone
-
-Antidiuretic hormone (ADH)
+    'Antidiuretic hormone (ADH)
 Antidiuretic hormone (ADH), also known as vasopressin, is a
 small peptide hormone which regulates the body''s retention
 of water. The synthesis of ADH occurs in the supraoptic and
@@ -12336,9 +12122,7 @@ Alcohol inhibits ADH release and causes diuresis.
     'calcitonin',
     'Calcitonin',
     'article',
-    '# Calcitonin
-
-Calcitonin:
+    'Calcitonin:
 calcitonin is secreted by parafollicular (cells) of thyroid
 gland. Calcitonin is secreted in response to high levels of
 plasma calcium ions and acts to lower circulating levels of
@@ -12373,9 +12157,7 @@ hormone that acts to increase serum calcium concentration.',
     'calcium-homeostasis',
     'Calcium Homeostasis',
     'article',
-    '# Calcium Homeostasis
-
-Calcium homeostasis
+    'Calcium homeostasis
 The physiological role of
 calcium
 Ionized Ca2+ is responsible for stabilizing the resting
@@ -12433,9 +12215,7 @@ causes true hypocalcemia.',
     'cartisol',
     'Cartisol',
     'article',
-    '# Cartisol
-
-Cortisol
+    'Cortisol
 Cortisol is one of the major glucocorticoids synthesized in the
 zona fasciculata of the adrenal cortex. Cortisol secretion is
 regulated by the hypothalamic hormone CRH, and the pituitary
@@ -12485,9 +12265,7 @@ mechanism',
     'cushing-syndrome',
     'Cushing Syndrome',
     'article',
-    '# Cushing Syndrome
-
-Cushing syndrome
+    'Cushing syndrome
 It is a disorder caused by any condition that produces
 excessive glucocorticoids (cortisol). While the term "Cushing
 syndrome" can be applied to any cause of hypercortisolism,
@@ -12563,9 +12341,7 @@ treatment
     'diabetes-insipidus-and-siadh',
     'Diabetes Insipidus and Siadh',
     'article',
-    '# Diabetes Insipidus and Siadh
-
-Diabetes insipidus (DI):
+    'Diabetes insipidus (DI):
 It is a condition characterized by inability to produce
 concentrated urine due to ADH dysfunction, It is of two types:
 Central Diabetes Insipidus (CDI)
@@ -12647,9 +12423,7 @@ Demeclocycline: ADH receptor antagonist.',
     'endocrine-glands-and-their-harmones',
     'Endocrine Glands and Their Harmones',
     'article',
-    '# Endocrine Glands and Their Harmones
-
-Endocrine System
+    'Endocrine System
 Introduction: All the physiological activities of the body are
 regulated. by two major systems
 
@@ -12706,9 +12480,7 @@ Hormone secreted by other organs.
     'hyperaldosteronism-and-renal-insufficiency',
     'Hyperaldosteronism and Renal Insufficiency',
     'article',
-    '# Hyperaldosteronism and Renal Insufficiency
-
-Hyperaldosteronism
+    'Hyperaldosteronism
 It is a small group of disorders characterized by excessive
 secretion of aldosterone (mineralocorticoid).
 It is classified into primary and secondary
@@ -12777,9 +12549,7 @@ Spironolactone',
     'hypothyroidism-and-hyperthyroidism',
     'Hypothyroidism and Hyperthyroidism',
     'article',
-    '# Hypothyroidism and Hyperthyroidism
-
-Hypothyroidism and
+    'Hypothyroidism and
 Hyperthyroidism:
 
 ![Hypothyroidism and Hyperthyroidism - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/hypothyroidism-and-hyperthyroidism/figure_01_p2.png)
@@ -12812,9 +12582,7 @@ highly effective for symptomatic relief (tachycardia, tremors)',
     'insulin-and-glucagon',
     'Insulin and Glucagon',
     'article',
-    '# Insulin and Glucagon
-
-Insulin
+    'Insulin
 Insulin is a polypeptide hormone secreted by the β  cells of
 the pancreatic islets of Langerhans, containing an A chain
 and a B chain joined by disulfide bridges.
@@ -12911,9 +12679,7 @@ Difference between Insulin and Glucagon
     'pancreas',
     'Pancreas',
     'article',
-    '# Pancreas
-
-Pancreas
+    'Pancreas
 The pancreas is a retroperitoneal, abdominal organ found
 posterior and inferior to the stomach The pancreas has two
 essential and very important functions in the body:
@@ -12950,9 +12716,7 @@ produce different endocrine hormone.
     'parathyroid-harmone',
     'Parathyroid Harmone',
     'article',
-    '# Parathyroid Harmone
-
-Parathyroid hormone (PTH)
+    'Parathyroid hormone (PTH)
 Parathyroid hormone is secreted from chief cells of
 parathyroid gland which is located immediately behind the
 thyroid gland.
@@ -13008,9 +12772,7 @@ dihydroxycholecalciferol in the kidney.',
     'pituitary-gland',
     'Pituitary Gland',
     'article',
-    '# Pituitary Gland
-
-Pituitary gland
+    'Pituitary gland
 The pituitary endocrine gland, which is located in the bony
 Sella turcica, is attached to the base of the brain and has a
 unique connection with the hypothalamus. The pituitary gland
@@ -13035,7 +12797,9 @@ Thyrotropin-releasing hormone (TRH).
 Since your pituitary gland and hypothalamus work together so
 closely, if one of them becomes damaged, it can affect the
 hormonal function of the other.
-Anterior lobe of pituitary
+
+#### Anterior lobe of pituitary
+
 gland
 The anterior pituitary is derived from oral ectoderm (Rathke''s
 pouch). The anterior lobe of pituitary gland is linked to
@@ -13055,7 +12819,9 @@ Growth hormone
 
 Adrenocorticotropin (ACTH)
 Thyroid stimulating hormone (TSH)
-Anterior pituitary hormone
+
+#### Anterior pituitary hormone
+
 Posterior pituitary gland (neurohypophysis)
 The posterior lobe of pituitary gland arises from an evagination
 of neuroectoderm from diencephalon. It stores and releases
@@ -13094,9 +12860,7 @@ Hormones of posterior pituitary gland
     'thyroid-gland',
     'Thyroid Gland',
     'article',
-    '# Thyroid Gland
-
-Thyroid gland
+    'Thyroid gland
 The thyroid gland is a ductless alveolar gland found in the
 anterior neck, just below the laryngeal prominence (Adam''s
 apple). It has two lobes wrapping around the trachea and
@@ -13188,9 +12952,7 @@ Stimulates surfactant synthesis in babies.',
     'vitamin-d-synthesis',
     'Vitamin - D Synthesis',
     'article',
-    '# Vitamin - D Synthesis
-
-Vitamin D synthesis
+    'Vitamin D synthesis
 Vitamin D is a long-term regulator of serum calcium. Its main
 function is to increase the intestinal absorption of calcium.
 It can be ingested, or synthesized from a cholesterol precursor
@@ -13248,9 +13010,7 @@ dihydroxyvitamin D biosynthesis',
     'acquired-coagulation-disorder-of-blood',
     'Acquired Coagulation Disorder of Blood',
     'article',
-    '# Acquired Coagulation Disorder of Blood
-
-Acquired coagulation disorder:
+    'Acquired coagulation disorder:
 
 ### 1: Vitamin K Deficiency
 
@@ -13304,9 +13064,7 @@ Coagulation tests:
     'antiplatelet-and-anticoagulant-drugs',
     'Antiplatelet and Anticoagulant Drugs',
     'article',
-    '# Antiplatelet and Anticoagulant Drugs
-
-Antiplatelet and anticoagulant
+    'Antiplatelet and anticoagulant
 drugs
 
 ![Antiplatelet and Anticoagulant Drugs - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/antiplatelet-and-anticoagulant-drugs/figure_01_p1.png)
@@ -13334,9 +13092,7 @@ drugs
     'haemoglobin',
     'Haemoglobin',
     'article',
-    '# Haemoglobin
-
-Haemoglobin
+    'Haemoglobin
 Red blood cells contain the specialised protein haemoglobin
 which is responsible for carrying oxygen and carbon dioxide
 in the blood.
@@ -13391,9 +13147,7 @@ Fetal HB has high affinity for o2 as compared to adult.
     'haemostasis',
     'Haemostasis',
     'article',
-    '# Haemostasis
-
-Haemostasis
+    'Haemostasis
 Prevention of blood loss
 Stages of haemostasis: Three stages
 Vasoconstriction
@@ -13425,9 +13179,7 @@ Coagulation of blood
     'heriditary-coagulation-disorder-of-blood',
     'Heriditary Coagulation Disorder of Blood',
     'article',
-    '# Heriditary Coagulation Disorder of Blood
-
-Coagulation disorder
+    'Coagulation disorder
 Hereditary coagulation disorder:
 
 ![Heriditary Coagulation Disorder of Blood - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/heriditary-coagulation-disorder-of-blood/figure_01_p1.png)
@@ -13455,9 +13207,7 @@ Hereditary coagulation disorder:
     'platelate-and-platelate-plug',
     'Platelate and Platelate Plug',
     'article',
-    '# Platelate and Platelate Plug
-
-Platelets and platelet plug
+    'Platelets and platelet plug
 Platelets:
 These are minute, round or oval discs formed by fragmentation
 of megakaryocytes. The normal half-life of platelets is 10 days.
@@ -13550,9 +13300,7 @@ Convert the inactive plasminogen to plasmin.',
     'plateletes-bleeding-disorder',
     'Plateletes Bleeding Disorder',
     'article',
-    '# Plateletes Bleeding Disorder
-
-Platelets bleeding disorder
+    'Platelets bleeding disorder
 Thrombocytopenia or abnormal platelet function is
 characterized by spontaneous skin purpura, mucosal
 haemorrhage and prolonged bleeding after trauma.
@@ -13589,9 +13337,7 @@ syndrome
     'sites-of-haemopoiesis',
     'Sites of Haemopoiesis',
     'article',
-    '# Sites of Haemopoiesis
-
-Haemopoiesis Sites:
+    'Haemopoiesis Sites:
 Important to remember:
 Haemopoietic Stem Cells: All blood cells
 develop from Haemopoietic Stem Cells
@@ -13636,9 +13382,7 @@ develop from Haemopoietic Stem Cells
     'anaphylaxis-management',
     'Anaphylaxis Management',
     'article',
-    '# Anaphylaxis Management
-
-- Anaphylaxis
+    '- Anaphylaxis
 >It''s a severe, life-threatening, generalized or systemic
 hypersensitivity reaction, characterized by rapidly developing
 and life-threatening airway, breathing and/or circulation
@@ -13743,9 +13487,7 @@ previously (history) and immune mediated.',
     'anti-histamine-drugs',
     'Anti - Histamine Drugs',
     'article',
-    '# Anti - Histamine Drugs
-
-Anti histamine:
+    'Anti histamine:
 Block H1 histamine receptors
 Indications:
 Allergic rhinitis
@@ -13784,9 +13526,7 @@ Divided into 2 groups:
     'asthma-in-adults-management',
     'Asthma in Adults Management',
     'article',
-    '# Asthma in Adults Management
-
-Levels of severity of acute asthma
+    'Levels of severity of acute asthma
 attacks in adults
 Example -1 : In exam, if they give you a scenario that a 34-
 year-old asthma patient who is unable to complete a
@@ -13840,9 +13580,7 @@ Refer to asthma liaison nurse/chest clinic.
     'bronchodilator-drugs',
     'Bronchodilator Drugs',
     'article',
-    '# Bronchodilator Drugs
-
-Bronchodilator therapy:
+    'Bronchodilator therapy:
 Note: Important points of theophylline:
 Theophylline has narrow window between therapeutic and
 toxic doses, and the half-life can be affected by a number of
@@ -13908,9 +13646,7 @@ treatment for bradycardias.
     'corticosteroids',
     'Corticosteroids',
     'article',
-    '# Corticosteroids
-
-Corticosteroids:
+    'Corticosteroids:
 Corticosteroids are a class of steroid hormones that are
 naturally produced in the adrenal cortex as well
 as administered as medications for therapeutic purposes.
@@ -14033,9 +13769,7 @@ can be prolonged).',
     'anti-platelet-statins-nitrate-and-fibrinolytic-drugs',
     'Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs',
     'article',
-    '# Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs
-
-Anti-platelet, Statins, nitrate and
+    'Anti-platelet, Statins, nitrate and
 fibrinolytic drugs:
 
 ![Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/anti-platelet-statins-nitrate-and-fibrinolytic-drugs/figure_01_p1.png)
@@ -14063,9 +13797,7 @@ fibrinolytic drugs:
     'anticoagulant-drugs',
     'Anticoagulant Drugs',
     'article',
-    '# Anticoagulant Drugs
-
-Antiplatelet and anticoagulant
+    'Antiplatelet and anticoagulant
 drugs
 Anticoagulant drugs
 Heparin:
@@ -14181,9 +13913,7 @@ effect/increased anticoagulant effects and risk of bleeding.
     'basic-life-support-and-advanced-life-support',
     'Basic Life Support and Advanced Life Support',
     'article',
-    '# Basic Life Support and Advanced Life Support
-
-Basic life support and Advanced life
+    'Basic life support and Advanced life
 support algorithms
 - Key difference b/w Paeds &
 adult ALS
@@ -14237,9 +13967,7 @@ Targeted temperature management
     'betablocker-and-calcium-channel-blockers',
     'Betablocker and Calcium Channel Blockers',
     'article',
-    '# Betablocker and Calcium Channel Blockers
-
-Beta blockers and calcium channel
+    'Beta blockers and calcium channel
 blockers overview:
 Labetalol: Labetalol is nonselective alpha and betablocker
 commonly used to manage high blood pressure, especially in
@@ -14293,9 +14021,7 @@ potential and slowing conduction at SA and AV nodes.',
     'bradycardias',
     'Bradycardias',
     'article',
-    '# Bradycardias
-
-Definition
+    'Definition
 Bradycardia is a heart rate of fewer than 60 beats per minute.
 Types
 Sinus bradycardia
@@ -14390,9 +14116,7 @@ prostatic enlargement',
     'digoxin',
     'Digoxin',
     'article',
-    '# Digoxin
-
-Digoxin
+    'Digoxin
 Digoxin is a cardiac glycoside derived from the
 plant foxglove that primarily works by inhibiting the Na+/K+
 ATPase in the myocardium.
@@ -14469,9 +14193,7 @@ Treatment: Digoxin immune fab is the reversal agent
     'hypertensive-emergency',
     'Hypertensive Emergency',
     'article',
-    '# Hypertensive Emergency
-
-Hypertensive Emergency
+    'Hypertensive Emergency
 A hypertensive emergency is defined as a clinical situation
 in which there is a marked elevation of blood pressure (BP)
 usually >180/120mmhg and associated with acute or
@@ -14547,9 +14269,7 @@ and MgSo4 for eclampsia.',
     'tachyarrhythmia',
     'Tachyarrhythmia',
     'article',
-    '# Tachyarrhythmia
-
-Tachycardias
+    'Tachycardias
 Two Types
 Regular or irregular narrow complex
 Regular or Irregular broad complex
@@ -14695,9 +14415,7 @@ blockers.',
     'analgesics',
     'Analgesics',
     'article',
-    '# Analgesics
-
-Analgesics:
+    'Analgesics:
 Classification of analgesics:
 Non opioid analgesics:
 Paracetamol: Used in Pyrexia and mild to moderate pain
@@ -14817,9 +14535,7 @@ Antidote: Naloxone rapidly reverse the symptoms.',
     'anti-psychotic-drugs',
     'Anti - Psychotic Drugs',
     'article',
-    '# Anti - Psychotic Drugs
-
-Anti-psychotics
+    'Anti-psychotics
 Anti-psychotics acts by blocking dopamine D2 receptors in
 the brain .
 Side effects:
@@ -14860,9 +14576,7 @@ QT-interval prolongation',
     'anti-emetic-drugs',
     'Anti - Emetic Drugs',
     'article',
-    '# Anti - Emetic Drugs
-
-Antiemetics drug class, Members and
+    'Antiemetics drug class, Members and
 clinical use:
 Metoclopramide
 Metoclopramide is dopamine receptor antagonist acts directly
@@ -14899,9 +14613,7 @@ associated with antiemetics and antipsychotics
     'anti-epileptic-drugs',
     'Anti - Epileptic Drugs',
     'article',
-    '# Anti - Epileptic Drugs
-
-Anti-epileptic drugs
+    'Anti-epileptic drugs
 Carbamazepine, sodium valproate
 and phenytoin
 Mechanism of action: Carbamazepine, sodium valproate
@@ -14957,9 +14669,7 @@ toxicity occur.',
     'lithium',
     'Lithium',
     'article',
-    '# Lithium
-
-Lithium:
+    'Lithium:
 Used in the treatment of mania, bipolar disorders and
 depression.
 Side effects:
@@ -15018,9 +14728,7 @@ Coma and death',
     'status-epilepticus-management',
     'Status Epilepticus Management',
     'article',
-    '# Status Epilepticus Management
-
-Status epilepticus management
+    'Status epilepticus management
 
 ![Status Epilepticus Management - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/status-epilepticus-management/figure_01_p1.jpg)
 *Status Epilepticus Management — Clinical Figure 1 (Page 1 Reference)*',
@@ -15047,9 +14755,7 @@ Status epilepticus management
     'tricyclic-antidepressants',
     'Tricyclic - Antidepressants',
     'article',
-    '# Tricyclic - Antidepressants
-
-Tri-cyclic antidepressants:
+    'Tri-cyclic antidepressants:
 Mechanism of action: TCA e.g. Amitriptyline is in the tricyclic
 antidepressant (TCA) drug, block the reuptake of
 norepinephrine and serotonin from the synaptic cleft, thereby
@@ -15145,9 +14851,7 @@ bicarbonate bolus followed by infusion.',
     'anesthetic-drugs',
     'Anesthetic Drugs',
     'article',
-    '# Anesthetic Drugs
-
-Benzodiazepines and Muscle relaxants:
+    'Benzodiazepines and Muscle relaxants:
 Local anesthetic drugs:
 Anesthetic induction and
 maintenance agents:
@@ -15201,9 +14905,7 @@ maintenance agents: (Continues)
     'drugs-toxicity-and-antidotes',
     'Drugs Toxicity and Antidotes',
     'article',
-    '# Drugs Toxicity and Antidotes
-
-![Drugs Toxicity and Antidotes - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/drugs-toxicity-and-antidotes/figure_01_p1.png)
+    '![Drugs Toxicity and Antidotes - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/drugs-toxicity-and-antidotes/figure_01_p1.png)
 *Drugs Toxicity and Antidotes — Clinical Figure 1 (Page 1 Reference)*',
     true,
     0,
@@ -15228,9 +14930,7 @@ maintenance agents: (Continues)
     'poisoning-overdose-and-toxidromes',
     'Poisoning, Overdose and Toxidromes',
     'article',
-    '# Poisoning, Overdose and Toxidromes
-
-Poisoning and overdose
+    'Poisoning and overdose
 In toxicology, poisoning is defined as the state resulting from
 the administration of excessive amounts of any
 pharmaceutical agent.
@@ -15284,9 +14984,7 @@ Table - B: Toxidromes
     'summary-of-drugs-and-their-side-effects',
     'Summary of Drugs and Their Side Effects',
     'article',
-    '# Summary of Drugs and Their Side Effects
-
-Summary Of Drugs And Their Side
+    'Summary Of Drugs And Their Side
 Effects
 
 ![Summary of Drugs and Their Side Effects - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/summary-of-drugs-and-their-side-effects/figure_01_p1.png)
@@ -15326,9 +15024,7 @@ Effects
     'anemia',
     'Anemia',
     'article',
-    '# Anemia
-
-Anemia
+    'Anemia
 Anemia: Reduction in Hb concentration below the normal
 range
 Range: Men= Hct < 41% or HB less than 13.5 g/dl
@@ -15382,9 +15078,7 @@ giant metamyelocytes
     'antibodies-and-hypersensitivity-reactions',
     'Antibodies and Hypersensitivity Reactions',
     'article',
-    '# Antibodies and Hypersensitivity Reactions
-
-Antibodies:
+    'Antibodies:
 Hypersensitivity reaction:
 
 ![Antibodies and Hypersensitivity Reactions - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/antibodies-and-hypersensitivity-reactions/figure_01_p2.png)
@@ -15415,9 +15109,7 @@ Hypersensitivity reaction:
     'blood-groups',
     'Blood Groups',
     'article',
-    '# Blood Groups
-
-Blood group
+    'Blood group
 The ABO blood group phenotypes are O (genotype OO), A
 (genotype AA or AO), B (genotype BB or BO) and AB (genotype
 
@@ -15486,9 +15178,7 @@ After delivery at any gestation within 72Hours.',
     'cell-death',
     'Cell Death',
     'article',
-    '# Cell Death
-
-Cell death
+    'Cell death
 
 ![Cell Death - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/cell-death/figure_01_p1.png)
 *Cell Death — Clinical Figure 1 (Page 1 Reference)*',
@@ -15515,9 +15205,7 @@ Cell death
     'complement-cascade',
     'Complement Cascade',
     'article',
-    '# Complement Cascade
-
-Complement cascade:
+    'Complement cascade:
 Collection of twenty proteins many of which are enzyme
 precursors. constituting an amplification enzyme system which
 is capable of lysis of bacteria or blood cells or opsonization of
@@ -15590,9 +15278,7 @@ paroxysmal nocturnal hemoglobinuria.',
     'inflammation',
     'Inflammation',
     'article',
-    '# Inflammation
-
-Inflammation
+    'Inflammation
 Note: Chronic nonspecific inflammation: Nonspecific
 inflammatory cell infiltration seen in chronic osteomyelitis, lung
 abscess
@@ -15646,9 +15332,7 @@ IL-6: Stimulates Acute Phase Protein Production',
     'innate-vs-acquired-immunity',
     'Innate Vs Acquired Immunity',
     'article',
-    '# Innate Vs Acquired Immunity
-
-Innate vs Acquired immunity.
+    'Innate vs Acquired immunity.
 Immune responses: Capacity of the body to resist pathogenic
 agents.
 
@@ -15677,9 +15361,7 @@ agents.
     'lymphocytes',
     'Lymphocytes',
     'article',
-    '# Lymphocytes
-
-Types of lymphocytes
+    'Types of lymphocytes
 
 ![Lymphocytes - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/lymphocytes/figure_01_p1.png)
 *Lymphocytes — Clinical Figure 1 (Page 1 Reference)*',
@@ -15706,9 +15388,7 @@ Types of lymphocytes
     'plasma-autoantibodies',
     'Plasma Autoantibodies',
     'article',
-    '# Plasma Autoantibodies
-
-Plasma autoantibodies
+    'Plasma autoantibodies
 
 ![Plasma Autoantibodies - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/plasma-autoantibodies/figure_01_p1.png)
 *Plasma Autoantibodies — Clinical Figure 1 (Page 1 Reference)*',
@@ -15735,9 +15415,7 @@ Plasma autoantibodies
     'sickle-cell-disease',
     'Sickle Cell Disease',
     'article',
-    '# Sickle Cell Disease
-
-Sickle cell disease:
+    'Sickle cell disease:
 Autosomal recessive disorder
 Type of normocytic anemia with high reticulocyte count
 Clinical features:
@@ -15797,9 +15475,7 @@ Diagnosis: HB Electrophoresis most accurate test',
     'wound-healing',
     'Wound Healing',
     'article',
-    '# Wound Healing
-
-Wound healing
+    'Wound healing
 Healing is the process of replacing dead and damaging tissue
 with healthy tissue; this may occur through regeneration or
 repair.
@@ -15931,9 +15607,7 @@ Poor blood supply',
     'clostridium-spp-bacteria',
     'Clostridium Spp - Bacteria',
     'article',
-    '# Clostridium Spp - Bacteria
-
-Clostridium Species
+    'Clostridium Species
 All the Clostridium species are Gram +Ve spore forming
 obligate anaerobes.
 Tetanus prone wound:
@@ -15989,9 +15663,7 @@ More easy to remeber:
     'culture-medium-for-bacterial-growth',
     'Culture Medium for Bacterial Growth',
     'article',
-    '# Culture Medium for Bacterial Growth
-
-Culture Medium For Bacterial
+    'Culture Medium For Bacterial
 Growth
 
 ![Culture Medium for Bacterial Growth - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/culture-medium-for-bacterial-growth/figure_01_p1.png)
@@ -16019,9 +15691,7 @@ Growth
     'escherichia-coli-klebsiella-salmonella-bacteria',
     'Escherichia Coli, Klebsiella, Salmonella - Bacteria',
     'article',
-    '# Escherichia Coli, Klebsiella, Salmonella - Bacteria
-
-Escherichia Coli:
+    'Escherichia Coli:
 Note: E. coli serotype O157 causes bloody diarrhoea associated
 with hemolytic uremic syndrome in children, characterized by
 hemolytic anemia, thrombocytopenia and acute renal failure.
@@ -16077,9 +15747,7 @@ in resistant cases cefotaxime or azithromycin
     'gastrointestinal-virus',
     'Gastrointestinal Virus',
     'article',
-    '# Gastrointestinal Virus
-
-Gastrointestinal Virus:
+    'Gastrointestinal Virus:
 
 ![Gastrointestinal Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/gastrointestinal-virus/figure_01_p1.png)
 *Gastrointestinal Virus — Clinical Figure 1 (Page 1 Reference)*',
@@ -16106,9 +15774,7 @@ Gastrointestinal Virus:
     'hellicobacter-pylori-and-compylobacter-jejuni-bacteria',
     'Hellicobacter Pylori and Compylobacter Jejuni - Bacteria',
     'article',
-    '# Hellicobacter Pylori and Compylobacter Jejuni - Bacteria
-
-Helicobacter Pylori
+    'Helicobacter Pylori
 Campylobacter Jejuni
 Note:
 Reactive arthritis (Reiter''s syndrome) is a triad of urethritis,
@@ -16144,9 +15810,7 @@ Salmonella, Campylobacter jejuni and Shigella
     'hepatitis-virus',
     'Hepatitis - Virus',
     'article',
-    '# Hepatitis - Virus
-
-Hepatitis:
+    'Hepatitis:
 Note: Emergency hepatitis B vaccination
 If you have been exposed to the hepatitis B virus and have
 not been vaccinated before, you should get immediate
@@ -16191,9 +15855,7 @@ No progression to chronic hepatitis
     'herpes-simplex-and-varicella-zooster-virus',
     'Herpes Simplex and Varicella Zooster Virus',
     'article',
-    '# Herpes Simplex and Varicella Zooster Virus
-
-Herpes Virus:
+    'Herpes Virus:
 Varicella zoster Key Points
 The incubation period is 10 - 21 days (Recall) (mean time is
 14 days).
@@ -16264,9 +15926,7 @@ appears, or until all the blisters have crusted over.',
     'human-immune-virus',
     'Human Immune Virus',
     'article',
-    '# Human Immune Virus
-
-Human Immune virus (HIV)
+    'Human Immune virus (HIV)
 High-risk source for HIV
 MSM (men who have sex with men)
 Female sexual contacts of MSM
@@ -16345,9 +16005,7 @@ Monitoring: HIV viral load (PCR) and CD4+ count
     'measles-mumps-rubella-virus',
     'Measles, Mumps, Rubella - Virus',
     'article',
-    '# Measles, Mumps, Rubella - Virus
-
-Measles:
+    'Measles:
 Acute viral illness transmitted by respiratory droplets
 characterized by 3C Cough, coryza, conjunctivitis and fever.
 Measles rash: Maculopapular rash appearing first behind the
@@ -16407,9 +16065,7 @@ central nervous system defects and deafness.',
     'mycobacterium-tuberculosis-bacteria',
     'Mycobacterium Tuberculosis - Bacteria',
     'article',
-    '# Mycobacterium Tuberculosis - Bacteria
-
-Mycobacterium Tuberculosis
+    'Mycobacterium Tuberculosis
 Acid fast bacilli Causes tuberculosis transmitted via respiratory
 aerosol and characterized by chronic granulomatous
 inflammation.
@@ -16457,9 +16113,7 @@ tuberculin skin test (TST).',
     'neisseria-spp-bacteria',
     'Neisseria Spp - Bacteria',
     'article',
-    '# Neisseria Spp - Bacteria
-
-Neisseria species
+    'Neisseria species
 Neisseria Gonorrhea and Neisseria meningitis
 General features:
 Neisseria meningitis:
@@ -16515,9 +16169,7 @@ choice
     'notifiable-disease',
     'Notifiable Disease',
     'article',
-    '# Notifiable Disease
-
-Diseases notifiable to local authority
+    'Diseases notifiable to local authority
 proper officers under the Health
 Protection (Notification) Regulations
 2010:
@@ -16581,9 +16233,7 @@ Yellow fever',
     'pathogens-fungi',
     'Pathogens - Fungi',
     'article',
-    '# Pathogens - Fungi
-
-Fungi:
+    'Fungi:
 Candida: Form part of the normal flora which includes skin, GI
 tract, and female genital tract
 Candidiasis and treatment
@@ -16613,9 +16263,7 @@ Candidiasis and treatment
     'pathogens-protozoa',
     'Pathogens - Protozoa',
     'article',
-    '# Pathogens - Protozoa
-
-Malaria
+    'Malaria
 Caused by protozoan plasmodium.
 There are four different Plasmodium species relevant in
 humans:
@@ -16665,9 +16313,7 @@ pregnancy.',
     'pathogens-worms',
     'Pathogens - Worms',
     'article',
-    '# Pathogens - Worms
-
-Thread worm
+    'Thread worm
 is the most common helminth in the UK, commonly infect
 children.
 Mebendazole is the drug of choice, and you must treat
@@ -16716,9 +16362,7 @@ Treatment: Mebendazole',
     'principles-of-investigation',
     'Principles of Investigation',
     'article',
-    '# Principles of Investigation
-
-Principles of Investigations
+    'Principles of Investigations
 
 ![Principles of Investigation - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-investigation/figure_01_p1.png)
 *Principles of Investigation — Clinical Figure 1 (Page 1 Reference)*',
@@ -16745,9 +16389,7 @@ Principles of Investigations
     'principles-of-microbiology',
     'Principles of Microbiology',
     'article',
-    '# Principles of Microbiology
-
-Microbiology Principles:
+    'Microbiology Principles:
 
 > [!TIP]
 > **High yield:**
@@ -16835,9 +16477,7 @@ Route of transmission of microorganisms
     'pseudomonas-aeruginosa-legionella-pneumophilia-and-bortonella-henslae-bacteria',
     'Pseudomonas Aeruginosa, Legionella Pneumophilia and Bortonella Henslae - Bacteria',
     'article',
-    '# Pseudomonas Aeruginosa, Legionella Pneumophilia and Bortonella Henslae - Bacteria
-
-Pseudomonas Aeruginosa
+    'Pseudomonas Aeruginosa
 Gram-negative rod transmitted via direct/indirect contact
 likely in the hospital environment.
 Legionella Pneumophilia
@@ -16884,9 +16524,7 @@ scratch or bite of a cat.
     'respiratory-viruses',
     'Respiratory Viruses',
     'article',
-    '# Respiratory Viruses
-
-Croup:
+    'Croup:
 Croup (laryngotracheobronchitis) is a common respiratory
 disease that typically occurs in children aged between 6
 months and 3 years.
@@ -17055,9 +16693,7 @@ start of symptoms',
     'sexually-transmitted-bacteria',
     'Sexually Transmitted Bacteria',
     'article',
-    '# Sexually Transmitted Bacteria
-
-Sexually Transmitted Bacteria:
+    'Sexually Transmitted Bacteria:
 Chlamydia Trachomatis:
 Obligate intracellular bacterium transmitted vis sexual and
 peripartum causing Chlamydia, trachoma, ophthalmia
@@ -17111,9 +16747,7 @@ Chlamydia trachomatis:
     'streptococcus-and-staphylococcus-bactera',
     'Streptococcus and Staphylococcus Bactera',
     'article',
-    '# Streptococcus and Staphylococcus Bactera
-
-Streptococcus spp
+    'Streptococcus spp
 Common features:
 Streptococcus Spp
 (Beta hemolytic group A) Is gram +Ve Cocci in chains
@@ -17221,9 +16855,7 @@ Aureus',
     'uk-immunization-schedule',
     'Uk - Immunization Schedule',
     'article',
-    '# Uk - Immunization Schedule
-
-UK Immunization Schedule:
+    'UK Immunization Schedule:
 The routine immunization schedule
 from February 2022
 Note: Trade name is not necessary to remember.

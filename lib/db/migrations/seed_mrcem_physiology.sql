@@ -66,9 +66,7 @@ BEGIN
     'action-potential',
     'Action Potential',
     'article',
-    '# Action Potential
-
-Generation of Action potential
+    'Generation of Action potential
 Once triggered an action potential will travel over the entire
 surface of an excitable cell and will always have the same
 amplitude. An action potential is an all or nothing response;
@@ -135,9 +133,7 @@ an action potential can travel only in one direction.',
     'cell-membrane-transport',
     'Cell Membrane Transport',
     'article',
-    '# Cell Membrane Transport
-
-Cell membrane transport
+    'Cell membrane transport
 Cell membrane transport: Occurs through large pores, career
 proteins and ion channels.
 Fick''s law of diffusion: (Net rate of
@@ -196,9 +192,7 @@ Example of hypertonic fluid: 3% Hypertonic saline
     'homeostasis',
     'Homeostasis',
     'article',
-    '# Homeostasis
-
-Homeostasis
+    'Homeostasis
 Maintenance of steady states in body by coordinated
 physiologic mechanisms.
 
@@ -273,9 +267,7 @@ Follicular phase of menstrual cycle
     'nerve-muscle',
     'Nerve Muscle',
     'article',
-    '# Nerve Muscle
-
-Nerve muscle
+    'Nerve muscle
 Skeletal muscle structure:
 The connective tissue surrounding the whole muscle is called
 the epimysium. The connective tissue that extends beyond
@@ -326,9 +318,7 @@ Comparison between them:
     'neuromuscular-junction',
     'Neuromuscular Junction',
     'article',
-    '# Neuromuscular Junction
-
-Neuromuscular junction
+    'Neuromuscular junction
 Junction between a nerve ending and muscle membrane.
 Synapse: Junction between excitable cells that allows
 transmission of a signal from first cell to next is called synapse
@@ -367,9 +357,7 @@ in basal lamina; this prevents re-excitation.',
     'organisation-of-cell',
     'Organisation of Cell',
     'article',
-    '# Organisation of Cell
-
-Organization of cell
+    'Organization of cell
 A typical cell is made up of four basic structures, which from
 outside to inside are:
 Cell membrane
@@ -446,9 +434,7 @@ reticulum (bound ribosomes).',
     'osmolality-and-osmolal-gap',
     'Osmolality and Osmolal Gap',
     'article',
-    '# Osmolality and Osmolal Gap
-
-Osmolality and osmolal gap
+    'Osmolality and osmolal gap
 
 ![Osmolality and Osmolal Gap - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/osmolality-and-osmolal-gap/figure_01_p1.png)
 *Osmolality and Osmolal Gap — Clinical Figure 1 (Page 1 Reference)*',
@@ -475,9 +461,7 @@ Osmolality and osmolal gap
     'skeletal-muscle-excitation-contraction-coupling',
     'Skeletal Muscle Excitation Contraction Coupling',
     'article',
-    '# Skeletal Muscle Excitation Contraction Coupling
-
-Skeletal excitation contraction
+    'Skeletal excitation contraction
 coupling
 Muscle contraction occurs when the concentration of
 intracellular Ca2+ rises.
@@ -527,9 +511,7 @@ occurs.',
     'teatnus-and-rigor-mortis',
     'Teatnus and Rigor Mortis',
     'article',
-    '# Teatnus and Rigor Mortis
-
-Tetanus and Rigor mortis
+    'Tetanus and Rigor mortis
 Tetanus: During repeated stimulation of a muscle fiber,
 Calcium is released from the sarcoplasmic reticulum (SR) more
 quickly than it can be reaccumulated; therefore, the
@@ -566,9 +548,7 @@ detoriates.',
     'vessel-fluid-dynamics',
     'Vessel Fluid Dynamics',
     'article',
-    '# Vessel Fluid Dynamics
-
-Vessel fluid dynamics
+    'Vessel fluid dynamics
 Flow rate(Q) = vA (where v is flow velocity and A cross sectional
 vector Area
 Tube flow:
@@ -640,9 +620,7 @@ efficient.',
     'cardiac-cycle',
     'Cardiac Cycle',
     'article',
-    '# Cardiac Cycle
-
-Heart as pump
+    'Heart as pump
 The heart is a →  chambered muscular organ that contracts
 rhythmically to pump blood into arteries and receive it back
 through veins, thereby keeping blood in constant circulation.
@@ -745,9 +723,7 @@ during diastole.',
     'cardiac-excitation-contraction-coupling',
     'Cardiac Excitation Contraction Coupling',
     'article',
-    '# Cardiac Excitation Contraction Coupling
-
-Cardiac excitation contraction
+    'Cardiac excitation contraction
 coupling:
 Calcium entry during action potential is essential for
 contraction but it accounts for only 25% of the rise in
@@ -798,9 +774,7 @@ an energy source.',
     'cardiac-myocyte',
     'Cardiac Myocyte',
     'article',
-    '# Cardiac Myocyte
-
-Cardiac myocyte
+    'Cardiac myocyte
 Cardiac myocyte and comparison with other
 cells
 
@@ -829,9 +803,7 @@ cells
     'components-of-the-vasculature',
     'Components of the Vasculature',
     'article',
-    '# Components of the Vasculature
-
-Components of the vasculature
+    'Components of the vasculature
 
 ### 1: Arteries:
 
@@ -930,9 +902,7 @@ Vena cava, 4 mm Hg',
     'conducting-system-of-heart',
     'Conducting System of Heart',
     'article',
-    '# Conducting System of Heart
-
-Conducting system of heart
+    'Conducting system of heart
 Special system of heart that generates rhythmical impulses
 and conducts these impulses through heart, is called excitatory
 and conductive system of heart. Consists of:
@@ -982,9 +952,7 @@ interval (1st degree heart block)',
     'electrocardiography-ecg',
     'Electrocardiography (ecg)',
     'article',
-    '# Electrocardiography (ecg)
-
-ECG
+    'ECG
 12 Conventional ECG leads record the difference in potential.
 Six extremity limb leads and six chest pericardial leads.
 Six Extremity leads: Three bipolar leads (I, II, III) and three
@@ -1025,9 +993,7 @@ left leg (LL).
     'harmonal-control-of-blood-flow',
     'Harmonal Control of Blood Flow',
     'article',
-    '# Harmonal Control of Blood Flow
-
-Hormonal Control of Blood Flow
+    'Hormonal Control of Blood Flow
 Histamine: causes arteriolar dilation and venous constriction.
 The combined effects of arteriolar dilation and venous
 constriction cause increased capillary hydrostatic pressure and
@@ -1135,9 +1101,7 @@ Vasoconstricting and Vasodilating agent:
     'heart-sounds-mechanical-events-and-correspondance-with-ecg',
     'Heart Sounds, Mechanical Events and Correspondance with ECG',
     'article',
-    '# Heart Sounds, Mechanical Events and Correspondance with ECG
-
-Heart sounds, Mechanical event and correspondence with
+    'Heart sounds, Mechanical event and correspondence with
 ECG
 
 ![Heart Sounds, Mechanical Events and Correspondance with ECG - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/heart-sounds-mechanical-events-and-correspondance-with-ecg/figure_01_p1.png)
@@ -1165,9 +1129,7 @@ ECG
     'heart-volumes',
     'Heart Volumes',
     'article',
-    '# Heart Volumes
-
-Heart volume
+    'Heart volume
 The total blood volume in the circulatory system of a healthy
 adult is about 5 L.
 Stroke Volume Output: The volume of blood that is ejected
@@ -1211,9 +1173,7 @@ ejected during systole, is called ejection fraction. (Value: 60%)',
     'microcirculation-and-lymph',
     'Microcirculation and Lymph',
     'article',
-    '# Microcirculation and Lymph
-
-Microcirculation and Lymph
+    'Microcirculation and Lymph
 Structure of capillary beds
 Metarterioles branch into the capillary beds. At the junction
 of the arterioles and capillaries is a smooth muscle band
@@ -1296,9 +1256,7 @@ the production of NO in vascular smooth muscle.',
     'reflex-control-of-heart',
     'Reflex Control of Heart',
     'article',
-    '# Reflex Control of Heart
-
-Reflex control of heart by
+    'Reflex control of heart by
 autonomic nervous system
 Sympathetic stimulation increases heart rate and strength,
 thereby increasing cardiac pumping. Sympathetic
@@ -1331,9 +1289,7 @@ strength, thereby decreasing cardiac pumping.',
     'regulation-of-blood-pressure',
     'Regulation of Blood Pressure',
     'article',
-    '# Regulation of Blood Pressure
-
-Regulation of Blood pressure
+    'Regulation of Blood pressure
 Mechanism of baroreceptor and
 chemoreceptor reflex:
 Impaired baroreceptor reflex:
@@ -1390,9 +1346,7 @@ which causes a profound increase in arterial pressure.',
     'regulation-of-cardiac-pumping',
     'Regulation of Cardiac Pumping',
     'article',
-    '# Regulation of Cardiac Pumping
-
-Regulation of Cardiac Pumping
+    'Regulation of Cardiac Pumping
 Cardiac pumping (i.e., volume of blood pumped by heart) is
 regulated by:
 Intrinsic regulation: pumping in response to changes in
@@ -1498,9 +1452,7 @@ Digoxin is positive inotrope and negative chronotrope.',
     'ventricular-myocyte-vs-pacemaker-action-potential',
     'Ventricular Myocyte Vs Pacemaker Action Potential',
     'article',
-    '# Ventricular Myocyte Vs Pacemaker Action Potential
-
-Ventricular myocyte action
+    'Ventricular myocyte action
 potential
 RMP of Ventricular myocyte is -90mv depolarization initiates
 when RMP reaches threshold of -65mv
@@ -1554,9 +1506,7 @@ influx initiates depolarization
     'alveolar-arterial-gradient',
     'Alveolar Arterial Gradient',
     'article',
-    '# Alveolar Arterial Gradient
-
-A-a gradient
+    'A-a gradient
 Difference between alveolar Po2 and arterial Po2
 A-a gradient: PA02-Pao2 (where PA02 alveolar po2 and Pao2
 is arterial po2)
@@ -1604,9 +1554,7 @@ shunt',
     'breathing-cycle-description-of-pressure-and-airflow',
     'Breathing Cycle - Description of Pressure and Airflow',
     'article',
-    '# Breathing Cycle - Description of Pressure and Airflow
-
-Breathing cycle (description of
+    'Breathing cycle (description of
 pressures and airflow)
 At rest (before inspiration begins):
 Alveolar pressure equals atmospheric pressure, because lung
@@ -1679,9 +1627,7 @@ Lung volume returns to FRC.',
     'central-control-of-breathing',
     'Central Control of Breathing',
     'article',
-    '# Central Control of Breathing
-
-Involuntary respiration
+    'Involuntary respiration
 Involuntary respiration is under subconscious control. The
 diaphragm and intercostal muscles are the primary respiratory
 muscles. They are stimulated by groups of neurons located in
@@ -1764,9 +1710,7 @@ resulting increase in Pco2 and decrease in P02',
     'control-of-ventilation',
     'Control of Ventilation',
     'article',
-    '# Control of Ventilation
-
-Control of ventilation is mediated via
+    'Control of ventilation is mediated via
 central and Peripheral
 chemoreceptors.
 Chemoreceptor overview:
@@ -1801,9 +1745,7 @@ chemoreceptor
     'dead-space',
     'Dead Space',
     'article',
-    '# Dead Space
-
-Dead Space
+    'Dead Space
 Anatomic dead space
 Refers to volume of conducting airways.
 Normally approximately 150 ml
@@ -1842,9 +1784,7 @@ ventilation/perfusion (V/Q) defects.',
     'diffusion-and-diffusion-capacity',
     'Diffusion and Diffusion Capacity',
     'article',
-    '# Diffusion and Diffusion Capacity
-
-Diffusion of gases such as 02
+    'Diffusion of gases such as 02
 and CO ₂
 The diffusion rates of O2 and CO2 depend on the partial
 pressure differences across the membrane and the area
@@ -1909,9 +1849,7 @@ High DLCO and Low DLCO
     'gas-exchange',
     'Gas Exchange',
     'article',
-    '# Gas Exchange
-
-## Gas Exchange
+    '## Gas Exchange
 
 Dalton law of partial pressures
 Daltons law of partial pressure can be expressed by the
@@ -1977,9 +1915,7 @@ Partial pressure of O2 and Co2 (mm Hg)
     'lung-elastance-and-compliance',
     'Lung Elastance and Compliance',
     'article',
-    '# Lung Elastance and Compliance
-
-Lung elastance and Lung
+    'Lung elastance and Lung
 Compliance:
 Lung elastance: Tendency of lungs to collapse.
 Compliance: The ease with which the lungs can expand
@@ -2025,9 +1961,7 @@ forces can be balanced again.',
     'lung-receptors',
     'Lung Receptors',
     'article',
-    '# Lung Receptors
-
-Lung receptors:
+    'Lung receptors:
 Irritant Receptors in the Airways: The epithelium of the
 trachea, bronchi, and bronchioles is supplied with sensory
 nerve endings called pulmonary irritant receptors that are
@@ -2077,9 +2011,7 @@ expiration produced by marked deflation of lung.',
     'lung-volumes-and-capacities',
     'Lung Volumes and Capacities',
     'article',
-    '# Lung Volumes and Capacities
-
-Lung volume and capacities
+    'Lung volume and capacities
 Tidal Volume (TV): The volume of air that is inhaled and then
 exhaled with each normal breath.
 Normal tidal volume is 500ml or 7ml/kg.
@@ -2185,9 +2117,7 @@ asthma.',
     'oxygen-haemoglobin-dissociation-curve',
     'Oxygen Haemoglobin Dissociation Curve',
     'article',
-    '# Oxygen Haemoglobin Dissociation Curve
-
-Oxygen-Haemoglobin
+    'Oxygen-Haemoglobin
 Dissociation Curve
 The Haemoglobin oxygen Dissociation Curve is a plot of
 percent saturation of haemoglobin as a function of po2.
@@ -2261,9 +2191,7 @@ affinity for O2',
     'resistance-of-the-airways',
     'Resistance of the Airways',
     'article',
-    '# Resistance of the Airways
-
-Resistance of the airways
+    'Resistance of the airways
 is described by Poiseuille law, as shown in the following
 equation: R= 8 n l/ r4 where:
 R= resistance
@@ -2312,9 +2240,7 @@ the radius, and decrease the resistance to airflow.',
     'surface-tention-and-surfactant',
     'Surface Tention and Surfactant',
     'article',
-    '# Surface Tention and Surfactant
-
-Surface tension and surfactant
+    'Surface tension and surfactant
 Surface tension of the alveoli:
 Surface tension of the alveoli results from the attractive forces
 between liquid molecules lining the alveoli at the air-liquid
@@ -2371,9 +2297,7 @@ and right-to-left shunt).',
     'transport-of-gases-in-circulation',
     'Transport of Gases in Circulation',
     'article',
-    '# Transport of Gases in Circulation
-
-Transport of Gases in Circulation:
+    'Transport of Gases in Circulation:
 Transport of CO2:
 Large amount of CO2 is continuously produced in the body.
 Under normal resting conditions each 100 ml of deoxygenated
@@ -2427,9 +2351,7 @@ contains a maximum of 187 mL/L',
     'ventilation-perfusion-mismatch',
     'Ventilation Perfusion Mismatch',
     'article',
-    '# Ventilation Perfusion Mismatch
-
-Ventilation- Perfusion mismatch
+    'Ventilation- Perfusion mismatch
 The ratio of alveolar ventilation to pulmonary blood flow is V/Q
 ratio.
 For the lung at rest, it is about 0.8.
@@ -2522,9 +2444,7 @@ normal or low PCO2.
     'acid-base-balance',
     'Acid Base Balance',
     'article',
-    '# Acid Base Balance
-
-Acid base balance
+    'Acid base balance
 Acid production
 Two types of acids are produced in the body: volatile acid and
 non-volatile acids.
@@ -2660,9 +2580,7 @@ increase in H excretion.',
     'acid-base-disorder',
     'Acid Base Disorder',
     'article',
-    '# Acid Base Disorder
-
-Acid base disorders
+    'Acid base disorders
 Acid-base disorders are pathologic changes in carbon dioxide
 partial pressure (Pco2) or serum bicarbonate (HCO3−) that
 typically produce abnormal arterial pH values.
@@ -2851,9 +2769,7 @@ results in over-breathing/breathlessness).',
     'aldosterone-adh-and-anp',
     'Aldosterone, ADH and ANP',
     'article',
-    '# Aldosterone, ADH and ANP
-
-Aldosterone
+    'Aldosterone
 Aldosterone release is stimulated by
 ACTH (It is less important as regulator, so pituitary failure
 does not severely impair the aldosterone secretion.
@@ -2932,9 +2848,7 @@ ENaC in principal cells.',
     'autoregulation',
     'Autoregulation',
     'article',
-    '# Autoregulation
-
-Autoregulation
+    'Autoregulation
 Blood flow throughout the kidney: renal artery=arcuate
 artery=afferent arteriole=glomerular capillaries=efferent
 arterioles=peritubular capillaries=vasa recta=arcuate
@@ -2987,9 +2901,7 @@ providing restoration of filtration and autoregulation of RBF.',
     'concentration-and-dilution-of-urine',
     'Concentration and Dilution of Urine',
     'article',
-    '# Concentration and Dilution of Urine
-
-Concentration and dilution of
+    'Concentration and dilution of
 urine
 Regulation of plasma osmolarity
 It is accomplished by varying the amount of H2O excreted
@@ -3149,9 +3061,7 @@ It is produced in water deprivation or SIADH.',
     'creatinine-clearance',
     'Creatinine Clearance',
     'article',
-    '# Creatinine Clearance
-
-Creatinine Clearance
+    'Creatinine Clearance
 Clearance refers to a theoretical volume of plasma from
 which a substance is removed over a period of time.
 Clearance = Urine conc of substance × Urine flow rate
@@ -3197,9 +3107,7 @@ parallels inulin clearance and is independent of production rate
     'functional-anatomy-of-kidney',
     'Functional Anatomy of Kidney',
     'article',
-    '# Functional Anatomy of Kidney
-
-Anatomy of Kidney
+    'Anatomy of Kidney
 The kidneys are two bean-shaped organs, located on either
 side of the spine, in the retroperitoneal space. The left kidney is
 situated a little higher than the right one, because of the liver
@@ -3345,9 +3253,7 @@ that of mesangial cells.',
     'glomerular-filtration-rate',
     'Glomerular Filtration Rate',
     'article',
-    '# Glomerular Filtration Rate
-
-Glomerular Filtration rate
+    'Glomerular Filtration rate
 Glomerular filtration rate is the amount of glomerular filtrate
 formed in all the of both the kidneys per minute. In a healthy
 individual, it is about 125 mL/minute.
@@ -3422,9 +3328,7 @@ increases GFR.',
     'hyperkalemia-and-hypokalemia',
     'Hyperkalemia and Hypokalemia',
     'article',
-    '# Hyperkalemia and Hypokalemia
-
-Hyperkalemia
+    'Hyperkalemia
 Normal value of serum K = 3.0- 4.5 mmol/L
 Causes
 Insulin deficiency
@@ -3549,9 +3453,7 @@ K sparing diuretics',
     'nacl-regulation',
     'NACL Regulation',
     'article',
-    '# NACL Regulation
-
-NaCl Regulation
+    'NaCl Regulation
 Tubular fluid (TF) is urine at any point along the nephron.
 Plasma (P) is systemic plasma. It is considered to be
 constant.
@@ -3674,9 +3576,7 @@ Reabsorbs K+ by an H-K-ATPase',
     'potassium-regulation',
     'Potassium Regulation',
     'article',
-    '# Potassium Regulation
-
-K+ Regulation
+    'K+ Regulation
 K is filtered, reabsorbed and secreted by nephron.
 K balance is achieved when urinary excretion of K+ exactly
 equals intake of K+ in the diet.
@@ -3798,9 +3698,7 @@ increasing the driving force for K+ secretion.',
     'renal-regulation-of-urea-phosphate-calcium-and-magnessium',
     'Renal Regulation of Urea, Phosphate, Calcium and Magnessium',
     'article',
-    '# Renal Regulation of Urea, Phosphate, Calcium and Magnessium
-
-Renal regulation of urea,
+    'Renal regulation of urea,
 phosphate, calcium and
 magnesium
 Urea
@@ -3884,9 +3782,7 @@ inhibiting Ca reabsorption)',
     'renin-angiotensin-aldosterone-system',
     'Renin Angiotensin Aldosterone System',
     'article',
-    '# Renin Angiotensin Aldosterone System
-
-Renin angiotensin aldosterone
+    'Renin angiotensin aldosterone
 system
 The Renin-Angiotensin-Aldosterone System (RAAS) is a
 hormone system within the body that is essential for the
@@ -3987,9 +3883,7 @@ apparatus (negative feedback)',
     'absorption-of-vitamins-in-small-intestine',
     'Absorption of Vitamins in Small Intestine',
     'article',
-    '# Absorption of Vitamins in Small Intestine
-
-Vitamins absorption
+    'Vitamins absorption
 Fat soluble vitamins (A, D, E, and K) are incorporated into
 micelles and absorb along with other lipids.
 Most water-soluble vitamins are absorbed by Na+ -
@@ -4027,9 +3921,7 @@ vitamin B12',
     'bile-and-bile-salts',
     'Bile and Bile Salts',
     'article',
-    '# Bile and Bile Salts
-
-Bile
+    'Bile
 Bile is an aqueous, alkaline, greenish-yellow liquid whose
 main function is to emulsify fats in the small intestine and to
 eliminate substances from the liver. The liver produces 0.25-
@@ -4127,9 +4019,7 @@ mechanism',
     'calcium-absorption',
     'Calcium Absorption',
     'article',
-    '# Calcium Absorption
-
-Calcium absorption
+    'Calcium absorption
 Absorption of calcium in small intestine depends on
 presence of adequate amounts of the active form of vitamin
 D, 1 ,25-dihydroxycholecalciferol, which is produced in the
@@ -4161,9 +4051,7 @@ children and osteomalacia in adults.',
     'defecation',
     'Defecation',
     'article',
-    '# Defecation
-
-Defecation
+    'Defecation
 There are two main anal sphincters, an internal and external
 sphincter. The internal anal sphincter is controlled by
 parasympathetic fibers which relax involuntarily. The
@@ -4209,9 +4097,7 @@ reflexes that anal distension initiates.',
     'digestion-and-absorption-of-carbohydrates',
     'Digestion and Absorption of Carbohydrates',
     'article',
-    '# Digestion and Absorption of Carbohydrates
-
-Carbohydrate
+    'Carbohydrate
 Carbohydrates in the diet provide the major exogenous source
 for glucose, which is the primary energy source for cells. They
 provide 17kJ (4kcal) of energy per gram. Most of the dietary
@@ -4278,9 +4164,7 @@ motility.
     'digestion-and-absorption-of-lipids',
     'Digestion and Absorption of Lipids',
     'article',
-    '# Digestion and Absorption of Lipids
-
-Lipid
+    'Lipid
 Fats in the diet are a more concentrated form of energy than
 carbohydrates and have an energy yield of 37 kJ (9
 kilocalories) per gram. Adipose (fatty) tissue in the fat depots
@@ -4367,9 +4251,7 @@ are added to the bloodstream via the thoracic duct.
     'digestion-and-absorption-of-proteins',
     'Digestion and Absorption of Proteins',
     'article',
-    '# Digestion and Absorption of Proteins
-
-Protein
+    'Protein
 Proteins are important nutrients that your body uses to build
 cellular structures that carry out vital functions.
 The building blocks of proteins are amino acids. Amino acids
@@ -4437,9 +4319,7 @@ hydrolyzed to amino acids.
     'exocrine-pancreas',
     'Exocrine Pancreas',
     'article',
-    '# Exocrine Pancreas
-
-Exocrine pancreas
+    'Exocrine pancreas
 The pancreas is an abdominal organ located deep in the
 retroperitoneum. It is a gland with mixed functions: both
 exocrine and endocrine. the endocrine gland containing the
@@ -4538,9 +4418,7 @@ absorbed by the body.',
     'gastrointestinal-hormones',
     'Gastrointestinal Hormones',
     'article',
-    '# Gastrointestinal Hormones
-
-Gastrointestinal hormones
+    'Gastrointestinal hormones
 GI Hormone are released from endocrine cells in the GI mucosa
 into portal circulation, enter the general circulation, and have
 physiologic actions on target cells.
@@ -4668,9 +4546,7 @@ Decrease blood glucose concentration.',
     'gastrointestinal-tract',
     'Gastrointestinal Tract',
     'article',
-    '# Gastrointestinal Tract
-
-Gastrointestinal tract
+    'Gastrointestinal tract
 The gastrointestinal tract (GI tract, digestive tract, alimentary
 canal) is the tract or passageway of the digestive system that
 leads from the mouth to the anus. The GI tract contains all the
@@ -4745,9 +4621,7 @@ covered with squamous mesothelial cells)',
     'innervation-of-gi-tract',
     'Innervation of Gi Tract',
     'article',
-    '# Innervation of Gi Tract
-
-Innervation of Gastrointestinal tract
+    'Innervation of Gastrointestinal tract
 The gastrointestinal tract is innervated by the autonomic
 nervous system.
 The autonomic system of GI tract comprises both extrinsic
@@ -4800,9 +4674,7 @@ esophagus.',
     'iron-handling',
     'Iron Handling',
     'article',
-    '# Iron Handling
-
-Iron
+    'Iron
 Iron is a vital trace element for humans, as it plays a crucial role
 in oxygen transport, oxidative metabolism, cellular proliferation,
 and many catalytic reactions.
@@ -4891,9 +4763,7 @@ increases iron loss.',
     'large-intestine',
     'Large Intestine',
     'article',
-    '# Large Intestine
-
-Large intestine
+    'Large intestine
 The large intestine is the terminal portion of the
 gastrointestinal tract and is approx. 1.5 m (5 ft) long. The large
 intestine is divided into the cecum and appendix, the
@@ -4965,9 +4835,7 @@ disparity.
     'liver',
     'Liver',
     'article',
-    '# Liver
-
-Liver
+    'Liver
 Largest gland in the body
 Weight: 1.2-1.5 kg in adults (2.6-3.3 pounds)
 Wedge-shaped
@@ -5053,9 +4921,7 @@ cells, are found in high numbers in the liver.',
     'mastication-and-swallowing',
     'Mastication and Swallowing',
     'article',
-    '# Mastication and Swallowing
-
-Mouth
+    'Mouth
 The primary function of the mouth is eating, and it has a few
 other important functions also.
 Functions of mouth include:
@@ -5148,9 +5014,7 @@ contracts to prevent reflux and respiration begins again.',
     'saliva',
     'Saliva',
     'article',
-    '# Saliva
-
-Saliva
+    'Saliva
 The body produces around 1.5 liters of saliva every day and it
 plays a vital role in lubricating food, digestion and protecting
 the oral environment.
@@ -5262,9 +5126,7 @@ anticholinergic drugs (e.g., atropine)
     'small-intestine',
     'Small Intestine',
     'article',
-    '# Small Intestine
-
-Small intestine
+    'Small intestine
 The small intestine (small bowel) is a hollow, tubular
 structure with an average adult length of 22 feet (7 meters),
 making it the longest portion of the gastrointestinal (GI) tract
@@ -5355,9 +5217,7 @@ well as Na+ ions can then diffuse into the capillaries.',
     'stomach',
     'Stomach',
     'article',
-    '# Stomach
-
-Stomach
+    'Stomach
 The stomach is a gastrointestinal organ that is responsible for
 preliminary digestion and destroying any potential pathogenic
 microorganisms that may have been ingested. It is an acidic
@@ -5554,9 +5414,7 @@ emptying.',
     'summary-of-harmones-and-secretion-of-git',
     'Summary of Harmones and Secretion of GIT',
     'article',
-    '# Summary of Harmones and Secretion of GIT
-
-Summary of hormones and
+    'Summary of hormones and
 secretion of git
 Gastric secretory and Regulatory
 products
@@ -5590,9 +5448,7 @@ Small intestine regulatory products:
     'vitamins-overview',
     'Vitamins Overview',
     'article',
-    '# Vitamins Overview
-
-Vitamins
+    'Vitamins
 
 ![Vitamins Overview - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/vitamins-overview/figure_01_p1.png)
 *Vitamins Overview — Clinical Figure 1 (Page 1 Reference)*',
@@ -5631,9 +5487,7 @@ Vitamins
     'adrenal-gland',
     'Adrenal Gland',
     'article',
-    '# Adrenal Gland
-
-Adrenal gland
+    'Adrenal gland
 Adrenal glands are paired of endocrine glands located on the
 superior pole of each kidney. they are composed of an inner
 medulla and an outer cortex, which is turn divided in to three
@@ -5684,9 +5538,7 @@ regulated by the renin-angiotensin system and by potassium.',
     'adrenal-insufficiency',
     'Adrenal Insufficiency',
     'article',
-    '# Adrenal Insufficiency
-
-Adrenal Insufficiency
+    'Adrenal Insufficiency
 Adrenal insufficiency is a failure of the adrenal glands to
 produce adequate amounts of adrenocortical hormone. It
 can be primary, secondary or tertiary.
@@ -5823,9 +5675,7 @@ levels are normal)
     'adrenal-medulla-and-pheochromocytoma',
     'Adrenal Medulla and Pheochromocytoma',
     'article',
-    '# Adrenal Medulla and Pheochromocytoma
-
-Adrenal medulla
+    'Adrenal medulla
 The adrenal medulla is composed of chromaffin cells, which
 synthesize and secrete catecholamines epinephrine and nor-
 epinephrine (adrenaline and noradrenaline) but also has other
@@ -5895,9 +5745,7 @@ unopposed a-mediated vasoconstriction.',
     'aldosterone',
     'Aldosterone',
     'article',
-    '# Aldosterone
-
-Aldosterone
+    'Aldosterone
 Aldosterone is the main mineralocorticoid steroid hormone
 produced by the zona glomerulosa of the adrenal cortex in the
 adrenal gland. It is essential for sodium conservation in the
@@ -5955,9 +5803,7 @@ and ↑ pH level',
     'antidiuretic-harmone',
     'Antidiuretic Harmone',
     'article',
-    '# Antidiuretic Harmone
-
-Antidiuretic hormone (ADH)
+    'Antidiuretic hormone (ADH)
 Antidiuretic hormone (ADH), also known as vasopressin, is a
 small peptide hormone which regulates the body''s retention
 of water. The synthesis of ADH occurs in the supraoptic and
@@ -6016,9 +5862,7 @@ Alcohol inhibits ADH release and causes diuresis.
     'calcitonin',
     'Calcitonin',
     'article',
-    '# Calcitonin
-
-Calcitonin:
+    'Calcitonin:
 calcitonin is secreted by parafollicular (cells) of thyroid
 gland. Calcitonin is secreted in response to high levels of
 plasma calcium ions and acts to lower circulating levels of
@@ -6053,9 +5897,7 @@ hormone that acts to increase serum calcium concentration.',
     'calcium-homeostasis',
     'Calcium Homeostasis',
     'article',
-    '# Calcium Homeostasis
-
-Calcium homeostasis
+    'Calcium homeostasis
 The physiological role of
 calcium
 Ionized Ca2+ is responsible for stabilizing the resting
@@ -6113,9 +5955,7 @@ causes true hypocalcemia.',
     'cartisol',
     'Cartisol',
     'article',
-    '# Cartisol
-
-Cortisol
+    'Cortisol
 Cortisol is one of the major glucocorticoids synthesized in the
 zona fasciculata of the adrenal cortex. Cortisol secretion is
 regulated by the hypothalamic hormone CRH, and the pituitary
@@ -6165,9 +6005,7 @@ mechanism',
     'cushing-syndrome',
     'Cushing Syndrome',
     'article',
-    '# Cushing Syndrome
-
-Cushing syndrome
+    'Cushing syndrome
 It is a disorder caused by any condition that produces
 excessive glucocorticoids (cortisol). While the term "Cushing
 syndrome" can be applied to any cause of hypercortisolism,
@@ -6243,9 +6081,7 @@ treatment
     'diabetes-insipidus-and-siadh',
     'Diabetes Insipidus and Siadh',
     'article',
-    '# Diabetes Insipidus and Siadh
-
-Diabetes insipidus (DI):
+    'Diabetes insipidus (DI):
 It is a condition characterized by inability to produce
 concentrated urine due to ADH dysfunction, It is of two types:
 Central Diabetes Insipidus (CDI)
@@ -6327,9 +6163,7 @@ Demeclocycline: ADH receptor antagonist.',
     'endocrine-glands-and-their-harmones',
     'Endocrine Glands and Their Harmones',
     'article',
-    '# Endocrine Glands and Their Harmones
-
-Endocrine System
+    'Endocrine System
 Introduction: All the physiological activities of the body are
 regulated. by two major systems
 
@@ -6386,9 +6220,7 @@ Hormone secreted by other organs.
     'hyperaldosteronism-and-renal-insufficiency',
     'Hyperaldosteronism and Renal Insufficiency',
     'article',
-    '# Hyperaldosteronism and Renal Insufficiency
-
-Hyperaldosteronism
+    'Hyperaldosteronism
 It is a small group of disorders characterized by excessive
 secretion of aldosterone (mineralocorticoid).
 It is classified into primary and secondary
@@ -6457,9 +6289,7 @@ Spironolactone',
     'hypothyroidism-and-hyperthyroidism',
     'Hypothyroidism and Hyperthyroidism',
     'article',
-    '# Hypothyroidism and Hyperthyroidism
-
-Hypothyroidism and
+    'Hypothyroidism and
 Hyperthyroidism:
 
 ![Hypothyroidism and Hyperthyroidism - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/hypothyroidism-and-hyperthyroidism/figure_01_p2.png)
@@ -6492,9 +6322,7 @@ highly effective for symptomatic relief (tachycardia, tremors)',
     'insulin-and-glucagon',
     'Insulin and Glucagon',
     'article',
-    '# Insulin and Glucagon
-
-Insulin
+    'Insulin
 Insulin is a polypeptide hormone secreted by the β  cells of
 the pancreatic islets of Langerhans, containing an A chain
 and a B chain joined by disulfide bridges.
@@ -6591,9 +6419,7 @@ Difference between Insulin and Glucagon
     'pancreas',
     'Pancreas',
     'article',
-    '# Pancreas
-
-Pancreas
+    'Pancreas
 The pancreas is a retroperitoneal, abdominal organ found
 posterior and inferior to the stomach The pancreas has two
 essential and very important functions in the body:
@@ -6630,9 +6456,7 @@ produce different endocrine hormone.
     'parathyroid-harmone',
     'Parathyroid Harmone',
     'article',
-    '# Parathyroid Harmone
-
-Parathyroid hormone (PTH)
+    'Parathyroid hormone (PTH)
 Parathyroid hormone is secreted from chief cells of
 parathyroid gland which is located immediately behind the
 thyroid gland.
@@ -6688,9 +6512,7 @@ dihydroxycholecalciferol in the kidney.',
     'pituitary-gland',
     'Pituitary Gland',
     'article',
-    '# Pituitary Gland
-
-Pituitary gland
+    'Pituitary gland
 The pituitary endocrine gland, which is located in the bony
 Sella turcica, is attached to the base of the brain and has a
 unique connection with the hypothalamus. The pituitary gland
@@ -6715,7 +6537,9 @@ Thyrotropin-releasing hormone (TRH).
 Since your pituitary gland and hypothalamus work together so
 closely, if one of them becomes damaged, it can affect the
 hormonal function of the other.
-Anterior lobe of pituitary
+
+#### Anterior lobe of pituitary
+
 gland
 The anterior pituitary is derived from oral ectoderm (Rathke''s
 pouch). The anterior lobe of pituitary gland is linked to
@@ -6735,7 +6559,9 @@ Growth hormone
 
 Adrenocorticotropin (ACTH)
 Thyroid stimulating hormone (TSH)
-Anterior pituitary hormone
+
+#### Anterior pituitary hormone
+
 Posterior pituitary gland (neurohypophysis)
 The posterior lobe of pituitary gland arises from an evagination
 of neuroectoderm from diencephalon. It stores and releases
@@ -6774,9 +6600,7 @@ Hormones of posterior pituitary gland
     'thyroid-gland',
     'Thyroid Gland',
     'article',
-    '# Thyroid Gland
-
-Thyroid gland
+    'Thyroid gland
 The thyroid gland is a ductless alveolar gland found in the
 anterior neck, just below the laryngeal prominence (Adam''s
 apple). It has two lobes wrapping around the trachea and
@@ -6868,9 +6692,7 @@ Stimulates surfactant synthesis in babies.',
     'vitamin-d-synthesis',
     'Vitamin - D Synthesis',
     'article',
-    '# Vitamin - D Synthesis
-
-Vitamin D synthesis
+    'Vitamin D synthesis
 Vitamin D is a long-term regulator of serum calcium. Its main
 function is to increase the intestinal absorption of calcium.
 It can be ingested, or synthesized from a cholesterol precursor
@@ -6928,9 +6750,7 @@ dihydroxyvitamin D biosynthesis',
     'acquired-coagulation-disorder-of-blood',
     'Acquired Coagulation Disorder of Blood',
     'article',
-    '# Acquired Coagulation Disorder of Blood
-
-Acquired coagulation disorder:
+    'Acquired coagulation disorder:
 
 ### 1: Vitamin K Deficiency
 
@@ -6984,9 +6804,7 @@ Coagulation tests:
     'antiplatelet-and-anticoagulant-drugs',
     'Antiplatelet and Anticoagulant Drugs',
     'article',
-    '# Antiplatelet and Anticoagulant Drugs
-
-Antiplatelet and anticoagulant
+    'Antiplatelet and anticoagulant
 drugs
 
 ![Antiplatelet and Anticoagulant Drugs - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/antiplatelet-and-anticoagulant-drugs/figure_01_p1.png)
@@ -7014,9 +6832,7 @@ drugs
     'haemoglobin',
     'Haemoglobin',
     'article',
-    '# Haemoglobin
-
-Haemoglobin
+    'Haemoglobin
 Red blood cells contain the specialised protein haemoglobin
 which is responsible for carrying oxygen and carbon dioxide
 in the blood.
@@ -7071,9 +6887,7 @@ Fetal HB has high affinity for o2 as compared to adult.
     'haemostasis',
     'Haemostasis',
     'article',
-    '# Haemostasis
-
-Haemostasis
+    'Haemostasis
 Prevention of blood loss
 Stages of haemostasis: Three stages
 Vasoconstriction
@@ -7105,9 +6919,7 @@ Coagulation of blood
     'heriditary-coagulation-disorder-of-blood',
     'Heriditary Coagulation Disorder of Blood',
     'article',
-    '# Heriditary Coagulation Disorder of Blood
-
-Coagulation disorder
+    'Coagulation disorder
 Hereditary coagulation disorder:
 
 ![Heriditary Coagulation Disorder of Blood - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/heriditary-coagulation-disorder-of-blood/figure_01_p1.png)
@@ -7135,9 +6947,7 @@ Hereditary coagulation disorder:
     'platelate-and-platelate-plug',
     'Platelate and Platelate Plug',
     'article',
-    '# Platelate and Platelate Plug
-
-Platelets and platelet plug
+    'Platelets and platelet plug
 Platelets:
 These are minute, round or oval discs formed by fragmentation
 of megakaryocytes. The normal half-life of platelets is 10 days.
@@ -7230,9 +7040,7 @@ Convert the inactive plasminogen to plasmin.',
     'plateletes-bleeding-disorder',
     'Plateletes Bleeding Disorder',
     'article',
-    '# Plateletes Bleeding Disorder
-
-Platelets bleeding disorder
+    'Platelets bleeding disorder
 Thrombocytopenia or abnormal platelet function is
 characterized by spontaneous skin purpura, mucosal
 haemorrhage and prolonged bleeding after trauma.
@@ -7269,9 +7077,7 @@ syndrome
     'sites-of-haemopoiesis',
     'Sites of Haemopoiesis',
     'article',
-    '# Sites of Haemopoiesis
-
-Haemopoiesis Sites:
+    'Haemopoiesis Sites:
 Important to remember:
 Haemopoietic Stem Cells: All blood cells
 develop from Haemopoietic Stem Cells

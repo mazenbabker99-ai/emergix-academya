@@ -954,7 +954,7 @@ export async function runAutoMigrationsAndSeeds() {
     }
 
     // Track explicit curriculum content version so text additions and cleanups are always applied
-    const CURRENT_CURRICULUM_VERSION = "2026_10_18_v5_full_curriculum_text";
+    const CURRENT_CURRICULUM_VERSION = "2026_10_18_v6_clean_headings_no_duplicate_title";
     let isCurriculumUpToDate = false;
 
     try {

@@ -66,9 +66,7 @@ BEGIN
     'anaphylaxis-management',
     'Anaphylaxis Management',
     'article',
-    '# Anaphylaxis Management
-
-- Anaphylaxis
+    '- Anaphylaxis
 >It''s a severe, life-threatening, generalized or systemic
 hypersensitivity reaction, characterized by rapidly developing
 and life-threatening airway, breathing and/or circulation
@@ -173,9 +171,7 @@ previously (history) and immune mediated.',
     'anti-histamine-drugs',
     'Anti - Histamine Drugs',
     'article',
-    '# Anti - Histamine Drugs
-
-Anti histamine:
+    'Anti histamine:
 Block H1 histamine receptors
 Indications:
 Allergic rhinitis
@@ -214,9 +210,7 @@ Divided into 2 groups:
     'asthma-in-adults-management',
     'Asthma in Adults Management',
     'article',
-    '# Asthma in Adults Management
-
-Levels of severity of acute asthma
+    'Levels of severity of acute asthma
 attacks in adults
 Example -1 : In exam, if they give you a scenario that a 34-
 year-old asthma patient who is unable to complete a
@@ -270,9 +264,7 @@ Refer to asthma liaison nurse/chest clinic.
     'bronchodilator-drugs',
     'Bronchodilator Drugs',
     'article',
-    '# Bronchodilator Drugs
-
-Bronchodilator therapy:
+    'Bronchodilator therapy:
 Note: Important points of theophylline:
 Theophylline has narrow window between therapeutic and
 toxic doses, and the half-life can be affected by a number of
@@ -338,9 +330,7 @@ treatment for bradycardias.
     'corticosteroids',
     'Corticosteroids',
     'article',
-    '# Corticosteroids
-
-Corticosteroids:
+    'Corticosteroids:
 Corticosteroids are a class of steroid hormones that are
 naturally produced in the adrenal cortex as well
 as administered as medications for therapeutic purposes.
@@ -463,9 +453,7 @@ can be prolonged).',
     'anti-platelet-statins-nitrate-and-fibrinolytic-drugs',
     'Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs',
     'article',
-    '# Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs
-
-Anti-platelet, Statins, nitrate and
+    'Anti-platelet, Statins, nitrate and
 fibrinolytic drugs:
 
 ![Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/anti-platelet-statins-nitrate-and-fibrinolytic-drugs/figure_01_p1.png)
@@ -493,9 +481,7 @@ fibrinolytic drugs:
     'anticoagulant-drugs',
     'Anticoagulant Drugs',
     'article',
-    '# Anticoagulant Drugs
-
-Antiplatelet and anticoagulant
+    'Antiplatelet and anticoagulant
 drugs
 Anticoagulant drugs
 Heparin:
@@ -611,9 +597,7 @@ effect/increased anticoagulant effects and risk of bleeding.
     'basic-life-support-and-advanced-life-support',
     'Basic Life Support and Advanced Life Support',
     'article',
-    '# Basic Life Support and Advanced Life Support
-
-Basic life support and Advanced life
+    'Basic life support and Advanced life
 support algorithms
 - Key difference b/w Paeds &
 adult ALS
@@ -667,9 +651,7 @@ Targeted temperature management
     'betablocker-and-calcium-channel-blockers',
     'Betablocker and Calcium Channel Blockers',
     'article',
-    '# Betablocker and Calcium Channel Blockers
-
-Beta blockers and calcium channel
+    'Beta blockers and calcium channel
 blockers overview:
 Labetalol: Labetalol is nonselective alpha and betablocker
 commonly used to manage high blood pressure, especially in
@@ -723,9 +705,7 @@ potential and slowing conduction at SA and AV nodes.',
     'bradycardias',
     'Bradycardias',
     'article',
-    '# Bradycardias
-
-Definition
+    'Definition
 Bradycardia is a heart rate of fewer than 60 beats per minute.
 Types
 Sinus bradycardia
@@ -820,9 +800,7 @@ prostatic enlargement',
     'digoxin',
     'Digoxin',
     'article',
-    '# Digoxin
-
-Digoxin
+    'Digoxin
 Digoxin is a cardiac glycoside derived from the
 plant foxglove that primarily works by inhibiting the Na+/K+
 ATPase in the myocardium.
@@ -899,9 +877,7 @@ Treatment: Digoxin immune fab is the reversal agent
     'hypertensive-emergency',
     'Hypertensive Emergency',
     'article',
-    '# Hypertensive Emergency
-
-Hypertensive Emergency
+    'Hypertensive Emergency
 A hypertensive emergency is defined as a clinical situation
 in which there is a marked elevation of blood pressure (BP)
 usually >180/120mmhg and associated with acute or
@@ -977,9 +953,7 @@ and MgSo4 for eclampsia.',
     'tachyarrhythmia',
     'Tachyarrhythmia',
     'article',
-    '# Tachyarrhythmia
-
-Tachycardias
+    'Tachycardias
 Two Types
 Regular or irregular narrow complex
 Regular or Irregular broad complex
@@ -1125,9 +1099,7 @@ blockers.',
     'analgesics',
     'Analgesics',
     'article',
-    '# Analgesics
-
-Analgesics:
+    'Analgesics:
 Classification of analgesics:
 Non opioid analgesics:
 Paracetamol: Used in Pyrexia and mild to moderate pain
@@ -1247,9 +1219,7 @@ Antidote: Naloxone rapidly reverse the symptoms.',
     'anti-psychotic-drugs',
     'Anti - Psychotic Drugs',
     'article',
-    '# Anti - Psychotic Drugs
-
-Anti-psychotics
+    'Anti-psychotics
 Anti-psychotics acts by blocking dopamine D2 receptors in
 the brain .
 Side effects:
@@ -1290,9 +1260,7 @@ QT-interval prolongation',
     'anti-emetic-drugs',
     'Anti - Emetic Drugs',
     'article',
-    '# Anti - Emetic Drugs
-
-Antiemetics drug class, Members and
+    'Antiemetics drug class, Members and
 clinical use:
 Metoclopramide
 Metoclopramide is dopamine receptor antagonist acts directly
@@ -1329,9 +1297,7 @@ associated with antiemetics and antipsychotics
     'anti-epileptic-drugs',
     'Anti - Epileptic Drugs',
     'article',
-    '# Anti - Epileptic Drugs
-
-Anti-epileptic drugs
+    'Anti-epileptic drugs
 Carbamazepine, sodium valproate
 and phenytoin
 Mechanism of action: Carbamazepine, sodium valproate
@@ -1387,9 +1353,7 @@ toxicity occur.',
     'lithium',
     'Lithium',
     'article',
-    '# Lithium
-
-Lithium:
+    'Lithium:
 Used in the treatment of mania, bipolar disorders and
 depression.
 Side effects:
@@ -1448,9 +1412,7 @@ Coma and death',
     'status-epilepticus-management',
     'Status Epilepticus Management',
     'article',
-    '# Status Epilepticus Management
-
-Status epilepticus management
+    'Status epilepticus management
 
 ![Status Epilepticus Management - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/status-epilepticus-management/figure_01_p1.jpg)
 *Status Epilepticus Management — Clinical Figure 1 (Page 1 Reference)*',
@@ -1477,9 +1439,7 @@ Status epilepticus management
     'tricyclic-antidepressants',
     'Tricyclic - Antidepressants',
     'article',
-    '# Tricyclic - Antidepressants
-
-Tri-cyclic antidepressants:
+    'Tri-cyclic antidepressants:
 Mechanism of action: TCA e.g. Amitriptyline is in the tricyclic
 antidepressant (TCA) drug, block the reuptake of
 norepinephrine and serotonin from the synaptic cleft, thereby
@@ -1575,9 +1535,7 @@ bicarbonate bolus followed by infusion.',
     'anesthetic-drugs',
     'Anesthetic Drugs',
     'article',
-    '# Anesthetic Drugs
-
-Benzodiazepines and Muscle relaxants:
+    'Benzodiazepines and Muscle relaxants:
 Local anesthetic drugs:
 Anesthetic induction and
 maintenance agents:
@@ -1631,9 +1589,7 @@ maintenance agents: (Continues)
     'drugs-toxicity-and-antidotes',
     'Drugs Toxicity and Antidotes',
     'article',
-    '# Drugs Toxicity and Antidotes
-
-![Drugs Toxicity and Antidotes - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/drugs-toxicity-and-antidotes/figure_01_p1.png)
+    '![Drugs Toxicity and Antidotes - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/drugs-toxicity-and-antidotes/figure_01_p1.png)
 *Drugs Toxicity and Antidotes — Clinical Figure 1 (Page 1 Reference)*',
     true,
     0,
@@ -1658,9 +1614,7 @@ maintenance agents: (Continues)
     'poisoning-overdose-and-toxidromes',
     'Poisoning, Overdose and Toxidromes',
     'article',
-    '# Poisoning, Overdose and Toxidromes
-
-Poisoning and overdose
+    'Poisoning and overdose
 In toxicology, poisoning is defined as the state resulting from
 the administration of excessive amounts of any
 pharmaceutical agent.
@@ -1714,9 +1668,7 @@ Table - B: Toxidromes
     'summary-of-drugs-and-their-side-effects',
     'Summary of Drugs and Their Side Effects',
     'article',
-    '# Summary of Drugs and Their Side Effects
-
-Summary Of Drugs And Their Side
+    'Summary Of Drugs And Their Side
 Effects
 
 ![Summary of Drugs and Their Side Effects - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/summary-of-drugs-and-their-side-effects/figure_01_p1.png)

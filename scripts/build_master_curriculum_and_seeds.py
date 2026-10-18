@@ -136,7 +136,7 @@ def build_lesson_markdown(folder: str, pdf_file: str, mod_slug: str) -> tuple[st
             img_url = f"/lessons/images/{mod_slug}/{les_slug}/{img}"
             full_content.append(f"![{title} - Reference]({img_url})\n*{title} — Anatomical Reference*")
             
-    final_md = f"# {title}\n\n" + "\n\n".join(full_content)
+    final_md = "\n\n".join(full_content)
     return title, final_md, len(imgs)
 
 def generate_course_seed(course_def: dict):

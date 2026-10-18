@@ -66,9 +66,7 @@ BEGIN
     'arterial-supply-of-upper-limb',
     'Arterial Supply of Upper Limb',
     'article',
-    '# Arterial Supply of Upper Limb
-
-Axillary Artery:
+    'Axillary Artery:
 Is considered to be the central structure of the axilla. Extends
 from the outer border of the first rib to the inferior border of
 the teres major muscle, where it becomes the brachial artery.
@@ -91,7 +89,8 @@ It descends through the anterior compartment of the arm on
 the brachialis muscle enters the cubital fossa, and then ends
 at the level of the neck of the radius by dividing into the
 radial and the ulnar arteries.
-Branches of Brachial artery:
+
+#### Branches of Brachial artery
 
 ### 1: Muscular branches
 
@@ -150,7 +149,9 @@ ulnar artery
 Ulnar canal syndrome refers to compression of the ulnar nerve
 within the ulnar canal. The most common causes are ganglion
 cyst, lipoma and trauma.
-Superficial and Deep palmar arches:
+
+#### Superficial and Deep palmar arches
+
 The hand has a rich arterial supply with many anastomoses
 between vessels
 
@@ -196,9 +197,7 @@ Blood supply: Blood supply to digits and wrist joint.',
     'innervation-of-upper-limb',
     'Innervation of Upper Limb',
     'article',
-    '# Innervation of Upper Limb
-
-Brachial Plexus:
+    'Brachial Plexus:
 The brachial plexus is a network of nerve fibers that supply the
 skin and muscles of upper extremity. The plexus is formed by
 the anterior rami (divisions) of cervical spinal nerves C5, C6, C7,
@@ -239,21 +238,27 @@ Posterior cord: Posterior union of all three trunks
 
 ### 5: Branches:
 
-## Branches Of Lateral Cord   "Lml"
+#### BRANCHES OF LATERAL CORD   "LML"
 
-Lateral pectoral nerve
+#### Lateral pectoral nerve
+
 Musculocutaneous nerve
-Lateral root of median nerve
 
-## Branches Of Medial Cord     "M4U"
+#### Lateral root of median nerve
 
-Medial pectoral nerve
-Medial cutaneous nerve of arm
-Medial cutaneous nerve of forearm
-Medial root of median nerve
+#### BRANCHES OF MEDIAL CORD     "M4U"
+
+#### Medial pectoral nerve
+
+#### Medial cutaneous nerve of arm
+
+#### Medial cutaneous nerve of forearm
+
+#### Medial root of median nerve
+
 Ulnar nerve
 
-## Branches Of Posterior Cord   "Ultra"
+#### BRANCHES OF POSTERIOR CORD   "ULTRA"
 
 Upper subscapular nerve
 Lower subscapular nerve
@@ -313,12 +318,14 @@ brachial artery. Halfway down the arm, the nerve crosses over
 the brachial artery, and becomes situated medially. The median
 nerve enters the anterior compartment of the forearm via the
 cubital fossa
-Branches of Median Nerve in the Forearm
+
+#### Branches of Median Nerve in the Forearm
 
 ![Innervation of Upper Limb - Clinical Figure 2](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_02_p3.png)
 *Innervation of Upper Limb — Clinical Figure 2 (Page 3 Reference)*
 
-Branches of Median Nerve in the Hand
+#### Branches of Median Nerve in the Hand
+
 After giving off the anterior interosseous and palmar cutaneous
 branches, the median nerve enters the hand via the carpal
 tunnel where it terminates by dividing into two branches
@@ -515,9 +522,7 @@ lateral cutaneous nerve of forearm.
     'joints-of-the-upper-limb',
     'Joints of the Upper Limb',
     'article',
-    '# Joints of the Upper Limb
-
-Acromioclavicular Joint:
+    'Acromioclavicular Joint:
 TYPE= Plane type synovial joint
 The acromioclavicular joint consists of an articulation between
 the lateral end of the clavicle and the acromion of the scapula
@@ -744,9 +749,7 @@ posterior shoulder dislocation',
     'lymphatic-drainage-of-upper-limb',
     'Lymphatic Drainage of Upper Limb',
     'article',
-    '# Lymphatic Drainage of Upper Limb
-
-Lymphatic drainage of the Upper
+    'Lymphatic drainage of the Upper
 Limb:
 The superficial lymph vessels ascend the limb in the superficial
 fascia and accompany the superficial veins. The deep lymph
@@ -814,14 +817,17 @@ involved lymph node is axillary
     'muscles-of-the-upper-limb',
     'Muscles of the Upper Limb',
     'article',
-    '# Muscles of the Upper Limb
+    'Forearm muscles
 
-Forearm muscles
-Anterior forearm muscles superficial
+#### Anterior forearm muscles superficial
+
 compartment
-Anterior Forearm muscles intermediate
+
+#### Anterior Forearm muscles intermediate
+
 compartment:
-Anterior Forearm muscles deep compartment:
+
+#### Anterior Forearm muscles deep compartment
 
 > [!TIP]
 > **Key Point: All the muscles of anterior forearm are innervated**
@@ -861,8 +867,10 @@ The muscles in the posterior compartment of the forearm are
 commonly known as the extensor muscles.
 Extensor muscles are divided into superficial and deep
 compartment.
-Superficial compartment:
-Deep Compartment:
+
+#### Superficial compartment
+
+#### Deep Compartment
 
 > [!TIP]
 > **Clinical pearl:**
@@ -1044,9 +1052,7 @@ Innervation: Nerve to subclavius.
     'upper-limb-dermatomes-myotomes-and-reflexes',
     'Upper Limb Dermatomes, Myotomes and Reflexes',
     'article',
-    '# Upper Limb Dermatomes, Myotomes and Reflexes
-
-Dermatomes of Upper Limb:
+    'Dermatomes of Upper Limb:
 Dermatome: A dermatome is defined as ''a strip of skin that is
 innervated by a single spinal nerve and clinically very
 important and help in diagnosis of spinal cord injury
@@ -1087,9 +1093,7 @@ Reflexes of upper Limb:
     'upper-limb-other-important-structures',
     'Upper Limb Other Important Structures',
     'article',
-    '# Upper Limb Other Important Structures
-
-Carpal Tunnel:
+    'Carpal Tunnel:
 The carpel tunnel is the space that lies between the flexor
 retinaculum.
 Contents of the carpal tunnel
@@ -1253,9 +1257,7 @@ syndrome.',
     'venous-drainage-of-upper-limb',
     'Venous Drainage of Upper Limb',
     'article',
-    '# Venous Drainage of Upper Limb
-
-Venous Drainage of the Upper Limb
+    'Venous Drainage of the Upper Limb
 Deep and superficial venous arches: Are formed by a pair of
 venae comitantes, which accompany each of the deep and
 superficial palmar arterial arches.
@@ -1321,9 +1323,7 @@ inferior margin of the first rib.',
     'arterial-supply-of-lower-limb',
     'Arterial Supply of Lower Limb',
     'article',
-    '# Arterial Supply of Lower Limb
-
-### 1: Femoral Artery:
+    '### 1: Femoral Artery:
 
 The femoral artery is a continuation of the external iliac artery.
 It begins behind the inguinal ligament, where it lies midway
@@ -1336,7 +1336,9 @@ popliteal space as the popliteal artery.
 Note: In the femoral triangle, the artery is related laterally to
 the femoral nerve and medially, in the upper part of its
 course, to the femoral vein
-Branches of femoral artery:
+
+#### Branches of femoral artery
+
 Superficial circumflex iliac artery, which arises just below the
 inguinal ligament and runs laterally toward the anterior
 superior iliac spine.
@@ -1356,7 +1358,9 @@ medial, and posterior fascial compartments of the thigh.
 Popliteal artery is a continuation of femoral artery. It extends
 from the opening in the adductor magnus to the lower border of popliteus muscle, where it divides into anterior and posterior
 tibial arteries.
-Anterior Tibial Artery:
+
+#### Anterior Tibial Artery
+
 The anterior tibial artery arises at the bifurcation of the
 popliteal artery in the popliteal fossa. It passes forward
 between the tibia and the fibula through the upper part of
@@ -1364,20 +1368,26 @@ the interosseus membrane and enters the anterior
 compartment of the leg. It then descends with the deep
 peroneal nerve to the front of the ankle joint, where it
 becomes the dorsalis pedis artery
-Posterior Tibial Artery
+
+#### Posterior Tibial Artery
+
 The posterior tibial artery arises at the bifurcation of the
 popliteal artery in the popliteal fossa. It descends in the
 posterior compartment of the leg and is accompanied by the
 tibial nerve. The artery terminates behind the medial malleolus
 by dividing into the medial and the lateral plantar arteries.
-Medial Plantar Artery
+
+#### Medial Plantar Artery
+
 The medial plantar artery is the smaller of the terminal
 branches of the posterior tibial artery. It runs forward along the
 medial border of the foot with the medial plantar nerve, and it
 gives off many muscular and cutaneous branches.
-Lateral Plantar Artery
+
+#### Lateral Plantar Artery
+
 The lateral plantar artery is the larger of the terminal
-branches of the posterior tibial artery. It runs for- ward deep
+branches of the posterior tibial artery. It runs forward deep
 to the abductor hallucis and the flexor digitorum brevis
 muscles with the lateral plantar nerve, and it ends by curving
 medially to form the plantar arch through anastomosis with
@@ -1429,9 +1439,7 @@ between the medial malleolus and the heel.',
     'bones-of-the-lower-limb',
     'Bones of the Lower Limb',
     'article',
-    '# Bones of the Lower Limb
-
-Hip Bone:
+    'Hip Bone:
 The bones of the pelvis consist of the right and left hip bones,
 the sacrum and the coccyx.
 The hip bones articulate posteriorly with the sacrum at the
@@ -1524,9 +1532,7 @@ Distal group: Cuboid and Cuneiforms
     'dermatomes-myotomes-and-reflexes-of-lower-limb',
     'Dermatomes, Myotomes and Reflexes of Lower Limb',
     'article',
-    '# Dermatomes, Myotomes and Reflexes of Lower Limb
-
-Dermatomes and Myotomes of Lower
+    'Dermatomes and Myotomes of Lower
 Limb:
 Lower Limb Reflexes:
 
@@ -1558,9 +1564,7 @@ Lower Limb Reflexes:
     'joints-of-the-lower-limb',
     'Joints of the Lower Limb',
     'article',
-    '# Joints of the Lower Limb
-
-Joints of the lower limb:
+    'Joints of the lower limb:
 
 ### 1: Ligaments of the hip joint:
 
@@ -1709,9 +1713,7 @@ Talocalcaneonavicular joint:
     'lower-limb-other-significant-structures',
     'Lower Limb Other Significant Structures',
     'article',
-    '# Lower Limb Other Significant Structures
-
-Femoral Triangle:
+    'Femoral Triangle:
 The wedge-shaped area is located within the superomedial
 aspect of the anterior thigh.
 
@@ -1807,12 +1809,12 @@ Tibial nerve lies more medial to common fibular nerve.
     'lymphatic-drainage-of-lower-limb',
     'Lymphatic Drainage of Lower Limb',
     'article',
-    '# Lymphatic Drainage of Lower Limb
-
-Inguinal lymph Nodes:
+    'Inguinal lymph Nodes:
 The inguinal lymph nodes are found in the upper aspect of the
 femoral triangle.
-Superficial Inguinal Nodes:
+
+#### Superficial Inguinal Nodes
+
 The superficial inguinal lymph nodes are located in the
 superficial fascia, forming a line below the inguinal ligament,
 and medially extending inferiorly along the terminal part of the
@@ -1821,7 +1823,9 @@ region, lower abdominal wall, perineum, and superficial regions
 of the lower limb.
 Superficial inguinal lymph nodes drain into deep inguinal
 nodes.
-Deep Inguinal Nodes:
+
+#### Deep Inguinal Nodes
+
 Lie along the medial side of femoral vein within the femoral
 canal. They receive all lymph from superficial inguinal lymph
 nodes, deep lymphatics associated with the femoral vessels
@@ -1860,9 +1864,7 @@ abdomen.
     'muscles-of-the-lower-limb',
     'Muscles of the Lower Limb',
     'article',
-    '# Muscles of the Lower Limb
-
-Muscles of Gluteal Region:
+    'Muscles of Gluteal Region:
 Muscles of the gluteal region are divided into two groups.
 
 ### 1: Superficial gluteal muscles
@@ -1898,7 +1900,9 @@ to stand without support on each leg. In a positive sign, pelvic
 drop will occur on the unsupported leg. For example, if the
 right gluteal muscles are weak, the left side of the pelvis will
 drop.
-Anterior compartment of thigh
+
+#### Anterior compartment of thigh
+
 muscles:
 Note: All the muscles of anterior compartment of thigh are
 flexors of thigh at hip joint, while quadriceps femoris is
@@ -1906,7 +1910,9 @@ extensor of thigh at knee joint and Sartorius also flexes thigh at
 knee.
 Note:    Sartorius originates from anterior superior iliac spine
 Rectus femoris originates from anterior inferior iliac spine.
-Medial Compartment of thigh
+
+#### Medial Compartment of thigh
+
 muscles:
 Medial compartment consists of five Indvidual muscles.
 All the muscles of medial compartment of thigh causes
@@ -1942,7 +1948,8 @@ thigh at hip joint
 
 Muscles in the anterior compartment
 of leg:
-Anterior leg consists of four muscles
+
+#### Anterior leg consists of four muscles
 
 > [!TIP]
 > **Clinical pearls: Foot Drop (Discussed in nerves of the lower**
@@ -1955,7 +1962,7 @@ Anterior leg consists of four muscles
 ![Muscles of the Lower Limb - Clinical Figure 6](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_06_p4.png)
 *Muscles of the Lower Limb — Clinical Figure 6 (Page 4 Reference)*
 
-Deep muscles in the posterior leg:
+#### Deep muscles in the posterior leg
 
 > [!TIP]
 > **Clinical pearls:**
@@ -2016,9 +2023,7 @@ second layer of the sole of foot.
     'nerves-of-the-lower-limb',
     'Nerves of the Lower Limb',
     'article',
-    '# Nerves of the Lower Limb
-
-Femoral nerve
+    'Femoral nerve
 Nerve roots: L2-L4
 Motor functions: Innervates the anterior thigh muscles.
 Sensory functions:
@@ -2042,7 +2047,8 @@ divisions
 
 ### 1: Anterior division of the femoral nerve
 
-Anterior cutaneous branches
+#### Anterior cutaneous branches
+
 Branch to sartorius
 Branch to pectineus
 
@@ -2228,9 +2234,8 @@ peroneal nerve or also due to deep fibular nerve injury.',
     'venous-drainage-of-lower-limb',
     'Venous Drainage of Lower Limb',
     'article',
-    '# Venous Drainage of Lower Limb
+    '#### Superficial Veins of the Lower Limb
 
-Superficial Veins of the Lower Limb
 The great saphenous vein: originate from medial side of the
 dorsal venous arch in the foot, passes anterior to the medial
 malleolus (not posterior), travels up the medial side of leg,
@@ -2283,9 +2288,7 @@ knee.
     'bones-of-thorax',
     'Bones of Thorax',
     'article',
-    '# Bones of Thorax
-
-Ribs:
+    'Ribs:
 Consist of 12 pairs of bones that form the main part of the bony
 thoracic wall, extending from the vertebrae posteriorly to or
 toward the sternum anteriorly. Increase the anteroposterior
@@ -2356,9 +2359,7 @@ injury to the intercostal neurovascular bundle.',
     'dermatomes-of-trunk',
     'Dermatomes of Trunk',
     'article',
-    '# Dermatomes of Trunk
-
-Dermatomal supply of trunk:
+    'Dermatomal supply of trunk:
 
 > [!TIP]
 > **High yield:**
@@ -2391,9 +2392,7 @@ Dermatomal supply of trunk:
     'muscles-of-thorax',
     'Muscles of Thorax',
     'article',
-    '# Muscles of Thorax
-
-Muscles of the thoracic cage:
+    'Muscles of the thoracic cage:
 These are five muscles that make the thoracic cage
 External intercostals
 Internal intercostals
@@ -2503,9 +2502,7 @@ symptoms of acid reflux.
     'structures-of-the-thorax-mediastinum',
     'Structures of the Thorax - Mediastinum',
     'article',
-    '# Structures of the Thorax - Mediastinum
-
-Mediastinum:
+    'Mediastinum:
 The mediastinum is an interpleural space and consists of the
 superior mediastinum and inferior mediastinum. The inferior
 mediastinum further divides into the anterior, middle, and
@@ -2537,9 +2534,7 @@ nerves, and sympathetic splanchnic nerves',
     'structures-of-the-thorax-tracheobronchial-tree',
     'Structures of the Thorax - Tracheobronchial Tree',
     'article',
-    '# Structures of the Thorax - Tracheobronchial Tree
-
-Tracheobronchial Tree
+    'Tracheobronchial Tree
 Trachea:
 The trachea marks the beginning of the tracheobronchial tree,
 arises at the lower border of cricoid cartilage in the neck (C6),
@@ -2610,9 +2605,7 @@ sacs, the walls of which form alveoli.',
     'structures-of-the-thorax-heart-and-pericardium',
     'Structures of the Thorax - Heart and Pericardium',
     'article',
-    '# Structures of the Thorax - Heart and Pericardium
-
-Heart and pericardium
+    'Heart and pericardium
 Pericardium
 Fibro-serous, fluid-filled sack that surrounds the muscular
 body of the heart and the roots of the great vessels. Great
@@ -2736,8 +2729,10 @@ Great Vessels of the heart: Mnemonic
 
 ## (Sippa)
 
-Superior vena cava
-Inferior vena cava
+#### Superior vena cava
+
+#### Inferior vena cava
+
 Pulmonary arteries
 Pulmonary veins
 Aorta
@@ -2843,9 +2838,7 @@ Lateral wall MI: LCX occluded.
     'structures-of-the-thorax-lungs-and-pleurae',
     'Structures of the Thorax - Lungs and Pleurae',
     'article',
-    '# Structures of the Thorax - Lungs and Pleurae
-
-## Lung:
+    '## Lung:
 
 Lungs lie either side of the mediastinum, within the thoracic
 cavity. Each lung is surrounded by pleural cavity, which is
@@ -3039,9 +3032,7 @@ superior margin of a rib to avoid injury to the intercostal neurovascular bundle
     'structures-of-the-thorax-oesophagus',
     'Structures of the Thorax - Oesophagus',
     'article',
-    '# Structures of the Thorax - Oesophagus
-
-Oesophagus:
+    'Oesophagus:
 Fibromuscular tube that transports food from pharynx to
 stomach, divided into three parts:
 Cervical: continuous with the oropharynx, commences at the
@@ -3097,9 +3088,7 @@ vagal plexus (parasympathetic fibres)',
     'structures-of-the-thorax-thymus',
     'Structures of the Thorax - Thymus',
     'article',
-    '# Structures of the Thorax - Thymus
-
-The thymus
+    'The thymus
 lobulated lymphoid organ, located in the thoracic cavity and
 neck. In the adolescent, it is involved the development of the
 immune system
@@ -3163,9 +3152,7 @@ gland.',
     'thoracic-wall-movements',
     'Thoracic Wall Movements',
     'article',
-    '# Thoracic Wall Movements
-
-Thoracic wall movements:
+    'Thoracic wall movements:
 In general, the ribs move around two axes, Movement of the
 ribs at the costovertebral joints in respiration results in the
 ''pump handle'' and ''bucket handle'' movements:
@@ -3234,9 +3221,7 @@ diaphragmatic hernia.
     'transverse-thoracic-plane-thoracic-inlet-and-outlet',
     'Transverse Thoracic Plane - Thoracic Inlet and Outlet',
     'article',
-    '# Transverse Thoracic Plane - Thoracic Inlet and Outlet
-
-Transverse thoracic plane
+    'Transverse thoracic plane
 lies at the level of 2nd intercostal space and intervertebral disc
 between T4 & T5
 CLAPTRAP is a useful mnemonic to remember structures
@@ -3316,9 +3301,7 @@ lymph nodes and lymphatic vessels
     'abdominal-wall-muscles',
     'Abdominal Wall Muscles',
     'article',
-    '# Abdominal Wall Muscles
-
-Layers of the Abdominal Wall
+    'Layers of the Abdominal Wall
 (external to internal)
 Skin
 Superficial fascia (Camper''s fascia: Superficial fatty
@@ -3326,7 +3309,9 @@ layer Scarpa''s fascia: deep fibrous layer )
 Muscles
 Transversalis fascia
 Parietal peritoneum
-Anterior abdominal wall muscles
+
+#### Anterior abdominal wall muscles
+
 The muscles of the anterolateral abdominal wall can be
 divided into two main groups that lie deep in the superficial
 fascia.
@@ -3366,7 +3351,9 @@ Rectus abdominus and the pyramidalis muscle
 The superior and inferior epigastric vessels
 The termination of intercostal nerves T7-T11
 The 12th thoracic nerve and the accompanying vessels
-Posterior abdominal wall muscle
+
+#### Posterior abdominal wall muscle
+
 Important posterior abdominal wall muscles are the psoas
 major, minor, the iliacus and the quadratus lumborum which
 each possess a strong fascial covering.
@@ -3414,9 +3401,7 @@ inserting to the lesser trochanter of the femur.
     'accessory-organs-of-the-abdomen',
     'Accessory Organs of the Abdomen',
     'article',
-    '# Accessory Organs of the Abdomen
-
-The Liver:
+    'The Liver:
 largest visceral organ and the largest gland in the human body.
 Plays an important role in production and secretion of bile
 used in emulsification of fats and detoxification by filtering the
@@ -3724,9 +3709,7 @@ greater splanchnic nerves.
     'areas-of-abdomen',
     'Areas of Abdomen',
     'article',
-    '# Areas of Abdomen
-
-Areas of the abdomen
+    'Areas of the abdomen
 Inguinal canal: pathway by which structures can pass from
 the abdominal wall to the external genitalia.
 Inguinal canal boundaries
@@ -3856,9 +3839,7 @@ posterior abdominal wall
     'dermatomes-of-trunk',
     'Dermatomes of Trunk',
     'article',
-    '# Dermatomes of Trunk
-
-Dermatomal supply of trunk
+    'Dermatomal supply of trunk
 
 > [!TIP]
 > **High yield:**
@@ -3891,9 +3872,7 @@ Dermatomal supply of trunk
     'gastrointestinal-tract',
     'Gastrointestinal Tract',
     'article',
-    '# Gastrointestinal Tract
-
-Stomach:
+    'Stomach:
 Intraperitoneal organ located between oesophagus and
 duodenum, lie in epigastrium, umblical and left
 hypochondrium.
@@ -4241,9 +4220,7 @@ fibers of the inferior rectal nerves.
     'lumbar-spine-and-plexus',
     'Lumbar Spine and Plexus',
     'article',
-    '# Lumbar Spine and Plexus
-
-Lumbar spine:
+    'Lumbar spine:
 located between the thoracic and sacral vertebral segments.
 Ligaments of the lumbar spine
 Note: In the cervical spine, the interspinous and supraspinous
@@ -4289,9 +4266,7 @@ rectus abdominus and pyramidalis muscle
     'male-and-female-reproductive-system',
     'Male and Female Reproductive System',
     'article',
-    '# Male and Female Reproductive System
-
-Male Genital organs:
+    'Male Genital organs:
 Testis and Epididymis:
 Paired structure located within the scrotum
 Testis and Epididymis are Suspended in the scrotum by the
@@ -4370,7 +4345,9 @@ Prostate gland:
 largest accessory structure of male reproductive system lies
 immediately inferior to the bladder and the internal urethral
 sphincter
-Anterior to the rectum
+
+#### Anterior to the rectum
+
 superior to the external urethral sphincter
 Functional anatomy: Secretes a fluid that produces the
 characteristic odor of semen. This fluid, the secretion from the
@@ -4517,9 +4494,7 @@ Somatic afferents: accompany pudendal nerve to S2-S4.
     'pelvic-diaphragm-and-supporting-structures',
     'Pelvic Diaphragm and Supporting Structures',
     'article',
-    '# Pelvic Diaphragm and Supporting Structures
-
-Pelvic diaphragm and supporting
+    'Pelvic diaphragm and supporting
 structures:
 Pelvic Diaphragm:
 Forms the pelvic floor and supports all of the pelvic viscera.
@@ -4588,9 +4563,7 @@ peritoneal sac between the bladder and the uterus in females',
     'urinary-tract',
     'Urinary Tract',
     'article',
-    '# Urinary Tract
-
-Kidney
+    'Kidney
 The kidneys are two bean-shaped organs, located on either
 side of the spine, in the retroperitoneal space, extend
 between vertebrae T12 - L3.
@@ -4672,14 +4645,18 @@ semen.
 Male urethra: Male urethra is approximately 20 cm long and
 consists of: prostatic, membranous, bulbous and spongy
 urethra.
-Anterior urethra:
+
+#### Anterior urethra
+
 Penile (spongy) urethra (16 cm long): encased by corpus
 spongiosum of the penis (the longest portion).
 Bulbar (bulbous) urethra traverses the root of the penis, it
 receives the ducts from the bulbourethral glands and the
 glands of Littre
 .
-Posterior urethra
+
+#### Posterior urethra
+
 Membranous urethra (1 cm long): passes through the
 urogenital diaphragm, surrounded by sphincter urethrae. The
 shortest and narrowest portion. The lowest part of the
@@ -4792,12 +4769,13 @@ distended until overflow incontinence occurs.',
     'anterior-and-posterior-triangle-of-neck',
     'Anterior and Posterior Triangle of Neck',
     'article',
-    '# Anterior and Posterior Triangle of Neck
+    '#### Posterior triangle
 
-Posterior triangle
 Borders:
 Posterior border of the sternocleidomastoid muscle
-Anterior border of the trapezius muscle
+
+#### Anterior border of the trapezius muscle
+
 Superior border of the clavicle.
 Roof:
 Platysma and the investing (superficial) layer of the deep
@@ -4810,10 +4788,15 @@ Arteries: Third part of subclavian artery, Transverse cervical and
 suprascapular arteries.
 Nerves: Accessory nerve (CN XI), Phrenic nerve, Branches of
 cervical plexus and Root and trunks of brachial plexus,
-Anterior triangle
+
+#### Anterior triangle
+
 Borders:
-Anterior border of the sternocleidomastoid
-Anterior midline of the neck
+
+#### Anterior border of the sternocleidomastoid
+
+#### Anterior midline of the neck
+
 Inferior border of the mandible.
 Roof:
 Platysma and the investing layer of the deep cervical fascia.
@@ -4860,9 +4843,7 @@ Nerves: Nerve to Mylohyoid, CN XII & Ansa Cervicalis
     'muscles-of-the-neck',
     'Muscles of the Neck',
     'article',
-    '# Muscles of the Neck
-
-Platysma
+    'Platysma
 Superficial muscle of the neck, covers most of the anterior and
 lateral aspect of the neck
 Sternocleidomastoid muscle
@@ -4912,9 +4893,7 @@ Musculature of tongue
     'structure-of-the-eyeball-and-eyelid',
     'Structure of the Eyeball and Eyelid',
     'article',
-    '# Structure of the Eyeball and Eyelid
-
-Structure of the Eyeball
+    'Structure of the Eyeball
 The eyeball consists of 3 coats:
 
 ### 1. External protective fibrous coat: Made up of anterior
@@ -5031,9 +5010,7 @@ prevents the eyelids from sticking together when closed.
     'thyroid-gland',
     'Thyroid Gland',
     'article',
-    '# Thyroid Gland
-
-Thyroid Gland
+    'Thyroid Gland
 The thyroid gland is an endocrine organ which regulates basal
 metabolic rate & stimulates growth
 Parts
@@ -5077,8 +5054,11 @@ Lymphatic Drainage: deep cervical Lymph nodes
 
 Recurrent laryngeal nerve
 Thyroid Ima artery
-Inferior thyroid vein
-Anterior jugular vein
+
+#### Inferior thyroid vein
+
+#### Anterior jugular vein
+
 Parathyroid gland
 Oesophagus',
     false,
@@ -5104,9 +5084,7 @@ Oesophagus',
     'visual-pathway',
     'Visual Pathway',
     'article',
-    '# Visual Pathway
-
-Visual pathway
+    'Visual pathway
 The visual pathway consists of the retina, optic nerves, optic
 chiasm, optic tracts, lateral geniculate bodies, optic radiations,
 and visual cortex.
@@ -5174,9 +5152,7 @@ pathway known as Meyers'' loop, to reach the visual cortex.
     'brainstem-pons',
     'Brainstem, Pons',
     'article',
-    '# Brainstem, Pons
-
-Brainstem:
+    'Brainstem:
 Consists of midbrain, pons and medulla.
 Mid brain:
 Smallest of the three regions lies predominantly in the
@@ -5204,8 +5180,11 @@ Vasculature of the mid brain:
 The midbrain receives vascular supply from the basilar artery,
 and its branches. The major vessels are:
 Posterior cerebral artery and its peduncular branch
-Superior cerebellar artery
-Posterior choroidal artery
+
+#### Superior cerebellar artery
+
+#### Posterior choroidal artery
+
 Interpeduncular branches of the basilar artery
 Pons:
 largest part of the brainstem, located above the medulla and
@@ -5261,9 +5240,7 @@ tumors noted',
     'basal-ganglia',
     'Basal Ganglia',
     'article',
-    '# Basal Ganglia
-
-Basal Ganglia:
+    'Basal Ganglia:
 The cluster of sub-cortical nuclei located deep to cerebral
 hemispheres. Basal ganglia''s largest component is corpus
 striatum which contains the caudate and lenticular nuclei
@@ -5316,9 +5293,7 @@ functionally as a part of the basal ganglia
     'central-nervous-system-overview',
     'Central Nervous System - Overview',
     'article',
-    '# Central Nervous System - Overview
-
-Central Nervous system overview
+    'Central Nervous system overview
 The central nervous system consists of the brain and the spinal
 cord. The peripheral nervous system consists of the extensions
 of neural structures beyond the central nervous system and
@@ -5405,9 +5380,7 @@ cord including the posterior horns and columns.',
     'cerebellum',
     'Cerebellum',
     'article',
-    '# Cerebellum
-
-Cerebellum:
+    'Cerebellum:
 The cerebellum is located at the back of the brain, immediately
 inferior to the occipital and temporal lobes. It is separated from
 these lobes by the tentorium cerebelli
@@ -5465,9 +5438,7 @@ and PICA. Way to remember PICA can''t chew.
     'cerebrum',
     'Cerebrum',
     'article',
-    '# Cerebrum
-
-Cerebrum:
+    'Cerebrum:
 The cerebrum is the largest part of the brain, located
 superiorly and anteriorly in relation to the brainstem.
 It consists of two cerebral hemispheres (left and right),
@@ -5543,9 +5514,7 @@ artery
     'medulla',
     'Medulla',
     'article',
-    '# Medulla
-
-Medulla:
+    'Medulla:
 The most inferior of the three and is continuous above with the
 pons and below with the spinal cord
 
@@ -5577,9 +5546,7 @@ pons and below with the spinal cord
     'spinal-cord-syndrome',
     'Spinal Cord Syndrome',
     'article',
-    '# Spinal Cord Syndrome
-
-Spinal cord syndrome:
+    'Spinal cord syndrome:
 
 > [!TIP]
 > **High yield:**
@@ -5612,9 +5579,7 @@ Spinal cord syndrome:
     'spinal-cord-tracts',
     'Spinal Cord Tracts',
     'article',
-    '# Spinal Cord Tracts
-
-Tracts of Spinal Cord:
+    'Tracts of Spinal Cord:
 The spinal cord consists of various groups of nerve fibers
 carrying sensory information toward the brain and receiving
 motor information from the brain.
@@ -5652,9 +5617,7 @@ Descending Tracts of the Spinal Cord:
     'thalamus',
     'Thalamus',
     'article',
-    '# Thalamus
-
-Thalamus:
+    'Thalamus:
 Paired grey matter structure located around the third ventricle
 made up of at least 50 thalamic nuclei
 Thalamus function:
@@ -5690,9 +5653,7 @@ Role in emotions & recent memory',
     'the-ventricles',
     'The Ventricles',
     'article',
-    '# The Ventricles
-
-The Ventricles:
+    'The Ventricles:
 The ventricles are a set of communicating cavities within the
 brain that are responsible for the production, transport and
 removal of cerebrospinal fluid (CSF), which bathes the central
@@ -5753,9 +5714,7 @@ circulation.',
     'vasculature-of-the-cns',
     'Vasculature of the CNS',
     'article',
-    '# Vasculature of the CNS
-
-Vasculature of the central nervous
+    'Vasculature of the central nervous
 system:
 Vasculature of brain:
 Two paired arteries are responsible for the blood supply to
@@ -5766,7 +5725,9 @@ Within the cranial vault, the terminal branches of these
 arteries form an anastomotic circle, called the Circle of Willis.
 From this circle, branches arise which supply the majority of
 the cerebrum.
-Branches of internal carotid artery:
+
+#### Branches of internal carotid artery
+
 The two internal carotid arteries arise from the common
 carotid arteries at the level of vertebra C4 and enter the cranial
 cavity through the carotid canal in the temporal bone. Entering
@@ -5785,7 +5746,8 @@ The anterior communicating artery (joining the two anterior
 cerebral arteries)
 The middle cerebral artery (supplying the lateral cerebral
 hemispheres)
-Branches of vertebral arteries
+
+#### Branches of vertebral arteries
 
 The two vertebral arteries (left and right), branches of the
 subclavian arteries, ascend through the transverse foramina of
@@ -5875,9 +5837,7 @@ cord including the posterior horns and columns.',
     'cranial-nerve-1-olfactory-nerve',
     'Cranial Nerve 1 - Olfactory Nerve',
     'article',
-    '# Cranial Nerve 1 - Olfactory Nerve
-
-Olfactory nerve:
+    'Olfactory nerve:
 First and shortest cranial nerve transmits sensory information
 from the nasal epithelium via the cribriform plate of the
 ethmoid bone to the primary olfactory cortex
@@ -5907,9 +5867,7 @@ ethmoid bone to the primary olfactory cortex
     'cranial-nerve-iii-oculomotor-nerve',
     'Cranial Nerve Iii_ Oculomotor Nerve',
     'article',
-    '# Cranial Nerve Iii_ Oculomotor Nerve
-
-Oculomotor Nerve (CN III):
+    'Oculomotor Nerve (CN III):
 Motor nerve arises from midbrain, passes through the lateral
 aspect of cavernous sinus and exits skull through the superior
 orbital fissure
@@ -5939,9 +5897,7 @@ orbital fissure
     'cranial-nerve-ii-optic-nerve',
     'Cranial Nerve Ii_ Optic Nerve',
     'article',
-    '# Cranial Nerve Ii_ Optic Nerve
-
-Optic nerve:
+    'Optic nerve:
 Transmit special sensory information from the retina of the eye
 to the primary visual cortex of the brain.
 Enters skull via optic canal of the sphenoid bone
@@ -5987,9 +5943,7 @@ nerve disease
     'cranial-nerve-iv-trochlear-nerve',
     'Cranial Nerve Iv_ Trochlear Nerve',
     'article',
-    '# Cranial Nerve Iv_ Trochlear Nerve
-
-Trochlear Nerve:
+    'Trochlear Nerve:
 smallest cranial nerve (by number of axons) yet has the longest
 intracranial course. Emerges from posterior aspect of midbrain,
 travels through lateral aspect of cavernous sinus, exits skull
@@ -6020,9 +5974,7 @@ through superior orbital fissure.
     'cranial-nerve-ix-glassopharyngeal-nerve',
     'Cranial Nerve Ix_ Glassopharyngeal Nerve',
     'article',
-    '# Cranial Nerve Ix_ Glassopharyngeal Nerve
-
-Glossopharyngeal Nerve (CN IX):
+    'Glossopharyngeal Nerve (CN IX):
 originates in the medulla oblongata of the brain, moves
 laterally in the posterior cranial fossa, and leaves the skull
 through jugular foramen.
@@ -6055,9 +6007,7 @@ glossopharyngeal nerve
     'cranial-nerve-viii-vestibulocochlear-nerve',
     'Cranial Nerve Viii_ Vestibulocochlear Nerve',
     'article',
-    '# Cranial Nerve Viii_ Vestibulocochlear Nerve
-
-Vestibulocochlear Nerve (CN VIII):
+    'Vestibulocochlear Nerve (CN VIII):
 Comprised of two vestibular and cochlear portions, emerges
 from the brainstem at the cerebellopontine angle, enters
 internal acoustic meatus of temporal bone.
@@ -6087,9 +6037,7 @@ internal acoustic meatus of temporal bone.
     'cranial-nerve-vii-facial-nerve',
     'Cranial Nerve Vii_ Facial Nerve',
     'article',
-    '# Cranial Nerve Vii_ Facial Nerve
-
-Facial nerve:
+    'Facial nerve:
 The facial nerve exits the cranial cavity through the internal
 acoustic meatus and enters the facial canal of the temporal
 bone. The nerve then exits the skull through the Stylomastoid
@@ -6172,9 +6120,7 @@ carried by the glossopharyngeal nerve (CNIX)',
     'cranial-nerve-vi-abducent-nerve',
     'Cranial Nerve Vi_ Abducent Nerve',
     'article',
-    '# Cranial Nerve Vi_ Abducent Nerve
-
-Abducent nerve:
+    'Abducent nerve:
 Purely motor nerve supplying lateral rectus muscle, arises from
 pons of the midbrain, travels through cavernous sinus, exits
 skull through superior orbital fissure.
@@ -6204,9 +6150,7 @@ skull through superior orbital fissure.
     'cranial-nerve-v-trigeminal-nerve',
     'Cranial Nerve V_ Trigeminal Nerve',
     'article',
-    '# Cranial Nerve V_ Trigeminal Nerve
-
-Trigeminal nerve:
+    'Trigeminal nerve:
 Mixed motor and sensory nerve. It is also the largest cranial
 nerve. Arises from several nuclei in the brainstem, exits
 brainstem from pons It has three main divisions:
@@ -6242,9 +6186,7 @@ brainstem from pons It has three main divisions:
     'cranial-nerve-xii-hypoglossal-nerve',
     'Cranial Nerve Xii_ Hypoglossal Nerve',
     'article',
-    '# Cranial Nerve Xii_ Hypoglossal Nerve
-
-Hypoglossal Nerve:
+    'Hypoglossal Nerve:
 Pure motor nerve arises from medulla oblongata passes
 laterally across the posterior cranial fossa, within the
 subarachnoid space, exits the cranium via the hypoglossal
@@ -6275,9 +6217,7 @@ canal of the occipital bone.
     'cranial-nerve-xi-spinal-accessory-nerve',
     'Cranial Nerve Xi_ Spinal Accessory Nerve',
     'article',
-    '# Cranial Nerve Xi_ Spinal Accessory Nerve
-
-Spinal Accessory Nerve (CN XI):
+    'Spinal Accessory Nerve (CN XI):
 Arises from cervical segments C1 - C5/C6, enters cranial cavity
 through foramen magnum, travels through posterior cranial
 fossa and exits skull through jugular foramen.
@@ -6309,25 +6249,25 @@ artery and innervate sternocleidomastoid muscle.
     'cranial-nerve-x-vagus-nerve',
     'Cranial Nerve X_ Vagus Nerve',
     'article',
-    '# Cranial Nerve X_ Vagus Nerve
-
-Vagus nerve
+    'Vagus nerve
 originates in the medulla oblongata of the brain and leaves
 skull through jugular foramen together with CN IX and CN XI
 respectively.
 
 > [!TIP]
 > **High yield:**
-> Branches of vagus nerve:
-> Superior laryngeal nerve: innervate cricothyroid muscle and
-> gives sensory innervation to laryngopharynx and superior part
-> of the larynx
-> Right Recurrent laryngeal nerve: Hooks underneath right
-> subclavian artery and ascends towards larynx and innervate
-> muscles of larynx
-> Left Recurrent laryngeal nerve: Hooks underneath the arch of
-> aorta, and ascends towards larynx and innervate muscles of
-> larynx
+
+#### Branches of vagus nerve
+
+Superior laryngeal nerve: innervate cricothyroid muscle and
+gives sensory innervation to laryngopharynx and superior part
+of the larynx
+Right Recurrent laryngeal nerve: Hooks underneath right
+subclavian artery and ascends towards larynx and innervate
+muscles of larynx
+Left Recurrent laryngeal nerve: Hooks underneath the arch of
+aorta, and ascends towards larynx and innervate muscles of
+larynx
 
 > [!TIP]
 > **Clinical pearls:**

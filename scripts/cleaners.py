@@ -56,6 +56,10 @@ def clean_lesson_markdown(raw_text: str, title: str) -> str:
     text = re.sub(r'\bPage\s+\d+\s+of\s+\d+\b', '', text, flags=re.IGNORECASE)
     text = re.sub(r'\b\d+\s*/\s*\d+\b', '', text)
     
+    # Fix hyphenation artifacts from PDF line wraps
+    text = re.sub(r'\bfor-\s*ward\b', 'forward', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bper-\s*sonal\b', 'personnel', text, flags=re.IGNORECASE)
+
     # Split into lines for formatting
     lines = [line.strip() for line in text.split('\n')]
     
@@ -88,6 +92,21 @@ def clean_lesson_markdown(raw_text: str, title: str) -> str:
             cleaned_lines.append("")
             in_pearl = False
             continue
+
+        # Subheadings like 'Anterior Tibial Artery:' or 'Branches of femoral artery:'
+        if re.match(r'^(Anterior|Posterior|Medial|Lateral|Superior|Inferior|Superficial|Deep)\s+[A-Za-z]+(\s+[A-Za-z]+)*:?$', line) and len(line) < 45:
+            cleaned_lines.append("")
+            cleaned_lines.append(f"#### {line.rstrip(':')}")
+            cleaned_lines.append("")
+            in_pearl = False
+            continue
+
+        if re.match(r'^Branches\s+of\s+.*:?$', line, flags=re.IGNORECASE) and len(line) < 50:
+            cleaned_lines.append("")
+            cleaned_lines.append(f"#### {line.rstrip(':')}")
+            cleaned_lines.append("")
+            in_pearl = False
+            continue
             
         # Section titles in ALL CAPS with length between 4 and 45
         if line.isupper() and len(line) > 3 and len(line) < 45 and not line.startswith('-') and re.search(r'[A-Za-z]', line):
@@ -115,6 +134,4 @@ def clean_lesson_markdown(raw_text: str, title: str) -> str:
     # Remove multiple consecutive blank lines
     body = re.sub(r'\n{3,}', '\n\n', body).strip()
     
-    # Prefix with standardized lesson intro header
-    header = f"# {title}\n\n"
-    return header + body
+    return body
