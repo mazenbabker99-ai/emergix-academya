@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { ArrowLeft, ArrowRight, BookOpen, Clock3, Download, MessageCircle } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { ArrowLeft, ArrowRight, BookOpen, Clock3, Download, FileText, MessageCircle, PlayCircle } from 'lucide-react';
 import { Link, useParams } from 'wouter';
 import { ApiError, useGetCourse, useGetLesson } from '@workspace/api-client-react';
 import { ErrorState, PageSkeleton } from '@/components/shared/DataState';
@@ -7,7 +7,6 @@ import { Prose } from '@/components/shared/Prose';
 import { SiteLayout } from '@/components/shared/SiteLayout';
 import { InteractiveQuiz } from '@/components/quiz/InteractiveQuiz';
 import { parseSbaQuestions } from '@/components/quiz/parseQuestions';
-import { getLessonTopicQuiz } from '@/components/quiz/generateTopicQuiz';
 import { usePageMeta } from '@/lib/usePageMeta';
 
 export default function LessonPage() {
@@ -33,10 +32,8 @@ export default function LessonPage() {
 
   const hasInteractiveQuiz = parsedQuiz.questions.length > 0;
 
-  const topicQuizQuestions = useMemo(() => {
-    if (hasInteractiveQuiz || !rawTitle) return [];
-    return getLessonTopicQuiz(rawTitle, rawBody || '');
-  }, [hasInteractiveQuiz, rawTitle, rawBody]);
+  // Controls whether the full-screen exam overlay is open
+  const [examOpen, setExamOpen] = useState(false);
 
   if (lesson.isLoading) {
     return <SiteLayout><main className="section"><div className="container"><PageSkeleton /></div></main></SiteLayout>;
@@ -58,7 +55,7 @@ export default function LessonPage() {
                   </p>
                   <div className="course-membership-actions">
                     <Link href="/app/membership" className="btn btn-primary">
-                      <MessageCircle size={16} /> View offers & Subscribe on WhatsApp <ArrowRight size={15} />
+                      <MessageCircle size={16} /> View offers &amp; Subscribe on WhatsApp <ArrowRight size={15} />
                     </Link>
                     <Link href={`/courses/${slug}`} className="btn btn-outline">
                       Back to course overview
@@ -95,6 +92,93 @@ export default function LessonPage() {
 
   const isQuiz = type === 'quiz' || hasInteractiveQuiz || /quiz|mock|sba|paper|test/i.test(title);
 
+  // ─── Full-screen Exam Overlay ──────────────────────────────────────────────
+  if (examOpen && hasInteractiveQuiz) {
+    return (
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 9999,
+          background: '#f0f4f8',
+          overflowY: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        {/* Overlay Top Bar */}
+        <div
+          style={{
+            background: '#0a2342',
+            color: '#fff',
+            padding: '12px 24px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 16,
+            flexShrink: 0,
+            boxShadow: '0 2px 12px rgba(0,0,0,0.25)',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span
+              style={{
+                background: '#0066cc',
+                padding: '3px 10px',
+                borderRadius: '6px',
+                fontSize: '.72rem',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                letterSpacing: '.06em',
+              }}
+            >
+              MRCEM SBA
+            </span>
+            <span style={{ fontSize: '.94rem', fontWeight: 700, color: '#e2e8f0', maxWidth: 420, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              {title}
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={() => setExamOpen(false)}
+            style={{
+              background: 'rgba(255,255,255,0.12)',
+              border: '1px solid rgba(255,255,255,0.25)',
+              color: '#fff',
+              padding: '6px 16px',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontSize: '.82rem',
+              fontWeight: 700,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+            }}
+          >
+            <ArrowLeft size={14} /> Exit Exam
+          </button>
+        </div>
+
+        {/* Quiz Content */}
+        <div style={{ flex: 1, maxWidth: '880px', width: '100%', margin: '0 auto', padding: '24px 20px 60px' }}>
+          {parsedQuiz.introText && (
+            <div style={{ marginBottom: 24, background: '#fff', borderRadius: '12px', padding: '20px 24px', border: '1px solid #dbe7f3' }}>
+              <Prose text={parsedQuiz.introText} />
+            </div>
+          )}
+          <InteractiveQuiz
+            quizTitle={title}
+            questions={parsedQuiz.questions}
+            nextLessonHref={nextLesson ? `/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}` : undefined}
+            nextLessonTitle={nextLesson?.title}
+            onExitExam={() => setExamOpen(false)}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // ─── Normal Lesson View ────────────────────────────────────────────────────
   return (
     <SiteLayout>
       <main className="section">
@@ -128,46 +212,110 @@ export default function LessonPage() {
             <p><a className="btn btn-light" href={assetUrl} target="_blank" rel="noopener noreferrer"><Download size={15} /> Open {filename}</a></p>
           )}
 
-          {/* If the lesson contains questions, render them interactively */}
-          {hasInteractiveQuiz ? (
-            <>
-              {parsedQuiz.introText && (
-                <div style={{ marginBottom: 24 }}>
-                  <Prose text={parsedQuiz.introText} />
-                </div>
-              )}
-              <InteractiveQuiz
-                quizTitle={title}
-                questions={parsedQuiz.questions}
-                nextLessonHref={nextLesson ? `/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}` : undefined}
-                nextLessonTitle={nextLesson?.title}
-              />
-            </>
-          ) : (
-            <>
-              {body && <Prose text={body} />}
-              {topicQuizQuestions.length > 0 && (
-                <div style={{ marginTop: 44, paddingTop: 32, borderTop: '2px dashed #cbd5e1' }}>
-                  <div style={{ marginBottom: 20 }}>
-                    <span style={{ fontSize: '.78rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#0066cc', background: '#eff6ff', padding: '4px 10px', borderRadius: 6, display: 'inline-block' }}>
-                      Interactive Assessment
-                    </span>
-                    <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#0a2342', marginTop: 10, marginBottom: 6 }}>
-                      Topic Knowledge Check: Single Best Answer Practice
-                    </h2>
-                    <p style={{ color: '#64748b', fontSize: '.92rem', margin: 0 }}>
-                      Test your understanding of the clinical concepts covered in this lesson with these high-yield MRCEM single best answer questions.
-                    </p>
-                  </div>
-                  <InteractiveQuiz
-                    quizTitle={`Knowledge Check: ${title}`}
-                    questions={topicQuizQuestions}
-                    nextLessonHref={nextLesson ? `/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}` : undefined}
-                    nextLessonTitle={nextLesson?.title}
-                  />
-                </div>
-              )}
-            </>
+          {/* Lesson body content */}
+          {body && <Prose text={body} />}
+
+          {/* Quiz Launch Card — shown after lesson content if quiz questions exist */}
+          {hasInteractiveQuiz && (
+            <div
+              style={{
+                marginTop: 52,
+                background: 'linear-gradient(135deg, #0a2342 0%, #0066cc 100%)',
+                borderRadius: '16px',
+                padding: '36px 32px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                gap: 20,
+                boxShadow: '0 12px 40px rgba(0, 102, 204, 0.22)',
+              }}
+            >
+              {/* Badge */}
+              <span
+                style={{
+                  background: 'rgba(255,255,255,0.18)',
+                  color: '#fff',
+                  fontSize: '.72rem',
+                  fontWeight: 800,
+                  textTransform: 'uppercase',
+                  letterSpacing: '.1em',
+                  padding: '4px 14px',
+                  borderRadius: '20px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                }}
+              >
+                <FileText size={13} /> Topic Knowledge Check
+              </span>
+
+              <div>
+                <h2 style={{ fontSize: '1.55rem', fontWeight: 800, color: '#fff', margin: '0 0 8px', letterSpacing: '-0.02em' }}>
+                  Single Best Answer Practice
+                </h2>
+                <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '.94rem', margin: 0, maxWidth: '520px' }}>
+                  Test your understanding of <strong style={{ color: '#fff' }}>{title}</strong> with{' '}
+                  {parsedQuiz.questions.length} high-yield MRCEM SBA question
+                  {parsedQuiz.questions.length !== 1 ? 's' : ''}. Includes full clinical explanations and score analysis.
+                </p>
+              </div>
+
+              {/* Stats row */}
+              <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap', justifyContent: 'center' }}>
+                {[
+                  { icon: <BookOpen size={16} />, label: `${parsedQuiz.questions.length} Questions` },
+                  { icon: <Clock3 size={16} />, label: 'Tutor & Exam Mode' },
+                ].map(({ icon, label }) => (
+                  <span
+                    key={label}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 6,
+                      color: 'rgba(255,255,255,0.85)',
+                      fontSize: '.86rem',
+                      fontWeight: 600,
+                    }}
+                  >
+                    {icon} {label}
+                  </span>
+                ))}
+              </div>
+
+              {/* Launch Button */}
+              <button
+                type="button"
+                onClick={() => setExamOpen(true)}
+                style={{
+                  background: '#ffffff',
+                  color: '#0066cc',
+                  border: 'none',
+                  padding: '14px 36px',
+                  borderRadius: '12px',
+                  fontSize: '1rem',
+                  fontWeight: 800,
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.18)',
+                  transition: 'transform .15s ease, box-shadow .15s ease',
+                  letterSpacing: '-0.01em',
+                }}
+                onMouseOver={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-2px)';
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 8px 24px rgba(0,0,0,0.22)';
+                }}
+                onMouseOut={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(0)';
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = '0 4px 16px rgba(0,0,0,0.18)';
+                }}
+              >
+                <PlayCircle size={20} />
+                Start Exam
+              </button>
+            </div>
           )}
 
           {!assetUrl && !body && <p>Content for this lesson will be added soon.</p>}

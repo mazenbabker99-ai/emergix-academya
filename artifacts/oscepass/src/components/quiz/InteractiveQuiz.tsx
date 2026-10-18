@@ -26,6 +26,8 @@ interface InteractiveQuizProps {
   onComplete?: (score: { total: number; correct: number; percentage: number }) => void;
   nextLessonHref?: string;
   nextLessonTitle?: string;
+  /** Called when the user clicks "Exit Exam" from within the quiz (e.g. to close the overlay) */
+  onExitExam?: () => void;
 }
 
 export function InteractiveQuiz({
@@ -34,6 +36,7 @@ export function InteractiveQuiz({
   onComplete,
   nextLessonHref,
   nextLessonTitle,
+  onExitExam,
 }: InteractiveQuizProps) {
   // Mode: 'tutor' = instant feedback, 'exam' = exam conditions, feedback at end
   const [mode, setMode] = useState<'tutor' | 'exam'>('tutor');
@@ -346,7 +349,17 @@ export function InteractiveQuiz({
               )}
             </div>
 
-            <div style={{ display: 'flex', gap: 10 }}>
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+              {onExitExam && (
+                <button
+                  type="button"
+                  onClick={onExitExam}
+                  className="btn btn-outline"
+                  style={{ fontSize: '.84rem', display: 'inline-flex', alignItems: 'center', gap: 6 }}
+                >
+                  <ArrowLeft size={14} /> Back to Lesson
+                </button>
+              )}
               <button
                 type="button"
                 onClick={handleResetQuiz}
