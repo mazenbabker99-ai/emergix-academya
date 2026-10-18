@@ -8,7 +8,6 @@ import {
 } from "./generated/api";
 
 export * from "./generated/api";
-export * from "./generated/types";
 export * as generatedTypes from "./generated/types";
 
 export const AdminMembershipResponse = AdminGetMembershipSettingsResponse;

@@ -49,7 +49,7 @@ function slugFromName(name: string) {
 }
 
 function inputError(res: Parameters<typeof sendError>[0], message: string, details?: unknown) {
-  sendError(res, 400, "invalid_request", message, details);
+  sendError(res, 400, "invalid_request", message, details as Record<string, unknown> | undefined);
 }
 
 async function readPlanInput(req: Request, res: Parameters<typeof sendError>[0]) {
