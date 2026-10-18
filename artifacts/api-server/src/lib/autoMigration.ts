@@ -953,15 +953,33 @@ export async function runAutoMigrationsAndSeeds() {
       // If query fails, proceed cautiously
     }
 
-    const hasEmbeddedImages = imageEmbedCount >= 100;
+    // Track explicit curriculum content version so text additions and cleanups are always applied
+    const CURRENT_CURRICULUM_VERSION = "2026_10_18_v5_full_curriculum_text";
+    let isCurriculumUpToDate = false;
+
+    try {
+      await pool.query(`
+        CREATE TABLE IF NOT EXISTS "app_system_meta" (
+          "key" text PRIMARY KEY,
+          "value" text NOT NULL,
+          "updated_at" timestamptz DEFAULT now()
+        );
+      `);
+      const metaRes = await pool.query(
+        `SELECT "value" FROM "app_system_meta" WHERE "key" = 'curriculum_version';`
+      );
+      isCurriculumUpToDate = metaRes.rows[0]?.value === CURRENT_CURRICULUM_VERSION;
+    } catch {
+      isCurriculumUpToDate = false;
+    }
 
     const masterSeeds: { file: string; shouldRun: boolean }[] = [
-      { file: "seed_flagship_mrcem_primary.sql", shouldRun: !hasEmbeddedImages || primaryLessonCount < 200 },
-      { file: "seed_mrcem_anatomy.sql", shouldRun: !hasEmbeddedImages || anatomyLessonCount < 60 },
-      { file: "seed_mrcem_physiology.sql", shouldRun: !hasEmbeddedImages || physiologyLessonCount < 90 },
-      { file: "seed_mrcem_pharmacology.sql", shouldRun: !hasEmbeddedImages || pharmaLessonCount < 20 },
-      { file: "seed_mrcem_pathology_micro.sql", shouldRun: !hasEmbeddedImages || pathLessonCount < 30 },
-      { file: "seed_flagship_mrcem_sba.sql", shouldRun: sbaLessonCount < 40 },
+      { file: "seed_flagship_mrcem_primary.sql", shouldRun: !isCurriculumUpToDate || primaryLessonCount < 200 },
+      { file: "seed_mrcem_anatomy.sql", shouldRun: !isCurriculumUpToDate || anatomyLessonCount < 60 },
+      { file: "seed_mrcem_physiology.sql", shouldRun: !isCurriculumUpToDate || physiologyLessonCount < 90 },
+      { file: "seed_mrcem_pharmacology.sql", shouldRun: !isCurriculumUpToDate || pharmaLessonCount < 20 },
+      { file: "seed_mrcem_pathology_micro.sql", shouldRun: !isCurriculumUpToDate || pathLessonCount < 30 },
+      { file: "seed_flagship_mrcem_sba.sql", shouldRun: !isCurriculumUpToDate || sbaLessonCount < 40 },
       { file: "cleanup_courses.sql", shouldRun: true },
     ];
 
@@ -979,6 +997,17 @@ export async function runAutoMigrationsAndSeeds() {
       } else {
         logger.warn(`Master curriculum seed file ${seedFile} not found on disk, skipping.`);
       }
+    }
+
+    // Save curriculum version record
+    try {
+      await pool.query(`
+        INSERT INTO "app_system_meta" ("key", "value", "updated_at")
+        VALUES ('curriculum_version', $1, now())
+        ON CONFLICT ("key") DO UPDATE SET "value" = EXCLUDED."value", "updated_at" = now();
+      `, [CURRENT_CURRICULUM_VERSION]);
+    } catch {
+      // Ignore meta error
     }
 
     // Ensure all published courses are attached to the WhatsApp manual plan

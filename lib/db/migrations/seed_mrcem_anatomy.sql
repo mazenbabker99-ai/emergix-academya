@@ -104,8 +104,6 @@ major, the brachial artery gives rise to the profunda brachii
 groove of the humerus and supplies structures in the
 posterior aspect of the upper arm (e.g., triceps brachii).
 
-Overview  Comments
-
 ### 4: Superior ulnar collateral artery, which follows the ulnar
 
 nerve
@@ -145,10 +143,8 @@ Complete occlusion of brachial artery can cause necrosis of
 forearm muscles and are replaced by scar tissue and shorten
 considerably this can cause a characteristic flexion deformity,
 called Volkmann''s ischemic contracture.
-Guyon''s or Ulnar canal: The ulnar (Guyon''s) canal is a fibro-
-osseous tunnel located at the level of the palm. The ulnar canal
-
-conveys the ulnar neurovascular bundle into the hand.
+Guyon''s or Ulnar canal: The ulnar (Guyon''s) canal is a fibro-
+osseous tunnel located at the level of the palm. The ulnar canal conveys the ulnar neurovascular bundle into the hand.
 Contents: Ulnar nerve, ulnar artery and Venae comitantes of
 ulnar artery
 Ulnar canal syndrome refers to compression of the ulnar nerve
@@ -176,8 +172,7 @@ and second metacarpal bones to the base of the fifth
 metacarpal bone. It is formed as a continuation of the radial
 artery, and it terminates by anastomosing with the deep
 branch of the ulnar artery.
-Blood supply: Blood supply to digits and wrist joint.
-Previous Next',
+Blood supply: Blood supply to digits and wrist joint.',
     true,
     0,
     'published',
@@ -244,15 +239,13 @@ Posterior cord: Posterior union of all three trunks
 
 ### 5: Branches:
 
-Overview  Comments
-
-## Branches Of Lateral Cord   "Lml"
+## Branches Of Lateral Cord   "Lml"
 
 Lateral pectoral nerve
 Musculocutaneous nerve
 Lateral root of median nerve
 
-## Branches Of Medial Cord     "M4U"
+## Branches Of Medial Cord     "M4U"
 
 Medial pectoral nerve
 Medial cutaneous nerve of arm
@@ -260,7 +253,7 @@ Medial cutaneous nerve of forearm
 Medial root of median nerve
 Ulnar nerve
 
-## Branches Of Posterior Cord   "Ultra"
+## Branches Of Posterior Cord   "Ultra"
 
 Upper subscapular nerve
 Lower subscapular nerve
@@ -290,10 +283,10 @@ Anatomical course:
 Axillary nerve arises in the axilla passes medially to the surgical
 neck of the humerus, where it divides into three terminal
 branches:
-Anterior terminal branch:  winds around the surgical neck of
+Anterior terminal branch:  winds around the surgical neck of
 the humerus and provides motor innervation to the anterior
 aspect of the deltoid muscle.
-Posterior terminal branch:  Gives motor innervation to the
+Posterior terminal branch:  Gives motor innervation to the
 posterior aspect of the deltoid muscle and teres minor. It also
 innervates the skin over the inferior part of the deltoid as
 the upper lateral cutaneous nerve of the arm.
@@ -340,7 +333,7 @@ tunnel where it terminates by dividing into two branches
 Clinical features: include numbness, tingling, and pain in the
 distribution of the median nerve.
 Note: In carpal tunnel syndrome Importantly, the palm is
-usually spared  as the palmar cutaneous branch does not travel
+usually spared  as the palmar cutaneous branch does not travel
 through the carpal tunnel.
 Note: Flexion of the ring and little fingers at MCPJ and DIPJ are
 preserved as these are functions of medial half of flexor
@@ -497,8 +490,6 @@ lateral cutaneous nerve of forearm.
 > respectively and loss of sensation on lateral side of the
 > forearm.
 
-Previous Next
-
 ![Innervation of Upper Limb - Clinical Figure 13](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_13_p9.png)
 *Innervation of Upper Limb — Clinical Figure 13 (Page 9 Reference)*',
     false,
@@ -541,12 +532,10 @@ Collectively, the conoid and trapezoid ligaments are known as
 the coracoclavicular ligament. It is the strongest ligament
 and suspends weight of the upper limb
 
-Overview  Comments
-
 Acromioclavicular joint dislocation
 A severe blow on the point of the shoulder, as is incurred
 during blocking or tackling in football or any severe fall,
-can result in the acromion being thrust beneath the lateral
+can result in the acromion being thrust beneath the lateral
 end of the clavicle, tearing the coracoclavicular ligament. This
 condition is known as shoulder separation. The displaced
 outer end of the clavicle is easily palpable.
@@ -587,7 +576,7 @@ the joint, extending from the lateral epicondyle and
 blending with the annular ligament.
 The ulnar collateral ligament referred as Medial collateral
 ligament (MCL) of the elbow originates from the
-medial epicondyle and attaches to the coronoid process and
+medial epicondyle and attaches to the coronoid process and
 olecranon of the ulna.
 Annular ligament: Annular ligament stabilizes the elbow
 joint and is a strong band of fibers that encircles the head of
@@ -618,7 +607,7 @@ radioulnar joints along with acts as a site of attachment for
 muscles in the anterior and posterior compartments of
 forearm.
 The collateral ligament is usually torn and there can also be
-ulnar nerve involvement The ulnar collateral ligament is
+ulnar nerve involvement The ulnar collateral ligament is
 usually torn and there can also be ulnar nerve involvement
 The ulnar collateral ligament is usually torn and there can
 also be ulnar nerve involvement.
@@ -631,7 +620,7 @@ below
 Note: The ulna is not part of the wrist joint it articulates with
 the radius, just proximal to the wrist joint.
 Ligaments of the joint:
-Palmar radiocarpal:  Found on anterior side of the hand. It
+Palmar radiocarpal:  Found on anterior side of the hand. It
 passes from the radius to both rows of carpal bones. Its
 function, apart from increasing stability, is to ensure that the
 hand follows the forearm during supination.
@@ -674,20 +663,20 @@ Transverse humeral ligament: This ligament spans the
 distance between the two tubercles of the humerus. It holds
 the tendon of the long head of the biceps in the
 intertubercular groove or bicipital groove
-Coraco-clavicular ligament:  This ligament composed of the
+Coraco-clavicular ligament:  This ligament composed of the
 trapezoid and conoid ligaments and runs from the clavicle to
 the coracoid process of the scapula. They work alongside the
 acromioclavicular ligament to maintain the alignment of the
 clavicle in relation to the scapula.
 Coracoacromial ligament. This ligament runs between the
 acromion and coracoid process of the scapula it forms the
-coraco-acromial arch.  This structure overlies the shoulder
+coraco-acromial arch.  This structure overlies the shoulder
 joint, preventing superior displacement of the humeral
 head.
 Stability of the shoulder joint:
 Rotator cuff muscles [SITS MUSCLES]
 
-Glenoid labrum: A fibrocartilaginous ridge surrounding the
+Glenoid labrum: A fibrocartilaginous ridge surrounding the
 glenoid cavity.
 Ligaments: Extra Capsular ligaments form the
 coracoacromial arch.
@@ -731,8 +720,7 @@ common neurovascular injury
 Fracture of posterior glenoid labrum
 Fracture of humeral shaft or lesser tuberosity
 Note: Light bulb sign on the X-ray is the diagnostic feature of
-posterior shoulder dislocation
-Previous Next',
+posterior shoulder dislocation',
     false,
     2,
     'published',
@@ -766,7 +754,7 @@ vessels lie deep to the deep fascia and follow the deep arteries
 and veins. All lymph vessels of the limb ultimately drain into
 lymph nodes in axilla.
 
-### 1: Axillary lymph nodes: The axillary lymph nodes drain lymph
+### 1: Axillary lymph nodes: The axillary lymph nodes drain lymph
 
 vessels from the entire upper limb. In addition, they drain
 lymph vessels from the lateral part of the breast
@@ -792,8 +780,6 @@ from breast tissue.
 Axillary nodes (75%): Receives lymphatic drainage from lateral
 and superior quadrant of breast.
 
-Overview  Comments
-
 parasternal nodes (20%): Receives lymphatic drainage from
 medial quadrant.
 Note: Breast cancer in axillary tail of breast most commonly
@@ -804,9 +790,7 @@ involved lymph node is axillary
 > Removal and analysis of the axillary lymph nodes is often a vital
 > tool for the staging of breast cancers. During this procedure
 > there is also a risk of damage to either of the long thoracic
-> nerve or the thoracodorsal nerve causing winged scapula.
-
-Previous Next',
+> nerve or the thoracodorsal nerve causing winged scapula.',
     false,
     3,
     'published',
@@ -838,10 +822,10 @@ compartment
 Anterior Forearm muscles intermediate
 compartment:
 Anterior Forearm muscles deep compartment:
-Key Point: All the muscles of anterior forearm are innervated
-by median nerve except flexor carpi ulnaris and medial half of
 
-Overview  Comments
+> [!TIP]
+> **Key Point: All the muscles of anterior forearm are innervated**
+> by median nerve except flexor carpi ulnaris and medial half of
 
 ![Muscles of the Upper Limb - Clinical Figure 1](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_01_p1.png)
 *Muscles of the Upper Limb — Clinical Figure 1 (Page 1 Reference)*
@@ -862,7 +846,7 @@ Muscles of posterior Arm:
 Triceps brachii:
 Triceps brachii is a large thick muscle in the posterior arm and
 appears as a horseshoe-shaped muscle
-Function:  Extension of forearm at elbow and extension of arm
+Function:  Extension of forearm at elbow and extension of arm
 at shoulder joint.
 Innervation: Radial nerve
 Muscles of posterior forearm
@@ -874,7 +858,7 @@ Muscles of posterior forearm
 *Muscles of the Upper Limb — Clinical Figure 5 (Page 2 Reference)*
 
 The muscles in the posterior compartment of the forearm are
-commonly known as the extensor muscles.
+commonly known as the extensor muscles.
 Extensor muscles are divided into superficial and deep
 compartment.
 Superficial compartment:
@@ -890,7 +874,7 @@ of the forearm from the lateral epicondyle of the humerus as a
 result of repetitive strain. It is a painful condition and common
 in tennis players.
 
-### 2: Golfer''s elbow (medial epicondylitis):  is a painful condition
+### 2: Golfer''s elbow (medial epicondylitis):  is a painful condition
 
 caused by a tear or chronic inflammation in the origin of flexor
 muscles of the forearm
@@ -950,7 +934,7 @@ Adduction of the digits. Assists in flexion at the
 metacarpophalangeal joints and extension at the
 interphalangeal joints.
 Muscles of the Shoulder region:
-Extrinsic muscles, Intrinsic Muscles
+Extrinsic muscles, Intrinsic Muscles
 Extrinsic muscles: Connecting the Upper Limb to the Vertebral
 Column and divided into superficial and deep group.
 Superficial: Trapezius and Latissimus dorsi
@@ -963,7 +947,7 @@ major
 > [!TIP]
 > **Clinical pearl: Ask the patient to shrug his/her shoulder if**
 > patient unable to do this indicates spinal accessory nerve injury
-> and paralysis of trapezius muscle.
+> and paralysis of trapezius muscle.
 
 Intrinsic muscles of the shoulder: Connecting the scapula to
 the humerus
@@ -987,7 +971,7 @@ arm except "S" Subscapularis
 > Refers to inflammation of tendons of rotator cuff muscles.
 
 Supraspinatus is the most commonly injured rotator
-cuff muscle.
+cuff muscle.
 Muscles of pectoral region:
 
 ![Muscles of the Upper Limb - Clinical Figure 13](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_13_p7.png)
@@ -1000,7 +984,7 @@ Pectoralis Major: large fan shaped and most superficial muscle
 of the pectoral region.
 Origin:
 Clavicular head: Medial clavicle
-Sternocostal head originates from the anterior surface of the
+Sternocostal head originates from the anterior surface of the
 sternum, the superior six costal cartilages and the
 aponeurosis of the external oblique muscle.
 Insertion: intertubercular sulcus of the humerus
@@ -1034,7 +1018,6 @@ Origin: First rib and its costal cartilage
 Insertion: Inferior surface of middle third of clavicle
 Function: Anchors and depresses clavicle
 Innervation: Nerve to subclavius.
-Previous Next
 
 ![Muscles of the Upper Limb - Clinical Figure 15](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_15_p9.png)
 *Muscles of the Upper Limb — Clinical Figure 15 (Page 9 Reference)*',
@@ -1073,15 +1056,11 @@ Myotome: Group of muscles innervated by a single spinal
 nerve
 Reflexes of upper Limb:
 
-Overview  Comments
-
 ![Upper Limb Dermatomes, Myotomes and Reflexes - Clinical Figure 1](/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_01_p1.png)
 *Upper Limb Dermatomes, Myotomes and Reflexes — Clinical Figure 1 (Page 1 Reference)*
 
 ![Upper Limb Dermatomes, Myotomes and Reflexes - Clinical Figure 2](/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_02_p1.png)
 *Upper Limb Dermatomes, Myotomes and Reflexes — Clinical Figure 2 (Page 1 Reference)*
-
-Previous Next
 
 ![Upper Limb Dermatomes, Myotomes and Reflexes - Clinical Figure 3](/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_03_p2.png)
 *Upper Limb Dermatomes, Myotomes and Reflexes — Clinical Figure 3 (Page 2 Reference)*',
@@ -1122,12 +1101,10 @@ Flexor pollicis longus enter the carpel tunnel before reaching
 its insertion on the distal phalanx of the thumb.
 Pronator quadratus is confined to the distal forearm and does
 not reach the carpel tunnel.
-Anatomical snuffbox
+Anatomical snuffbox
 is a triangular depression found on the lateral aspect of the
 dorsum of the hand. It is best seen when the thumb is
 extended.
-
-Overview  Comments
 
 ![Upper Limb Other Important Structures - Clinical Figure 1](/lessons/images/upper-limb-anatomy/upper-limb-other-important-structures/figure_01_p1.png)
 *Upper Limb Other Important Structures — Clinical Figure 1 (Page 1 Reference)*
@@ -1212,14 +1189,12 @@ fourth and fifth fingers).
 deformity) resulting from necrosis of the forearm flexor
 muscles.
 
-### 3: Tenosynovitis:  is commonly caused by an infection of the
+### 3: Tenosynovitis:  is commonly caused by an infection of the
 
 synovial sheath and tendon (the long flexor tendon), causing
 pain, swelling, and difficulty moving a joint. Rupture of the
 tendon sheath (puncture injury of the palm) may cause the
-spread of infection to the mid-palmar space and to the carpal
-
-tunnel. Likewise, tenosynovitis in the thumb may spread to the
+spread of infection to the mid-palmar space and to the carpal tunnel. Likewise, tenosynovitis in the thumb may spread to the
 radial bursa and in the little finger to the ulnar bursa.
 Note: Infection in the middle three fingers is usually contained
 as they have separate synovial sheaths.
@@ -1244,18 +1219,17 @@ with permanent flexion of the distal phalanx as a result of an
 avulsion of the lateral bands of the extensor tendon to the
 distal phalanx.
 
-### 6:  Boutonniere deformity is a finger with abnormal flexion of
+### 6:  Boutonniere deformity is a finger with abnormal flexion of
 
 the middle phalanx and hyperextension of the distal phalanx as
 a result of a rupture of the central band of the extensor tendon
 
-### 7:  Pancoast tumor in the apex of the lung can result in lower
+### 7:  Pancoast tumor in the apex of the lung can result in lower
 
 trunk injury and, occasionally, Horner syndrome because of
 sympathetic ganglion compression (ptosis, anhidrosis, and
 pupillary constriction). It can also cause thoracic outlet
-syndrome.
-Previous Next',
+syndrome.',
     false,
     6,
     'published',
@@ -1311,10 +1285,7 @@ Is formed at the lower border of the teres major muscle by
 the union of the brachial veins (vena comitantes of the brachial
 artery) and the basilic vein and ascends along the medial side
 of the axillary artery. Continues as the subclavian vein at the
-inferior margin of the first rib.
-Previous Next
-
-Overview  Comments',
+inferior margin of the first rib.',
     false,
     7,
     'published',
@@ -1383,11 +1354,7 @@ medial, and posterior fascial compartments of the thigh.
 ### 2: Popliteal artery:
 
 Popliteal artery is a continuation of femoral artery. It extends
-from the opening in the adductor magnus to the lower border
-
-Overview  Comments
-
-of popliteus muscle, where it divides into anterior and posterior
+from the opening in the adductor magnus to the lower border of popliteus muscle, where it divides into anterior and posterior
 tibial arteries.
 Anterior Tibial Artery:
 The anterior tibial artery arises at the bifurcation of the
@@ -1417,9 +1384,12 @@ medially to form the plantar arch through anastomosis with
 the dorsalis pedis artery. The plantar arch gives off
 perforating and metatarsal arteries; the metatarsal arteries
 give rise to digital arteries.
-Clinical high yield:
-Medical personal should know the precise position of the main
-arteries within the lower limb.
+
+> [!TIP]
+> **Clinical high yield:**
+> Medical personal should know the precise position of the main
+> arteries within the lower limb.
+
 Femoral artery: This enters the thigh behind the inguinal
 ligament at a point midway between the anterior superior
 iliac spine and the symphysis pubis.
@@ -1435,8 +1405,7 @@ Posterior tibial artery: This artery passes behind the medial
 malleolus, beneath the flexor retinaculum, and lies between
 the tendons of flexor digitorum longus and the flexor hallucis
 longus. The pulsations of the artery can be felt midway
-between the medial malleolus and the heel.
-Previous Next',
+between the medial malleolus and the heel.',
     true,
     0,
     'published',
@@ -1463,15 +1432,15 @@ Previous Next',
     '# Bones of the Lower Limb
 
 Hip Bone:
-The bones of the pelvis consist of the right and left hip bones,
+The bones of the pelvis consist of the right and left hip bones,
 the sacrum and the coccyx.
-The hip bones articulate posteriorly with the sacrum at the
+The hip bones articulate posteriorly with the sacrum at the
 sacroiliac joints and with each other anteriorly at the pubic
 symphysis.
 Hip bone has a large articular socket on the lateral surface,
 the acetabulum, which together with the head of the femur,
 forms the hip joint.
-Each of the hip bones is formed by
+Each of the hip bones is formed by
 Ilium (superiorly)
 Pubis (anteroinferiorly)
 Ischium (posteroinferiorly).
@@ -1490,8 +1459,6 @@ lateral sacrococcygeal ligaments.
 Pubic symphysis Is a cartilaginous or fibrocartilaginous joint
 between the pubic bones in the median plane.
 Sacrotuberous and sacrospinous ligaments:
-
-Overview  Comments
 
 Patella:
 Patella is largest sesamoid bone lies within the tendon of
@@ -1532,8 +1499,6 @@ Proximal group: Talus and Calcaneus
 Intermediate: Navicular
 Distal group: Cuboid and Cuneiforms
 
-Previous Next
-
 ![Bones of the Lower Limb - Clinical Figure 2](/lessons/images/lower-limb-anatomy/bones-of-the-lower-limb/figure_02_p4.png)
 *Bones of the Lower Limb — Clinical Figure 2 (Page 4 Reference)*',
     false,
@@ -1564,9 +1529,6 @@ Previous Next
 Dermatomes and Myotomes of Lower
 Limb:
 Lower Limb Reflexes:
-Previous Next
-
-Overview  Comments
 
 ![Dermatomes, Myotomes and Reflexes of Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/dermatomes-myotomes-and-reflexes-of-lower-limb/figure_01_p1.png)
 *Dermatomes, Myotomes and Reflexes of Lower Limb — Clinical Figure 1 (Page 1 Reference)*
@@ -1609,15 +1571,13 @@ which runs from the acetabular fossa to the fovea of the femur.
 Extracapsular ligaments:
 Iliofemoral ligament: Strongest of all located anteriorly,
 prevents hyperextension of the hip joint.
-Ischiofemoral:  Reinforcing the capsule posteriorly. Preventing
+Ischiofemoral:  Reinforcing the capsule posteriorly. Preventing
 hyperextension and medial rotation of the femur at hip joint
-
-Overview  Comments
 
 ![Joints of the Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_01_p1.png)
 *Joints of the Lower Limb — Clinical Figure 1 (Page 1 Reference)*
 
-Pubofemoral:  Reinforcing the capsule anteriorly and inferiorly
+Pubofemoral:  Reinforcing the capsule anteriorly and inferiorly
 preventing excessive abduction and extension.
 Note: Most common hip dislocation is posterior and sciatic
 nerve is most commonly injured
@@ -1648,9 +1608,7 @@ Cruciate Ligaments
 Anterior cruciate ligament: Attaches at the anterior
 intercondylar region of the tibia where it blends with the
 medial meniscus. It ascends posteriorly to attach to the femur
-in the intercondylar fossa. It prevents anterior dislocation of
-
-the tibia onto the femur. ACL relax during flexion and taut
+in the intercondylar fossa. It prevents anterior dislocation of the tibia onto the femur. ACL relax during flexion and taut
 during extension torn in hyperextension injury.
 Posterior cruciate ligament: Attaches at the posterior
 intercondylar region of the tibia and ascends anteriorly to
@@ -1659,7 +1617,7 @@ posterior dislocation of the tibia onto the femur. PCL relax
 during extension and taut during flexion, torn in hyperflexion
 injury
 Note:
-Unhappy triad:  common in Rugby players. lateral blow to the
+Unhappy triad:  common in Rugby players. lateral blow to the
 extended knee with a twisting fall to the same side
 Refers to injury of Medial collateral, medial meniscus and
 anterior cruciate ligament
@@ -1727,9 +1685,7 @@ Talocalcaneonavicular joint:
 *Joints of the Lower Limb — Clinical Figure 3 (Page 5 Reference)*
 
 ![Joints of the Lower Limb - Clinical Figure 4](/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_04_p5.png)
-*Joints of the Lower Limb — Clinical Figure 4 (Page 5 Reference)*
-
-Previous Next',
+*Joints of the Lower Limb — Clinical Figure 4 (Page 5 Reference)*',
     false,
     3,
     'published',
@@ -1781,8 +1737,6 @@ vein and femoral canal.
 Note: The femoral nerve does not lie within the femoral sheath,
 but instead lies lateral to it.
 
-Overview  Comments
-
 ![Lower Limb Other Significant Structures - Clinical Figure 1](/lessons/images/lower-limb-anatomy/lower-limb-other-significant-structures/figure_01_p1.png)
 *Lower Limb Other Significant Structures — Clinical Figure 1 (Page 1 Reference)*
 
@@ -1827,7 +1781,6 @@ nerve
 The common fibular nerve follows the biceps femoris
 tendon, travelling along the lateral margin of the popliteal
 Tibial nerve lies more medial to common fibular nerve.
-Previous Next
 
 ![Lower Limb Other Significant Structures - Clinical Figure 3](/lessons/images/lower-limb-anatomy/lower-limb-other-significant-structures/figure_03_p3.png)
 *Lower Limb Other Significant Structures — Clinical Figure 3 (Page 3 Reference)*',
@@ -1883,11 +1836,7 @@ abdomen.
 > Glans penis and penile urethra=deep inguinal lymph nodes
 > Scrotum=Superficial inguinal lymph nodes
 > Testes= lumber or para-aortic lymph nodes
-> prostate= internal iliac nodes
-
-> Overview  Comments
-
-Previous Next',
+> prostate= internal iliac nodes',
     false,
     5,
     'published',
@@ -1932,8 +1881,6 @@ muscle.
 > [!TIP]
 > **Clinical pearls:**
 
-> Overview  Comments
-
 ![Muscles of the Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_01_p1.png)
 *Muscles of the Lower Limb — Clinical Figure 1 (Page 1 Reference)*
 
@@ -1945,7 +1892,7 @@ occurs when your hip abductor muscles are weakened. This
 muscle group includes the gluteus Medius and minimus
 innervated by superior gluteal nerve. The weakness of these
 muscles causes drooping of the pelvis to the contralateral
-side while walking.
+side while walking.
 The Trendelenburg sign is produced when the patient is asked
 to stand without support on each leg. In a positive sign, pelvic
 drop will occur on the unsupported leg. For example, if the
@@ -1957,7 +1904,7 @@ Note: All the muscles of anterior compartment of thigh are
 flexors of thigh at hip joint, while quadriceps femoris is
 extensor of thigh at knee joint and Sartorius also flexes thigh at
 knee.
-Note:    Sartorius originates from anterior superior iliac spine
+Note:    Sartorius originates from anterior superior iliac spine
 Rectus femoris originates from anterior inferior iliac spine.
 Medial Compartment of thigh
 muscles:
@@ -2020,7 +1967,7 @@ Deep muscles in the posterior leg:
 Muscles in the lateral compartment
 of leg:
 Consists of two muscles, fibularis longus and brevis also
-called peroneus longus and peroneus brevis.
+called peroneus longus and peroneus brevis.
 
 ![Muscles of the Lower Limb - Clinical Figure 7](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_07_p5.png)
 *Muscles of the Lower Limb — Clinical Figure 7 (Page 5 Reference)*
@@ -2043,7 +1990,6 @@ tendons of extrinsic muscles - tibialis posterior and fibularis
 longus.
 Note: Plantar arteries and nerves lie within the first and
 second layer of the sole of foot.
-Previous Next
 
 ![Muscles of the Lower Limb - Clinical Figure 9](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_09_p6.png)
 *Muscles of the Lower Limb — Clinical Figure 9 (Page 6 Reference)*',
@@ -2104,8 +2050,6 @@ Branch to pectineus
 
 Saphenous nerve
 Branches to quadriceps femoris
-
-Overview  Comments
 
 ![Nerves of the Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/nerves-of-the-lower-limb/figure_01_p1.png)
 *Nerves of the Lower Limb — Clinical Figure 1 (Page 1 Reference)*
@@ -2260,8 +2204,7 @@ drop with high-stepping gait, weakness of foot inversion.
 Sensory Loss: Loss of sensation over webspace between 1st and
 2nd toes.
 Note: Footdrop is due to Common fibular or common
-peroneal nerve or also due to deep fibular nerve injury.
-Previous Next',
+peroneal nerve or also due to deep fibular nerve injury.',
     false,
     7,
     'published',
@@ -2304,11 +2247,7 @@ knee.
 > **Clinical Pearls:**
 > Varicose veins: Develop in superficial veins of the lower limb
 > because of reduced elasticity and incompetent valves in the
-> veins causing them to become dilated and tortuous.
-
-Previous Next
-
-Overview  Comments',
+> veins causing them to become dilated and tortuous.',
     false,
     8,
     'published',
@@ -2379,11 +2318,7 @@ Intercostal space:
 The intercostal space lies between adjacent ribs and mostly
 contains intercostal muscles. Since there are 12 ribs on each
 side, there are 11 intercostal spaces, each numbered for the rib
-superior to it. Intercostal nerves, arteries and veins lie in the
-
-Overview  Comments
-
-costal groove along the inferior margin of the rib, lying in a
+superior to it. Intercostal nerves, arteries and veins lie in the costal groove along the inferior margin of the rib, lying in a
 plane between the internal and innermost intercostal muscles.
 
 > [!TIP]
@@ -2397,8 +2332,7 @@ Therefore, the nerve is the most vulnerable structure in a
 penetrating injury to the upper aspect of the intercostal space.
 Any needle or tube inserted in the intercostal space should be
 placed immediately above the superior margin of a rib to avoid
-injury to the intercostal neurovascular bundle.
-Previous Next',
+injury to the intercostal neurovascular bundle.',
     true,
     0,
     'published',
@@ -2428,9 +2362,6 @@ Dermatomal supply of trunk:
 
 > [!TIP]
 > **High yield:**
-> Previous Next
-
-> Overview  Comments
 
 ![Dermatomes of Trunk - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/dermatomes-of-trunk/figure_01_p1.png)
 *Dermatomes of Trunk — Clinical Figure 1 (Page 1 Reference)*
@@ -2479,8 +2410,6 @@ Diaphragm has two attachments peripheral and central.
 
 ### 1: Peripheral attachments: Three peripheral attachments
 
-Overview  Comments
-
 ![Muscles of Thorax - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/muscles-of-thorax/figure_01_p1.png)
 *Muscles of Thorax — Clinical Figure 1 (Page 1 Reference)*
 
@@ -2488,7 +2417,7 @@ Xiphoid process of sternum
 Costal cartilages ribs 7 - 10, ends of ribs 11 and 12
 Arcuate ligaments and lumbar vertebrae
 
-### 2: Central attachment: Muscles fibers of the diaphragm forms
+### 2: Central attachment: Muscles fibers of the diaphragm forms
 
 central tendon which fuses with fibrous pericardium superiorly
 Note: Diaphragm separates thoracic cavity from abdominal
@@ -2550,8 +2479,7 @@ symptoms of acid reflux.
 > Accessory muscle of expiration: Transversus abdominal
 > muscles
 > Forced expiration: Internal intercostal muscle and rectus
-> abdominus
-> Previous Next',
+> abdominus',
     false,
     2,
     'published',
@@ -2585,10 +2513,7 @@ posterior mediastina.
 The middle mediastinum contains the heart.
 The posterior mediastinum contains the esophagus, thoracic
 aorta, azygos and hemiazygos veins, thoracic duct, vagus
-nerves, and sympathetic splanchnic nerves
-Previous Next
-
-Overview  Comments',
+nerves, and sympathetic splanchnic nerves',
     false,
     3,
     'published',
@@ -2643,8 +2568,6 @@ the right and left main bronchi. They undergo further
 branching to produce the secondary bronchi.
 Structure
 
-Overview  Comments
-
 Right main bronchus: Wider, shorter, and descends more
 vertically than left bronchus.
 Clinically, this results in a higher incidence of foreign body
@@ -2663,8 +2586,7 @@ bronchi give rise to multiple generations of divisions and
 ultimately to bronchioles (conducting bronchioles, terminal
 bronchioles, respiratory bronchioles)
 The respiratory bronchioles continue as alveolar ducts and
-sacs, the walls of which form alveoli.
-Previous Next',
+sacs, the walls of which form alveoli.',
     false,
     4,
     'published',
@@ -2719,8 +2641,6 @@ Innervation of the pericardium
 The visceral pericardium: Receives autonomic innervation
 from the cardiac plexus.
 
-Overview  Comments
-
 The parietal and fibrous pericardium are innervated mainly by
 the phrenic nerve, for this reason that pain related to a
 pericardial problem may be referred to the supraclavicular
@@ -2728,7 +2648,7 @@ region of the shoulder or the lateral neck area.
 
 > [!TIP]
 > **Clinical pearls:**
-> Pericardiocentesis:  surgical puncture of the pericardial cavity
+> Pericardiocentesis:  surgical puncture of the pericardial cavity
 > for the aspiration of fluid, which is necessary to relieve the
 > pressure of accumulated fluid in the heart. A needle is inserted
 > into the pericardial cavity 1 - 2 cm inferior to the left of the
@@ -2792,9 +2712,7 @@ Purkinje fibres
 The sinoatrial node, the cardiac pacemaker, is located at the
 superior end of the crista terminalis at the junction of the
 superior vena cava and the right atrium. Impulses generated
-by the sinoatrial node are propagated by the atrial
-
-myocardium to the atrioventricular node, Here the impulse is
+by the sinoatrial node are propagated by the atrial myocardium to the atrioventricular node, Here the impulse is
 briefly delayed before being spread to the ventricles.
 The atrioventricular bundle (bundle of His) is a direct
 continuation of the atrioventricular node and continues along
@@ -2896,7 +2814,6 @@ Easy to remember:
 Septal and Anterior wall MI: LAD (Anterior interventricular
 branch) occluded.
 Lateral wall MI: LCX occluded.
-Previous Next
 
 ![Structures of the Thorax - Heart and Pericardium - Clinical Figure 2](/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-heart-and-pericardium/figure_02_p6.png)
 *Structures of the Thorax - Heart and Pericardium — Clinical Figure 2 (Page 6 Reference)*
@@ -2953,8 +2870,6 @@ bronchioles and bronchi toward the hilum, where they drain to
 the pulmonary (intrapulmonary) and then bronchopulmonary
 nodes, which in turn drain to the inferior and superior
 
-Overview  Comments
-
 ![Structures of the Thorax - Lungs and Pleurae - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-lungs-and-pleurae/figure_01_p1.png)
 *Structures of the Thorax - Lungs and Pleurae — Clinical Figure 1 (Page 1 Reference)*
 
@@ -2995,9 +2910,7 @@ The bronchial vein is formed at the root of the lung, receiving
 superficial and deep veins corresponding to branches of the
 bronchial artery
 Innervation of lung: The nerve supply to the lungs is from the
-anterior and posterior pulmonary plexus (networks of nerves
-
-derived from the sympathetic trunk and vagus nerve).
+anterior and posterior pulmonary plexus (networks of nerves derived from the sympathetic trunk and vagus nerve).
 Lobes of the lung: The left lung is divided into two lobes, an
 upper and a lower, by an interlobular fissure, which extends
 from the costal to the mediastinal surface of the lung both
@@ -3032,9 +2945,7 @@ The inferior lobes of the left and right lungs are best
 auscultated in the back between T3 & T10.
 Pancoast tumor (superior pulmonary sulcus tumor) is a
 malignant neoplasm of the lung aper may cause a lower trunk
-brachial plexopathy and a lesion of cervical sympathetic chain
-
-ganglion and Horner syndrome (ptosis, enophthalmos,
+brachial plexopathy and a lesion of cervical sympathetic chain ganglion and Horner syndrome (ptosis, enophthalmos,
 miosis, anhidrosis, and vasodilation).
 Thoracotomy: surgical procedure to gain access into the
 pleural space of the chest
@@ -3104,10 +3015,7 @@ line, one or two intercostal spaces below the fluid level ideal
 site is the sixth, seventh, eighth, or ninth intercostal space but
 not below the ninth intercostal space
 Note: A needle should be inserted immediately above the
-superior margin of a rib to avoid injury to the intercostal
-
-neurovascular bundle, which travels in a notch below each rib
-Previous Next',
+superior margin of a rib to avoid injury to the intercostal neurovascular bundle, which travels in a notch below each rib',
     false,
     6,
     'published',
@@ -3160,15 +3068,12 @@ Abdominal constriction: at oesophageal hiatus at T10/11
 vertebral
 Relations of the oesophagus
 
-Overview  Comments
-
 ![Structures of the Thorax - Oesophagus - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-oesophagus/figure_01_p1.png)
 *Structures of the Thorax - Oesophagus — Clinical Figure 1 (Page 1 Reference)*
 
 Innervation of the oesophagus:
 sympathetic trunk (sympathetic fibres)
-vagal plexus (parasympathetic fibres)
-Previous Next',
+vagal plexus (parasympathetic fibres)',
     false,
     7,
     'published',
@@ -3226,8 +3131,6 @@ thoracic arteries. Venous blood drains into the left
 brachiocephalic and internal thoracic veins
 Innervation of the thymus:
 
-Overview  Comments
-
 The thymus gland is innervated by sympathetic nerves
 arising from the cervical sympathetic ganglia. These
 sympathetic nerves regulate blood flow to the thymus and
@@ -3236,8 +3139,7 @@ fibers from the vagus nerve may also contribute to the
 innervation of the thymus gland nevertheless an autonomic
 nervous system of both sympathetic and parasympathetic
 components plays a role in regulating function of thymus
-gland.
-Previous Next',
+gland.',
     false,
     8,
     'published',
@@ -3288,8 +3190,6 @@ anteroposterior axis result in raising and lowering the middle
 of the rib, the "buckethandle" movement. In elevation, this
 increases the transverse diameter of the thorax.
 
-Overview  Comments
-
 > [!TIP]
 > **Clinical pearls:**
 > Flail chest: loss of stability of the thoracic cage that occurs
@@ -3308,7 +3208,6 @@ result from direct blows or crush injuries. The broken ends of
 ribs may cause pneumothorax and lung or spleen injury.
 Lower rib fractures may tear the diaphragm, resulting in a
 diaphragmatic hernia.
-Previous Next
 
 ![Thoracic Wall Movements - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/thoracic-wall-movements/figure_01_p2.png)
 *Thoracic Wall Movements — Clinical Figure 1 (Page 2 Reference)*',
@@ -3369,8 +3268,6 @@ Sympathetic trunks
 Left and right common carotid arteries.
 left subclavian arteries.
 
-Overview  Comments
-
 Internal jugular veins
 Brachiocephalic veins
 Subclavian veins
@@ -3383,8 +3280,7 @@ lymph nodes and lymphatic vessels
 > within the thoracic outlet
 > Compression of brachial plexus
 > Compression of subclavian artery
-> Compression of subclavian vein
-> Previous Next',
+> Compression of subclavian vein',
     false,
     10,
     'published',
@@ -3425,8 +3321,8 @@ lymph nodes and lymphatic vessels
 Layers of the Abdominal Wall
 (external to internal)
 Skin
-Superficial fascia (Camper''s fascia: Superficial fatty
-layer Scarpa''s fascia: deep fibrous layer )
+Superficial fascia (Camper''s fascia: Superficial fatty
+layer Scarpa''s fascia: deep fibrous layer )
 Muscles
 Transversalis fascia
 Parietal peritoneum
@@ -3440,22 +3336,20 @@ forms an aponeurosis (a broad, flat tendon) in the
 anteromedial aspect of the abdominal wall which covers the
 vertical rectus abdominis muscle. The aponeuroses of all the
 flat muscles become entwined in the midline, forming
-the Linea alba.
+the Linea alba.
 Two vertical muscles: Rectus abdominus and pyramidalis
 situated near midline of body
 Innervation: The anterior abdominal wall muscles are
 innervated by the anterior rami of T7-T12 and L1.
 
-Overview  Comments
-
 Other contents
-Rectus sheath: The rectus sheath is formed by the
+Rectus sheath: The rectus sheath is formed by the
 aponeuroses of the three flat muscles and encloses the
 rectus abdominis and pyramidalis muscles. It has an anterior
 and posterior wall for most of its length.
 Anterior wall: Formed by the aponeuroses of the external
 oblique, and of half of the internal oblique.
-Posterior wall:  Half of the aponeuroses of the internal
+Posterior wall:  Half of the aponeuroses of the internal
 oblique and of the transversus abdominis.
 Approximately midway between the umbilicus and the pubic
 symphysis, all the aponeuroses move to the anterior wall of
@@ -3480,11 +3374,11 @@ Iliacus and Psoas major origin and insertion
 Iliacus: Originates from surface of the iliac fossa and anterior
 inferior iliac spine. Its fibres combine with the tendon of the
 psoas major, inserting into the lesser trochanter of
-the femur.
+the femur.
 Psoas major: Originates from the transverse processes and
 vertebral bodies of T12 - L5. It then moves inferiorly and
 laterally, running deep to the inguinal ligament, and
-inserting to the lesser trochanter of the femur.
+inserting to the lesser trochanter of the femur.
 
 > [!TIP]
 > **Clinical pearls**
@@ -3496,9 +3390,7 @@ inserting to the lesser trochanter of the femur.
 *Abdominal Wall Muscles — Clinical Figure 2 (Page 3 Reference)*
 
 ![Abdominal Wall Muscles - Clinical Figure 3](/lessons/images/abdomen-peritoneum/abdominal-wall-muscles/figure_02_p3.png)
-*Abdominal Wall Muscles — Clinical Figure 3 (Page 3 Reference)*
-
-Previous Next',
+*Abdominal Wall Muscles — Clinical Figure 3 (Page 3 Reference)*',
     true,
     0,
     'published',
@@ -3550,8 +3442,6 @@ inferior direction.
 The diaphragmatic surface of the liver is related anteriorly to
 the anterior abdominal wall and rib cage and superiorly to
 the diaphragm.
-
-Overview  Comments
 
 ![Accessory Organs of the Abdomen - Clinical Figure 1](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_01_p1.png)
 *Accessory Organs of the Abdomen — Clinical Figure 1 (Page 1 Reference)*
@@ -3646,7 +3536,7 @@ Spider nevi or spider angioma (small, red, spiderlike arterioles
 in the cheeks, neck, and shoulder)
 Ascites: accumulation of fluid in the peritoneal cavity
 edema in the legs: lower albumin levels facilitate
-water retention.
+water retention.
 Splenomegaly: enlarged spleen resulting from venous
 congestion causing sequestered blood cells that lead to
 thrombocytopenia and easy bruising
@@ -3665,9 +3555,9 @@ with the cystic duct.
 Note: The neck contains a mucosal fold, known as Hartmann''s
 pouch, which is a common site for gallstones to become
 lodged.
-Gall bladder blood supply: cystic artery branch of right hepatic
+Gall bladder blood supply: cystic artery branch of right hepatic
 artery. Right hepatic artery is itself branch of common hepatic
-artery one of branch of coeliac trunk.
+artery one of branch of coeliac trunk.
 Innervation of gall bladder:The gallbladder receives both
 sympathetic and vagal supply:
 sympathetic: via the coeliac plexus
@@ -3734,7 +3624,7 @@ The intraperitoneal tail passes between layers of the
 splenorenal ligament. It is related to the left kidney
 posteriorly, the hilum of the spleen laterally, the left colic
 flexure inferiorly and the stomach anteriorly.
-Ducts of pancreas:  Main pancreatic duct: Begins in the tail
+Ducts of pancreas:  Main pancreatic duct: Begins in the tail
 and runs to the right along the entire pancreas
 Joins the bile duct to form the hepatopancreatic ampulla
 (ampulla of Vater) enters second part of duodenum at
@@ -3764,11 +3654,11 @@ irritation of the parietal peritoneum covering the pancreas.
 is a large vascular lymphatic organ lying against the
 diaphragm and ribs 9 to 11 in the hypochondriac region,
 covered by peritoneum except at the hilum, and supported by
-the  splenogastric and splenorenal ligaments
+the  splenogastric and splenorenal ligaments
 Relations:The spleen lies posterior to the stomach, superior to
 the left colic flexure and lateral to the left kidney and tail of the
 pancreas.
-Functional overview: Composed of white pulp and red pulp.
+Functional overview: Composed of white pulp and red pulp.
 White pulp: which consists of primarily lymphatic tissue
 around the central arteries and is the primary site of immune
 and phagocytic action, participates in the immune response
@@ -3783,11 +3673,11 @@ Spleen Is hematopoietic in early life and later destroys aged
 (i.e., worn-out) red blood cells in the red pulp and releases
 hemoglobin from the spent RBCs.
 Important to remember here hematopoiesis at different
-stages of life.
+stages of life.
 
 > [!TIP]
 > **Clinical pearls: Spleen injury most Likely associated with**
-> fracture of rib 10
+> fracture of rib 10
 
 ![Accessory Organs of the Abdomen - Clinical Figure 5](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_05_p8.png)
 *Accessory Organs of the Abdomen — Clinical Figure 5 (Page 8 Reference)*
@@ -3810,9 +3700,7 @@ greater splanchnic nerves.
 *Accessory Organs of the Abdomen — Clinical Figure 7 (Page 9 Reference)*
 
 ![Accessory Organs of the Abdomen - Clinical Figure 8](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_08_p9.png)
-*Accessory Organs of the Abdomen — Clinical Figure 8 (Page 9 Reference)*
-
-Previous Next',
+*Accessory Organs of the Abdomen — Clinical Figure 8 (Page 9 Reference)*',
     false,
     1,
     'published',
@@ -3852,8 +3740,6 @@ Midpoint of the inguinal ligament: Halfway between the
 pubic tubercle and the anterior superior iliac spine. The
 opening to the inguinal canal is located just above this point.
 
-Overview  Comments
-
 ![Areas of Abdomen - Clinical Figure 1](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_01_p1.png)
 *Areas of Abdomen — Clinical Figure 1 (Page 1 Reference)*
 
@@ -3882,7 +3768,7 @@ Borders:
 Medial: Lateral border of the rectus abdominis muscle.
 Lateral: inferior epigastric vessels.
 Inferior: inguinal ligament
-Clinical significance:  Direct inguinal hernia protrudes
+Clinical significance:  Direct inguinal hernia protrudes
 through Hesselbach''s triangle.
 The Peritoneum
 
@@ -3945,8 +3831,6 @@ posterior abdominal wall
 ![Areas of Abdomen - Clinical Figure 5](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_05_p4.png)
 *Areas of Abdomen — Clinical Figure 5 (Page 4 Reference)*
 
-Previous Next
-
 ![Areas of Abdomen - Clinical Figure 6](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_06_p5.png)
 *Areas of Abdomen — Clinical Figure 6 (Page 5 Reference)*',
     false,
@@ -3978,9 +3862,6 @@ Dermatomal supply of trunk
 
 > [!TIP]
 > **High yield:**
-> Previous Next
-
-> Overview  Comments
 
 ![Dermatomes of Trunk - Clinical Figure 1](/lessons/images/abdomen-peritoneum/dermatomes-of-trunk/figure_01_p1.png)
 *Dermatomes of Trunk — Clinical Figure 1 (Page 1 Reference)*
@@ -4025,7 +3906,7 @@ The Pylorus: Connects the stomach to the duodenum. It is
 divided into the pyloric antrum, pyloric canal and pyloric
 sphincter
 The pyloric sphincter lies between the pylorus and the first
-part of the duodenum. It controls of the exit of chyme.
+part of the duodenum. It controls of the exit of chyme.
 Anatomical relation of stomach
 The stomach lies anterior to the stomach bed
 stomach bed formed by:
@@ -4040,8 +3921,6 @@ Mesocolon (Transverse)
 Blood supply:
 The arterial supply to the stomach is derived from all three
 branches (left gastric, splenic, and common hepatic branches)
-
-Overview  Comments
 
 ![Gastrointestinal Tract - Clinical Figure 1](/lessons/images/abdomen-peritoneum/gastrointestinal-tract/figure_01_p1.png)
 *Gastrointestinal Tract — Clinical Figure 1 (Page 1 Reference)*
@@ -4080,10 +3959,8 @@ ducts usually unite to form the hepatopancreatic ampulla of
 Vater) enter the posteromedial wall of this part of the
 duodenum, about  of the way along its length.
 The lesser duodenal papilla lies about 6-8 cm distal to the
-pylorus and has at its summit the opening of the accessory
-
-pancreatic duct.
-Third part: The inferior or horizontal part of the duodenum
+pylorus and has at its summit the opening of the accessory pancreatic duct.
+Third part: The inferior or horizontal part of the duodenum
 Runs transversely to the left, passing over the IVC, aorta, and L3
 vertebra.
 It is crossed by the superior mesenteric artery and vein and
@@ -4099,10 +3976,10 @@ called the suspensory muscle (ligament) of the duodenum
 (ligament of Treitz).
 Blood supply: Branches of coeliac trunk and superior
 mesenteric artery
-Proximal to the major duodenal papilla: supplied by the
+Proximal to the major duodenal papilla: supplied by the
 gastroduodenal artery (branch of the common hepatic artery
 from the coeliac trunk).
-Distal to the major duodenal papilla: supplied by the inferior
+Distal to the major duodenal papilla: supplied by the inferior
 pancreaticoduodenal artery (branch of superior mesenteric
 artery).
 
@@ -4125,7 +4002,7 @@ Blood supply: Superior mesenteric artery
 
 > [!TIP]
 > **Clinical pearls:**
-> Meckel''s Diverticulum:
+> Meckel''s Diverticulum:
 > True diverticula of all 3 layers of the small intestines
 > Caused by incomplete obliteration of the vitelline duct.
 
@@ -4187,10 +4064,10 @@ The descending and sigmoid colons: Inferior mesenteric
 nodes
 Note: Most of the lymph from the superior and inferior
 mesenteric nodes passes into the intestinal lymph trunks,
-and on to the cisterna chyli, where it ultimately empties into
+and on to the cisterna chyli, where it ultimately empties into
 the thoracic duct.
 Innervation:
-Ascending colon and proximal  of the transverse colon:
+Ascending colon and proximal  of the transverse colon:
 receive their sympathetic, parasympathetic and sensory
 supply via nerves from the superior mesenteric plexus.
 Distal  of the transverse colon, descending colon and
@@ -4263,10 +4140,10 @@ In females, the peritoneum reflects to the posterior vagina
 and cervix, forming the rectouterine pouch (pouch of
 Douglas
 Blood supply:
-Superior rectal artery: terminal continuation of the inferior
+Superior rectal artery: terminal continuation of the inferior
 mesenteric artery.
 Middle rectal artery: branch of the internal iliac artery.
-Inferior rectal artery: branch of the internal pudendal artery.
+Inferior rectal artery: branch of the internal pudendal artery.
 Innervation of Rectum:
 Sympathetic nervous supply to the rectum is from the
 lumbar splanchnic nerves and superior and inferior
@@ -4280,7 +4157,7 @@ Lymphatic drainage: Pararectal lymph nodes
 > Digital rectal examination: Performed by inserting a gloved
 > lubricated finger into the rectum
 > The anterior wall of the rectum has a number of close
-> anatomical structures, and these structures can therefore be
+> anatomical structures, and these structures can therefore be
 > palpated digitally via the rectum.
 
 Most significant are the prostate and seminal vesicles in
@@ -4338,7 +4215,6 @@ External hemorrhoids are situated below the pectinate line,
 are covered by skin, and are more painful than internal
 hemorrhoids because their pain fibers are carried by Somatic
 fibers of the inferior rectal nerves.
-Previous Next
 
 ![Gastrointestinal Tract - Clinical Figure 4](/lessons/images/abdomen-peritoneum/gastrointestinal-tract/figure_04_p10.png)
 *Gastrointestinal Tract — Clinical Figure 4 (Page 10 Reference)*',
@@ -4380,8 +4256,6 @@ lumbar nerves and a part of the fourth lumbar nerve.
 Lies anterior to the transverse processes of the lumbar
 vertebrae within the substance of psoas major muscle.
 
-Overview  Comments
-
 ![Lumbar Spine and Plexus - Clinical Figure 1](/lessons/images/abdomen-peritoneum/lumbar-spine-and-plexus/figure_01_p1.png)
 *Lumbar Spine and Plexus — Clinical Figure 1 (Page 1 Reference)*
 
@@ -4389,7 +4263,6 @@ Note:Sub-costal nerve: (T12)Largest thoracic spinal nerve
 originates from anterior ramus of spinal nerve T12, Innervates
 external oblique, internal oblique, transversus abdominus,
 rectus abdominus and pyramidalis muscle
-Previous Next
 
 ![Lumbar Spine and Plexus - Clinical Figure 2](/lessons/images/abdomen-peritoneum/lumbar-spine-and-plexus/figure_02_p2.png)
 *Lumbar Spine and Plexus — Clinical Figure 2 (Page 2 Reference)*',
@@ -4429,13 +4302,13 @@ Anatomic structure:
 Testis is covered by tunica albuginea which lies beneath the
 visceral layer of the tunica veginalis
 Each testis is composed of seminiferous tubules which
-produce spermatozoa and interstitial cells (of Leydig)
+produce spermatozoa and interstitial cells (of Leydig)
 secrete testosterone
 Innervation of testis and epididymis: testicular plexus - a
 network of nerves derived from the renal and aortic plexus
 Lymphatic drainage:(Important to remember)
-Testes lumbar (para-aortic) nodes in the abdomen
-scrotum drains to the superficial inguinal nodes.
+Testes lumbar (para-aortic) nodes in the abdomen
+scrotum drains to the superficial inguinal nodes.
 Blood supply: Paired testicular arteries arise from abdominal
 aorta
 
@@ -4449,8 +4322,6 @@ Caused by trauma or spasm of cremasteric muscle.
 Ductus deferens:
 Is continuous with the tail of the epididymis and serves to
 transport sperm to the ejaculatory ducts prior to ejaculation.
-
-Overview  Comments
 
 Is a thick-walled tube that ascends within the spermatic cord
 to enter the pelvis at the deep inguinal ring lateral to the
@@ -4472,7 +4343,7 @@ Three arteries, three nerves and three other structures
 > The penis consists of a root (two crura and the bulb of the
 > penis) and the body, which is formed by the single corpus
 > spongiosum which contains the spongy urethra and paired
-> corpora cavernosa.  Its head is called the glans penis which is
+> corpora cavernosa.  Its head is called the glans penis which is
 > the terminal part of the corpus spongiosum.
 
 Innervation: The penis is supplied by S2-S4 spinal cord
@@ -4488,7 +4359,7 @@ Parasympathetic innervation is carried by cavernous nerves
 from the peri-prostatic nerve plexus and is responsible for
 the vascular changes which cause erection.
 Blood supply: Dorsal arteries of the penis, Deep arteries of the
-penis and Bulbourethral artery branches of the internal
+penis and Bulbourethral artery branches of the internal
 pudendal artery.
 Lymphatic drainage: (Important to remember)
 Penile Skin and prepuce: Drain into Superficial inguinal
@@ -4507,7 +4378,7 @@ seminal vesicles and the bulbourethral glands, and the
 spermatozoa constitute the semen or seminal fluid.
 Prostate has four zones:
 Anterior zone: which lies in front of the urethra.
-Transitional zone: encompasses the urethra proximal to the
+Transitional zone: encompasses the urethra proximal to the
 ejaculatory ducts and is prone to benign hypertrophy
 obstructing the internal urethral orifice
 Central zone: encompasses the ejaculatory ducts up to the
@@ -4518,10 +4389,8 @@ gland and is thus the most prone to carcinomatous
 transformation.
 
 > [!TIP]
-> **Clinical pearls: Hypertrophy of the prostate is a benign**
-> enlargement of the prostate that affects older men and occurs
-
-most often in the transitional zone, obstructing the internal
+> **Clinical pearls: Hypertrophy of the prostate is a benign**
+> enlargement of the prostate that affects older men and occurs most often in the transitional zone, obstructing the internal
 urethral orifice and thus leading to nocturia (excessive
 urination at night), dysuria (difficulty or pain in urination), and
 urgency (sudden desire to urinate).
@@ -4558,7 +4427,7 @@ Venous drainage:
 Are drained by the ovarian veins; the right ovarian vein joins the
 inferior vena cava, and the left ovarian vein joins the left renal
 vein
-Innervation: Autonomic: via the ovarian plexus
+Innervation: Autonomic: via the ovarian plexus
 Visceral afferents: accompany the sympathetic fibers to T10 -
 T12 level of the spinal cord sensory ganglia
 Pain is thus referred to the periumbilical region, suprapubic
@@ -4568,7 +4437,7 @@ The uterine tube extends from the uterus to the ovary and
 consists of the isthmus, ampulla, and infundibulum. The
 fimbriated distal end creates currents, drawing an ovulated
 oocyte into the uterine tube.
-Note: Ectopic pregnancy most commonly occurs in the
+Note: Ectopic pregnancy most commonly occurs in the
 ampulla (70% of cases).
 Uterus:
 
@@ -4578,8 +4447,8 @@ Uterus:
 Contains a fundus, body, isthmus and cervix and is supported
 by ligaments.
 Relations:
-Anteriorly: vesicouterine pouch and the urinary bladder
-Posteriorly: the rectouterine pouch and the anterior surface
+Anteriorly: vesicouterine pouch and the urinary bladder
+Posteriorly: the rectouterine pouch and the anterior surface
 of rectum
 Laterally: the broad ligament
 Suspensory ligaments:
@@ -4591,7 +4460,7 @@ Uterine arteries: branch of internal iliac artery
 Ovarian arteries: branch of the abdominal aorta at the level of
 L1.
 Venous drainage:
-Uterine veins: they are formed from the plexus and drain into
+Uterine veins: they are formed from the plexus and drain into
 internal iliac veins
 Innervation: Autonomic
 Hypogastric plexus (sympathetic)
@@ -4602,14 +4471,14 @@ Relations:
 Anteriorly: urethral orifice
 Posteriorly: The rectum
 Arterial supply: Uterine arteries supply the superior
-portion: branch of the internal iliac artery
+portion: branch of the internal iliac artery
 Vaginal artery and internal pudendal arteries supply the middle
 and inferior parts: branches of the internal iliac artery.
 
-Venous drainage: Uterovaginal plexus: drains into internal iliac
+Venous drainage: Uterovaginal plexus: drains into internal iliac
 veins
 Innervation
-Autonomic: inferior hypogastric plexus, pelvic splanchnic,
+Autonomic: inferior hypogastric plexus, pelvic splanchnic,
 pudendal nerve (all provide parasympathetic Innervation
 from S2-S4)
 Visceral afferents: accompany parasympathetic fibers of
@@ -4624,8 +4493,7 @@ Somatic afferents: accompany pudendal nerve to S2-S4.
 > the perineal body, rectum, coccyx and sacrum through the
 > posterior fornix
 > ovaries, uterine tubes, ureters and ischial spines through the
-> lateral fornices
-> Previous Next',
+> lateral fornices',
     false,
     6,
     'published',
@@ -4683,8 +4551,6 @@ Enters the inguinal canal at the deep inguinal ring, emerges
 from the superficial ring and becomes lost in the
 subcutaneous tissue of the labium majora.
 
-Overview  Comments
-
 Ovarian ligament: Is a fibromuscular cord that extends from
 the ovary to the uterus below the uterine tube, running within
 the layers of the broad ligament.
@@ -4694,12 +4560,11 @@ brim and transmits the ovarian vessels, nerves, and lymphatics.
 Rectouterine pouch and Rectovesical pouch:
 Rectouterine pouch: Is a sac or recess formed by a fold of the
 peritoneum dipping down between the rectum and the
-uterus. Lies behind the posterior fornix of the vagina and
+uterus. Lies behind the posterior fornix of the vagina and
 contains peritoneal fluid and some of the small intestine.
 Rectovesical pouch: Is a peritoneal recess between the bladder
 and the rectum in males, and the vesicouterine pouch is a
-peritoneal sac between the bladder and the uterus in females
-Previous Next',
+peritoneal sac between the bladder and the uterus in females',
     false,
     7,
     'published',
@@ -4746,8 +4611,6 @@ the renal plexus which contains parasympathetic fibers from
 the vagus nerve and sympathetic fibers from the thoracic
 splanchnic nerves.
 
-Overview  Comments
-
 ![Urinary Tract - Clinical Figure 1](/lessons/images/abdomen-peritoneum/urinary-tract/figure_01_p1.png)
 *Urinary Tract — Clinical Figure 1 (Page 1 Reference)*
 
@@ -4774,12 +4637,12 @@ where high intramural pressure collapses the ureters,
 preventing the backflow of urine.
 
 Innervation: Sensory fibres from the ureters enter the spinal
-cord at T11-L2, with ureteric pain referred to those dermatomal
+cord at T11-L2, with ureteric pain referred to those dermatomal
 areas.
 
 > [!TIP]
 > **Clinical pearls:**
-> In females ureters are in close proximity to the ovaries. Care
+> In females ureters are in close proximity to the ovaries. Care
 > must be taken not the damage the ureters during an
 > oophorectomy, especially during the ligation of the ovarian
 > arteries.
@@ -4806,7 +4669,7 @@ Urethra
 It serves as a passage for urine from the urinary bladder to
 the exterior, but in men, it also serves as a passage for
 semen.
-Male urethra: Male urethra is approximately 20 cm long and
+Male urethra: Male urethra is approximately 20 cm long and
 consists of: prostatic, membranous, bulbous and spongy
 urethra.
 Anterior urethra:
@@ -4827,9 +4690,7 @@ gland; on its posterior wall. It receives the ejaculatory ducts
 and numerous small prostatic ducts.
 Female urethra
 is approximately 4 cm long, and its external urethral orifice is
-situated between the labia minora, anterior to the vaginal
-
-opening, and posterior to the glans clitoris.
+situated between the labia minora, anterior to the vaginal opening, and posterior to the glans clitoris.
 Blood supply:
 Penile (spongy) urethra and Membranous urethra: Supplied
 by branch of internal pudendal artery
@@ -4895,8 +4756,7 @@ parasympathetic outflow to the bladder. The detrusor muscle
 will be paralyzed, unable to contract.
 The spinal reflex does not function. In this scenario, the
 bladder will fill uncontrollably, becoming abnormally
-distended until overflow incontinence occurs.
-Previous Next',
+distended until overflow incontinence occurs.',
     false,
     8,
     'published',
@@ -4962,8 +4822,6 @@ belly and the anterior and posterior bellies of digastric into 4
 Triangles:
 Digastric (submandibular): submandibular gland.
 
-Overview  Comments
-
 Submental (suprahyoid): Submental Lymph Nodes.
 Carotid: 3C (CNXII, Ansa cervicalis & carotid sheath)
 Muscular (inferior carotid): Thyroid and Parathyroid Glands.
@@ -4976,7 +4834,6 @@ jugular veins, Facial and retromandibular veins
 Arteries: Carotid sheath and branches of external carotid
 artery
 Nerves: Nerve to Mylohyoid, CN XII & Ansa Cervicalis
-Previous Next
 
 ![Anterior and Posterior Triangle of Neck - Clinical Figure 1](/lessons/images/head-neck-anatomy/anterior-and-posterior-triangle-of-neck/figure_01_p2.jpg)
 *Anterior and Posterior Triangle of Neck — Clinical Figure 1 (Page 2 Reference)*',
@@ -5015,8 +4872,6 @@ Suprahyoid and infrahyoid
 muscles
 Suprahyoid muscles
 
-Overview  Comments
-
 ![Muscles of the Neck - Clinical Figure 1](/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_01_p1.png)
 *Muscles of the Neck — Clinical Figure 1 (Page 1 Reference)*
 
@@ -5025,7 +4880,6 @@ Overview  Comments
 
 Infrahyoid muscles
 Musculature of tongue
-Previous Next
 
 ![Muscles of the Neck - Clinical Figure 3](/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_03_p2.png)
 *Muscles of the Neck — Clinical Figure 3 (Page 2 Reference)*
@@ -5063,7 +4917,7 @@ Previous Next
 Structure of the Eyeball
 The eyeball consists of 3 coats:
 
-### 1. External protective fibrous coat: Made up of anterior
+### 1. External protective fibrous coat: Made up of anterior
 
 transparent part the cornea and a posterior opaque part the
 sclera
@@ -5096,8 +4950,6 @@ Movements of the eyeball (Extra
 ocular muscles)
 All the extraocular muscles are innervated by oculomotor
 nerve except LR-6 and S0-4
-
-Overview  Comments
 
 Eye Lid:
 The eyelids are thin, soft tissue structures that cover the
@@ -5153,11 +5005,9 @@ the evaporation of the eye''s tear film. The oily substance also
 prevents the eyelids from sticking together when closed.
 
 > [!TIP]
-> **Clinical pearls: Dysfunction in these glands, often due to**
+> **Clinical pearls: Dysfunction in these glands, often due to**
 > blockages or inflammation, can lead to reduced tear stability
-> and dry eye.
-
-Previous Next',
+> and dry eye.',
     false,
     2,
     'published',
@@ -5193,8 +5043,6 @@ Position: The gland lies at the level of C5, C6, C7
 each lobe extends from middle of thyroid cartilage to 4th or
 5th tracheal ring.
 isthmus extends from 2nd to 3rd tracheal ring.
-
-Overview  Comments
 
 ![Thyroid Gland - Clinical Figure 1](/lessons/images/head-neck-anatomy/thyroid-gland/figure_01_p1.jpg)
 *Thyroid Gland — Clinical Figure 1 (Page 1 Reference)*
@@ -5232,8 +5080,7 @@ Thyroid Ima artery
 Inferior thyroid vein
 Anterior jugular vein
 Parathyroid gland
-Oesophagus
-Previous Next',
+Oesophagus',
     false,
     3,
     'published',
@@ -5289,10 +5136,6 @@ pathway known as Meyers'' loop, to reach the visual cortex.
 
 > [!NOTE]
 > **Remember the lesions of visual pathway (High yield)**
-
-Overview  Comments
-
-Previous Next
 
 ![Visual Pathway - Clinical Figure 1](/lessons/images/head-neck-anatomy/visual-pathway/figure_01_p2.jpg)
 *Visual Pathway — Clinical Figure 1 (Page 2 Reference)*',
@@ -5357,8 +5200,6 @@ functions of the brain, such as voluntary movement, reward
 processing, and working memory. The largest populations of
 these neurons sit within the midbrain in substantia nigra.
 
-Overview  Comments
-
 Vasculature of the mid brain:
 The midbrain receives vascular supply from the basilar artery,
 and its branches. The major vessels are:
@@ -5396,8 +5237,7 @@ disequilibrium, tremors or other loss of motor control.
 Facial paralysis (compression of CN VII), Reduced corneal
 reflex (involvement of both CN V and CN VII), Trigeminal palsy
 (compression of CN V) and Ipsilateral cerebellar signs in large
-tumors noted
-Previous Next',
+tumors noted',
     true,
     0,
     'published',
@@ -5439,23 +5279,20 @@ as internal capsule.
 Lenticular Nuclei:
 1:Putamen: Forms lateral aspect of lenticular nuclei
 2:Globus pallidus: On inner surface of putamen lies globus
-pallidus; externus, and internus.
+pallidus; externus, and internus.
 Substantia Nigra: located in the midbrain but considered
 functionally as a part of the basal ganglia
 
 > [!TIP]
 > **Clinical pearls:**
 > Basal ganglia are particularly associated with movement
-> disorders.  tremors; involuntary muscle movements;
+> disorders.  tremors; involuntary muscle movements;
 > abnormal increase in tone, difficulty initiating movements,
 > and abnormal posture
 > Parkinson''s is the most important and notorious disease of
 > the basal ganglia. Classic clinical symptoms include
 > bradykinesia, resting tremor, postural instability, and
-> shuffling gait
-> Previous Next
-
-> Overview  Comments',
+> shuffling gait',
     false,
     1,
     'published',
@@ -5490,7 +5327,7 @@ The brain is composed of 3 main structural divisions:
 The cerebrum (Cerebral hemispheres and diencephalon)
 The brainstem
 The cerebellum
-NOTE:  At the base of the brain is the brainstem, which extends
+NOTE:  At the base of the brain is the brainstem, which extends
 from the upper cervical spinal cord to the diencephalon of the
 cerebrum. The brainstem is divided into the medulla, pons, and
 midbrain. Posterior to the brainstem lies the cerebellum.
@@ -5511,8 +5348,6 @@ The white matter contains the ascending and descending
 pathways connecting the brain and spinal cord.
 The grey matter is rich in nerve cell bodies which are divided
 into four main columns.
-
-Overview  Comments
 
 Anterior horn (Ventral horn): largely contains motor neurons
 that exit the spinal cord to innervate skeletal muscle.
@@ -5546,8 +5381,7 @@ anterior and lateral columns.
 The paired posterior spinal arteries arise from either the
 posterior inferior cerebellar artery or directly from the
 vertebral artery and supply the posterior third of the spinal
-cord including the posterior horns and columns.
-Previous Next',
+cord including the posterior horns and columns.',
     false,
     2,
     'published',
@@ -5590,7 +5424,7 @@ Posterior inferior cerebellar artery (PICA)
 > [!TIP]
 > **Clinical pearls:**
 > In Cerebellar dysfunction wide variety of manifestations are
-> possible. These can be remembered using the acronym
+> possible. These can be remembered using the acronym
 
 ## ''Danish''
 
@@ -5603,11 +5437,8 @@ Scanning speech
 Hypotonia
 Cerebellar vascular lesion:
 
-Overview  Comments
-
 Note: Dysphagia is the differentiating symptom between AICA
 and PICA. Way to remember PICA can''t chew.
-Previous Next
 
 ![Cerebellum - Clinical Figure 1](/lessons/images/central-nervous-system-spine/cerebellum/figure_01_p2.png)
 *Cerebellum — Clinical Figure 1 (Page 2 Reference)*',
@@ -5651,7 +5482,7 @@ sagittal plane)
 The two cerebral hemispheres are connected by a white
 matter structure, called the corpus callosum which is
 composed primarily of commissural fibers.
-Internal structure: The cerebrum is comprised of two different
+Internal structure: The cerebrum is comprised of two different
 types of tissue:
 Grey matter forms the surface of each cerebral hemisphere
 (known as the cerebral cortex) and is associated with
@@ -5663,8 +5494,6 @@ Lobes of cerebrum:
 The cerebral hemispheres fill the area of the skull above the
 tentorium cerebelli and are subdivided into lobes based on
 their position relative to the major sulci:
-
-Overview  Comments
 
 Note:
 
@@ -5685,8 +5514,6 @@ artery
 
 ![Cerebrum - Clinical Figure 1](/lessons/images/central-nervous-system-spine/cerebrum/figure_01_p2.png)
 *Cerebrum — Clinical Figure 1 (Page 2 Reference)*
-
-Previous Next
 
 ![Cerebrum - Clinical Figure 2](/lessons/images/central-nervous-system-spine/cerebrum/figure_01_p3.png)
 *Cerebrum — Clinical Figure 2 (Page 3 Reference)*
@@ -5724,9 +5551,6 @@ pons and below with the spinal cord
 
 > [!TIP]
 > **Clinical pearls:**
-> Previous Next
-
-> Overview  Comments
 
 ![Medulla - Clinical Figure 1](/lessons/images/central-nervous-system-spine/medulla/figure_01_p1.png)
 *Medulla — Clinical Figure 1 (Page 1 Reference)*',
@@ -5759,9 +5583,6 @@ Spinal cord syndrome:
 
 > [!TIP]
 > **High yield:**
-> Previous Next
-
-> Overview  Comments
 
 ![Spinal Cord Syndrome - Clinical Figure 1](/lessons/images/central-nervous-system-spine/spinal-cord-syndrome/figure_01_p1.png)
 *Spinal Cord Syndrome — Clinical Figure 1 (Page 1 Reference)*
@@ -5802,9 +5623,6 @@ responsible for carrying motor and sensory stimuli to and
 from the periphery to higher levels
 Ascending tracts of the spinal cord:
 Descending Tracts of the Spinal Cord:
-Previous Next
-
-Overview  Comments
 
 ![Spinal Cord Tracts - Clinical Figure 1](/lessons/images/central-nervous-system-spine/spinal-cord-tracts/figure_01_p1.png)
 *Spinal Cord Tracts — Clinical Figure 1 (Page 1 Reference)*
@@ -5848,10 +5666,7 @@ basal ganglia & cerebellum & relaying them to motor cortex,
 influence LMN
 Participates in maintenance of state of wakefulness &
 alertness through RAS
-Role in emotions & recent memory
-Previous Next
-
-Overview  Comments',
+Role in emotions & recent memory',
     false,
     8,
     'published',
@@ -5881,11 +5696,11 @@ The Ventricles:
 The ventricles are a set of communicating cavities within the
 brain that are responsible for the production, transport and
 removal of cerebrospinal fluid (CSF), which bathes the central
-nervous system. There are four ventricles; right and left lateral
+nervous system. There are four ventricles; right and left lateral
 ventricles, the third ventricle and the fourth ventricle.
 Lateral Ventricles:The lateral ventricles are C-shaped cavities
 located within their respective hemispheres of the
-cerebrum.  The lateral ventricles are connected to the third
+cerebrum.  The lateral ventricles are connected to the third
 ventricle by the interventricular foramen of Monro.
 Third Ventricle: The third ventricle is a slit-like space in the
 sagittal plane, situated between the right and left thalamus
@@ -5910,14 +5725,11 @@ subarachnoid cisterns in the subarachnoid space located
 between the arachnoid mater and pia mater (bathing the
 brain).
 
-Overview  Comments
-
 CSF Reabsorption:
 From the subarachnoid cisterns, CSF is reabsorbed by
 arachnoid granulations, which protrude into the dura mater,
 into the Dural venous sinuses and from here back into the
-circulation.
-Previous Next',
+circulation.',
     false,
     9,
     'published',
@@ -5975,8 +5787,6 @@ The middle cerebral artery (supplying the lateral cerebral
 hemispheres)
 Branches of vertebral arteries
 
-Overview  Comments
-
 The two vertebral arteries (left and right), branches of the
 subclavian arteries, ascend through the transverse foramina of
 the upper six cervical vertebrae before entering the cranial
@@ -6029,8 +5839,7 @@ anterior and lateral columns.
 The paired posterior spinal arteries arise from either the
 posterior inferior cerebellar artery or directly from the
 vertebral artery and supply the posterior third of the spinal
-cord including the posterior horns and columns.
-Previous Next',
+cord including the posterior horns and columns.',
     false,
     10,
     'published',
@@ -6072,9 +5881,6 @@ Olfactory nerve:
 First and shortest cranial nerve transmits sensory information
 from the nasal epithelium via the cribriform plate of the
 ethmoid bone to the primary olfactory cortex
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve 1 - Olfactory Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-1-olfactory-nerve/figure_01_p1.png)
 *Cranial Nerve 1 - Olfactory Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6107,9 +5913,6 @@ Oculomotor Nerve (CN III):
 Motor nerve arises from midbrain, passes through the lateral
 aspect of cavernous sinus and exits skull through the superior
 orbital fissure
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve Iii_ Oculomotor Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-iii-oculomotor-nerve/figure_01_p1.png)
 *Cranial Nerve Iii_ Oculomotor Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6159,12 +5962,8 @@ nerve disease
 > optic chiasm,tumor of pituitary gland compresses optic nerve
 > at chiasm produces visual defect called bitemporal hemianopia
 
-> Overview  Comments
-
 ![Cranial Nerve Ii_ Optic Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-ii-optic-nerve/figure_01_p1.png)
-*Cranial Nerve Ii_ Optic Nerve — Clinical Figure 1 (Page 1 Reference)*
-
-Previous Next',
+*Cranial Nerve Ii_ Optic Nerve — Clinical Figure 1 (Page 1 Reference)*',
     false,
     2,
     'published',
@@ -6194,10 +5993,7 @@ Trochlear Nerve:
 smallest cranial nerve (by number of axons) yet has the longest
 intracranial course. Emerges from posterior aspect of midbrain,
 travels through lateral aspect of cavernous sinus, exits skull
-through superior orbital fissure.
-Previous Next
-
-Overview  Comments
+through superior orbital fissure.
 
 ![Cranial Nerve Iv_ Trochlear Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-iv-trochlear-nerve/figure_01_p1.png)
 *Cranial Nerve Iv_ Trochlear Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6229,13 +6025,10 @@ Overview  Comments
 Glossopharyngeal Nerve (CN IX):
 originates in the medulla oblongata of the brain, moves
 laterally in the posterior cranial fossa, and leaves the skull
-through jugular foramen.
+through jugular foramen.
 Note: Facial nerve in parotid gland splits into five terminal
 branches but parotid gland is innervated by
 glossopharyngeal nerve
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve Ix_ Glassopharyngeal Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-ix-glassopharyngeal-nerve/figure_01_p1.png)
 *Cranial Nerve Ix_ Glassopharyngeal Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6267,10 +6060,7 @@ Overview  Comments
 Vestibulocochlear Nerve (CN VIII):
 Comprised of two vestibular and cochlear portions, emerges
 from the brainstem at the cerebellopontine angle, enters
-internal acoustic meatus of temporal bone.
-Previous Next
-
-Overview  Comments
+internal acoustic meatus of temporal bone.
 
 ![Cranial Nerve Viii_ Vestibulocochlear Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-viii-vestibulocochlear-nerve/figure_01_p1.png)
 *Cranial Nerve Viii_ Vestibulocochlear Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6309,7 +6099,7 @@ branching into five terminal branches to supply the face.
 Cause of injury: Bell''s palsy, Ramsay-Hunt syndrome, Guillain-
 Barre syndrome, mumps, parotid tumor, and injury to the
 middle ear.
-Clinical effects of injury:  impaired sense of taste to anterior
+Clinical effects of injury:  impaired sense of taste to anterior
 two-thirds of tongue, loss of efferent corneal reflex, impaired
 lacrimal fluid production, hyperacusis, and impaired salivation
 Facial nerve branches in the temporal bone:
@@ -6317,7 +6107,7 @@ The nerve to the stapedius: Innervate stapedius muscle.
 The greater petrosal nerve: parasympathetic innervation to
 the lacrimal gland and the mucous glands of the oral cavity,
 nose and pharynx
-The chorda tympani: supply taste to the anterior two-thirds
+The chorda tympani: supply taste to the anterior two-thirds
 of the tongue
 Facial nerve branches between the stylomastoid foramen
 and parotid gland:3 motor branches
@@ -6331,15 +6121,13 @@ Nerve to the stylohyoid muscle: Innervates the stylohyoid
 muscle, one of the suprahyoid muscles of neck responsible
 for raising the hyoid bone.
 
-Overview  Comments
-
 Note: Greater auricular nerve cutaneous branch of the cervical
 plexus provides sensory innervation to ear lobule, skin over the
 parotid gland and mastoid process of the temporal bone. Pain
 of parotitis and during ear piercing is due to innervation of
 greater auricular nerve.
 Facial nerve terminal branches in parotid gland:
-The cervical branch: innervating the platysma muscle.
+The cervical branch: innervating the platysma muscle.
 The temporal branch: innervating muscles in the temple,
 forehead muscles (frontalis) and supraorbital areas (upper
 half of orbicularis oculi muscle)
@@ -6348,7 +6136,7 @@ infraorbital area (Lower half of orbicularis oculi muscle), the
 lateral nasal area and the upper lip
 The buccal branch: innervating muscles in the cheek and
 upper lip
-The marginal mandibular branch: innervating muscles of
+The marginal mandibular branch: innervating muscles of
 the lower lip and chin
 
 > [!TIP]
@@ -6360,8 +6148,7 @@ In the anterior , general sensation is supplied by the
 trigeminal nerve (CNV). Specifically, the lingual nerve, a
 branch of the mandibular nerve (CN V3).
 The posterior  of the tongue both touch and taste are
-carried by the glossopharyngeal nerve (CNIX)
-Previous Next',
+carried by the glossopharyngeal nerve (CNIX)',
     false,
     6,
     'published',
@@ -6391,9 +6178,6 @@ Abducent nerve:
 Purely motor nerve supplying lateral rectus muscle, arises from
 pons of the midbrain, travels through cavernous sinus, exits
 skull through superior orbital fissure.
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve Vi_ Abducent Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-vi-abducent-nerve/figure_01_p1.png)
 *Cranial Nerve Vi_ Abducent Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6433,10 +6217,6 @@ brainstem from pons It has three main divisions:
 
 ### 3: Mandibular V3
 
-Overview  Comments
-
-Previous Next
-
 ![Cranial Nerve V_ Trigeminal Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-v-trigeminal-nerve/figure_01_p2.png)
 *Cranial Nerve V_ Trigeminal Nerve — Clinical Figure 1 (Page 2 Reference)*',
     false,
@@ -6465,13 +6245,10 @@ Previous Next
     '# Cranial Nerve Xii_ Hypoglossal Nerve
 
 Hypoglossal Nerve:
-Pure motor nerve arises from medulla oblongata passes
+Pure motor nerve arises from medulla oblongata passes
 laterally across the posterior cranial fossa, within the
 subarachnoid space, exits the cranium via the hypoglossal
 canal of the occipital bone.
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve Xii_ Hypoglossal Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-xii-hypoglossal-nerve/figure_01_p1.png)
 *Cranial Nerve Xii_ Hypoglossal Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6506,9 +6283,6 @@ through foramen magnum, travels through posterior cranial
 fossa and exits skull through jugular foramen.
 Outside the cranium, it descends along the internal carotid
 artery and innervate sternocleidomastoid muscle.
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve Xi_ Spinal Accessory Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-xi-spinal-accessory-nerve/figure_01_p1.png)
 *Cranial Nerve Xi_ Spinal Accessory Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6557,12 +6331,10 @@ respectively.
 
 > [!TIP]
 > **Clinical pearls:**
-> Vasovagal syncope:  Causes heart rate and blood pressure to
+> Vasovagal syncope:  Causes heart rate and blood pressure to
 > drop suddenly during a period of emotional stress caused by
 > initial increase in sympathetic outflow followed by a rebound
 > reduction in sympathetic activity leaving unopposed
-
-> Overview  Comments
 
 ![Cranial Nerve X_ Vagus Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-x-vagus-nerve/figure_01_p1.png)
 *Cranial Nerve X_ Vagus Nerve — Clinical Figure 1 (Page 1 Reference)*
@@ -6576,7 +6348,6 @@ dehydration or haemorrhage or to venodilatation caused by
 medications or autonomic insufficiency (eg as occurs in
 Parkinsons disease).
 Causes of syncope:
-Previous Next
 
 ![Cranial Nerve X_ Vagus Nerve - Clinical Figure 2](/lessons/images/cranial-nerves-in-depth/cranial-nerve-x-vagus-nerve/figure_02_p2.png)
 *Cranial Nerve X_ Vagus Nerve — Clinical Figure 2 (Page 2 Reference)*',

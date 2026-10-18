@@ -42,7 +42,7 @@ export default function LessonPage() {
     return <SiteLayout><main className="section"><div className="container"><PageSkeleton /></div></main></SiteLayout>;
   }
   if (lesson.isError || !lesson.data) {
-    const forbidden = lesson.error instanceof ApiError && lesson.error.status === 403;
+    const forbidden = lesson.error instanceof ApiError && (lesson.error.status === 403 || lesson.error.status === 401);
     if (forbidden) {
       return (
         <SiteLayout>

@@ -83,8 +83,6 @@ Alcoholic liver disease
 Hypothyroidism
 Myelodysplastic syndrome
 
-Overview  Comments
-
 ![Anemia - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/anemia/figure_01_p1.png)
 *Anemia — Clinical Figure 1 (Page 1 Reference)*
 
@@ -98,7 +96,6 @@ Raised serum bilirubin (indirect) and lactate dehydrogenase
 Low B12 +/- folate
 Hypercellular bone marrow, megaloblastic erythropoiesis and
 giant metamyelocytes
-Previous Next
 
 ![Anemia - Clinical Figure 2](/lessons/images/general-pathology-inflammation-anemia/anemia/figure_02_p2.png)
 *Anemia — Clinical Figure 2 (Page 2 Reference)*',
@@ -127,11 +124,8 @@ Previous Next
     'article',
     '# Antibodies and Hypersensitivity Reactions
 
-Overview  Comments
-
 Antibodies:
 Hypersensitivity reaction:
-Previous Next
 
 ![Antibodies and Hypersensitivity Reactions - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/antibodies-and-hypersensitivity-reactions/figure_01_p2.png)
 *Antibodies and Hypersensitivity Reactions — Clinical Figure 1 (Page 2 Reference)*
@@ -178,8 +172,6 @@ and thus is the universal recipient.
 Blood group A has A antigens and anti-B antibodies, and
 blood group B has B antigens and anti-A antibodies.
 
-Overview  Comments
-
 ![Blood Groups - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/blood-groups/figure_01_p1.png)
 *Blood Groups — Clinical Figure 1 (Page 1 Reference)*
 
@@ -190,13 +182,13 @@ negative or RhD positive phenotype respectively. About 85% of
 the UK population is Rh D positive. Anti-D antibodies don''t
 occur naturally and are therefore immune antibodies that
 result from previous transfusions or pregnancy.
-Rhesus Disease:  A condition that occurs during pregnancy if
+Rhesus Disease:  A condition that occurs during pregnancy if
 a woman has Rh-ve blood and her baby has Rh+ve blood.
 Mother''s body create Rh antibodies against the baby''s blood
 also known as hemolytic disease of newborn
 .
-Pathogenesis: Rh-ve mother carrying Rh+ve fetus⟶  Entry of
-fetus Rh+ve Rbc into maternal circulation⟶  Development of
+Pathogenesis: Rh-ve mother carrying Rh+ve fetus⟶  Entry of
+fetus Rh+ve Rbc into maternal circulation⟶  Development of
 Rh antibodies by the mother
 Prevention and Prophylaxis
 anti-D immunoglobulin to all Rh-negative women at 28 and 34
@@ -210,8 +202,7 @@ Any bleeding in pregnancy/threatened miscarriage.
 ![Blood Groups - Clinical Figure 2](/lessons/images/general-pathology-inflammation-anemia/blood-groups/figure_02_p2.png)
 *Blood Groups — Clinical Figure 2 (Page 2 Reference)*
 
-After delivery at any gestation within 72Hours.
-Previous Next',
+After delivery at any gestation within 72Hours.',
     false,
     2,
     'published',
@@ -238,9 +229,6 @@ Previous Next',
     '# Cell Death
 
 Cell death
-Previous Next
-
-Overview  Comments
 
 ![Cell Death - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/cell-death/figure_01_p1.png)
 *Cell Death — Clinical Figure 1 (Page 1 Reference)*',
@@ -298,8 +286,6 @@ invading organisms and toxins (0-PLAN-CIA)
 Note: C3 deficiency leads to increased susceptibility of infection
 with encapsulated organisms (e.g., S. pneumoniae, H.
 
-Overview  Comments
-
 influenzae).
 C5 - C9 deficiency results in increased susceptibility to
 Neisseria infections.
@@ -320,8 +306,7 @@ The complement pathway is regulated by complement
 inhibitors e.g., decay accelerating factor or C1 inhibitor.
 Deficiency in C1 inhibitor results in hereditary angioedema.
 Deficiency in complement decay-accelerating factor results in
-paroxysmal nocturnal hemoglobinuria.
-Previous Next',
+paroxysmal nocturnal hemoglobinuria.',
     false,
     4,
     'published',
@@ -364,7 +349,7 @@ Histamine
 Serotonin
 Bradykinin
 Prostaglandin
-Interleukin functions:
+Interleukin functions:
 
 > [!NOTE]
 > **Mnemonic: Fever Tablet Means Effective Antipyretics Action**
@@ -372,15 +357,12 @@ IL-1: Fever
 IL-2: T cell stimulator
 IL-3: Marrow stimulator
 
-Overview  Comments
-
 ![Inflammation - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/inflammation/figure_01_p1.png)
 *Inflammation — Clinical Figure 1 (Page 1 Reference)*
 
 IL-4: IgE stimulator
 IL-5: Class switching to IgA
-IL-6: Stimulates Acute Phase Protein Production
-Previous Next',
+IL-6: Stimulates Acute Phase Protein Production',
     false,
     5,
     'published',
@@ -409,9 +391,6 @@ Previous Next',
 Innate vs Acquired immunity.
 Immune responses: Capacity of the body to resist pathogenic
 agents.
-Previous Next
-
-Overview  Comments
 
 ![Innate Vs Acquired Immunity - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/innate-vs-acquired-immunity/figure_01_p1.png)
 *Innate Vs Acquired Immunity — Clinical Figure 1 (Page 1 Reference)*',
@@ -441,9 +420,6 @@ Overview  Comments
     '# Lymphocytes
 
 Types of lymphocytes
-Previous Next
-
-Overview  Comments
 
 ![Lymphocytes - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/lymphocytes/figure_01_p1.png)
 *Lymphocytes — Clinical Figure 1 (Page 1 Reference)*',
@@ -473,9 +449,6 @@ Overview  Comments
     '# Plasma Autoantibodies
 
 Plasma autoantibodies
-Previous Next
-
-Overview  Comments
 
 ![Plasma Autoantibodies - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/plasma-autoantibodies/figure_01_p1.png)
 *Plasma Autoantibodies — Clinical Figure 1 (Page 1 Reference)*',
@@ -539,11 +512,8 @@ infection and osteomyelitis.
 Lab values:
 CBC= Normocytic anemia with raised reticulocyte count
 
-Overview  Comments
-
 Peripheral film: Sickle cells, Howell- jolly bodies
-Diagnosis: HB Electrophoresis most accurate test
-Previous Next',
+Diagnosis: HB Electrophoresis most accurate test',
     false,
     9,
     'published',
@@ -576,7 +546,7 @@ repair.
 The regenerative capacity of cells can be categorized in three
 main ways:
 Labile cells are constantly dividing and have a good capacity
-for regeneration, this allows the replacement of ageing tissue
+for regeneration, this allows the replacement of ageing tissue
 such as the surface epithelia of the skin, gastrointestinal tract
 and uterus; blood cells are derived from labile cells of the
 bone marrow.
@@ -603,8 +573,6 @@ contains type III collagen (weak collagen) that must be
 remodeled. Remodeling increases the tensile strength of scar
 tissue.
 
-Overview  Comments
-
 1 month: Replacement of collagen type III with collagen type I
 (has greater tensile strength) due to action of collagenase
 enzyme.
@@ -627,7 +595,7 @@ skin graft replacement, flap)
 Note: Regarding the neat surgical scar after 2 months of
 surgery fibroblasts have predominant role
 Most important for delayed wound healing is due
-to infection.
+to infection.
 Factors affecting wound healing:
 Local factors affecting wound healing
 Mechanical injury / Frequent trauma
@@ -667,8 +635,7 @@ Factors that prevent efficient healing:
 Malnutrition
 Infection
 Corticosteroids therapy
-Poor blood supply
-Previous Next',
+Poor blood supply',
     false,
     10,
     'published',
@@ -729,13 +696,10 @@ delayed for more than six hours are high risk even if the
 contamination was not initially heavy
 Tetanus immunization schedule:
 
-Overview  Comments
-
 ![Clostridium Spp - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/clostridium-spp-bacteria/figure_01_p1.png)
 *Clostridium Spp - Bacteria — Clinical Figure 1 (Page 1 Reference)*
 
 More easy to remeber:
-Previous Next
 
 ![Clostridium Spp - Bacteria - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/clostridium-spp-bacteria/figure_02_p2.png)
 *Clostridium Spp - Bacteria — Clinical Figure 2 (Page 2 Reference)*
@@ -769,9 +733,6 @@ Previous Next
 
 Culture Medium For Bacterial
 Growth
-Previous Next
-
-Overview  Comments
 
 ![Culture Medium for Bacterial Growth - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/culture-medium-for-bacterial-growth/figure_01_p1.png)
 *Culture Medium for Bacterial Growth — Clinical Figure 1 (Page 1 Reference)*',
@@ -814,8 +775,6 @@ ingestion of contaminated poultry, eggs, and uncooked
 meat
 Treatment:
 
-Overview  Comments
-
 ![Escherichia Coli, Klebsiella, Salmonella - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/escherichia-coli-klebsiella-salmonella-bacteria/figure_01_p1.png)
 *Escherichia Coli, Klebsiella, Salmonella - Bacteria — Clinical Figure 1 (Page 1 Reference)*
 
@@ -834,8 +793,7 @@ in resistant cases cefotaxime or azithromycin
 > The most common cause in IV drug abuser: Staph Aureus
 > The most common cause in sickle cell disease: Salmonella
 > Most common cause after hip replacement surgery: Staph
-> epidermidis
-> Previous Next',
+> epidermidis',
     false,
     2,
     'published',
@@ -862,9 +820,6 @@ in resistant cases cefotaxime or azithromycin
     '# Gastrointestinal Virus
 
 Gastrointestinal Virus:
-Previous Next
-
-Overview  Comments
 
 ![Gastrointestinal Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/gastrointestinal-virus/figure_01_p1.png)
 *Gastrointestinal Virus — Clinical Figure 1 (Page 1 Reference)*',
@@ -900,9 +855,6 @@ Reactive arthritis (Reiter''s syndrome) is a triad of urethritis,
 arthritis and conjunctivitis.
 Organisms causing reactive arthritis: Chlamydia,
 Salmonella, Campylobacter jejuni and Shigella
-Previous Next
-
-Overview  Comments
 
 ![Hellicobacter Pylori and Compylobacter Jejuni - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/hellicobacter-pylori-and-compylobacter-jejuni-bacteria/figure_01_p1.png)
 *Hellicobacter Pylori and Compylobacter Jejuni - Bacteria — Clinical Figure 1 (Page 1 Reference)*
@@ -934,8 +886,6 @@ Overview  Comments
     'article',
     '# Hepatitis - Virus
 
-Overview  Comments
-
 Hepatitis:
 Note: Emergency hepatitis B vaccination
 If you have been exposed to the hepatitis B virus and have
@@ -955,7 +905,6 @@ Hepatitis-E:
 Transmitted via fecal oral route causes acute fulminant
 hepatitis in pregnant woman.
 No progression to chronic hepatitis
-Previous Next
 
 ![Hepatitis - Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/hepatitis-virus/figure_01_p2.png)
 *Hepatitis - Virus — Clinical Figure 1 (Page 2 Reference)*',
@@ -990,8 +939,6 @@ The incubation period is 10 - 21 days (Recall) (mean time is
 14 days).
 Primary infection typically occurs in 4-10 years children.
 Diagnosis is usually clinical.
-
-Overview  Comments
 
 ![Herpes Simplex and Varicella Zooster Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/herpes-simplex-and-varicella-zooster-virus/figure_01_p1.png)
 *Herpes Simplex and Varicella Zooster Virus — Clinical Figure 1 (Page 1 Reference)*
@@ -1033,8 +980,7 @@ if you are immune, contact your GP or midwife and do not
 attend the antenatal clinic.
 If you have chickenpox, avoid contact with other pregnant
 women and new babies until at least five days after the rash
-appears, or until all the blisters have crusted over.
-Previous Next',
+appears, or until all the blisters have crusted over.',
     false,
     6,
     'published',
@@ -1092,8 +1038,6 @@ object). Deep injury, visible blood, or injury with a device
 that has been used intravascularly, all increase the risk of
 HIV transmission.
 
-Overview  Comments
-
 Contact of mucous membrane or non-intact skin (e.g.,
 exposed skin that is chapped, abraded, or afflicted with
 dermatitis). If the skin remains intact, there is no risk of HIV
@@ -1115,7 +1059,6 @@ complex and toxoplasmosis Gondi
 
 Diagnosis: Combined HIV antibody and p24 antigen test
 Monitoring: HIV viral load (PCR) and CD4+ count
-Previous Next
 
 ![Human Immune Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/human-immune-virus/figure_01_p3.png)
 *Human Immune Virus — Clinical Figure 1 (Page 3 Reference)*',
@@ -1167,23 +1110,20 @@ Incubation period: 14-21 days
 Infectious period: Patients are considered infectious for 4
 days from onset of the rash and seven days before the rash
 
-Overview  Comments
-
 ![Measles, Mumps, Rubella - Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/measles-mumps-rubella-virus/figure_01_p1.png)
 *Measles, Mumps, Rubella - Virus — Clinical Figure 1 (Page 1 Reference)*
 
 appears.
 Patients are advised to stay away from school in infectious
 period.
-Treatment:  Supportive
+Treatment:  Supportive
 Complications: Arthritis, Thrombocytopenic purpura,
 Encephalitis and congenital rubella syndrome
 Rubella in pregnancy: Is very serious if a woman is infected
 in the first trimester it can have serious consequences for
 the baby''s health for example congenital abnormalities such
 as heart defects, cataracts, intrauterine growth restriction,
-central nervous system defects and deafness.
-Previous Next',
+central nervous system defects and deafness.',
     false,
     8,
     'published',
@@ -1233,10 +1173,7 @@ upper lobes x-ray cavitations or consolidations.
 The Mantoux test is a widely used test for latent TB: It
 involves injecting a small amount of a substance called PPD
 tuberculin into the skin of your forearm. It''s also called the
-tuberculin skin test (TST).
-Previous Next
-
-Overview  Comments',
+tuberculin skin test (TST).',
     false,
     9,
     'published',
@@ -1282,8 +1219,6 @@ appearance of CSF, Neutrophil predominant, High protein
 and low glucose (<40mg/dl)
 The most important to remember here:
 
-Overview  Comments
-
 ![Neisseria Spp - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/neisseria-spp-bacteria/figure_01_p1.png)
 *Neisseria Spp - Bacteria — Clinical Figure 1 (Page 1 Reference)*
 
@@ -1294,7 +1229,6 @@ benzylpenicillin as soon as possible or initial blind therapy in
 hospital
 In Hospital when diagnosis is made Ceftriaxone antibiotic of
 choice
-Previous Next
 
 ![Neisseria Spp - Bacteria - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/neisseria-spp-bacteria/figure_02_p2.png)
 *Neisseria Spp - Bacteria — Clinical Figure 2 (Page 2 Reference)*',
@@ -1360,13 +1294,10 @@ Smallpox
 Tetanus
 Tuberculosis
 
-Overview  Comments
-
 Typhus
 Viral hemorrhagic fever (VHF)
 Whooping cough
-Yellow fever
-Previous Next',
+Yellow fever',
     false,
     11,
     'published',
@@ -1396,9 +1327,6 @@ Fungi:
 Candida: Form part of the normal flora which includes skin, GI
 tract, and female genital tract
 Candidiasis and treatment
-Previous Next
-
-Overview  Comments
 
 ![Pathogens - Fungi - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/pathogens-fungi/figure_01_p1.png)
 *Pathogens - Fungi — Clinical Figure 1 (Page 1 Reference)*',
@@ -1453,10 +1381,7 @@ Quinine is the antimalarial drug of choice in pregnancy;
 however, chloroquine should be considered in non-
 falciparum malaria while those areas where chloroquine is
 resistant especially southern Vietnam Quinine is best given in
-pregnancy.
-Previous Next
-
-Overview  Comments',
+pregnancy.',
     false,
     13,
     'published',
@@ -1492,7 +1417,7 @@ Pork tapeworm and beef tapeworm transmitted via eating
 contaminated undercooked meat.
 Pork tapeworm (Taenia solium): Infection occurs through
 ingestion of food or water contaminated with eggs of solium
-Cysticercosis:  infection caused by larval cysts of the
+Cysticercosis:  infection caused by larval cysts of the
 tapeworm Taenia solium, infect brain, muscle, skin and eye
 Diagnosis: Direct visualization of characteristic eggs in
 stool
@@ -1504,13 +1429,10 @@ stool
 Treatment: Mebendazole
 Hook worm
 Intestinal parasite causes gastrointestinal symptoms and iron
-deficiency anemia.
+deficiency anemia.
 Diagnosis: Direct visualization of characteristic eggs in
 stool
-Treatment: Mebendazole
-Previous Next
-
-Overview  Comments',
+Treatment: Mebendazole',
     false,
     14,
     'published',
@@ -1537,9 +1459,6 @@ Overview  Comments',
     '# Principles of Investigation
 
 Principles of Investigations
-Previous Next
-
-Overview  Comments
 
 ![Principles of Investigation - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-investigation/figure_01_p1.png)
 *Principles of Investigation — Clinical Figure 1 (Page 1 Reference)*',
@@ -1587,8 +1506,6 @@ blood-borne viruses such as hepatitis B and HIV can be
 transmitted.
 Pathogen and Types:
 
-Overview  Comments
-
 ![Principles of Microbiology - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_01_p1.png)
 *Principles of Microbiology — Clinical Figure 1 (Page 1 Reference)*
 
@@ -1632,7 +1549,6 @@ water supply: Legionella pneumophila may colonise the
 system in redundant areas of lukewarm pipework and be
 transmitted to air conditioning system
 Route of transmission of microorganisms
-Previous Next
 
 ![Principles of Microbiology - Clinical Figure 4](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_04_p3.png)
 *Principles of Microbiology — Clinical Figure 4 (Page 3 Reference)*',
@@ -1676,9 +1592,7 @@ Gram negative bacilli or coccobacilli
 Cat-scratch disease (CSD) or felinosis is an infectious disease
 caused by Bartonella henselae most often results from a
 scratch or bite of a cat.
-Previous Next
 
-Overview  Comments
 /2026, 10:54 PSEUDOMONAS AERUGINOSA, LEGIONELLA PNEUMOPHILIA AND BORTONELLA HENSLAE-BACTERIA | MRCEM EX…
 
 ![Pseudomonas Aeruginosa, Legionella Pneumophilia and Bortonella Henslae - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/pseudomonas-aeruginosa-legionella-pneumophilia-and-bortonella-henslae-bacteria/figure_01_p1.png)
@@ -1744,8 +1658,6 @@ Either tachypnoea or chest recession (or both) and
 Either wheeze or crackles on chest auscultation (or both).
 Other common symptoms include:
 Fever (usually of less than 39°C).
-
-Overview  Comments
 
 Poor feeding (typically after 3 to 5 days of illness).
 Apnoea without other clinical signs in young infants (in
@@ -1824,9 +1736,7 @@ posterior nasopharynx
 Collect cultures from the nasopharynx within 2 weeks of
 cough onset.
 Definitive test for diagnosis, with a specificity of 100%.
-Sensitivity is 30% to 60% if the specimen is obtained <2
-
-weeks after symptoms start.
+Sensitivity is 30% to 60% if the specimen is obtained <2 weeks after symptoms start.
 Nucleic acid amplification test (NAAT) of nasopharyngeal
 aspirate or posterior nasopharyngeal swab
 NAAT, including polymerase chain reaction (PCR), can be
@@ -1861,8 +1771,7 @@ older, and non-pregnant adults.
 Erythromycin for pregnant women.
 Note:The recommended exclusion period from nursery or
 school is 48 hours after start of antibiotics or 21 days from
-start of symptoms
-Previous Next',
+start of symptoms',
     false,
     18,
     'published',
@@ -1909,17 +1818,13 @@ Neisseria Gonorrhea:
 Gram negative diplococci transmitted via sexual and
 peripartum.
 General features of Neisseria spp. (Neisseria gonorrhea and
-Neisseria meningitis)
+Neisseria meningitis)
 Comparison Between Neisseria
 Gonorrhea and
-Chlamydia trachomatis:
-
-Overview  Comments
+Chlamydia trachomatis:
 
 ![Sexually Transmitted Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/sexually-transmitted-bacteria/figure_01_p1.png)
 *Sexually Transmitted Bacteria — Clinical Figure 1 (Page 1 Reference)*
-
-Previous Next
 
 ![Sexually Transmitted Bacteria - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/sexually-transmitted-bacteria/figure_02_p2.png)
 *Sexually Transmitted Bacteria — Clinical Figure 2 (Page 2 Reference)*',
@@ -1967,8 +1872,6 @@ shunts and cardiac valves.
 Staphylococcus epidermidis is part of the normal flora of the
 skin and nasopharynx, and infection is usually endogenous.
 Streptococcus Viridans
-
-Overview  Comments
 
 ![Streptococcus and Staphylococcus Bactera - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/streptococcus-and-staphylococcus-bactera/figure_01_p1.png)
 *Streptococcus and Staphylococcus Bactera — Clinical Figure 1 (Page 1 Reference)*
@@ -2031,11 +1934,10 @@ The most common type of bacteria that causes septic
 arthritis is called staphylococcus aureus. others include
 streptococcus, gram-negative rods,
 Neisseria Gonorrhea causes septic arthritis in sexually
-active young adults.
+active young adults.
 Treatment: Flucloxacillin: Antibiotic of choice
 Vancomycin is used to treat methicillin Resistant Staph
-Aureus
-Previous Next',
+Aureus',
     false,
     20,
     'published',
@@ -2066,15 +1968,12 @@ The routine immunization schedule
 from February 2022
 Note: Trade name is not necessary to remember.
 
-Overview  Comments
-
 ![Uk - Immunization Schedule - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/uk-immunization-schedule/figure_01_p1.png)
 *Uk - Immunization Schedule — Clinical Figure 1 (Page 1 Reference)*
 
 Selective immunisation programmes
 Additional vaccines for individuals
 with underlying medical conditions
-Previous Next
 
 ![Uk - Immunization Schedule - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/uk-immunization-schedule/figure_02_p2.png)
 *Uk - Immunization Schedule — Clinical Figure 2 (Page 2 Reference)*

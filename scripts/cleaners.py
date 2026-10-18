@@ -29,29 +29,32 @@ def slugify(text: str) -> str:
     return s.strip('-')
 
 def clean_lesson_markdown(raw_text: str, title: str) -> str:
-    """Transforms raw PDF text into high-quality medical Markdown."""
+    """Transforms raw PDF text into high-quality medical Markdown with 100% complete content."""
     text = raw_text
     
-    # Remove web page artifacts and headers/footers
-    text = re.sub(r'\d{2}/\d{2}/\d{4},\s*\d{2}:\d{2}\s*.*?\|.*?LLC', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'https?://[^\s]+', '', text)
-    text = re.sub(r'0%\s*Complete\s*', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'Mark as Complete\s*', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'Page\s+\d+\s+of\s+\d+', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'\b\d+\s*/\s*\d+\b', '', text)
-    text = re.sub(r'Mrcem Primary Complete Course[^\n]*\n', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'Overview\s+Comments[^\n]*\n', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'Restart quiz[^\n]*\n', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'LinkedIn\s*Facebook\s*Twitter[^\n]*\n', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'Diet\s+[^\n]*\n', '', text, flags=re.IGNORECASE)
-    
-    # Strip private use or broken characters
+    # 1. Strip private use glyphs and web icons first
     text = re.sub(r'[\ue000-\uf8ff\ufffd]', '', text)
     
-    # Fix common symbols
+    # 2. Fix common symbols and unicode quotes
+    text = text.replace('\xa0', ' ')
     text = text.replace('–', '-').replace('—', '-')
     text = text.replace('’', "'").replace('‘', "'")
     text = text.replace('“', '"').replace('”', '"')
+    
+    # 3. Remove web headers, footers, pagination, and navigation buttons
+    text = re.sub(r'\d{2}/\d{2}/\d{4},\s*\d{2}:\d{2}\s*.*?\|.*?LLC', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'https?://[^\s]+', '', text)
+    text = re.sub(r'Mrcem Primary Complete Course[^\n]*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\(?\s*For\s+Diet[^\n\)]*\)?', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'Diet\s+ii[^\n]*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'Overview\s+Comments', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bPrevious\s+Next\b', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'0%\s*Complete', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'Mark as Complete', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'Restart quiz', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'LinkedIn\s*Facebook\s*Twitter', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bPage\s+\d+\s+of\s+\d+\b', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\b\d+\s*/\s*\d+\b', '', text)
     
     # Split into lines for formatting
     lines = [line.strip() for line in text.split('\n')]
@@ -66,7 +69,7 @@ def clean_lesson_markdown(raw_text: str, title: str) -> str:
             continue
             
         # Clinical pearl / high yield highlight
-        if re.match(r'^(Clinical pearls?:?|High Yield:?|Key Points?:?)', line, flags=re.IGNORECASE):
+        if re.match(r'^(Clinical pearls?:?|Clinical high yield:?|High Yield:?|Key Points?:?)', line, flags=re.IGNORECASE):
             cleaned_lines.append("")
             cleaned_lines.append(f"> [!TIP]\n> **{line}**")
             in_pearl = True
@@ -86,7 +89,7 @@ def clean_lesson_markdown(raw_text: str, title: str) -> str:
             in_pearl = False
             continue
             
-        # Section titles in ALL CAPS with length between 4 and 40
+        # Section titles in ALL CAPS with length between 4 and 45
         if line.isupper() and len(line) > 3 and len(line) < 45 and not line.startswith('-') and re.search(r'[A-Za-z]', line):
             cleaned_lines.append("")
             cleaned_lines.append(f"## {line.title()}")
@@ -102,7 +105,6 @@ def clean_lesson_markdown(raw_text: str, title: str) -> str:
             
         if in_pearl:
             cleaned_lines.append(f"> {line}")
-            # If line ends with period, close pearl block
             if line.endswith('.'):
                 in_pearl = False
                 cleaned_lines.append("")

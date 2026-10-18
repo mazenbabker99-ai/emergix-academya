@@ -101,8 +101,6 @@ Delayed closure of these rectifier K+ channels cause a
 transient hyperpolarization.
 Refractory Period
 
-Overview  Comments
-
 Following the action potential, Na+ channels remain inactive
 for a time in a period known as the absolute refractory period
 where they cannot be opened by any amount of
@@ -113,8 +111,7 @@ depolarise and an action potential can be generated only in
 response to a larger than normal stimulus.
 The refractory period limits the frequency at which action
 potentials can be generated, and ensures that, once initiated,
-an action potential can travel only in one direction.
-Previous Next',
+an action potential can travel only in one direction.',
     true,
     0,
     'published',
@@ -158,8 +155,6 @@ Decrease membrane thickness.
 Increase oil/ water partition co- efficient.
 Active transport
 
-Overview  Comments
-
 ![Cell Membrane Transport - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_01_p1.png)
 *Cell Membrane Transport — Clinical Figure 1 (Page 1 Reference)*
 
@@ -169,7 +164,6 @@ Example of hypotonic fluid: Pure water we drink is
 hypotonic to body fluids.
 Example of Isotonic fluid: NS 0.9% , Ringer''s lactate
 Example of hypertonic fluid: 3% Hypertonic saline
-Previous Next
 
 ![Cell Membrane Transport - Clinical Figure 2](/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_02_p2.png)
 *Cell Membrane Transport — Clinical Figure 2 (Page 2 Reference)*
@@ -226,8 +220,6 @@ ICF 0.4X Body weight
 Electrolytes distribution in ECF and
 ICF
 
-Overview  Comments
-
 ![Homeostasis - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/homeostasis/figure_01_p1.png)
 *Homeostasis — Clinical Figure 1 (Page 1 Reference)*
 
@@ -241,7 +233,7 @@ Effector.
 A regulated variable is sensed, information is fed back to the
 controller, and the effector acts to oppose change (hence the
 term negative) Control most systems of body."
-Examples:  Osmoregulation, regulation of blood, pressure,
+Examples:  Osmoregulation, regulation of blood, pressure,
 temperature regulation, regulation of CO2 in ECF.
 
 ### 2: Positive feedback:
@@ -255,7 +247,6 @@ Blood clotting.
 Generation of nerve signals.
 Sensation of needing to urinate.
 Follicular phase of menstrual cycle
-Previous Next
 
 ![Homeostasis - Clinical Figure 2](/lessons/images/cell-physiology-membrane-transport/homeostasis/figure_02_p2.png)
 *Homeostasis — Clinical Figure 2 (Page 2 Reference)*',
@@ -303,16 +294,12 @@ sarcomere
 Contains Myosin (Recall)
 Thin filaments: Present in the I band.
 Anchored at the Z lines.
-Contains actin, tropomyosin and troponin.
+Contains actin, tropomyosin and troponin.
 There are three types of muscle:
 Skeletal
 Cardiac
 Smooth
 Comparison between them:
-
-Overview  Comments
-
-Previous Next
 
 ![Nerve Muscle - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/nerve-muscle/figure_01_p2.png)
 *Nerve Muscle — Clinical Figure 1 (Page 2 Reference)*',
@@ -356,10 +343,7 @@ Function: Ach binds with receptor of Ach-gated channels on
 muscle membrane and open them to cause tremendous Na+
 influx giving rise to muscle action potential.
 Destruction: Released Ach is destroyed by acetylcholinesterase
-in basal lamina; this prevents re-excitation.
-Previous Next
-
-Overview  Comments',
+in basal lamina; this prevents re-excitation.',
     false,
     4,
     'published',
@@ -426,8 +410,6 @@ intracellular Ca2+ and is the major site of lipid production.
 
 ### 4: Golgi body: Secretory vesicles found
 
-Overview  Comments
-
 The Golgi apparatus packages proteins for delivery to specific
 intracellular destinations or into vesicles which can then be
 secreted from the cell for extracellular action.
@@ -440,8 +422,7 @@ responsible for ribosomes production.
 
 protein synthesis takes place. They can be found in the
 cytoplasm (free ribosomes) or attached to the endoplasmic
-reticulum (bound ribosomes).
-Previous Next',
+reticulum (bound ribosomes).',
     false,
     5,
     'published',
@@ -468,9 +449,6 @@ Previous Next',
     '# Osmolality and Osmolal Gap
 
 Osmolality and osmolal gap
-Previous Next
-
-Overview  Comments
 
 ![Osmolality and Osmolal Gap - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/osmolality-and-osmolal-gap/figure_01_p1.png)
 *Osmolality and Osmolal Gap — Clinical Figure 1 (Page 1 Reference)*',
@@ -512,7 +490,7 @@ sarcoplasmic reticulum Ca2+ channels and the release of
 stored Ca2+ into the sarcoplasm.
 Molecular Events in Muscle
 Contraction and Sliding
-filament theory.
+filament theory.
 Motor neuron axon releases acetylcholine
 Acetylcholine diffuses across synaptic cleft.
 This stimulates the sarcolemma. The impulse travels over the
@@ -525,10 +503,7 @@ Tropomyosin moves and exposes sites on actin filaments.
 Actin and myosin form linkages.
 Actin filaments are pulled inward by myosin cross-bridges
 (Sliding filament theory Muscle fibers shorten as contraction
-occurs.
-Previous Next
-
-Overview  Comments',
+occurs.',
     false,
     7,
     'published',
@@ -567,10 +542,7 @@ contracture formation after death is called rigor mortis.
 This is due to the loss of ATP that is required to separate the
 cross bridges from actin during contraction.
 It remains until after 15 to 20 hours, when the muse protein
-detoriates.
-Previous Next
-
-Overview  Comments',
+detoriates.',
     false,
     8,
     'published',
@@ -627,17 +599,12 @@ pressure) tends to extend it and increases wall tension.
 This can be described by Laplace''s Law: Pt = (Tw)/r
 where,
 Pt = Transmural Pressure
-T = Wall Tension
-
-Overview  Comments
-
-w = Wall Thickness
+T = Wall Tension w = Wall Thickness
 r = Radius
 Laplace''s Law also means that a large, dilated heart (e.g., heart
 failure) has to develop more wall tension (contractile force) in
 order to obtain the same ventricular pressure, making it less
-efficient.
-Previous Next',
+efficient.',
     false,
     9,
     'published',
@@ -705,13 +672,9 @@ Intra-ventricular pressure falls aortic and pulmonary valves
 close.
 But ventricular vol. does not change.
 
-### 2.  Period of Rapid Filling of Ventricles (First ): During this,
+### 2.  Period of Rapid Filling of Ventricles (First ): During this,
 
-atrial pressure becomes greater than    intra-ventricular
-
-Overview  Comments
-
-pressure (just after systole is over), AV valves (tricuspid and
+atrial pressure becomes greater than    intra-ventricular pressure (just after systole is over), AV valves (tricuspid and
 mitral) open, and blood flows rapidly into respective ventricles.
 
 ### 3. Diastasis (Middle ): During this, blood continues to empty
@@ -749,9 +712,7 @@ The P wave is caused by the spread of depolarization across
 the atria, which causes atrial contraction. Atrial pressure
 increases just after the P wave.
 The QRS waves appear as a result of ventricular
-depolarization about 0.16 second after the onset of the P
-
-wave, and this initiates ventricular contraction; then the
+depolarization about 0.16 second after the onset of the P wave, and this initiates ventricular contraction; then the
 ventricular pressure begins to increase.
 The ventricular T wave is caused by repolarization of the
 ventricle.
@@ -760,8 +721,7 @@ AV (tricuspid and mitral valves) prevent backflow of blood
 from ventricles to atria during systole.
 Semilunar (aortic and pulmonary) valves prevent backflow
 of blood from aorta and pulmonary trunk into ventricles
-during diastole.
-Previous Next',
+during diastole.',
     true,
     0,
     'published',
@@ -802,8 +762,8 @@ Calcium initiates muscle contraction by binding to troponin.
 Contraction occurs as it does in skeletal muscle.
 Treppe Effect:
 More action potentials occur ⟶  More Ca2+ enters the cell
-during the AP plateau ⟶  more Ca2+ is stored in the SR ⟶
-more Ca2+ is released from the SR and thus more Ca2+ is left
+during the AP plateau ⟶  more Ca2+ is stored in the SR ⟶
+more Ca2+ is released from the SR and thus more Ca2+ is left
 inside the cell and greater tension is produced during
 contraction. Increased heart rate increases the force of
 contraction.
@@ -814,10 +774,7 @@ The Ca2+ that entered the cell during the AP is transported
 out of the cell primarily by the Na+/Ca2+ exchanger in the
 membrane which pumps one Ca2+ ion out in exchange for
 three Na+ ions in, using the Na+ electrochemical gradient as
-an energy source.
-Previous Next
-
-Overview  Comments',
+an energy source.',
     false,
     1,
     'published',
@@ -846,9 +803,6 @@ Overview  Comments',
 Cardiac myocyte
 Cardiac myocyte and comparison with other
 cells
-Previous Next
-
-Overview  Comments
 
 ![Cardiac Myocyte - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/cardiac-myocyte/figure_01_p1.png)
 *Cardiac Myocyte — Clinical Figure 1 (Page 1 Reference)*',
@@ -914,11 +868,7 @@ Capillary permeability:
 Capillaries throughout the body vary in their permeability
 based on the size of their pores. There are three basic types:
 Continuous capillaries, found in the skin, lungs, muscles and
-CNS, are the most selective with low permeability, as
-
-Overview  Comments
-
-junctions between the endothelial cells are very tight,
+CNS, are the most selective with low permeability, as junctions between the endothelial cells are very tight,
 restricting the flow of molecules with MW > 10,000.
 Fenestrated capillaries, found in renal glomeruli, endocrine
 glands and intestinal villi, are more permeable with less tight
@@ -930,9 +880,9 @@ system (bone marrow, liver and spleen), have large gaps
 between endothelial cells and are permeable to red blood
 cells.
 
-### 4:  Venules
+### 4:  Venules
 
-are formed from merged capillaries.
+are formed from merged capillaries.
 
 ### 5: Veins:
 
@@ -956,9 +906,7 @@ Mean pressures in the systemic circulation are as follows:
 Aorta, 100 mm Hg
 Arterioles, 50 mm Hg
 Capillaries, 20 mm Hg
-Vena cava, 4 mm Hg
-
-Previous Next',
+Vena cava, 4 mm Hg',
     false,
     3,
     'published',
@@ -1010,10 +958,7 @@ per minute
 Purkinje fibers produce spontaneous action potential at rate
 of 20-40 bpm.
 Note: AV nodal abnormality is responsible for prolonged PR
-interval (1st degree heart block)
-Previous Next
-
-Overview  Comments',
+interval (1st degree heart block)',
     false,
     4,
     'published',
@@ -1054,9 +999,6 @@ V5: Midaxillary line, same level as V4 and V5
 The three limb electrodes, I, II and III form a triangle
 (Einthoven''s Triangle), at the right arm (RA), left arm (LA) and
 left leg (LL).
-Previous Next
-
-Overview  Comments
 
 ![Electrocardiography (ecg) - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/electrocardiography-ecg/figure_01_p1.png)
 *Electrocardiography (ecg) — Clinical Figure 1 (Page 1 Reference)*',
@@ -1103,7 +1045,7 @@ Prostaglandins: Prostacyclin is a vasodilator in several vascular
 beds.
 E-series prostaglandins are vasodilators.
 F- Series prostaglandins are vasoconstrictors.
-Thromboxane A2 is a vasoconstrictor.
+Thromboxane A2 is a vasoconstrictor.
 Coronary circulation: is controlled almost entirely by local
 metabolic factors.
 Exhibits autoregulation. exhibits active and reactive
@@ -1116,10 +1058,8 @@ demand, compensatory vasodilation of coronary vessels
 occurs and, accordingly, both blood flow and O2 delivery to
 the contracting heart muscle increase (active hyperemia).
 
-Overview  Comments
-
 During systole, mechanical compression of the coronary
-vessels reduces blood flow. After        the period of occlusion,
+vessels reduces blood flow. After        the period of occlusion,
 blood flow increases to repay the O2 debt (reactive
 hyperemia).
 Cerebral Circulation:
@@ -1157,9 +1097,7 @@ During exercise, when demand is high, these local metabolic
 mechanisms are dominant.
 The local vasodilator substances are lactate, adenosine, and
 K. Mechanical effects during exercise temporarily compress
-the arteries and decrease blood flow. During the post
-
-occlusion period, reactive hyperemia increases blood flow to
+the arteries and decrease blood flow. During the post occlusion period, reactive hyperemia increases blood flow to
 repay the O2 debt.
 Skin: Skin has extensive sympathetic innervation. Cutaneous
 blood flow is under extrinsic control. Temperature regulation is
@@ -1171,7 +1109,6 @@ flare, and a wheal. A wheal is local edema that results from
 the local release of histamine, which increases capillary
 filtration.
 Vasoconstricting and Vasodilating agent:
-Previous Next
 
 ![Harmonal Control of Blood Flow - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/harmonal-control-of-blood-flow/figure_01_p3.png)
 *Harmonal Control of Blood Flow — Clinical Figure 1 (Page 3 Reference)*',
@@ -1202,9 +1139,6 @@ Previous Next
 
 Heart sounds, Mechanical event and correspondence with
 ECG
-Previous Next
-
-Overview  Comments
 
 ![Heart Sounds, Mechanical Events and Correspondance with ECG - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/heart-sounds-mechanical-events-and-correspondance-with-ecg/figure_01_p1.png)
 *Heart Sounds, Mechanical Events and Correspondance with ECG — Clinical Figure 1 (Page 1 Reference)*',
@@ -1243,7 +1177,7 @@ Heart rate= 70bpm
 Cardiac output (CO) = Stroke volume x Heart rate = 70
 mL/beat x 70 beats/min = 4900 mL/min
 Mean arterial pressure: Average arterial pressure during
-single cardiac cycle. MAP can be calculated by:  Diastolic
+single cardiac cycle. MAP can be calculated by:  Diastolic
 pressure +  of pulse pressure (SBP-DBP) OR 80+  (120-
 80) = 93mmhg where BP
 End-Diastolic Volume: The volume of blood in each ventricle
@@ -1253,10 +1187,7 @@ End-Systolic Volume: The volume of blood in each ventricle
 at end of systole is called end-systolic volume. (Value: 50-
 60ml)
 Ejection Fraction: Fraction of end-diastolic volume that is
-ejected during systole, is called ejection fraction. (Value: 60%)
-Previous Next
-
-Overview  Comments',
+ejected during systole, is called ejection fraction. (Value: 60%)',
     false,
     8,
     'published',
@@ -1313,11 +1244,7 @@ Large water-soluble substances can cross by pinocytosis.
 Lymph:
 Function of lymph: Normally, filtration of fluid out of the
 capillaries is slightly greater than absorption of fluid into the
-capillaries. The excess filtered fluid is returned to the circulation
-
-Overview  Comments
-
-via the lymph also returns any filtered protein to the
+capillaries. The excess filtered fluid is returned to the circulation via the lymph also returns any filtered protein to the
 circulation.
 Unidirectional flow of lymph One-way flap valves permit
 interstitial fluid to enter, but not leave the lymph vessels.
@@ -1345,8 +1272,7 @@ cyclase and production of cyclic guanosine
 monophosphate (cGMP)
 NO is one form of endothelial-derived relaxing factor (EDRF).
 Circulating Acetylcholine causes vasodilation by stimulating
-the production of NO in vascular smooth muscle.
-Previous Next',
+the production of NO in vascular smooth muscle.',
     false,
     9,
     'published',
@@ -1381,10 +1307,7 @@ increases blood pressure by increasing total peripheral
 resistance (TPR). If resistance increases, then more pressure is
 needed to keep blood moving.
 Parasympathetic stimulation decreases heart rate and
-strength, thereby decreasing cardiac pumping.
-Previous Next
-
-Overview  Comments',
+strength, thereby decreasing cardiac pumping.',
     false,
     10,
     'published',
@@ -1433,8 +1356,6 @@ Constriction of arterioles causes intense peripheral
 vasoconstriction and increased TPR. Blood flow to other
 organs (e.g., kidneys) is significantly reduced to preserve
 
-Overview  Comments
-
 ![Regulation of Blood Pressure - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/regulation-of-blood-pressure/figure_01_p1.png)
 *Regulation of Blood Pressure — Clinical Figure 1 (Page 1 Reference)*
 
@@ -1445,8 +1366,7 @@ ischemia. Increases in intracranial pressure cause compression
 of the cerebral blood vessels, leading to cerebral ischemia and
 increased cerebral Pco ₂ . The vasomotor center directs an
 increase in sympathetic outflow to the heart and blood vessels,
-which causes a profound increase in arterial pressure.
-Previous Next',
+which causes a profound increase in arterial pressure.',
     false,
     11,
     'published',
@@ -1503,8 +1423,6 @@ increased EDV/ preload there is increased in Stroke volume
 this intrinsic relationship between EDV and stroke volume is
 known as frank starling law of heart.
 
-Overview  Comments
-
 Afterload is the pressure that the chambers of the heart
 must generate in order to eject blood out of the heart occurs
 in systole.
@@ -1513,7 +1431,7 @@ and flattened due to reduced inotropy, so that more venous
 return and hence preload is required to increase stroke volume.
 As venous return and preload rise, myocyte stretching occurs
 that increases sarcomere length.
-Factors affecting frank starling curve.
+Factors affecting frank starling curve.
 increase in contractility shift the curve upward and to the
 left e.g.: positive inotropic drugs (RECALL)
 Decrease in contractility= downward and to the right
@@ -1556,8 +1474,7 @@ Adrenaline is positive inotrope as well as positive
 chronotropic agent, increases both heart rate and
 contractility.
 Dopamine is positive inotropic drug increases contractility.
-Digoxin is positive inotrope and negative chronotrope.
-Previous Next',
+Digoxin is positive inotrope and negative chronotrope.',
     false,
     12,
     'published',
@@ -1588,7 +1505,7 @@ potential
 RMP of Ventricular myocyte is -90mv depolarization initiates
 when RMP reaches threshold of -65mv
 Fast Na channels activate and a rapid Na+ influx
-depolarizes membrane potential.
+depolarizes membrane potential.
 Pacemaker action potential:
 Action potential of SA node differs from ventricular muscle.
 RMP of SA node is -60mv depolarization initiates when RMP
@@ -1597,12 +1514,8 @@ Slow calcium channels activation and calcium influx
 initiates depolarization unlike of other ventricular muscle Na
 influx initiates depolarization
 
-Overview  Comments
-
 ![Ventricular Myocyte Vs Pacemaker Action Potential - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/ventricular-myocyte-vs-pacemaker-action-potential/figure_01_p1.png)
 *Ventricular Myocyte Vs Pacemaker Action Potential — Clinical Figure 1 (Page 1 Reference)*
-
-Previous Next
 
 ![Ventricular Myocyte Vs Pacemaker Action Potential - Clinical Figure 2](/lessons/images/cardiovascular-physiology-hemodynamics/ventricular-myocyte-vs-pacemaker-action-potential/figure_02_p2.png)
 *Ventricular Myocyte Vs Pacemaker Action Potential — Clinical Figure 2 (Page 2 Reference)*',
@@ -1651,7 +1564,7 @@ The A-a gradient is used to determine whether O2 has
 equilibrated between alveolar gas and arterial blood.
 The normal A-a gradient is between 0- and 10mm Hg. Since
 O2 normally equilibrates between alveolar gas and arterial
-blood, PAo2 is approximately equal to Pao2. e.g.,
+blood, PAo2 is approximately equal to Pao2. e.g.,
 Hypoventilation: CNS depression, Neuromuscular disease
 (including myasthenia gravis and kyphoscoliosis), Obesity
 and Low inspired fio2 on high altitude
@@ -1667,10 +1580,7 @@ Note: Erythropoietin (EPO) is growth factor that is synthesized
 in the kidneys in response to hypoxia
 Hypoxemia: Decrease in arterial pao2 caused by decreased
 Alveolar PAo2, diffusion defect, V/Q defects and right to left
-shunt
-Previous Next
-
-Overview  Comments',
+shunt',
     true,
     0,
     'published',
@@ -1728,10 +1638,8 @@ At the peak of inspiration, lung volume is the FRC plus one
 Tidal volume.
 During expiration:
 
-Overview  Comments
-
 Alveolar pressure becomes greater than atmospheric
-pressure. "The alveolar pressure becomes greater (i.e. becomes
+pressure. "The alveolar pressure becomes greater (i.e. becomes
 positive) because alveolar gas is compressed by the elastic
 forces of the lung.
 Thus, alveolar pressure is now higher than atmospheric
@@ -1747,8 +1655,7 @@ learn to expire slowly with "pursed lips." By creating a
 resistance at the mouth, airway pressure is increased and
 prevents the airway collapse that may occur with a forced
 expiration.
-Lung volume returns to FRC.
-Previous Next',
+Lung volume returns to FRC.',
     false,
     1,
     'published',
@@ -1802,16 +1709,12 @@ Central control of breathing
 
 ### 1. Medullary respiratory center (Recall)
 
-A: Dorsal respiratory group is primarily responsible for
+A: Dorsal respiratory group is primarily responsible for
 inspiration and generates the basic rhythm for breathing
 Input to the dorsal respiratory group comes from the vagus
 and glossopharyngeal nerves. The vagus nerve relays
 information from peripheral chemoreceptors in the lung. The
-glossopharyngeal nerve relays information from peripheral
-
-Overview  Comments
-
-chemoreceptors and Output from the dorsal respiratory
+glossopharyngeal nerve relays information from peripheral chemoreceptors and Output from the dorsal respiratory
 group travels, via the phrenic nerve, to the diaphragm
 B: Ventral respiratory group is primarily responsible for
 expiration, is not active during normal, quiet breathing, when
@@ -1833,12 +1736,11 @@ of breathing. Pneumotaxic center normally prevents
 excessive deep breathing, damage to pneumotaxic results in
 increase in depth of respiration (deep breathing) and
 decrease in respiratory rate.
-4.Cerebral cortex: Breathing can be under voluntary control;
+4.Cerebral cortex: Breathing can be under voluntary control;
 therefore, a person can voluntarily hyper ventilate or hypo
 ventilate.
 Note: Hypoventilation (breath-holding) is limited by the
-resulting increase in Pco2 and decrease in P02
-Previous Next',
+resulting increase in Pco2 and decrease in P02',
     false,
     2,
     'published',
@@ -1870,9 +1772,6 @@ chemoreceptors.
 Chemoreceptor overview:
 Central chemoreceptor Vs Peripheral
 chemoreceptor
-Previous Next
-
-Overview  Comments
 
 ![Control of Ventilation - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/control-of-ventilation/figure_01_p1.png)
 *Control of Ventilation — Clinical Figure 1 (Page 1 Reference)*
@@ -1913,16 +1812,13 @@ Refers to alveoli incapable of gas exchange, in normal healthy
 individual it is negligible, but it may become significant in
 V/Q mismatch i.e., in pulmonary embolism when alveoli do
 not take part in gas exchange.
-Physiologic dead space: sum of anatomical and alveolar dead
+Physiologic dead space: sum of anatomical and alveolar dead
 space.
 Defined as the volume of the lungs that does not participate
 in gas exchange. is approximately equal to the anatomic
 dead space in normal lungs may be greater than the
 anatomic dead space in lung diseases in which the
-ventilation/perfusion (V/Q) defects.
-Previous Next
-
-Overview  Comments',
+ventilation/perfusion (V/Q) defects.',
     false,
     4,
     'published',
@@ -1981,15 +1877,12 @@ diffusion coefficient of the gas and surface area and inversely
 proportional to thickness of the barrier. DLCO is measured with
 carbon monoxide (i.e., DLCO).
 
-Overview  Comments
-
 DLCO increases during exercise because there are more
 open capillaries and thus more surface area for diffusion.
 DLCO decreases in emphysema (because of decreased
 surface area) and in fibrosis and pulmonary edema (because
 of increased diffusion distance).
 High DLCO and Low DLCO
-Previous Next
 
 ![Diffusion and Diffusion Capacity - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/diffusion-and-diffusion-capacity/figure_01_p2.png)
 *Diffusion and Diffusion Capacity — Clinical Figure 1 (Page 2 Reference)*',
@@ -2046,11 +1939,7 @@ Henry law: states that the amount of dissolved gas in a liquid
 (such as blood) is proportional to its partial pressure above the
 liquid.
 So, breathing gas at higher-than-normal pressures will cause
-their bodies to absorb more gases than are absorbed at lower
-
-Overview  Comments
-
-pressures. Absorbed gases can cause decompression
+their bodies to absorb more gases than are absorbed at lower pressures. Absorbed gases can cause decompression
 sickness as well as toxic effects.
 Henry law is applicable in Scuva diving or deep-sea diver.
 The following calculation uses O2 in arterial blood as an
@@ -2062,7 +1951,6 @@ where:
 Po2partial pressure of O2 in blood
 0.003 mL O2/100 mL/mm Hg= solubility of O2 in blood
 Partial pressure of O2 and Co2 (mm Hg)
-Previous Next
 
 ![Gas Exchange - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/gas-exchange/figure_01_p2.png)
 *Gas Exchange — Clinical Figure 1 (Page 2 Reference)*',
@@ -2113,10 +2001,7 @@ collapse is increased, Therefore, at the original FRC the
 tendency of the lungs to collapse is greater than the
 tendency of the chest wall to expand. The lung-chest wall
 system will seek a new, lower FRC so that the two opposing
-forces can be balanced again.
-Previous Next
-
-Overview  Comments',
+forces can be balanced again.',
     false,
     7,
     'published',
@@ -2168,11 +2053,7 @@ Hering-Breuer inflation reflex: inflation of the lungs tended to
 inhibit further inspiratory muscle activity (dorsal neuron).
 Increase in duration of expiration.
 Hering-Breuer Deflation reflex: Decrease in duration of
-expiration produced by marked deflation of lung.
-
-Overview  Comments
-
-Previous Next',
+expiration produced by marked deflation of lung.',
     false,
     8,
     'published',
@@ -2201,7 +2082,7 @@ Previous Next',
 Lung volume and capacities
 Tidal Volume (TV): The volume of air that is inhaled and then
 exhaled with each normal breath.
-Normal tidal volume is 500ml or 7ml/kg.
+Normal tidal volume is 500ml or 7ml/kg.
 Inspiratory Reserve Volume (IRV): The maximum volume of air
 that can be inhaled following and above a normal tidal
 inspiration.
@@ -2224,11 +2105,9 @@ Volume remaining in the lungs after tidal volume is expired in
 air.
 FRC is sum of: FRC= ERV+ RV
 FRC include Residual volume so FRC cannot be measured
-using spirometry.
+using spirometry.
 Normal FRC is 3500ml.
-Factors affecting FRC.
-
-Overview  Comments
+Factors affecting FRC.
 
 Factors increasing FRC: Emphysema, Air trapping in asthma,
 Ageing (due to loss of elastic properties) and Increasing
@@ -2262,8 +2141,8 @@ expressed as
 In obstructive lung disease such as asthma and chronic
 obstructive pulmonary disease (COPD), both FEV1 and FVC
 are reduced, but FEV1 is reduced more than FVC. FEV1/FVC
-ratio is less than 0.7.
-In restrictive lung disease such as fibrosis, both FEV1 and
+ratio is less than 0.7.
+In restrictive lung disease such as fibrosis, both FEV1 and
 FVC are reduced, but FEV1 is reduced less than FVC is thus,
 Fev1 /FVC increased.
 Lung volume measurements and
@@ -2274,7 +2153,7 @@ Residual volume and thus (FRC and TLC) can be measured
 using helium dilution.
 Peak Expiratory flow rate:
 
-The easiest and quickest measurement is the peak expiratory
+The easiest and quickest measurement is the peak expiratory
 flow rate (PEFR)
 Airway resistance and lung compliance can be assessed
 indirectly by measuring the forced expiratory flows and
@@ -2282,8 +2161,7 @@ volumes.
 Lung volumes can be measured with spirometry.
 PEFR is reduced if airway resistance is increased in
 obstructive disease and is commonly used to monitor
-asthma.
-Previous Next',
+asthma.',
     false,
     9,
     'published',
@@ -2344,15 +2222,13 @@ Decreased H+
 Decreased 2-3DPG.
 CO poisoning
 
-Overview  Comments
-
 Methemoglobinemia
 Fetal hemoglobin
 Note:
 Fetal hemoglobin has a higher affinity for oxygen than adult
 hemoglobin. Maternal and Fetal blood never mix during
 pregnancy, but they come close to each other in the
-placenta.  Oxygen diffuses easily to fetal hemoglobin here.
+placenta.  Oxygen diffuses easily to fetal hemoglobin here.
 The reason fetal hemoglobin has a higher affinity for 02. It is
 composed of two alpha and two gamma subunits, while
 adult hemoglobin is composed of two alpha and two beta
@@ -2361,8 +2237,7 @@ subunits.
 release o2 near tissue and 2,3DPG only binds with beta
 globulin chains, fetal hemoglobin (HbF) lack of beta
 globulin chains that''s why fetal hemoglobin has higher
-affinity for O2
-Previous Next',
+affinity for O2',
     false,
     10,
     'published',
@@ -2406,17 +2281,14 @@ The smallest airways would seem to offer the highest
 resistance, but they do not because of their parallel
 arrangement.
 Contraction or relaxation of bronchial
-smooth muscle:  changes airway resistance
+smooth muscle:  changes airway resistance
 by altering the radius of the airways.
 Parasympathetic stimulation, irritants, and the slow-reacting
 substance of anaphylaxis (asthma) constrict the airways,
 decrease the radius, and increase the resistance to airflow.
 Sympathetic stimulation and sympathetic agonists
 (isoproterenol) dilate the airway via beta2 receptors, increase
-the radius, and decrease the resistance to airflow.
-Previous Next
-
-Overview  Comments',
+the radius, and decrease the resistance to airflow.',
     false,
     11,
     'published',
@@ -2472,15 +2344,10 @@ of the phospholipid dipalmitoyl phosphatidylcholine (DPPC).
 Note: Type 1 alveolar cells comprise the major gas exchange
 surface of the alveolus
 Neonatal respiratory distress syndrome: can occur in
-premature infants because of the lack of surfactant. The infant
-
-Overview  Comments
-
-exhibits atelectasis (lungs collapse), difficulty reinflating the
+premature infants because of the lack of surfactant. The infant exhibits atelectasis (lungs collapse), difficulty reinflating the
 lungs (as a result of decreased compliance), decreased V/Q and
 right-to-left shunt, and hypoxemia (as a result of decreased V/Q
-and right-to-left shunt).
-Previous Next',
+and right-to-left shunt).',
     false,
     12,
     'published',
@@ -2536,11 +2403,7 @@ haemoglobin
 High PO2 in pulmonary capillaries promotes oxygen binding.
 Each gram of haemoglobin binds with up to 1.34 mL oxygen,
 so with a haemoglobin concentration of 140 g/L, blood
-contains a maximum of 187 mL/L
-
-Overview  Comments
-
-Previous Next',
+contains a maximum of 187 mL/L',
     false,
     13,
     'published',
@@ -2590,7 +2453,7 @@ oxygen decreases because normal amount of oxygen for
 ventilation is not available.
 V/Q ratio zero-pulmonary shunt: No ventilation but
 perfusion remains normal Causes: ARDS, Compression
-atelectasis due to hydrothorax or pneumothorax.
+atelectasis due to hydrothorax or pneumothorax.
 V/Q ratio <1: Low ventilation relative to its perfusion such as
 in partial obstruction of airways. Causes: Low compliance
 e.g., pulmonary fibrosis, High airway resistance e.g., COPD,
@@ -2600,11 +2463,7 @@ asthma
 
 decreased)
 If blood flow to a lung is completely blocked (e.g., by an
-embolism occluding a pulmonary artery), then blood flow to
-
-Overview  Comments
-
-that lung is zero. If ventilation is normal, then V/Q is infinite,
+embolism occluding a pulmonary artery), then blood flow to that lung is zero. If ventilation is normal, then V/Q is infinite,
 which is called dead space.
 Partial pressure of pulmonary CO2 decreases while that of
 oxygen increases.
@@ -2617,15 +2476,14 @@ Anatomic and physiologic
 shunt
 The shunted blood will not have been oxygenated or been
 able to offload CO2 and thus its levels of PO2 and PCO2 are
-that of mixed venous blood. Changes in PCO2 and
-PO2 stimulate the chemoreceptors and increase ventilation,
+that of mixed venous blood. Changes in PCO2 and
+PO2 stimulate the chemoreceptors and increase ventilation,
 so that arterial PCO2 returns to normal.
 However, increased ventilation cannot increase blood
-O2 content, as the haemoglobin of the blood passing
+O2 content, as the haemoglobin of the blood passing
 through the lungs is already close to saturation. Thus, right to
 left shunts commonly result in a low arterial PO2 but a
 normal or low PCO2.
-Previous Next
 
 ![Ventilation Perfusion Mismatch - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/ventilation-perfusion-mismatch/figure_01_p2.png)
 *Ventilation Perfusion Mismatch — Clinical Figure 1 (Page 2 Reference)*',
@@ -2696,8 +2554,6 @@ Intracellular buffers
 Organic phosphates e.g., AMP, ADP, ATP, 2,3-
 disphosphoglycerate (DPG)
 Hemoglobin is a major IC buffer.
-
-Overview  Comments
 
 In the physiologic PH range deoxyhemoglobin is a better
 buffer than oxyhemoglobin.
@@ -2779,11 +2635,8 @@ aids in the excretion of excess H.
 Hyperkalemia inhibits NH3 synthesis, which produces a
 decrease in H excretion as NH4 (Type 4 renal tubular
 acidosis). For example, Hypoaldosteronism causes
-hyperkalemia and thus also causes type 4 RTA. Conversely,
-
-hypokalemia stimulates NH3 synthesis, which produces an
-increase in H excretion.
-Previous Next',
+hyperkalemia and thus also causes type 4 RTA. Conversely, hypokalemia stimulates NH3 synthesis, which produces an
+increase in H excretion.',
     true,
     0,
     'published',
@@ -2843,8 +2696,6 @@ determines the presence of unmeasured anions. These
 usually include proteins, sulphate, phosphate and organic
 acids.
 
-Overview  Comments
-
 Normal value of serum anion gap is 12meq/L (range 8-
 16meq/L)
 In metabolic acidosis, serum [HCO3-] decreases. For
@@ -2885,7 +2736,7 @@ Lactic acidosis
 Ethanol, ethylene glycol
 Salicylates
 Note: The most common cause of low anion gap
-is hypoalbuminemia
+is hypoalbuminemia
 
 Metabolic alkalosis
 Loss of fixed H+ or gain of base produces an increase in
@@ -2976,8 +2827,7 @@ Pulmonary disorder
 Hyperventilation (Due to heart disorder or other, including
 improper mechanical ventilation)
 Vocal cord paralysis (compensation for loss of vocal volume
-results in over-breathing/breathlessness).
-Previous Next',
+results in over-breathing/breathlessness).',
     false,
     1,
     'published',
@@ -3023,7 +2873,7 @@ Synthesized in the hypothalamus and transported to
 posterior pituitary within nerve fibers.
 Rapidly removed from plasma decreasing to 50% in
 10minutes due to metabolism in liver and kidney.
-ADH release is stimulated by.
+ADH release is stimulated by.
 High plasma osmolarity detected by Osmoreceptors in
 anterior hypothalamus.
 ECF volume depletion
@@ -3034,8 +2884,6 @@ It increases the synthesis of transport mechanism in DCT
 including Na pump, Na-H antiporter; and Na, K channels in
 principal cells and H- ATPase in intercalated cells. Thereby
 enhancing the Na and H2O reabsorption and H, K secretion.
-
-Overview  Comments
 
 ADH release is inhibited by
 Hypoosmolality
@@ -3060,8 +2908,7 @@ Functions
 Suppress the production of renin, ADH, aldosterone.
 Causes renal vasodilation thereby increasing the GFR.
 Inhibits Na reabsorption in distal nephron by inhibiting the
-ENaC in principal cells.
-Previous Next',
+ENaC in principal cells.',
     false,
     2,
     'published',
@@ -3116,10 +2963,7 @@ in arterial pressure will enhance tubular flow due to
 enhanced glomerular filtration and reduced proximal tubular
 reabsorption. This will raise the NaCl concentration at the
 macula densa and cause afferent arteriolar vasoconstriction,
-providing restoration of filtration and autoregulation of RBF.
-Previous Next
-
-Overview  Comments',
+providing restoration of filtration and autoregulation of RBF.',
     false,
     3,
     'published',
@@ -3176,8 +3020,6 @@ medullary interstitial fluid is also augmented by ADH (by
 stimulating UT1 transporter)
 Vasa recta
 
-Overview  Comments
-
 Are the capillaries that supply the LOH. They maintain the
 corticopapillary gradient by serving as osmotic exchanger.
 Vasa recta blood equilibrates osmotically with interstitial fluid
@@ -3204,7 +3046,7 @@ It is called cortical diluting segment.
 Like the thick ascending limb, early distal tubule reabsorbs
 NaCl but is impermeable to water. Consequently, tubular
 fluid is further diluted.
-Late distal tubule - high ADH
+Late distal tubule - high ADH
 ADH increases the H2O permeability in the principal cells of
 late distal tubule.
 H2O is reabsorbed from the tubular fluid until the osmolarity
@@ -3252,9 +3094,7 @@ Late distal tubule - no ADH
 In the absence of ADH, the cells of late distal tubule and
 collecting ducts are impermeable to water.
 Thus, even though the tubular fluid flows through the
-corticopapillary osmotic gradient, osmotic equilibration does
-
-not occur.
+corticopapillary osmotic gradient, osmotic equilibration does not occur.
 The osmolarity of final urine will be diluted with an osmolarity
 as low as 50mOsm/L.
 TF/Posm = < 1.0
@@ -3278,15 +3118,14 @@ inhibiting both dilution in the thick ascending limb and
 production of the corticopapillary osmotic gradient.
 Therefore, the urine can''t be diluted during high water intake
 or concentrated during water deprivation.
-Urine that is hypoosmotic to plasma (low ADH) CH2O is
+Urine that is hypoosmotic to plasma (low ADH) CH2O is
 positive.
 Produced with high water intake (in which ADH released
 from the posterior pituitary is suppressed), central diabetes
 insipidus or nephrogenic diabetes insipidus.
 Urine that is hyperosmotic to plasma (high ADH)
 CH2O is negative.
-It is produced in water deprivation or SIADH.
-Previous Next',
+It is produced in water deprivation or SIADH.',
     false,
     4,
     'published',
@@ -3334,10 +3173,7 @@ clearance measurement as has to be done to measure inulin
 clearance and because it is freely filtered not reabsorbed and
 only a small amount of it is secreted, creatinine clearance
 parallels inulin clearance and is independent of production rate
-(excretion rises as plasma concentration increases
-Previous Next
-
-Overview  Comments',
+(excretion rises as plasma concentration increases',
     false,
     5,
     'published',
@@ -3395,8 +3231,6 @@ The nephrons are the functional units of the kidneys, and
 number about 1.3 million per kidney.
 There are two types of nephrons, cortical nephrons (85% of
 nephrons) and juxtamedullary nephrons (15% of nephrons)
-
-Overview  Comments
 
 A nephron has two main parts - tubules (proximal
 convoluted tubule, the loop of Henle and the distal
@@ -3481,16 +3315,13 @@ solutes e.g., Albumin.
 
 ### 3: Epithelial cell layer of podocytes: Next to the bowman''s
 
-space; the podocytes have foot processes directly contacting
-
-the basement membrane.
+space; the podocytes have foot processes directly contacting the basement membrane.
 Regular gaps between foot processes (pedicles) are called
 filtration slits, across these slits a protein network forms slit
 pores in the epithelial lining which prevent the passage of
 larger molecules through this final layer.
 Podocytes also exhibit phagocytic and contractile activity like
-that of mesangial cells.
-Previous Next',
+that of mesangial cells.',
     false,
     6,
     'published',
@@ -3546,8 +3377,6 @@ bowman''s space.
 Net filtration pressure = PGC- π GC - PBS
 = 45 - 24 - 8 = 13mmhg
 
-Overview  Comments
-
 Filtration at the glomeruli depends
 upon starling forces.
 Glomerular capillaries have very high hydrostatic pressure;
@@ -3569,8 +3398,7 @@ constriction.
 Renal disease, circulating and local vasoconstrictors,
 sympathetic stimulation all reduce GFR, however angiotensin
 II preferentially constricts efferent arterioles therefore
-increases GFR.
-Previous Next',
+increases GFR.',
     false,
     7,
     'published',
@@ -3614,7 +3442,7 @@ not taken up into cells.
 Exercise
 Cell lysis/ rhabdomyolysis / trauma /burns/ crush syndrome,
 chemotherapy
-Pseudo hyperkalemia:  occurs in
+Pseudo hyperkalemia:  occurs in
 Test tube hemolysis
 Prolonged tourniquet time
 Difficulty collecting sample.
@@ -3634,12 +3462,11 @@ Loss of P wave
 Sinus wave appearance
 
 Late 2026)
-Overview  Comments
 
 Treatment of hyperkalemia
 If there are ECG changes: Stabilize the cardiac membrane
 first, e.g., with IV calcium gluconate (10 ml of 10% solution IV
-over 2 minutes).   Followed by or treatment of hyperkalemia
+over 2 minutes).   Followed by or treatment of hyperkalemia
 without ECG changes:
 shift the K+ into cells:
 Iv glucose and insulin
@@ -3670,7 +3497,7 @@ B2 agonists
 Decreased intake.
 Malnutrition, anorexia nervosa, inadequate replacement
 while on TPN or NPO
-Note  :
+Note  :
 Acidosis redistributes K + out of cells=
 Hyperkalemia
 Alkalosis redistributes K+ into cells= Hypokalemia
@@ -3688,15 +3515,17 @@ Treat the underlying disorder.
 Oral and/or IV potassium replacement
 Magnesium replacement, if hypomagnesemia is present.
 Causes of increased distal K secretion
-High K Alkalosis
+High K diet
+Hyperaldosteronism
+Alkalosis
 Thiazide diuretics
 Loop diuretics
 Luminal anions
 Causes of decreased distal K secretion
-Low K Acidosis
-K sparing diuretics
-
-Previous Next',
+Low K diet
+Hypoaldosteronism
+Acidosis
+K sparing diuretics',
     false,
     8,
     'published',
@@ -3751,11 +3580,7 @@ any other part of the nephron.
 Reabsorbs Na and H2O with HCO3, glucose, amino acids,
 phosphate and lactate.
 Na is reabsorbed by cotransport with glucose, amino acids,
-phosphate and lactate. These cotransport processes account
-
-Overview  Comments
-
-for the reabsorption of all the filtered glucose and amino
+phosphate and lactate. These cotransport processes account for the reabsorption of all the filtered glucose and amino
 acids.
 Na is also reabsorbed by counter transport via Na-H
 exchange, which is linked directly to the reabsorption of
@@ -3809,7 +3634,7 @@ Ca exchanger/counter transport thereby increasing the
 reabsorption of Ca into blood.
 PTH increases the activity of Na-Ca exchanger and increases
 the reabsorption of Ca.
-Late DCT: Have two cell types.
+Late DCT: Have two cell types.
 Principal cells Reabsorbs Na and H2O
 Secretes K
 Aldosterone increases Na reabsorption and increases K
@@ -3825,8 +3650,7 @@ decreases K secretion.
 Alpha intercalated cells:
 Secretes H+ by an H-adenosine triphosphatase (H-ATPase),
 which is stimulated by aldosterone.
-Reabsorbs K+ by an H-K-ATPase
-Previous Next',
+Reabsorbs K+ by an H-K-ATPase',
     false,
     9,
     'published',
@@ -3872,7 +3696,8 @@ Either reabsorbs or secretes K+ depending on dietary K
 intake.
 Reabsorption of K+ involves an H-K ATPase in the luminal
 membrane of the alpha intercalated cells of late DCT, and its
-occurs only on a low K+ conditions, K+ excretion can be as low as 1% of the filtered
+occurs only on a low K+ diet (K+ depletion). Under these
+conditions, K+ excretion can be as low as 1% of the filtered
 load because the kidney conserves as much K as possible.
 Secretion occurs in the principal cells. It is variable and
 accounts for the wide range of urinary K+ excretion. It
@@ -3882,8 +3707,6 @@ Mechanism of distal K+ secretion:
 At the basolateral membrane, K+ is actively transported into
 the cell by the Na-K pump, as in all cells this maintains a high
 intracellular K+ conc.
-
-Overview  Comments
 
 At the luminal membrane, K+ is passively secreted into the
 lumen through K+ channels. The magnitude of this passive
@@ -3895,7 +3718,8 @@ the electrochemical driving force for K+ across the luminal
 membrane is increased. Secretion is decreased when the
 electrochemical driving force is decreased.
 Dietary K
-A decreases K+ secretion.
+A diet high in K+ increases K+ secretion, and a diet low in K+
+decreases K+ secretion.
 On a high K+ diet, intracellular K+ increases so that the
 driving force for K+ secretion also increases.
 On a low K+ diet, intracellular K+ decreases so that the
@@ -3950,8 +3774,7 @@ K losses.
 Luminal anions
 Excess anions (HCO3-) in the lumen cause an increase in K+
 secretion by increasing the negativity of the lumen and
-increasing the driving force for K+ secretion.
-Previous Next',
+increasing the driving force for K+ secretion.',
     false,
     10,
     'published',
@@ -4011,8 +3834,6 @@ increased urinary cAMP.
 PO4 is a urinary buffer for H+; excretion of H2PO4 is called
 titratable acid.
 
-Overview  Comments
-
 Calcium
 60% of plasma Ca is filtered across the glomerular capillaries.
 Together the proximal tubule and thick ascending limb
@@ -4039,8 +3860,7 @@ In thick ascending limb, Mg and Ca compete for
 reabsorption; therefore, hypercalcemia causes an increase in
 Mg excretion (by inhibiting Mg reabsorption). Likewise,
 hypermagnesemia causes an increase in Ca excretion (by
-inhibiting Ca reabsorption)
-Previous Next',
+inhibiting Ca reabsorption)',
     false,
     11,
     'published',
@@ -4094,12 +3914,10 @@ by baroreceptors in the afferent arteriole.
 Sympathetic stimulation of the JGA via β 1 adrenoreceptors.
 Decreased GFR
 Decreased ECF volume, arterial blood pressure or CVP.
-Note: The release of renin is inhibited by atrial natriuretic
+Note: The release of renin is inhibited by atrial natriuretic
 peptide (ANP), which is released by stretched atria in response
 to increases in blood pressure.
-Angiotensin II production
-
-Overview  Comments
+Angiotensin II production
 
 Angiotensinogen is a precursor protein produced in the liver
 and cleaved by renin to form angiotensin I. Angiotensin I is then
@@ -4133,8 +3951,7 @@ efferent arterioles thereby maintaining or increasing the GFR
 Activation of Na-H pump thereby increasing the reabsorption
 of Na from proximal tubule.
 Inhibits the renin production from granular cells of JG
-apparatus (negative feedback)
-Previous Next',
+apparatus (negative feedback)',
     false,
     12,
     'published',
@@ -4186,10 +4003,7 @@ of intrinsic factor. Injection of vitamin B12 required to prevent
 pernicious anemia
 Ileectomy results in loss of absorption of vitamin B12-
 intrinsic factor complex and thus requires injection of
-vitamin B12
-Previous Next
-
-Overview  Comments',
+vitamin B12',
     true,
     0,
     'published',
@@ -4247,11 +4061,7 @@ enter the intrahepatic bile ducts which drain into the biliary
 tree, a series of ducts which transport bile from the liver to
 the gallbladder and duodenum.
 Bile is continuously produced, but we only need it during and
-after meals. Therefore, the gallbladder concentrates and
-
-Overview  Comments
-
-stores bile, by removing the water and ions.
+after meals. Therefore, the gallbladder concentrates and stores bile, by removing the water and ions.
 After eating, the hormone cholecystokinin is released from
 the duodenum (in response to small peptides and fatty acids
 in the duodenum). This stimulates gallbladder contraction
@@ -4293,8 +4103,7 @@ Micelles formation to facilitate lipid transport and absorption.
 Stimulate the bile production by osmotically attracting water
 and electrolytes into the bile canaliculi.
 Regulation of bile acid synthesis via negative feedback
-mechanism
-Previous Next',
+mechanism',
     false,
     1,
     'published',
@@ -4328,10 +4137,7 @@ kidney. 1 ,25-dihydroxycholecalciferol induces the synthesis of
 an intestinal Ca+2 -binding protein, calbindin D-28K
 Vitamin D deficiency or chronic renal failure results in
 inadequate intestinal Ca+ absorption, causing rickets in
-children and osteomalacia in adults.
-Previous Next
-
-Overview  Comments',
+children and osteomalacia in adults.',
     false,
     2,
     'published',
@@ -4379,10 +4185,7 @@ taking a deep breath and attempting to expel the air against a
 closed glottis, this is known as the Valsalva maneuver. However,
 if a delay in defection is needed then voluntary contraction of
 the external sphincter is usually sufficient to override the
-reflexes that anal distension initiates.
-Previous Next
-
-Overview  Comments',
+reflexes that anal distension initiates.',
     false,
     3,
     'published',
@@ -4409,7 +4212,8 @@ Overview  Comments',
     '# Digestion and Absorption of Carbohydrates
 
 Carbohydrate
-Carbohydrates in the for glucose, which is the primary energy source for cells. They
+Carbohydrates in the diet provide the major exogenous source
+for glucose, which is the primary energy source for cells. They
 provide 17kJ (4kcal) of energy per gram. Most of the dietary
 carbohydrates are in the form of polysaccharides, the principal
 ingested polysaccharides are starch which is derived from
@@ -4435,8 +4239,6 @@ Conditions that decrease the secretion of these enzymes result
 in malabsorption and maldigestion.
 Digestion
 
-Overview  Comments
-
 Glucose and galactose are absorbed via sodium-glucose linked
 transporters (SGLTs) in the intestinal epithelial cells and
 translocated into the circulation via glucose transporter 2
@@ -4450,7 +4252,6 @@ cellulose (humans unable to digest cellulose because lack of
 appropriate enzymes cellulase). it does not provide any energy;
 fiber adds bulk to the bowel contents and increases the gut
 motility.
-Previous Next
 
 ![Digestion and Absorption of Carbohydrates - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-carbohydrates/figure_01_p2.png)
 *Digestion and Absorption of Carbohydrates — Clinical Figure 1 (Page 2 Reference)*',
@@ -4480,13 +4281,15 @@ Previous Next
     '# Digestion and Absorption of Lipids
 
 Lipid
-Fats in the carbohydrates and have an energy yield of 37 kJ (9
+Fats in the diet are a more concentrated form of energy than
+carbohydrates and have an energy yield of 37 kJ (9
 kilocalories) per gram. Adipose (fatty) tissue in the fat depots
 of the body serves as an energy reserve as well as helping to
 insulate the body and cushion the internal organs.
 The lipids of nutritional importance are triglycerides (fats and
 oils), phospholipids (e.g., lecithin), and sterols (e.g.,
-cholesterol). Lipids in the vitamins (vitamins A, D, E, and K) and assist in their
+cholesterol). Lipids in the diet transport the four fat-soluble
+vitamins (vitamins A, D, E, and K) and assist in their
 absorption in the small intestine.
 Digestion and absorption of lipid
 Digestion
@@ -4509,11 +4312,7 @@ Those products of fat digestion (fatty acids, monoglycerides,
 glycerol, cholesterol, and fat-soluble vitamins) need to enter
 into the circulation so that they can be used by cells around
 the body. Bile salts cluster around the products of fat
-digestion to form structures called micelles, which help the
-
-Overview  Comments
-
-fats get close enough to the microvilli of intestinal cells so
+digestion to form structures called micelles, which help the fats get close enough to the microvilli of intestinal cells so
 that they can be absorbed.
 Absorption of lipids
 Micelles bring the products of lipid digestion into contact
@@ -4532,7 +4331,7 @@ into transport vehicles called chylomicrons. Chylomicrons
 are large structures with a core of triglycerides and
 cholesterol and an outer membrane made up of
 phospholipids, interspersed with proteins (called
-apolipoproteins) and cholesterol.  Lack of apoprotein B
+apolipoproteins) and cholesterol.  Lack of apoprotein B
 results in the inability to transport chylomicrons out of the
 intestinal cells and causes abetalipoproteinemia.
 Chylomicrons are transported out of the intestinal cells by
@@ -4542,8 +4341,6 @@ are added to the bloodstream via the thoracic duct.
 
 ![Digestion and Absorption of Lipids - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-lipids/figure_01_p2.png)
 *Digestion and Absorption of Lipids — Clinical Figure 1 (Page 2 Reference)*
-
-Previous Next
 
 ![Digestion and Absorption of Lipids - Clinical Figure 2](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-lipids/figure_02_p3.png)
 *Digestion and Absorption of Lipids — Clinical Figure 2 (Page 3 Reference)*',
@@ -4603,11 +4400,7 @@ internal bonds and ectopeptidase cleaves AA at C-terminus.
 Endopeptidases include trypsin, chymotrypsin and elastase.
 Ectopeptidase includes carboxypeptidase A and
 carboxypeptidase B. Carboxypeptidase A acts on neutral AA
-and carboxypeptidase B acts on basic AA. The process of
-
-Overview  Comments
-
-digestion of protein is completed in the small intestine with
+and carboxypeptidase B acts on basic AA. The process of digestion of protein is completed in the small intestine with
 brush border and pancreatic enzymes.
 Absorption:
 Enterocytes contain microvilli, which form the brush border
@@ -4618,7 +4411,6 @@ transported across the basolateral membrane via facilitated
 diffusion. Di and tripeptides are absorbed via separate H+
 dependent cotransporters and once inside the cell are
 hydrolyzed to amino acids.
-Previous Next
 
 ![Digestion and Absorption of Proteins - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-proteins/figure_01_p2.png)
 *Digestion and Absorption of Proteins — Clinical Figure 1 (Page 2 Reference)*',
@@ -4670,8 +4462,6 @@ the initial pancreatic secretion by secreting HCO3- and
 absorbing CL- via CL- -HCO3- exchange mechanism in the
 luminal membrane.
 
-Overview  Comments
-
 ![Exocrine Pancreas - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/exocrine-pancreas/figure_01_p1.png)
 *Exocrine Pancreas — Clinical Figure 1 (Page 1 Reference)*
 
@@ -4693,7 +4483,7 @@ etc.
 Regulation of pancreatic secretion
 Stimulation
 Parasympathetic stimulation enhances secretion of both the
-enzyme and aqueous components.
+enzyme and aqueous components.
 Cholecystokinin stimulates secretion of the enzyme rich fluid
 from acinar cells.
 Secretin stimulates secretion of alkaline rich fluid from ductal
@@ -4712,9 +4502,7 @@ cells.
 > Pathophysiology: Trypsin is an enzyme that is involved in the
 > digestion of proteins. Normally, trypsinogen (the inactive
 > precursor of trypsin) is activated to trypsin in the small
-> intestine, where it aids in protein digestion. However, in cases
-
-of pancreatitis, trypsin can become prematurely activated
+> intestine, where it aids in protein digestion. However, in cases of pancreatitis, trypsin can become prematurely activated
 within the pancreas itself due to factors like alcohol
 consumption or other triggers. This activation of trypsin within
 the pancreas can lead to the autodigestion of pancreatic tissue,
@@ -4726,8 +4514,7 @@ trypsin is produced through the activation of trypsinogen, it
 can then activate chymotrypsinogen by cleaving it to
 chymotrypsin. Chymotrypsin further breaks down protein
 molecules into smaller peptides and amino acids that can be
-absorbed by the body.
-Previous Next',
+absorbed by the body.',
     false,
     7,
     'published',
@@ -4781,8 +4568,6 @@ from ECL cells
 Stimulate pepsinogen secretion from chief cells.
 Stimulate growth of gastric mucosa by stimulating the
 synthesis of RNA and new protein
-
-Overview  Comments
 
 Zollinger-Ellison syndrome (Gastrinoma)
 Occurs when gastrin is secreted by non-β-cell tumors of the
@@ -4859,8 +4644,7 @@ Decrease bile production and release.
 Decrease pancreatic exocrine and endocrine function.
 Paracrine inhibition of insulin and glucagon secretion from α
 and β -cells of the Islets of Langerhans
-Decrease blood glucose concentration.
-Previous Next',
+Decrease blood glucose concentration.',
     false,
     8,
     'published',
@@ -4908,8 +4692,6 @@ Absorption of nutrients and water
 Excretion of waste as feces
 Immunity
 
-Overview  Comments
-
 Structures of GI tract:
 All segments of the GI tract are divided into four layers (from
 innermost to outer most) are:
@@ -4918,7 +4700,7 @@ the epithelial layer (specialized in different parts of the GI
 tract for secretion and absorption
 the lamina propria (consisting of loose tissue, blood
 vessels and lymph tissue)
-the muscularis mucosa (contraction causes a change in
+the muscularis mucosa (contraction causes a change in
 the surface area for secretion or absorption)
 
 ### 2. The submucosa (containing a second layer of connective
@@ -4939,8 +4721,7 @@ of muscle
 
 ### 4. The outer most serosa (another connective tissue layer
 
-covered with squamous mesothelial cells)
-Previous Next',
+covered with squamous mesothelial cells)',
     false,
     9,
     'published',
@@ -4983,8 +4764,6 @@ Meissner and Myenteric plexus
 > **Clinical pearls:**
 > Achalasia cardia:
 
-> Overview  Comments
-
 ![Innervation of Gi Tract - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/innervation-of-gi-tract/figure_01_p1.png)
 *Innervation of Gi Tract — Clinical Figure 1 (Page 1 Reference)*
 
@@ -4997,8 +4776,7 @@ and absence of peristalsis in the esophagus. This condition is
 primarily attributed to dysfunction in the myenteric plexus,
 which is a network of nerve fibers and ganglion cells located
 between the circular and longitudinal muscle layers of the
-esophagus.
-Previous Next',
+esophagus.',
     false,
     10,
     'published',
@@ -5028,13 +4806,13 @@ Iron
 Iron is a vital trace element for humans, as it plays a crucial role
 in oxygen transport, oxidative metabolism, cellular proliferation,
 and many catalytic reactions.
-Dietary iron, Heme iron: from meat, non-heme iron: from
+Dietary iron, Heme iron: from meat, non-heme iron: from
 plants
 Ferrous iron (Fe 2+): in hemoglobin
 Ferric iron (Fe3+): in methemoglobin
 Free iron: Fe2+ can lead to reactive oxygen species via the
 Fenton reaction.
-H2O2 + Fe2+ →  OH- + Fe3+ + OH (hydroxyl radical) →  oxidative
+H2O2 + Fe2+ →  OH- + Fe3+ + OH (hydroxyl radical) →  oxidative
 stress →  DNA damage
 Iron absorption in small intestine
 Gastric acid leads to low pH and promotes dissolution of iron
@@ -5057,8 +4835,6 @@ divalent metal transporter (DMT1)
 Vitamin C increases absorption (converts Fe3+ →  Fe2+).
 Calcium decreases absorption (due to chelation of iron).
 A minority of iron is absorbed as ferric iron (Fe3+).
-
-Overview  Comments
 
 Heme iron can be directly absorbed into intestinal cells.
 Iron transport
@@ -5091,8 +4867,7 @@ Shedding of skin and mucosal epithelial cell →  daily loss of 1-
 *Iron Handling — Clinical Figure 1 (Page 2 Reference)*
 
 Any source of bleeding (e.g., menstruation, occult GI bleed)
-increases iron loss.
-Previous Next',
+increases iron loss.',
     false,
     11,
     'published',
@@ -5149,11 +4924,7 @@ Absorption of water occurs by osmosis. Water diffuses in
 response to an osmotic gradient established by the
 absorption of electrolytes. Sodium is actively absorbed in the
 colon by sodium channels. Potassium is either absorbed or
-secreted depending on the concentration in the lumen and
-
-Overview  Comments
-
-the electrochemical gradient created by the active
+secreted depending on the concentration in the lumen and the electrochemical gradient created by the active
 absorption of sodium.
 Chloride and bicarbonate - the movement of sodium into the
 plasma produces an electrochemical gradient to allow
@@ -5168,7 +4939,6 @@ bacteria. These vitamins are then absorbed into the blood.
 When dietary intake of these vitamins is low in an individual,
 the colon plays a significant role in minimizing vitamin
 disparity.
-Previous Next
 
 ![Large Intestine - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/large-intestine/figure_01_p2.png)
 *Large Intestine — Clinical Figure 1 (Page 2 Reference)*',
@@ -5201,7 +4971,7 @@ Liver
 Largest gland in the body
 Weight: 1.2-1.5 kg in adults (2.6-3.3 pounds)
 Wedge-shaped
-Consists of four lobes: Right (largest), Left, Quadrate and
+Consists of four lobes: Right (largest), Left, Quadrate and
 Caudate
 Typically divided into 8 segments
 Surrounded by the hepatic capsule (two layers)
@@ -5228,8 +4998,6 @@ acetoacetate + beta-hydroxybutyrate.
 Synthesis of plasma proteins (e.g., albumin, globulins,
 clotting factors, acute-phase reactants such as ferritin, CRP,
 and hepcidin)
-
-Overview  Comments
 
 Cholesterol biosynthesis
 Fatty acid synthesis
@@ -5261,8 +5029,7 @@ Fetal: Site of erythropoiesis from 6 weeks gestation until
 birth
 Immunological function: The liver is part of the mononuclear
 phagocyte system. Cells involved in immune activity, Kupffer
-cells, are found in high numbers in the liver.
-Previous Next',
+cells, are found in high numbers in the liver.',
     false,
     13,
     'published',
@@ -5303,10 +5070,10 @@ The process in which food is cut and ground in small pieces
 with the help of teeth, is called mastication. It is caused by
 chewing reflex.
 Chewing reflex
-Bolus in the mouth →  reflex inhibition of mastication muscles
+Bolus in the mouth →  reflex inhibition of mastication muscles
 →  lower jaw drops →  Strech reflex of jaw muscles →  rebound
 contraction of jaw muscles →  closure of teeth- compression of
-bolus again against mouth lining →  again reflex inhibition of
+bolus again against mouth lining →  again reflex inhibition of
 mastication muscles →  this cycle repeats again and again.
 Importance of chewing
 increase the surface area of food particles and thus help their
@@ -5318,8 +5085,6 @@ into small intestine.
 Deglutition (swallowing)
 Ingested food moves from oral cavity into the stomach by
 deglutition.
-
-Overview  Comments
 
 There are three stages of swallowing: oral, pharyngeal and
 esophageal. Oral stage is voluntary the other two are
@@ -5359,9 +5124,7 @@ At the beginning of this phase, Food bolus is propelled down
 the esophagus by peristalsis (a wave of muscular contraction
 that pushes the bolus down), the larynx lowers, returning to
 its normal position. The cricopharyngeal muscle then
-contracts to prevent reflux and respiration begins again.
-
-Previous Next',
+contracts to prevent reflux and respiration begins again.',
     false,
     14,
     'published',
@@ -5421,8 +5184,6 @@ which modify the initial saliva. When saliva production is
 stimulated, myoepithelial cells, which lines the acinus and
 initial ducts, contract and eject saliva into the mouth.
 
-Overview  Comments
-
 Each of the glands produces a slightly different secretion.
 The parotid glands produce serous saliva: a watery secretion
 that is rich in enzymes. The secretion from the sub-lingual
@@ -5475,7 +5236,6 @@ case during hard physical exercise.
 Saliva production is decrease by inhibition of
 parasympathetic nervous system e.g., sleep dehydration
 anticholinergic drugs (e.g., atropine)
-Previous Next
 
 ![Saliva - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/saliva/figure_01_p3.png)
 *Saliva — Clinical Figure 1 (Page 3 Reference)*',
@@ -5537,8 +5297,6 @@ Vitamin B12 and bile salts are absorbed in the terminal ileum
 (i.e., enterohepatic circulation).
 Immunity
 
-Overview  Comments
-
 Intestinal villi
 Finger-like projections of mucosa
 Shortest in the duodenum
@@ -5573,8 +5331,7 @@ from the lumen into the enterocyte. Na+ is rapidly removed
 from the enterocyte via the Na+ pumps, allowing water via
 osmosis to follow either transcellularly or paracellularly
 (between the tight junctions of the enterocytes). Water as
-well as Na+ ions can then diffuse into the capillaries.
-Previous Next',
+well as Na+ ions can then diffuse into the capillaries.',
     false,
     16,
     'published',
@@ -5618,8 +5375,6 @@ distal pyloric canal
 Function of stomach
 Mechanical digestion: peristalsis of the stomach against a
 closed pyloric sphincter →  breakdown of food into smaller
-
-Overview  Comments
 
 ![Stomach - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/stomach/figure_01_p1.png)
 *Stomach — Clinical Figure 1 (Page 1 Reference)*
@@ -5677,7 +5432,7 @@ Stimulation of gastric acid secretion
 The secretion of HCI is stimulated by:
 Vagal stimulation directly through the neurotransmitter
 acetylcholine acting at muscarinic (M3) receptors on the
-parietal cell.
+parietal cell.
 Indirectly through the neurotransmitter gastrin-releasing
 peptide (GRP) stimulating release of gastrin from G cells.
 Histamine acting at H2 receptors on the parietal cell
@@ -5769,14 +5524,13 @@ optimized.
 
 Fat/protein breakdown products in duodenum: fat is the
 most potent inhibitor of gastric emptying (acting via
-CCK); Entry of fats in duodenum -> release of CCK from "I"
+CCK); Entry of fats in duodenum -> release of CCK from "I"
 cells -> CCK decreases gastric motility and thus prevents or
 retards gastric emptying, so that the ingested fats enter
 slowly and in small amounts into duodenum.)
 Hormones CCK, secretin, gastric inhibitory peptide (GIP) all
 cause constriction of pyloric sphincter, hence slow gastric
-emptying.
-Previous Next',
+emptying.',
     false,
     17,
     'published',
@@ -5802,14 +5556,11 @@ Previous Next',
     'article',
     '# Summary of Harmones and Secretion of GIT
 
-Overview  Comments
-
 Summary of hormones and
 secretion of git
 Gastric secretory and Regulatory
 products
 Small intestine regulatory products:
-Previous Next
 
 ![Summary of Harmones and Secretion of GIT - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/summary-of-harmones-and-secretion-of-git/figure_01_p2.png)
 *Summary of Harmones and Secretion of GIT — Clinical Figure 1 (Page 2 Reference)*
@@ -5842,9 +5593,6 @@ Previous Next
     '# Vitamins Overview
 
 Vitamins
-Previous Next
-
-Overview  Comments
 
 ![Vitamins Overview - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/vitamins-overview/figure_01_p1.png)
 *Vitamins Overview — Clinical Figure 1 (Page 1 Reference)*',
@@ -5897,7 +5645,7 @@ The adrenal cortex has three zones, responsible for the
 synthesis of three different types of steroids.
 Zona glomerulosa = outermost zone; synthesizes
 mineralocorticoid (Aldosterone)
-Zona fasciculata = middle zone; synthesizes glucocorticoid
+Zona fasciculata = middle zone; synthesizes glucocorticoid
 (cortisol)
 Zona reticularis = innermost zone; synthesizes sex steroids
 (Estrogens & Androgens)
@@ -5912,10 +5660,7 @@ Cortisol inhibits the secretion of CRH from hypothalamus
 and secretion of ACTH from anterior pituitary in a negative-
 feedback pattern.
 Aldosterone is under tonic control by ACTH but is separately
-regulated by the renin-angiotensin system and by potassium.
-Previous Next
-
-Overview  Comments',
+regulated by the renin-angiotensin system and by potassium.',
     true,
     0,
     'published',
@@ -5945,10 +5690,10 @@ Adrenal Insufficiency
 Adrenal insufficiency is a failure of the adrenal glands to
 produce adequate amounts of adrenocortical hormone. It
 can be primary, secondary or tertiary.
-Primary adrenal insufficiency (Addison disease): refers to
+Primary adrenal insufficiency (Addison disease): refers to
 chronic, primary adrenocortical insufficiency (Adrenal cortex)
 which leads to
-↓ Glucocorticoids, androgen and ↓ mineralocorticoid
+↓ Glucocorticoids, androgen and ↓ mineralocorticoid
 ↑ ACTH (low cortisol levels stimulate ACTH secretion)
 Causes:
 Autoimmune: (autoimmune adrenalitis), which has been
@@ -5978,16 +5723,15 @@ Low blood pressure
 In women, irregular or no menstrual periods
 Pubic and axillary hair in women (caused by deficiency of
 adrenal androgens)
-Electrolyte abnormalities:   (High Yield)
+Electrolyte abnormalities:   (High Yield)
 Hyperkalemia
 Hyponatremia
 Metabolic acidosis
 Hypoglycemia (caused by cortisol deficiency)
 Diagnosis:
-Short ACTH-stimulation Test:  It involves administration of 250
+Short ACTH-stimulation Test:  It involves administration of 250
 µg ACTH by IM injection at any time of day.
 Normal = cortisol increase> 500 nmol/1 (> 18 µg/dL)
-Overview  Comments
 
 Adrenal insufficiency = cortisol fails to increase (both primary
 & secondary)
@@ -6053,7 +5797,6 @@ No skin hyperpigmentation (because there is deficiency of
 
 no hyperkalemia or metabolic acidosis (because aldosterone
 levels are normal)
-Previous Next
 
 ![Adrenal Insufficiency - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/adrenal-insufficiency/figure_01_p3.png)
 *Adrenal Insufficiency — Clinical Figure 1 (Page 3 Reference)*',
@@ -6096,8 +5839,6 @@ tissues. Binding triggers tissue-specific responses. This leads to
 sympathetic activation to prepare the human body for a fight-
 or-flight reaction.
 
-Overview  Comments
-
 ![Adrenal Medulla and Pheochromocytoma - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/adrenal-medulla-and-pheochromocytoma/figure_01_p1.png)
 *Adrenal Medulla and Pheochromocytoma — Clinical Figure 1 (Page 1 Reference)*
 
@@ -6130,8 +5871,7 @@ Beta blocker (propranolol). Beta adrenoceptor blockade can
 be instituted to control tachycardia.
 Beta blockers must never be given before alpha-blocker as
 this may cause a paradoxical rise in blood pressure due to
-unopposed a-mediated vasoconstriction.
-Previous Next',
+unopposed a-mediated vasoconstriction.',
     false,
     2,
     'published',
@@ -6190,11 +5930,8 @@ This aldosterone induced changes produce a concentration
 gradient →  Na+ reabsorption →  water reabsorption and K+
 secretion into the urine.
 
-Overview  Comments
-
 Ultimately, these effects →  ↑ blood pressure, hypokalemia
-and ↑ pH level
-Previous Next',
+and ↑ pH level',
     false,
     3,
     'published',
@@ -6229,8 +5966,8 @@ transported to the posterior pituitary gland via the
 neurohypophysial capillaries.
 ADH regulates the blood pressure (v1 receptors) and serum
 osmolality (v2 receptor). The primary function is serum
-osmolality regulation (ADH decreases serum osmolality and
-increases urine osmolality) via regulation of aquaporin
+osmolality regulation (ADH decreases serum osmolality and
+increases urine osmolality) via regulation of aquaporin
 channel insertion in principal cell of renal collecting duct.
 Regulation of plasma osmolality
 Mediated by V2 receptors.
@@ -6249,13 +5986,10 @@ increases in blood pressure, as well as alcohol and certain
 medications.
 Regulation of ADH secretion
 
-Overview  Comments
-
 Clinical relevance
 Elevated in SIADH despite plasma hypoosmolality.
 ADH deficiency or resistance can lead to diabetes insipidus.
 Alcohol inhibits ADH release and causes diuresis.
-Previous Next
 
 ![Antidiuretic Harmone - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/antidiuretic-harmone/figure_01_p2.png)
 *Antidiuretic Harmone — Clinical Figure 1 (Page 2 Reference)*',
@@ -6295,10 +6029,7 @@ thereby preventing the resorption (breakdown) of bone, and
 inhibits the reabsorption of calcium by the cells of the kidney,
 resulting in increased calcium excretion in the urine. The
 effects of calcitonin counter the effects of parathyroid
-hormone that acts to increase serum calcium concentration.
-Previous Next
-
-Overview  Comments',
+hormone that acts to increase serum calcium concentration.',
     false,
     5,
     'published',
@@ -6353,15 +6084,12 @@ PTH
 to proteins →  ↑ ionized Ca2+ concentration compensatory ↓
 PTH
 
-Overview  Comments
-
 Ionized calcium: the calcium fraction that is not bound to
 any proteins but is physiologically active 45% of the total
 serum calcium.
 Functions as the main regulator of PTH secretion
 Excess causes true hypercalcemia whereas deficiency
-causes true hypocalcemia.
-Previous Next',
+causes true hypocalcemia.',
     false,
     6,
     'published',
@@ -6411,12 +6139,9 @@ Decrease Bone formation.
 Decrease osteoblastic activity.
 Regulation
 CRH (hypothalamus) stimulates ACTH release (pituitary) →
-cortisol production in adrenal zona fasciculata. Excess cortisol
+cortisol production in adrenal zona fasciculata. Excess cortisol
 ↓ CRH, ACTH, and cortisol secretion by negative feedback
-mechanism
-Previous Next
-
-Overview  Comments',
+mechanism',
     false,
     7,
     'published',
@@ -6444,7 +6169,7 @@ Overview  Comments',
 
 Cushing syndrome
 It is a disorder caused by any condition that produces
-excessive glucocorticoids (cortisol). While the term "Cushing
+excessive glucocorticoids (cortisol). While the term "Cushing
 syndrome" can be applied to any cause of hypercortisolism,
 "Cushing disease" refers specifically to secondary
 hypercortisolism that results from excessive production of
@@ -6453,7 +6178,7 @@ causes
 Iatrogenic Cushing''s syndrome (most common cause)
 caused by exogenous administration of glucocorticoids.
 Endogenous: Cushing''s disease (i.e., Cushing''s syndrome
-secondary to pituitary tumor): Pituitary adenoma ACTH
+secondary to pituitary tumor): Pituitary adenoma ACTH
 secretion →  bilateral adrenal gland hyperplasia →  increases
 cortisol secretion
 Adrenal tumors: adrenal adenoma & adrenal carcinoma
@@ -6475,8 +6200,6 @@ Dyslipidemia
 Weight gain characterized by central obesity, moon facies,
 and a dorsocervical fat pad (buffalo hump)
 
-Overview  Comments
-
 ♂ : Decreased libido
 ♀ : Decreased libido, virilization, and/or irregular menstrual
 cycles (e.g., amenorrhea)
@@ -6484,7 +6207,7 @@ Growth delay (in children)
 Note: In Cushing disease: often hyperpigmentation (darkening
 of the skin due to an overproduction of melanin), especially in
 areas that are not normally exposed to the sun (e.g., palm
-creases, oral cavity) Overproduction of melanin Caused by
+creases, oral cavity) Overproduction of melanin Caused by
 excessive ACTH production because melanocyte-stimulating
 hormone (MSH) is cleaved from the same precursor as ACTH
 called proopiomelanocortin (POMC)
@@ -6494,8 +6217,6 @@ glucocorticoid + mineralocorticoid replacement after
 surgery)
 Second-line or adjunctive therapy: pharmacological
 treatment
-
-Previous Next
 
 ![Cushing Syndrome - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/cushing-syndrome/figure_01_p3.png)
 *Cushing Syndrome — Clinical Figure 1 (Page 3 Reference)*',
@@ -6530,12 +6251,12 @@ concentrated urine due to ADH dysfunction, It is of two types:
 Central Diabetes Insipidus (CDI)
 Nephrogenic Diabetes Insipidus (NDI)
 Central Diabetes insipidus
-It is due to deficiency of ADH. It may be caused by:
+It is due to deficiency of ADH. It may be caused by:
 Head trauma
 Tumors of hypothalamus
 Inflammation of hypothalamus
 Craniopharyngioma
-Nephrogenic Diabetes insipidus It is due to
+Nephrogenic Diabetes insipidus It is due to
 unresponsiveness (resistance) of collecting tubules to ADH. It
 may be caused by:
 Lithium
@@ -6552,16 +6273,12 @@ Increased serum sodium (hypernatremia), which results in:
 Excessive thirst and polydipsia.
 Neurologic features like confusion, disorientation, seizures
 An ADH stimulation test can distinguish between cranial and
-nephrogenic DI, as nephrogenic DI shows an inability to
-
-Overview  Comments
-
-concentrate urine even after administration of synthetic
+nephrogenic DI, as nephrogenic DI shows an inability to concentrate urine even after administration of synthetic
 
 ## Adh.
 
 Treatment
-Central DI = Desmopressin (ADH analogue)
+Central DI = Desmopressin (ADH analogue)
 Nephrogenic DI.
 Correct potassium and calcium
 Stop offending drugs.
@@ -6586,8 +6303,7 @@ Hyponatremia presents entirely with CNS symptoms
 Lethargy; confusion, disorientation, seizures
 Treatment:
 Fluid restriction is the cornerstone of SIADH treatment.
-Demeclocycline: ADH receptor antagonist.
-Previous Next',
+Demeclocycline: ADH receptor antagonist.',
     false,
     9,
     'published',
@@ -6630,24 +6346,20 @@ glands which release their secretions through ducts. Endocrine
 glands play an important role in homeostasis and control of
 various other activities in the body through their hormones.
 
-Overview  Comments
-
 Endocrinology hormones overview:
-Harmons secreted by adrenal gland:
+Harmons secreted by adrenal gland:
 
 ![Endocrine Glands and Their Harmones - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_01_p2.png)
 *Endocrine Glands and Their Harmones — Clinical Figure 1 (Page 2 Reference)*
 
-Hormone secreted by Gonads.
-Hormone secreted by other organs.
+Hormone secreted by Gonads.
+Hormone secreted by other organs.
 
 ![Endocrine Glands and Their Harmones - Clinical Figure 2](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_02_p3.png)
 *Endocrine Glands and Their Harmones — Clinical Figure 2 (Page 3 Reference)*
 
 ![Endocrine Glands and Their Harmones - Clinical Figure 3](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_03_p3.png)
 *Endocrine Glands and Their Harmones — Clinical Figure 3 (Page 3 Reference)*
-
-Previous Next
 
 ![Endocrine Glands and Their Harmones - Clinical Figure 4](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_04_p4.png)
 *Endocrine Glands and Their Harmones — Clinical Figure 4 (Page 4 Reference)*',
@@ -6679,7 +6391,7 @@ Previous Next
 Hyperaldosteronism
 It is a small group of disorders characterized by excessive
 secretion of aldosterone (mineralocorticoid).
-It is classified into primary and secondary
+It is classified into primary and secondary
 hyperaldosteronism.
 Primary Hyperaldosteronism
 It refers to hyperaldosteronism associated with HIGH
@@ -6701,7 +6413,7 @@ Plasma aldosterone: renin ratio > 20.
 Sodium suppression test = fails to suppress aldosterone after
 sodium load.
 Treatment
-Spironolactone:  It is an aldosterone antagonist used to
+Spironolactone:  It is an aldosterone antagonist used to
 normalize whole-body electrolyte balance
 Followed by surgical removal (adrenalectomy) which is
 definitive treatment.
@@ -6716,14 +6428,12 @@ Nephritic syndrome
 Pregnancy (estrogen increases renin substrate)
 Renin-secreting renal
 tumor
-Overview  Comments
 
 Lab Findings:
 Elevated aldosterone
 Elevated plasma renin
 Treatment:
-Spironolactone
-Previous Next',
+Spironolactone',
     false,
     11,
     'published',
@@ -6752,16 +6462,13 @@ Previous Next',
 Hypothyroidism and
 Hyperthyroidism:
 
-Overview  Comments
-
 ![Hypothyroidism and Hyperthyroidism - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/hypothyroidism-and-hyperthyroidism/figure_01_p2.png)
 *Hypothyroidism and Hyperthyroidism — Clinical Figure 1 (Page 2 Reference)*
 
 Note: Propranolol is the preferred agent in hyperthyroidism
 and thyroid storm due to its additional effect of blocking the
 peripheral conversion of inactive T4 to active form T3. They are
-highly effective for symptomatic relief (tachycardia, tremors)
-Previous Next',
+highly effective for symptomatic relief (tachycardia, tremors)',
     false,
     12,
     'published',
@@ -6812,8 +6519,6 @@ glucose to be conserved to provide the brain with adequate
 glucose and to allow other tissues to metabolize fatty acids
 and glycogen stored in the cells.
 
-Overview  Comments
-
 Function of insulin
 Insulin can be considered the "anabolic"or building hormone it
 assists processes that build compounds for storage and
@@ -6861,8 +6566,6 @@ Difference between Insulin and Glucagon
 ![Insulin and Glucagon - Clinical Figure 2](/lessons/images/endocrine-physiology-metabolism/insulin-and-glucagon/figure_02_p3.png)
 *Insulin and Glucagon — Clinical Figure 2 (Page 3 Reference)*
 
-Previous Next
-
 ![Insulin and Glucagon - Clinical Figure 3](/lessons/images/endocrine-physiology-metabolism/insulin-and-glucagon/figure_03_p4.png)
 *Insulin and Glucagon — Clinical Figure 3 (Page 4 Reference)*',
     false,
@@ -6898,12 +6601,9 @@ endocrine (production of hormones that regulate blood
 sugar levels and glandular secretion) and exocrine (the
 function of the digestive gland).
 Endocrine activity is performed by the Langerhans islets and
-involves the production of hormones. The Islets of
+involves the production of hormones. The Islets of
 Langerhans contain the following cell types, each of which
 produce different endocrine hormone.
-Previous Next
-
-Overview  Comments
 
 ![Pancreas - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/pancreas/figure_01_p1.png)
 *Pancreas — Clinical Figure 1 (Page 1 Reference)*',
@@ -6950,24 +6650,21 @@ Action of PTH
 Are coordinated to produce an increase serum (Ca+) and
 decrease in serum phosphate.
 the second messenger for PTH actions on its target tissue
-is cAMP.
+is cAMP.
 Bone: PTH increases bone resorption, which brings both Ca²+
 and phosphate from bone mineral into the ECF (Stimulate
 the osteoclast cells)
 kidney
-Increases Ca2+ reabsorption in the distal tubule.
+Increases Ca2+ reabsorption in the distal tubule.
 Decreases phosphate reabsorption in the proximal
-convoluted tubules.
+convoluted tubules.
 Increases active vitamin D (calcitriol) production via
 stimulation of 1-alpha-hydroxylase synthesis in the kidneys.
 GIT
 
-Overview  Comments
-
 PTH increases intestinal Ca+ and phosphate absorption,
 indirectly by stimulating the production of 1,25-
-dihydroxycholecalciferol in the kidney.
-Previous Next',
+dihydroxycholecalciferol in the kidney.',
     false,
     15,
     'published',
@@ -7022,11 +6719,7 @@ Anterior lobe of pituitary
 gland
 The anterior pituitary is derived from oral ectoderm (Rathke''s
 pouch). The anterior lobe of pituitary gland is linked to
-hypothalamus by the hypothalamic-pituitary hypophysial
-
-Overview  Comments
-
-portal system. Thus, blood from hypothalamus that contain
+hypothalamus by the hypothalamic-pituitary hypophysial portal system. Thus, blood from hypothalamus that contain
 high concentration of hypothalamic hormone is delivered
 directly to the anterior pituitary. Hypothalamic hormone (e.g.,
 growth hormone releasing hormone GHRH) then stimulate or
@@ -7055,7 +6748,6 @@ via neurophysins (carrier protein)
 *Pituitary Gland — Clinical Figure 1 (Page 2 Reference)*
 
 Hormones of posterior pituitary gland
-Previous Next
 
 ![Pituitary Gland - Clinical Figure 2](/lessons/images/endocrine-physiology-metabolism/pituitary-gland/figure_02_p3.png)
 *Pituitary Gland — Clinical Figure 2 (Page 3 Reference)*',
@@ -7103,8 +6795,6 @@ In the spaces between the follicles, parafollicular cells can be
 found. These cells secrete calcitonin, which is involved in the
 regulation of calcium metabolism in the body.
 
-Overview  Comments
-
 ![Thyroid Gland - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/thyroid-gland/figure_01_p1.png)
 *Thyroid Gland — Clinical Figure 1 (Page 1 Reference)*
 
@@ -7150,12 +6840,11 @@ Bone growth (synergism with GH)
 B-adrenergic effects. ↑ B ₁  receptors in heart→ ↑ CO, HR, SV,
 contractility (B-blockers alleviate adrenergic symptoms in
 thyrotoxicosis)
-Basal metabolic rate ↑ (Via Na/K+-ATPase activity →  ↑    0 ₂
+Basal metabolic rate ↑ (Via Na/K+-ATPase activity →  ↑    0 ₂
 consumption, RR, body temperature
 Blood sugar (increase glycogenolysis, gluconeogenesis)
 Breakdown of lipids increase lipolysis.
-Stimulates surfactant synthesis in babies.
-Previous Next',
+Stimulates surfactant synthesis in babies.',
     false,
     17,
     'published',
@@ -7200,13 +6889,10 @@ activity →  ↑ 1,25-dihydroxyvitamin D biosynthesis
 ↑ Calcium, ↑ phosphate, and ↑ 1,25-dihydroxyvitamin D
 (feedback inhibition) →  ↓ 1 α -hydroxylase activity →  ↓ 1,25-
 
-Overview  Comments
-
 ![Vitamin - D Synthesis - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/vitamin-d-synthesis/figure_01_p1.png)
 *Vitamin - D Synthesis — Clinical Figure 1 (Page 1 Reference)*
 
-dihydroxyvitamin D biosynthesis
-Previous Next',
+dihydroxyvitamin D biosynthesis',
     false,
     18,
     'published',
@@ -7246,7 +6932,7 @@ Previous Next',
 
 Acquired coagulation disorder:
 
-### 1: Vitamin K Deficiency
+### 1: Vitamin K Deficiency
 
 ### 2: Liver disease: Factors synthesized in liver V, VII, IX, X, XI and
 
@@ -7259,9 +6945,7 @@ coagulation factors and platelets.
 Cause: This may occur as a consequence of many disorders
 that release procoagulant material into the circulation or cause
 widespread endothelial damage or platelet aggregation.
-Lab values of Disseminated intravascular.
-
-Overview  Comments
+Lab values of Disseminated intravascular.
 
 ![Acquired Coagulation Disorder of Blood - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/acquired-coagulation-disorder-of-blood/figure_01_p1.png)
 *Acquired Coagulation Disorder of Blood — Clinical Figure 1 (Page 1 Reference)*
@@ -7274,7 +6958,6 @@ Prolonged APTT
 High levels of D-Dimers
 Features of hemolysis
 Coagulation tests:
-Previous Next
 
 ![Acquired Coagulation Disorder of Blood - Clinical Figure 2](/lessons/images/blood-physiology-coagulation-pathways/acquired-coagulation-disorder-of-blood/figure_02_p2.png)
 *Acquired Coagulation Disorder of Blood — Clinical Figure 2 (Page 2 Reference)*',
@@ -7305,9 +6988,6 @@ Previous Next
 
 Antiplatelet and anticoagulant
 drugs
-Previous Next
-
-Overview  Comments
 
 ![Antiplatelet and Anticoagulant Drugs - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/antiplatelet-and-anticoagulant-drugs/figure_01_p1.png)
 *Antiplatelet and Anticoagulant Drugs — Clinical Figure 1 (Page 1 Reference)*',
@@ -7366,10 +7046,6 @@ There are three types of haemoglobin in normal adult blood:
 haemoglobin A, A2 and F.
 Fetal HB has high affinity for o2 as compared to adult.
 
-Overview  Comments
-
-Previous Next
-
 ![Haemoglobin - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/haemoglobin/figure_01_p2.png)
 *Haemoglobin — Clinical Figure 1 (Page 2 Reference)*',
     false,
@@ -7403,9 +7079,6 @@ Stages of haemostasis: Three stages
 Vasoconstriction
 Platelet plug formation.
 Coagulation of blood
-Previous Next
-
-Overview  Comments
 
 ![Haemostasis - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/haemostasis/figure_01_p1.png)
 *Haemostasis — Clinical Figure 1 (Page 1 Reference)*',
@@ -7436,9 +7109,6 @@ Overview  Comments
 
 Coagulation disorder
 Hereditary coagulation disorder:
-Previous Next
-
-Overview  Comments
 
 ![Heriditary Coagulation Disorder of Blood - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/heriditary-coagulation-disorder-of-blood/figure_01_p1.png)
 *Heriditary Coagulation Disorder of Blood — Clinical Figure 1 (Page 1 Reference)*',
@@ -7467,7 +7137,7 @@ Overview  Comments
     'article',
     '# Platelate and Platelate Plug
 
-Platelets and platelet plug
+Platelets and platelet plug
 Platelets:
 These are minute, round or oval discs formed by fragmentation
 of megakaryocytes. The normal half-life of platelets is 10 days.
@@ -7498,8 +7168,6 @@ system of blood doting.
 Its membrane has Adenyl Cyclase that causes formation of
 cyclic AMP that excites other activities of platelets.
 Formation of Platelet Plug
-
-Overview  Comments
 
 Platelets get adhered to the collagen of ruptured blood
 vessel and secrete adenosine diphosphate (ADP) and
@@ -7536,10 +7204,9 @@ Prevent to convert the fibrinogen to fibrin.
 Heparin: It increases the activity of antithrombin III by 1000
 times
 
-Plasmin:  It breaks already formed clot.
+Plasmin:  It breaks already formed clot.
 Released by all the tissues.
-Convert the inactive plasminogen to plasmin.
-Previous Next',
+Convert the inactive plasminogen to plasmin.',
     false,
     5,
     'published',
@@ -7570,19 +7237,15 @@ Thrombocytopenia or abnormal platelet function is
 characterized by spontaneous skin purpura, mucosal
 haemorrhage and prolonged bleeding after trauma.
 Important to note here difference between
-TTP and haemolytic uremic syndrome.
+TTP and haemolytic uremic syndrome.
 Note: Difference between TTP and haemolytic uremic
 syndrome
-
-Overview  Comments
 
 ![Plateletes Bleeding Disorder - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/plateletes-bleeding-disorder/figure_01_p1.png)
 *Plateletes Bleeding Disorder — Clinical Figure 1 (Page 1 Reference)*
 
 ![Plateletes Bleeding Disorder - Clinical Figure 2](/lessons/images/blood-physiology-coagulation-pathways/plateletes-bleeding-disorder/figure_02_p1.png)
-*Plateletes Bleeding Disorder — Clinical Figure 2 (Page 1 Reference)*
-
-Previous Next',
+*Plateletes Bleeding Disorder — Clinical Figure 2 (Page 1 Reference)*',
     false,
     6,
     'published',
@@ -7612,9 +7275,6 @@ Haemopoiesis Sites:
 Important to remember:
 Haemopoietic Stem Cells: All blood cells
 develop from Haemopoietic Stem Cells
-Previous Next
-
-Overview  Comments
 
 ![Sites of Haemopoiesis - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/sites-of-haemopoiesis/figure_01_p1.png)
 *Sites of Haemopoiesis — Clinical Figure 1 (Page 1 Reference)*

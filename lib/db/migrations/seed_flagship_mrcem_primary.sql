@@ -104,8 +104,6 @@ major, the brachial artery gives rise to the profunda brachii
 groove of the humerus and supplies structures in the
 posterior aspect of the upper arm (e.g., triceps brachii).
 
-Overview  Comments
-
 ### 4: Superior ulnar collateral artery, which follows the ulnar
 
 nerve
@@ -145,10 +143,8 @@ Complete occlusion of brachial artery can cause necrosis of
 forearm muscles and are replaced by scar tissue and shorten
 considerably this can cause a characteristic flexion deformity,
 called Volkmann''s ischemic contracture.
-Guyon''s or Ulnar canal: The ulnar (Guyon''s) canal is a fibro-
-osseous tunnel located at the level of the palm. The ulnar canal
-
-conveys the ulnar neurovascular bundle into the hand.
+Guyon''s or Ulnar canal: The ulnar (Guyon''s) canal is a fibro-
+osseous tunnel located at the level of the palm. The ulnar canal conveys the ulnar neurovascular bundle into the hand.
 Contents: Ulnar nerve, ulnar artery and Venae comitantes of
 ulnar artery
 Ulnar canal syndrome refers to compression of the ulnar nerve
@@ -176,8 +172,7 @@ and second metacarpal bones to the base of the fifth
 metacarpal bone. It is formed as a continuation of the radial
 artery, and it terminates by anastomosing with the deep
 branch of the ulnar artery.
-Blood supply: Blood supply to digits and wrist joint.
-Previous Next',
+Blood supply: Blood supply to digits and wrist joint.',
     true,
     0,
     'published',
@@ -244,15 +239,13 @@ Posterior cord: Posterior union of all three trunks
 
 ### 5: Branches:
 
-Overview  Comments
-
-## Branches Of Lateral Cord   "Lml"
+## Branches Of Lateral Cord   "Lml"
 
 Lateral pectoral nerve
 Musculocutaneous nerve
 Lateral root of median nerve
 
-## Branches Of Medial Cord     "M4U"
+## Branches Of Medial Cord     "M4U"
 
 Medial pectoral nerve
 Medial cutaneous nerve of arm
@@ -260,7 +253,7 @@ Medial cutaneous nerve of forearm
 Medial root of median nerve
 Ulnar nerve
 
-## Branches Of Posterior Cord   "Ultra"
+## Branches Of Posterior Cord   "Ultra"
 
 Upper subscapular nerve
 Lower subscapular nerve
@@ -290,10 +283,10 @@ Anatomical course:
 Axillary nerve arises in the axilla passes medially to the surgical
 neck of the humerus, where it divides into three terminal
 branches:
-Anterior terminal branch:  winds around the surgical neck of
+Anterior terminal branch:  winds around the surgical neck of
 the humerus and provides motor innervation to the anterior
 aspect of the deltoid muscle.
-Posterior terminal branch:  Gives motor innervation to the
+Posterior terminal branch:  Gives motor innervation to the
 posterior aspect of the deltoid muscle and teres minor. It also
 innervates the skin over the inferior part of the deltoid as
 the upper lateral cutaneous nerve of the arm.
@@ -340,7 +333,7 @@ tunnel where it terminates by dividing into two branches
 Clinical features: include numbness, tingling, and pain in the
 distribution of the median nerve.
 Note: In carpal tunnel syndrome Importantly, the palm is
-usually spared  as the palmar cutaneous branch does not travel
+usually spared  as the palmar cutaneous branch does not travel
 through the carpal tunnel.
 Note: Flexion of the ring and little fingers at MCPJ and DIPJ are
 preserved as these are functions of medial half of flexor
@@ -497,8 +490,6 @@ lateral cutaneous nerve of forearm.
 > respectively and loss of sensation on lateral side of the
 > forearm.
 
-Previous Next
-
 ![Innervation of Upper Limb - Clinical Figure 13](/lessons/images/upper-limb-anatomy/innervation-of-upper-limb/figure_13_p9.png)
 *Innervation of Upper Limb — Clinical Figure 13 (Page 9 Reference)*',
     false,
@@ -541,12 +532,10 @@ Collectively, the conoid and trapezoid ligaments are known as
 the coracoclavicular ligament. It is the strongest ligament
 and suspends weight of the upper limb
 
-Overview  Comments
-
 Acromioclavicular joint dislocation
 A severe blow on the point of the shoulder, as is incurred
 during blocking or tackling in football or any severe fall,
-can result in the acromion being thrust beneath the lateral
+can result in the acromion being thrust beneath the lateral
 end of the clavicle, tearing the coracoclavicular ligament. This
 condition is known as shoulder separation. The displaced
 outer end of the clavicle is easily palpable.
@@ -587,7 +576,7 @@ the joint, extending from the lateral epicondyle and
 blending with the annular ligament.
 The ulnar collateral ligament referred as Medial collateral
 ligament (MCL) of the elbow originates from the
-medial epicondyle and attaches to the coronoid process and
+medial epicondyle and attaches to the coronoid process and
 olecranon of the ulna.
 Annular ligament: Annular ligament stabilizes the elbow
 joint and is a strong band of fibers that encircles the head of
@@ -618,7 +607,7 @@ radioulnar joints along with acts as a site of attachment for
 muscles in the anterior and posterior compartments of
 forearm.
 The collateral ligament is usually torn and there can also be
-ulnar nerve involvement The ulnar collateral ligament is
+ulnar nerve involvement The ulnar collateral ligament is
 usually torn and there can also be ulnar nerve involvement
 The ulnar collateral ligament is usually torn and there can
 also be ulnar nerve involvement.
@@ -631,7 +620,7 @@ below
 Note: The ulna is not part of the wrist joint it articulates with
 the radius, just proximal to the wrist joint.
 Ligaments of the joint:
-Palmar radiocarpal:  Found on anterior side of the hand. It
+Palmar radiocarpal:  Found on anterior side of the hand. It
 passes from the radius to both rows of carpal bones. Its
 function, apart from increasing stability, is to ensure that the
 hand follows the forearm during supination.
@@ -674,20 +663,20 @@ Transverse humeral ligament: This ligament spans the
 distance between the two tubercles of the humerus. It holds
 the tendon of the long head of the biceps in the
 intertubercular groove or bicipital groove
-Coraco-clavicular ligament:  This ligament composed of the
+Coraco-clavicular ligament:  This ligament composed of the
 trapezoid and conoid ligaments and runs from the clavicle to
 the coracoid process of the scapula. They work alongside the
 acromioclavicular ligament to maintain the alignment of the
 clavicle in relation to the scapula.
 Coracoacromial ligament. This ligament runs between the
 acromion and coracoid process of the scapula it forms the
-coraco-acromial arch.  This structure overlies the shoulder
+coraco-acromial arch.  This structure overlies the shoulder
 joint, preventing superior displacement of the humeral
 head.
 Stability of the shoulder joint:
 Rotator cuff muscles [SITS MUSCLES]
 
-Glenoid labrum: A fibrocartilaginous ridge surrounding the
+Glenoid labrum: A fibrocartilaginous ridge surrounding the
 glenoid cavity.
 Ligaments: Extra Capsular ligaments form the
 coracoacromial arch.
@@ -731,8 +720,7 @@ common neurovascular injury
 Fracture of posterior glenoid labrum
 Fracture of humeral shaft or lesser tuberosity
 Note: Light bulb sign on the X-ray is the diagnostic feature of
-posterior shoulder dislocation
-Previous Next',
+posterior shoulder dislocation',
     false,
     2,
     'published',
@@ -766,7 +754,7 @@ vessels lie deep to the deep fascia and follow the deep arteries
 and veins. All lymph vessels of the limb ultimately drain into
 lymph nodes in axilla.
 
-### 1: Axillary lymph nodes: The axillary lymph nodes drain lymph
+### 1: Axillary lymph nodes: The axillary lymph nodes drain lymph
 
 vessels from the entire upper limb. In addition, they drain
 lymph vessels from the lateral part of the breast
@@ -792,8 +780,6 @@ from breast tissue.
 Axillary nodes (75%): Receives lymphatic drainage from lateral
 and superior quadrant of breast.
 
-Overview  Comments
-
 parasternal nodes (20%): Receives lymphatic drainage from
 medial quadrant.
 Note: Breast cancer in axillary tail of breast most commonly
@@ -804,9 +790,7 @@ involved lymph node is axillary
 > Removal and analysis of the axillary lymph nodes is often a vital
 > tool for the staging of breast cancers. During this procedure
 > there is also a risk of damage to either of the long thoracic
-> nerve or the thoracodorsal nerve causing winged scapula.
-
-Previous Next',
+> nerve or the thoracodorsal nerve causing winged scapula.',
     false,
     3,
     'published',
@@ -838,10 +822,10 @@ compartment
 Anterior Forearm muscles intermediate
 compartment:
 Anterior Forearm muscles deep compartment:
-Key Point: All the muscles of anterior forearm are innervated
-by median nerve except flexor carpi ulnaris and medial half of
 
-Overview  Comments
+> [!TIP]
+> **Key Point: All the muscles of anterior forearm are innervated**
+> by median nerve except flexor carpi ulnaris and medial half of
 
 ![Muscles of the Upper Limb - Clinical Figure 1](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_01_p1.png)
 *Muscles of the Upper Limb — Clinical Figure 1 (Page 1 Reference)*
@@ -862,7 +846,7 @@ Muscles of posterior Arm:
 Triceps brachii:
 Triceps brachii is a large thick muscle in the posterior arm and
 appears as a horseshoe-shaped muscle
-Function:  Extension of forearm at elbow and extension of arm
+Function:  Extension of forearm at elbow and extension of arm
 at shoulder joint.
 Innervation: Radial nerve
 Muscles of posterior forearm
@@ -874,7 +858,7 @@ Muscles of posterior forearm
 *Muscles of the Upper Limb — Clinical Figure 5 (Page 2 Reference)*
 
 The muscles in the posterior compartment of the forearm are
-commonly known as the extensor muscles.
+commonly known as the extensor muscles.
 Extensor muscles are divided into superficial and deep
 compartment.
 Superficial compartment:
@@ -890,7 +874,7 @@ of the forearm from the lateral epicondyle of the humerus as a
 result of repetitive strain. It is a painful condition and common
 in tennis players.
 
-### 2: Golfer''s elbow (medial epicondylitis):  is a painful condition
+### 2: Golfer''s elbow (medial epicondylitis):  is a painful condition
 
 caused by a tear or chronic inflammation in the origin of flexor
 muscles of the forearm
@@ -950,7 +934,7 @@ Adduction of the digits. Assists in flexion at the
 metacarpophalangeal joints and extension at the
 interphalangeal joints.
 Muscles of the Shoulder region:
-Extrinsic muscles, Intrinsic Muscles
+Extrinsic muscles, Intrinsic Muscles
 Extrinsic muscles: Connecting the Upper Limb to the Vertebral
 Column and divided into superficial and deep group.
 Superficial: Trapezius and Latissimus dorsi
@@ -963,7 +947,7 @@ major
 > [!TIP]
 > **Clinical pearl: Ask the patient to shrug his/her shoulder if**
 > patient unable to do this indicates spinal accessory nerve injury
-> and paralysis of trapezius muscle.
+> and paralysis of trapezius muscle.
 
 Intrinsic muscles of the shoulder: Connecting the scapula to
 the humerus
@@ -987,7 +971,7 @@ arm except "S" Subscapularis
 > Refers to inflammation of tendons of rotator cuff muscles.
 
 Supraspinatus is the most commonly injured rotator
-cuff muscle.
+cuff muscle.
 Muscles of pectoral region:
 
 ![Muscles of the Upper Limb - Clinical Figure 13](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_13_p7.png)
@@ -1000,7 +984,7 @@ Pectoralis Major: large fan shaped and most superficial muscle
 of the pectoral region.
 Origin:
 Clavicular head: Medial clavicle
-Sternocostal head originates from the anterior surface of the
+Sternocostal head originates from the anterior surface of the
 sternum, the superior six costal cartilages and the
 aponeurosis of the external oblique muscle.
 Insertion: intertubercular sulcus of the humerus
@@ -1034,7 +1018,6 @@ Origin: First rib and its costal cartilage
 Insertion: Inferior surface of middle third of clavicle
 Function: Anchors and depresses clavicle
 Innervation: Nerve to subclavius.
-Previous Next
 
 ![Muscles of the Upper Limb - Clinical Figure 15](/lessons/images/upper-limb-anatomy/muscles-of-the-upper-limb/figure_15_p9.png)
 *Muscles of the Upper Limb — Clinical Figure 15 (Page 9 Reference)*',
@@ -1073,15 +1056,11 @@ Myotome: Group of muscles innervated by a single spinal
 nerve
 Reflexes of upper Limb:
 
-Overview  Comments
-
 ![Upper Limb Dermatomes, Myotomes and Reflexes - Clinical Figure 1](/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_01_p1.png)
 *Upper Limb Dermatomes, Myotomes and Reflexes — Clinical Figure 1 (Page 1 Reference)*
 
 ![Upper Limb Dermatomes, Myotomes and Reflexes - Clinical Figure 2](/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_02_p1.png)
 *Upper Limb Dermatomes, Myotomes and Reflexes — Clinical Figure 2 (Page 1 Reference)*
-
-Previous Next
 
 ![Upper Limb Dermatomes, Myotomes and Reflexes - Clinical Figure 3](/lessons/images/upper-limb-anatomy/upper-limb-dermatomes-myotomes-and-reflexes/figure_03_p2.png)
 *Upper Limb Dermatomes, Myotomes and Reflexes — Clinical Figure 3 (Page 2 Reference)*',
@@ -1122,12 +1101,10 @@ Flexor pollicis longus enter the carpel tunnel before reaching
 its insertion on the distal phalanx of the thumb.
 Pronator quadratus is confined to the distal forearm and does
 not reach the carpel tunnel.
-Anatomical snuffbox
+Anatomical snuffbox
 is a triangular depression found on the lateral aspect of the
 dorsum of the hand. It is best seen when the thumb is
 extended.
-
-Overview  Comments
 
 ![Upper Limb Other Important Structures - Clinical Figure 1](/lessons/images/upper-limb-anatomy/upper-limb-other-important-structures/figure_01_p1.png)
 *Upper Limb Other Important Structures — Clinical Figure 1 (Page 1 Reference)*
@@ -1212,14 +1189,12 @@ fourth and fifth fingers).
 deformity) resulting from necrosis of the forearm flexor
 muscles.
 
-### 3: Tenosynovitis:  is commonly caused by an infection of the
+### 3: Tenosynovitis:  is commonly caused by an infection of the
 
 synovial sheath and tendon (the long flexor tendon), causing
 pain, swelling, and difficulty moving a joint. Rupture of the
 tendon sheath (puncture injury of the palm) may cause the
-spread of infection to the mid-palmar space and to the carpal
-
-tunnel. Likewise, tenosynovitis in the thumb may spread to the
+spread of infection to the mid-palmar space and to the carpal tunnel. Likewise, tenosynovitis in the thumb may spread to the
 radial bursa and in the little finger to the ulnar bursa.
 Note: Infection in the middle three fingers is usually contained
 as they have separate synovial sheaths.
@@ -1244,18 +1219,17 @@ with permanent flexion of the distal phalanx as a result of an
 avulsion of the lateral bands of the extensor tendon to the
 distal phalanx.
 
-### 6:  Boutonniere deformity is a finger with abnormal flexion of
+### 6:  Boutonniere deformity is a finger with abnormal flexion of
 
 the middle phalanx and hyperextension of the distal phalanx as
 a result of a rupture of the central band of the extensor tendon
 
-### 7:  Pancoast tumor in the apex of the lung can result in lower
+### 7:  Pancoast tumor in the apex of the lung can result in lower
 
 trunk injury and, occasionally, Horner syndrome because of
 sympathetic ganglion compression (ptosis, anhidrosis, and
 pupillary constriction). It can also cause thoracic outlet
-syndrome.
-Previous Next',
+syndrome.',
     false,
     6,
     'published',
@@ -1311,10 +1285,7 @@ Is formed at the lower border of the teres major muscle by
 the union of the brachial veins (vena comitantes of the brachial
 artery) and the basilic vein and ascends along the medial side
 of the axillary artery. Continues as the subclavian vein at the
-inferior margin of the first rib.
-Previous Next
-
-Overview  Comments',
+inferior margin of the first rib.',
     false,
     7,
     'published',
@@ -1383,11 +1354,7 @@ medial, and posterior fascial compartments of the thigh.
 ### 2: Popliteal artery:
 
 Popliteal artery is a continuation of femoral artery. It extends
-from the opening in the adductor magnus to the lower border
-
-Overview  Comments
-
-of popliteus muscle, where it divides into anterior and posterior
+from the opening in the adductor magnus to the lower border of popliteus muscle, where it divides into anterior and posterior
 tibial arteries.
 Anterior Tibial Artery:
 The anterior tibial artery arises at the bifurcation of the
@@ -1417,9 +1384,12 @@ medially to form the plantar arch through anastomosis with
 the dorsalis pedis artery. The plantar arch gives off
 perforating and metatarsal arteries; the metatarsal arteries
 give rise to digital arteries.
-Clinical high yield:
-Medical personal should know the precise position of the main
-arteries within the lower limb.
+
+> [!TIP]
+> **Clinical high yield:**
+> Medical personal should know the precise position of the main
+> arteries within the lower limb.
+
 Femoral artery: This enters the thigh behind the inguinal
 ligament at a point midway between the anterior superior
 iliac spine and the symphysis pubis.
@@ -1435,8 +1405,7 @@ Posterior tibial artery: This artery passes behind the medial
 malleolus, beneath the flexor retinaculum, and lies between
 the tendons of flexor digitorum longus and the flexor hallucis
 longus. The pulsations of the artery can be felt midway
-between the medial malleolus and the heel.
-Previous Next',
+between the medial malleolus and the heel.',
     true,
     0,
     'published',
@@ -1463,15 +1432,15 @@ Previous Next',
     '# Bones of the Lower Limb
 
 Hip Bone:
-The bones of the pelvis consist of the right and left hip bones,
+The bones of the pelvis consist of the right and left hip bones,
 the sacrum and the coccyx.
-The hip bones articulate posteriorly with the sacrum at the
+The hip bones articulate posteriorly with the sacrum at the
 sacroiliac joints and with each other anteriorly at the pubic
 symphysis.
 Hip bone has a large articular socket on the lateral surface,
 the acetabulum, which together with the head of the femur,
 forms the hip joint.
-Each of the hip bones is formed by
+Each of the hip bones is formed by
 Ilium (superiorly)
 Pubis (anteroinferiorly)
 Ischium (posteroinferiorly).
@@ -1490,8 +1459,6 @@ lateral sacrococcygeal ligaments.
 Pubic symphysis Is a cartilaginous or fibrocartilaginous joint
 between the pubic bones in the median plane.
 Sacrotuberous and sacrospinous ligaments:
-
-Overview  Comments
 
 Patella:
 Patella is largest sesamoid bone lies within the tendon of
@@ -1532,8 +1499,6 @@ Proximal group: Talus and Calcaneus
 Intermediate: Navicular
 Distal group: Cuboid and Cuneiforms
 
-Previous Next
-
 ![Bones of the Lower Limb - Clinical Figure 2](/lessons/images/lower-limb-anatomy/bones-of-the-lower-limb/figure_02_p4.png)
 *Bones of the Lower Limb — Clinical Figure 2 (Page 4 Reference)*',
     false,
@@ -1564,9 +1529,6 @@ Previous Next
 Dermatomes and Myotomes of Lower
 Limb:
 Lower Limb Reflexes:
-Previous Next
-
-Overview  Comments
 
 ![Dermatomes, Myotomes and Reflexes of Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/dermatomes-myotomes-and-reflexes-of-lower-limb/figure_01_p1.png)
 *Dermatomes, Myotomes and Reflexes of Lower Limb — Clinical Figure 1 (Page 1 Reference)*
@@ -1609,15 +1571,13 @@ which runs from the acetabular fossa to the fovea of the femur.
 Extracapsular ligaments:
 Iliofemoral ligament: Strongest of all located anteriorly,
 prevents hyperextension of the hip joint.
-Ischiofemoral:  Reinforcing the capsule posteriorly. Preventing
+Ischiofemoral:  Reinforcing the capsule posteriorly. Preventing
 hyperextension and medial rotation of the femur at hip joint
-
-Overview  Comments
 
 ![Joints of the Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_01_p1.png)
 *Joints of the Lower Limb — Clinical Figure 1 (Page 1 Reference)*
 
-Pubofemoral:  Reinforcing the capsule anteriorly and inferiorly
+Pubofemoral:  Reinforcing the capsule anteriorly and inferiorly
 preventing excessive abduction and extension.
 Note: Most common hip dislocation is posterior and sciatic
 nerve is most commonly injured
@@ -1648,9 +1608,7 @@ Cruciate Ligaments
 Anterior cruciate ligament: Attaches at the anterior
 intercondylar region of the tibia where it blends with the
 medial meniscus. It ascends posteriorly to attach to the femur
-in the intercondylar fossa. It prevents anterior dislocation of
-
-the tibia onto the femur. ACL relax during flexion and taut
+in the intercondylar fossa. It prevents anterior dislocation of the tibia onto the femur. ACL relax during flexion and taut
 during extension torn in hyperextension injury.
 Posterior cruciate ligament: Attaches at the posterior
 intercondylar region of the tibia and ascends anteriorly to
@@ -1659,7 +1617,7 @@ posterior dislocation of the tibia onto the femur. PCL relax
 during extension and taut during flexion, torn in hyperflexion
 injury
 Note:
-Unhappy triad:  common in Rugby players. lateral blow to the
+Unhappy triad:  common in Rugby players. lateral blow to the
 extended knee with a twisting fall to the same side
 Refers to injury of Medial collateral, medial meniscus and
 anterior cruciate ligament
@@ -1727,9 +1685,7 @@ Talocalcaneonavicular joint:
 *Joints of the Lower Limb — Clinical Figure 3 (Page 5 Reference)*
 
 ![Joints of the Lower Limb - Clinical Figure 4](/lessons/images/lower-limb-anatomy/joints-of-the-lower-limb/figure_04_p5.png)
-*Joints of the Lower Limb — Clinical Figure 4 (Page 5 Reference)*
-
-Previous Next',
+*Joints of the Lower Limb — Clinical Figure 4 (Page 5 Reference)*',
     false,
     3,
     'published',
@@ -1781,8 +1737,6 @@ vein and femoral canal.
 Note: The femoral nerve does not lie within the femoral sheath,
 but instead lies lateral to it.
 
-Overview  Comments
-
 ![Lower Limb Other Significant Structures - Clinical Figure 1](/lessons/images/lower-limb-anatomy/lower-limb-other-significant-structures/figure_01_p1.png)
 *Lower Limb Other Significant Structures — Clinical Figure 1 (Page 1 Reference)*
 
@@ -1827,7 +1781,6 @@ nerve
 The common fibular nerve follows the biceps femoris
 tendon, travelling along the lateral margin of the popliteal
 Tibial nerve lies more medial to common fibular nerve.
-Previous Next
 
 ![Lower Limb Other Significant Structures - Clinical Figure 3](/lessons/images/lower-limb-anatomy/lower-limb-other-significant-structures/figure_03_p3.png)
 *Lower Limb Other Significant Structures — Clinical Figure 3 (Page 3 Reference)*',
@@ -1883,11 +1836,7 @@ abdomen.
 > Glans penis and penile urethra=deep inguinal lymph nodes
 > Scrotum=Superficial inguinal lymph nodes
 > Testes= lumber or para-aortic lymph nodes
-> prostate= internal iliac nodes
-
-> Overview  Comments
-
-Previous Next',
+> prostate= internal iliac nodes',
     false,
     5,
     'published',
@@ -1932,8 +1881,6 @@ muscle.
 > [!TIP]
 > **Clinical pearls:**
 
-> Overview  Comments
-
 ![Muscles of the Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_01_p1.png)
 *Muscles of the Lower Limb — Clinical Figure 1 (Page 1 Reference)*
 
@@ -1945,7 +1892,7 @@ occurs when your hip abductor muscles are weakened. This
 muscle group includes the gluteus Medius and minimus
 innervated by superior gluteal nerve. The weakness of these
 muscles causes drooping of the pelvis to the contralateral
-side while walking.
+side while walking.
 The Trendelenburg sign is produced when the patient is asked
 to stand without support on each leg. In a positive sign, pelvic
 drop will occur on the unsupported leg. For example, if the
@@ -1957,7 +1904,7 @@ Note: All the muscles of anterior compartment of thigh are
 flexors of thigh at hip joint, while quadriceps femoris is
 extensor of thigh at knee joint and Sartorius also flexes thigh at
 knee.
-Note:    Sartorius originates from anterior superior iliac spine
+Note:    Sartorius originates from anterior superior iliac spine
 Rectus femoris originates from anterior inferior iliac spine.
 Medial Compartment of thigh
 muscles:
@@ -2020,7 +1967,7 @@ Deep muscles in the posterior leg:
 Muscles in the lateral compartment
 of leg:
 Consists of two muscles, fibularis longus and brevis also
-called peroneus longus and peroneus brevis.
+called peroneus longus and peroneus brevis.
 
 ![Muscles of the Lower Limb - Clinical Figure 7](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_07_p5.png)
 *Muscles of the Lower Limb — Clinical Figure 7 (Page 5 Reference)*
@@ -2043,7 +1990,6 @@ tendons of extrinsic muscles - tibialis posterior and fibularis
 longus.
 Note: Plantar arteries and nerves lie within the first and
 second layer of the sole of foot.
-Previous Next
 
 ![Muscles of the Lower Limb - Clinical Figure 9](/lessons/images/lower-limb-anatomy/muscles-of-the-lower-limb/figure_09_p6.png)
 *Muscles of the Lower Limb — Clinical Figure 9 (Page 6 Reference)*',
@@ -2104,8 +2050,6 @@ Branch to pectineus
 
 Saphenous nerve
 Branches to quadriceps femoris
-
-Overview  Comments
 
 ![Nerves of the Lower Limb - Clinical Figure 1](/lessons/images/lower-limb-anatomy/nerves-of-the-lower-limb/figure_01_p1.png)
 *Nerves of the Lower Limb — Clinical Figure 1 (Page 1 Reference)*
@@ -2260,8 +2204,7 @@ drop with high-stepping gait, weakness of foot inversion.
 Sensory Loss: Loss of sensation over webspace between 1st and
 2nd toes.
 Note: Footdrop is due to Common fibular or common
-peroneal nerve or also due to deep fibular nerve injury.
-Previous Next',
+peroneal nerve or also due to deep fibular nerve injury.',
     false,
     7,
     'published',
@@ -2304,11 +2247,7 @@ knee.
 > **Clinical Pearls:**
 > Varicose veins: Develop in superficial veins of the lower limb
 > because of reduced elasticity and incompetent valves in the
-> veins causing them to become dilated and tortuous.
-
-Previous Next
-
-Overview  Comments',
+> veins causing them to become dilated and tortuous.',
     false,
     8,
     'published',
@@ -2379,11 +2318,7 @@ Intercostal space:
 The intercostal space lies between adjacent ribs and mostly
 contains intercostal muscles. Since there are 12 ribs on each
 side, there are 11 intercostal spaces, each numbered for the rib
-superior to it. Intercostal nerves, arteries and veins lie in the
-
-Overview  Comments
-
-costal groove along the inferior margin of the rib, lying in a
+superior to it. Intercostal nerves, arteries and veins lie in the costal groove along the inferior margin of the rib, lying in a
 plane between the internal and innermost intercostal muscles.
 
 > [!TIP]
@@ -2397,8 +2332,7 @@ Therefore, the nerve is the most vulnerable structure in a
 penetrating injury to the upper aspect of the intercostal space.
 Any needle or tube inserted in the intercostal space should be
 placed immediately above the superior margin of a rib to avoid
-injury to the intercostal neurovascular bundle.
-Previous Next',
+injury to the intercostal neurovascular bundle.',
     true,
     0,
     'published',
@@ -2428,9 +2362,6 @@ Dermatomal supply of trunk:
 
 > [!TIP]
 > **High yield:**
-> Previous Next
-
-> Overview  Comments
 
 ![Dermatomes of Trunk - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/dermatomes-of-trunk/figure_01_p1.png)
 *Dermatomes of Trunk — Clinical Figure 1 (Page 1 Reference)*
@@ -2479,8 +2410,6 @@ Diaphragm has two attachments peripheral and central.
 
 ### 1: Peripheral attachments: Three peripheral attachments
 
-Overview  Comments
-
 ![Muscles of Thorax - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/muscles-of-thorax/figure_01_p1.png)
 *Muscles of Thorax — Clinical Figure 1 (Page 1 Reference)*
 
@@ -2488,7 +2417,7 @@ Xiphoid process of sternum
 Costal cartilages ribs 7 - 10, ends of ribs 11 and 12
 Arcuate ligaments and lumbar vertebrae
 
-### 2: Central attachment: Muscles fibers of the diaphragm forms
+### 2: Central attachment: Muscles fibers of the diaphragm forms
 
 central tendon which fuses with fibrous pericardium superiorly
 Note: Diaphragm separates thoracic cavity from abdominal
@@ -2550,8 +2479,7 @@ symptoms of acid reflux.
 > Accessory muscle of expiration: Transversus abdominal
 > muscles
 > Forced expiration: Internal intercostal muscle and rectus
-> abdominus
-> Previous Next',
+> abdominus',
     false,
     2,
     'published',
@@ -2585,10 +2513,7 @@ posterior mediastina.
 The middle mediastinum contains the heart.
 The posterior mediastinum contains the esophagus, thoracic
 aorta, azygos and hemiazygos veins, thoracic duct, vagus
-nerves, and sympathetic splanchnic nerves
-Previous Next
-
-Overview  Comments',
+nerves, and sympathetic splanchnic nerves',
     false,
     3,
     'published',
@@ -2643,8 +2568,6 @@ the right and left main bronchi. They undergo further
 branching to produce the secondary bronchi.
 Structure
 
-Overview  Comments
-
 Right main bronchus: Wider, shorter, and descends more
 vertically than left bronchus.
 Clinically, this results in a higher incidence of foreign body
@@ -2663,8 +2586,7 @@ bronchi give rise to multiple generations of divisions and
 ultimately to bronchioles (conducting bronchioles, terminal
 bronchioles, respiratory bronchioles)
 The respiratory bronchioles continue as alveolar ducts and
-sacs, the walls of which form alveoli.
-Previous Next',
+sacs, the walls of which form alveoli.',
     false,
     4,
     'published',
@@ -2719,8 +2641,6 @@ Innervation of the pericardium
 The visceral pericardium: Receives autonomic innervation
 from the cardiac plexus.
 
-Overview  Comments
-
 The parietal and fibrous pericardium are innervated mainly by
 the phrenic nerve, for this reason that pain related to a
 pericardial problem may be referred to the supraclavicular
@@ -2728,7 +2648,7 @@ region of the shoulder or the lateral neck area.
 
 > [!TIP]
 > **Clinical pearls:**
-> Pericardiocentesis:  surgical puncture of the pericardial cavity
+> Pericardiocentesis:  surgical puncture of the pericardial cavity
 > for the aspiration of fluid, which is necessary to relieve the
 > pressure of accumulated fluid in the heart. A needle is inserted
 > into the pericardial cavity 1 - 2 cm inferior to the left of the
@@ -2792,9 +2712,7 @@ Purkinje fibres
 The sinoatrial node, the cardiac pacemaker, is located at the
 superior end of the crista terminalis at the junction of the
 superior vena cava and the right atrium. Impulses generated
-by the sinoatrial node are propagated by the atrial
-
-myocardium to the atrioventricular node, Here the impulse is
+by the sinoatrial node are propagated by the atrial myocardium to the atrioventricular node, Here the impulse is
 briefly delayed before being spread to the ventricles.
 The atrioventricular bundle (bundle of His) is a direct
 continuation of the atrioventricular node and continues along
@@ -2896,7 +2814,6 @@ Easy to remember:
 Septal and Anterior wall MI: LAD (Anterior interventricular
 branch) occluded.
 Lateral wall MI: LCX occluded.
-Previous Next
 
 ![Structures of the Thorax - Heart and Pericardium - Clinical Figure 2](/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-heart-and-pericardium/figure_02_p6.png)
 *Structures of the Thorax - Heart and Pericardium — Clinical Figure 2 (Page 6 Reference)*
@@ -2953,8 +2870,6 @@ bronchioles and bronchi toward the hilum, where they drain to
 the pulmonary (intrapulmonary) and then bronchopulmonary
 nodes, which in turn drain to the inferior and superior
 
-Overview  Comments
-
 ![Structures of the Thorax - Lungs and Pleurae - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-lungs-and-pleurae/figure_01_p1.png)
 *Structures of the Thorax - Lungs and Pleurae — Clinical Figure 1 (Page 1 Reference)*
 
@@ -2995,9 +2910,7 @@ The bronchial vein is formed at the root of the lung, receiving
 superficial and deep veins corresponding to branches of the
 bronchial artery
 Innervation of lung: The nerve supply to the lungs is from the
-anterior and posterior pulmonary plexus (networks of nerves
-
-derived from the sympathetic trunk and vagus nerve).
+anterior and posterior pulmonary plexus (networks of nerves derived from the sympathetic trunk and vagus nerve).
 Lobes of the lung: The left lung is divided into two lobes, an
 upper and a lower, by an interlobular fissure, which extends
 from the costal to the mediastinal surface of the lung both
@@ -3032,9 +2945,7 @@ The inferior lobes of the left and right lungs are best
 auscultated in the back between T3 & T10.
 Pancoast tumor (superior pulmonary sulcus tumor) is a
 malignant neoplasm of the lung aper may cause a lower trunk
-brachial plexopathy and a lesion of cervical sympathetic chain
-
-ganglion and Horner syndrome (ptosis, enophthalmos,
+brachial plexopathy and a lesion of cervical sympathetic chain ganglion and Horner syndrome (ptosis, enophthalmos,
 miosis, anhidrosis, and vasodilation).
 Thoracotomy: surgical procedure to gain access into the
 pleural space of the chest
@@ -3104,10 +3015,7 @@ line, one or two intercostal spaces below the fluid level ideal
 site is the sixth, seventh, eighth, or ninth intercostal space but
 not below the ninth intercostal space
 Note: A needle should be inserted immediately above the
-superior margin of a rib to avoid injury to the intercostal
-
-neurovascular bundle, which travels in a notch below each rib
-Previous Next',
+superior margin of a rib to avoid injury to the intercostal neurovascular bundle, which travels in a notch below each rib',
     false,
     6,
     'published',
@@ -3160,15 +3068,12 @@ Abdominal constriction: at oesophageal hiatus at T10/11
 vertebral
 Relations of the oesophagus
 
-Overview  Comments
-
 ![Structures of the Thorax - Oesophagus - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/structures-of-the-thorax-oesophagus/figure_01_p1.png)
 *Structures of the Thorax - Oesophagus — Clinical Figure 1 (Page 1 Reference)*
 
 Innervation of the oesophagus:
 sympathetic trunk (sympathetic fibres)
-vagal plexus (parasympathetic fibres)
-Previous Next',
+vagal plexus (parasympathetic fibres)',
     false,
     7,
     'published',
@@ -3226,8 +3131,6 @@ thoracic arteries. Venous blood drains into the left
 brachiocephalic and internal thoracic veins
 Innervation of the thymus:
 
-Overview  Comments
-
 The thymus gland is innervated by sympathetic nerves
 arising from the cervical sympathetic ganglia. These
 sympathetic nerves regulate blood flow to the thymus and
@@ -3236,8 +3139,7 @@ fibers from the vagus nerve may also contribute to the
 innervation of the thymus gland nevertheless an autonomic
 nervous system of both sympathetic and parasympathetic
 components plays a role in regulating function of thymus
-gland.
-Previous Next',
+gland.',
     false,
     8,
     'published',
@@ -3288,8 +3190,6 @@ anteroposterior axis result in raising and lowering the middle
 of the rib, the "buckethandle" movement. In elevation, this
 increases the transverse diameter of the thorax.
 
-Overview  Comments
-
 > [!TIP]
 > **Clinical pearls:**
 > Flail chest: loss of stability of the thoracic cage that occurs
@@ -3308,7 +3208,6 @@ result from direct blows or crush injuries. The broken ends of
 ribs may cause pneumothorax and lung or spleen injury.
 Lower rib fractures may tear the diaphragm, resulting in a
 diaphragmatic hernia.
-Previous Next
 
 ![Thoracic Wall Movements - Clinical Figure 1](/lessons/images/thorax-anatomy-mediastinum/thoracic-wall-movements/figure_01_p2.png)
 *Thoracic Wall Movements — Clinical Figure 1 (Page 2 Reference)*',
@@ -3369,8 +3268,6 @@ Sympathetic trunks
 Left and right common carotid arteries.
 left subclavian arteries.
 
-Overview  Comments
-
 Internal jugular veins
 Brachiocephalic veins
 Subclavian veins
@@ -3383,8 +3280,7 @@ lymph nodes and lymphatic vessels
 > within the thoracic outlet
 > Compression of brachial plexus
 > Compression of subclavian artery
-> Compression of subclavian vein
-> Previous Next',
+> Compression of subclavian vein',
     false,
     10,
     'published',
@@ -3425,8 +3321,8 @@ lymph nodes and lymphatic vessels
 Layers of the Abdominal Wall
 (external to internal)
 Skin
-Superficial fascia (Camper''s fascia: Superficial fatty
-layer Scarpa''s fascia: deep fibrous layer )
+Superficial fascia (Camper''s fascia: Superficial fatty
+layer Scarpa''s fascia: deep fibrous layer )
 Muscles
 Transversalis fascia
 Parietal peritoneum
@@ -3440,22 +3336,20 @@ forms an aponeurosis (a broad, flat tendon) in the
 anteromedial aspect of the abdominal wall which covers the
 vertical rectus abdominis muscle. The aponeuroses of all the
 flat muscles become entwined in the midline, forming
-the Linea alba.
+the Linea alba.
 Two vertical muscles: Rectus abdominus and pyramidalis
 situated near midline of body
 Innervation: The anterior abdominal wall muscles are
 innervated by the anterior rami of T7-T12 and L1.
 
-Overview  Comments
-
 Other contents
-Rectus sheath: The rectus sheath is formed by the
+Rectus sheath: The rectus sheath is formed by the
 aponeuroses of the three flat muscles and encloses the
 rectus abdominis and pyramidalis muscles. It has an anterior
 and posterior wall for most of its length.
 Anterior wall: Formed by the aponeuroses of the external
 oblique, and of half of the internal oblique.
-Posterior wall:  Half of the aponeuroses of the internal
+Posterior wall:  Half of the aponeuroses of the internal
 oblique and of the transversus abdominis.
 Approximately midway between the umbilicus and the pubic
 symphysis, all the aponeuroses move to the anterior wall of
@@ -3480,11 +3374,11 @@ Iliacus and Psoas major origin and insertion
 Iliacus: Originates from surface of the iliac fossa and anterior
 inferior iliac spine. Its fibres combine with the tendon of the
 psoas major, inserting into the lesser trochanter of
-the femur.
+the femur.
 Psoas major: Originates from the transverse processes and
 vertebral bodies of T12 - L5. It then moves inferiorly and
 laterally, running deep to the inguinal ligament, and
-inserting to the lesser trochanter of the femur.
+inserting to the lesser trochanter of the femur.
 
 > [!TIP]
 > **Clinical pearls**
@@ -3496,9 +3390,7 @@ inserting to the lesser trochanter of the femur.
 *Abdominal Wall Muscles — Clinical Figure 2 (Page 3 Reference)*
 
 ![Abdominal Wall Muscles - Clinical Figure 3](/lessons/images/abdomen-peritoneum/abdominal-wall-muscles/figure_02_p3.png)
-*Abdominal Wall Muscles — Clinical Figure 3 (Page 3 Reference)*
-
-Previous Next',
+*Abdominal Wall Muscles — Clinical Figure 3 (Page 3 Reference)*',
     true,
     0,
     'published',
@@ -3550,8 +3442,6 @@ inferior direction.
 The diaphragmatic surface of the liver is related anteriorly to
 the anterior abdominal wall and rib cage and superiorly to
 the diaphragm.
-
-Overview  Comments
 
 ![Accessory Organs of the Abdomen - Clinical Figure 1](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_01_p1.png)
 *Accessory Organs of the Abdomen — Clinical Figure 1 (Page 1 Reference)*
@@ -3646,7 +3536,7 @@ Spider nevi or spider angioma (small, red, spiderlike arterioles
 in the cheeks, neck, and shoulder)
 Ascites: accumulation of fluid in the peritoneal cavity
 edema in the legs: lower albumin levels facilitate
-water retention.
+water retention.
 Splenomegaly: enlarged spleen resulting from venous
 congestion causing sequestered blood cells that lead to
 thrombocytopenia and easy bruising
@@ -3665,9 +3555,9 @@ with the cystic duct.
 Note: The neck contains a mucosal fold, known as Hartmann''s
 pouch, which is a common site for gallstones to become
 lodged.
-Gall bladder blood supply: cystic artery branch of right hepatic
+Gall bladder blood supply: cystic artery branch of right hepatic
 artery. Right hepatic artery is itself branch of common hepatic
-artery one of branch of coeliac trunk.
+artery one of branch of coeliac trunk.
 Innervation of gall bladder:The gallbladder receives both
 sympathetic and vagal supply:
 sympathetic: via the coeliac plexus
@@ -3734,7 +3624,7 @@ The intraperitoneal tail passes between layers of the
 splenorenal ligament. It is related to the left kidney
 posteriorly, the hilum of the spleen laterally, the left colic
 flexure inferiorly and the stomach anteriorly.
-Ducts of pancreas:  Main pancreatic duct: Begins in the tail
+Ducts of pancreas:  Main pancreatic duct: Begins in the tail
 and runs to the right along the entire pancreas
 Joins the bile duct to form the hepatopancreatic ampulla
 (ampulla of Vater) enters second part of duodenum at
@@ -3764,11 +3654,11 @@ irritation of the parietal peritoneum covering the pancreas.
 is a large vascular lymphatic organ lying against the
 diaphragm and ribs 9 to 11 in the hypochondriac region,
 covered by peritoneum except at the hilum, and supported by
-the  splenogastric and splenorenal ligaments
+the  splenogastric and splenorenal ligaments
 Relations:The spleen lies posterior to the stomach, superior to
 the left colic flexure and lateral to the left kidney and tail of the
 pancreas.
-Functional overview: Composed of white pulp and red pulp.
+Functional overview: Composed of white pulp and red pulp.
 White pulp: which consists of primarily lymphatic tissue
 around the central arteries and is the primary site of immune
 and phagocytic action, participates in the immune response
@@ -3783,11 +3673,11 @@ Spleen Is hematopoietic in early life and later destroys aged
 (i.e., worn-out) red blood cells in the red pulp and releases
 hemoglobin from the spent RBCs.
 Important to remember here hematopoiesis at different
-stages of life.
+stages of life.
 
 > [!TIP]
 > **Clinical pearls: Spleen injury most Likely associated with**
-> fracture of rib 10
+> fracture of rib 10
 
 ![Accessory Organs of the Abdomen - Clinical Figure 5](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_05_p8.png)
 *Accessory Organs of the Abdomen — Clinical Figure 5 (Page 8 Reference)*
@@ -3810,9 +3700,7 @@ greater splanchnic nerves.
 *Accessory Organs of the Abdomen — Clinical Figure 7 (Page 9 Reference)*
 
 ![Accessory Organs of the Abdomen - Clinical Figure 8](/lessons/images/abdomen-peritoneum/accessory-organs-of-the-abdomen/figure_08_p9.png)
-*Accessory Organs of the Abdomen — Clinical Figure 8 (Page 9 Reference)*
-
-Previous Next',
+*Accessory Organs of the Abdomen — Clinical Figure 8 (Page 9 Reference)*',
     false,
     1,
     'published',
@@ -3852,8 +3740,6 @@ Midpoint of the inguinal ligament: Halfway between the
 pubic tubercle and the anterior superior iliac spine. The
 opening to the inguinal canal is located just above this point.
 
-Overview  Comments
-
 ![Areas of Abdomen - Clinical Figure 1](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_01_p1.png)
 *Areas of Abdomen — Clinical Figure 1 (Page 1 Reference)*
 
@@ -3882,7 +3768,7 @@ Borders:
 Medial: Lateral border of the rectus abdominis muscle.
 Lateral: inferior epigastric vessels.
 Inferior: inguinal ligament
-Clinical significance:  Direct inguinal hernia protrudes
+Clinical significance:  Direct inguinal hernia protrudes
 through Hesselbach''s triangle.
 The Peritoneum
 
@@ -3945,8 +3831,6 @@ posterior abdominal wall
 ![Areas of Abdomen - Clinical Figure 5](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_05_p4.png)
 *Areas of Abdomen — Clinical Figure 5 (Page 4 Reference)*
 
-Previous Next
-
 ![Areas of Abdomen - Clinical Figure 6](/lessons/images/abdomen-peritoneum/areas-of-abdomen/figure_06_p5.png)
 *Areas of Abdomen — Clinical Figure 6 (Page 5 Reference)*',
     false,
@@ -3978,9 +3862,6 @@ Dermatomal supply of trunk
 
 > [!TIP]
 > **High yield:**
-> Previous Next
-
-> Overview  Comments
 
 ![Dermatomes of Trunk - Clinical Figure 1](/lessons/images/abdomen-peritoneum/dermatomes-of-trunk/figure_01_p1.png)
 *Dermatomes of Trunk — Clinical Figure 1 (Page 1 Reference)*
@@ -4025,7 +3906,7 @@ The Pylorus: Connects the stomach to the duodenum. It is
 divided into the pyloric antrum, pyloric canal and pyloric
 sphincter
 The pyloric sphincter lies between the pylorus and the first
-part of the duodenum. It controls of the exit of chyme.
+part of the duodenum. It controls of the exit of chyme.
 Anatomical relation of stomach
 The stomach lies anterior to the stomach bed
 stomach bed formed by:
@@ -4040,8 +3921,6 @@ Mesocolon (Transverse)
 Blood supply:
 The arterial supply to the stomach is derived from all three
 branches (left gastric, splenic, and common hepatic branches)
-
-Overview  Comments
 
 ![Gastrointestinal Tract - Clinical Figure 1](/lessons/images/abdomen-peritoneum/gastrointestinal-tract/figure_01_p1.png)
 *Gastrointestinal Tract — Clinical Figure 1 (Page 1 Reference)*
@@ -4080,10 +3959,8 @@ ducts usually unite to form the hepatopancreatic ampulla of
 Vater) enter the posteromedial wall of this part of the
 duodenum, about  of the way along its length.
 The lesser duodenal papilla lies about 6-8 cm distal to the
-pylorus and has at its summit the opening of the accessory
-
-pancreatic duct.
-Third part: The inferior or horizontal part of the duodenum
+pylorus and has at its summit the opening of the accessory pancreatic duct.
+Third part: The inferior or horizontal part of the duodenum
 Runs transversely to the left, passing over the IVC, aorta, and L3
 vertebra.
 It is crossed by the superior mesenteric artery and vein and
@@ -4099,10 +3976,10 @@ called the suspensory muscle (ligament) of the duodenum
 (ligament of Treitz).
 Blood supply: Branches of coeliac trunk and superior
 mesenteric artery
-Proximal to the major duodenal papilla: supplied by the
+Proximal to the major duodenal papilla: supplied by the
 gastroduodenal artery (branch of the common hepatic artery
 from the coeliac trunk).
-Distal to the major duodenal papilla: supplied by the inferior
+Distal to the major duodenal papilla: supplied by the inferior
 pancreaticoduodenal artery (branch of superior mesenteric
 artery).
 
@@ -4125,7 +4002,7 @@ Blood supply: Superior mesenteric artery
 
 > [!TIP]
 > **Clinical pearls:**
-> Meckel''s Diverticulum:
+> Meckel''s Diverticulum:
 > True diverticula of all 3 layers of the small intestines
 > Caused by incomplete obliteration of the vitelline duct.
 
@@ -4187,10 +4064,10 @@ The descending and sigmoid colons: Inferior mesenteric
 nodes
 Note: Most of the lymph from the superior and inferior
 mesenteric nodes passes into the intestinal lymph trunks,
-and on to the cisterna chyli, where it ultimately empties into
+and on to the cisterna chyli, where it ultimately empties into
 the thoracic duct.
 Innervation:
-Ascending colon and proximal  of the transverse colon:
+Ascending colon and proximal  of the transverse colon:
 receive their sympathetic, parasympathetic and sensory
 supply via nerves from the superior mesenteric plexus.
 Distal  of the transverse colon, descending colon and
@@ -4263,10 +4140,10 @@ In females, the peritoneum reflects to the posterior vagina
 and cervix, forming the rectouterine pouch (pouch of
 Douglas
 Blood supply:
-Superior rectal artery: terminal continuation of the inferior
+Superior rectal artery: terminal continuation of the inferior
 mesenteric artery.
 Middle rectal artery: branch of the internal iliac artery.
-Inferior rectal artery: branch of the internal pudendal artery.
+Inferior rectal artery: branch of the internal pudendal artery.
 Innervation of Rectum:
 Sympathetic nervous supply to the rectum is from the
 lumbar splanchnic nerves and superior and inferior
@@ -4280,7 +4157,7 @@ Lymphatic drainage: Pararectal lymph nodes
 > Digital rectal examination: Performed by inserting a gloved
 > lubricated finger into the rectum
 > The anterior wall of the rectum has a number of close
-> anatomical structures, and these structures can therefore be
+> anatomical structures, and these structures can therefore be
 > palpated digitally via the rectum.
 
 Most significant are the prostate and seminal vesicles in
@@ -4338,7 +4215,6 @@ External hemorrhoids are situated below the pectinate line,
 are covered by skin, and are more painful than internal
 hemorrhoids because their pain fibers are carried by Somatic
 fibers of the inferior rectal nerves.
-Previous Next
 
 ![Gastrointestinal Tract - Clinical Figure 4](/lessons/images/abdomen-peritoneum/gastrointestinal-tract/figure_04_p10.png)
 *Gastrointestinal Tract — Clinical Figure 4 (Page 10 Reference)*',
@@ -4380,8 +4256,6 @@ lumbar nerves and a part of the fourth lumbar nerve.
 Lies anterior to the transverse processes of the lumbar
 vertebrae within the substance of psoas major muscle.
 
-Overview  Comments
-
 ![Lumbar Spine and Plexus - Clinical Figure 1](/lessons/images/abdomen-peritoneum/lumbar-spine-and-plexus/figure_01_p1.png)
 *Lumbar Spine and Plexus — Clinical Figure 1 (Page 1 Reference)*
 
@@ -4389,7 +4263,6 @@ Note:Sub-costal nerve: (T12)Largest thoracic spinal nerve
 originates from anterior ramus of spinal nerve T12, Innervates
 external oblique, internal oblique, transversus abdominus,
 rectus abdominus and pyramidalis muscle
-Previous Next
 
 ![Lumbar Spine and Plexus - Clinical Figure 2](/lessons/images/abdomen-peritoneum/lumbar-spine-and-plexus/figure_02_p2.png)
 *Lumbar Spine and Plexus — Clinical Figure 2 (Page 2 Reference)*',
@@ -4429,13 +4302,13 @@ Anatomic structure:
 Testis is covered by tunica albuginea which lies beneath the
 visceral layer of the tunica veginalis
 Each testis is composed of seminiferous tubules which
-produce spermatozoa and interstitial cells (of Leydig)
+produce spermatozoa and interstitial cells (of Leydig)
 secrete testosterone
 Innervation of testis and epididymis: testicular plexus - a
 network of nerves derived from the renal and aortic plexus
 Lymphatic drainage:(Important to remember)
-Testes lumbar (para-aortic) nodes in the abdomen
-scrotum drains to the superficial inguinal nodes.
+Testes lumbar (para-aortic) nodes in the abdomen
+scrotum drains to the superficial inguinal nodes.
 Blood supply: Paired testicular arteries arise from abdominal
 aorta
 
@@ -4449,8 +4322,6 @@ Caused by trauma or spasm of cremasteric muscle.
 Ductus deferens:
 Is continuous with the tail of the epididymis and serves to
 transport sperm to the ejaculatory ducts prior to ejaculation.
-
-Overview  Comments
 
 Is a thick-walled tube that ascends within the spermatic cord
 to enter the pelvis at the deep inguinal ring lateral to the
@@ -4472,7 +4343,7 @@ Three arteries, three nerves and three other structures
 > The penis consists of a root (two crura and the bulb of the
 > penis) and the body, which is formed by the single corpus
 > spongiosum which contains the spongy urethra and paired
-> corpora cavernosa.  Its head is called the glans penis which is
+> corpora cavernosa.  Its head is called the glans penis which is
 > the terminal part of the corpus spongiosum.
 
 Innervation: The penis is supplied by S2-S4 spinal cord
@@ -4488,7 +4359,7 @@ Parasympathetic innervation is carried by cavernous nerves
 from the peri-prostatic nerve plexus and is responsible for
 the vascular changes which cause erection.
 Blood supply: Dorsal arteries of the penis, Deep arteries of the
-penis and Bulbourethral artery branches of the internal
+penis and Bulbourethral artery branches of the internal
 pudendal artery.
 Lymphatic drainage: (Important to remember)
 Penile Skin and prepuce: Drain into Superficial inguinal
@@ -4507,7 +4378,7 @@ seminal vesicles and the bulbourethral glands, and the
 spermatozoa constitute the semen or seminal fluid.
 Prostate has four zones:
 Anterior zone: which lies in front of the urethra.
-Transitional zone: encompasses the urethra proximal to the
+Transitional zone: encompasses the urethra proximal to the
 ejaculatory ducts and is prone to benign hypertrophy
 obstructing the internal urethral orifice
 Central zone: encompasses the ejaculatory ducts up to the
@@ -4518,10 +4389,8 @@ gland and is thus the most prone to carcinomatous
 transformation.
 
 > [!TIP]
-> **Clinical pearls: Hypertrophy of the prostate is a benign**
-> enlargement of the prostate that affects older men and occurs
-
-most often in the transitional zone, obstructing the internal
+> **Clinical pearls: Hypertrophy of the prostate is a benign**
+> enlargement of the prostate that affects older men and occurs most often in the transitional zone, obstructing the internal
 urethral orifice and thus leading to nocturia (excessive
 urination at night), dysuria (difficulty or pain in urination), and
 urgency (sudden desire to urinate).
@@ -4558,7 +4427,7 @@ Venous drainage:
 Are drained by the ovarian veins; the right ovarian vein joins the
 inferior vena cava, and the left ovarian vein joins the left renal
 vein
-Innervation: Autonomic: via the ovarian plexus
+Innervation: Autonomic: via the ovarian plexus
 Visceral afferents: accompany the sympathetic fibers to T10 -
 T12 level of the spinal cord sensory ganglia
 Pain is thus referred to the periumbilical region, suprapubic
@@ -4568,7 +4437,7 @@ The uterine tube extends from the uterus to the ovary and
 consists of the isthmus, ampulla, and infundibulum. The
 fimbriated distal end creates currents, drawing an ovulated
 oocyte into the uterine tube.
-Note: Ectopic pregnancy most commonly occurs in the
+Note: Ectopic pregnancy most commonly occurs in the
 ampulla (70% of cases).
 Uterus:
 
@@ -4578,8 +4447,8 @@ Uterus:
 Contains a fundus, body, isthmus and cervix and is supported
 by ligaments.
 Relations:
-Anteriorly: vesicouterine pouch and the urinary bladder
-Posteriorly: the rectouterine pouch and the anterior surface
+Anteriorly: vesicouterine pouch and the urinary bladder
+Posteriorly: the rectouterine pouch and the anterior surface
 of rectum
 Laterally: the broad ligament
 Suspensory ligaments:
@@ -4591,7 +4460,7 @@ Uterine arteries: branch of internal iliac artery
 Ovarian arteries: branch of the abdominal aorta at the level of
 L1.
 Venous drainage:
-Uterine veins: they are formed from the plexus and drain into
+Uterine veins: they are formed from the plexus and drain into
 internal iliac veins
 Innervation: Autonomic
 Hypogastric plexus (sympathetic)
@@ -4602,14 +4471,14 @@ Relations:
 Anteriorly: urethral orifice
 Posteriorly: The rectum
 Arterial supply: Uterine arteries supply the superior
-portion: branch of the internal iliac artery
+portion: branch of the internal iliac artery
 Vaginal artery and internal pudendal arteries supply the middle
 and inferior parts: branches of the internal iliac artery.
 
-Venous drainage: Uterovaginal plexus: drains into internal iliac
+Venous drainage: Uterovaginal plexus: drains into internal iliac
 veins
 Innervation
-Autonomic: inferior hypogastric plexus, pelvic splanchnic,
+Autonomic: inferior hypogastric plexus, pelvic splanchnic,
 pudendal nerve (all provide parasympathetic Innervation
 from S2-S4)
 Visceral afferents: accompany parasympathetic fibers of
@@ -4624,8 +4493,7 @@ Somatic afferents: accompany pudendal nerve to S2-S4.
 > the perineal body, rectum, coccyx and sacrum through the
 > posterior fornix
 > ovaries, uterine tubes, ureters and ischial spines through the
-> lateral fornices
-> Previous Next',
+> lateral fornices',
     false,
     6,
     'published',
@@ -4683,8 +4551,6 @@ Enters the inguinal canal at the deep inguinal ring, emerges
 from the superficial ring and becomes lost in the
 subcutaneous tissue of the labium majora.
 
-Overview  Comments
-
 Ovarian ligament: Is a fibromuscular cord that extends from
 the ovary to the uterus below the uterine tube, running within
 the layers of the broad ligament.
@@ -4694,12 +4560,11 @@ brim and transmits the ovarian vessels, nerves, and lymphatics.
 Rectouterine pouch and Rectovesical pouch:
 Rectouterine pouch: Is a sac or recess formed by a fold of the
 peritoneum dipping down between the rectum and the
-uterus. Lies behind the posterior fornix of the vagina and
+uterus. Lies behind the posterior fornix of the vagina and
 contains peritoneal fluid and some of the small intestine.
 Rectovesical pouch: Is a peritoneal recess between the bladder
 and the rectum in males, and the vesicouterine pouch is a
-peritoneal sac between the bladder and the uterus in females
-Previous Next',
+peritoneal sac between the bladder and the uterus in females',
     false,
     7,
     'published',
@@ -4746,8 +4611,6 @@ the renal plexus which contains parasympathetic fibers from
 the vagus nerve and sympathetic fibers from the thoracic
 splanchnic nerves.
 
-Overview  Comments
-
 ![Urinary Tract - Clinical Figure 1](/lessons/images/abdomen-peritoneum/urinary-tract/figure_01_p1.png)
 *Urinary Tract — Clinical Figure 1 (Page 1 Reference)*
 
@@ -4774,12 +4637,12 @@ where high intramural pressure collapses the ureters,
 preventing the backflow of urine.
 
 Innervation: Sensory fibres from the ureters enter the spinal
-cord at T11-L2, with ureteric pain referred to those dermatomal
+cord at T11-L2, with ureteric pain referred to those dermatomal
 areas.
 
 > [!TIP]
 > **Clinical pearls:**
-> In females ureters are in close proximity to the ovaries. Care
+> In females ureters are in close proximity to the ovaries. Care
 > must be taken not the damage the ureters during an
 > oophorectomy, especially during the ligation of the ovarian
 > arteries.
@@ -4806,7 +4669,7 @@ Urethra
 It serves as a passage for urine from the urinary bladder to
 the exterior, but in men, it also serves as a passage for
 semen.
-Male urethra: Male urethra is approximately 20 cm long and
+Male urethra: Male urethra is approximately 20 cm long and
 consists of: prostatic, membranous, bulbous and spongy
 urethra.
 Anterior urethra:
@@ -4827,9 +4690,7 @@ gland; on its posterior wall. It receives the ejaculatory ducts
 and numerous small prostatic ducts.
 Female urethra
 is approximately 4 cm long, and its external urethral orifice is
-situated between the labia minora, anterior to the vaginal
-
-opening, and posterior to the glans clitoris.
+situated between the labia minora, anterior to the vaginal opening, and posterior to the glans clitoris.
 Blood supply:
 Penile (spongy) urethra and Membranous urethra: Supplied
 by branch of internal pudendal artery
@@ -4895,8 +4756,7 @@ parasympathetic outflow to the bladder. The detrusor muscle
 will be paralyzed, unable to contract.
 The spinal reflex does not function. In this scenario, the
 bladder will fill uncontrollably, becoming abnormally
-distended until overflow incontinence occurs.
-Previous Next',
+distended until overflow incontinence occurs.',
     false,
     8,
     'published',
@@ -4962,8 +4822,6 @@ belly and the anterior and posterior bellies of digastric into 4
 Triangles:
 Digastric (submandibular): submandibular gland.
 
-Overview  Comments
-
 Submental (suprahyoid): Submental Lymph Nodes.
 Carotid: 3C (CNXII, Ansa cervicalis & carotid sheath)
 Muscular (inferior carotid): Thyroid and Parathyroid Glands.
@@ -4976,7 +4834,6 @@ jugular veins, Facial and retromandibular veins
 Arteries: Carotid sheath and branches of external carotid
 artery
 Nerves: Nerve to Mylohyoid, CN XII & Ansa Cervicalis
-Previous Next
 
 ![Anterior and Posterior Triangle of Neck - Clinical Figure 1](/lessons/images/head-neck-anatomy/anterior-and-posterior-triangle-of-neck/figure_01_p2.jpg)
 *Anterior and Posterior Triangle of Neck — Clinical Figure 1 (Page 2 Reference)*',
@@ -5015,8 +4872,6 @@ Suprahyoid and infrahyoid
 muscles
 Suprahyoid muscles
 
-Overview  Comments
-
 ![Muscles of the Neck - Clinical Figure 1](/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_01_p1.png)
 *Muscles of the Neck — Clinical Figure 1 (Page 1 Reference)*
 
@@ -5025,7 +4880,6 @@ Overview  Comments
 
 Infrahyoid muscles
 Musculature of tongue
-Previous Next
 
 ![Muscles of the Neck - Clinical Figure 3](/lessons/images/head-neck-anatomy/muscles-of-the-neck/figure_03_p2.png)
 *Muscles of the Neck — Clinical Figure 3 (Page 2 Reference)*
@@ -5063,7 +4917,7 @@ Previous Next
 Structure of the Eyeball
 The eyeball consists of 3 coats:
 
-### 1. External protective fibrous coat: Made up of anterior
+### 1. External protective fibrous coat: Made up of anterior
 
 transparent part the cornea and a posterior opaque part the
 sclera
@@ -5096,8 +4950,6 @@ Movements of the eyeball (Extra
 ocular muscles)
 All the extraocular muscles are innervated by oculomotor
 nerve except LR-6 and S0-4
-
-Overview  Comments
 
 Eye Lid:
 The eyelids are thin, soft tissue structures that cover the
@@ -5153,11 +5005,9 @@ the evaporation of the eye''s tear film. The oily substance also
 prevents the eyelids from sticking together when closed.
 
 > [!TIP]
-> **Clinical pearls: Dysfunction in these glands, often due to**
+> **Clinical pearls: Dysfunction in these glands, often due to**
 > blockages or inflammation, can lead to reduced tear stability
-> and dry eye.
-
-Previous Next',
+> and dry eye.',
     false,
     2,
     'published',
@@ -5193,8 +5043,6 @@ Position: The gland lies at the level of C5, C6, C7
 each lobe extends from middle of thyroid cartilage to 4th or
 5th tracheal ring.
 isthmus extends from 2nd to 3rd tracheal ring.
-
-Overview  Comments
 
 ![Thyroid Gland - Clinical Figure 1](/lessons/images/head-neck-anatomy/thyroid-gland/figure_01_p1.jpg)
 *Thyroid Gland — Clinical Figure 1 (Page 1 Reference)*
@@ -5232,8 +5080,7 @@ Thyroid Ima artery
 Inferior thyroid vein
 Anterior jugular vein
 Parathyroid gland
-Oesophagus
-Previous Next',
+Oesophagus',
     false,
     3,
     'published',
@@ -5289,10 +5136,6 @@ pathway known as Meyers'' loop, to reach the visual cortex.
 
 > [!NOTE]
 > **Remember the lesions of visual pathway (High yield)**
-
-Overview  Comments
-
-Previous Next
 
 ![Visual Pathway - Clinical Figure 1](/lessons/images/head-neck-anatomy/visual-pathway/figure_01_p2.jpg)
 *Visual Pathway — Clinical Figure 1 (Page 2 Reference)*',
@@ -5357,8 +5200,6 @@ functions of the brain, such as voluntary movement, reward
 processing, and working memory. The largest populations of
 these neurons sit within the midbrain in substantia nigra.
 
-Overview  Comments
-
 Vasculature of the mid brain:
 The midbrain receives vascular supply from the basilar artery,
 and its branches. The major vessels are:
@@ -5396,8 +5237,7 @@ disequilibrium, tremors or other loss of motor control.
 Facial paralysis (compression of CN VII), Reduced corneal
 reflex (involvement of both CN V and CN VII), Trigeminal palsy
 (compression of CN V) and Ipsilateral cerebellar signs in large
-tumors noted
-Previous Next',
+tumors noted',
     true,
     0,
     'published',
@@ -5439,23 +5279,20 @@ as internal capsule.
 Lenticular Nuclei:
 1:Putamen: Forms lateral aspect of lenticular nuclei
 2:Globus pallidus: On inner surface of putamen lies globus
-pallidus; externus, and internus.
+pallidus; externus, and internus.
 Substantia Nigra: located in the midbrain but considered
 functionally as a part of the basal ganglia
 
 > [!TIP]
 > **Clinical pearls:**
 > Basal ganglia are particularly associated with movement
-> disorders.  tremors; involuntary muscle movements;
+> disorders.  tremors; involuntary muscle movements;
 > abnormal increase in tone, difficulty initiating movements,
 > and abnormal posture
 > Parkinson''s is the most important and notorious disease of
 > the basal ganglia. Classic clinical symptoms include
 > bradykinesia, resting tremor, postural instability, and
-> shuffling gait
-> Previous Next
-
-> Overview  Comments',
+> shuffling gait',
     false,
     1,
     'published',
@@ -5490,7 +5327,7 @@ The brain is composed of 3 main structural divisions:
 The cerebrum (Cerebral hemispheres and diencephalon)
 The brainstem
 The cerebellum
-NOTE:  At the base of the brain is the brainstem, which extends
+NOTE:  At the base of the brain is the brainstem, which extends
 from the upper cervical spinal cord to the diencephalon of the
 cerebrum. The brainstem is divided into the medulla, pons, and
 midbrain. Posterior to the brainstem lies the cerebellum.
@@ -5511,8 +5348,6 @@ The white matter contains the ascending and descending
 pathways connecting the brain and spinal cord.
 The grey matter is rich in nerve cell bodies which are divided
 into four main columns.
-
-Overview  Comments
 
 Anterior horn (Ventral horn): largely contains motor neurons
 that exit the spinal cord to innervate skeletal muscle.
@@ -5546,8 +5381,7 @@ anterior and lateral columns.
 The paired posterior spinal arteries arise from either the
 posterior inferior cerebellar artery or directly from the
 vertebral artery and supply the posterior third of the spinal
-cord including the posterior horns and columns.
-Previous Next',
+cord including the posterior horns and columns.',
     false,
     2,
     'published',
@@ -5590,7 +5424,7 @@ Posterior inferior cerebellar artery (PICA)
 > [!TIP]
 > **Clinical pearls:**
 > In Cerebellar dysfunction wide variety of manifestations are
-> possible. These can be remembered using the acronym
+> possible. These can be remembered using the acronym
 
 ## ''Danish''
 
@@ -5603,11 +5437,8 @@ Scanning speech
 Hypotonia
 Cerebellar vascular lesion:
 
-Overview  Comments
-
 Note: Dysphagia is the differentiating symptom between AICA
 and PICA. Way to remember PICA can''t chew.
-Previous Next
 
 ![Cerebellum - Clinical Figure 1](/lessons/images/central-nervous-system-spine/cerebellum/figure_01_p2.png)
 *Cerebellum — Clinical Figure 1 (Page 2 Reference)*',
@@ -5651,7 +5482,7 @@ sagittal plane)
 The two cerebral hemispheres are connected by a white
 matter structure, called the corpus callosum which is
 composed primarily of commissural fibers.
-Internal structure: The cerebrum is comprised of two different
+Internal structure: The cerebrum is comprised of two different
 types of tissue:
 Grey matter forms the surface of each cerebral hemisphere
 (known as the cerebral cortex) and is associated with
@@ -5663,8 +5494,6 @@ Lobes of cerebrum:
 The cerebral hemispheres fill the area of the skull above the
 tentorium cerebelli and are subdivided into lobes based on
 their position relative to the major sulci:
-
-Overview  Comments
 
 Note:
 
@@ -5685,8 +5514,6 @@ artery
 
 ![Cerebrum - Clinical Figure 1](/lessons/images/central-nervous-system-spine/cerebrum/figure_01_p2.png)
 *Cerebrum — Clinical Figure 1 (Page 2 Reference)*
-
-Previous Next
 
 ![Cerebrum - Clinical Figure 2](/lessons/images/central-nervous-system-spine/cerebrum/figure_01_p3.png)
 *Cerebrum — Clinical Figure 2 (Page 3 Reference)*
@@ -5724,9 +5551,6 @@ pons and below with the spinal cord
 
 > [!TIP]
 > **Clinical pearls:**
-> Previous Next
-
-> Overview  Comments
 
 ![Medulla - Clinical Figure 1](/lessons/images/central-nervous-system-spine/medulla/figure_01_p1.png)
 *Medulla — Clinical Figure 1 (Page 1 Reference)*',
@@ -5759,9 +5583,6 @@ Spinal cord syndrome:
 
 > [!TIP]
 > **High yield:**
-> Previous Next
-
-> Overview  Comments
 
 ![Spinal Cord Syndrome - Clinical Figure 1](/lessons/images/central-nervous-system-spine/spinal-cord-syndrome/figure_01_p1.png)
 *Spinal Cord Syndrome — Clinical Figure 1 (Page 1 Reference)*
@@ -5802,9 +5623,6 @@ responsible for carrying motor and sensory stimuli to and
 from the periphery to higher levels
 Ascending tracts of the spinal cord:
 Descending Tracts of the Spinal Cord:
-Previous Next
-
-Overview  Comments
 
 ![Spinal Cord Tracts - Clinical Figure 1](/lessons/images/central-nervous-system-spine/spinal-cord-tracts/figure_01_p1.png)
 *Spinal Cord Tracts — Clinical Figure 1 (Page 1 Reference)*
@@ -5848,10 +5666,7 @@ basal ganglia & cerebellum & relaying them to motor cortex,
 influence LMN
 Participates in maintenance of state of wakefulness &
 alertness through RAS
-Role in emotions & recent memory
-Previous Next
-
-Overview  Comments',
+Role in emotions & recent memory',
     false,
     8,
     'published',
@@ -5881,11 +5696,11 @@ The Ventricles:
 The ventricles are a set of communicating cavities within the
 brain that are responsible for the production, transport and
 removal of cerebrospinal fluid (CSF), which bathes the central
-nervous system. There are four ventricles; right and left lateral
+nervous system. There are four ventricles; right and left lateral
 ventricles, the third ventricle and the fourth ventricle.
 Lateral Ventricles:The lateral ventricles are C-shaped cavities
 located within their respective hemispheres of the
-cerebrum.  The lateral ventricles are connected to the third
+cerebrum.  The lateral ventricles are connected to the third
 ventricle by the interventricular foramen of Monro.
 Third Ventricle: The third ventricle is a slit-like space in the
 sagittal plane, situated between the right and left thalamus
@@ -5910,14 +5725,11 @@ subarachnoid cisterns in the subarachnoid space located
 between the arachnoid mater and pia mater (bathing the
 brain).
 
-Overview  Comments
-
 CSF Reabsorption:
 From the subarachnoid cisterns, CSF is reabsorbed by
 arachnoid granulations, which protrude into the dura mater,
 into the Dural venous sinuses and from here back into the
-circulation.
-Previous Next',
+circulation.',
     false,
     9,
     'published',
@@ -5975,8 +5787,6 @@ The middle cerebral artery (supplying the lateral cerebral
 hemispheres)
 Branches of vertebral arteries
 
-Overview  Comments
-
 The two vertebral arteries (left and right), branches of the
 subclavian arteries, ascend through the transverse foramina of
 the upper six cervical vertebrae before entering the cranial
@@ -6029,8 +5839,7 @@ anterior and lateral columns.
 The paired posterior spinal arteries arise from either the
 posterior inferior cerebellar artery or directly from the
 vertebral artery and supply the posterior third of the spinal
-cord including the posterior horns and columns.
-Previous Next',
+cord including the posterior horns and columns.',
     false,
     10,
     'published',
@@ -6072,9 +5881,6 @@ Olfactory nerve:
 First and shortest cranial nerve transmits sensory information
 from the nasal epithelium via the cribriform plate of the
 ethmoid bone to the primary olfactory cortex
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve 1 - Olfactory Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-1-olfactory-nerve/figure_01_p1.png)
 *Cranial Nerve 1 - Olfactory Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6107,9 +5913,6 @@ Oculomotor Nerve (CN III):
 Motor nerve arises from midbrain, passes through the lateral
 aspect of cavernous sinus and exits skull through the superior
 orbital fissure
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve Iii_ Oculomotor Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-iii-oculomotor-nerve/figure_01_p1.png)
 *Cranial Nerve Iii_ Oculomotor Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6159,12 +5962,8 @@ nerve disease
 > optic chiasm,tumor of pituitary gland compresses optic nerve
 > at chiasm produces visual defect called bitemporal hemianopia
 
-> Overview  Comments
-
 ![Cranial Nerve Ii_ Optic Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-ii-optic-nerve/figure_01_p1.png)
-*Cranial Nerve Ii_ Optic Nerve — Clinical Figure 1 (Page 1 Reference)*
-
-Previous Next',
+*Cranial Nerve Ii_ Optic Nerve — Clinical Figure 1 (Page 1 Reference)*',
     false,
     2,
     'published',
@@ -6194,10 +5993,7 @@ Trochlear Nerve:
 smallest cranial nerve (by number of axons) yet has the longest
 intracranial course. Emerges from posterior aspect of midbrain,
 travels through lateral aspect of cavernous sinus, exits skull
-through superior orbital fissure.
-Previous Next
-
-Overview  Comments
+through superior orbital fissure.
 
 ![Cranial Nerve Iv_ Trochlear Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-iv-trochlear-nerve/figure_01_p1.png)
 *Cranial Nerve Iv_ Trochlear Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6229,13 +6025,10 @@ Overview  Comments
 Glossopharyngeal Nerve (CN IX):
 originates in the medulla oblongata of the brain, moves
 laterally in the posterior cranial fossa, and leaves the skull
-through jugular foramen.
+through jugular foramen.
 Note: Facial nerve in parotid gland splits into five terminal
 branches but parotid gland is innervated by
 glossopharyngeal nerve
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve Ix_ Glassopharyngeal Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-ix-glassopharyngeal-nerve/figure_01_p1.png)
 *Cranial Nerve Ix_ Glassopharyngeal Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6267,10 +6060,7 @@ Overview  Comments
 Vestibulocochlear Nerve (CN VIII):
 Comprised of two vestibular and cochlear portions, emerges
 from the brainstem at the cerebellopontine angle, enters
-internal acoustic meatus of temporal bone.
-Previous Next
-
-Overview  Comments
+internal acoustic meatus of temporal bone.
 
 ![Cranial Nerve Viii_ Vestibulocochlear Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-viii-vestibulocochlear-nerve/figure_01_p1.png)
 *Cranial Nerve Viii_ Vestibulocochlear Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6309,7 +6099,7 @@ branching into five terminal branches to supply the face.
 Cause of injury: Bell''s palsy, Ramsay-Hunt syndrome, Guillain-
 Barre syndrome, mumps, parotid tumor, and injury to the
 middle ear.
-Clinical effects of injury:  impaired sense of taste to anterior
+Clinical effects of injury:  impaired sense of taste to anterior
 two-thirds of tongue, loss of efferent corneal reflex, impaired
 lacrimal fluid production, hyperacusis, and impaired salivation
 Facial nerve branches in the temporal bone:
@@ -6317,7 +6107,7 @@ The nerve to the stapedius: Innervate stapedius muscle.
 The greater petrosal nerve: parasympathetic innervation to
 the lacrimal gland and the mucous glands of the oral cavity,
 nose and pharynx
-The chorda tympani: supply taste to the anterior two-thirds
+The chorda tympani: supply taste to the anterior two-thirds
 of the tongue
 Facial nerve branches between the stylomastoid foramen
 and parotid gland:3 motor branches
@@ -6331,15 +6121,13 @@ Nerve to the stylohyoid muscle: Innervates the stylohyoid
 muscle, one of the suprahyoid muscles of neck responsible
 for raising the hyoid bone.
 
-Overview  Comments
-
 Note: Greater auricular nerve cutaneous branch of the cervical
 plexus provides sensory innervation to ear lobule, skin over the
 parotid gland and mastoid process of the temporal bone. Pain
 of parotitis and during ear piercing is due to innervation of
 greater auricular nerve.
 Facial nerve terminal branches in parotid gland:
-The cervical branch: innervating the platysma muscle.
+The cervical branch: innervating the platysma muscle.
 The temporal branch: innervating muscles in the temple,
 forehead muscles (frontalis) and supraorbital areas (upper
 half of orbicularis oculi muscle)
@@ -6348,7 +6136,7 @@ infraorbital area (Lower half of orbicularis oculi muscle), the
 lateral nasal area and the upper lip
 The buccal branch: innervating muscles in the cheek and
 upper lip
-The marginal mandibular branch: innervating muscles of
+The marginal mandibular branch: innervating muscles of
 the lower lip and chin
 
 > [!TIP]
@@ -6360,8 +6148,7 @@ In the anterior , general sensation is supplied by the
 trigeminal nerve (CNV). Specifically, the lingual nerve, a
 branch of the mandibular nerve (CN V3).
 The posterior  of the tongue both touch and taste are
-carried by the glossopharyngeal nerve (CNIX)
-Previous Next',
+carried by the glossopharyngeal nerve (CNIX)',
     false,
     6,
     'published',
@@ -6391,9 +6178,6 @@ Abducent nerve:
 Purely motor nerve supplying lateral rectus muscle, arises from
 pons of the midbrain, travels through cavernous sinus, exits
 skull through superior orbital fissure.
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve Vi_ Abducent Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-vi-abducent-nerve/figure_01_p1.png)
 *Cranial Nerve Vi_ Abducent Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6433,10 +6217,6 @@ brainstem from pons It has three main divisions:
 
 ### 3: Mandibular V3
 
-Overview  Comments
-
-Previous Next
-
 ![Cranial Nerve V_ Trigeminal Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-v-trigeminal-nerve/figure_01_p2.png)
 *Cranial Nerve V_ Trigeminal Nerve — Clinical Figure 1 (Page 2 Reference)*',
     false,
@@ -6465,13 +6245,10 @@ Previous Next
     '# Cranial Nerve Xii_ Hypoglossal Nerve
 
 Hypoglossal Nerve:
-Pure motor nerve arises from medulla oblongata passes
+Pure motor nerve arises from medulla oblongata passes
 laterally across the posterior cranial fossa, within the
 subarachnoid space, exits the cranium via the hypoglossal
 canal of the occipital bone.
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve Xii_ Hypoglossal Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-xii-hypoglossal-nerve/figure_01_p1.png)
 *Cranial Nerve Xii_ Hypoglossal Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6506,9 +6283,6 @@ through foramen magnum, travels through posterior cranial
 fossa and exits skull through jugular foramen.
 Outside the cranium, it descends along the internal carotid
 artery and innervate sternocleidomastoid muscle.
-Previous Next
-
-Overview  Comments
 
 ![Cranial Nerve Xi_ Spinal Accessory Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-xi-spinal-accessory-nerve/figure_01_p1.png)
 *Cranial Nerve Xi_ Spinal Accessory Nerve — Clinical Figure 1 (Page 1 Reference)*',
@@ -6557,12 +6331,10 @@ respectively.
 
 > [!TIP]
 > **Clinical pearls:**
-> Vasovagal syncope:  Causes heart rate and blood pressure to
+> Vasovagal syncope:  Causes heart rate and blood pressure to
 > drop suddenly during a period of emotional stress caused by
 > initial increase in sympathetic outflow followed by a rebound
 > reduction in sympathetic activity leaving unopposed
-
-> Overview  Comments
 
 ![Cranial Nerve X_ Vagus Nerve - Clinical Figure 1](/lessons/images/cranial-nerves-in-depth/cranial-nerve-x-vagus-nerve/figure_01_p1.png)
 *Cranial Nerve X_ Vagus Nerve — Clinical Figure 1 (Page 1 Reference)*
@@ -6576,7 +6348,6 @@ dehydration or haemorrhage or to venodilatation caused by
 medications or autonomic insufficiency (eg as occurs in
 Parkinsons disease).
 Causes of syncope:
-Previous Next
 
 ![Cranial Nerve X_ Vagus Nerve - Clinical Figure 2](/lessons/images/cranial-nerves-in-depth/cranial-nerve-x-vagus-nerve/figure_02_p2.png)
 *Cranial Nerve X_ Vagus Nerve — Clinical Figure 2 (Page 2 Reference)*',
@@ -6650,8 +6421,6 @@ Delayed closure of these rectifier K+ channels cause a
 transient hyperpolarization.
 Refractory Period
 
-Overview  Comments
-
 Following the action potential, Na+ channels remain inactive
 for a time in a period known as the absolute refractory period
 where they cannot be opened by any amount of
@@ -6662,8 +6431,7 @@ depolarise and an action potential can be generated only in
 response to a larger than normal stimulus.
 The refractory period limits the frequency at which action
 potentials can be generated, and ensures that, once initiated,
-an action potential can travel only in one direction.
-Previous Next',
+an action potential can travel only in one direction.',
     true,
     0,
     'published',
@@ -6707,8 +6475,6 @@ Decrease membrane thickness.
 Increase oil/ water partition co- efficient.
 Active transport
 
-Overview  Comments
-
 ![Cell Membrane Transport - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_01_p1.png)
 *Cell Membrane Transport — Clinical Figure 1 (Page 1 Reference)*
 
@@ -6718,7 +6484,6 @@ Example of hypotonic fluid: Pure water we drink is
 hypotonic to body fluids.
 Example of Isotonic fluid: NS 0.9% , Ringer''s lactate
 Example of hypertonic fluid: 3% Hypertonic saline
-Previous Next
 
 ![Cell Membrane Transport - Clinical Figure 2](/lessons/images/cell-physiology-membrane-transport/cell-membrane-transport/figure_02_p2.png)
 *Cell Membrane Transport — Clinical Figure 2 (Page 2 Reference)*
@@ -6775,8 +6540,6 @@ ICF 0.4X Body weight
 Electrolytes distribution in ECF and
 ICF
 
-Overview  Comments
-
 ![Homeostasis - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/homeostasis/figure_01_p1.png)
 *Homeostasis — Clinical Figure 1 (Page 1 Reference)*
 
@@ -6790,7 +6553,7 @@ Effector.
 A regulated variable is sensed, information is fed back to the
 controller, and the effector acts to oppose change (hence the
 term negative) Control most systems of body."
-Examples:  Osmoregulation, regulation of blood, pressure,
+Examples:  Osmoregulation, regulation of blood, pressure,
 temperature regulation, regulation of CO2 in ECF.
 
 ### 2: Positive feedback:
@@ -6804,7 +6567,6 @@ Blood clotting.
 Generation of nerve signals.
 Sensation of needing to urinate.
 Follicular phase of menstrual cycle
-Previous Next
 
 ![Homeostasis - Clinical Figure 2](/lessons/images/cell-physiology-membrane-transport/homeostasis/figure_02_p2.png)
 *Homeostasis — Clinical Figure 2 (Page 2 Reference)*',
@@ -6852,16 +6614,12 @@ sarcomere
 Contains Myosin (Recall)
 Thin filaments: Present in the I band.
 Anchored at the Z lines.
-Contains actin, tropomyosin and troponin.
+Contains actin, tropomyosin and troponin.
 There are three types of muscle:
 Skeletal
 Cardiac
 Smooth
 Comparison between them:
-
-Overview  Comments
-
-Previous Next
 
 ![Nerve Muscle - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/nerve-muscle/figure_01_p2.png)
 *Nerve Muscle — Clinical Figure 1 (Page 2 Reference)*',
@@ -6905,10 +6663,7 @@ Function: Ach binds with receptor of Ach-gated channels on
 muscle membrane and open them to cause tremendous Na+
 influx giving rise to muscle action potential.
 Destruction: Released Ach is destroyed by acetylcholinesterase
-in basal lamina; this prevents re-excitation.
-Previous Next
-
-Overview  Comments',
+in basal lamina; this prevents re-excitation.',
     false,
     4,
     'published',
@@ -6975,8 +6730,6 @@ intracellular Ca2+ and is the major site of lipid production.
 
 ### 4: Golgi body: Secretory vesicles found
 
-Overview  Comments
-
 The Golgi apparatus packages proteins for delivery to specific
 intracellular destinations or into vesicles which can then be
 secreted from the cell for extracellular action.
@@ -6989,8 +6742,7 @@ responsible for ribosomes production.
 
 protein synthesis takes place. They can be found in the
 cytoplasm (free ribosomes) or attached to the endoplasmic
-reticulum (bound ribosomes).
-Previous Next',
+reticulum (bound ribosomes).',
     false,
     5,
     'published',
@@ -7017,9 +6769,6 @@ Previous Next',
     '# Osmolality and Osmolal Gap
 
 Osmolality and osmolal gap
-Previous Next
-
-Overview  Comments
 
 ![Osmolality and Osmolal Gap - Clinical Figure 1](/lessons/images/cell-physiology-membrane-transport/osmolality-and-osmolal-gap/figure_01_p1.png)
 *Osmolality and Osmolal Gap — Clinical Figure 1 (Page 1 Reference)*',
@@ -7061,7 +6810,7 @@ sarcoplasmic reticulum Ca2+ channels and the release of
 stored Ca2+ into the sarcoplasm.
 Molecular Events in Muscle
 Contraction and Sliding
-filament theory.
+filament theory.
 Motor neuron axon releases acetylcholine
 Acetylcholine diffuses across synaptic cleft.
 This stimulates the sarcolemma. The impulse travels over the
@@ -7074,10 +6823,7 @@ Tropomyosin moves and exposes sites on actin filaments.
 Actin and myosin form linkages.
 Actin filaments are pulled inward by myosin cross-bridges
 (Sliding filament theory Muscle fibers shorten as contraction
-occurs.
-Previous Next
-
-Overview  Comments',
+occurs.',
     false,
     7,
     'published',
@@ -7116,10 +6862,7 @@ contracture formation after death is called rigor mortis.
 This is due to the loss of ATP that is required to separate the
 cross bridges from actin during contraction.
 It remains until after 15 to 20 hours, when the muse protein
-detoriates.
-Previous Next
-
-Overview  Comments',
+detoriates.',
     false,
     8,
     'published',
@@ -7176,17 +6919,12 @@ pressure) tends to extend it and increases wall tension.
 This can be described by Laplace''s Law: Pt = (Tw)/r
 where,
 Pt = Transmural Pressure
-T = Wall Tension
-
-Overview  Comments
-
-w = Wall Thickness
+T = Wall Tension w = Wall Thickness
 r = Radius
 Laplace''s Law also means that a large, dilated heart (e.g., heart
 failure) has to develop more wall tension (contractile force) in
 order to obtain the same ventricular pressure, making it less
-efficient.
-Previous Next',
+efficient.',
     false,
     9,
     'published',
@@ -7254,13 +6992,9 @@ Intra-ventricular pressure falls aortic and pulmonary valves
 close.
 But ventricular vol. does not change.
 
-### 2.  Period of Rapid Filling of Ventricles (First ): During this,
+### 2.  Period of Rapid Filling of Ventricles (First ): During this,
 
-atrial pressure becomes greater than    intra-ventricular
-
-Overview  Comments
-
-pressure (just after systole is over), AV valves (tricuspid and
+atrial pressure becomes greater than    intra-ventricular pressure (just after systole is over), AV valves (tricuspid and
 mitral) open, and blood flows rapidly into respective ventricles.
 
 ### 3. Diastasis (Middle ): During this, blood continues to empty
@@ -7298,9 +7032,7 @@ The P wave is caused by the spread of depolarization across
 the atria, which causes atrial contraction. Atrial pressure
 increases just after the P wave.
 The QRS waves appear as a result of ventricular
-depolarization about 0.16 second after the onset of the P
-
-wave, and this initiates ventricular contraction; then the
+depolarization about 0.16 second after the onset of the P wave, and this initiates ventricular contraction; then the
 ventricular pressure begins to increase.
 The ventricular T wave is caused by repolarization of the
 ventricle.
@@ -7309,8 +7041,7 @@ AV (tricuspid and mitral valves) prevent backflow of blood
 from ventricles to atria during systole.
 Semilunar (aortic and pulmonary) valves prevent backflow
 of blood from aorta and pulmonary trunk into ventricles
-during diastole.
-Previous Next',
+during diastole.',
     true,
     0,
     'published',
@@ -7351,8 +7082,8 @@ Calcium initiates muscle contraction by binding to troponin.
 Contraction occurs as it does in skeletal muscle.
 Treppe Effect:
 More action potentials occur ⟶  More Ca2+ enters the cell
-during the AP plateau ⟶  more Ca2+ is stored in the SR ⟶
-more Ca2+ is released from the SR and thus more Ca2+ is left
+during the AP plateau ⟶  more Ca2+ is stored in the SR ⟶
+more Ca2+ is released from the SR and thus more Ca2+ is left
 inside the cell and greater tension is produced during
 contraction. Increased heart rate increases the force of
 contraction.
@@ -7363,10 +7094,7 @@ The Ca2+ that entered the cell during the AP is transported
 out of the cell primarily by the Na+/Ca2+ exchanger in the
 membrane which pumps one Ca2+ ion out in exchange for
 three Na+ ions in, using the Na+ electrochemical gradient as
-an energy source.
-Previous Next
-
-Overview  Comments',
+an energy source.',
     false,
     1,
     'published',
@@ -7395,9 +7123,6 @@ Overview  Comments',
 Cardiac myocyte
 Cardiac myocyte and comparison with other
 cells
-Previous Next
-
-Overview  Comments
 
 ![Cardiac Myocyte - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/cardiac-myocyte/figure_01_p1.png)
 *Cardiac Myocyte — Clinical Figure 1 (Page 1 Reference)*',
@@ -7463,11 +7188,7 @@ Capillary permeability:
 Capillaries throughout the body vary in their permeability
 based on the size of their pores. There are three basic types:
 Continuous capillaries, found in the skin, lungs, muscles and
-CNS, are the most selective with low permeability, as
-
-Overview  Comments
-
-junctions between the endothelial cells are very tight,
+CNS, are the most selective with low permeability, as junctions between the endothelial cells are very tight,
 restricting the flow of molecules with MW > 10,000.
 Fenestrated capillaries, found in renal glomeruli, endocrine
 glands and intestinal villi, are more permeable with less tight
@@ -7479,9 +7200,9 @@ system (bone marrow, liver and spleen), have large gaps
 between endothelial cells and are permeable to red blood
 cells.
 
-### 4:  Venules
+### 4:  Venules
 
-are formed from merged capillaries.
+are formed from merged capillaries.
 
 ### 5: Veins:
 
@@ -7505,9 +7226,7 @@ Mean pressures in the systemic circulation are as follows:
 Aorta, 100 mm Hg
 Arterioles, 50 mm Hg
 Capillaries, 20 mm Hg
-Vena cava, 4 mm Hg
-
-Previous Next',
+Vena cava, 4 mm Hg',
     false,
     3,
     'published',
@@ -7559,10 +7278,7 @@ per minute
 Purkinje fibers produce spontaneous action potential at rate
 of 20-40 bpm.
 Note: AV nodal abnormality is responsible for prolonged PR
-interval (1st degree heart block)
-Previous Next
-
-Overview  Comments',
+interval (1st degree heart block)',
     false,
     4,
     'published',
@@ -7603,9 +7319,6 @@ V5: Midaxillary line, same level as V4 and V5
 The three limb electrodes, I, II and III form a triangle
 (Einthoven''s Triangle), at the right arm (RA), left arm (LA) and
 left leg (LL).
-Previous Next
-
-Overview  Comments
 
 ![Electrocardiography (ecg) - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/electrocardiography-ecg/figure_01_p1.png)
 *Electrocardiography (ecg) — Clinical Figure 1 (Page 1 Reference)*',
@@ -7652,7 +7365,7 @@ Prostaglandins: Prostacyclin is a vasodilator in several vascular
 beds.
 E-series prostaglandins are vasodilators.
 F- Series prostaglandins are vasoconstrictors.
-Thromboxane A2 is a vasoconstrictor.
+Thromboxane A2 is a vasoconstrictor.
 Coronary circulation: is controlled almost entirely by local
 metabolic factors.
 Exhibits autoregulation. exhibits active and reactive
@@ -7665,10 +7378,8 @@ demand, compensatory vasodilation of coronary vessels
 occurs and, accordingly, both blood flow and O2 delivery to
 the contracting heart muscle increase (active hyperemia).
 
-Overview  Comments
-
 During systole, mechanical compression of the coronary
-vessels reduces blood flow. After        the period of occlusion,
+vessels reduces blood flow. After        the period of occlusion,
 blood flow increases to repay the O2 debt (reactive
 hyperemia).
 Cerebral Circulation:
@@ -7706,9 +7417,7 @@ During exercise, when demand is high, these local metabolic
 mechanisms are dominant.
 The local vasodilator substances are lactate, adenosine, and
 K. Mechanical effects during exercise temporarily compress
-the arteries and decrease blood flow. During the post
-
-occlusion period, reactive hyperemia increases blood flow to
+the arteries and decrease blood flow. During the post occlusion period, reactive hyperemia increases blood flow to
 repay the O2 debt.
 Skin: Skin has extensive sympathetic innervation. Cutaneous
 blood flow is under extrinsic control. Temperature regulation is
@@ -7720,7 +7429,6 @@ flare, and a wheal. A wheal is local edema that results from
 the local release of histamine, which increases capillary
 filtration.
 Vasoconstricting and Vasodilating agent:
-Previous Next
 
 ![Harmonal Control of Blood Flow - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/harmonal-control-of-blood-flow/figure_01_p3.png)
 *Harmonal Control of Blood Flow — Clinical Figure 1 (Page 3 Reference)*',
@@ -7751,9 +7459,6 @@ Previous Next
 
 Heart sounds, Mechanical event and correspondence with
 ECG
-Previous Next
-
-Overview  Comments
 
 ![Heart Sounds, Mechanical Events and Correspondance with ECG - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/heart-sounds-mechanical-events-and-correspondance-with-ecg/figure_01_p1.png)
 *Heart Sounds, Mechanical Events and Correspondance with ECG — Clinical Figure 1 (Page 1 Reference)*',
@@ -7792,7 +7497,7 @@ Heart rate= 70bpm
 Cardiac output (CO) = Stroke volume x Heart rate = 70
 mL/beat x 70 beats/min = 4900 mL/min
 Mean arterial pressure: Average arterial pressure during
-single cardiac cycle. MAP can be calculated by:  Diastolic
+single cardiac cycle. MAP can be calculated by:  Diastolic
 pressure +  of pulse pressure (SBP-DBP) OR 80+  (120-
 80) = 93mmhg where BP
 End-Diastolic Volume: The volume of blood in each ventricle
@@ -7802,10 +7507,7 @@ End-Systolic Volume: The volume of blood in each ventricle
 at end of systole is called end-systolic volume. (Value: 50-
 60ml)
 Ejection Fraction: Fraction of end-diastolic volume that is
-ejected during systole, is called ejection fraction. (Value: 60%)
-Previous Next
-
-Overview  Comments',
+ejected during systole, is called ejection fraction. (Value: 60%)',
     false,
     8,
     'published',
@@ -7862,11 +7564,7 @@ Large water-soluble substances can cross by pinocytosis.
 Lymph:
 Function of lymph: Normally, filtration of fluid out of the
 capillaries is slightly greater than absorption of fluid into the
-capillaries. The excess filtered fluid is returned to the circulation
-
-Overview  Comments
-
-via the lymph also returns any filtered protein to the
+capillaries. The excess filtered fluid is returned to the circulation via the lymph also returns any filtered protein to the
 circulation.
 Unidirectional flow of lymph One-way flap valves permit
 interstitial fluid to enter, but not leave the lymph vessels.
@@ -7894,8 +7592,7 @@ cyclase and production of cyclic guanosine
 monophosphate (cGMP)
 NO is one form of endothelial-derived relaxing factor (EDRF).
 Circulating Acetylcholine causes vasodilation by stimulating
-the production of NO in vascular smooth muscle.
-Previous Next',
+the production of NO in vascular smooth muscle.',
     false,
     9,
     'published',
@@ -7930,10 +7627,7 @@ increases blood pressure by increasing total peripheral
 resistance (TPR). If resistance increases, then more pressure is
 needed to keep blood moving.
 Parasympathetic stimulation decreases heart rate and
-strength, thereby decreasing cardiac pumping.
-Previous Next
-
-Overview  Comments',
+strength, thereby decreasing cardiac pumping.',
     false,
     10,
     'published',
@@ -7982,8 +7676,6 @@ Constriction of arterioles causes intense peripheral
 vasoconstriction and increased TPR. Blood flow to other
 organs (e.g., kidneys) is significantly reduced to preserve
 
-Overview  Comments
-
 ![Regulation of Blood Pressure - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/regulation-of-blood-pressure/figure_01_p1.png)
 *Regulation of Blood Pressure — Clinical Figure 1 (Page 1 Reference)*
 
@@ -7994,8 +7686,7 @@ ischemia. Increases in intracranial pressure cause compression
 of the cerebral blood vessels, leading to cerebral ischemia and
 increased cerebral Pco ₂ . The vasomotor center directs an
 increase in sympathetic outflow to the heart and blood vessels,
-which causes a profound increase in arterial pressure.
-Previous Next',
+which causes a profound increase in arterial pressure.',
     false,
     11,
     'published',
@@ -8052,8 +7743,6 @@ increased EDV/ preload there is increased in Stroke volume
 this intrinsic relationship between EDV and stroke volume is
 known as frank starling law of heart.
 
-Overview  Comments
-
 Afterload is the pressure that the chambers of the heart
 must generate in order to eject blood out of the heart occurs
 in systole.
@@ -8062,7 +7751,7 @@ and flattened due to reduced inotropy, so that more venous
 return and hence preload is required to increase stroke volume.
 As venous return and preload rise, myocyte stretching occurs
 that increases sarcomere length.
-Factors affecting frank starling curve.
+Factors affecting frank starling curve.
 increase in contractility shift the curve upward and to the
 left e.g.: positive inotropic drugs (RECALL)
 Decrease in contractility= downward and to the right
@@ -8105,8 +7794,7 @@ Adrenaline is positive inotrope as well as positive
 chronotropic agent, increases both heart rate and
 contractility.
 Dopamine is positive inotropic drug increases contractility.
-Digoxin is positive inotrope and negative chronotrope.
-Previous Next',
+Digoxin is positive inotrope and negative chronotrope.',
     false,
     12,
     'published',
@@ -8137,7 +7825,7 @@ potential
 RMP of Ventricular myocyte is -90mv depolarization initiates
 when RMP reaches threshold of -65mv
 Fast Na channels activate and a rapid Na+ influx
-depolarizes membrane potential.
+depolarizes membrane potential.
 Pacemaker action potential:
 Action potential of SA node differs from ventricular muscle.
 RMP of SA node is -60mv depolarization initiates when RMP
@@ -8146,12 +7834,8 @@ Slow calcium channels activation and calcium influx
 initiates depolarization unlike of other ventricular muscle Na
 influx initiates depolarization
 
-Overview  Comments
-
 ![Ventricular Myocyte Vs Pacemaker Action Potential - Clinical Figure 1](/lessons/images/cardiovascular-physiology-hemodynamics/ventricular-myocyte-vs-pacemaker-action-potential/figure_01_p1.png)
 *Ventricular Myocyte Vs Pacemaker Action Potential — Clinical Figure 1 (Page 1 Reference)*
-
-Previous Next
 
 ![Ventricular Myocyte Vs Pacemaker Action Potential - Clinical Figure 2](/lessons/images/cardiovascular-physiology-hemodynamics/ventricular-myocyte-vs-pacemaker-action-potential/figure_02_p2.png)
 *Ventricular Myocyte Vs Pacemaker Action Potential — Clinical Figure 2 (Page 2 Reference)*',
@@ -8200,7 +7884,7 @@ The A-a gradient is used to determine whether O2 has
 equilibrated between alveolar gas and arterial blood.
 The normal A-a gradient is between 0- and 10mm Hg. Since
 O2 normally equilibrates between alveolar gas and arterial
-blood, PAo2 is approximately equal to Pao2. e.g.,
+blood, PAo2 is approximately equal to Pao2. e.g.,
 Hypoventilation: CNS depression, Neuromuscular disease
 (including myasthenia gravis and kyphoscoliosis), Obesity
 and Low inspired fio2 on high altitude
@@ -8216,10 +7900,7 @@ Note: Erythropoietin (EPO) is growth factor that is synthesized
 in the kidneys in response to hypoxia
 Hypoxemia: Decrease in arterial pao2 caused by decreased
 Alveolar PAo2, diffusion defect, V/Q defects and right to left
-shunt
-Previous Next
-
-Overview  Comments',
+shunt',
     true,
     0,
     'published',
@@ -8277,10 +7958,8 @@ At the peak of inspiration, lung volume is the FRC plus one
 Tidal volume.
 During expiration:
 
-Overview  Comments
-
 Alveolar pressure becomes greater than atmospheric
-pressure. "The alveolar pressure becomes greater (i.e. becomes
+pressure. "The alveolar pressure becomes greater (i.e. becomes
 positive) because alveolar gas is compressed by the elastic
 forces of the lung.
 Thus, alveolar pressure is now higher than atmospheric
@@ -8296,8 +7975,7 @@ learn to expire slowly with "pursed lips." By creating a
 resistance at the mouth, airway pressure is increased and
 prevents the airway collapse that may occur with a forced
 expiration.
-Lung volume returns to FRC.
-Previous Next',
+Lung volume returns to FRC.',
     false,
     1,
     'published',
@@ -8351,16 +8029,12 @@ Central control of breathing
 
 ### 1. Medullary respiratory center (Recall)
 
-A: Dorsal respiratory group is primarily responsible for
+A: Dorsal respiratory group is primarily responsible for
 inspiration and generates the basic rhythm for breathing
 Input to the dorsal respiratory group comes from the vagus
 and glossopharyngeal nerves. The vagus nerve relays
 information from peripheral chemoreceptors in the lung. The
-glossopharyngeal nerve relays information from peripheral
-
-Overview  Comments
-
-chemoreceptors and Output from the dorsal respiratory
+glossopharyngeal nerve relays information from peripheral chemoreceptors and Output from the dorsal respiratory
 group travels, via the phrenic nerve, to the diaphragm
 B: Ventral respiratory group is primarily responsible for
 expiration, is not active during normal, quiet breathing, when
@@ -8382,12 +8056,11 @@ of breathing. Pneumotaxic center normally prevents
 excessive deep breathing, damage to pneumotaxic results in
 increase in depth of respiration (deep breathing) and
 decrease in respiratory rate.
-4.Cerebral cortex: Breathing can be under voluntary control;
+4.Cerebral cortex: Breathing can be under voluntary control;
 therefore, a person can voluntarily hyper ventilate or hypo
 ventilate.
 Note: Hypoventilation (breath-holding) is limited by the
-resulting increase in Pco2 and decrease in P02
-Previous Next',
+resulting increase in Pco2 and decrease in P02',
     false,
     2,
     'published',
@@ -8419,9 +8092,6 @@ chemoreceptors.
 Chemoreceptor overview:
 Central chemoreceptor Vs Peripheral
 chemoreceptor
-Previous Next
-
-Overview  Comments
 
 ![Control of Ventilation - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/control-of-ventilation/figure_01_p1.png)
 *Control of Ventilation — Clinical Figure 1 (Page 1 Reference)*
@@ -8462,16 +8132,13 @@ Refers to alveoli incapable of gas exchange, in normal healthy
 individual it is negligible, but it may become significant in
 V/Q mismatch i.e., in pulmonary embolism when alveoli do
 not take part in gas exchange.
-Physiologic dead space: sum of anatomical and alveolar dead
+Physiologic dead space: sum of anatomical and alveolar dead
 space.
 Defined as the volume of the lungs that does not participate
 in gas exchange. is approximately equal to the anatomic
 dead space in normal lungs may be greater than the
 anatomic dead space in lung diseases in which the
-ventilation/perfusion (V/Q) defects.
-Previous Next
-
-Overview  Comments',
+ventilation/perfusion (V/Q) defects.',
     false,
     4,
     'published',
@@ -8530,15 +8197,12 @@ diffusion coefficient of the gas and surface area and inversely
 proportional to thickness of the barrier. DLCO is measured with
 carbon monoxide (i.e., DLCO).
 
-Overview  Comments
-
 DLCO increases during exercise because there are more
 open capillaries and thus more surface area for diffusion.
 DLCO decreases in emphysema (because of decreased
 surface area) and in fibrosis and pulmonary edema (because
 of increased diffusion distance).
 High DLCO and Low DLCO
-Previous Next
 
 ![Diffusion and Diffusion Capacity - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/diffusion-and-diffusion-capacity/figure_01_p2.png)
 *Diffusion and Diffusion Capacity — Clinical Figure 1 (Page 2 Reference)*',
@@ -8595,11 +8259,7 @@ Henry law: states that the amount of dissolved gas in a liquid
 (such as blood) is proportional to its partial pressure above the
 liquid.
 So, breathing gas at higher-than-normal pressures will cause
-their bodies to absorb more gases than are absorbed at lower
-
-Overview  Comments
-
-pressures. Absorbed gases can cause decompression
+their bodies to absorb more gases than are absorbed at lower pressures. Absorbed gases can cause decompression
 sickness as well as toxic effects.
 Henry law is applicable in Scuva diving or deep-sea diver.
 The following calculation uses O2 in arterial blood as an
@@ -8611,7 +8271,6 @@ where:
 Po2partial pressure of O2 in blood
 0.003 mL O2/100 mL/mm Hg= solubility of O2 in blood
 Partial pressure of O2 and Co2 (mm Hg)
-Previous Next
 
 ![Gas Exchange - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/gas-exchange/figure_01_p2.png)
 *Gas Exchange — Clinical Figure 1 (Page 2 Reference)*',
@@ -8662,10 +8321,7 @@ collapse is increased, Therefore, at the original FRC the
 tendency of the lungs to collapse is greater than the
 tendency of the chest wall to expand. The lung-chest wall
 system will seek a new, lower FRC so that the two opposing
-forces can be balanced again.
-Previous Next
-
-Overview  Comments',
+forces can be balanced again.',
     false,
     7,
     'published',
@@ -8717,11 +8373,7 @@ Hering-Breuer inflation reflex: inflation of the lungs tended to
 inhibit further inspiratory muscle activity (dorsal neuron).
 Increase in duration of expiration.
 Hering-Breuer Deflation reflex: Decrease in duration of
-expiration produced by marked deflation of lung.
-
-Overview  Comments
-
-Previous Next',
+expiration produced by marked deflation of lung.',
     false,
     8,
     'published',
@@ -8750,7 +8402,7 @@ Previous Next',
 Lung volume and capacities
 Tidal Volume (TV): The volume of air that is inhaled and then
 exhaled with each normal breath.
-Normal tidal volume is 500ml or 7ml/kg.
+Normal tidal volume is 500ml or 7ml/kg.
 Inspiratory Reserve Volume (IRV): The maximum volume of air
 that can be inhaled following and above a normal tidal
 inspiration.
@@ -8773,11 +8425,9 @@ Volume remaining in the lungs after tidal volume is expired in
 air.
 FRC is sum of: FRC= ERV+ RV
 FRC include Residual volume so FRC cannot be measured
-using spirometry.
+using spirometry.
 Normal FRC is 3500ml.
-Factors affecting FRC.
-
-Overview  Comments
+Factors affecting FRC.
 
 Factors increasing FRC: Emphysema, Air trapping in asthma,
 Ageing (due to loss of elastic properties) and Increasing
@@ -8811,8 +8461,8 @@ expressed as
 In obstructive lung disease such as asthma and chronic
 obstructive pulmonary disease (COPD), both FEV1 and FVC
 are reduced, but FEV1 is reduced more than FVC. FEV1/FVC
-ratio is less than 0.7.
-In restrictive lung disease such as fibrosis, both FEV1 and
+ratio is less than 0.7.
+In restrictive lung disease such as fibrosis, both FEV1 and
 FVC are reduced, but FEV1 is reduced less than FVC is thus,
 Fev1 /FVC increased.
 Lung volume measurements and
@@ -8823,7 +8473,7 @@ Residual volume and thus (FRC and TLC) can be measured
 using helium dilution.
 Peak Expiratory flow rate:
 
-The easiest and quickest measurement is the peak expiratory
+The easiest and quickest measurement is the peak expiratory
 flow rate (PEFR)
 Airway resistance and lung compliance can be assessed
 indirectly by measuring the forced expiratory flows and
@@ -8831,8 +8481,7 @@ volumes.
 Lung volumes can be measured with spirometry.
 PEFR is reduced if airway resistance is increased in
 obstructive disease and is commonly used to monitor
-asthma.
-Previous Next',
+asthma.',
     false,
     9,
     'published',
@@ -8893,15 +8542,13 @@ Decreased H+
 Decreased 2-3DPG.
 CO poisoning
 
-Overview  Comments
-
 Methemoglobinemia
 Fetal hemoglobin
 Note:
 Fetal hemoglobin has a higher affinity for oxygen than adult
 hemoglobin. Maternal and Fetal blood never mix during
 pregnancy, but they come close to each other in the
-placenta.  Oxygen diffuses easily to fetal hemoglobin here.
+placenta.  Oxygen diffuses easily to fetal hemoglobin here.
 The reason fetal hemoglobin has a higher affinity for 02. It is
 composed of two alpha and two gamma subunits, while
 adult hemoglobin is composed of two alpha and two beta
@@ -8910,8 +8557,7 @@ subunits.
 release o2 near tissue and 2,3DPG only binds with beta
 globulin chains, fetal hemoglobin (HbF) lack of beta
 globulin chains that''s why fetal hemoglobin has higher
-affinity for O2
-Previous Next',
+affinity for O2',
     false,
     10,
     'published',
@@ -8955,17 +8601,14 @@ The smallest airways would seem to offer the highest
 resistance, but they do not because of their parallel
 arrangement.
 Contraction or relaxation of bronchial
-smooth muscle:  changes airway resistance
+smooth muscle:  changes airway resistance
 by altering the radius of the airways.
 Parasympathetic stimulation, irritants, and the slow-reacting
 substance of anaphylaxis (asthma) constrict the airways,
 decrease the radius, and increase the resistance to airflow.
 Sympathetic stimulation and sympathetic agonists
 (isoproterenol) dilate the airway via beta2 receptors, increase
-the radius, and decrease the resistance to airflow.
-Previous Next
-
-Overview  Comments',
+the radius, and decrease the resistance to airflow.',
     false,
     11,
     'published',
@@ -9021,15 +8664,10 @@ of the phospholipid dipalmitoyl phosphatidylcholine (DPPC).
 Note: Type 1 alveolar cells comprise the major gas exchange
 surface of the alveolus
 Neonatal respiratory distress syndrome: can occur in
-premature infants because of the lack of surfactant. The infant
-
-Overview  Comments
-
-exhibits atelectasis (lungs collapse), difficulty reinflating the
+premature infants because of the lack of surfactant. The infant exhibits atelectasis (lungs collapse), difficulty reinflating the
 lungs (as a result of decreased compliance), decreased V/Q and
 right-to-left shunt, and hypoxemia (as a result of decreased V/Q
-and right-to-left shunt).
-Previous Next',
+and right-to-left shunt).',
     false,
     12,
     'published',
@@ -9085,11 +8723,7 @@ haemoglobin
 High PO2 in pulmonary capillaries promotes oxygen binding.
 Each gram of haemoglobin binds with up to 1.34 mL oxygen,
 so with a haemoglobin concentration of 140 g/L, blood
-contains a maximum of 187 mL/L
-
-Overview  Comments
-
-Previous Next',
+contains a maximum of 187 mL/L',
     false,
     13,
     'published',
@@ -9139,7 +8773,7 @@ oxygen decreases because normal amount of oxygen for
 ventilation is not available.
 V/Q ratio zero-pulmonary shunt: No ventilation but
 perfusion remains normal Causes: ARDS, Compression
-atelectasis due to hydrothorax or pneumothorax.
+atelectasis due to hydrothorax or pneumothorax.
 V/Q ratio <1: Low ventilation relative to its perfusion such as
 in partial obstruction of airways. Causes: Low compliance
 e.g., pulmonary fibrosis, High airway resistance e.g., COPD,
@@ -9149,11 +8783,7 @@ asthma
 
 decreased)
 If blood flow to a lung is completely blocked (e.g., by an
-embolism occluding a pulmonary artery), then blood flow to
-
-Overview  Comments
-
-that lung is zero. If ventilation is normal, then V/Q is infinite,
+embolism occluding a pulmonary artery), then blood flow to that lung is zero. If ventilation is normal, then V/Q is infinite,
 which is called dead space.
 Partial pressure of pulmonary CO2 decreases while that of
 oxygen increases.
@@ -9166,15 +8796,14 @@ Anatomic and physiologic
 shunt
 The shunted blood will not have been oxygenated or been
 able to offload CO2 and thus its levels of PO2 and PCO2 are
-that of mixed venous blood. Changes in PCO2 and
-PO2 stimulate the chemoreceptors and increase ventilation,
+that of mixed venous blood. Changes in PCO2 and
+PO2 stimulate the chemoreceptors and increase ventilation,
 so that arterial PCO2 returns to normal.
 However, increased ventilation cannot increase blood
-O2 content, as the haemoglobin of the blood passing
+O2 content, as the haemoglobin of the blood passing
 through the lungs is already close to saturation. Thus, right to
 left shunts commonly result in a low arterial PO2 but a
 normal or low PCO2.
-Previous Next
 
 ![Ventilation Perfusion Mismatch - Clinical Figure 1](/lessons/images/respiratory-physiology-ventilation/ventilation-perfusion-mismatch/figure_01_p2.png)
 *Ventilation Perfusion Mismatch — Clinical Figure 1 (Page 2 Reference)*',
@@ -9245,8 +8874,6 @@ Intracellular buffers
 Organic phosphates e.g., AMP, ADP, ATP, 2,3-
 disphosphoglycerate (DPG)
 Hemoglobin is a major IC buffer.
-
-Overview  Comments
 
 In the physiologic PH range deoxyhemoglobin is a better
 buffer than oxyhemoglobin.
@@ -9328,11 +8955,8 @@ aids in the excretion of excess H.
 Hyperkalemia inhibits NH3 synthesis, which produces a
 decrease in H excretion as NH4 (Type 4 renal tubular
 acidosis). For example, Hypoaldosteronism causes
-hyperkalemia and thus also causes type 4 RTA. Conversely,
-
-hypokalemia stimulates NH3 synthesis, which produces an
-increase in H excretion.
-Previous Next',
+hyperkalemia and thus also causes type 4 RTA. Conversely, hypokalemia stimulates NH3 synthesis, which produces an
+increase in H excretion.',
     true,
     0,
     'published',
@@ -9392,8 +9016,6 @@ determines the presence of unmeasured anions. These
 usually include proteins, sulphate, phosphate and organic
 acids.
 
-Overview  Comments
-
 Normal value of serum anion gap is 12meq/L (range 8-
 16meq/L)
 In metabolic acidosis, serum [HCO3-] decreases. For
@@ -9434,7 +9056,7 @@ Lactic acidosis
 Ethanol, ethylene glycol
 Salicylates
 Note: The most common cause of low anion gap
-is hypoalbuminemia
+is hypoalbuminemia
 
 Metabolic alkalosis
 Loss of fixed H+ or gain of base produces an increase in
@@ -9525,8 +9147,7 @@ Pulmonary disorder
 Hyperventilation (Due to heart disorder or other, including
 improper mechanical ventilation)
 Vocal cord paralysis (compensation for loss of vocal volume
-results in over-breathing/breathlessness).
-Previous Next',
+results in over-breathing/breathlessness).',
     false,
     1,
     'published',
@@ -9572,7 +9193,7 @@ Synthesized in the hypothalamus and transported to
 posterior pituitary within nerve fibers.
 Rapidly removed from plasma decreasing to 50% in
 10minutes due to metabolism in liver and kidney.
-ADH release is stimulated by.
+ADH release is stimulated by.
 High plasma osmolarity detected by Osmoreceptors in
 anterior hypothalamus.
 ECF volume depletion
@@ -9583,8 +9204,6 @@ It increases the synthesis of transport mechanism in DCT
 including Na pump, Na-H antiporter; and Na, K channels in
 principal cells and H- ATPase in intercalated cells. Thereby
 enhancing the Na and H2O reabsorption and H, K secretion.
-
-Overview  Comments
 
 ADH release is inhibited by
 Hypoosmolality
@@ -9609,8 +9228,7 @@ Functions
 Suppress the production of renin, ADH, aldosterone.
 Causes renal vasodilation thereby increasing the GFR.
 Inhibits Na reabsorption in distal nephron by inhibiting the
-ENaC in principal cells.
-Previous Next',
+ENaC in principal cells.',
     false,
     2,
     'published',
@@ -9665,10 +9283,7 @@ in arterial pressure will enhance tubular flow due to
 enhanced glomerular filtration and reduced proximal tubular
 reabsorption. This will raise the NaCl concentration at the
 macula densa and cause afferent arteriolar vasoconstriction,
-providing restoration of filtration and autoregulation of RBF.
-Previous Next
-
-Overview  Comments',
+providing restoration of filtration and autoregulation of RBF.',
     false,
     3,
     'published',
@@ -9725,8 +9340,6 @@ medullary interstitial fluid is also augmented by ADH (by
 stimulating UT1 transporter)
 Vasa recta
 
-Overview  Comments
-
 Are the capillaries that supply the LOH. They maintain the
 corticopapillary gradient by serving as osmotic exchanger.
 Vasa recta blood equilibrates osmotically with interstitial fluid
@@ -9753,7 +9366,7 @@ It is called cortical diluting segment.
 Like the thick ascending limb, early distal tubule reabsorbs
 NaCl but is impermeable to water. Consequently, tubular
 fluid is further diluted.
-Late distal tubule - high ADH
+Late distal tubule - high ADH
 ADH increases the H2O permeability in the principal cells of
 late distal tubule.
 H2O is reabsorbed from the tubular fluid until the osmolarity
@@ -9801,9 +9414,7 @@ Late distal tubule - no ADH
 In the absence of ADH, the cells of late distal tubule and
 collecting ducts are impermeable to water.
 Thus, even though the tubular fluid flows through the
-corticopapillary osmotic gradient, osmotic equilibration does
-
-not occur.
+corticopapillary osmotic gradient, osmotic equilibration does not occur.
 The osmolarity of final urine will be diluted with an osmolarity
 as low as 50mOsm/L.
 TF/Posm = < 1.0
@@ -9827,15 +9438,14 @@ inhibiting both dilution in the thick ascending limb and
 production of the corticopapillary osmotic gradient.
 Therefore, the urine can''t be diluted during high water intake
 or concentrated during water deprivation.
-Urine that is hypoosmotic to plasma (low ADH) CH2O is
+Urine that is hypoosmotic to plasma (low ADH) CH2O is
 positive.
 Produced with high water intake (in which ADH released
 from the posterior pituitary is suppressed), central diabetes
 insipidus or nephrogenic diabetes insipidus.
 Urine that is hyperosmotic to plasma (high ADH)
 CH2O is negative.
-It is produced in water deprivation or SIADH.
-Previous Next',
+It is produced in water deprivation or SIADH.',
     false,
     4,
     'published',
@@ -9883,10 +9493,7 @@ clearance measurement as has to be done to measure inulin
 clearance and because it is freely filtered not reabsorbed and
 only a small amount of it is secreted, creatinine clearance
 parallels inulin clearance and is independent of production rate
-(excretion rises as plasma concentration increases
-Previous Next
-
-Overview  Comments',
+(excretion rises as plasma concentration increases',
     false,
     5,
     'published',
@@ -9944,8 +9551,6 @@ The nephrons are the functional units of the kidneys, and
 number about 1.3 million per kidney.
 There are two types of nephrons, cortical nephrons (85% of
 nephrons) and juxtamedullary nephrons (15% of nephrons)
-
-Overview  Comments
 
 A nephron has two main parts - tubules (proximal
 convoluted tubule, the loop of Henle and the distal
@@ -10030,16 +9635,13 @@ solutes e.g., Albumin.
 
 ### 3: Epithelial cell layer of podocytes: Next to the bowman''s
 
-space; the podocytes have foot processes directly contacting
-
-the basement membrane.
+space; the podocytes have foot processes directly contacting the basement membrane.
 Regular gaps between foot processes (pedicles) are called
 filtration slits, across these slits a protein network forms slit
 pores in the epithelial lining which prevent the passage of
 larger molecules through this final layer.
 Podocytes also exhibit phagocytic and contractile activity like
-that of mesangial cells.
-Previous Next',
+that of mesangial cells.',
     false,
     6,
     'published',
@@ -10095,8 +9697,6 @@ bowman''s space.
 Net filtration pressure = PGC- π GC - PBS
 = 45 - 24 - 8 = 13mmhg
 
-Overview  Comments
-
 Filtration at the glomeruli depends
 upon starling forces.
 Glomerular capillaries have very high hydrostatic pressure;
@@ -10118,8 +9718,7 @@ constriction.
 Renal disease, circulating and local vasoconstrictors,
 sympathetic stimulation all reduce GFR, however angiotensin
 II preferentially constricts efferent arterioles therefore
-increases GFR.
-Previous Next',
+increases GFR.',
     false,
     7,
     'published',
@@ -10163,7 +9762,7 @@ not taken up into cells.
 Exercise
 Cell lysis/ rhabdomyolysis / trauma /burns/ crush syndrome,
 chemotherapy
-Pseudo hyperkalemia:  occurs in
+Pseudo hyperkalemia:  occurs in
 Test tube hemolysis
 Prolonged tourniquet time
 Difficulty collecting sample.
@@ -10183,12 +9782,11 @@ Loss of P wave
 Sinus wave appearance
 
 Late 2026)
-Overview  Comments
 
 Treatment of hyperkalemia
 If there are ECG changes: Stabilize the cardiac membrane
 first, e.g., with IV calcium gluconate (10 ml of 10% solution IV
-over 2 minutes).   Followed by or treatment of hyperkalemia
+over 2 minutes).   Followed by or treatment of hyperkalemia
 without ECG changes:
 shift the K+ into cells:
 Iv glucose and insulin
@@ -10219,7 +9817,7 @@ B2 agonists
 Decreased intake.
 Malnutrition, anorexia nervosa, inadequate replacement
 while on TPN or NPO
-Note  :
+Note  :
 Acidosis redistributes K + out of cells=
 Hyperkalemia
 Alkalosis redistributes K+ into cells= Hypokalemia
@@ -10237,15 +9835,17 @@ Treat the underlying disorder.
 Oral and/or IV potassium replacement
 Magnesium replacement, if hypomagnesemia is present.
 Causes of increased distal K secretion
-High K Alkalosis
+High K diet
+Hyperaldosteronism
+Alkalosis
 Thiazide diuretics
 Loop diuretics
 Luminal anions
 Causes of decreased distal K secretion
-Low K Acidosis
-K sparing diuretics
-
-Previous Next',
+Low K diet
+Hypoaldosteronism
+Acidosis
+K sparing diuretics',
     false,
     8,
     'published',
@@ -10300,11 +9900,7 @@ any other part of the nephron.
 Reabsorbs Na and H2O with HCO3, glucose, amino acids,
 phosphate and lactate.
 Na is reabsorbed by cotransport with glucose, amino acids,
-phosphate and lactate. These cotransport processes account
-
-Overview  Comments
-
-for the reabsorption of all the filtered glucose and amino
+phosphate and lactate. These cotransport processes account for the reabsorption of all the filtered glucose and amino
 acids.
 Na is also reabsorbed by counter transport via Na-H
 exchange, which is linked directly to the reabsorption of
@@ -10358,7 +9954,7 @@ Ca exchanger/counter transport thereby increasing the
 reabsorption of Ca into blood.
 PTH increases the activity of Na-Ca exchanger and increases
 the reabsorption of Ca.
-Late DCT: Have two cell types.
+Late DCT: Have two cell types.
 Principal cells Reabsorbs Na and H2O
 Secretes K
 Aldosterone increases Na reabsorption and increases K
@@ -10374,8 +9970,7 @@ decreases K secretion.
 Alpha intercalated cells:
 Secretes H+ by an H-adenosine triphosphatase (H-ATPase),
 which is stimulated by aldosterone.
-Reabsorbs K+ by an H-K-ATPase
-Previous Next',
+Reabsorbs K+ by an H-K-ATPase',
     false,
     9,
     'published',
@@ -10421,7 +10016,8 @@ Either reabsorbs or secretes K+ depending on dietary K
 intake.
 Reabsorption of K+ involves an H-K ATPase in the luminal
 membrane of the alpha intercalated cells of late DCT, and its
-occurs only on a low K+ conditions, K+ excretion can be as low as 1% of the filtered
+occurs only on a low K+ diet (K+ depletion). Under these
+conditions, K+ excretion can be as low as 1% of the filtered
 load because the kidney conserves as much K as possible.
 Secretion occurs in the principal cells. It is variable and
 accounts for the wide range of urinary K+ excretion. It
@@ -10431,8 +10027,6 @@ Mechanism of distal K+ secretion:
 At the basolateral membrane, K+ is actively transported into
 the cell by the Na-K pump, as in all cells this maintains a high
 intracellular K+ conc.
-
-Overview  Comments
 
 At the luminal membrane, K+ is passively secreted into the
 lumen through K+ channels. The magnitude of this passive
@@ -10444,7 +10038,8 @@ the electrochemical driving force for K+ across the luminal
 membrane is increased. Secretion is decreased when the
 electrochemical driving force is decreased.
 Dietary K
-A decreases K+ secretion.
+A diet high in K+ increases K+ secretion, and a diet low in K+
+decreases K+ secretion.
 On a high K+ diet, intracellular K+ increases so that the
 driving force for K+ secretion also increases.
 On a low K+ diet, intracellular K+ decreases so that the
@@ -10499,8 +10094,7 @@ K losses.
 Luminal anions
 Excess anions (HCO3-) in the lumen cause an increase in K+
 secretion by increasing the negativity of the lumen and
-increasing the driving force for K+ secretion.
-Previous Next',
+increasing the driving force for K+ secretion.',
     false,
     10,
     'published',
@@ -10560,8 +10154,6 @@ increased urinary cAMP.
 PO4 is a urinary buffer for H+; excretion of H2PO4 is called
 titratable acid.
 
-Overview  Comments
-
 Calcium
 60% of plasma Ca is filtered across the glomerular capillaries.
 Together the proximal tubule and thick ascending limb
@@ -10588,8 +10180,7 @@ In thick ascending limb, Mg and Ca compete for
 reabsorption; therefore, hypercalcemia causes an increase in
 Mg excretion (by inhibiting Mg reabsorption). Likewise,
 hypermagnesemia causes an increase in Ca excretion (by
-inhibiting Ca reabsorption)
-Previous Next',
+inhibiting Ca reabsorption)',
     false,
     11,
     'published',
@@ -10643,12 +10234,10 @@ by baroreceptors in the afferent arteriole.
 Sympathetic stimulation of the JGA via β 1 adrenoreceptors.
 Decreased GFR
 Decreased ECF volume, arterial blood pressure or CVP.
-Note: The release of renin is inhibited by atrial natriuretic
+Note: The release of renin is inhibited by atrial natriuretic
 peptide (ANP), which is released by stretched atria in response
 to increases in blood pressure.
-Angiotensin II production
-
-Overview  Comments
+Angiotensin II production
 
 Angiotensinogen is a precursor protein produced in the liver
 and cleaved by renin to form angiotensin I. Angiotensin I is then
@@ -10682,8 +10271,7 @@ efferent arterioles thereby maintaining or increasing the GFR
 Activation of Na-H pump thereby increasing the reabsorption
 of Na from proximal tubule.
 Inhibits the renin production from granular cells of JG
-apparatus (negative feedback)
-Previous Next',
+apparatus (negative feedback)',
     false,
     12,
     'published',
@@ -10735,10 +10323,7 @@ of intrinsic factor. Injection of vitamin B12 required to prevent
 pernicious anemia
 Ileectomy results in loss of absorption of vitamin B12-
 intrinsic factor complex and thus requires injection of
-vitamin B12
-Previous Next
-
-Overview  Comments',
+vitamin B12',
     true,
     0,
     'published',
@@ -10796,11 +10381,7 @@ enter the intrahepatic bile ducts which drain into the biliary
 tree, a series of ducts which transport bile from the liver to
 the gallbladder and duodenum.
 Bile is continuously produced, but we only need it during and
-after meals. Therefore, the gallbladder concentrates and
-
-Overview  Comments
-
-stores bile, by removing the water and ions.
+after meals. Therefore, the gallbladder concentrates and stores bile, by removing the water and ions.
 After eating, the hormone cholecystokinin is released from
 the duodenum (in response to small peptides and fatty acids
 in the duodenum). This stimulates gallbladder contraction
@@ -10842,8 +10423,7 @@ Micelles formation to facilitate lipid transport and absorption.
 Stimulate the bile production by osmotically attracting water
 and electrolytes into the bile canaliculi.
 Regulation of bile acid synthesis via negative feedback
-mechanism
-Previous Next',
+mechanism',
     false,
     1,
     'published',
@@ -10877,10 +10457,7 @@ kidney. 1 ,25-dihydroxycholecalciferol induces the synthesis of
 an intestinal Ca+2 -binding protein, calbindin D-28K
 Vitamin D deficiency or chronic renal failure results in
 inadequate intestinal Ca+ absorption, causing rickets in
-children and osteomalacia in adults.
-Previous Next
-
-Overview  Comments',
+children and osteomalacia in adults.',
     false,
     2,
     'published',
@@ -10928,10 +10505,7 @@ taking a deep breath and attempting to expel the air against a
 closed glottis, this is known as the Valsalva maneuver. However,
 if a delay in defection is needed then voluntary contraction of
 the external sphincter is usually sufficient to override the
-reflexes that anal distension initiates.
-Previous Next
-
-Overview  Comments',
+reflexes that anal distension initiates.',
     false,
     3,
     'published',
@@ -10958,7 +10532,8 @@ Overview  Comments',
     '# Digestion and Absorption of Carbohydrates
 
 Carbohydrate
-Carbohydrates in the for glucose, which is the primary energy source for cells. They
+Carbohydrates in the diet provide the major exogenous source
+for glucose, which is the primary energy source for cells. They
 provide 17kJ (4kcal) of energy per gram. Most of the dietary
 carbohydrates are in the form of polysaccharides, the principal
 ingested polysaccharides are starch which is derived from
@@ -10984,8 +10559,6 @@ Conditions that decrease the secretion of these enzymes result
 in malabsorption and maldigestion.
 Digestion
 
-Overview  Comments
-
 Glucose and galactose are absorbed via sodium-glucose linked
 transporters (SGLTs) in the intestinal epithelial cells and
 translocated into the circulation via glucose transporter 2
@@ -10999,7 +10572,6 @@ cellulose (humans unable to digest cellulose because lack of
 appropriate enzymes cellulase). it does not provide any energy;
 fiber adds bulk to the bowel contents and increases the gut
 motility.
-Previous Next
 
 ![Digestion and Absorption of Carbohydrates - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-carbohydrates/figure_01_p2.png)
 *Digestion and Absorption of Carbohydrates — Clinical Figure 1 (Page 2 Reference)*',
@@ -11029,13 +10601,15 @@ Previous Next
     '# Digestion and Absorption of Lipids
 
 Lipid
-Fats in the carbohydrates and have an energy yield of 37 kJ (9
+Fats in the diet are a more concentrated form of energy than
+carbohydrates and have an energy yield of 37 kJ (9
 kilocalories) per gram. Adipose (fatty) tissue in the fat depots
 of the body serves as an energy reserve as well as helping to
 insulate the body and cushion the internal organs.
 The lipids of nutritional importance are triglycerides (fats and
 oils), phospholipids (e.g., lecithin), and sterols (e.g.,
-cholesterol). Lipids in the vitamins (vitamins A, D, E, and K) and assist in their
+cholesterol). Lipids in the diet transport the four fat-soluble
+vitamins (vitamins A, D, E, and K) and assist in their
 absorption in the small intestine.
 Digestion and absorption of lipid
 Digestion
@@ -11058,11 +10632,7 @@ Those products of fat digestion (fatty acids, monoglycerides,
 glycerol, cholesterol, and fat-soluble vitamins) need to enter
 into the circulation so that they can be used by cells around
 the body. Bile salts cluster around the products of fat
-digestion to form structures called micelles, which help the
-
-Overview  Comments
-
-fats get close enough to the microvilli of intestinal cells so
+digestion to form structures called micelles, which help the fats get close enough to the microvilli of intestinal cells so
 that they can be absorbed.
 Absorption of lipids
 Micelles bring the products of lipid digestion into contact
@@ -11081,7 +10651,7 @@ into transport vehicles called chylomicrons. Chylomicrons
 are large structures with a core of triglycerides and
 cholesterol and an outer membrane made up of
 phospholipids, interspersed with proteins (called
-apolipoproteins) and cholesterol.  Lack of apoprotein B
+apolipoproteins) and cholesterol.  Lack of apoprotein B
 results in the inability to transport chylomicrons out of the
 intestinal cells and causes abetalipoproteinemia.
 Chylomicrons are transported out of the intestinal cells by
@@ -11091,8 +10661,6 @@ are added to the bloodstream via the thoracic duct.
 
 ![Digestion and Absorption of Lipids - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-lipids/figure_01_p2.png)
 *Digestion and Absorption of Lipids — Clinical Figure 1 (Page 2 Reference)*
-
-Previous Next
 
 ![Digestion and Absorption of Lipids - Clinical Figure 2](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-lipids/figure_02_p3.png)
 *Digestion and Absorption of Lipids — Clinical Figure 2 (Page 3 Reference)*',
@@ -11152,11 +10720,7 @@ internal bonds and ectopeptidase cleaves AA at C-terminus.
 Endopeptidases include trypsin, chymotrypsin and elastase.
 Ectopeptidase includes carboxypeptidase A and
 carboxypeptidase B. Carboxypeptidase A acts on neutral AA
-and carboxypeptidase B acts on basic AA. The process of
-
-Overview  Comments
-
-digestion of protein is completed in the small intestine with
+and carboxypeptidase B acts on basic AA. The process of digestion of protein is completed in the small intestine with
 brush border and pancreatic enzymes.
 Absorption:
 Enterocytes contain microvilli, which form the brush border
@@ -11167,7 +10731,6 @@ transported across the basolateral membrane via facilitated
 diffusion. Di and tripeptides are absorbed via separate H+
 dependent cotransporters and once inside the cell are
 hydrolyzed to amino acids.
-Previous Next
 
 ![Digestion and Absorption of Proteins - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/digestion-and-absorption-of-proteins/figure_01_p2.png)
 *Digestion and Absorption of Proteins — Clinical Figure 1 (Page 2 Reference)*',
@@ -11219,8 +10782,6 @@ the initial pancreatic secretion by secreting HCO3- and
 absorbing CL- via CL- -HCO3- exchange mechanism in the
 luminal membrane.
 
-Overview  Comments
-
 ![Exocrine Pancreas - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/exocrine-pancreas/figure_01_p1.png)
 *Exocrine Pancreas — Clinical Figure 1 (Page 1 Reference)*
 
@@ -11242,7 +10803,7 @@ etc.
 Regulation of pancreatic secretion
 Stimulation
 Parasympathetic stimulation enhances secretion of both the
-enzyme and aqueous components.
+enzyme and aqueous components.
 Cholecystokinin stimulates secretion of the enzyme rich fluid
 from acinar cells.
 Secretin stimulates secretion of alkaline rich fluid from ductal
@@ -11261,9 +10822,7 @@ cells.
 > Pathophysiology: Trypsin is an enzyme that is involved in the
 > digestion of proteins. Normally, trypsinogen (the inactive
 > precursor of trypsin) is activated to trypsin in the small
-> intestine, where it aids in protein digestion. However, in cases
-
-of pancreatitis, trypsin can become prematurely activated
+> intestine, where it aids in protein digestion. However, in cases of pancreatitis, trypsin can become prematurely activated
 within the pancreas itself due to factors like alcohol
 consumption or other triggers. This activation of trypsin within
 the pancreas can lead to the autodigestion of pancreatic tissue,
@@ -11275,8 +10834,7 @@ trypsin is produced through the activation of trypsinogen, it
 can then activate chymotrypsinogen by cleaving it to
 chymotrypsin. Chymotrypsin further breaks down protein
 molecules into smaller peptides and amino acids that can be
-absorbed by the body.
-Previous Next',
+absorbed by the body.',
     false,
     7,
     'published',
@@ -11330,8 +10888,6 @@ from ECL cells
 Stimulate pepsinogen secretion from chief cells.
 Stimulate growth of gastric mucosa by stimulating the
 synthesis of RNA and new protein
-
-Overview  Comments
 
 Zollinger-Ellison syndrome (Gastrinoma)
 Occurs when gastrin is secreted by non-β-cell tumors of the
@@ -11408,8 +10964,7 @@ Decrease bile production and release.
 Decrease pancreatic exocrine and endocrine function.
 Paracrine inhibition of insulin and glucagon secretion from α
 and β -cells of the Islets of Langerhans
-Decrease blood glucose concentration.
-Previous Next',
+Decrease blood glucose concentration.',
     false,
     8,
     'published',
@@ -11457,8 +11012,6 @@ Absorption of nutrients and water
 Excretion of waste as feces
 Immunity
 
-Overview  Comments
-
 Structures of GI tract:
 All segments of the GI tract are divided into four layers (from
 innermost to outer most) are:
@@ -11467,7 +11020,7 @@ the epithelial layer (specialized in different parts of the GI
 tract for secretion and absorption
 the lamina propria (consisting of loose tissue, blood
 vessels and lymph tissue)
-the muscularis mucosa (contraction causes a change in
+the muscularis mucosa (contraction causes a change in
 the surface area for secretion or absorption)
 
 ### 2. The submucosa (containing a second layer of connective
@@ -11488,8 +11041,7 @@ of muscle
 
 ### 4. The outer most serosa (another connective tissue layer
 
-covered with squamous mesothelial cells)
-Previous Next',
+covered with squamous mesothelial cells)',
     false,
     9,
     'published',
@@ -11532,8 +11084,6 @@ Meissner and Myenteric plexus
 > **Clinical pearls:**
 > Achalasia cardia:
 
-> Overview  Comments
-
 ![Innervation of Gi Tract - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/innervation-of-gi-tract/figure_01_p1.png)
 *Innervation of Gi Tract — Clinical Figure 1 (Page 1 Reference)*
 
@@ -11546,8 +11096,7 @@ and absence of peristalsis in the esophagus. This condition is
 primarily attributed to dysfunction in the myenteric plexus,
 which is a network of nerve fibers and ganglion cells located
 between the circular and longitudinal muscle layers of the
-esophagus.
-Previous Next',
+esophagus.',
     false,
     10,
     'published',
@@ -11577,13 +11126,13 @@ Iron
 Iron is a vital trace element for humans, as it plays a crucial role
 in oxygen transport, oxidative metabolism, cellular proliferation,
 and many catalytic reactions.
-Dietary iron, Heme iron: from meat, non-heme iron: from
+Dietary iron, Heme iron: from meat, non-heme iron: from
 plants
 Ferrous iron (Fe 2+): in hemoglobin
 Ferric iron (Fe3+): in methemoglobin
 Free iron: Fe2+ can lead to reactive oxygen species via the
 Fenton reaction.
-H2O2 + Fe2+ →  OH- + Fe3+ + OH (hydroxyl radical) →  oxidative
+H2O2 + Fe2+ →  OH- + Fe3+ + OH (hydroxyl radical) →  oxidative
 stress →  DNA damage
 Iron absorption in small intestine
 Gastric acid leads to low pH and promotes dissolution of iron
@@ -11606,8 +11155,6 @@ divalent metal transporter (DMT1)
 Vitamin C increases absorption (converts Fe3+ →  Fe2+).
 Calcium decreases absorption (due to chelation of iron).
 A minority of iron is absorbed as ferric iron (Fe3+).
-
-Overview  Comments
 
 Heme iron can be directly absorbed into intestinal cells.
 Iron transport
@@ -11640,8 +11187,7 @@ Shedding of skin and mucosal epithelial cell →  daily loss of 1-
 *Iron Handling — Clinical Figure 1 (Page 2 Reference)*
 
 Any source of bleeding (e.g., menstruation, occult GI bleed)
-increases iron loss.
-Previous Next',
+increases iron loss.',
     false,
     11,
     'published',
@@ -11698,11 +11244,7 @@ Absorption of water occurs by osmosis. Water diffuses in
 response to an osmotic gradient established by the
 absorption of electrolytes. Sodium is actively absorbed in the
 colon by sodium channels. Potassium is either absorbed or
-secreted depending on the concentration in the lumen and
-
-Overview  Comments
-
-the electrochemical gradient created by the active
+secreted depending on the concentration in the lumen and the electrochemical gradient created by the active
 absorption of sodium.
 Chloride and bicarbonate - the movement of sodium into the
 plasma produces an electrochemical gradient to allow
@@ -11717,7 +11259,6 @@ bacteria. These vitamins are then absorbed into the blood.
 When dietary intake of these vitamins is low in an individual,
 the colon plays a significant role in minimizing vitamin
 disparity.
-Previous Next
 
 ![Large Intestine - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/large-intestine/figure_01_p2.png)
 *Large Intestine — Clinical Figure 1 (Page 2 Reference)*',
@@ -11750,7 +11291,7 @@ Liver
 Largest gland in the body
 Weight: 1.2-1.5 kg in adults (2.6-3.3 pounds)
 Wedge-shaped
-Consists of four lobes: Right (largest), Left, Quadrate and
+Consists of four lobes: Right (largest), Left, Quadrate and
 Caudate
 Typically divided into 8 segments
 Surrounded by the hepatic capsule (two layers)
@@ -11777,8 +11318,6 @@ acetoacetate + beta-hydroxybutyrate.
 Synthesis of plasma proteins (e.g., albumin, globulins,
 clotting factors, acute-phase reactants such as ferritin, CRP,
 and hepcidin)
-
-Overview  Comments
 
 Cholesterol biosynthesis
 Fatty acid synthesis
@@ -11810,8 +11349,7 @@ Fetal: Site of erythropoiesis from 6 weeks gestation until
 birth
 Immunological function: The liver is part of the mononuclear
 phagocyte system. Cells involved in immune activity, Kupffer
-cells, are found in high numbers in the liver.
-Previous Next',
+cells, are found in high numbers in the liver.',
     false,
     13,
     'published',
@@ -11852,10 +11390,10 @@ The process in which food is cut and ground in small pieces
 with the help of teeth, is called mastication. It is caused by
 chewing reflex.
 Chewing reflex
-Bolus in the mouth →  reflex inhibition of mastication muscles
+Bolus in the mouth →  reflex inhibition of mastication muscles
 →  lower jaw drops →  Strech reflex of jaw muscles →  rebound
 contraction of jaw muscles →  closure of teeth- compression of
-bolus again against mouth lining →  again reflex inhibition of
+bolus again against mouth lining →  again reflex inhibition of
 mastication muscles →  this cycle repeats again and again.
 Importance of chewing
 increase the surface area of food particles and thus help their
@@ -11867,8 +11405,6 @@ into small intestine.
 Deglutition (swallowing)
 Ingested food moves from oral cavity into the stomach by
 deglutition.
-
-Overview  Comments
 
 There are three stages of swallowing: oral, pharyngeal and
 esophageal. Oral stage is voluntary the other two are
@@ -11908,9 +11444,7 @@ At the beginning of this phase, Food bolus is propelled down
 the esophagus by peristalsis (a wave of muscular contraction
 that pushes the bolus down), the larynx lowers, returning to
 its normal position. The cricopharyngeal muscle then
-contracts to prevent reflux and respiration begins again.
-
-Previous Next',
+contracts to prevent reflux and respiration begins again.',
     false,
     14,
     'published',
@@ -11970,8 +11504,6 @@ which modify the initial saliva. When saliva production is
 stimulated, myoepithelial cells, which lines the acinus and
 initial ducts, contract and eject saliva into the mouth.
 
-Overview  Comments
-
 Each of the glands produces a slightly different secretion.
 The parotid glands produce serous saliva: a watery secretion
 that is rich in enzymes. The secretion from the sub-lingual
@@ -12024,7 +11556,6 @@ case during hard physical exercise.
 Saliva production is decrease by inhibition of
 parasympathetic nervous system e.g., sleep dehydration
 anticholinergic drugs (e.g., atropine)
-Previous Next
 
 ![Saliva - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/saliva/figure_01_p3.png)
 *Saliva — Clinical Figure 1 (Page 3 Reference)*',
@@ -12086,8 +11617,6 @@ Vitamin B12 and bile salts are absorbed in the terminal ileum
 (i.e., enterohepatic circulation).
 Immunity
 
-Overview  Comments
-
 Intestinal villi
 Finger-like projections of mucosa
 Shortest in the duodenum
@@ -12122,8 +11651,7 @@ from the lumen into the enterocyte. Na+ is rapidly removed
 from the enterocyte via the Na+ pumps, allowing water via
 osmosis to follow either transcellularly or paracellularly
 (between the tight junctions of the enterocytes). Water as
-well as Na+ ions can then diffuse into the capillaries.
-Previous Next',
+well as Na+ ions can then diffuse into the capillaries.',
     false,
     16,
     'published',
@@ -12167,8 +11695,6 @@ distal pyloric canal
 Function of stomach
 Mechanical digestion: peristalsis of the stomach against a
 closed pyloric sphincter →  breakdown of food into smaller
-
-Overview  Comments
 
 ![Stomach - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/stomach/figure_01_p1.png)
 *Stomach — Clinical Figure 1 (Page 1 Reference)*
@@ -12226,7 +11752,7 @@ Stimulation of gastric acid secretion
 The secretion of HCI is stimulated by:
 Vagal stimulation directly through the neurotransmitter
 acetylcholine acting at muscarinic (M3) receptors on the
-parietal cell.
+parietal cell.
 Indirectly through the neurotransmitter gastrin-releasing
 peptide (GRP) stimulating release of gastrin from G cells.
 Histamine acting at H2 receptors on the parietal cell
@@ -12318,14 +11844,13 @@ optimized.
 
 Fat/protein breakdown products in duodenum: fat is the
 most potent inhibitor of gastric emptying (acting via
-CCK); Entry of fats in duodenum -> release of CCK from "I"
+CCK); Entry of fats in duodenum -> release of CCK from "I"
 cells -> CCK decreases gastric motility and thus prevents or
 retards gastric emptying, so that the ingested fats enter
 slowly and in small amounts into duodenum.)
 Hormones CCK, secretin, gastric inhibitory peptide (GIP) all
 cause constriction of pyloric sphincter, hence slow gastric
-emptying.
-Previous Next',
+emptying.',
     false,
     17,
     'published',
@@ -12351,14 +11876,11 @@ Previous Next',
     'article',
     '# Summary of Harmones and Secretion of GIT
 
-Overview  Comments
-
 Summary of hormones and
 secretion of git
 Gastric secretory and Regulatory
 products
 Small intestine regulatory products:
-Previous Next
 
 ![Summary of Harmones and Secretion of GIT - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/summary-of-harmones-and-secretion-of-git/figure_01_p2.png)
 *Summary of Harmones and Secretion of GIT — Clinical Figure 1 (Page 2 Reference)*
@@ -12391,9 +11913,6 @@ Previous Next
     '# Vitamins Overview
 
 Vitamins
-Previous Next
-
-Overview  Comments
 
 ![Vitamins Overview - Clinical Figure 1](/lessons/images/gastrointestinal-git-physiology/vitamins-overview/figure_01_p1.png)
 *Vitamins Overview — Clinical Figure 1 (Page 1 Reference)*',
@@ -12446,7 +11965,7 @@ The adrenal cortex has three zones, responsible for the
 synthesis of three different types of steroids.
 Zona glomerulosa = outermost zone; synthesizes
 mineralocorticoid (Aldosterone)
-Zona fasciculata = middle zone; synthesizes glucocorticoid
+Zona fasciculata = middle zone; synthesizes glucocorticoid
 (cortisol)
 Zona reticularis = innermost zone; synthesizes sex steroids
 (Estrogens & Androgens)
@@ -12461,10 +11980,7 @@ Cortisol inhibits the secretion of CRH from hypothalamus
 and secretion of ACTH from anterior pituitary in a negative-
 feedback pattern.
 Aldosterone is under tonic control by ACTH but is separately
-regulated by the renin-angiotensin system and by potassium.
-Previous Next
-
-Overview  Comments',
+regulated by the renin-angiotensin system and by potassium.',
     true,
     0,
     'published',
@@ -12494,10 +12010,10 @@ Adrenal Insufficiency
 Adrenal insufficiency is a failure of the adrenal glands to
 produce adequate amounts of adrenocortical hormone. It
 can be primary, secondary or tertiary.
-Primary adrenal insufficiency (Addison disease): refers to
+Primary adrenal insufficiency (Addison disease): refers to
 chronic, primary adrenocortical insufficiency (Adrenal cortex)
 which leads to
-↓ Glucocorticoids, androgen and ↓ mineralocorticoid
+↓ Glucocorticoids, androgen and ↓ mineralocorticoid
 ↑ ACTH (low cortisol levels stimulate ACTH secretion)
 Causes:
 Autoimmune: (autoimmune adrenalitis), which has been
@@ -12527,16 +12043,15 @@ Low blood pressure
 In women, irregular or no menstrual periods
 Pubic and axillary hair in women (caused by deficiency of
 adrenal androgens)
-Electrolyte abnormalities:   (High Yield)
+Electrolyte abnormalities:   (High Yield)
 Hyperkalemia
 Hyponatremia
 Metabolic acidosis
 Hypoglycemia (caused by cortisol deficiency)
 Diagnosis:
-Short ACTH-stimulation Test:  It involves administration of 250
+Short ACTH-stimulation Test:  It involves administration of 250
 µg ACTH by IM injection at any time of day.
 Normal = cortisol increase> 500 nmol/1 (> 18 µg/dL)
-Overview  Comments
 
 Adrenal insufficiency = cortisol fails to increase (both primary
 & secondary)
@@ -12602,7 +12117,6 @@ No skin hyperpigmentation (because there is deficiency of
 
 no hyperkalemia or metabolic acidosis (because aldosterone
 levels are normal)
-Previous Next
 
 ![Adrenal Insufficiency - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/adrenal-insufficiency/figure_01_p3.png)
 *Adrenal Insufficiency — Clinical Figure 1 (Page 3 Reference)*',
@@ -12645,8 +12159,6 @@ tissues. Binding triggers tissue-specific responses. This leads to
 sympathetic activation to prepare the human body for a fight-
 or-flight reaction.
 
-Overview  Comments
-
 ![Adrenal Medulla and Pheochromocytoma - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/adrenal-medulla-and-pheochromocytoma/figure_01_p1.png)
 *Adrenal Medulla and Pheochromocytoma — Clinical Figure 1 (Page 1 Reference)*
 
@@ -12679,8 +12191,7 @@ Beta blocker (propranolol). Beta adrenoceptor blockade can
 be instituted to control tachycardia.
 Beta blockers must never be given before alpha-blocker as
 this may cause a paradoxical rise in blood pressure due to
-unopposed a-mediated vasoconstriction.
-Previous Next',
+unopposed a-mediated vasoconstriction.',
     false,
     2,
     'published',
@@ -12739,11 +12250,8 @@ This aldosterone induced changes produce a concentration
 gradient →  Na+ reabsorption →  water reabsorption and K+
 secretion into the urine.
 
-Overview  Comments
-
 Ultimately, these effects →  ↑ blood pressure, hypokalemia
-and ↑ pH level
-Previous Next',
+and ↑ pH level',
     false,
     3,
     'published',
@@ -12778,8 +12286,8 @@ transported to the posterior pituitary gland via the
 neurohypophysial capillaries.
 ADH regulates the blood pressure (v1 receptors) and serum
 osmolality (v2 receptor). The primary function is serum
-osmolality regulation (ADH decreases serum osmolality and
-increases urine osmolality) via regulation of aquaporin
+osmolality regulation (ADH decreases serum osmolality and
+increases urine osmolality) via regulation of aquaporin
 channel insertion in principal cell of renal collecting duct.
 Regulation of plasma osmolality
 Mediated by V2 receptors.
@@ -12798,13 +12306,10 @@ increases in blood pressure, as well as alcohol and certain
 medications.
 Regulation of ADH secretion
 
-Overview  Comments
-
 Clinical relevance
 Elevated in SIADH despite plasma hypoosmolality.
 ADH deficiency or resistance can lead to diabetes insipidus.
 Alcohol inhibits ADH release and causes diuresis.
-Previous Next
 
 ![Antidiuretic Harmone - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/antidiuretic-harmone/figure_01_p2.png)
 *Antidiuretic Harmone — Clinical Figure 1 (Page 2 Reference)*',
@@ -12844,10 +12349,7 @@ thereby preventing the resorption (breakdown) of bone, and
 inhibits the reabsorption of calcium by the cells of the kidney,
 resulting in increased calcium excretion in the urine. The
 effects of calcitonin counter the effects of parathyroid
-hormone that acts to increase serum calcium concentration.
-Previous Next
-
-Overview  Comments',
+hormone that acts to increase serum calcium concentration.',
     false,
     5,
     'published',
@@ -12902,15 +12404,12 @@ PTH
 to proteins →  ↑ ionized Ca2+ concentration compensatory ↓
 PTH
 
-Overview  Comments
-
 Ionized calcium: the calcium fraction that is not bound to
 any proteins but is physiologically active 45% of the total
 serum calcium.
 Functions as the main regulator of PTH secretion
 Excess causes true hypercalcemia whereas deficiency
-causes true hypocalcemia.
-Previous Next',
+causes true hypocalcemia.',
     false,
     6,
     'published',
@@ -12960,12 +12459,9 @@ Decrease Bone formation.
 Decrease osteoblastic activity.
 Regulation
 CRH (hypothalamus) stimulates ACTH release (pituitary) →
-cortisol production in adrenal zona fasciculata. Excess cortisol
+cortisol production in adrenal zona fasciculata. Excess cortisol
 ↓ CRH, ACTH, and cortisol secretion by negative feedback
-mechanism
-Previous Next
-
-Overview  Comments',
+mechanism',
     false,
     7,
     'published',
@@ -12993,7 +12489,7 @@ Overview  Comments',
 
 Cushing syndrome
 It is a disorder caused by any condition that produces
-excessive glucocorticoids (cortisol). While the term "Cushing
+excessive glucocorticoids (cortisol). While the term "Cushing
 syndrome" can be applied to any cause of hypercortisolism,
 "Cushing disease" refers specifically to secondary
 hypercortisolism that results from excessive production of
@@ -13002,7 +12498,7 @@ causes
 Iatrogenic Cushing''s syndrome (most common cause)
 caused by exogenous administration of glucocorticoids.
 Endogenous: Cushing''s disease (i.e., Cushing''s syndrome
-secondary to pituitary tumor): Pituitary adenoma ACTH
+secondary to pituitary tumor): Pituitary adenoma ACTH
 secretion →  bilateral adrenal gland hyperplasia →  increases
 cortisol secretion
 Adrenal tumors: adrenal adenoma & adrenal carcinoma
@@ -13024,8 +12520,6 @@ Dyslipidemia
 Weight gain characterized by central obesity, moon facies,
 and a dorsocervical fat pad (buffalo hump)
 
-Overview  Comments
-
 ♂ : Decreased libido
 ♀ : Decreased libido, virilization, and/or irregular menstrual
 cycles (e.g., amenorrhea)
@@ -13033,7 +12527,7 @@ Growth delay (in children)
 Note: In Cushing disease: often hyperpigmentation (darkening
 of the skin due to an overproduction of melanin), especially in
 areas that are not normally exposed to the sun (e.g., palm
-creases, oral cavity) Overproduction of melanin Caused by
+creases, oral cavity) Overproduction of melanin Caused by
 excessive ACTH production because melanocyte-stimulating
 hormone (MSH) is cleaved from the same precursor as ACTH
 called proopiomelanocortin (POMC)
@@ -13043,8 +12537,6 @@ glucocorticoid + mineralocorticoid replacement after
 surgery)
 Second-line or adjunctive therapy: pharmacological
 treatment
-
-Previous Next
 
 ![Cushing Syndrome - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/cushing-syndrome/figure_01_p3.png)
 *Cushing Syndrome — Clinical Figure 1 (Page 3 Reference)*',
@@ -13079,12 +12571,12 @@ concentrated urine due to ADH dysfunction, It is of two types:
 Central Diabetes Insipidus (CDI)
 Nephrogenic Diabetes Insipidus (NDI)
 Central Diabetes insipidus
-It is due to deficiency of ADH. It may be caused by:
+It is due to deficiency of ADH. It may be caused by:
 Head trauma
 Tumors of hypothalamus
 Inflammation of hypothalamus
 Craniopharyngioma
-Nephrogenic Diabetes insipidus It is due to
+Nephrogenic Diabetes insipidus It is due to
 unresponsiveness (resistance) of collecting tubules to ADH. It
 may be caused by:
 Lithium
@@ -13101,16 +12593,12 @@ Increased serum sodium (hypernatremia), which results in:
 Excessive thirst and polydipsia.
 Neurologic features like confusion, disorientation, seizures
 An ADH stimulation test can distinguish between cranial and
-nephrogenic DI, as nephrogenic DI shows an inability to
-
-Overview  Comments
-
-concentrate urine even after administration of synthetic
+nephrogenic DI, as nephrogenic DI shows an inability to concentrate urine even after administration of synthetic
 
 ## Adh.
 
 Treatment
-Central DI = Desmopressin (ADH analogue)
+Central DI = Desmopressin (ADH analogue)
 Nephrogenic DI.
 Correct potassium and calcium
 Stop offending drugs.
@@ -13135,8 +12623,7 @@ Hyponatremia presents entirely with CNS symptoms
 Lethargy; confusion, disorientation, seizures
 Treatment:
 Fluid restriction is the cornerstone of SIADH treatment.
-Demeclocycline: ADH receptor antagonist.
-Previous Next',
+Demeclocycline: ADH receptor antagonist.',
     false,
     9,
     'published',
@@ -13179,24 +12666,20 @@ glands which release their secretions through ducts. Endocrine
 glands play an important role in homeostasis and control of
 various other activities in the body through their hormones.
 
-Overview  Comments
-
 Endocrinology hormones overview:
-Harmons secreted by adrenal gland:
+Harmons secreted by adrenal gland:
 
 ![Endocrine Glands and Their Harmones - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_01_p2.png)
 *Endocrine Glands and Their Harmones — Clinical Figure 1 (Page 2 Reference)*
 
-Hormone secreted by Gonads.
-Hormone secreted by other organs.
+Hormone secreted by Gonads.
+Hormone secreted by other organs.
 
 ![Endocrine Glands and Their Harmones - Clinical Figure 2](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_02_p3.png)
 *Endocrine Glands and Their Harmones — Clinical Figure 2 (Page 3 Reference)*
 
 ![Endocrine Glands and Their Harmones - Clinical Figure 3](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_03_p3.png)
 *Endocrine Glands and Their Harmones — Clinical Figure 3 (Page 3 Reference)*
-
-Previous Next
 
 ![Endocrine Glands and Their Harmones - Clinical Figure 4](/lessons/images/endocrine-physiology-metabolism/endocrine-glands-and-their-harmones/figure_04_p4.png)
 *Endocrine Glands and Their Harmones — Clinical Figure 4 (Page 4 Reference)*',
@@ -13228,7 +12711,7 @@ Previous Next
 Hyperaldosteronism
 It is a small group of disorders characterized by excessive
 secretion of aldosterone (mineralocorticoid).
-It is classified into primary and secondary
+It is classified into primary and secondary
 hyperaldosteronism.
 Primary Hyperaldosteronism
 It refers to hyperaldosteronism associated with HIGH
@@ -13250,7 +12733,7 @@ Plasma aldosterone: renin ratio > 20.
 Sodium suppression test = fails to suppress aldosterone after
 sodium load.
 Treatment
-Spironolactone:  It is an aldosterone antagonist used to
+Spironolactone:  It is an aldosterone antagonist used to
 normalize whole-body electrolyte balance
 Followed by surgical removal (adrenalectomy) which is
 definitive treatment.
@@ -13265,14 +12748,12 @@ Nephritic syndrome
 Pregnancy (estrogen increases renin substrate)
 Renin-secreting renal
 tumor
-Overview  Comments
 
 Lab Findings:
 Elevated aldosterone
 Elevated plasma renin
 Treatment:
-Spironolactone
-Previous Next',
+Spironolactone',
     false,
     11,
     'published',
@@ -13301,16 +12782,13 @@ Previous Next',
 Hypothyroidism and
 Hyperthyroidism:
 
-Overview  Comments
-
 ![Hypothyroidism and Hyperthyroidism - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/hypothyroidism-and-hyperthyroidism/figure_01_p2.png)
 *Hypothyroidism and Hyperthyroidism — Clinical Figure 1 (Page 2 Reference)*
 
 Note: Propranolol is the preferred agent in hyperthyroidism
 and thyroid storm due to its additional effect of blocking the
 peripheral conversion of inactive T4 to active form T3. They are
-highly effective for symptomatic relief (tachycardia, tremors)
-Previous Next',
+highly effective for symptomatic relief (tachycardia, tremors)',
     false,
     12,
     'published',
@@ -13361,8 +12839,6 @@ glucose to be conserved to provide the brain with adequate
 glucose and to allow other tissues to metabolize fatty acids
 and glycogen stored in the cells.
 
-Overview  Comments
-
 Function of insulin
 Insulin can be considered the "anabolic"or building hormone it
 assists processes that build compounds for storage and
@@ -13410,8 +12886,6 @@ Difference between Insulin and Glucagon
 ![Insulin and Glucagon - Clinical Figure 2](/lessons/images/endocrine-physiology-metabolism/insulin-and-glucagon/figure_02_p3.png)
 *Insulin and Glucagon — Clinical Figure 2 (Page 3 Reference)*
 
-Previous Next
-
 ![Insulin and Glucagon - Clinical Figure 3](/lessons/images/endocrine-physiology-metabolism/insulin-and-glucagon/figure_03_p4.png)
 *Insulin and Glucagon — Clinical Figure 3 (Page 4 Reference)*',
     false,
@@ -13447,12 +12921,9 @@ endocrine (production of hormones that regulate blood
 sugar levels and glandular secretion) and exocrine (the
 function of the digestive gland).
 Endocrine activity is performed by the Langerhans islets and
-involves the production of hormones. The Islets of
+involves the production of hormones. The Islets of
 Langerhans contain the following cell types, each of which
 produce different endocrine hormone.
-Previous Next
-
-Overview  Comments
 
 ![Pancreas - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/pancreas/figure_01_p1.png)
 *Pancreas — Clinical Figure 1 (Page 1 Reference)*',
@@ -13499,24 +12970,21 @@ Action of PTH
 Are coordinated to produce an increase serum (Ca+) and
 decrease in serum phosphate.
 the second messenger for PTH actions on its target tissue
-is cAMP.
+is cAMP.
 Bone: PTH increases bone resorption, which brings both Ca²+
 and phosphate from bone mineral into the ECF (Stimulate
 the osteoclast cells)
 kidney
-Increases Ca2+ reabsorption in the distal tubule.
+Increases Ca2+ reabsorption in the distal tubule.
 Decreases phosphate reabsorption in the proximal
-convoluted tubules.
+convoluted tubules.
 Increases active vitamin D (calcitriol) production via
 stimulation of 1-alpha-hydroxylase synthesis in the kidneys.
 GIT
 
-Overview  Comments
-
 PTH increases intestinal Ca+ and phosphate absorption,
 indirectly by stimulating the production of 1,25-
-dihydroxycholecalciferol in the kidney.
-Previous Next',
+dihydroxycholecalciferol in the kidney.',
     false,
     15,
     'published',
@@ -13571,11 +13039,7 @@ Anterior lobe of pituitary
 gland
 The anterior pituitary is derived from oral ectoderm (Rathke''s
 pouch). The anterior lobe of pituitary gland is linked to
-hypothalamus by the hypothalamic-pituitary hypophysial
-
-Overview  Comments
-
-portal system. Thus, blood from hypothalamus that contain
+hypothalamus by the hypothalamic-pituitary hypophysial portal system. Thus, blood from hypothalamus that contain
 high concentration of hypothalamic hormone is delivered
 directly to the anterior pituitary. Hypothalamic hormone (e.g.,
 growth hormone releasing hormone GHRH) then stimulate or
@@ -13604,7 +13068,6 @@ via neurophysins (carrier protein)
 *Pituitary Gland — Clinical Figure 1 (Page 2 Reference)*
 
 Hormones of posterior pituitary gland
-Previous Next
 
 ![Pituitary Gland - Clinical Figure 2](/lessons/images/endocrine-physiology-metabolism/pituitary-gland/figure_02_p3.png)
 *Pituitary Gland — Clinical Figure 2 (Page 3 Reference)*',
@@ -13652,8 +13115,6 @@ In the spaces between the follicles, parafollicular cells can be
 found. These cells secrete calcitonin, which is involved in the
 regulation of calcium metabolism in the body.
 
-Overview  Comments
-
 ![Thyroid Gland - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/thyroid-gland/figure_01_p1.png)
 *Thyroid Gland — Clinical Figure 1 (Page 1 Reference)*
 
@@ -13699,12 +13160,11 @@ Bone growth (synergism with GH)
 B-adrenergic effects. ↑ B ₁  receptors in heart→ ↑ CO, HR, SV,
 contractility (B-blockers alleviate adrenergic symptoms in
 thyrotoxicosis)
-Basal metabolic rate ↑ (Via Na/K+-ATPase activity →  ↑    0 ₂
+Basal metabolic rate ↑ (Via Na/K+-ATPase activity →  ↑    0 ₂
 consumption, RR, body temperature
 Blood sugar (increase glycogenolysis, gluconeogenesis)
 Breakdown of lipids increase lipolysis.
-Stimulates surfactant synthesis in babies.
-Previous Next',
+Stimulates surfactant synthesis in babies.',
     false,
     17,
     'published',
@@ -13749,13 +13209,10 @@ activity →  ↑ 1,25-dihydroxyvitamin D biosynthesis
 ↑ Calcium, ↑ phosphate, and ↑ 1,25-dihydroxyvitamin D
 (feedback inhibition) →  ↓ 1 α -hydroxylase activity →  ↓ 1,25-
 
-Overview  Comments
-
 ![Vitamin - D Synthesis - Clinical Figure 1](/lessons/images/endocrine-physiology-metabolism/vitamin-d-synthesis/figure_01_p1.png)
 *Vitamin - D Synthesis — Clinical Figure 1 (Page 1 Reference)*
 
-dihydroxyvitamin D biosynthesis
-Previous Next',
+dihydroxyvitamin D biosynthesis',
     false,
     18,
     'published',
@@ -13795,7 +13252,7 @@ Previous Next',
 
 Acquired coagulation disorder:
 
-### 1: Vitamin K Deficiency
+### 1: Vitamin K Deficiency
 
 ### 2: Liver disease: Factors synthesized in liver V, VII, IX, X, XI and
 
@@ -13808,9 +13265,7 @@ coagulation factors and platelets.
 Cause: This may occur as a consequence of many disorders
 that release procoagulant material into the circulation or cause
 widespread endothelial damage or platelet aggregation.
-Lab values of Disseminated intravascular.
-
-Overview  Comments
+Lab values of Disseminated intravascular.
 
 ![Acquired Coagulation Disorder of Blood - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/acquired-coagulation-disorder-of-blood/figure_01_p1.png)
 *Acquired Coagulation Disorder of Blood — Clinical Figure 1 (Page 1 Reference)*
@@ -13823,7 +13278,6 @@ Prolonged APTT
 High levels of D-Dimers
 Features of hemolysis
 Coagulation tests:
-Previous Next
 
 ![Acquired Coagulation Disorder of Blood - Clinical Figure 2](/lessons/images/blood-physiology-coagulation-pathways/acquired-coagulation-disorder-of-blood/figure_02_p2.png)
 *Acquired Coagulation Disorder of Blood — Clinical Figure 2 (Page 2 Reference)*',
@@ -13854,9 +13308,6 @@ Previous Next
 
 Antiplatelet and anticoagulant
 drugs
-Previous Next
-
-Overview  Comments
 
 ![Antiplatelet and Anticoagulant Drugs - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/antiplatelet-and-anticoagulant-drugs/figure_01_p1.png)
 *Antiplatelet and Anticoagulant Drugs — Clinical Figure 1 (Page 1 Reference)*',
@@ -13915,10 +13366,6 @@ There are three types of haemoglobin in normal adult blood:
 haemoglobin A, A2 and F.
 Fetal HB has high affinity for o2 as compared to adult.
 
-Overview  Comments
-
-Previous Next
-
 ![Haemoglobin - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/haemoglobin/figure_01_p2.png)
 *Haemoglobin — Clinical Figure 1 (Page 2 Reference)*',
     false,
@@ -13952,9 +13399,6 @@ Stages of haemostasis: Three stages
 Vasoconstriction
 Platelet plug formation.
 Coagulation of blood
-Previous Next
-
-Overview  Comments
 
 ![Haemostasis - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/haemostasis/figure_01_p1.png)
 *Haemostasis — Clinical Figure 1 (Page 1 Reference)*',
@@ -13985,9 +13429,6 @@ Overview  Comments
 
 Coagulation disorder
 Hereditary coagulation disorder:
-Previous Next
-
-Overview  Comments
 
 ![Heriditary Coagulation Disorder of Blood - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/heriditary-coagulation-disorder-of-blood/figure_01_p1.png)
 *Heriditary Coagulation Disorder of Blood — Clinical Figure 1 (Page 1 Reference)*',
@@ -14016,7 +13457,7 @@ Overview  Comments
     'article',
     '# Platelate and Platelate Plug
 
-Platelets and platelet plug
+Platelets and platelet plug
 Platelets:
 These are minute, round or oval discs formed by fragmentation
 of megakaryocytes. The normal half-life of platelets is 10 days.
@@ -14047,8 +13488,6 @@ system of blood doting.
 Its membrane has Adenyl Cyclase that causes formation of
 cyclic AMP that excites other activities of platelets.
 Formation of Platelet Plug
-
-Overview  Comments
 
 Platelets get adhered to the collagen of ruptured blood
 vessel and secrete adenosine diphosphate (ADP) and
@@ -14085,10 +13524,9 @@ Prevent to convert the fibrinogen to fibrin.
 Heparin: It increases the activity of antithrombin III by 1000
 times
 
-Plasmin:  It breaks already formed clot.
+Plasmin:  It breaks already formed clot.
 Released by all the tissues.
-Convert the inactive plasminogen to plasmin.
-Previous Next',
+Convert the inactive plasminogen to plasmin.',
     false,
     5,
     'published',
@@ -14119,19 +13557,15 @@ Thrombocytopenia or abnormal platelet function is
 characterized by spontaneous skin purpura, mucosal
 haemorrhage and prolonged bleeding after trauma.
 Important to note here difference between
-TTP and haemolytic uremic syndrome.
+TTP and haemolytic uremic syndrome.
 Note: Difference between TTP and haemolytic uremic
 syndrome
-
-Overview  Comments
 
 ![Plateletes Bleeding Disorder - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/plateletes-bleeding-disorder/figure_01_p1.png)
 *Plateletes Bleeding Disorder — Clinical Figure 1 (Page 1 Reference)*
 
 ![Plateletes Bleeding Disorder - Clinical Figure 2](/lessons/images/blood-physiology-coagulation-pathways/plateletes-bleeding-disorder/figure_02_p1.png)
-*Plateletes Bleeding Disorder — Clinical Figure 2 (Page 1 Reference)*
-
-Previous Next',
+*Plateletes Bleeding Disorder — Clinical Figure 2 (Page 1 Reference)*',
     false,
     6,
     'published',
@@ -14161,9 +13595,6 @@ Haemopoiesis Sites:
 Important to remember:
 Haemopoietic Stem Cells: All blood cells
 develop from Haemopoietic Stem Cells
-Previous Next
-
-Overview  Comments
 
 ![Sites of Haemopoiesis - Clinical Figure 1](/lessons/images/blood-physiology-coagulation-pathways/sites-of-haemopoiesis/figure_01_p1.png)
 *Sites of Haemopoiesis — Clinical Figure 1 (Page 1 Reference)*
@@ -14211,7 +13642,7 @@ Overview  Comments
 >It''s a severe, life-threatening, generalized or systemic
 hypersensitivity reaction, characterized by rapidly developing
 and life-threatening airway, breathing and/or circulation
-problems, usually associated with skin and mucosal changes.
+problems, usually associated with skin and mucosal changes.
 - Causes
 - Medication:
 >Antibiotic (penicillin most common)
@@ -14228,8 +13659,6 @@ rocuronium) and contrast media
 >Food: e.g.: peanut, egg seafood (most common in children).
 >Insect sting
 
-Overview  Comments
-
 ![Anaphylaxis Management - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/anaphylaxis-management/figure_01_p1.png)
 *Anaphylaxis Management — Clinical Figure 1 (Page 1 Reference)*
 
@@ -14245,9 +13674,9 @@ problem.
 > 3: Possible skin or mucosal changes (although these may be
 absent and are not required for diagnosis).
 >there is no role of antihistamine however it may
-help alleviate cutaneous symptoms.
+help alleviate cutaneous symptoms.
 >The routine use of corticosteroids to treat anaphylaxis is not
-advised. If the patient is suffering from ongoing asthma/shock
+advised. If the patient is suffering from ongoing asthma/shock
 after initial resuscitation steroids may be considered.
 >Use glucagon in patients who are taking beta blockers may
 be resistant to the therapeutic effects of adrenaline.
@@ -14258,7 +13687,7 @@ started.
 ![Anaphylaxis Management - Clinical Figure 2](/lessons/images/respiratory-pharmacology-asthma-management/anaphylaxis-management/figure_02_p2.png)
 *Anaphylaxis Management — Clinical Figure 2 (Page 2 Reference)*
 
->Nice recommend: consider fast-track discharge after 2 hours
+>Nice recommend: consider fast-track discharge after 2 hours
 observation from resolution of anaphylaxis if : Good response
 (within 5-10 minutes) to a singles dose of adrenaline given
 within 30 minutes of onset of reaction and complete resolution
@@ -14283,16 +13712,14 @@ doesn''t cause degranulation. Non-immune (IgE) mediated
 reaction.
 >Anaphylaxis reaction: On further exposure to that allergen,
 the responsible allergenic antigen binds to an antigen-specific
-IgE antibody, leading to mast cell degranulation Histamine and
-other mediators, including leukotrienes and cytokines are
+IgE antibody, leading to mast cell degranulation Histamine and
+other mediators, including leukotrienes and cytokines are
 released from mast cells and basophils following exposure to
 this antigen.
 >Summary: anaphylactoid first exposure and non-immune
 mediated
 >Anaphylaxis: further exposure/ Pt has exposed to allergen
-previously (history) and immune mediated.
-
-Previous Next',
+previously (history) and immune mediated.',
     true,
     0,
     'published',
@@ -14328,12 +13755,9 @@ Insect bites and stings
 Anaphylaxis
 Angioedema
 Nausea and vomiting
-Motion sickness and vertigo
+Motion sickness and vertigo
 Insomnia
 Divided into 2 groups:
-Previous Next
-
-Overview  Comments
 
 ![Anti - Histamine Drugs - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/anti-histamine-drugs/figure_01_p1.png)
 *Anti - Histamine Drugs — Clinical Figure 1 (Page 1 Reference)*',
@@ -14374,8 +13798,6 @@ asthma along with any one feature of life-threatening
 asthma (as in above scenario his saturation is below <92%)
 would be classified as having life-threatening asthma.
 
-Overview  Comments
-
 ![Asthma in Adults Management - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/asthma-in-adults-management/figure_01_p1.png)
 *Asthma in Adults Management — Clinical Figure 1 (Page 1 Reference)*
 
@@ -14394,9 +13816,7 @@ Fax or email discharge letter to GP
 Refer to asthma liaison nurse/chest clinic.
 
 ![Asthma in Adults Management - Clinical Figure 2](/lessons/images/respiratory-pharmacology-asthma-management/asthma-in-adults-management/figure_02_p2.png)
-*Asthma in Adults Management — Clinical Figure 2 (Page 2 Reference)*
-
-Previous Next',
+*Asthma in Adults Management — Clinical Figure 2 (Page 2 Reference)*',
     false,
     2,
     'published',
@@ -14426,8 +13846,8 @@ Bronchodilator therapy:
 Note: Important points of theophylline:
 Theophylline has narrow window between therapeutic and
 toxic doses, and the half-life can be affected by a number of
-factors, making a therapeutic dose difficult to achieve. It is
-advised that serum levels of 10-20 mg/I six to eight hours after
+factors, making a therapeutic dose difficult to achieve. It is
+advised that serum levels of 10-20 mg/I six to eight hours after
 the last tablet should be aimed for.
 Factors that increase the half-life of theophylline include:
 Heart failure
@@ -14437,10 +13857,8 @@ Drugs (Enzyme inhibitors)
 Factors that decrease the half-life of theophylline include:
 Smoking
 Heavy drinking
-Drugs (Enzyme inducers)
+Drugs (Enzyme inducers)
 Enzyme inducers and Enzyme inhibitors
-
-Overview  Comments
 
 ![Bronchodilator Drugs - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/bronchodilator-drugs/figure_01_p1.png)
 *Bronchodilator Drugs — Clinical Figure 1 (Page 1 Reference)*
@@ -14457,14 +13875,13 @@ Asthma
 
 Heart failure
 Bradycardias
-Note: Aminophylline has mild positive inotropic and
+Note: Aminophylline has mild positive inotropic and
 chronotropic effects, producing an increase in cardiac output
 and a decrease in systemic vascular resistance, leading to a
 decrease in arterial blood pressure. It has been used historically
 in the treatment of refractory heart failure and is
 recommended by the current ALS guidelines as an alternative
 treatment for bradycardias.
-Previous Next
 
 ![Bronchodilator Drugs - Clinical Figure 2](/lessons/images/respiratory-pharmacology-asthma-management/bronchodilator-drugs/figure_02_p2.png)
 *Bronchodilator Drugs — Clinical Figure 2 (Page 2 Reference)*',
@@ -14495,40 +13912,38 @@ Previous Next
 
 Corticosteroids:
 Corticosteroids are a class of steroid hormones that are
-naturally produced in the adrenal cortex as well
-as administered as medications for therapeutic purposes.
-We have already discussed naturally produced corticosteroids
+naturally produced in the adrenal cortex as well
+as administered as medications for therapeutic purposes.
+We have already discussed naturally produced corticosteroids
 in physiology. Now we will discuss in detail pharmacology of
 administrated steroids.
-Naturally occurring Classes of corticosteroids: Glucocorticoids
+Naturally occurring Classes of corticosteroids: Glucocorticoids
 and mineralocorticoids, are involved in a wide range of
 physiological processes, including stress response,
-immune response, and regulation of inflammation.
+immune response, and regulation of inflammation.
 Classification of administrated steroids:
-Inhaled steroids: (beclomethasone, budesonide, fluticasone)
+Inhaled steroids: (beclomethasone, budesonide, fluticasone)
 Uses: Prophylaxis in chronic asthma if: Exacerbations in last
-2 years requiring systemic corticosteroid or nebulized
-bronchodilator or B-agonists used more than twice per
-week or Symptoms disturb sleep more than twice per week.
+2 years requiring systemic corticosteroid or nebulized
+bronchodilator or B-agonists used more than twice per
+week or Symptoms disturb sleep more than twice per week.
 Hay fever (Nasal spray)
 
 ## Copd
 
-Side effects: Rare which include Oral candidiasis, hoarseness
+Side effects: Rare which include Oral candidiasis, hoarseness
 and sore mouth.
-Note:  In high doses systemic adverse effects can occur which
-include Adrenal suppression, Osteoporosis and Glaucoma.
+Note:  In high doses systemic adverse effects can occur which
+include Adrenal suppression, Osteoporosis and Glaucoma.
 Oral and injectable corticosteroids:
-Oral and intravenous steroids: (prednisolone, dexamethasone,
+Oral and intravenous steroids: (prednisolone, dexamethasone,
 hydrocortisone).
 Specific uses:
 
-Overview  Comments
-
-Prednisolone: Has mainly glucocorticoid action 4 times more
-potent than hydrocortisone primary used for disease
-suppression in autoimmune/Rheumatoid conditions, Temporal
-arteritis, Asthma and acute adrenal insufficiency.
+Prednisolone: Has mainly glucocorticoid action 4 times more
+potent than hydrocortisone primary used for disease
+suppression in autoimmune/Rheumatoid conditions, Temporal
+arteritis, Asthma and acute adrenal insufficiency.
 Hydrocortisone: Short acting primarily known for its
 glucocorticoid activity, but it also possesses mineralocorticoid
 activity. Because of mineralocorticoid effect result into fluid
@@ -14554,7 +13969,7 @@ Perioperatively
 Inflammatory disorders
 Croup
 Intractable nausea
-Diagnosis of Cushing''s syndrome (Overnight Dexamethasone
+Diagnosis of Cushing''s syndrome (Overnight Dexamethasone
 suppression test)
 Temporal arteritis
 Side effects
@@ -14566,14 +13981,14 @@ suppression, therefore, withdraw steroid slowly to prevent
 Addisonian crisis
 Steroids should be doubled in times of stress/illness (unless on
 high dose) because the body cannot respond to increased
-requirements, to prevent Addisonian crisis .
+requirements, to prevent Addisonian crisis .
 Infections: Due to the suppression of the inflammatory
 response patients are more susceptible to infection.
 Reactivation of dormant infections, e.g., TB, may occur.
 Complications:
 Patients who are not immune to chicken pox (not previously
 infected) are at risk of severe chicken pox, with complications
-such as encephalitis, pneumonia, and hepatitis. Varicella
+such as encephalitis, pneumonia, and hepatitis. Varicella
 zoster immunoglobulin is required for postexposure
 prophylaxis; this provides passive immunity.
 Patients should also be advised to avoid exposure to measles
@@ -14582,8 +13997,7 @@ hours if they are exposed.
 All patients on long-term steroids should carry a ''steroid card''
 to inform medical practitioners that they are on steroids or
 have been on steroids (for up to a year as adrenal suppression
-can be prolonged).
-Previous Next',
+can be prolonged).',
     false,
     4,
     'published',
@@ -14623,9 +14037,6 @@ Previous Next',
 
 Anti-platelet, Statins, nitrate and
 fibrinolytic drugs:
-Previous Next
-
-Overview  Comments
 
 ![Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/anti-platelet-statins-nitrate-and-fibrinolytic-drugs/figure_01_p1.png)
 *Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs — Clinical Figure 1 (Page 1 Reference)*',
@@ -14660,9 +14071,9 @@ Anticoagulant drugs
 Heparin:
 Heparin is used for:
 Prevention and treatment of DVT and Pulmonary embolism
-Treatment of disseminated intravascular coagulation .
+Treatment of disseminated intravascular coagulation .
 Heparin side effects:
-Heparin induced thrombocytopenia .
+Heparin induced thrombocytopenia .
 Bleeding
 Osteoporosis
 Alopecia
@@ -14670,9 +14081,7 @@ Hyperkalemia
 Contraindications:
 People with active bleeding history or active peptic or
 duodenal ulcer
-Previous history of Heparin induced thrombocytopenia .
-
-Overview  Comments
+Previous history of Heparin induced thrombocytopenia .
 
 ![Anticoagulant Drugs - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_01_p1.png)
 *Anticoagulant Drugs — Clinical Figure 1 (Page 1 Reference)*
@@ -14684,28 +14093,28 @@ Warfarin is vitamin K antagonist acts by inhibiting vitamin K
 dependent clotting factors (ii, vii, ix and x) or simply
 
 > [!NOTE]
-> **remember 27910 (Mnemonic) as well as anticoagulant protein**
+> **remember 27910 (Mnemonic) as well as anticoagulant protein**
 C and S
 Indications:
 Prophylaxis and treatment of venous thromboembolism
 Prophylaxis in atrial fibrillation
 Prophylaxis in people with Mechanical Heart Valves
-Side effects:
-Bleeding is the most common adverse feature .
-Narrow Therapeutic Window: Warfarin has a narrow
+Side effects:
+Bleeding is the most common adverse feature .
+Narrow Therapeutic Window: Warfarin has a narrow
 therapeutic window, meaning that even small fluctuations in
-dosage can lead to a significant change in its anticoagulant
+dosage can lead to a significant change in its anticoagulant
 effects. Maintaining the correct INR range is crucial for
-optimal benefit and to avoid complications.
-Skin Necrosis and Purple Toe Syndrome
-Nausea, vomiting , Diarrhea, Rash, jaundice, hepatic
-dysfunction and pancreatitis
-Warfarin in pregnancy: If given in 1st trimester may cause fetal
-warfarin syndrome (nasal hypoplasia, bone stippling, bilateral
-optic atrophy and intellectual disability)
-If given in 2nd or 3rd trimester can cause optic atrophy,
-cataracts, microcephaly, microphthalmia, intellectual disability
-and fetal and/or maternal haemorrhage.
+optimal benefit and to avoid complications.
+Skin Necrosis and Purple Toe Syndrome
+Nausea, vomiting , Diarrhea, Rash, jaundice, hepatic
+dysfunction and pancreatitis
+Warfarin in pregnancy: If given in 1st trimester may cause fetal
+warfarin syndrome (nasal hypoplasia, bone stippling, bilateral
+optic atrophy and intellectual disability)
+If given in 2nd or 3rd trimester can cause optic atrophy,
+cataracts, microcephaly, microphthalmia, intellectual disability
+and fetal and/or maternal haemorrhage.
 
 ![Anticoagulant Drugs - Clinical Figure 2](/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_02_p2.png)
 *Anticoagulant Drugs — Clinical Figure 2 (Page 2 Reference)*
@@ -14716,38 +14125,36 @@ Active peptic ulcer
 Bleeding disorders (ITP, Haemophilia)
 Pregnancy
 Recent trauma or surgery
-Monitoring: Both PT and aPTT are prolonged after warfarin
+Monitoring: Both PT and aPTT are prolonged after warfarin
 administration but PT is more prolonged. Warfarin therapy is
-typically monitored using the prothrombin time (PT) test
+typically monitored using the prothrombin time (PT) test
 along with the International Normalized Ratio (INR), rather
-than the activated partial thromboplastin time  (aPTT)  test.
+than the activated partial thromboplastin time  (aPTT)  test.
 The target International Normalized Ratio (INR) value for
 warfarin therapy varies depending on the medical condition
-being treated. Warfarin therapy can be withhold or omitted if
-INR rises above the range. Phytomenadione (Vitamin K)
-antidote used to reverse the bleeding. Dried prothrombin
-complex consists of factors ii, vii, ix and x can also be given in
+being treated. Warfarin therapy can be withhold or omitted if
+INR rises above the range. Phytomenadione (Vitamin K)
+antidote used to reverse the bleeding. Dried prothrombin
+complex consists of factors ii, vii, ix and x can also be given in
 major bleeding if prothrombin complex unavailable give
-fresh frozen plasma
-(High yield )
-Managing the patients with increased INR and bleeding
-If INR> 8 and no bleeding = Phytomenadione orally
-If INR> 8 and minor bleeding = Phytomenadione Iv
+fresh frozen plasma
+(High yield )
+Managing the patients with increased INR and bleeding
+If INR> 8 and no bleeding = Phytomenadione orally
+If INR> 8 and minor bleeding = Phytomenadione Iv
 If INR> 8 and major bleeding = Phytomenadione Iv and dried
 prothrombin complex (Recall)
-If INR 5-8 and no bleeding = Withhold warfarin
-If INR 5-8 and minor bleeding = Phytomenadione Iv
+If INR 5-8 and no bleeding = Withhold warfarin
+If INR 5-8 and minor bleeding = Phytomenadione Iv
 Metabolism: Warfarin undergoes extensive metabolism in the
 liver via the cytochrome P450 enzyme system, mainly through
-the CYP2C9 enzyme.  cytochrome P450 enzyme inducer drugs
+the CYP2C9 enzyme.  cytochrome P450 enzyme inducer drugs
 increase rate of metabolism and hepatic clearance of
-concurrently administrated drugs which typically results in
+concurrently administrated drugs which typically results in
 decreased pharmacologic effects and decreasing
 anticoagulant effects of warfarin. While enzyme inhibitor
-drugs decrease hepatic clearance and increase pharmacologic
-effect/increased anticoagulant effects and risk of bleeding.
-
-Previous Next
+drugs decrease hepatic clearance and increase pharmacologic
+effect/increased anticoagulant effects and risk of bleeding.
 
 ![Anticoagulant Drugs - Clinical Figure 3](/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_03_p4.png)
 *Anticoagulant Drugs — Clinical Figure 3 (Page 4 Reference)*',
@@ -14781,8 +14188,6 @@ support algorithms
 - Key difference b/w Paeds &
 adult ALS
 
-Overview  Comments
-
 ![Basic Life Support and Advanced Life Support - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/basic-life-support-and-advanced-life-support/figure_01_p1.png)
 *Basic Life Support and Advanced Life Support — Clinical Figure 1 (Page 1 Reference)*
 
@@ -14806,7 +14211,6 @@ Aim for SpO2 of 94-98% and normal PaCO2
 12-lead ECG
 Identify and treat the cause.
 Targeted temperature management
-Previous Next
 
 ![Basic Life Support and Advanced Life Support - Clinical Figure 3](/lessons/images/cardiovascular-pharmacology-anticoagulants/basic-life-support-and-advanced-life-support/figure_03_p2.png)
 *Basic Life Support and Advanced Life Support — Clinical Figure 3 (Page 2 Reference)*',
@@ -14852,8 +14256,6 @@ together with alpha blocker.
 
 Digoxin Inhibits the Na/K ATPase in cardiac myocytes.
 
-Overview  Comments
-
 ![Betablocker and Calcium Channel Blockers - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/betablocker-and-calcium-channel-blockers/figure_01_p1.png)
 *Betablocker and Calcium Channel Blockers — Clinical Figure 1 (Page 1 Reference)*
 
@@ -14867,8 +14269,7 @@ Verapamil Blocks Ca2+ channels in heart, slowing conduction
 in the AV node.
 Amiodarone: Blocks Na+ and K+ channels and beta
 adrenoreceptors prolonging phase 3 of cardiac action
-potential and slowing conduction at SA and AV nodes.
-Previous Next',
+potential and slowing conduction at SA and AV nodes.',
     false,
     3,
     'published',
@@ -14922,8 +14323,6 @@ Clonidine
 Digoxin
 Organophosphate
 
-Overview  Comments
-
 Management approach (unstable Pt)
 The ALS bradycardia algorithm recommends Atropine 500
 mcg IV up to 3mg maximum if any Pt presents with the
@@ -14958,9 +14357,7 @@ Atropine antagonises the action of the parasympathetic
 neurotransmitter acetylcholine at muscarinic receptors. It
 therefore blocks the effects of the vagus nerve on both the SA
 node and
-the AV node, increasing sinus automaticity and facilitating AV
-
-node conduction.
+the AV node, increasing sinus automaticity and facilitating AV node conduction.
 Side effects: (Anti-muscarinic effects)
 - Dry mouth
 - Nausea and vomiting
@@ -14969,8 +14366,7 @@ Side effects: (Anti-muscarinic effects)
 - Tachyarrhythmias
 Note: Anti-muscarinic should be avoided in Myasthenia
 gravis, paralytic ileus, GI obstruction, Urinary retention and
-prostatic enlargement
-Previous Next',
+prostatic enlargement',
     false,
     4,
     'published',
@@ -14998,63 +14394,58 @@ Previous Next',
 
 Digoxin
 Digoxin is a cardiac glycoside derived from the
-plant foxglove that primarily works by inhibiting the Na+/K+
-ATPase in the myocardium.
-Mechanism: Digoxin has positive inotropic effects and
+plant foxglove that primarily works by inhibiting the Na+/K+
+ATPase in the myocardium.
+Mechanism: Digoxin has positive inotropic effects and
 negative chronotropic effects
 Binds to and inhibits the Na+/K+ pump on the myocyte cell
 membrane (competes with the K+ ion) Increases
-intracellular Na+ concentration.
+intracellular Na+ concentration.
 Reduces the extrusion of intracellular Ca2+ via the Na+/Ca2+
 exchange transporter Increased Ca2+ is stored in
-the sarcoplasmic reticulum Increased amounts of Ca2+
+the sarcoplasmic reticulum Increased amounts of Ca2+
 released during each action potential force of
-contraction increased .
+contraction increased .
 Digoxin also increases vagal tone by enhancing Ach release at
 muscarinic receptors, thus slowing the heart
-rate, atrioventricular (AV) conduction, and the AV nodal
+rate, atrioventricular (AV) conduction, and the AV nodal
 refractory period.
 Indications: Heart failure, persistent and permanent atrial
 fibrillation and flutter.
-Note: In heart failure digoxin is useful in patient with reduced
+Note: In heart failure digoxin is useful in patient with reduced
 ejection fraction, with an ejection fraction below 40%. However,
-it has no benefit in mortality reduction.
+it has no benefit in mortality reduction.
 Digoxin can only be used as monotherapy in sedentary
 patients because it controls ventricular response at rest.
-Monitoring: Digoxin has narrow therapeutic index.
-Narrow therapeutic index means difference between the
-effective therapeutic dose and the potentially toxic dose is
+Monitoring: Digoxin has narrow therapeutic index.
+Narrow therapeutic index means difference between the
+effective therapeutic dose and the potentially toxic dose is
 relatively small. This narrow window makes proper dosing
-and monitoring critically important to ensure the medication''s
-safety, effectiveness and to prevent toxicity. The
-therapeutic plasma levels of digoxin are usually between 1.0-1.5
-
-Overview  Comments
-
-nmol/l. The likelihood of toxicity rises dramatically at levels
-above 2 nmol/l.
+and monitoring critically important to ensure the medication''s
+safety, effectiveness and to prevent toxicity. The
+therapeutic plasma levels of digoxin are usually between 1.0-1.5 nmol/l. The likelihood of toxicity rises dramatically at levels
+above 2 nmol/l.
 Dose adjustments in renal failure and liver failure:
 Renal failure: Digoxin is excreted renally, and impaired renal
 function can cause increased digoxin levels and leads to
-digoxin toxicity. In this case the patient should have their
+digoxin toxicity. In this case the patient should have their
 digoxin dose reduced and their digoxin level and electrolytes
 should be carefully monitored.
 Liver failure: Liver failure has little influence on digoxin
 metabolism or clearance; therefore, no dose adjustment is
 necessary.
-Digoxin toxicity: Precipitated by hypokalemia or drugs
-causing hypokalemia, hypercalcemia, acidosis and renal
+Digoxin toxicity: Precipitated by hypokalemia or drugs
+causing hypokalemia, hypercalcemia, acidosis and renal
 failure.
 The features of digoxin toxicity include:
 Hyperkaliemia
-Nausea, vomiting and diarrhea .
+Nausea, vomiting and diarrhea .
 Abdominal pain
 Confusion, dizziness and psychosis
 Tachyarrhythmias or bradyarrhythmia''s
 Xanthopsia (yellow-green vision)
 Treatment: Digoxin immune fab is the reversal agent
-(Antidote) of digoxin toxicity.
-Previous Next',
+(Antidote) of digoxin toxicity.',
     false,
     5,
     'published',
@@ -15099,8 +14490,6 @@ in pregnancy.
 Clinical features
 Physical examination
 
-Overview  Comments
-
 ![Hypertensive Emergency - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/hypertensive-emergency/figure_01_p1.png)
 *Hypertensive Emergency — Clinical Figure 1 (Page 1 Reference)*
 
@@ -15134,8 +14523,7 @@ Alpha with Beta blocker (phentolamine and labetalol)
 choice for phaeochromocytoma
 Fenoldopam choice for AKI
 IV labetalol/ hydralazine drug of choice for pre-eclampsia
-and MgSo4 for eclampsia.
-Previous Next',
+and MgSo4 for eclampsia.',
     false,
     6,
     'published',
@@ -15183,8 +14571,6 @@ Long QT syndrome
 Severe hypotension
 Decompensated heart failure
 
-Overview  Comments
-
 ![Tachyarrhythmia - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/tachyarrhythmia/figure_01_p1.png)
 *Tachyarrhythmia — Clinical Figure 1 (Page 1 Reference)*
 
@@ -15206,7 +14592,7 @@ Followed by 900mg over 24hrs.
 Note: Any unstable patient requires electrical cardioversion
 rather than drugs regardless of the underlying rhythm.
 Atrial fibrillation managment
-AF is diagnosed using an ECG which typically shows an
+AF is diagnosed using an ECG which typically shows an
 absolutely irregular RR interval and absent p waves.
 NICE guideline classification
 Paroxysmal AF
@@ -15263,18 +14649,17 @@ based on clinical judgment
 Note: digoxin can be used in sedentary patients.
 Management of Recent-onset, Non-
 Life-threatening AF
-In the ED if a patient presents within 48 hrs. of onset
+In the ED if a patient presents within 48 hrs. of onset
 consider either pharmacological or electrical cardioversion.
 Electrical: synchronized DC 120-150J.
-Pharmacological: A choice of flecainide in people with no
+Pharmacological: A choice of flecainide in people with no
 evidence of structural or ischemic heart disease.
 Amiodarone should be used in people with evidence of
 structural heart disease.
 Note: if Pt with AF is uncertain of time or greater than 48
 hrs then anti-coagulate this pt for 3 weeks before
 cardioversion and rate should be controlled with Beta
-blockers.
-Previous Next',
+blockers.',
     false,
     7,
     'published',
@@ -15314,91 +14699,89 @@ Previous Next',
 
 Analgesics:
 Classification of analgesics:
-Non opioid analgesics:
-Paracetamol: Used in Pyrexia and mild to moderate pain
-Side effects: Rare (rashes, blood disorders)
+Non opioid analgesics:
+Paracetamol: Used in Pyrexia and mild to moderate pain
+Side effects: Rare (rashes, blood disorders)
 Metabolism: Paracetamol metabolized to mainly glucuronide
-conjugates, small amount converted to the toxic NAPQI (N-
+conjugates, small amount converted to the toxic NAPQI (N-
 acetyl P-amino-benzoquinoneimine), which is quickly made
 safe by conjugation with glutathione
-Toxic overdose: More NAPQI produced glucuronide pathway
+Toxic overdose: More NAPQI produced glucuronide pathway
 becomes saturated leads to cellular death
-and hepatic necrosis.
-Antidote overdose: N-acetylcysteine
-NSAIDS: (Non-Steroidal anti-inflammatory drugs): Class of
-analgesics used to treat pain, fever and inflammation.
+and hepatic necrosis.
+Antidote overdose: N-acetylcysteine
+NSAIDS: (Non-Steroidal anti-inflammatory drugs): Class of
+analgesics used to treat pain, fever and inflammation.
 Mechanism: Cyclo-oxygenase (COX) catalyzes the production
 of prostaglandins through the intermediate arachidonic
-acid and Prostaglandins regulate the body''s inflammatory
+acid and Prostaglandins regulate the body''s inflammatory
 response.
 COX has 2 isoenzymes:
 COX-I regulates many physiological processes including
 protection of gastric mucosa.
 COX-II is expressed in inflammatory cells.
-Note:  Most NSAIDs inhibit both COX-I and COX-II. Some newer
+Note:  Most NSAIDs inhibit both COX-I and COX-II. Some newer
 drugs inhibit just COX-II, therefore reducing gastric side
 effects.
-ibuprofen (Safest NSAID) but low anti-inflammatory
-properties not useful in inflammatory conditions.
+ibuprofen (Safest NSAID) but low anti-inflammatory
+properties not useful in inflammatory conditions.
 
-Overview  Comments
-
-Naproxen: Good efficacy, lower side effects but greater
-than ibuprofen. Used in musculoskeletal
-disorders, Rheumatoid arthritis, Gout and dysmenorrhea.
-Diclofenac: Similar in efficacy to naproxen but greater side
+Naproxen: Good efficacy, lower side effects but greater
+than ibuprofen. Used in musculoskeletal
+disorders, Rheumatoid arthritis, Gout and dysmenorrhea.
+Diclofenac: Similar in efficacy to naproxen but greater side
 effects.
-Mefenamic acid: Low anti-inflammatory properties but
-greater side effects which include aplastic anemia
-and hemolytic anemia.
-Note: NSAIDs cause GERD by inhibiting the COX 1 enzymes (cox
-1 stimulation produce prostaglandins that help to maintain the
+Mefenamic acid: Low anti-inflammatory properties but
+greater side effects which include aplastic anemia
+and hemolytic anemia.
+Note: NSAIDs cause GERD by inhibiting the COX 1 enzymes (cox
+1 stimulation produce prostaglandins that help to maintain the
 gastric mucosal integrity) NSAIDs can cause ulcers by
 interfering with the stomach''s ability to protect itself from
-gastric acid (by inhibiting the function of prostaglandins)
+gastric acid (by inhibiting the function of prostaglandins)
 NSAIDS Adverse effects:
-Gl adverse effects (Most common) which include NSAIDS
-induced peptic ulcer.
-Hypersensitivity reactions
-Renal failure contraindicated in reduced GFR
-MI, Heart failure
+Gl adverse effects (Most common) which include NSAIDS
+induced peptic ulcer.
+Hypersensitivity reactions
+Renal failure contraindicated in reduced GFR
+MI, Heart failure
 Tinnitus
 Hypertension
-Thrombotic events
-Fluid retention
+Thrombotic events
+Fluid retention
 Haemolytic anemia (Mefenamic acid)
-Note: NSAIDs are contraindicated in a patient with heart
+Note: NSAIDs are contraindicated in a patient with heart
 failure. (Diclofenac is contraindicated in people with ischemic
 heart disease).
 Risk of GI Side effects:
 Lowest risk=ibuprofen (Safest NSAID)
-Intermediate risk: Aspirin, naproxen
+Intermediate risk: Aspirin, naproxen
 Highest risk=piroxicam, ketorolac, indomethacin
 Management of gout (Important to know
 here)
 Acute gout: NSAIDS (specially naproxen)
-Gout with heart failure: Colchicine
+Gout with heart failure: Colchicine
 Chronic gout: Allopurinol also reduces further attacks of gout
-by reducing uric acid.
+by reducing uric acid.
 
 Note: In gout under polarized light, gout crystals appear
 needle-shaped and yellow, a property called negative
-birefringence. Gout crystals are monosodium urate crystals
+birefringence. Gout crystals are monosodium urate crystals
 In Pseudo gout: Positive birefringence and pyrophosphate
 crystals.
 Colchicine mechanism of action: Colchicine has anti-
 inflammatory properties. It disrupts cytoskeletal functions by
-inhibiting beta-tubulin polymerization into microtubules,
+inhibiting beta-tubulin polymerization into microtubules,
 preventing activation, degranulation, and migration of
-neutrophils associated with mediating gout symptoms.
+neutrophils associated with mediating gout symptoms.
 Colchicine is useful in patients with heart failure and those
 taking anticoagulants
 Avoid colchicine in patients with blood dyscrasias and bone
-marrow disease .
+marrow disease .
 Opioid analgesics:
 Class of analgesics used to relieve moderate to severe
-pain. Opioids have affinity for opioid µ receptors found in the
-CNS, spinal cord and periphery
+pain. Opioids have affinity for opioid µ receptors found in the
+CNS, spinal cord and periphery
 Classification of opioids:
 Contraindications:
 Raised ICP
@@ -15410,8 +14793,7 @@ Acute respiratory depression
 
 Exacerbation of Asthma
 Opioid toxicity: Severe respiratory depression coma
-Antidote: Naloxone rapidly reverse the symptoms.
-Previous Next',
+Antidote: Naloxone rapidly reverse the symptoms.',
     true,
     0,
     'published',
@@ -15438,26 +14820,23 @@ Previous Next',
     '# Anti - Psychotic Drugs
 
 Anti-psychotics
-Anti-psychotics acts by blocking dopamine D2 receptors in
-the brain .
+Anti-psychotics acts by blocking dopamine D2 receptors in
+the brain .
 Side effects:
 Extrapyramidal side effects occur most commonly associated
 with antiemetic (metoclopramide, prochlorperazine) and anti-
-psychotics (haloperidol). Haloperidol is the most
-common causative antipsychotic drug.
+psychotics (haloperidol). Haloperidol is the most
+common causative antipsychotic drug.
 Dystonia (abnormal face and body movements) most
-commonly occur in young female and children treated with
-Procyclidine or benztropine .
+commonly occur in young female and children treated with
+Procyclidine or benztropine .
 Tardive dyskinesia (rhythmic, involuntary movements of
 tongue, face and jaw)
 Other side effects:
-Parkinsonian symptoms (Tremor, Rigidity, bradykinesia and
+Parkinsonian symptoms (Tremor, Rigidity, bradykinesia and
 postural instability)
-Hyperprolactinemia (Dopamine inhibits release of prolactin)
-QT-interval prolongation
-Previous Next
-
-Overview  Comments',
+Hyperprolactinemia (Dopamine inhibits release of prolactin)
+QT-interval prolongation',
     false,
     1,
     'published',
@@ -15488,15 +14867,12 @@ clinical use:
 Metoclopramide
 Metoclopramide is dopamine receptor antagonist acts directly
 on GI tract as prokinetic drug, commonly associated with
-extrapyramidal symptoms induce acute dystonic
-reactions causing fascial and skeletal muscle spasm .
+extrapyramidal symptoms induce acute dystonic
+reactions causing fascial and skeletal muscle spasm .
 Antidote: Injection of anti-parkinsonism drug Such as
 "Procyclidine will abort dystonic attack.
 Note: Extrapyramidal symptoms are most commonly
 associated with antiemetics and antipsychotics
-Previous Next
-
-Overview  Comments
 
 ![Anti - Emetic Drugs - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/anti-emetic-drugs/figure_01_p1.png)
 *Anti - Emetic Drugs — Clinical Figure 1 (Page 1 Reference)*',
@@ -15527,40 +14903,37 @@ Overview  Comments
 
 Anti-epileptic drugs
 Carbamazepine, sodium valproate
-and phenytoin
+and phenytoin
 Mechanism of action: Carbamazepine, sodium valproate
-and phenytoin all three drugs act by inhibiting Voltage gated
+and phenytoin all three drugs act by inhibiting Voltage gated
 Na+ channels in neuronal cells.
 Sodium valproate: May also enhance the inhibitory effects of
 gamma-aminobutyric acid (GABA), an
-important neurotransmitter that reduces neuronal
+important neurotransmitter that reduces neuronal
 excitability.
 Antiepileptic drugs in pregnancy: (Adverse features)
-Carbamazepine: Hemorrhagic disease of the newborn and
+Carbamazepine: Hemorrhagic disease of the newborn and
 Neural tube defects.
-Phenytoin: Hemorrhagic disease of the newborn., Risk of
+Phenytoin: Hemorrhagic disease of the newborn., Risk of
 congenital malformations e.g. cleft lip, hypospadias and
 cardiovascular defects.
-
-Overview  Comments
 
 ![Anti - Epileptic Drugs - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/anti-epileptic-drugs/figure_01_p1.png)
 *Anti - Epileptic Drugs — Clinical Figure 1 (Page 1 Reference)*
 
-Sodium valproate: Risk of major congenital malformations e.g.
-neural tube, cardiac, craniofacial and limb defects.
+Sodium valproate: Risk of major congenital malformations e.g.
+neural tube, cardiac, craniofacial and limb defects.
 Antiepileptic drug interaction:
-All the cytochrome P450 enzyme inducer drugs which also
-include antiepileptics phenytoin and carbamazepine increase
-rate of metabolism and hepatic clearance of
-concurrently administrated drugs which typically results in
-decreased pharmacologic effects. Enzyme inducer drugs
-reduce the effectiveness of Oral contraceptives pills taken in
+All the cytochrome P450 enzyme inducer drugs which also
+include antiepileptics phenytoin and carbamazepine increase
+rate of metabolism and hepatic clearance of
+concurrently administrated drugs which typically results in
+decreased pharmacologic effects. Enzyme inducer drugs
+reduce the effectiveness of Oral contraceptives pills taken in
 pregnancy and thus pregnancy happens.
 Note: Sodium valproate is metabolized in liver all the enzyme
 inhibitor drugs decrease rate of metabolism of valproate and
-toxicity occur.
-Previous Next',
+toxicity occur.',
     false,
     3,
     'published',
@@ -15590,7 +14963,7 @@ Lithium:
 Used in the treatment of mania, bipolar disorders and
 depression.
 Side effects:
-Gl disturbance (Nausea, Diarrhea)
+Gl disturbance (Nausea, Diarrhea)
 Muscle weakness, Fine tremor
 Polyuria and polydipsia (ADH antagonism - nephrogenic
 diabetes insipidus)
@@ -15601,11 +14974,11 @@ Na imbalance
 Dehydration
 Thyroid dysfunction
 Renal impairment
-Lithium monitoring:  Lithium has a narrow therapeutic effects.
+Lithium monitoring:  Lithium has a narrow therapeutic effects.
 While starting lithium routine monitoring is
-recommended. The usual therapeutic range for lithium is 0.4-
+recommended. The usual therapeutic range for lithium is 0.4-
 0.8 mmol/l . The lower end of the range is usually the target for
-maintenance therapy and treatment in the elderly. Toxic
+maintenance therapy and treatment in the elderly. Toxic
 effects are generally seen at levels > 1.5 mmol/l.
 Lithium toxicity:
 Early features:
@@ -15616,15 +14989,12 @@ Slurred speech
 Polyuria
 Muscle weakness
 
-Overview  Comments
-
 Late features:
-Ataxia, coarse hand tremor
+Ataxia, coarse hand tremor
 Blurred vision
 Seizures, Stupor
 Severe hypotension
-Coma and death
-Previous Next',
+Coma and death',
     false,
     4,
     'published',
@@ -15651,9 +15021,6 @@ Previous Next',
     '# Status Epilepticus Management
 
 Status epilepticus management
-Previous Next
-
-Overview  Comments
 
 ![Status Epilepticus Management - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/status-epilepticus-management/figure_01_p1.jpg)
 *Status Epilepticus Management — Clinical Figure 1 (Page 1 Reference)*',
@@ -15683,17 +15050,17 @@ Overview  Comments
     '# Tricyclic - Antidepressants
 
 Tri-cyclic antidepressants:
-Mechanism of action: TCA e.g. Amitriptyline is in the tricyclic
+Mechanism of action: TCA e.g. Amitriptyline is in the tricyclic
 antidepressant (TCA) drug, block the reuptake of
 norepinephrine and serotonin from the synaptic cleft, thereby
 potentiating the effects of serotonin and norepinephrine on
 the postsynaptic receptors. The TCAs have also been shown to
 inhibit muscarinic, histamine, and α -adrenergic receptors,
 thereby leading to a host of undesirable side effects.
-Tca also block muscarinic, histamine and  α  receptors and has
+Tca also block muscarinic, histamine and  α  receptors and has
 non-specific sedative effects.
 Anticholinergic effects/parasympathetic blocking actions are
-due to muscarinic receptor blockade (leads to Tachycardia,
+due to muscarinic receptor blockade (leads to Tachycardia,
 urinary retention, blurred vision, acute angle closure
 glaucoma, confusion, constipation, and dry
 mouth
@@ -15704,22 +15071,18 @@ cardiac arrhythmias (due to sodium channel blocker)
 Indications: Used in depression, neuropathic pain and
 nocturnal enuresis.
 Clinical features of TCA Toxicity:
-Tachycardia - Sinus tachycardia is the most common rhythm
+Tachycardia - Sinus tachycardia is the most common rhythm
 in TCA overdose. Wide complex tachycardia occurs with severe
 TCA overdose.
-Hypotension - As a result of alpha-1 antagonism, hypotension
+Hypotension - As a result of alpha-1 antagonism, hypotension
 is quite common.
 Mydriasis,
 Warm, dry, flushed skin
 Decreased or absent bowel sounds
 Urinary retention
-Ophthalmic signs - Divergent squint, internuclear
-ophthalmoplegic and gaze paralysis; nystagmus may also be
-
-Overview  Comments
-
-seen.
-Neurological signs - Ataxia, and myoclonic and
+Ophthalmic signs - Divergent squint, internuclear
+ophthalmoplegic and gaze paralysis; nystagmus may also be seen.
+Neurological signs - Ataxia, and myoclonic and
 choreoathetoid movements, may be seen. Increased muscle
 tone, hyperreflexia, and extensor plantar responses may occur.
 Severe metabolic acidosis on ABG findingsInvestigations
@@ -15729,25 +15092,24 @@ Any QRS duration >100 milliseconds in the setting of overdose,
 or unknown cause of altered mental status, is suspicious for
 TCA overdose.
 The most common ECG abnormality seen in TCA overdose
-is sinus tachycardia.
+is sinus tachycardia.
 Other ECG changes that can occur include:
 prolonged QTc duration
 prolonged PR interval
 AV block
 non-specific ST and T wave changes
 downward sloping ST elevation in leads V1 to V3 with right
-bundle branch block (Brugada wave).
+bundle branch block (Brugada wave).
 Treatment:
 Follow ABC protocol, obtain intravenous access, attach a
 cardiac monitor and obtain an ECG to look for QRS
 prolongation.
 Gastrointestinal decontamination (Time limited) - consider in
-patients with ingestion within 1 hour .
-Activated charcoal: 1 g/kg orally as a single dose, or 50g in
+patients with ingestion within 1 hour .
+Activated charcoal: 1 g/kg orally as a single dose, or 50g in
 adults repeat every 1-2 hours if required.
-Pt with QRS >100 milliseconds or pH <7.45 - Give sodium
-bicarbonate bolus followed by infusion.
-Previous Next',
+Pt with QRS >100 milliseconds or pH <7.45 - Give sodium
+bicarbonate bolus followed by infusion.',
     false,
     6,
     'published',
@@ -15790,8 +15152,6 @@ Local anesthetic drugs:
 Anesthetic induction and
 maintenance agents:
 
-Overview  Comments
-
 ![Anesthetic Drugs - Clinical Figure 1](/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_01_p1.png)
 *Anesthetic Drugs — Clinical Figure 1 (Page 1 Reference)*
 
@@ -15800,7 +15160,6 @@ Overview  Comments
 
 Anesthetic induction and
 maintenance agents: (Continues)
-Previous Next
 
 ![Anesthetic Drugs - Clinical Figure 3](/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_03_p2.png)
 *Anesthetic Drugs — Clinical Figure 3 (Page 2 Reference)*
@@ -15843,10 +15202,6 @@ Previous Next
     'Drugs Toxicity and Antidotes',
     'article',
     '# Drugs Toxicity and Antidotes
-
-Previous Next
-
-Overview  Comments
 
 ![Drugs Toxicity and Antidotes - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/drugs-toxicity-and-antidotes/figure_01_p1.png)
 *Drugs Toxicity and Antidotes — Clinical Figure 1 (Page 1 Reference)*',
@@ -15896,14 +15251,10 @@ major cause of poisoning. It may be accidental or deliberate
 and involve the use of prescribed or illicit drugs.
 Table - A: Drugs and clinical features
 
-Overview  Comments
-
 Table - B: Toxidromes
 
 ![Poisoning, Overdose and Toxidromes - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/poisoning-overdose-and-toxidromes/figure_01_p2.png)
 *Poisoning, Overdose and Toxidromes — Clinical Figure 1 (Page 2 Reference)*
-
-Previous Next
 
 ![Poisoning, Overdose and Toxidromes - Clinical Figure 2](/lessons/images/emergency-toxicology-antidotes/poisoning-overdose-and-toxidromes/figure_01_p3.png)
 *Poisoning, Overdose and Toxidromes — Clinical Figure 2 (Page 3 Reference)*
@@ -15937,9 +15288,6 @@ Previous Next
 
 Summary Of Drugs And Their Side
 Effects
-Previous Next
-
-Overview  Comments
 
 ![Summary of Drugs and Their Side Effects - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/summary-of-drugs-and-their-side-effects/figure_01_p1.png)
 *Summary of Drugs and Their Side Effects — Clinical Figure 1 (Page 1 Reference)*',
@@ -15995,8 +15343,6 @@ Alcoholic liver disease
 Hypothyroidism
 Myelodysplastic syndrome
 
-Overview  Comments
-
 ![Anemia - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/anemia/figure_01_p1.png)
 *Anemia — Clinical Figure 1 (Page 1 Reference)*
 
@@ -16010,7 +15356,6 @@ Raised serum bilirubin (indirect) and lactate dehydrogenase
 Low B12 +/- folate
 Hypercellular bone marrow, megaloblastic erythropoiesis and
 giant metamyelocytes
-Previous Next
 
 ![Anemia - Clinical Figure 2](/lessons/images/general-pathology-inflammation-anemia/anemia/figure_02_p2.png)
 *Anemia — Clinical Figure 2 (Page 2 Reference)*',
@@ -16039,11 +15384,8 @@ Previous Next
     'article',
     '# Antibodies and Hypersensitivity Reactions
 
-Overview  Comments
-
 Antibodies:
 Hypersensitivity reaction:
-Previous Next
 
 ![Antibodies and Hypersensitivity Reactions - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/antibodies-and-hypersensitivity-reactions/figure_01_p2.png)
 *Antibodies and Hypersensitivity Reactions — Clinical Figure 1 (Page 2 Reference)*
@@ -16090,8 +15432,6 @@ and thus is the universal recipient.
 Blood group A has A antigens and anti-B antibodies, and
 blood group B has B antigens and anti-A antibodies.
 
-Overview  Comments
-
 ![Blood Groups - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/blood-groups/figure_01_p1.png)
 *Blood Groups — Clinical Figure 1 (Page 1 Reference)*
 
@@ -16102,13 +15442,13 @@ negative or RhD positive phenotype respectively. About 85% of
 the UK population is Rh D positive. Anti-D antibodies don''t
 occur naturally and are therefore immune antibodies that
 result from previous transfusions or pregnancy.
-Rhesus Disease:  A condition that occurs during pregnancy if
+Rhesus Disease:  A condition that occurs during pregnancy if
 a woman has Rh-ve blood and her baby has Rh+ve blood.
 Mother''s body create Rh antibodies against the baby''s blood
 also known as hemolytic disease of newborn
 .
-Pathogenesis: Rh-ve mother carrying Rh+ve fetus⟶  Entry of
-fetus Rh+ve Rbc into maternal circulation⟶  Development of
+Pathogenesis: Rh-ve mother carrying Rh+ve fetus⟶  Entry of
+fetus Rh+ve Rbc into maternal circulation⟶  Development of
 Rh antibodies by the mother
 Prevention and Prophylaxis
 anti-D immunoglobulin to all Rh-negative women at 28 and 34
@@ -16122,8 +15462,7 @@ Any bleeding in pregnancy/threatened miscarriage.
 ![Blood Groups - Clinical Figure 2](/lessons/images/general-pathology-inflammation-anemia/blood-groups/figure_02_p2.png)
 *Blood Groups — Clinical Figure 2 (Page 2 Reference)*
 
-After delivery at any gestation within 72Hours.
-Previous Next',
+After delivery at any gestation within 72Hours.',
     false,
     2,
     'published',
@@ -16150,9 +15489,6 @@ Previous Next',
     '# Cell Death
 
 Cell death
-Previous Next
-
-Overview  Comments
 
 ![Cell Death - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/cell-death/figure_01_p1.png)
 *Cell Death — Clinical Figure 1 (Page 1 Reference)*',
@@ -16210,8 +15546,6 @@ invading organisms and toxins (0-PLAN-CIA)
 Note: C3 deficiency leads to increased susceptibility of infection
 with encapsulated organisms (e.g., S. pneumoniae, H.
 
-Overview  Comments
-
 influenzae).
 C5 - C9 deficiency results in increased susceptibility to
 Neisseria infections.
@@ -16232,8 +15566,7 @@ The complement pathway is regulated by complement
 inhibitors e.g., decay accelerating factor or C1 inhibitor.
 Deficiency in C1 inhibitor results in hereditary angioedema.
 Deficiency in complement decay-accelerating factor results in
-paroxysmal nocturnal hemoglobinuria.
-Previous Next',
+paroxysmal nocturnal hemoglobinuria.',
     false,
     4,
     'published',
@@ -16276,7 +15609,7 @@ Histamine
 Serotonin
 Bradykinin
 Prostaglandin
-Interleukin functions:
+Interleukin functions:
 
 > [!NOTE]
 > **Mnemonic: Fever Tablet Means Effective Antipyretics Action**
@@ -16284,15 +15617,12 @@ IL-1: Fever
 IL-2: T cell stimulator
 IL-3: Marrow stimulator
 
-Overview  Comments
-
 ![Inflammation - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/inflammation/figure_01_p1.png)
 *Inflammation — Clinical Figure 1 (Page 1 Reference)*
 
 IL-4: IgE stimulator
 IL-5: Class switching to IgA
-IL-6: Stimulates Acute Phase Protein Production
-Previous Next',
+IL-6: Stimulates Acute Phase Protein Production',
     false,
     5,
     'published',
@@ -16321,9 +15651,6 @@ Previous Next',
 Innate vs Acquired immunity.
 Immune responses: Capacity of the body to resist pathogenic
 agents.
-Previous Next
-
-Overview  Comments
 
 ![Innate Vs Acquired Immunity - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/innate-vs-acquired-immunity/figure_01_p1.png)
 *Innate Vs Acquired Immunity — Clinical Figure 1 (Page 1 Reference)*',
@@ -16353,9 +15680,6 @@ Overview  Comments
     '# Lymphocytes
 
 Types of lymphocytes
-Previous Next
-
-Overview  Comments
 
 ![Lymphocytes - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/lymphocytes/figure_01_p1.png)
 *Lymphocytes — Clinical Figure 1 (Page 1 Reference)*',
@@ -16385,9 +15709,6 @@ Overview  Comments
     '# Plasma Autoantibodies
 
 Plasma autoantibodies
-Previous Next
-
-Overview  Comments
 
 ![Plasma Autoantibodies - Clinical Figure 1](/lessons/images/general-pathology-inflammation-anemia/plasma-autoantibodies/figure_01_p1.png)
 *Plasma Autoantibodies — Clinical Figure 1 (Page 1 Reference)*',
@@ -16451,11 +15772,8 @@ infection and osteomyelitis.
 Lab values:
 CBC= Normocytic anemia with raised reticulocyte count
 
-Overview  Comments
-
 Peripheral film: Sickle cells, Howell- jolly bodies
-Diagnosis: HB Electrophoresis most accurate test
-Previous Next',
+Diagnosis: HB Electrophoresis most accurate test',
     false,
     9,
     'published',
@@ -16488,7 +15806,7 @@ repair.
 The regenerative capacity of cells can be categorized in three
 main ways:
 Labile cells are constantly dividing and have a good capacity
-for regeneration, this allows the replacement of ageing tissue
+for regeneration, this allows the replacement of ageing tissue
 such as the surface epithelia of the skin, gastrointestinal tract
 and uterus; blood cells are derived from labile cells of the
 bone marrow.
@@ -16515,8 +15833,6 @@ contains type III collagen (weak collagen) that must be
 remodeled. Remodeling increases the tensile strength of scar
 tissue.
 
-Overview  Comments
-
 1 month: Replacement of collagen type III with collagen type I
 (has greater tensile strength) due to action of collagenase
 enzyme.
@@ -16539,7 +15855,7 @@ skin graft replacement, flap)
 Note: Regarding the neat surgical scar after 2 months of
 surgery fibroblasts have predominant role
 Most important for delayed wound healing is due
-to infection.
+to infection.
 Factors affecting wound healing:
 Local factors affecting wound healing
 Mechanical injury / Frequent trauma
@@ -16579,8 +15895,7 @@ Factors that prevent efficient healing:
 Malnutrition
 Infection
 Corticosteroids therapy
-Poor blood supply
-Previous Next',
+Poor blood supply',
     false,
     10,
     'published',
@@ -16641,13 +15956,10 @@ delayed for more than six hours are high risk even if the
 contamination was not initially heavy
 Tetanus immunization schedule:
 
-Overview  Comments
-
 ![Clostridium Spp - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/clostridium-spp-bacteria/figure_01_p1.png)
 *Clostridium Spp - Bacteria — Clinical Figure 1 (Page 1 Reference)*
 
 More easy to remeber:
-Previous Next
 
 ![Clostridium Spp - Bacteria - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/clostridium-spp-bacteria/figure_02_p2.png)
 *Clostridium Spp - Bacteria — Clinical Figure 2 (Page 2 Reference)*
@@ -16681,9 +15993,6 @@ Previous Next
 
 Culture Medium For Bacterial
 Growth
-Previous Next
-
-Overview  Comments
 
 ![Culture Medium for Bacterial Growth - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/culture-medium-for-bacterial-growth/figure_01_p1.png)
 *Culture Medium for Bacterial Growth — Clinical Figure 1 (Page 1 Reference)*',
@@ -16726,8 +16035,6 @@ ingestion of contaminated poultry, eggs, and uncooked
 meat
 Treatment:
 
-Overview  Comments
-
 ![Escherichia Coli, Klebsiella, Salmonella - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/escherichia-coli-klebsiella-salmonella-bacteria/figure_01_p1.png)
 *Escherichia Coli, Klebsiella, Salmonella - Bacteria — Clinical Figure 1 (Page 1 Reference)*
 
@@ -16746,8 +16053,7 @@ in resistant cases cefotaxime or azithromycin
 > The most common cause in IV drug abuser: Staph Aureus
 > The most common cause in sickle cell disease: Salmonella
 > Most common cause after hip replacement surgery: Staph
-> epidermidis
-> Previous Next',
+> epidermidis',
     false,
     2,
     'published',
@@ -16774,9 +16080,6 @@ in resistant cases cefotaxime or azithromycin
     '# Gastrointestinal Virus
 
 Gastrointestinal Virus:
-Previous Next
-
-Overview  Comments
 
 ![Gastrointestinal Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/gastrointestinal-virus/figure_01_p1.png)
 *Gastrointestinal Virus — Clinical Figure 1 (Page 1 Reference)*',
@@ -16812,9 +16115,6 @@ Reactive arthritis (Reiter''s syndrome) is a triad of urethritis,
 arthritis and conjunctivitis.
 Organisms causing reactive arthritis: Chlamydia,
 Salmonella, Campylobacter jejuni and Shigella
-Previous Next
-
-Overview  Comments
 
 ![Hellicobacter Pylori and Compylobacter Jejuni - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/hellicobacter-pylori-and-compylobacter-jejuni-bacteria/figure_01_p1.png)
 *Hellicobacter Pylori and Compylobacter Jejuni - Bacteria — Clinical Figure 1 (Page 1 Reference)*
@@ -16846,8 +16146,6 @@ Overview  Comments
     'article',
     '# Hepatitis - Virus
 
-Overview  Comments
-
 Hepatitis:
 Note: Emergency hepatitis B vaccination
 If you have been exposed to the hepatitis B virus and have
@@ -16867,7 +16165,6 @@ Hepatitis-E:
 Transmitted via fecal oral route causes acute fulminant
 hepatitis in pregnant woman.
 No progression to chronic hepatitis
-Previous Next
 
 ![Hepatitis - Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/hepatitis-virus/figure_01_p2.png)
 *Hepatitis - Virus — Clinical Figure 1 (Page 2 Reference)*',
@@ -16902,8 +16199,6 @@ The incubation period is 10 - 21 days (Recall) (mean time is
 14 days).
 Primary infection typically occurs in 4-10 years children.
 Diagnosis is usually clinical.
-
-Overview  Comments
 
 ![Herpes Simplex and Varicella Zooster Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/herpes-simplex-and-varicella-zooster-virus/figure_01_p1.png)
 *Herpes Simplex and Varicella Zooster Virus — Clinical Figure 1 (Page 1 Reference)*
@@ -16945,8 +16240,7 @@ if you are immune, contact your GP or midwife and do not
 attend the antenatal clinic.
 If you have chickenpox, avoid contact with other pregnant
 women and new babies until at least five days after the rash
-appears, or until all the blisters have crusted over.
-Previous Next',
+appears, or until all the blisters have crusted over.',
     false,
     6,
     'published',
@@ -17004,8 +16298,6 @@ object). Deep injury, visible blood, or injury with a device
 that has been used intravascularly, all increase the risk of
 HIV transmission.
 
-Overview  Comments
-
 Contact of mucous membrane or non-intact skin (e.g.,
 exposed skin that is chapped, abraded, or afflicted with
 dermatitis). If the skin remains intact, there is no risk of HIV
@@ -17027,7 +16319,6 @@ complex and toxoplasmosis Gondi
 
 Diagnosis: Combined HIV antibody and p24 antigen test
 Monitoring: HIV viral load (PCR) and CD4+ count
-Previous Next
 
 ![Human Immune Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/human-immune-virus/figure_01_p3.png)
 *Human Immune Virus — Clinical Figure 1 (Page 3 Reference)*',
@@ -17079,23 +16370,20 @@ Incubation period: 14-21 days
 Infectious period: Patients are considered infectious for 4
 days from onset of the rash and seven days before the rash
 
-Overview  Comments
-
 ![Measles, Mumps, Rubella - Virus - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/measles-mumps-rubella-virus/figure_01_p1.png)
 *Measles, Mumps, Rubella - Virus — Clinical Figure 1 (Page 1 Reference)*
 
 appears.
 Patients are advised to stay away from school in infectious
 period.
-Treatment:  Supportive
+Treatment:  Supportive
 Complications: Arthritis, Thrombocytopenic purpura,
 Encephalitis and congenital rubella syndrome
 Rubella in pregnancy: Is very serious if a woman is infected
 in the first trimester it can have serious consequences for
 the baby''s health for example congenital abnormalities such
 as heart defects, cataracts, intrauterine growth restriction,
-central nervous system defects and deafness.
-Previous Next',
+central nervous system defects and deafness.',
     false,
     8,
     'published',
@@ -17145,10 +16433,7 @@ upper lobes x-ray cavitations or consolidations.
 The Mantoux test is a widely used test for latent TB: It
 involves injecting a small amount of a substance called PPD
 tuberculin into the skin of your forearm. It''s also called the
-tuberculin skin test (TST).
-Previous Next
-
-Overview  Comments',
+tuberculin skin test (TST).',
     false,
     9,
     'published',
@@ -17194,8 +16479,6 @@ appearance of CSF, Neutrophil predominant, High protein
 and low glucose (<40mg/dl)
 The most important to remember here:
 
-Overview  Comments
-
 ![Neisseria Spp - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/neisseria-spp-bacteria/figure_01_p1.png)
 *Neisseria Spp - Bacteria — Clinical Figure 1 (Page 1 Reference)*
 
@@ -17206,7 +16489,6 @@ benzylpenicillin as soon as possible or initial blind therapy in
 hospital
 In Hospital when diagnosis is made Ceftriaxone antibiotic of
 choice
-Previous Next
 
 ![Neisseria Spp - Bacteria - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/neisseria-spp-bacteria/figure_02_p2.png)
 *Neisseria Spp - Bacteria — Clinical Figure 2 (Page 2 Reference)*',
@@ -17272,13 +16554,10 @@ Smallpox
 Tetanus
 Tuberculosis
 
-Overview  Comments
-
 Typhus
 Viral hemorrhagic fever (VHF)
 Whooping cough
-Yellow fever
-Previous Next',
+Yellow fever',
     false,
     11,
     'published',
@@ -17308,9 +16587,6 @@ Fungi:
 Candida: Form part of the normal flora which includes skin, GI
 tract, and female genital tract
 Candidiasis and treatment
-Previous Next
-
-Overview  Comments
 
 ![Pathogens - Fungi - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/pathogens-fungi/figure_01_p1.png)
 *Pathogens - Fungi — Clinical Figure 1 (Page 1 Reference)*',
@@ -17365,10 +16641,7 @@ Quinine is the antimalarial drug of choice in pregnancy;
 however, chloroquine should be considered in non-
 falciparum malaria while those areas where chloroquine is
 resistant especially southern Vietnam Quinine is best given in
-pregnancy.
-Previous Next
-
-Overview  Comments',
+pregnancy.',
     false,
     13,
     'published',
@@ -17404,7 +16677,7 @@ Pork tapeworm and beef tapeworm transmitted via eating
 contaminated undercooked meat.
 Pork tapeworm (Taenia solium): Infection occurs through
 ingestion of food or water contaminated with eggs of solium
-Cysticercosis:  infection caused by larval cysts of the
+Cysticercosis:  infection caused by larval cysts of the
 tapeworm Taenia solium, infect brain, muscle, skin and eye
 Diagnosis: Direct visualization of characteristic eggs in
 stool
@@ -17416,13 +16689,10 @@ stool
 Treatment: Mebendazole
 Hook worm
 Intestinal parasite causes gastrointestinal symptoms and iron
-deficiency anemia.
+deficiency anemia.
 Diagnosis: Direct visualization of characteristic eggs in
 stool
-Treatment: Mebendazole
-Previous Next
-
-Overview  Comments',
+Treatment: Mebendazole',
     false,
     14,
     'published',
@@ -17449,9 +16719,6 @@ Overview  Comments',
     '# Principles of Investigation
 
 Principles of Investigations
-Previous Next
-
-Overview  Comments
 
 ![Principles of Investigation - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-investigation/figure_01_p1.png)
 *Principles of Investigation — Clinical Figure 1 (Page 1 Reference)*',
@@ -17499,8 +16766,6 @@ blood-borne viruses such as hepatitis B and HIV can be
 transmitted.
 Pathogen and Types:
 
-Overview  Comments
-
 ![Principles of Microbiology - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_01_p1.png)
 *Principles of Microbiology — Clinical Figure 1 (Page 1 Reference)*
 
@@ -17544,7 +16809,6 @@ water supply: Legionella pneumophila may colonise the
 system in redundant areas of lukewarm pipework and be
 transmitted to air conditioning system
 Route of transmission of microorganisms
-Previous Next
 
 ![Principles of Microbiology - Clinical Figure 4](/lessons/images/clinical-microbiology-bacteria-antibiotics/principles-of-microbiology/figure_04_p3.png)
 *Principles of Microbiology — Clinical Figure 4 (Page 3 Reference)*',
@@ -17588,9 +16852,7 @@ Gram negative bacilli or coccobacilli
 Cat-scratch disease (CSD) or felinosis is an infectious disease
 caused by Bartonella henselae most often results from a
 scratch or bite of a cat.
-Previous Next
 
-Overview  Comments
 /2026, 10:54 PSEUDOMONAS AERUGINOSA, LEGIONELLA PNEUMOPHILIA AND BORTONELLA HENSLAE-BACTERIA | MRCEM EX…
 
 ![Pseudomonas Aeruginosa, Legionella Pneumophilia and Bortonella Henslae - Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/pseudomonas-aeruginosa-legionella-pneumophilia-and-bortonella-henslae-bacteria/figure_01_p1.png)
@@ -17656,8 +16918,6 @@ Either tachypnoea or chest recession (or both) and
 Either wheeze or crackles on chest auscultation (or both).
 Other common symptoms include:
 Fever (usually of less than 39°C).
-
-Overview  Comments
 
 Poor feeding (typically after 3 to 5 days of illness).
 Apnoea without other clinical signs in young infants (in
@@ -17736,9 +16996,7 @@ posterior nasopharynx
 Collect cultures from the nasopharynx within 2 weeks of
 cough onset.
 Definitive test for diagnosis, with a specificity of 100%.
-Sensitivity is 30% to 60% if the specimen is obtained <2
-
-weeks after symptoms start.
+Sensitivity is 30% to 60% if the specimen is obtained <2 weeks after symptoms start.
 Nucleic acid amplification test (NAAT) of nasopharyngeal
 aspirate or posterior nasopharyngeal swab
 NAAT, including polymerase chain reaction (PCR), can be
@@ -17773,8 +17031,7 @@ older, and non-pregnant adults.
 Erythromycin for pregnant women.
 Note:The recommended exclusion period from nursery or
 school is 48 hours after start of antibiotics or 21 days from
-start of symptoms
-Previous Next',
+start of symptoms',
     false,
     18,
     'published',
@@ -17821,17 +17078,13 @@ Neisseria Gonorrhea:
 Gram negative diplococci transmitted via sexual and
 peripartum.
 General features of Neisseria spp. (Neisseria gonorrhea and
-Neisseria meningitis)
+Neisseria meningitis)
 Comparison Between Neisseria
 Gonorrhea and
-Chlamydia trachomatis:
-
-Overview  Comments
+Chlamydia trachomatis:
 
 ![Sexually Transmitted Bacteria - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/sexually-transmitted-bacteria/figure_01_p1.png)
 *Sexually Transmitted Bacteria — Clinical Figure 1 (Page 1 Reference)*
-
-Previous Next
 
 ![Sexually Transmitted Bacteria - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/sexually-transmitted-bacteria/figure_02_p2.png)
 *Sexually Transmitted Bacteria — Clinical Figure 2 (Page 2 Reference)*',
@@ -17879,8 +17132,6 @@ shunts and cardiac valves.
 Staphylococcus epidermidis is part of the normal flora of the
 skin and nasopharynx, and infection is usually endogenous.
 Streptococcus Viridans
-
-Overview  Comments
 
 ![Streptococcus and Staphylococcus Bactera - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/streptococcus-and-staphylococcus-bactera/figure_01_p1.png)
 *Streptococcus and Staphylococcus Bactera — Clinical Figure 1 (Page 1 Reference)*
@@ -17943,11 +17194,10 @@ The most common type of bacteria that causes septic
 arthritis is called staphylococcus aureus. others include
 streptococcus, gram-negative rods,
 Neisseria Gonorrhea causes septic arthritis in sexually
-active young adults.
+active young adults.
 Treatment: Flucloxacillin: Antibiotic of choice
 Vancomycin is used to treat methicillin Resistant Staph
-Aureus
-Previous Next',
+Aureus',
     false,
     20,
     'published',
@@ -17978,15 +17228,12 @@ The routine immunization schedule
 from February 2022
 Note: Trade name is not necessary to remember.
 
-Overview  Comments
-
 ![Uk - Immunization Schedule - Clinical Figure 1](/lessons/images/clinical-microbiology-bacteria-antibiotics/uk-immunization-schedule/figure_01_p1.png)
 *Uk - Immunization Schedule — Clinical Figure 1 (Page 1 Reference)*
 
 Selective immunisation programmes
 Additional vaccines for individuals
 with underlying medical conditions
-Previous Next
 
 ![Uk - Immunization Schedule - Clinical Figure 2](/lessons/images/clinical-microbiology-bacteria-antibiotics/uk-immunization-schedule/figure_02_p2.png)
 *Uk - Immunization Schedule — Clinical Figure 2 (Page 2 Reference)*

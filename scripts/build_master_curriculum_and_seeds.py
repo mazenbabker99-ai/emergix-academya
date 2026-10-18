@@ -114,7 +114,11 @@ def build_lesson_markdown(folder: str, pdf_file: str, mod_slug: str) -> tuple[st
         cleaned_p_text = clean_lesson_markdown(p_text, '').replace(f'# \n\n', '').strip()
         
         if cleaned_p_text:
-            full_content.append(cleaned_p_text)
+            if full_content and not full_content[-1].startswith('![') and not full_content[-1].endswith(('.', ':', '!', '?', '>', '#', ')')) and cleaned_p_text[0].islower():
+                # Seamlessly rejoin sentence broken across page boundary
+                full_content[-1] = full_content[-1] + " " + cleaned_p_text
+            else:
+                full_content.append(cleaned_p_text)
             
         if p_num in page_images:
             for img in page_images[p_num]:

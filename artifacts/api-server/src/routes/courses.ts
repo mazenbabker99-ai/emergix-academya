@@ -266,7 +266,7 @@ router.get("/courses/:slug", async (req, res): Promise<void> => {
   );
 });
 
-router.get("/courses/:courseSlug/lessons/:lessonId", requireAuth, async (req, res): Promise<void> => {
+router.get("/courses/:courseSlug/lessons/:lessonId", async (req, res): Promise<void> => {
   const params = GetLessonParams.safeParse(req.params);
   if (!params.success) {
     sendError(res, 400, "invalid_request", "Invalid course or lesson identifier.");
@@ -308,6 +308,10 @@ router.get("/courses/:courseSlug/lessons/:lessonId", requireAuth, async (req, re
   const lesson = row.lesson;
 
   if (!lesson.isFreePreview && !(await canAccessCourse(req, course))) {
+    if (!req.auth) {
+      sendError(res, 401, "unauthenticated", "Please sign in to view this lesson.");
+      return;
+    }
     sendError(res, 403, "forbidden", "This lesson is not included in your plan.");
     return;
   }

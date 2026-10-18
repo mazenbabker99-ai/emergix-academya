@@ -72,7 +72,7 @@ BEGIN
 >It''s a severe, life-threatening, generalized or systemic
 hypersensitivity reaction, characterized by rapidly developing
 and life-threatening airway, breathing and/or circulation
-problems, usually associated with skin and mucosal changes.
+problems, usually associated with skin and mucosal changes.
 - Causes
 - Medication:
 >Antibiotic (penicillin most common)
@@ -89,8 +89,6 @@ rocuronium) and contrast media
 >Food: e.g.: peanut, egg seafood (most common in children).
 >Insect sting
 
-Overview  Comments
-
 ![Anaphylaxis Management - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/anaphylaxis-management/figure_01_p1.png)
 *Anaphylaxis Management — Clinical Figure 1 (Page 1 Reference)*
 
@@ -106,9 +104,9 @@ problem.
 > 3: Possible skin or mucosal changes (although these may be
 absent and are not required for diagnosis).
 >there is no role of antihistamine however it may
-help alleviate cutaneous symptoms.
+help alleviate cutaneous symptoms.
 >The routine use of corticosteroids to treat anaphylaxis is not
-advised. If the patient is suffering from ongoing asthma/shock
+advised. If the patient is suffering from ongoing asthma/shock
 after initial resuscitation steroids may be considered.
 >Use glucagon in patients who are taking beta blockers may
 be resistant to the therapeutic effects of adrenaline.
@@ -119,7 +117,7 @@ started.
 ![Anaphylaxis Management - Clinical Figure 2](/lessons/images/respiratory-pharmacology-asthma-management/anaphylaxis-management/figure_02_p2.png)
 *Anaphylaxis Management — Clinical Figure 2 (Page 2 Reference)*
 
->Nice recommend: consider fast-track discharge after 2 hours
+>Nice recommend: consider fast-track discharge after 2 hours
 observation from resolution of anaphylaxis if : Good response
 (within 5-10 minutes) to a singles dose of adrenaline given
 within 30 minutes of onset of reaction and complete resolution
@@ -144,16 +142,14 @@ doesn''t cause degranulation. Non-immune (IgE) mediated
 reaction.
 >Anaphylaxis reaction: On further exposure to that allergen,
 the responsible allergenic antigen binds to an antigen-specific
-IgE antibody, leading to mast cell degranulation Histamine and
-other mediators, including leukotrienes and cytokines are
+IgE antibody, leading to mast cell degranulation Histamine and
+other mediators, including leukotrienes and cytokines are
 released from mast cells and basophils following exposure to
 this antigen.
 >Summary: anaphylactoid first exposure and non-immune
 mediated
 >Anaphylaxis: further exposure/ Pt has exposed to allergen
-previously (history) and immune mediated.
-
-Previous Next',
+previously (history) and immune mediated.',
     true,
     0,
     'published',
@@ -189,12 +185,9 @@ Insect bites and stings
 Anaphylaxis
 Angioedema
 Nausea and vomiting
-Motion sickness and vertigo
+Motion sickness and vertigo
 Insomnia
 Divided into 2 groups:
-Previous Next
-
-Overview  Comments
 
 ![Anti - Histamine Drugs - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/anti-histamine-drugs/figure_01_p1.png)
 *Anti - Histamine Drugs — Clinical Figure 1 (Page 1 Reference)*',
@@ -235,8 +228,6 @@ asthma along with any one feature of life-threatening
 asthma (as in above scenario his saturation is below <92%)
 would be classified as having life-threatening asthma.
 
-Overview  Comments
-
 ![Asthma in Adults Management - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/asthma-in-adults-management/figure_01_p1.png)
 *Asthma in Adults Management — Clinical Figure 1 (Page 1 Reference)*
 
@@ -255,9 +246,7 @@ Fax or email discharge letter to GP
 Refer to asthma liaison nurse/chest clinic.
 
 ![Asthma in Adults Management - Clinical Figure 2](/lessons/images/respiratory-pharmacology-asthma-management/asthma-in-adults-management/figure_02_p2.png)
-*Asthma in Adults Management — Clinical Figure 2 (Page 2 Reference)*
-
-Previous Next',
+*Asthma in Adults Management — Clinical Figure 2 (Page 2 Reference)*',
     false,
     2,
     'published',
@@ -287,8 +276,8 @@ Bronchodilator therapy:
 Note: Important points of theophylline:
 Theophylline has narrow window between therapeutic and
 toxic doses, and the half-life can be affected by a number of
-factors, making a therapeutic dose difficult to achieve. It is
-advised that serum levels of 10-20 mg/I six to eight hours after
+factors, making a therapeutic dose difficult to achieve. It is
+advised that serum levels of 10-20 mg/I six to eight hours after
 the last tablet should be aimed for.
 Factors that increase the half-life of theophylline include:
 Heart failure
@@ -298,10 +287,8 @@ Drugs (Enzyme inhibitors)
 Factors that decrease the half-life of theophylline include:
 Smoking
 Heavy drinking
-Drugs (Enzyme inducers)
+Drugs (Enzyme inducers)
 Enzyme inducers and Enzyme inhibitors
-
-Overview  Comments
 
 ![Bronchodilator Drugs - Clinical Figure 1](/lessons/images/respiratory-pharmacology-asthma-management/bronchodilator-drugs/figure_01_p1.png)
 *Bronchodilator Drugs — Clinical Figure 1 (Page 1 Reference)*
@@ -318,14 +305,13 @@ Asthma
 
 Heart failure
 Bradycardias
-Note: Aminophylline has mild positive inotropic and
+Note: Aminophylline has mild positive inotropic and
 chronotropic effects, producing an increase in cardiac output
 and a decrease in systemic vascular resistance, leading to a
 decrease in arterial blood pressure. It has been used historically
 in the treatment of refractory heart failure and is
 recommended by the current ALS guidelines as an alternative
 treatment for bradycardias.
-Previous Next
 
 ![Bronchodilator Drugs - Clinical Figure 2](/lessons/images/respiratory-pharmacology-asthma-management/bronchodilator-drugs/figure_02_p2.png)
 *Bronchodilator Drugs — Clinical Figure 2 (Page 2 Reference)*',
@@ -356,40 +342,38 @@ Previous Next
 
 Corticosteroids:
 Corticosteroids are a class of steroid hormones that are
-naturally produced in the adrenal cortex as well
-as administered as medications for therapeutic purposes.
-We have already discussed naturally produced corticosteroids
+naturally produced in the adrenal cortex as well
+as administered as medications for therapeutic purposes.
+We have already discussed naturally produced corticosteroids
 in physiology. Now we will discuss in detail pharmacology of
 administrated steroids.
-Naturally occurring Classes of corticosteroids: Glucocorticoids
+Naturally occurring Classes of corticosteroids: Glucocorticoids
 and mineralocorticoids, are involved in a wide range of
 physiological processes, including stress response,
-immune response, and regulation of inflammation.
+immune response, and regulation of inflammation.
 Classification of administrated steroids:
-Inhaled steroids: (beclomethasone, budesonide, fluticasone)
+Inhaled steroids: (beclomethasone, budesonide, fluticasone)
 Uses: Prophylaxis in chronic asthma if: Exacerbations in last
-2 years requiring systemic corticosteroid or nebulized
-bronchodilator or B-agonists used more than twice per
-week or Symptoms disturb sleep more than twice per week.
+2 years requiring systemic corticosteroid or nebulized
+bronchodilator or B-agonists used more than twice per
+week or Symptoms disturb sleep more than twice per week.
 Hay fever (Nasal spray)
 
 ## Copd
 
-Side effects: Rare which include Oral candidiasis, hoarseness
+Side effects: Rare which include Oral candidiasis, hoarseness
 and sore mouth.
-Note:  In high doses systemic adverse effects can occur which
-include Adrenal suppression, Osteoporosis and Glaucoma.
+Note:  In high doses systemic adverse effects can occur which
+include Adrenal suppression, Osteoporosis and Glaucoma.
 Oral and injectable corticosteroids:
-Oral and intravenous steroids: (prednisolone, dexamethasone,
+Oral and intravenous steroids: (prednisolone, dexamethasone,
 hydrocortisone).
 Specific uses:
 
-Overview  Comments
-
-Prednisolone: Has mainly glucocorticoid action 4 times more
-potent than hydrocortisone primary used for disease
-suppression in autoimmune/Rheumatoid conditions, Temporal
-arteritis, Asthma and acute adrenal insufficiency.
+Prednisolone: Has mainly glucocorticoid action 4 times more
+potent than hydrocortisone primary used for disease
+suppression in autoimmune/Rheumatoid conditions, Temporal
+arteritis, Asthma and acute adrenal insufficiency.
 Hydrocortisone: Short acting primarily known for its
 glucocorticoid activity, but it also possesses mineralocorticoid
 activity. Because of mineralocorticoid effect result into fluid
@@ -415,7 +399,7 @@ Perioperatively
 Inflammatory disorders
 Croup
 Intractable nausea
-Diagnosis of Cushing''s syndrome (Overnight Dexamethasone
+Diagnosis of Cushing''s syndrome (Overnight Dexamethasone
 suppression test)
 Temporal arteritis
 Side effects
@@ -427,14 +411,14 @@ suppression, therefore, withdraw steroid slowly to prevent
 Addisonian crisis
 Steroids should be doubled in times of stress/illness (unless on
 high dose) because the body cannot respond to increased
-requirements, to prevent Addisonian crisis .
+requirements, to prevent Addisonian crisis .
 Infections: Due to the suppression of the inflammatory
 response patients are more susceptible to infection.
 Reactivation of dormant infections, e.g., TB, may occur.
 Complications:
 Patients who are not immune to chicken pox (not previously
 infected) are at risk of severe chicken pox, with complications
-such as encephalitis, pneumonia, and hepatitis. Varicella
+such as encephalitis, pneumonia, and hepatitis. Varicella
 zoster immunoglobulin is required for postexposure
 prophylaxis; this provides passive immunity.
 Patients should also be advised to avoid exposure to measles
@@ -443,8 +427,7 @@ hours if they are exposed.
 All patients on long-term steroids should carry a ''steroid card''
 to inform medical practitioners that they are on steroids or
 have been on steroids (for up to a year as adrenal suppression
-can be prolonged).
-Previous Next',
+can be prolonged).',
     false,
     4,
     'published',
@@ -484,9 +467,6 @@ Previous Next',
 
 Anti-platelet, Statins, nitrate and
 fibrinolytic drugs:
-Previous Next
-
-Overview  Comments
 
 ![Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/anti-platelet-statins-nitrate-and-fibrinolytic-drugs/figure_01_p1.png)
 *Anti - Platelet, Statins, Nitrate and Fibrinolytic Drugs — Clinical Figure 1 (Page 1 Reference)*',
@@ -521,9 +501,9 @@ Anticoagulant drugs
 Heparin:
 Heparin is used for:
 Prevention and treatment of DVT and Pulmonary embolism
-Treatment of disseminated intravascular coagulation .
+Treatment of disseminated intravascular coagulation .
 Heparin side effects:
-Heparin induced thrombocytopenia .
+Heparin induced thrombocytopenia .
 Bleeding
 Osteoporosis
 Alopecia
@@ -531,9 +511,7 @@ Hyperkalemia
 Contraindications:
 People with active bleeding history or active peptic or
 duodenal ulcer
-Previous history of Heparin induced thrombocytopenia .
-
-Overview  Comments
+Previous history of Heparin induced thrombocytopenia .
 
 ![Anticoagulant Drugs - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_01_p1.png)
 *Anticoagulant Drugs — Clinical Figure 1 (Page 1 Reference)*
@@ -545,28 +523,28 @@ Warfarin is vitamin K antagonist acts by inhibiting vitamin K
 dependent clotting factors (ii, vii, ix and x) or simply
 
 > [!NOTE]
-> **remember 27910 (Mnemonic) as well as anticoagulant protein**
+> **remember 27910 (Mnemonic) as well as anticoagulant protein**
 C and S
 Indications:
 Prophylaxis and treatment of venous thromboembolism
 Prophylaxis in atrial fibrillation
 Prophylaxis in people with Mechanical Heart Valves
-Side effects:
-Bleeding is the most common adverse feature .
-Narrow Therapeutic Window: Warfarin has a narrow
+Side effects:
+Bleeding is the most common adverse feature .
+Narrow Therapeutic Window: Warfarin has a narrow
 therapeutic window, meaning that even small fluctuations in
-dosage can lead to a significant change in its anticoagulant
+dosage can lead to a significant change in its anticoagulant
 effects. Maintaining the correct INR range is crucial for
-optimal benefit and to avoid complications.
-Skin Necrosis and Purple Toe Syndrome
-Nausea, vomiting , Diarrhea, Rash, jaundice, hepatic
-dysfunction and pancreatitis
-Warfarin in pregnancy: If given in 1st trimester may cause fetal
-warfarin syndrome (nasal hypoplasia, bone stippling, bilateral
-optic atrophy and intellectual disability)
-If given in 2nd or 3rd trimester can cause optic atrophy,
-cataracts, microcephaly, microphthalmia, intellectual disability
-and fetal and/or maternal haemorrhage.
+optimal benefit and to avoid complications.
+Skin Necrosis and Purple Toe Syndrome
+Nausea, vomiting , Diarrhea, Rash, jaundice, hepatic
+dysfunction and pancreatitis
+Warfarin in pregnancy: If given in 1st trimester may cause fetal
+warfarin syndrome (nasal hypoplasia, bone stippling, bilateral
+optic atrophy and intellectual disability)
+If given in 2nd or 3rd trimester can cause optic atrophy,
+cataracts, microcephaly, microphthalmia, intellectual disability
+and fetal and/or maternal haemorrhage.
 
 ![Anticoagulant Drugs - Clinical Figure 2](/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_02_p2.png)
 *Anticoagulant Drugs — Clinical Figure 2 (Page 2 Reference)*
@@ -577,38 +555,36 @@ Active peptic ulcer
 Bleeding disorders (ITP, Haemophilia)
 Pregnancy
 Recent trauma or surgery
-Monitoring: Both PT and aPTT are prolonged after warfarin
+Monitoring: Both PT and aPTT are prolonged after warfarin
 administration but PT is more prolonged. Warfarin therapy is
-typically monitored using the prothrombin time (PT) test
+typically monitored using the prothrombin time (PT) test
 along with the International Normalized Ratio (INR), rather
-than the activated partial thromboplastin time  (aPTT)  test.
+than the activated partial thromboplastin time  (aPTT)  test.
 The target International Normalized Ratio (INR) value for
 warfarin therapy varies depending on the medical condition
-being treated. Warfarin therapy can be withhold or omitted if
-INR rises above the range. Phytomenadione (Vitamin K)
-antidote used to reverse the bleeding. Dried prothrombin
-complex consists of factors ii, vii, ix and x can also be given in
+being treated. Warfarin therapy can be withhold or omitted if
+INR rises above the range. Phytomenadione (Vitamin K)
+antidote used to reverse the bleeding. Dried prothrombin
+complex consists of factors ii, vii, ix and x can also be given in
 major bleeding if prothrombin complex unavailable give
-fresh frozen plasma
-(High yield )
-Managing the patients with increased INR and bleeding
-If INR> 8 and no bleeding = Phytomenadione orally
-If INR> 8 and minor bleeding = Phytomenadione Iv
+fresh frozen plasma
+(High yield )
+Managing the patients with increased INR and bleeding
+If INR> 8 and no bleeding = Phytomenadione orally
+If INR> 8 and minor bleeding = Phytomenadione Iv
 If INR> 8 and major bleeding = Phytomenadione Iv and dried
 prothrombin complex (Recall)
-If INR 5-8 and no bleeding = Withhold warfarin
-If INR 5-8 and minor bleeding = Phytomenadione Iv
+If INR 5-8 and no bleeding = Withhold warfarin
+If INR 5-8 and minor bleeding = Phytomenadione Iv
 Metabolism: Warfarin undergoes extensive metabolism in the
 liver via the cytochrome P450 enzyme system, mainly through
-the CYP2C9 enzyme.  cytochrome P450 enzyme inducer drugs
+the CYP2C9 enzyme.  cytochrome P450 enzyme inducer drugs
 increase rate of metabolism and hepatic clearance of
-concurrently administrated drugs which typically results in
+concurrently administrated drugs which typically results in
 decreased pharmacologic effects and decreasing
 anticoagulant effects of warfarin. While enzyme inhibitor
-drugs decrease hepatic clearance and increase pharmacologic
-effect/increased anticoagulant effects and risk of bleeding.
-
-Previous Next
+drugs decrease hepatic clearance and increase pharmacologic
+effect/increased anticoagulant effects and risk of bleeding.
 
 ![Anticoagulant Drugs - Clinical Figure 3](/lessons/images/cardiovascular-pharmacology-anticoagulants/anticoagulant-drugs/figure_03_p4.png)
 *Anticoagulant Drugs — Clinical Figure 3 (Page 4 Reference)*',
@@ -642,8 +618,6 @@ support algorithms
 - Key difference b/w Paeds &
 adult ALS
 
-Overview  Comments
-
 ![Basic Life Support and Advanced Life Support - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/basic-life-support-and-advanced-life-support/figure_01_p1.png)
 *Basic Life Support and Advanced Life Support — Clinical Figure 1 (Page 1 Reference)*
 
@@ -667,7 +641,6 @@ Aim for SpO2 of 94-98% and normal PaCO2
 12-lead ECG
 Identify and treat the cause.
 Targeted temperature management
-Previous Next
 
 ![Basic Life Support and Advanced Life Support - Clinical Figure 3](/lessons/images/cardiovascular-pharmacology-anticoagulants/basic-life-support-and-advanced-life-support/figure_03_p2.png)
 *Basic Life Support and Advanced Life Support — Clinical Figure 3 (Page 2 Reference)*',
@@ -713,8 +686,6 @@ together with alpha blocker.
 
 Digoxin Inhibits the Na/K ATPase in cardiac myocytes.
 
-Overview  Comments
-
 ![Betablocker and Calcium Channel Blockers - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/betablocker-and-calcium-channel-blockers/figure_01_p1.png)
 *Betablocker and Calcium Channel Blockers — Clinical Figure 1 (Page 1 Reference)*
 
@@ -728,8 +699,7 @@ Verapamil Blocks Ca2+ channels in heart, slowing conduction
 in the AV node.
 Amiodarone: Blocks Na+ and K+ channels and beta
 adrenoreceptors prolonging phase 3 of cardiac action
-potential and slowing conduction at SA and AV nodes.
-Previous Next',
+potential and slowing conduction at SA and AV nodes.',
     false,
     3,
     'published',
@@ -783,8 +753,6 @@ Clonidine
 Digoxin
 Organophosphate
 
-Overview  Comments
-
 Management approach (unstable Pt)
 The ALS bradycardia algorithm recommends Atropine 500
 mcg IV up to 3mg maximum if any Pt presents with the
@@ -819,9 +787,7 @@ Atropine antagonises the action of the parasympathetic
 neurotransmitter acetylcholine at muscarinic receptors. It
 therefore blocks the effects of the vagus nerve on both the SA
 node and
-the AV node, increasing sinus automaticity and facilitating AV
-
-node conduction.
+the AV node, increasing sinus automaticity and facilitating AV node conduction.
 Side effects: (Anti-muscarinic effects)
 - Dry mouth
 - Nausea and vomiting
@@ -830,8 +796,7 @@ Side effects: (Anti-muscarinic effects)
 - Tachyarrhythmias
 Note: Anti-muscarinic should be avoided in Myasthenia
 gravis, paralytic ileus, GI obstruction, Urinary retention and
-prostatic enlargement
-Previous Next',
+prostatic enlargement',
     false,
     4,
     'published',
@@ -859,63 +824,58 @@ Previous Next',
 
 Digoxin
 Digoxin is a cardiac glycoside derived from the
-plant foxglove that primarily works by inhibiting the Na+/K+
-ATPase in the myocardium.
-Mechanism: Digoxin has positive inotropic effects and
+plant foxglove that primarily works by inhibiting the Na+/K+
+ATPase in the myocardium.
+Mechanism: Digoxin has positive inotropic effects and
 negative chronotropic effects
 Binds to and inhibits the Na+/K+ pump on the myocyte cell
 membrane (competes with the K+ ion) Increases
-intracellular Na+ concentration.
+intracellular Na+ concentration.
 Reduces the extrusion of intracellular Ca2+ via the Na+/Ca2+
 exchange transporter Increased Ca2+ is stored in
-the sarcoplasmic reticulum Increased amounts of Ca2+
+the sarcoplasmic reticulum Increased amounts of Ca2+
 released during each action potential force of
-contraction increased .
+contraction increased .
 Digoxin also increases vagal tone by enhancing Ach release at
 muscarinic receptors, thus slowing the heart
-rate, atrioventricular (AV) conduction, and the AV nodal
+rate, atrioventricular (AV) conduction, and the AV nodal
 refractory period.
 Indications: Heart failure, persistent and permanent atrial
 fibrillation and flutter.
-Note: In heart failure digoxin is useful in patient with reduced
+Note: In heart failure digoxin is useful in patient with reduced
 ejection fraction, with an ejection fraction below 40%. However,
-it has no benefit in mortality reduction.
+it has no benefit in mortality reduction.
 Digoxin can only be used as monotherapy in sedentary
 patients because it controls ventricular response at rest.
-Monitoring: Digoxin has narrow therapeutic index.
-Narrow therapeutic index means difference between the
-effective therapeutic dose and the potentially toxic dose is
+Monitoring: Digoxin has narrow therapeutic index.
+Narrow therapeutic index means difference between the
+effective therapeutic dose and the potentially toxic dose is
 relatively small. This narrow window makes proper dosing
-and monitoring critically important to ensure the medication''s
-safety, effectiveness and to prevent toxicity. The
-therapeutic plasma levels of digoxin are usually between 1.0-1.5
-
-Overview  Comments
-
-nmol/l. The likelihood of toxicity rises dramatically at levels
-above 2 nmol/l.
+and monitoring critically important to ensure the medication''s
+safety, effectiveness and to prevent toxicity. The
+therapeutic plasma levels of digoxin are usually between 1.0-1.5 nmol/l. The likelihood of toxicity rises dramatically at levels
+above 2 nmol/l.
 Dose adjustments in renal failure and liver failure:
 Renal failure: Digoxin is excreted renally, and impaired renal
 function can cause increased digoxin levels and leads to
-digoxin toxicity. In this case the patient should have their
+digoxin toxicity. In this case the patient should have their
 digoxin dose reduced and their digoxin level and electrolytes
 should be carefully monitored.
 Liver failure: Liver failure has little influence on digoxin
 metabolism or clearance; therefore, no dose adjustment is
 necessary.
-Digoxin toxicity: Precipitated by hypokalemia or drugs
-causing hypokalemia, hypercalcemia, acidosis and renal
+Digoxin toxicity: Precipitated by hypokalemia or drugs
+causing hypokalemia, hypercalcemia, acidosis and renal
 failure.
 The features of digoxin toxicity include:
 Hyperkaliemia
-Nausea, vomiting and diarrhea .
+Nausea, vomiting and diarrhea .
 Abdominal pain
 Confusion, dizziness and psychosis
 Tachyarrhythmias or bradyarrhythmia''s
 Xanthopsia (yellow-green vision)
 Treatment: Digoxin immune fab is the reversal agent
-(Antidote) of digoxin toxicity.
-Previous Next',
+(Antidote) of digoxin toxicity.',
     false,
     5,
     'published',
@@ -960,8 +920,6 @@ in pregnancy.
 Clinical features
 Physical examination
 
-Overview  Comments
-
 ![Hypertensive Emergency - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/hypertensive-emergency/figure_01_p1.png)
 *Hypertensive Emergency — Clinical Figure 1 (Page 1 Reference)*
 
@@ -995,8 +953,7 @@ Alpha with Beta blocker (phentolamine and labetalol)
 choice for phaeochromocytoma
 Fenoldopam choice for AKI
 IV labetalol/ hydralazine drug of choice for pre-eclampsia
-and MgSo4 for eclampsia.
-Previous Next',
+and MgSo4 for eclampsia.',
     false,
     6,
     'published',
@@ -1044,8 +1001,6 @@ Long QT syndrome
 Severe hypotension
 Decompensated heart failure
 
-Overview  Comments
-
 ![Tachyarrhythmia - Clinical Figure 1](/lessons/images/cardiovascular-pharmacology-anticoagulants/tachyarrhythmia/figure_01_p1.png)
 *Tachyarrhythmia — Clinical Figure 1 (Page 1 Reference)*
 
@@ -1067,7 +1022,7 @@ Followed by 900mg over 24hrs.
 Note: Any unstable patient requires electrical cardioversion
 rather than drugs regardless of the underlying rhythm.
 Atrial fibrillation managment
-AF is diagnosed using an ECG which typically shows an
+AF is diagnosed using an ECG which typically shows an
 absolutely irregular RR interval and absent p waves.
 NICE guideline classification
 Paroxysmal AF
@@ -1124,18 +1079,17 @@ based on clinical judgment
 Note: digoxin can be used in sedentary patients.
 Management of Recent-onset, Non-
 Life-threatening AF
-In the ED if a patient presents within 48 hrs. of onset
+In the ED if a patient presents within 48 hrs. of onset
 consider either pharmacological or electrical cardioversion.
 Electrical: synchronized DC 120-150J.
-Pharmacological: A choice of flecainide in people with no
+Pharmacological: A choice of flecainide in people with no
 evidence of structural or ischemic heart disease.
 Amiodarone should be used in people with evidence of
 structural heart disease.
 Note: if Pt with AF is uncertain of time or greater than 48
 hrs then anti-coagulate this pt for 3 weeks before
 cardioversion and rate should be controlled with Beta
-blockers.
-Previous Next',
+blockers.',
     false,
     7,
     'published',
@@ -1175,91 +1129,89 @@ Previous Next',
 
 Analgesics:
 Classification of analgesics:
-Non opioid analgesics:
-Paracetamol: Used in Pyrexia and mild to moderate pain
-Side effects: Rare (rashes, blood disorders)
+Non opioid analgesics:
+Paracetamol: Used in Pyrexia and mild to moderate pain
+Side effects: Rare (rashes, blood disorders)
 Metabolism: Paracetamol metabolized to mainly glucuronide
-conjugates, small amount converted to the toxic NAPQI (N-
+conjugates, small amount converted to the toxic NAPQI (N-
 acetyl P-amino-benzoquinoneimine), which is quickly made
 safe by conjugation with glutathione
-Toxic overdose: More NAPQI produced glucuronide pathway
+Toxic overdose: More NAPQI produced glucuronide pathway
 becomes saturated leads to cellular death
-and hepatic necrosis.
-Antidote overdose: N-acetylcysteine
-NSAIDS: (Non-Steroidal anti-inflammatory drugs): Class of
-analgesics used to treat pain, fever and inflammation.
+and hepatic necrosis.
+Antidote overdose: N-acetylcysteine
+NSAIDS: (Non-Steroidal anti-inflammatory drugs): Class of
+analgesics used to treat pain, fever and inflammation.
 Mechanism: Cyclo-oxygenase (COX) catalyzes the production
 of prostaglandins through the intermediate arachidonic
-acid and Prostaglandins regulate the body''s inflammatory
+acid and Prostaglandins regulate the body''s inflammatory
 response.
 COX has 2 isoenzymes:
 COX-I regulates many physiological processes including
 protection of gastric mucosa.
 COX-II is expressed in inflammatory cells.
-Note:  Most NSAIDs inhibit both COX-I and COX-II. Some newer
+Note:  Most NSAIDs inhibit both COX-I and COX-II. Some newer
 drugs inhibit just COX-II, therefore reducing gastric side
 effects.
-ibuprofen (Safest NSAID) but low anti-inflammatory
-properties not useful in inflammatory conditions.
+ibuprofen (Safest NSAID) but low anti-inflammatory
+properties not useful in inflammatory conditions.
 
-Overview  Comments
-
-Naproxen: Good efficacy, lower side effects but greater
-than ibuprofen. Used in musculoskeletal
-disorders, Rheumatoid arthritis, Gout and dysmenorrhea.
-Diclofenac: Similar in efficacy to naproxen but greater side
+Naproxen: Good efficacy, lower side effects but greater
+than ibuprofen. Used in musculoskeletal
+disorders, Rheumatoid arthritis, Gout and dysmenorrhea.
+Diclofenac: Similar in efficacy to naproxen but greater side
 effects.
-Mefenamic acid: Low anti-inflammatory properties but
-greater side effects which include aplastic anemia
-and hemolytic anemia.
-Note: NSAIDs cause GERD by inhibiting the COX 1 enzymes (cox
-1 stimulation produce prostaglandins that help to maintain the
+Mefenamic acid: Low anti-inflammatory properties but
+greater side effects which include aplastic anemia
+and hemolytic anemia.
+Note: NSAIDs cause GERD by inhibiting the COX 1 enzymes (cox
+1 stimulation produce prostaglandins that help to maintain the
 gastric mucosal integrity) NSAIDs can cause ulcers by
 interfering with the stomach''s ability to protect itself from
-gastric acid (by inhibiting the function of prostaglandins)
+gastric acid (by inhibiting the function of prostaglandins)
 NSAIDS Adverse effects:
-Gl adverse effects (Most common) which include NSAIDS
-induced peptic ulcer.
-Hypersensitivity reactions
-Renal failure contraindicated in reduced GFR
-MI, Heart failure
+Gl adverse effects (Most common) which include NSAIDS
+induced peptic ulcer.
+Hypersensitivity reactions
+Renal failure contraindicated in reduced GFR
+MI, Heart failure
 Tinnitus
 Hypertension
-Thrombotic events
-Fluid retention
+Thrombotic events
+Fluid retention
 Haemolytic anemia (Mefenamic acid)
-Note: NSAIDs are contraindicated in a patient with heart
+Note: NSAIDs are contraindicated in a patient with heart
 failure. (Diclofenac is contraindicated in people with ischemic
 heart disease).
 Risk of GI Side effects:
 Lowest risk=ibuprofen (Safest NSAID)
-Intermediate risk: Aspirin, naproxen
+Intermediate risk: Aspirin, naproxen
 Highest risk=piroxicam, ketorolac, indomethacin
 Management of gout (Important to know
 here)
 Acute gout: NSAIDS (specially naproxen)
-Gout with heart failure: Colchicine
+Gout with heart failure: Colchicine
 Chronic gout: Allopurinol also reduces further attacks of gout
-by reducing uric acid.
+by reducing uric acid.
 
 Note: In gout under polarized light, gout crystals appear
 needle-shaped and yellow, a property called negative
-birefringence. Gout crystals are monosodium urate crystals
+birefringence. Gout crystals are monosodium urate crystals
 In Pseudo gout: Positive birefringence and pyrophosphate
 crystals.
 Colchicine mechanism of action: Colchicine has anti-
 inflammatory properties. It disrupts cytoskeletal functions by
-inhibiting beta-tubulin polymerization into microtubules,
+inhibiting beta-tubulin polymerization into microtubules,
 preventing activation, degranulation, and migration of
-neutrophils associated with mediating gout symptoms.
+neutrophils associated with mediating gout symptoms.
 Colchicine is useful in patients with heart failure and those
 taking anticoagulants
 Avoid colchicine in patients with blood dyscrasias and bone
-marrow disease .
+marrow disease .
 Opioid analgesics:
 Class of analgesics used to relieve moderate to severe
-pain. Opioids have affinity for opioid µ receptors found in the
-CNS, spinal cord and periphery
+pain. Opioids have affinity for opioid µ receptors found in the
+CNS, spinal cord and periphery
 Classification of opioids:
 Contraindications:
 Raised ICP
@@ -1271,8 +1223,7 @@ Acute respiratory depression
 
 Exacerbation of Asthma
 Opioid toxicity: Severe respiratory depression coma
-Antidote: Naloxone rapidly reverse the symptoms.
-Previous Next',
+Antidote: Naloxone rapidly reverse the symptoms.',
     true,
     0,
     'published',
@@ -1299,26 +1250,23 @@ Previous Next',
     '# Anti - Psychotic Drugs
 
 Anti-psychotics
-Anti-psychotics acts by blocking dopamine D2 receptors in
-the brain .
+Anti-psychotics acts by blocking dopamine D2 receptors in
+the brain .
 Side effects:
 Extrapyramidal side effects occur most commonly associated
 with antiemetic (metoclopramide, prochlorperazine) and anti-
-psychotics (haloperidol). Haloperidol is the most
-common causative antipsychotic drug.
+psychotics (haloperidol). Haloperidol is the most
+common causative antipsychotic drug.
 Dystonia (abnormal face and body movements) most
-commonly occur in young female and children treated with
-Procyclidine or benztropine .
+commonly occur in young female and children treated with
+Procyclidine or benztropine .
 Tardive dyskinesia (rhythmic, involuntary movements of
 tongue, face and jaw)
 Other side effects:
-Parkinsonian symptoms (Tremor, Rigidity, bradykinesia and
+Parkinsonian symptoms (Tremor, Rigidity, bradykinesia and
 postural instability)
-Hyperprolactinemia (Dopamine inhibits release of prolactin)
-QT-interval prolongation
-Previous Next
-
-Overview  Comments',
+Hyperprolactinemia (Dopamine inhibits release of prolactin)
+QT-interval prolongation',
     false,
     1,
     'published',
@@ -1349,15 +1297,12 @@ clinical use:
 Metoclopramide
 Metoclopramide is dopamine receptor antagonist acts directly
 on GI tract as prokinetic drug, commonly associated with
-extrapyramidal symptoms induce acute dystonic
-reactions causing fascial and skeletal muscle spasm .
+extrapyramidal symptoms induce acute dystonic
+reactions causing fascial and skeletal muscle spasm .
 Antidote: Injection of anti-parkinsonism drug Such as
 "Procyclidine will abort dystonic attack.
 Note: Extrapyramidal symptoms are most commonly
 associated with antiemetics and antipsychotics
-Previous Next
-
-Overview  Comments
 
 ![Anti - Emetic Drugs - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/anti-emetic-drugs/figure_01_p1.png)
 *Anti - Emetic Drugs — Clinical Figure 1 (Page 1 Reference)*',
@@ -1388,40 +1333,37 @@ Overview  Comments
 
 Anti-epileptic drugs
 Carbamazepine, sodium valproate
-and phenytoin
+and phenytoin
 Mechanism of action: Carbamazepine, sodium valproate
-and phenytoin all three drugs act by inhibiting Voltage gated
+and phenytoin all three drugs act by inhibiting Voltage gated
 Na+ channels in neuronal cells.
 Sodium valproate: May also enhance the inhibitory effects of
 gamma-aminobutyric acid (GABA), an
-important neurotransmitter that reduces neuronal
+important neurotransmitter that reduces neuronal
 excitability.
 Antiepileptic drugs in pregnancy: (Adverse features)
-Carbamazepine: Hemorrhagic disease of the newborn and
+Carbamazepine: Hemorrhagic disease of the newborn and
 Neural tube defects.
-Phenytoin: Hemorrhagic disease of the newborn., Risk of
+Phenytoin: Hemorrhagic disease of the newborn., Risk of
 congenital malformations e.g. cleft lip, hypospadias and
 cardiovascular defects.
-
-Overview  Comments
 
 ![Anti - Epileptic Drugs - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/anti-epileptic-drugs/figure_01_p1.png)
 *Anti - Epileptic Drugs — Clinical Figure 1 (Page 1 Reference)*
 
-Sodium valproate: Risk of major congenital malformations e.g.
-neural tube, cardiac, craniofacial and limb defects.
+Sodium valproate: Risk of major congenital malformations e.g.
+neural tube, cardiac, craniofacial and limb defects.
 Antiepileptic drug interaction:
-All the cytochrome P450 enzyme inducer drugs which also
-include antiepileptics phenytoin and carbamazepine increase
-rate of metabolism and hepatic clearance of
-concurrently administrated drugs which typically results in
-decreased pharmacologic effects. Enzyme inducer drugs
-reduce the effectiveness of Oral contraceptives pills taken in
+All the cytochrome P450 enzyme inducer drugs which also
+include antiepileptics phenytoin and carbamazepine increase
+rate of metabolism and hepatic clearance of
+concurrently administrated drugs which typically results in
+decreased pharmacologic effects. Enzyme inducer drugs
+reduce the effectiveness of Oral contraceptives pills taken in
 pregnancy and thus pregnancy happens.
 Note: Sodium valproate is metabolized in liver all the enzyme
 inhibitor drugs decrease rate of metabolism of valproate and
-toxicity occur.
-Previous Next',
+toxicity occur.',
     false,
     3,
     'published',
@@ -1451,7 +1393,7 @@ Lithium:
 Used in the treatment of mania, bipolar disorders and
 depression.
 Side effects:
-Gl disturbance (Nausea, Diarrhea)
+Gl disturbance (Nausea, Diarrhea)
 Muscle weakness, Fine tremor
 Polyuria and polydipsia (ADH antagonism - nephrogenic
 diabetes insipidus)
@@ -1462,11 +1404,11 @@ Na imbalance
 Dehydration
 Thyroid dysfunction
 Renal impairment
-Lithium monitoring:  Lithium has a narrow therapeutic effects.
+Lithium monitoring:  Lithium has a narrow therapeutic effects.
 While starting lithium routine monitoring is
-recommended. The usual therapeutic range for lithium is 0.4-
+recommended. The usual therapeutic range for lithium is 0.4-
 0.8 mmol/l . The lower end of the range is usually the target for
-maintenance therapy and treatment in the elderly. Toxic
+maintenance therapy and treatment in the elderly. Toxic
 effects are generally seen at levels > 1.5 mmol/l.
 Lithium toxicity:
 Early features:
@@ -1477,15 +1419,12 @@ Slurred speech
 Polyuria
 Muscle weakness
 
-Overview  Comments
-
 Late features:
-Ataxia, coarse hand tremor
+Ataxia, coarse hand tremor
 Blurred vision
 Seizures, Stupor
 Severe hypotension
-Coma and death
-Previous Next',
+Coma and death',
     false,
     4,
     'published',
@@ -1512,9 +1451,6 @@ Previous Next',
     '# Status Epilepticus Management
 
 Status epilepticus management
-Previous Next
-
-Overview  Comments
 
 ![Status Epilepticus Management - Clinical Figure 1](/lessons/images/cns-pharmacology-analgesia/status-epilepticus-management/figure_01_p1.jpg)
 *Status Epilepticus Management — Clinical Figure 1 (Page 1 Reference)*',
@@ -1544,17 +1480,17 @@ Overview  Comments
     '# Tricyclic - Antidepressants
 
 Tri-cyclic antidepressants:
-Mechanism of action: TCA e.g. Amitriptyline is in the tricyclic
+Mechanism of action: TCA e.g. Amitriptyline is in the tricyclic
 antidepressant (TCA) drug, block the reuptake of
 norepinephrine and serotonin from the synaptic cleft, thereby
 potentiating the effects of serotonin and norepinephrine on
 the postsynaptic receptors. The TCAs have also been shown to
 inhibit muscarinic, histamine, and α -adrenergic receptors,
 thereby leading to a host of undesirable side effects.
-Tca also block muscarinic, histamine and  α  receptors and has
+Tca also block muscarinic, histamine and  α  receptors and has
 non-specific sedative effects.
 Anticholinergic effects/parasympathetic blocking actions are
-due to muscarinic receptor blockade (leads to Tachycardia,
+due to muscarinic receptor blockade (leads to Tachycardia,
 urinary retention, blurred vision, acute angle closure
 glaucoma, confusion, constipation, and dry
 mouth
@@ -1565,22 +1501,18 @@ cardiac arrhythmias (due to sodium channel blocker)
 Indications: Used in depression, neuropathic pain and
 nocturnal enuresis.
 Clinical features of TCA Toxicity:
-Tachycardia - Sinus tachycardia is the most common rhythm
+Tachycardia - Sinus tachycardia is the most common rhythm
 in TCA overdose. Wide complex tachycardia occurs with severe
 TCA overdose.
-Hypotension - As a result of alpha-1 antagonism, hypotension
+Hypotension - As a result of alpha-1 antagonism, hypotension
 is quite common.
 Mydriasis,
 Warm, dry, flushed skin
 Decreased or absent bowel sounds
 Urinary retention
-Ophthalmic signs - Divergent squint, internuclear
-ophthalmoplegic and gaze paralysis; nystagmus may also be
-
-Overview  Comments
-
-seen.
-Neurological signs - Ataxia, and myoclonic and
+Ophthalmic signs - Divergent squint, internuclear
+ophthalmoplegic and gaze paralysis; nystagmus may also be seen.
+Neurological signs - Ataxia, and myoclonic and
 choreoathetoid movements, may be seen. Increased muscle
 tone, hyperreflexia, and extensor plantar responses may occur.
 Severe metabolic acidosis on ABG findingsInvestigations
@@ -1590,25 +1522,24 @@ Any QRS duration >100 milliseconds in the setting of overdose,
 or unknown cause of altered mental status, is suspicious for
 TCA overdose.
 The most common ECG abnormality seen in TCA overdose
-is sinus tachycardia.
+is sinus tachycardia.
 Other ECG changes that can occur include:
 prolonged QTc duration
 prolonged PR interval
 AV block
 non-specific ST and T wave changes
 downward sloping ST elevation in leads V1 to V3 with right
-bundle branch block (Brugada wave).
+bundle branch block (Brugada wave).
 Treatment:
 Follow ABC protocol, obtain intravenous access, attach a
 cardiac monitor and obtain an ECG to look for QRS
 prolongation.
 Gastrointestinal decontamination (Time limited) - consider in
-patients with ingestion within 1 hour .
-Activated charcoal: 1 g/kg orally as a single dose, or 50g in
+patients with ingestion within 1 hour .
+Activated charcoal: 1 g/kg orally as a single dose, or 50g in
 adults repeat every 1-2 hours if required.
-Pt with QRS >100 milliseconds or pH <7.45 - Give sodium
-bicarbonate bolus followed by infusion.
-Previous Next',
+Pt with QRS >100 milliseconds or pH <7.45 - Give sodium
+bicarbonate bolus followed by infusion.',
     false,
     6,
     'published',
@@ -1651,8 +1582,6 @@ Local anesthetic drugs:
 Anesthetic induction and
 maintenance agents:
 
-Overview  Comments
-
 ![Anesthetic Drugs - Clinical Figure 1](/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_01_p1.png)
 *Anesthetic Drugs — Clinical Figure 1 (Page 1 Reference)*
 
@@ -1661,7 +1590,6 @@ Overview  Comments
 
 Anesthetic induction and
 maintenance agents: (Continues)
-Previous Next
 
 ![Anesthetic Drugs - Clinical Figure 3](/lessons/images/anesthesia-sedation-drugs/anesthetic-drugs/figure_03_p2.png)
 *Anesthetic Drugs — Clinical Figure 3 (Page 2 Reference)*
@@ -1704,10 +1632,6 @@ Previous Next
     'Drugs Toxicity and Antidotes',
     'article',
     '# Drugs Toxicity and Antidotes
-
-Previous Next
-
-Overview  Comments
 
 ![Drugs Toxicity and Antidotes - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/drugs-toxicity-and-antidotes/figure_01_p1.png)
 *Drugs Toxicity and Antidotes — Clinical Figure 1 (Page 1 Reference)*',
@@ -1757,14 +1681,10 @@ major cause of poisoning. It may be accidental or deliberate
 and involve the use of prescribed or illicit drugs.
 Table - A: Drugs and clinical features
 
-Overview  Comments
-
 Table - B: Toxidromes
 
 ![Poisoning, Overdose and Toxidromes - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/poisoning-overdose-and-toxidromes/figure_01_p2.png)
 *Poisoning, Overdose and Toxidromes — Clinical Figure 1 (Page 2 Reference)*
-
-Previous Next
 
 ![Poisoning, Overdose and Toxidromes - Clinical Figure 2](/lessons/images/emergency-toxicology-antidotes/poisoning-overdose-and-toxidromes/figure_01_p3.png)
 *Poisoning, Overdose and Toxidromes — Clinical Figure 2 (Page 3 Reference)*
@@ -1798,9 +1718,6 @@ Previous Next
 
 Summary Of Drugs And Their Side
 Effects
-Previous Next
-
-Overview  Comments
 
 ![Summary of Drugs and Their Side Effects - Clinical Figure 1](/lessons/images/emergency-toxicology-antidotes/summary-of-drugs-and-their-side-effects/figure_01_p1.png)
 *Summary of Drugs and Their Side Effects — Clinical Figure 1 (Page 1 Reference)*',
