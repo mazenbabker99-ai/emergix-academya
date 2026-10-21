@@ -954,7 +954,7 @@ export async function runAutoMigrationsAndSeeds() {
     }
 
     // Track explicit curriculum content version so text additions and cleanups are always applied
-    const CURRENT_CURRICULUM_VERSION = "2026_10_18_v6_clean_headings_no_duplicate_title";
+    const CURRENT_CURRICULUM_VERSION = "2026_10_21_v7_sba_topic_curriculum";
     let isCurriculumUpToDate = false;
 
     try {
@@ -976,6 +976,7 @@ export async function runAutoMigrationsAndSeeds() {
     const masterSeeds: { file: string; shouldRun: boolean }[] = [
       { file: "seed_flagship_mrcem_primary.sql", shouldRun: !isCurriculumUpToDate || primaryLessonCount < 200 },
       { file: "seed_flagship_mrcem_sba.sql", shouldRun: !isCurriculumUpToDate || sbaLessonCount < 40 },
+      { file: "seed_topic_sba_curriculum.sql", shouldRun: !isCurriculumUpToDate || sbaLessonCount < 150 },
       { file: "cleanup_courses.sql", shouldRun: true },
       { file: "set_two_flagship_courses.sql", shouldRun: true },
       { file: "update_quiz_1_verified.sql", shouldRun: true },
