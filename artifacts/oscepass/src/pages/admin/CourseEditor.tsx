@@ -2,7 +2,27 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { Link, useParams } from 'wouter';
-import { ArrowLeft, ArrowDown, ArrowUp, Check, CirclePlus, FileAudio, FileText, Film, LoaderCircle, Pencil, Plus, Trash2, UploadCloud, X } from 'lucide-react';
+import {
+  AlertCircle,
+  ArrowDown,
+  ArrowLeft,
+  ArrowUp,
+  Check,
+  CirclePlus,
+  Code,
+  Eye,
+  FileAudio,
+  FileText,
+  Film,
+  HelpCircle,
+  LoaderCircle,
+  Pencil,
+  Plus,
+  Sparkles,
+  Trash2,
+  UploadCloud,
+  X,
+} from 'lucide-react';
 import {
   getAdminGetCourseOutlineQueryKey,
   getAdminListCoursesQueryKey,
@@ -23,6 +43,7 @@ import type { AdminLessonSummary, AdminModuleWithLessons, LessonInputType, Publi
 import { AdminLayout } from '@/components/layouts/AdminLayout';
 import { EmptyState, ErrorState, PageSkeleton } from '@/components/shared/DataState';
 import { Form } from '@/components/ui/form';
+import { parseSbaQuestions } from '@/components/quiz/parseQuestions';
 import { usePageMeta } from '@/lib/usePageMeta';
 
 type EditorKind = 'module' | 'lesson';
@@ -82,9 +103,23 @@ export default function CourseEditor() {
   const [editor, setEditor] = useState<EditorState>(null);
   const [modalError, setModalError] = useState('');
   const [upload, setUpload] = useState<UploadState>({ busy: false, error: '', filename: '', progress: 0 });
+  const [lessonTab, setLessonTab] = useState<'edit' | 'preview'>('edit');
+  const [showCheatsheet, setShowCheatsheet] = useState(false);
   const initializedId = useRef<string | null>(null);
   const outline = outlineQuery.data;
   const modules = useMemo(() => [...(outline?.modules ?? [])].sort((a, b) => a.position - b.position), [outline?.modules]);
+
+  const watchedBody = lessonForm.watch('body') || '';
+  const watchedType = lessonForm.watch('type');
+
+  const liveParsedQuiz = useMemo(() => {
+    if (!watchedBody) return { introText: '', questions: [] };
+    try {
+      return parseSbaQuestions(watchedBody);
+    } catch {
+      return { introText: '', questions: [] };
+    }
+  }, [watchedBody]);
 
   usePageMeta(outline?.course.title ?? 'Course editor', 'Edit course content and publishing details.');
 
@@ -230,6 +265,27 @@ export default function CourseEditor() {
     } catch { setCourseError('Lesson order could not be updated.'); }
   }
 
+  function insertSbaTemplate() {
+    const currentBody = lessonForm.getValues('body') || '';
+    const nextQNum = (liveParsedQuiz.questions.length || 0) + 1;
+    const template = `\n\n## Question ${nextQNum} of ${Math.max(15, nextQNum)}
+
+A 45-year-old male presents to the Emergency Department with acute central chest pain radiating to his left arm and diaphoresis.
+Which of the following is the most appropriate initial investigation?
+
+- **A.** 12-lead electrocardiogram within 10 minutes
+- **B.** Immediate portable chest radiograph
+- **C.** High-sensitivity cardiac troponin I
+- **D.** CT pulmonary angiography
+- **E.** Transthoracic echocardiogram
+
+**Correct Answer:** A
+**Explanation:**
+A 12-lead ECG is the mandatory first-line diagnostic investigation within 10 minutes of arrival for all adult emergency patients presenting with acute non-traumatic chest pain to identify ST-elevation myocardial infarction (STEMI) or acute ischemia requiring emergency reperfusion therapy.
+`;
+    lessonForm.setValue('body', (currentBody ? currentBody.trim() + '\n' : '') + template, { shouldDirty: true });
+  }
+
   const isSaving = updateCourse.isPending;
   const isModalSaving = createModule.isPending || updateModule.isPending || createLesson.isPending || updateLesson.isPending;
   const mediaFileField = lessonForm.register('mediaFile');
@@ -241,6 +297,8 @@ export default function CourseEditor() {
   }
 
   function openLesson(moduleId: string, lesson?: AdminLessonSummary) {
+    setLessonTab('edit');
+    setShowCheatsheet(false);
     lessonForm.reset({
       title: lesson?.title ?? '',
       slug: lesson?.slug ?? '',
@@ -298,36 +356,260 @@ export default function CourseEditor() {
       </> : null}
     </div>
     {editor && <div className="admin-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget && !upload.busy) setEditor(null); }}>
-      <section className="admin-dialog editor-dialog" role="dialog" aria-modal="true" aria-labelledby="content-editor-title">
+      <section className={`admin-dialog editor-dialog ${editor.kind === 'lesson' ? 'editor-dialog-wide' : ''}`} role="dialog" aria-modal="true" aria-labelledby="content-editor-title">
         <div className="dialog-heading"><div><span className="admin-kicker">{editor.kind === 'module' ? 'LEARNING PATH' : 'LESSON CONTENT'}</span><h2 id="content-editor-title">{editor.kind === 'module' ? (editor.module ? 'Edit module' : 'Add a module') : (editor.lesson ? 'Edit lesson' : 'Add a lesson')}</h2></div><button type="button" className="icon-button" onClick={() => setEditor(null)} disabled={upload.busy} aria-label="Close"><X size={19} /></button></div>
         {editor.kind === 'module' ? <Form {...moduleForm}><form onSubmit={moduleForm.handleSubmit(commitModule)}>
           <label className="admin-field">Module title<input autoFocus required {...moduleForm.register('title', { required: true })} placeholder="For example, Approach to acute presentations" data-testid="input-module-title" /></label>
           {modalError && <p className="admin-form-error" role="alert">{modalError}</p>}
           <div className="dialog-actions"><button type="button" className="admin-button admin-button-quiet" onClick={() => setEditor(null)}>Cancel</button><button type="submit" className="admin-button admin-button-primary" disabled={isModalSaving}>{isModalSaving ? 'Saving…' : editor.module ? 'Save module' : 'Create module'}</button></div>
-        </form></Form> : editor.lesson ? <Form {...lessonForm}><form onSubmit={lessonForm.handleSubmit(commitLesson)}>
-          <label className="admin-field">Lesson title<input required autoFocus {...lessonForm.register('title', { required: true })} data-testid="input-lesson-title" /></label>
-          <div className="field-pair"><label className="admin-field">Lesson slug<input required pattern="[a-z0-9-]+" {...lessonForm.register('slug', { required: true, pattern: /^[a-z0-9-]+$/ })} data-testid="input-lesson-slug" /></label><label className="admin-field">Content type<select {...lessonForm.register('type') } data-testid="select-lesson-type">{lessonTypes.map((type) => <option value={type} key={type}>{type[0].toUpperCase() + type.slice(1)}</option>)}</select></label></div>
-          <label className="admin-field">Lesson text / resource notes<textarea rows={4} {...lessonForm.register('body')} placeholder="Optional lesson body or resource notes" data-testid="input-lesson-body" /></label>
-          <div className="field-pair"><label className="admin-field">Duration in seconds<input type="number" min="0" {...lessonForm.register('durationSeconds')} placeholder="Optional" data-testid="input-lesson-duration" /></label><label className="admin-field">Publication status<select {...lessonForm.register('status')} data-testid="select-lesson-status">{statuses.map((status) => <option value={status} key={status}>{status[0].toUpperCase() + status.slice(1)}</option>)}</select></label></div>
-          <label className="check-field preview-checkbox"><input type="checkbox" {...lessonForm.register('isFreePreview')} data-testid="checkbox-lesson-preview" /><span><strong>Free preview</strong><small>Allow learners to preview this lesson</small></span></label>
-          <div className="asset-uploader">
-            <div className="asset-upload-top"><span className="asset-upload-icon"><UploadCloud size={18} /></span><div><strong>Lesson media</strong><small>PDF, video, audio or common image formats</small></div></div>
-            <label className={`upload-drop ${upload.busy ? 'uploading' : ''}`}><input type="file" {...mediaFileField} accept=".pdf,video/*,audio/*,image/png,image/jpeg,image/webp,image/gif,image/avif" disabled={upload.busy} onChange={(event) => { const file = event.target.files?.[0]; void mediaFileField.onChange(event); void uploadFile(file); event.currentTarget.value = ''; }} data-testid="input-lesson-media" /><span>{upload.busy ? <LoaderCircle size={18} className="upload-spin" /> : <UploadCloud size={18} />}{upload.busy ? `Uploading ${upload.filename}` : 'Choose a file to attach'}</span><small>File bytes are uploaded directly to secure storage.</small></label>
-            {upload.busy && <div className="upload-progress" aria-label={`Upload ${upload.progress}%`}><span style={{ transform: `scaleX(${upload.progress / 100})` }} /></div>}
-            {(upload.filename || editor.lesson.assetFilename) && !upload.busy && <div className="attached-asset"><Check size={15} /><span>{upload.filename || editor.lesson.assetFilename}</span><small>Attached</small></div>}
-            {upload.error && <p className="admin-form-error" role="alert">{upload.error}</p>}
-          </div>
-          {modalError && <p className="admin-form-error" role="alert">{modalError}</p>}
-          <div className="dialog-actions"><button type="button" className="admin-button admin-button-quiet" onClick={() => setEditor(null)} disabled={upload.busy}>Cancel</button><button type="submit" className="admin-button admin-button-primary" disabled={isModalSaving || upload.busy}>{isModalSaving ? 'Saving…' : 'Save lesson'}</button></div>
         </form></Form> : <Form {...lessonForm}><form onSubmit={lessonForm.handleSubmit(commitLesson)}>
-          <label className="admin-field">Lesson title<input required autoFocus {...lessonForm.register('title', { required: true })} placeholder="A focused lesson title" data-testid="input-lesson-title" /></label>
-          <div className="field-pair"><label className="admin-field">Lesson slug<input required pattern="[a-z0-9-]+" {...lessonForm.register('slug', { required: true, pattern: /^[a-z0-9-]+$/ })} placeholder="generated-from-title" data-testid="input-lesson-slug" /></label><label className="admin-field">Content type<select {...lessonForm.register('type')} data-testid="select-lesson-type">{lessonTypes.map((type) => <option value={type} key={type}>{type[0].toUpperCase() + type.slice(1)}</option>)}</select></label></div>
-          <label className="admin-field">Lesson text / resource notes<textarea rows={4} {...lessonForm.register('body')} placeholder="Optional lesson body or resource notes" data-testid="input-lesson-body" /></label>
-          <div className="field-pair"><label className="admin-field">Duration in seconds<input type="number" min="0" {...lessonForm.register('durationSeconds')} placeholder="Optional" data-testid="input-lesson-duration" /></label><label className="admin-field">Publication status<select {...lessonForm.register('status')} data-testid="select-lesson-status">{statuses.map((status) => <option value={status} key={status}>{status[0].toUpperCase() + status.slice(1)}</option>)}</select></label></div>
-          <label className="check-field preview-checkbox"><input type="checkbox" {...lessonForm.register('isFreePreview')} data-testid="checkbox-lesson-preview" /><span><strong>Free preview</strong><small>Allow learners to preview this lesson</small></span></label>
-          <p className="asset-first-note">Create the lesson before attaching media. You can then open it to upload a file.</p>
+          <div className="lesson-modal-tabs">
+            <button
+              type="button"
+              className={`lesson-modal-tab ${lessonTab === 'edit' ? 'active' : ''}`}
+              onClick={() => setLessonTab('edit')}
+            >
+              <Code size={15} /> ✏️ Edit Content
+            </button>
+            <button
+              type="button"
+              className={`lesson-modal-tab ${lessonTab === 'preview' ? 'active' : ''}`}
+              onClick={() => setLessonTab('preview')}
+            >
+              <Eye size={15} /> 👁️ Live Quiz Preview
+              {liveParsedQuiz.questions.length > 0 && (
+                <span style={{ background: '#10b981', color: '#fff', fontSize: '0.7rem', padding: '1px 6px', borderRadius: '10px', marginLeft: 4 }}>
+                  {liveParsedQuiz.questions.length} Qs
+                </span>
+              )}
+            </button>
+          </div>
+
+          {lessonTab === 'edit' ? (
+            <div className="editor-dialog-scrollable">
+              <label className="admin-field">
+                Lesson title
+                <input required autoFocus {...lessonForm.register('title', { required: true })} data-testid="input-lesson-title" />
+              </label>
+              <div className="field-pair">
+                <label className="admin-field">
+                  Lesson slug
+                  <input required pattern="[a-z0-9-]+" {...lessonForm.register('slug', { required: true, pattern: /^[a-z0-9-]+$/ })} data-testid="input-lesson-slug" />
+                </label>
+                <label className="admin-field">
+                  Content type
+                  <select {...lessonForm.register('type')} data-testid="select-lesson-type">
+                    {lessonTypes.map((type) => (
+                      <option value={type} key={type}>
+                        {type[0].toUpperCase() + type.slice(1)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+
+              {(watchedType === 'quiz' || liveParsedQuiz.questions.length > 0) && (
+                <div className="quiz-helper-bar">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.78rem' }}>
+                    <Sparkles size={14} style={{ color: '#0d9488' }} />
+                    <strong>SBA Questions Detected:</strong>
+                    <span style={{ color: liveParsedQuiz.questions.length > 0 ? '#059669' : '#d97706', fontWeight: 700 }}>
+                      {liveParsedQuiz.questions.length} questions
+                    </span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <button
+                      type="button"
+                      className="admin-button admin-button-outline"
+                      style={{ padding: '3px 9px', fontSize: '0.74rem' }}
+                      onClick={insertSbaTemplate}
+                    >
+                      <Plus size={13} /> + Add SBA Question Template
+                    </button>
+                    <button
+                      type="button"
+                      className="admin-button admin-button-quiet"
+                      style={{ padding: '3px 9px', fontSize: '0.74rem' }}
+                      onClick={() => setShowCheatsheet(!showCheatsheet)}
+                    >
+                      <HelpCircle size={13} /> {showCheatsheet ? 'Hide Format Guide' : 'Format Guide'}
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {showCheatsheet && (
+                <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 6, padding: '10px 14px', marginBottom: 10, fontSize: '0.77rem', color: '#166534', lineHeight: 1.6 }}>
+                  <strong>معايير كتابة وتعديل أسئلة الـ SBA باحتراف:</strong>
+                  <ol style={{ margin: '6px 0 0', paddingLeft: 18 }}>
+                    <li><strong>السيناريو السريري (Stem):</strong> يبدأ بوصف الحالة السريرية وينتهي بسؤال محدد بعلامة استفهام <code>?</code></li>
+                    <li><strong>الخيارات الخمسة (Options):</strong> كتابة الخيارات كقائمة نقطية من A إلى E: <code>- **A.** Choice 1</code> ... <code>- **E.** Choice 5</code></li>
+                    <li><strong>مفتاح الإجابة الصحيحة (Key):</strong> تحديد الحرف الصحيح بوضوح: <code>**Correct Answer:** C</code> أو <code>Answer: C</code> أو <code>RCEM Key: C</code></li>
+                    <li><strong>التفسير والشرح السريري (Explanation):</strong> شرح الحالة وسبب صحة الخيار ولماذا الخيارات الأخرى خاطئة بعد سطر <code>**Explanation:**</code></li>
+                  </ol>
+                </div>
+              )}
+
+              <label className="admin-field">
+                Lesson text / questions &amp; notes
+                <textarea
+                  rows={14}
+                  {...lessonForm.register('body')}
+                  style={{
+                    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+                    fontSize: '0.84rem',
+                    lineHeight: 1.6,
+                    minHeight: '260px',
+                    padding: '10px 12px',
+                  }}
+                  placeholder="Write clinical scenarios, SBA questions, or lesson markdown here..."
+                  data-testid="input-lesson-body"
+                />
+              </label>
+
+              <div className="field-pair">
+                <label className="admin-field">
+                  Duration in seconds
+                  <input type="number" min="0" {...lessonForm.register('durationSeconds')} placeholder="Optional" data-testid="input-lesson-duration" />
+                </label>
+                <label className="admin-field">
+                  Publication status
+                  <select {...lessonForm.register('status')} data-testid="select-lesson-status">
+                    {statuses.map((status) => (
+                      <option value={status} key={status}>
+                        {status[0].toUpperCase() + status.slice(1)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+
+              <label className="check-field preview-checkbox">
+                <input type="checkbox" {...lessonForm.register('isFreePreview')} data-testid="checkbox-lesson-preview" />
+                <span><strong>Free preview</strong><small>Allow learners to preview this lesson</small></span>
+              </label>
+
+              {editor.lesson && (
+                <div className="asset-uploader">
+                  <div className="asset-upload-top">
+                    <span className="asset-upload-icon"><UploadCloud size={18} /></span>
+                    <div><strong>Lesson media</strong><small>PDF, video, audio or common image formats</small></div>
+                  </div>
+                  <label className={`upload-drop ${upload.busy ? 'uploading' : ''}`}>
+                    <input
+                      type="file"
+                      {...mediaFileField}
+                      accept=".pdf,video/*,audio/*,image/png,image/jpeg,image/webp,image/gif,image/avif"
+                      disabled={upload.busy}
+                      onChange={(event) => {
+                        const file = event.target.files?.[0];
+                        void mediaFileField.onChange(event);
+                        void uploadFile(file);
+                        event.currentTarget.value = '';
+                      }}
+                      data-testid="input-lesson-media"
+                    />
+                    <span>
+                      {upload.busy ? <LoaderCircle size={18} className="upload-spin" /> : <UploadCloud size={18} />}
+                      {upload.busy ? `Uploading ${upload.filename}` : 'Choose a file to attach'}
+                    </span>
+                    <small>File bytes are uploaded directly to secure storage.</small>
+                  </label>
+                  {upload.busy && (
+                    <div className="upload-progress" aria-label={`Upload ${upload.progress}%`}>
+                      <span style={{ transform: `scaleX(${upload.progress / 100})` }} />
+                    </div>
+                  )}
+                  {(upload.filename || editor.lesson.assetFilename) && !upload.busy && (
+                    <div className="attached-asset">
+                      <Check size={15} />
+                      <span>{upload.filename || editor.lesson.assetFilename}</span>
+                      <small>Attached</small>
+                    </div>
+                  )}
+                  {upload.error && <p className="admin-form-error" role="alert">{upload.error}</p>}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="editor-dialog-scrollable">
+              {liveParsedQuiz.questions.length === 0 ? (
+                <div style={{ padding: '30px 20px', textAlign: 'center', background: '#f8fafc', borderRadius: 8 }}>
+                  <AlertCircle size={32} style={{ color: '#d97706', margin: '0 auto 10px' }} />
+                  <h4 style={{ margin: '0 0 6px', color: '#1e293b' }}>لم يتم العثور على أسئلة مفهرسة</h4>
+                  <p style={{ margin: '0 0 16px', color: '#64748b', fontSize: '0.84rem' }}>
+                    تأكد من تنسيق الخيارات كقائمة نقطية من A إلى E، وتحديد الإجابة الصحيحة.
+                  </p>
+                  <button
+                    type="button"
+                    className="admin-button admin-button-primary"
+                    onClick={() => {
+                      insertSbaTemplate();
+                      setLessonTab('edit');
+                    }}
+                  >
+                    + إدراج قالب سؤال نموذجي
+                  </button>
+                </div>
+              ) : (
+                <div className="quiz-preview-list">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 4px', borderBottom: '1px solid #e2e8f0', marginBottom: 8 }}>
+                    <span style={{ fontWeight: 700, fontSize: '0.86rem', color: '#0f172a' }}>
+                      معاينة {liveParsedQuiz.questions.length} سؤال كما ستظهر للطلاب:
+                    </span>
+                    <span style={{ fontSize: '0.78rem', color: '#059669', background: '#ecfdf5', padding: '3px 10px', borderRadius: 12, fontWeight: 700 }}>
+                      مفحوصة بواسطة محرك الفرز الطبي ✓
+                    </span>
+                  </div>
+                  {liveParsedQuiz.questions.map((q, idx) => (
+                    <div key={q.id || idx} className="quiz-preview-card">
+                      <div className="quiz-preview-head">
+                        <span className="quiz-preview-qnum">سؤال {q.questionNumber || idx + 1}</span>
+                        <span style={{ fontSize: '0.76rem', background: '#f1f5f9', color: '#475569', padding: '2px 8px', borderRadius: 4, fontWeight: 600 }}>
+                          الإجابة الصحيحة: <strong>{q.correctKey || 'غير محددة'}</strong>
+                        </span>
+                      </div>
+                      <p style={{ fontWeight: 600, fontSize: '0.88rem', color: '#1e293b', margin: '6px 0 10px' }}>
+                        {q.stem}
+                      </p>
+                      <ul className="quiz-preview-opt-list">
+                        {q.options.map((opt) => {
+                          const isCorrect = opt.key.toUpperCase() === q.correctKey?.toUpperCase();
+                          return (
+                            <li key={opt.key} className={`quiz-preview-opt ${isCorrect ? 'is-correct' : ''}`}>
+                              <strong style={{ minWidth: 20 }}>{opt.key}.</strong>
+                              <span>{opt.text}</span>
+                              {isCorrect && (
+                                <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.75rem', fontWeight: 700, color: '#059669' }}>
+                                  <Check size={14} /> الإجابة المعتمدة
+                                </span>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      {q.explanation && (
+                        <div className="quiz-preview-expl">
+                          <strong style={{ display: 'block', color: '#0d9488', marginBottom: 4 }}>التفسير والتعليل السريري:</strong>
+                          {q.explanation}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
           {modalError && <p className="admin-form-error" role="alert">{modalError}</p>}
-          <div className="dialog-actions"><button type="button" className="admin-button admin-button-quiet" onClick={() => setEditor(null)}>Cancel</button><button type="submit" className="admin-button admin-button-primary" disabled={isModalSaving}>{isModalSaving ? 'Saving…' : 'Create lesson'}</button></div>
+          <div className="dialog-actions" style={{ marginTop: 16 }}>
+            <button type="button" className="admin-button admin-button-quiet" onClick={() => setEditor(null)} disabled={upload.busy}>
+              Cancel
+            </button>
+            <button type="submit" className="admin-button admin-button-primary" disabled={isModalSaving || upload.busy}>
+              {isModalSaving ? 'Saving…' : editor.lesson ? 'Save lesson' : 'Create lesson'}
+            </button>
+          </div>
         </form></Form>}
       </section>
     </div>}

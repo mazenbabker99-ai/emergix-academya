@@ -1085,6 +1085,21 @@
 .curriculum-empty .state-box h2 { color:#385a58; font-size:1rem; }
 .curriculum-empty .state-box p { color:#84938d; font-size:.77rem; }
 .editor-dialog { width:min(590px,100%); }
+.editor-dialog.editor-dialog-wide { width:min(900px,96vw); max-height:92vh; display:flex; flex-direction:column; }
+.editor-dialog-scrollable { overflow-y:auto; max-height:calc(92vh - 140px); padding-right:4px; }
+.lesson-modal-tabs { display:flex; gap:8px; border-bottom:1px solid #e2e8f0; margin-bottom:14px; padding-bottom:2px; }
+.lesson-modal-tab { display:inline-flex; align-items:center; gap:6px; padding:7px 14px; font-size:.82rem; font-weight:700; border:none; background:transparent; color:#64748b; border-bottom:2px solid transparent; cursor:pointer; border-radius:4px 4px 0 0; transition:all .15s ease; }
+.lesson-modal-tab:hover { color:#0f172a; }
+.lesson-modal-tab.active { color:#0d9488; border-bottom-color:#0d9488; background:#f0fdf4; }
+.quiz-helper-bar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; padding:8px 12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; margin-bottom:8px; }
+.quiz-preview-list { display:flex; flex-direction:column; gap:16px; padding:6px 0; }
+.quiz-preview-card { border:1px solid #e2e8f0; border-radius:8px; padding:14px; background:#ffffff; box-shadow:0 1px 2px rgba(0,0,0,0.03); }
+.quiz-preview-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.quiz-preview-qnum { font-weight:800; font-size:.85rem; color:#0d9488; }
+.quiz-preview-opt-list { list-style:none; margin:10px 0; padding:0; display:flex; flex-direction:column; gap:6px; }
+.quiz-preview-opt { padding:7px 12px; border-radius:6px; border:1px solid #e2e8f0; font-size:.84rem; display:flex; align-items:center; gap:8px; }
+.quiz-preview-opt.is-correct { background:#ecfdf5; border-color:#10b981; color:#065f46; font-weight:600; }
+.quiz-preview-expl { margin-top:10px; padding:10px 14px; background:#f8fafc; border-left:3px solid #0d9488; font-size:.82rem; color:#334155; border-radius:0 6px 6px 0; line-height:1.55; }
 .editor-dialog .admin-field { margin-bottom:12px; }
 .preview-checkbox { padding:7px 0 12px; }
 .asset-uploader { margin:5px 0 13px; border:1px solid #d9e4dd; border-radius:8px; background:#f7faf6; padding:13px; }
