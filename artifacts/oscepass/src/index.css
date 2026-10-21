@@ -1522,3 +1522,292 @@ body { background:#f7f5ef; color:#1f3931; }
 .forbidden-lesson-banner { margin-top:16px; }
 .access-empty-note { padding:14px;background:#f7f9fb;border:1px dashed #cbd5e1;border-radius:8px;display:flex;flex-direction:column;gap:4px;color:#64748b;font-size:.85rem; }
 
+
+/* ─── Modern Medical LMS Lesson & Quiz Sidebar Layout ─── */
+.lesson-page-wrapper {
+  display: flex;
+  min-height: calc(100vh - 72px);
+  background: #f8fafc;
+  position: relative;
+}
+
+.lesson-curriculum-sidebar {
+  width: 320px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 72px);
+  position: sticky;
+  top: 72px;
+  z-index: 40;
+  transition: transform 0.22s ease, width 0.22s ease, margin-left 0.22s ease;
+}
+
+.lesson-curriculum-sidebar.is-collapsed {
+  margin-left: -320px;
+  pointer-events: none;
+}
+
+.lesson-sidebar-header {
+  padding: 14px 16px 10px;
+  background: #ffffff;
+  border-bottom: 1px solid #edf2f7;
+  flex-shrink: 0;
+}
+
+.lesson-sidebar-tabs {
+  display: flex;
+  gap: 4px;
+  background: #f1f5f9;
+  padding: 3px;
+  border-radius: 8px;
+  margin: 10px 0 8px;
+}
+
+.lesson-sidebar-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justifyContent: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 4px;
+  border-radius: 6px;
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lesson-sidebar-tab.active {
+  background: #ffffff;
+  color: #0284c7;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-sidebar-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+  padding: 5px 8px;
+}
+
+.lesson-sidebar-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 8px;
+}
+
+.lesson-sidebar-mod-block {
+  margin-bottom: 8px;
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.lesson-sidebar-mod-block.has-active {
+  border-color: #bae6fd;
+}
+
+.lesson-sidebar-mod-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justifyContent: space-between;
+  gap: 8px;
+  padding: 9px 10px;
+  background: #f8fafc;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.78rem;
+  color: #1e293b;
+  transition: background 0.15s;
+}
+
+.lesson-sidebar-mod-btn:hover {
+  background: #f1f5f9;
+}
+
+.mod-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0f172a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mod-count {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  background: #e2e8f0;
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+
+.lesson-sidebar-items-list {
+  list-style: none;
+  padding: 4px;
+  margin: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.lesson-sidebar-item {
+  display: flex;
+  align-items: center;
+  justifyContent: space-between;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.77rem;
+  font-weight: 600;
+  color: #334155;
+  transition: all 0.15s ease;
+  border-left: 3px solid transparent;
+}
+
+.lesson-sidebar-item:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.lesson-sidebar-item.is-active {
+  background: #eff6ff;
+  color: #0284c7;
+  font-weight: 750;
+  border-left: 3px solid #0284c7;
+}
+
+.lesson-sidebar-item.is-locked {
+  opacity: 0.65;
+}
+
+.item-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badge-quiz {
+  font-size: 0.64rem;
+  font-weight: 800;
+  color: #059669;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 1px 6px;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.badge-free {
+  font-size: 0.64rem;
+  font-weight: 800;
+  color: #0284c7;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  padding: 1px 5px;
+  border-radius: 8px;
+}
+
+.lesson-sidebar-footer {
+  padding: 10px 14px;
+  border-top: 1px solid #edf2f7;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.lesson-top-toolbar {
+  display: flex;
+  align-items: center;
+  justifyContent: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.lesson-sidebar-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0f172a;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.15s ease;
+}
+
+.lesson-sidebar-toggle-btn:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.lesson-badge-counter {
+  font-size: 0.7rem;
+  font-weight: 800;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  padding: 1px 7px;
+  border-radius: 10px;
+}
+
+.lesson-study-main {
+  flex: 1;
+  min-width: 0;
+  padding: 24px 32px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lesson-study-main-inner {
+  width: 100%;
+  max-width: 940px;
+}
+
+@media (max-width: 1024px) {
+  .lesson-curriculum-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 310px;
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+    transform: translateX(-100%);
+    margin-left: 0 !important;
+  }
+
+  .lesson-curriculum-sidebar.is-open-mobile {
+    transform: translateX(0);
+  }
+
+  .lesson-study-main {
+    padding: 16px 14px 60px;
+  }
+}
+
+.lesson-sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+}

@@ -238,7 +238,7 @@ export default function Dashboard() {
             </Link>
 
             <Link
-              href="/question-bank"
+              href="/courses/mrcem-sba"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -253,7 +253,7 @@ export default function Dashboard() {
                 boxShadow: '0 4px 14px rgba(16, 185, 129, 0.35)',
               }}
             >
-              <Zap size={15} /> Launch SBA Practice (41 Banks)
+              <Zap size={15} /> Resume SBA Curriculum &amp; Quizzes (222 Lessons)
             </Link>
 
             <a
@@ -566,14 +566,14 @@ export default function Dashboard() {
                     MRCEM SBA
                   </h3>
                   <div style={{ color: '#a7f3d0', fontSize: '.78rem', marginTop: 2 }}>
-                    41 Topical Quizzes • 6 Full Timed Mock Papers
+                    14 Modules • 222 Clinical Lessons &amp; Quizzes • 682 Figures
                   </div>
                 </div>
               </div>
 
               <div style={{ padding: '20px 22px', display: 'flex', flexDirection: 'column', flex: 1 }}>
                 <p style={{ color: '#475569', fontSize: '.88rem', lineHeight: 1.5, margin: '0 0 16px' }}>
-                  Sharpen clinical decision-making with high-yield single-best-answer questions, distractor elimination, and realistic RCEM timed exam simulations.
+                  Master all 10 emergency medicine clinical modules with 181 comprehensive topic notes, 682 diagnostic figures, 41 topical SBA question banks, and realistic timed RCEM mock exams.
                 </p>
 
                 {/* Metrics */}
@@ -591,22 +591,22 @@ export default function Dashboard() {
                   }}
                 >
                   <div>
-                    <div style={{ fontSize: '.95rem', fontWeight: 800, color: '#0f172a' }}>41</div>
-                    <div style={{ fontSize: '.68rem', color: '#64748b', fontWeight: 600 }}>Topic Banks</div>
+                    <div style={{ fontSize: '.95rem', fontWeight: 800, color: '#0f172a' }}>14</div>
+                    <div style={{ fontSize: '.68rem', color: '#64748b', fontWeight: 600 }}>Modules</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '.95rem', fontWeight: 800, color: '#0f172a' }}>6</div>
-                    <div style={{ fontSize: '.68rem', color: '#64748b', fontWeight: 600 }}>Mock Papers</div>
+                    <div style={{ fontSize: '.95rem', fontWeight: 800, color: '#0f172a' }}>222</div>
+                    <div style={{ fontSize: '.68rem', color: '#64748b', fontWeight: 600 }}>Lessons &amp; Quizzes</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: '.95rem', fontWeight: 800, color: '#0f172a' }}>Amboss</div>
-                    <div style={{ fontSize: '.68rem', color: '#64748b', fontWeight: 600 }}>Exam Engine</div>
+                    <div style={{ fontSize: '.95rem', fontWeight: 800, color: '#0f172a' }}>682</div>
+                    <div style={{ fontSize: '.68rem', color: '#64748b', fontWeight: 600 }}>Figures</div>
                   </div>
                 </div>
 
                 <div style={{ marginTop: 'auto', display: 'flex', gap: 10 }}>
                   <Link
-                    href="/question-bank"
+                    href="/courses/mrcem-sba"
                     className="btn btn-primary"
                     style={{
                       flex: 1,
@@ -621,7 +621,7 @@ export default function Dashboard() {
                       borderColor: '#10b981',
                     }}
                   >
-                    Open Question Bank <ArrowRight size={14} />
+                    Open Curriculum &amp; Quizzes <ArrowRight size={14} />
                   </Link>
                   <Link
                     href="/app/membership"

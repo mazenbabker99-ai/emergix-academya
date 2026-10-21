@@ -46,7 +46,7 @@ export default function CoursePage() {
 
   const isPredominantlyQuizCourse = quizModules.length >= lectureModules.length && quizModules.length > 0;
   const [userTab, setUserTab] = useState<'lessons' | 'quizzes' | 'all' | null>(null);
-  const activeTab = userTab ?? (isPredominantlyQuizCourse ? 'quizzes' : 'lessons');
+  const activeTab = userTab ?? (quizModules.length > 0 && lectureModules.length > 0 ? 'all' : isPredominantlyQuizCourse ? 'quizzes' : 'lessons');
   const setActiveTab = (tab: 'lessons' | 'quizzes' | 'all') => setUserTab(tab);
 
   const displayedModules = useMemo(() => {
@@ -186,6 +186,29 @@ export default function CoursePage() {
                   <button
                     type="button"
                     role="tab"
+                    aria-selected={activeTab === 'all'}
+                    onClick={() => setActiveTab('all')}
+                    style={{
+                      padding: '9px 18px',
+                      borderRadius: '24px',
+                      border: 0,
+                      background: activeTab === 'all' ? '#0a2342' : '#f1f5f9',
+                      color: activeTab === 'all' ? '#ffffff' : '#334155',
+                      fontWeight: 700,
+                      fontSize: '.86rem',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      transition: 'all .15s ease',
+                    }}
+                  >
+                    All Curriculum ({allLessons.length})
+                  </button>
+
+                  <button
+                    type="button"
+                    role="tab"
                     aria-selected={activeTab === 'lessons'}
                     onClick={() => setActiveTab('lessons')}
                     style={{
@@ -203,7 +226,7 @@ export default function CoursePage() {
                       transition: 'all .15s ease',
                     }}
                   >
-                    <BookOpen size={16} /> Lessons & Modules ({totalLectureLessons})
+                    <BookOpen size={16} /> Clinical Modules ({totalLectureLessons})
                   </button>
 
                   <button
@@ -226,30 +249,7 @@ export default function CoursePage() {
                       transition: 'all .15s ease',
                     }}
                   >
-                    <HelpCircle size={16} /> SBA Quizzes & Mock Exams ({totalQuizLessons})
-                  </button>
-
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={activeTab === 'all'}
-                    onClick={() => setActiveTab('all')}
-                    style={{
-                      padding: '9px 18px',
-                      borderRadius: '24px',
-                      border: 0,
-                      background: activeTab === 'all' ? '#0a2342' : '#f1f5f9',
-                      color: activeTab === 'all' ? '#ffffff' : '#334155',
-                      fontWeight: 600,
-                      fontSize: '.86rem',
-                      cursor: 'pointer',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 8,
-                      transition: 'all .15s ease',
-                    }}
-                  >
-                    All Items ({allLessons.length})
+                    <HelpCircle size={16} /> SBA Quizzes &amp; Mocks ({totalQuizLessons})
                   </button>
                 </div>
               )}

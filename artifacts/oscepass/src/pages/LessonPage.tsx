@@ -1,5 +1,17 @@
 import { useMemo, useState } from 'react';
-import { ArrowLeft, ArrowRight, BookOpen, Clock3, Download, FileText, MessageCircle, PlayCircle } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  BookOpen,
+  Clock3,
+  Download,
+  FileText,
+  MessageCircle,
+  PanelLeftClose,
+  PanelLeftOpen,
+  PlayCircle,
+  Zap,
+} from 'lucide-react';
 import { Link, useParams } from 'wouter';
 import { ApiError, useGetCourse, useGetLesson } from '@workspace/api-client-react';
 import { ErrorState, PageSkeleton } from '@/components/shared/DataState';
@@ -7,6 +19,7 @@ import { Prose } from '@/components/shared/Prose';
 import { SiteLayout } from '@/components/shared/SiteLayout';
 import { InteractiveQuiz } from '@/components/quiz/InteractiveQuiz';
 import { parseSbaQuestions } from '@/components/quiz/parseQuestions';
+import { CourseLessonSidebar, checkIsQuiz } from '@/components/quiz/CourseLessonSidebar';
 import { usePageMeta } from '@/lib/usePageMeta';
 
 export default function LessonPage() {
@@ -15,6 +28,9 @@ export default function LessonPage() {
   const course = useGetCourse(slug);
   usePageMeta(lesson.data?.title ?? 'Lesson', 'Course lesson.');
   const back = <Link href={`/courses/${slug}`} className="course-back"><ArrowLeft size={15} /> Back to course</Link>;
+
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   const allLessons = course.data?.modules.flatMap((m) => m.lessons) ?? [];
   const currentIndex = allLessons.findIndex((l) => l.id === lessonId || l.slug === lessonId);
@@ -97,107 +113,147 @@ export default function LessonPage() {
   const isAudio = type === 'audio' || mime.startsWith('audio/');
   const isPdf = type === 'pdf' || mime === 'application/pdf';
 
-  const isQuiz = type === 'quiz' || hasInteractiveQuiz || /quiz|mock|sba|paper|test/i.test(title);
+  const isQuiz = type === 'quiz' || hasInteractiveQuiz || checkIsQuiz({ type, title, slug: lessonData?.slug || lessonId });
+  const allQuizzes = useMemo(() => allLessons.filter(checkIsQuiz), [allLessons]);
 
-  // Dedicated quiz check: quiz type, mrcem-sba course, quiz slug/title, or 3+ parsed questions
+  // Dedicated quiz check: ONLY dedicated quiz sets (quizzes, mocks, papers), not clinical theory articles with a mini knowledge-check
   const isDedicatedQuiz =
     hasInteractiveQuiz &&
     (type === 'quiz' ||
-      slug === 'mrcem-sba' ||
-      /quiz|mock|sba|paper|exam|test/i.test(`${lessonId} ${slug} ${lessonData?.slug || ''}`) ||
-      /quiz|mock|sba|paper|exam|test/i.test(title || '') ||
-      parsedQuiz.questions.length >= 3);
+      /^(quiz|moka|mock|paper|exam)-?\d*/i.test(lessonData?.slug || lessonId) ||
+      /^Quiz\s+\d+/i.test(title || '') ||
+      /^High-Yield (?:Clinical SBA Practice|Mock)/i.test(title || '') ||
+      /^Expert Clinical SBA Mock/i.test(title || '') ||
+      (type !== 'article' && parsedQuiz.questions.length >= 3));
+
+  const sidebarToggleBtn = (
+    <button
+      type="button"
+      onClick={() => {
+        if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+          setMobileSidebarOpen((prev) => !prev);
+        } else {
+          setSidebarOpen((prev) => !prev);
+        }
+      }}
+      className="lesson-sidebar-toggle-btn"
+      title={sidebarOpen ? 'Hide outline' : 'Show course outline & quizzes'}
+    >
+      {sidebarOpen ? <PanelLeftClose size={16} /> : <PanelLeftOpen size={16} />}
+      <span>{sidebarOpen ? 'Hide Outline' : 'Course Outline'}</span>
+      {allQuizzes.length > 0 && (
+        <span className="lesson-badge-counter">{allQuizzes.length} Quizzes</span>
+      )}
+    </button>
+  );
 
   // ─── Dedicated Quiz View (Direct Amboss / UWorld interactive test player) ───
   if (isDedicatedQuiz) {
     return (
       <SiteLayout>
-        <main className="section" style={{ minHeight: '80vh', padding: '24px 0 60px' }}>
-          <div className="container course-page" style={{ maxWidth: '980px', margin: '0 auto' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-              {back}
-              {allLessons.length > 0 && currentIndex >= 0 && (
-                <span
+        <div className="lesson-page-wrapper">
+          <CourseLessonSidebar
+            slug={slug}
+            courseTitle={course.data?.course.title}
+            currentLessonId={lessonData?.slug || lessonId}
+            modules={course.data?.modules ?? []}
+            hasAccess={course.data?.hasAccess ?? false}
+            isOpen={sidebarOpen}
+            isMobileOpen={mobileSidebarOpen}
+            onCloseMobile={() => setMobileSidebarOpen(false)}
+          />
+
+          <main className="lesson-study-main">
+            <div className="lesson-study-main-inner" style={{ maxWidth: '980px' }}>
+              <div className="lesson-top-toolbar">
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                  {sidebarToggleBtn}
+                  {back}
+                </div>
+                {allLessons.length > 0 && currentIndex >= 0 && (
+                  <span
+                    style={{
+                      fontSize: '.82rem',
+                      fontWeight: 750,
+                      color: '#0284c7',
+                      background: '#f0f9ff',
+                      padding: '4px 14px',
+                      borderRadius: 20,
+                      border: '1px solid #bae6fd',
+                    }}
+                  >
+                    Quiz {currentIndex + 1} of {allLessons.length}
+                  </span>
+                )}
+              </div>
+
+              {parsedQuiz.introText && (
+                <div
                   style={{
-                    fontSize: '.82rem',
-                    fontWeight: 700,
-                    color: '#64748b',
-                    background: '#f1f5f9',
-                    padding: '4px 14px',
-                    borderRadius: 20,
+                    marginBottom: 20,
+                    background: '#ffffff',
+                    borderRadius: '14px',
+                    padding: '18px 22px',
+                    border: '1px solid #dbe7f3',
+                    boxShadow: '0 2px 8px rgba(10,35,66,0.03)',
                   }}
                 >
-                  Quiz {currentIndex + 1} of {allLessons.length}
-                </span>
+                  <Prose text={parsedQuiz.introText} />
+                </div>
               )}
-            </div>
 
-            {parsedQuiz.introText && (
+              <InteractiveQuiz
+                quizTitle={title}
+                questions={parsedQuiz.questions}
+                nextLessonHref={nextLesson ? `/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}` : undefined}
+                nextLessonTitle={nextLesson?.title}
+              />
+
+              {/* Navigation Footer */}
               <div
+                className="lesson-nav-footer"
                 style={{
-                  marginBottom: 20,
-                  background: '#ffffff',
-                  borderRadius: '14px',
-                  padding: '18px 22px',
-                  border: '1px solid #dbe7f3',
-                  boxShadow: '0 2px 8px rgba(10,35,66,0.03)',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginTop: 48,
+                  paddingTop: 24,
+                  borderTop: '1px solid #e2e8f0',
+                  gap: 16,
+                  flexWrap: 'wrap',
                 }}
               >
-                <Prose text={parsedQuiz.introText} />
+                {prevLesson ? (
+                  <Link
+                    href={`/courses/${slug}/lessons/${prevLesson.slug || prevLesson.id}`}
+                    className="btn btn-outline"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
+                  >
+                    <ArrowLeft size={16} /> Previous: {prevLesson.title}
+                  </Link>
+                ) : <div />}
+
+                {nextLesson ? (
+                  <Link
+                    href={`/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}`}
+                    className="btn btn-primary"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
+                  >
+                    Next: {nextLesson.title} <ArrowRight size={16} />
+                  </Link>
+                ) : (
+                  <Link
+                    href={`/courses/${slug}`}
+                    className="btn btn-primary"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
+                  >
+                    Back to Course Overview <ArrowRight size={16} />
+                  </Link>
+                )}
               </div>
-            )}
-
-            <InteractiveQuiz
-              quizTitle={title}
-              questions={parsedQuiz.questions}
-              nextLessonHref={nextLesson ? `/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}` : undefined}
-              nextLessonTitle={nextLesson?.title}
-            />
-
-            {/* Navigation Footer */}
-            <div
-              className="lesson-nav-footer"
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginTop: 48,
-                paddingTop: 24,
-                borderTop: '1px solid #e2e8f0',
-                gap: 16,
-                flexWrap: 'wrap',
-              }}
-            >
-              {prevLesson ? (
-                <Link
-                  href={`/courses/${slug}/lessons/${prevLesson.slug || prevLesson.id}`}
-                  className="btn btn-outline"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
-                >
-                  <ArrowLeft size={16} /> Previous: {prevLesson.title}
-                </Link>
-              ) : <div />}
-
-              {nextLesson ? (
-                <Link
-                  href={`/courses/${slug}/lessons/${nextLesson.slug || nextLesson.id}`}
-                  className="btn btn-primary"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
-                >
-                  Next: {nextLesson.title} <ArrowRight size={16} />
-                </Link>
-              ) : (
-                <Link
-                  href={`/courses/${slug}`}
-                  className="btn btn-primary"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: '.88rem' }}
-                >
-                  Back to Course Overview <ArrowRight size={16} />
-                </Link>
-              )}
             </div>
-          </div>
-        </main>
+          </main>
+        </div>
       </SiteLayout>
     );
   }
@@ -291,16 +347,41 @@ export default function LessonPage() {
   // ─── Normal Lesson View ────────────────────────────────────────────────────
   return (
     <SiteLayout>
-      <main className="section">
-        <div className="container course-page" style={{ maxWidth: '920px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20 }}>
-            {back}
-            {allLessons.length > 0 && currentIndex >= 0 && (
-              <span style={{ fontSize: '.82rem', fontWeight: 700, color: '#64748b', background: '#f1f5f9', padding: '4px 12px', borderRadius: 20 }}>
-                {isQuiz ? 'Quiz' : 'Lesson'} {currentIndex + 1} of {allLessons.length}
-              </span>
-            )}
-          </div>
+      <div className="lesson-page-wrapper">
+        <CourseLessonSidebar
+          slug={slug}
+          courseTitle={course.data?.course.title}
+          currentLessonId={lessonData?.slug || lessonId}
+          modules={course.data?.modules ?? []}
+          hasAccess={course.data?.hasAccess ?? false}
+          isOpen={sidebarOpen}
+          isMobileOpen={mobileSidebarOpen}
+          onCloseMobile={() => setMobileSidebarOpen(false)}
+        />
+
+        <main className="lesson-study-main">
+          <div className="lesson-study-main-inner" style={{ maxWidth: '920px' }}>
+            <div className="lesson-top-toolbar">
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                {sidebarToggleBtn}
+                {back}
+              </div>
+              {allLessons.length > 0 && currentIndex >= 0 && (
+                <span
+                  style={{
+                    fontSize: '.82rem',
+                    fontWeight: 750,
+                    color: '#0284c7',
+                    background: '#f0f9ff',
+                    padding: '4px 14px',
+                    borderRadius: 20,
+                    border: '1px solid #bae6fd',
+                  }}
+                >
+                  {isQuiz ? 'Quiz' : 'Lesson'} {currentIndex + 1} of {allLessons.length}
+                </span>
+              )}
+            </div>
 
           <span className="eyebrow">{isQuiz ? 'MRCEM SBA Practice & Quiz Simulation' : 'MRCEM Primary Preparation'}</span>
           <h1 style={{ fontSize: '2.1rem', fontWeight: 850, letterSpacing: '-0.02em', color: '#0a2342', marginBottom: '1.2rem' }}>
@@ -606,6 +687,7 @@ export default function LessonPage() {
           </div>
         </div>
       </main>
-    </SiteLayout>
-  );
+    </div>
+  </SiteLayout>
+);
 }
