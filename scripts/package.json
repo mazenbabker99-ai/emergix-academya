@@ -7,6 +7,7 @@
     "hello": "tsx ./src/hello.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "make-superadmin": "tsx ./src/make-superadmin.ts",
+    "export-db": "tsx ./src/export-db.ts",
     "seed": "tsx ./src/seed.ts",
     "seed:check": "tsx ./src/seed.ts --check",
     "osce:seed": "tsx ./src/osce/seed.ts"

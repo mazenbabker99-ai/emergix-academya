@@ -6,7 +6,7 @@ export interface NavLink {
 
 export interface NavItem extends NavLink {
   /** Which mega-menu panel opens from this item. */
-  menu?: 'exams' | 'resources';
+  menu?: 'exams' | 'resources' | 'courses';
 }
 
 /**
@@ -14,11 +14,29 @@ export interface NavItem extends NavLink {
  */
 export const primaryNav: NavItem[] = [
   { label: 'Exams', href: '/exams', menu: 'exams' },
-  { label: 'Courses', href: '/courses' },
+  { label: 'Courses', href: '/courses', menu: 'courses' },
   { label: 'Question Bank', href: '/question-bank' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Resources', href: '/resources', menu: 'resources' },
   { label: 'About', href: '/about' },
+];
+
+export const coursesMenu: NavLink[] = [
+  {
+    label: 'MRCEM PRIMARY',
+    href: '/courses/mrcem-primary',
+    description: 'Basic sciences masterclass (21 modules, 221 lessons, 269 figures)',
+  },
+  {
+    label: 'MRCEM SBA',
+    href: '/question-bank',
+    description: 'Clinical SBA question bank (41 topic quizzes & 6 timed mock exams)',
+  },
+  {
+    label: 'All Flagship Courses',
+    href: '/courses',
+    description: 'Explore both flagship tracks, syllabus and pricing packages',
+  },
 ];
 
 export const examsMenuExtras: NavLink[] = [

@@ -6,7 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { brand } from '@/config/brand';
 import { useAuth } from '@/features/auth/AuthProvider';
-import { examsMenuExtras, primaryNav, resourcesMenu, type NavItem, type NavLink } from '@/config/navigation';
+import { coursesMenu, examsMenuExtras, primaryNav, resourcesMenu, type NavItem, type NavLink } from '@/config/navigation';
 import { Brand } from './Brand';
 
 type MenuKey = NonNullable<NavItem['menu']>;
@@ -14,7 +14,7 @@ type MenuKey = NonNullable<NavItem['menu']>;
 function useMenuLinks(): Record<MenuKey, NavLink[]> {
   const { data } = useListExams();
   const examLinks: NavLink[] = (data?.items ?? []).map((e) => ({ label: e.name, href: `/exams/${e.slug}`, description: e.format }));
-  return { exams: [...examLinks, ...examsMenuExtras], resources: resourcesMenu };
+  return { exams: [...examLinks, ...examsMenuExtras], resources: resourcesMenu, courses: coursesMenu };
 }
 
 function isActive(location: string, href: string) {
