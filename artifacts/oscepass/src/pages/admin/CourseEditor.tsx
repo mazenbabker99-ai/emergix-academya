@@ -325,7 +325,7 @@ export default function CourseEditor() {
   }
 
   function removeQuestion(index: number) {
-    if (!window.confirm(`هل أنت متأكد من حذف السؤال رقم ${index + 1}؟`)) return;
+    if (!window.confirm(`Are you sure you want to delete Question ${index + 1}?`)) return;
     const updated = questionsList.filter((_, idx) => idx !== index).map((q, idx) => ({ ...q, questionNumber: idx + 1 }));
     setQuestionsList(updated);
     syncQuestionsToForm(updated);
@@ -342,7 +342,7 @@ export default function CourseEditor() {
   }
 
   function loadVerifiedQuiz1() {
-    if (window.confirm('هل تريد استبدال محتوى الكويز بالـ 15 سؤال المعتمدة والمدققة رسمياً لـ Quiz 1 من منهج MRCEM Expert؟')) {
+    if (window.confirm('Replace current quiz content with the 15 officially verified questions for Quiz 1?')) {
       setQuestionsList(VERIFIED_QUIZ_1_QUESTIONS);
       syncQuestionsToForm(VERIFIED_QUIZ_1_QUESTIONS);
     }
@@ -455,10 +455,10 @@ export default function CourseEditor() {
               className={`lesson-modal-tab ${lessonTab === 'qa' ? 'active' : ''}`}
               onClick={() => handleTabChange('qa')}
             >
-              <ListOrdered size={16} /> 🎯 تعديل الأسئلة والأجوبة (Q&amp;A Editor)
+              <ListOrdered size={16} /> Q&amp;A Editor
               {questionsList.length > 0 && (
                 <span style={{ background: '#0d9488', color: '#fff', fontSize: '0.72rem', padding: '1px 7px', borderRadius: '10px', marginLeft: 4, fontWeight: 800 }}>
-                  {questionsList.length} سؤال
+                  {questionsList.length} questions
                 </span>
               )}
             </button>
@@ -467,14 +467,14 @@ export default function CourseEditor() {
               className={`lesson-modal-tab ${lessonTab === 'preview' ? 'active' : ''}`}
               onClick={() => handleTabChange('preview')}
             >
-              <Eye size={16} /> 👁️ المعاينة الحية (Live Preview)
+              <Eye size={16} /> Live Preview
             </button>
             <button
               type="button"
               className={`lesson-modal-tab ${lessonTab === 'settings' ? 'active' : ''}`}
               onClick={() => handleTabChange('settings')}
             >
-              <Settings size={16} /> ⚙️ إعدادات الدرس والنص المصدري (Settings)
+              <Settings size={16} /> Lesson Settings &amp; Markdown
             </button>
           </div>
 
@@ -484,9 +484,9 @@ export default function CourseEditor() {
               <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 10, padding: '10px 14px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 8, marginBottom: 14 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <Sparkles size={16} style={{ color: '#0d9488' }} />
-                  <strong style={{ fontSize: '0.86rem', color: '#0f172a' }}>محرر الأسئلة والخيارات التفاعلي:</strong>
+                  <strong style={{ fontSize: '0.86rem', color: '#0f172a' }}>Interactive Question &amp; Options Editor:</strong>
                   <span style={{ fontSize: '0.8rem', color: '#059669', background: '#ecfdf5', padding: '2px 8px', borderRadius: 6, fontWeight: 700 }}>
-                    {questionsList.length} أسئلة جاهزة
+                    {questionsList.length} questions ready
                   </span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -497,7 +497,7 @@ export default function CourseEditor() {
                       style={{ padding: '5px 11px', fontSize: '0.76rem', borderColor: '#0d9488', color: '#0f766e', fontWeight: 700 }}
                       onClick={loadVerifiedQuiz1}
                     >
-                      ✨ استعادة الـ 15 سؤال المعتمدة لـ Quiz 1
+                      ✨ Restore 15 Verified Questions for Quiz 1
                     </button>
                   )}
                   <button
@@ -506,7 +506,7 @@ export default function CourseEditor() {
                     style={{ padding: '5px 12px', fontSize: '0.76rem' }}
                     onClick={addNewQuestion}
                   >
-                    <Plus size={14} /> إضافة سؤال جديد (+ Add Question)
+                    <Plus size={14} /> Add Question
                   </button>
                 </div>
               </div>
@@ -514,17 +514,17 @@ export default function CourseEditor() {
               {questionsList.length === 0 ? (
                 <div style={{ padding: '36px 20px', textAlign: 'center', background: '#f8fafc', border: '1px dashed #cbd5e1', borderRadius: 10 }}>
                   <AlertCircle size={36} style={{ color: '#d97706', margin: '0 auto 12px' }} />
-                  <h3 style={{ margin: '0 0 6px', color: '#1e293b' }}>لا توجد أسئلة مضافة بعد</h3>
+                  <h3 style={{ margin: '0 0 6px', color: '#1e293b' }}>No questions added yet</h3>
                   <p style={{ margin: '0 0 16px', color: '#64748b', fontSize: '0.85rem' }}>
-                    يمكنك البدء بإضافة أول سؤال سريري أو استعادة الأسئلة المعتمدة بنقرة واحدة.
+                    Start by adding your first clinical question or restore verified questions with one click.
                   </p>
                   <div style={{ display: 'flex', justifyContent: 'center', gap: 10 }}>
                     <button type="button" className="admin-button admin-button-primary" onClick={addNewQuestion}>
-                      <Plus size={15} /> إضافة سؤال سريري الآن
+                      <Plus size={15} /> Add Clinical Question
                     </button>
                     {editor.lesson?.slug === 'quiz-1' && (
                       <button type="button" className="admin-button admin-button-outline" onClick={loadVerifiedQuiz1}>
-                        ✨ تحميل الـ 15 سؤال المدققة لـ Quiz 1
+                        ✨ Load 15 Verified Questions for Quiz 1
                       </button>
                     )}
                   </div>
@@ -538,7 +538,7 @@ export default function CourseEditor() {
                           <span style={{ width: 26, height: 26, borderRadius: '50%', background: '#0d9488', color: '#fff', display: 'grid', placeItems: 'center', fontSize: '0.82rem', fontWeight: 800 }}>
                             {qIndex + 1}
                           </span>
-                          <span>السؤال {qIndex + 1} من {questionsList.length}</span>
+                          <span>Question {qIndex + 1} of {questionsList.length}</span>
                         </div>
                         <div className="qa-card-actions">
                           <button
@@ -546,7 +546,7 @@ export default function CourseEditor() {
                             className="icon-button"
                             disabled={qIndex === 0}
                             onClick={() => moveQuestion(qIndex, -1)}
-                            title="تحريك لأعلى"
+                            title="Move up"
                           >
                             <ArrowUp size={14} />
                           </button>
@@ -555,7 +555,7 @@ export default function CourseEditor() {
                             className="icon-button"
                             disabled={qIndex === questionsList.length - 1}
                             onClick={() => moveQuestion(qIndex, 1)}
-                            title="تحريك لأسفل"
+                            title="Move down"
                           >
                             <ArrowDown size={14} />
                           </button>
@@ -563,7 +563,7 @@ export default function CourseEditor() {
                             type="button"
                             className="icon-button danger-button"
                             onClick={() => removeQuestion(qIndex)}
-                            title="حذف هذا السؤال"
+                            title="Delete this question"
                           >
                             <Trash2 size={14} />
                           </button>
@@ -573,13 +573,13 @@ export default function CourseEditor() {
                       {/* Question Stem */}
                       <div style={{ marginBottom: 12 }}>
                         <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: 5 }}>
-                          السيناريو السريري ونص السؤال (Clinical Scenario &amp; Stem):
+                          Clinical Scenario &amp; Question Stem:
                         </label>
                         <textarea
                           className="qa-stem-box"
                           value={q.stem}
                           rows={3}
-                          placeholder="اكتب الحالة السريرية والسؤال بالتفصيل هنا..."
+                          placeholder="Enter the clinical scenario and question stem here..."
                           onChange={(e) => updateQuestionStem(qIndex, e.target.value)}
                         />
                       </div>
@@ -588,10 +588,10 @@ export default function CourseEditor() {
                       <div style={{ marginBottom: 14 }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
                           <label style={{ fontSize: '0.82rem', fontWeight: 700, color: '#334155' }}>
-                            الخيارات الخمسة (اضغط الدائرة لتحديد الإجابة الصحيحة):
+                            Options A to E (Click the circle to select the correct answer):
                           </label>
                           <span style={{ fontSize: '0.74rem', color: '#64748b' }}>
-                            الإجابة الصحيحة المحددة: <strong style={{ color: '#059669' }}>{q.correctKey}</strong>
+                            Correct Answer Selected: <strong style={{ color: '#059669' }}>{q.correctKey}</strong>
                           </span>
                         </div>
 
@@ -604,7 +604,7 @@ export default function CourseEditor() {
                                   type="button"
                                   className={`qa-opt-radio-btn ${isCorrect ? 'is-active' : ''}`}
                                   onClick={() => setQuestionCorrectKey(qIndex, opt.key)}
-                                  title={isCorrect ? 'هذه هي الإجابة الصحيحة' : `اجعل ${opt.key} هي الإجابة الصحيحة`}
+                                  title={isCorrect ? 'This is the correct answer' : `Set ${opt.key} as the correct answer`}
                                 >
                                   {isCorrect && <Check size={14} strokeWidth={3} />}
                                 </button>
@@ -613,10 +613,10 @@ export default function CourseEditor() {
                                   type="text"
                                   className="qa-opt-input"
                                   value={opt.text}
-                                  placeholder={`نص الخيار ${opt.key}...`}
+                                  placeholder={`Option ${opt.key} text...`}
                                   onChange={(e) => updateQuestionOption(qIndex, optIndex, e.target.value)}
                                 />
-                                {isCorrect && <span className="qa-opt-tag">✓ الإجابة الصحيحة</span>}
+                                {isCorrect && <span className="qa-opt-tag">✓ Correct Answer</span>}
                               </div>
                             );
                           })}
@@ -626,13 +626,13 @@ export default function CourseEditor() {
                       {/* Explanation */}
                       <div>
                         <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#0d9488', marginBottom: 5 }}>
-                          الشرح والتفسير السريري واللآلئ الطبية (Clinical Explanation &amp; Rationale):
+                          Clinical Explanation &amp; Rationale:
                         </label>
                         <textarea
                           className="qa-expl-box"
                           value={q.explanation}
                           rows={4}
-                          placeholder="اكتب التعليل الطبي المفصل، ولماذا الخيار صحيح، وتفنيد الخيارات الخاطئة ولآلئ الامتحان..."
+                          placeholder="Enter detailed clinical rationale, explanation of why this answer is correct, and exam pearls..."
                           onChange={(e) => updateQuestionExplanation(qIndex, e.target.value)}
                         />
                       </div>
@@ -646,7 +646,7 @@ export default function CourseEditor() {
                       onClick={addNewQuestion}
                       style={{ padding: '8px 20px', fontSize: '0.84rem' }}
                     >
-                      <Plus size={16} /> + إضافة سؤال آخر لهذا الكويز
+                      <Plus size={16} /> + Add Another Question
                     </button>
                   </div>
                 </div>
@@ -660,27 +660,27 @@ export default function CourseEditor() {
               {questionsList.length === 0 ? (
                 <div style={{ padding: '30px 20px', textAlign: 'center', background: '#f8fafc', borderRadius: 8 }}>
                   <AlertCircle size={32} style={{ color: '#d97706', margin: '0 auto 10px' }} />
-                  <h4 style={{ margin: '0 0 6px', color: '#1e293b' }}>لا توجد أسئلة لعرضها في المعاينة</h4>
+                  <h4 style={{ margin: '0 0 6px', color: '#1e293b' }}>No questions to display in preview</h4>
                   <p style={{ margin: '0 0 16px', color: '#64748b', fontSize: '0.84rem' }}>
-                    أضف أسئلة في تبويب محرر الأسئلة لترى المعاينة الحية فوراً.
+                    Add questions in the Q&A Editor tab to see the live preview immediately.
                   </p>
                 </div>
               ) : (
                 <div className="quiz-preview-list">
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 4px', borderBottom: '1px solid #e2e8f0', marginBottom: 8 }}>
                     <span style={{ fontWeight: 700, fontSize: '0.86rem', color: '#0f172a' }}>
-                      معاينة حية لـ {questionsList.length} سؤال تماماً كما ستظهر للطبيب الطالب:
+                      Live preview of {questionsList.length} questions as seen by students:
                     </span>
                     <span style={{ fontSize: '0.78rem', color: '#059669', background: '#ecfdf5', padding: '3px 10px', borderRadius: 12, fontWeight: 700 }}>
-                      مفحوصة بواسطة محرك الفرز الطبي ✓
+                      Verified by Medical Quiz Parser ✓
                     </span>
                   </div>
                   {questionsList.map((q, idx) => (
                     <div key={q.id || idx} className="quiz-preview-card">
                       <div className="quiz-preview-head">
-                        <span className="quiz-preview-qnum">سؤال {q.questionNumber || idx + 1}</span>
+                        <span className="quiz-preview-qnum">Question {q.questionNumber || idx + 1}</span>
                         <span style={{ fontSize: '0.76rem', background: '#ecfdf5', color: '#065f46', padding: '3px 10px', borderRadius: 4, fontWeight: 700, border: '1px solid #a7f3d0' }}>
-                          الإجابة الصحيحة: <strong>{q.correctKey || 'غير محددة'}</strong>
+                          Correct Answer: <strong>{q.correctKey || 'Not specified'}</strong>
                         </span>
                       </div>
                       <p style={{ fontWeight: 600, fontSize: '0.88rem', color: '#1e293b', margin: '6px 0 10px', lineHeight: 1.5 }}>
@@ -695,7 +695,7 @@ export default function CourseEditor() {
                               <span style={{ flex: 1 }}>{opt.text}</span>
                               {isCorrect && (
                                 <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.75rem', fontWeight: 700, color: '#059669' }}>
-                                  <Check size={14} /> الإجابة المعتمدة
+                                  <Check size={14} /> Correct Answer
                                 </span>
                               )}
                             </li>
@@ -704,7 +704,7 @@ export default function CourseEditor() {
                       </ul>
                       {q.explanation && (
                         <div className="quiz-preview-expl">
-                          <strong style={{ display: 'block', color: '#0d9488', marginBottom: 4 }}>التفسير والتعليل السريري:</strong>
+                          <strong style={{ display: 'block', color: '#0d9488', marginBottom: 4 }}>Clinical Explanation &amp; Rationale:</strong>
                           <div style={{ whiteSpace: 'pre-line' }}>{q.explanation}</div>
                         </div>
                       )}
@@ -740,7 +740,7 @@ export default function CourseEditor() {
               </div>
 
               <label className="admin-field">
-                النص المصدري الكامل بصيغة Markdown (Raw Markdown):
+                Raw Markdown Body:
                 <textarea
                   rows={12}
                   {...lessonForm.register('body')}
@@ -825,10 +825,10 @@ export default function CourseEditor() {
           {modalError && <p className="admin-form-error" role="alert">{modalError}</p>}
           <div className="dialog-actions" style={{ marginTop: 16 }}>
             <button type="button" className="admin-button admin-button-quiet" onClick={() => setEditor(null)} disabled={upload.busy}>
-              إلغاء (Cancel)
+              Cancel
             </button>
             <button type="submit" className="admin-button admin-button-primary" disabled={isModalSaving || upload.busy}>
-              {isModalSaving ? 'Saving…' : editor.lesson ? 'حفظ الكويز والأسئلة (Save Lesson)' : 'إنشاء الدرس (Create Lesson)'}
+              {isModalSaving ? 'Saving…' : editor.lesson ? 'Save Lesson' : 'Create Lesson'}
             </button>
           </div>
         </form></Form>}
