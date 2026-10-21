@@ -296,7 +296,7 @@ router.post("/questions", async (req, res): Promise<void> => {
     after: { status: created.status, version: created.version, examId: created.examId },
     ip: req.ip,
   });
-  res.status(201).json(AdminCreateQuestionResponse.parse(result));
+  res.status(201).json(result);
 });
 
 router.get("/questions/:id", async (req, res): Promise<void> => {
@@ -310,7 +310,7 @@ router.get("/questions/:id", async (req, res): Promise<void> => {
     sendError(res, 404, "not_found", "Question not found.");
     return;
   }
-  res.json(AdminGetQuestionResponse.parse(result));
+  res.json(result);
 });
 
 router.patch("/questions/:id", async (req, res): Promise<void> => {
@@ -399,7 +399,7 @@ router.patch("/questions/:id", async (req, res): Promise<void> => {
     after: { status: result.status, version: result.version },
     ip: req.ip,
   });
-  res.json(AdminUpdateQuestionResponse.parse(result));
+  res.json(result);
 });
 
 router.delete("/questions/:id", async (req, res): Promise<void> => {
@@ -491,7 +491,7 @@ router.post("/questions/:id/status", async (req, res): Promise<void> => {
     after: { status: target, note: parsed.data.note },
     ip: req.ip,
   });
-  res.json(AdminChangeQuestionStatusResponse.parse(result));
+  res.json(result);
 });
 
 export default router;

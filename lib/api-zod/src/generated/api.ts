@@ -2809,7 +2809,7 @@ export const AdminListQuestionsQueryParams = zod.object({
   "status": zod.enum(['draft', 'review', 'approved', 'published', 'archived']).optional(),
   "topicId": zod.coerce.string().uuid().optional(),
   "tagId": zod.coerce.string().uuid().optional(),
-  "reviewerId": zod.coerce.string().uuid().optional()
+  "reviewerId": zod.coerce.string().optional()
 })
 
 export const AdminListQuestionsResponse = zod.object({
@@ -2830,8 +2830,8 @@ export const AdminListQuestionsResponse = zod.object({
   "sourceLabel": zod.string().nullish(),
   "status": zod.enum(['draft', 'review', 'approved', 'published', 'archived']),
   "version": zod.number().int(),
-  "authorId": zod.string().uuid().nullish(),
-  "reviewerId": zod.string().uuid().nullish(),
+  "authorId": zod.string().nullish(),
+  "reviewerId": zod.string().nullish(),
   "lastReviewedAt": zod.coerce.date().nullish(),
   "isSample": zod.boolean(),
   "topicIds": zod.array(zod.string().uuid()).optional(),
@@ -2903,8 +2903,8 @@ export const AdminCreateQuestionResponse = zod.object({
   "sourceLabel": zod.string().nullish(),
   "status": zod.enum(['draft', 'review', 'approved', 'published', 'archived']),
   "version": zod.number().int(),
-  "authorId": zod.string().uuid().nullish(),
-  "reviewerId": zod.string().uuid().nullish(),
+  "authorId": zod.string().nullish(),
+  "reviewerId": zod.string().nullish(),
   "lastReviewedAt": zod.coerce.date().nullish(),
   "isSample": zod.boolean(),
   "topicIds": zod.array(zod.string().uuid()).optional(),
@@ -2946,8 +2946,8 @@ export const AdminGetQuestionResponse = zod.object({
   "sourceLabel": zod.string().nullish(),
   "status": zod.enum(['draft', 'review', 'approved', 'published', 'archived']),
   "version": zod.number().int(),
-  "authorId": zod.string().uuid().nullish(),
-  "reviewerId": zod.string().uuid().nullish(),
+  "authorId": zod.string().nullish(),
+  "reviewerId": zod.string().nullish(),
   "lastReviewedAt": zod.coerce.date().nullish(),
   "isSample": zod.boolean(),
   "topicIds": zod.array(zod.string().uuid()).optional(),
@@ -3021,8 +3021,8 @@ export const AdminUpdateQuestionResponse = zod.object({
   "sourceLabel": zod.string().nullish(),
   "status": zod.enum(['draft', 'review', 'approved', 'published', 'archived']),
   "version": zod.number().int(),
-  "authorId": zod.string().uuid().nullish(),
-  "reviewerId": zod.string().uuid().nullish(),
+  "authorId": zod.string().nullish(),
+  "reviewerId": zod.string().nullish(),
   "lastReviewedAt": zod.coerce.date().nullish(),
   "isSample": zod.boolean(),
   "topicIds": zod.array(zod.string().uuid()).optional(),
@@ -3060,7 +3060,7 @@ export const AdminChangeQuestionStatusParams = zod.object({
 
 export const AdminChangeQuestionStatusBody = zod.object({
   "status": zod.enum(['draft', 'review', 'approved', 'published', 'archived']),
-  "reviewerId": zod.string().uuid().nullish(),
+  "reviewerId": zod.string().nullish(),
   "note": zod.string().optional()
 })
 
@@ -3081,8 +3081,8 @@ export const AdminChangeQuestionStatusResponse = zod.object({
   "sourceLabel": zod.string().nullish(),
   "status": zod.enum(['draft', 'review', 'approved', 'published', 'archived']),
   "version": zod.number().int(),
-  "authorId": zod.string().uuid().nullish(),
-  "reviewerId": zod.string().uuid().nullish(),
+  "authorId": zod.string().nullish(),
+  "reviewerId": zod.string().nullish(),
   "lastReviewedAt": zod.coerce.date().nullish(),
   "isSample": zod.boolean(),
   "topicIds": zod.array(zod.string().uuid()).optional(),
@@ -3220,8 +3220,8 @@ export const AdminFindDuplicateQuestionsResponse = zod.object({
   "sourceLabel": zod.string().nullish(),
   "status": zod.enum(['draft', 'review', 'approved', 'published', 'archived']),
   "version": zod.number().int(),
-  "authorId": zod.string().uuid().nullish(),
-  "reviewerId": zod.string().uuid().nullish(),
+  "authorId": zod.string().nullish(),
+  "reviewerId": zod.string().nullish(),
   "lastReviewedAt": zod.coerce.date().nullish(),
   "isSample": zod.boolean(),
   "topicIds": zod.array(zod.string().uuid()).optional(),
@@ -3962,7 +3962,7 @@ export const AdminChangeOsceStationStatusParams = zod.object({
 
 export const AdminChangeOsceStationStatusBody = zod.object({
   "status": zod.enum(['draft', 'review', 'approved', 'published', 'archived']),
-  "reviewerId": zod.string().uuid().nullish(),
+  "reviewerId": zod.string().nullish(),
   "note": zod.string().optional()
 })
 
