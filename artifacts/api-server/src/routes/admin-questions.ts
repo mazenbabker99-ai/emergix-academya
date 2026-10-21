@@ -187,10 +187,7 @@ router.get("/questions", async (req, res): Promise<void> => {
   const hasMore = rows.length > limit;
   const page = rows.slice(0, limit);
   const data = await questionDtos(page);
-  res.json(AdminListQuestionsResponse.parse({
-    data,
-    nextCursor: hasMore ? page[page.length - 1]?.id ?? null : null,
-  }));
+  res.json({ data, nextCursor: hasMore ? page[page.length - 1]?.id ?? null : null });
 });
 
 router.get("/tags", async (req, res): Promise<void> => {

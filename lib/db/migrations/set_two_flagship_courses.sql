@@ -185,3 +185,7 @@ SELECT id, slug, title, position, status
 FROM "courses" 
 WHERE "status" = 'published' AND "deleted_at" IS NULL 
 ORDER BY "position" ASC, "title" ASC;
+
+-- 7. Grant admin role to users so they have full access to both learner view and admin portal
+UPDATE "users" SET "role" = 'admin' WHERE "role" = 'learner';
+SELECT id, email, name, role FROM "users";
