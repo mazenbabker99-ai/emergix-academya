@@ -1,25 +1,45 @@
 -- ==========================================================================
--- CLEANUP SCRIPT: Keep all 5 Master Curriculum Courses + SBA Question Bank
+-- CLEANUP SCRIPT: Keep only the TWO Flagship Courses (MRCEM Primary & MRCEM SBA)
 -- ==========================================================================
+
+-- 1. Ensure MRCEM PRIMARY is Course 1
 UPDATE "courses"
-SET "status" = 'published', "deleted_at" = NULL
+SET 
+  "title" = 'MRCEM PRIMARY',
+  "position" = 1,
+  "status" = 'published',
+  "deleted_at" = NULL,
+  "updated_at" = now()
+WHERE "slug" = 'mrcem-primary';
+
+-- 2. Ensure MRCEM SBA is Course 2
+UPDATE "courses"
+SET 
+  "title" = 'MRCEM SBA',
+  "position" = 2,
+  "status" = 'published',
+  "deleted_at" = NULL,
+  "updated_at" = now()
+WHERE "slug" = 'mrcem-sba';
+
+-- 3. Archive redundant sub-courses so only the two flagship tracks appear
+UPDATE "courses"
+SET 
+  "status" = 'archived', 
+  "deleted_at" = now(), 
+  "updated_at" = now()
 WHERE "slug" IN (
-  'mrcem-primary',
   'mrcem-anatomy',
   'mrcem-physiology',
   'mrcem-pharmacology',
   'mrcem-pathology-micro',
-  'mrcem-sba'
+  'mrcem-upper-limb'
 );
 
--- Archive any old test or legacy courses
+-- 4. Archive any other test courses
 UPDATE "courses"
-SET "status" = 'archived', "deleted_at" = now()
-WHERE "slug" NOT IN (
-  'mrcem-primary',
-  'mrcem-anatomy',
-  'mrcem-physiology',
-  'mrcem-pharmacology',
-  'mrcem-pathology-micro',
-  'mrcem-sba'
-) AND "deleted_at" IS NULL;
+SET 
+  "status" = 'archived', 
+  "deleted_at" = now(), 
+  "updated_at" = now()
+WHERE "slug" NOT IN ('mrcem-primary', 'mrcem-sba') AND "deleted_at" IS NULL;

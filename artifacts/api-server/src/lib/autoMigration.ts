@@ -975,12 +975,9 @@ export async function runAutoMigrationsAndSeeds() {
 
     const masterSeeds: { file: string; shouldRun: boolean }[] = [
       { file: "seed_flagship_mrcem_primary.sql", shouldRun: !isCurriculumUpToDate || primaryLessonCount < 200 },
-      { file: "seed_mrcem_anatomy.sql", shouldRun: !isCurriculumUpToDate || anatomyLessonCount < 60 },
-      { file: "seed_mrcem_physiology.sql", shouldRun: !isCurriculumUpToDate || physiologyLessonCount < 90 },
-      { file: "seed_mrcem_pharmacology.sql", shouldRun: !isCurriculumUpToDate || pharmaLessonCount < 20 },
-      { file: "seed_mrcem_pathology_micro.sql", shouldRun: !isCurriculumUpToDate || pathLessonCount < 30 },
       { file: "seed_flagship_mrcem_sba.sql", shouldRun: !isCurriculumUpToDate || sbaLessonCount < 40 },
       { file: "cleanup_courses.sql", shouldRun: true },
+      { file: "set_two_flagship_courses.sql", shouldRun: true },
     ];
 
     for (const { file: seedFile, shouldRun } of masterSeeds) {
