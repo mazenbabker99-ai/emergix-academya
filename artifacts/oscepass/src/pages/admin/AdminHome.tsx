@@ -26,7 +26,9 @@ export default function AdminHome() {
   const deleteCourse = useAdminDeleteCourse();
   const queryClient = useQueryClient();
   const createForm = useForm<CreateCourseValues>({ defaultValues: { title: '', slug: '', summary: '' } });
-  const data = courses.data?.data ?? [];
+  const rawData = courses.data?.data ?? [];
+  // Keep only the two flagship courses in the admin view (sub-courses are inside mrcem-primary)
+  const data = rawData.filter((c) => !['mrcem-anatomy', 'mrcem-physiology', 'mrcem-pharmacology', 'mrcem-pathology-micro', 'mrcem-upper-limb'].includes(c.slug));
 
   async function handleCreate(values: CreateCourseValues) {
     setError('');

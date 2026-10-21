@@ -1007,6 +1007,21 @@ export async function runAutoMigrationsAndSeeds() {
       // Ignore meta error
     }
 
+    // Enforce the TWO Flagship courses and archive legacy subcourses in DB
+    await pool.query(`
+      UPDATE "courses"
+      SET "title" = 'MRCEM PRIMARY', "position" = 1, "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
+      WHERE "slug" = 'mrcem-primary';
+
+      UPDATE "courses"
+      SET "title" = 'MRCEM SBA', "position" = 2, "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
+      WHERE "slug" = 'mrcem-sba';
+
+      UPDATE "courses"
+      SET "status" = 'archived', "deleted_at" = now(), "updated_at" = now()
+      WHERE "slug" IN ('mrcem-anatomy', 'mrcem-physiology', 'mrcem-pharmacology', 'mrcem-pathology-micro', 'mrcem-upper-limb');
+    `);
+
     // Ensure all published courses are attached to the WhatsApp manual plan
     await pool.query(`
       INSERT INTO "plan_courses" ("id", "plan_id", "course_id", "created_at", "updated_at")
