@@ -978,6 +978,7 @@ export async function runAutoMigrationsAndSeeds() {
       { file: "seed_flagship_mrcem_sba.sql", shouldRun: !isCurriculumUpToDate || sbaLessonCount < 40 },
       { file: "cleanup_courses.sql", shouldRun: true },
       { file: "set_two_flagship_courses.sql", shouldRun: true },
+      { file: "update_quiz_1_verified.sql", shouldRun: true },
     ];
 
     for (const { file: seedFile, shouldRun } of masterSeeds) {

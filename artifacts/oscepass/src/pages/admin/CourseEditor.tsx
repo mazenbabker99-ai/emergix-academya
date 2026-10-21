@@ -15,9 +15,11 @@ import {
   FileText,
   Film,
   HelpCircle,
+  ListOrdered,
   LoaderCircle,
   Pencil,
   Plus,
+  Settings,
   Sparkles,
   Trash2,
   UploadCloud,
@@ -43,7 +45,8 @@ import type { AdminLessonSummary, AdminModuleWithLessons, LessonInputType, Publi
 import { AdminLayout } from '@/components/layouts/AdminLayout';
 import { EmptyState, ErrorState, PageSkeleton } from '@/components/shared/DataState';
 import { Form } from '@/components/ui/form';
-import { parseSbaQuestions } from '@/components/quiz/parseQuestions';
+import { parseSbaQuestions, serializeQuestionsToMarkdown, type ParsedQuestion } from '@/components/quiz/parseQuestions';
+import { VERIFIED_QUIZ_1_QUESTIONS } from '@/components/quiz/verifiedQuizData';
 import { usePageMeta } from '@/lib/usePageMeta';
 
 type EditorKind = 'module' | 'lesson';
@@ -53,7 +56,7 @@ interface CourseFormValues { title: string; slug: string; summary: string; descr
 interface ModuleFormValues { title: string }
 interface LessonFormValues { title: string; slug: string; type: LessonInputType; body: string; durationSeconds: string; isFreePreview: boolean; status: PublishStatus; mediaFile?: FileList }
 
-const lessonTypes: LessonInputType[] = ['video', 'article', 'pdf', 'audio', 'resource', 'quiz'];
+const lessonTypes: LessonInputType[] = ['quiz', 'article', 'video', 'pdf', 'audio', 'resource'];
 const statuses: PublishStatus[] = ['draft', 'published', 'archived'];
 
 function makeSlug(value: string) {
@@ -97,29 +100,20 @@ export default function CourseEditor() {
   const completeUpload = useAdminCompleteUpload();
   const courseForm = useForm<CourseFormValues>({ defaultValues: { title: '', slug: '', summary: '', description: '', status: 'draft', examId: '', isFree: false } });
   const moduleForm = useForm<ModuleFormValues>({ defaultValues: { title: '' } });
-  const lessonForm = useForm<LessonFormValues>({ defaultValues: { title: '', slug: '', type: 'article', body: '', durationSeconds: '', isFreePreview: false, status: 'draft' } });
+  const lessonForm = useForm<LessonFormValues>({ defaultValues: { title: '', slug: '', type: 'quiz', body: '', durationSeconds: '', isFreePreview: false, status: 'draft' } });
   const [courseError, setCourseError] = useState('');
   const [notice, setNotice] = useState('');
   const [editor, setEditor] = useState<EditorState>(null);
   const [modalError, setModalError] = useState('');
   const [upload, setUpload] = useState<UploadState>({ busy: false, error: '', filename: '', progress: 0 });
-  const [lessonTab, setLessonTab] = useState<'edit' | 'preview'>('edit');
-  const [showCheatsheet, setShowCheatsheet] = useState(false);
+  const [lessonTab, setLessonTab] = useState<'qa' | 'preview' | 'settings'>('qa');
+  const [questionsList, setQuestionsList] = useState<ParsedQuestion[]>([]);
   const initializedId = useRef<string | null>(null);
   const outline = outlineQuery.data;
   const modules = useMemo(() => [...(outline?.modules ?? [])].sort((a, b) => a.position - b.position), [outline?.modules]);
 
   const watchedBody = lessonForm.watch('body') || '';
   const watchedType = lessonForm.watch('type');
-
-  const liveParsedQuiz = useMemo(() => {
-    if (!watchedBody) return { introText: '', questions: [] };
-    try {
-      return parseSbaQuestions(watchedBody);
-    } catch {
-      return { introText: '', questions: [] };
-    }
-  }, [watchedBody]);
 
   usePageMeta(outline?.course.title ?? 'Course editor', 'Edit course content and publishing details.');
 
@@ -175,7 +169,13 @@ export default function CourseEditor() {
     if (!editor?.moduleId) return;
     const titleValue = values.title.trim();
     const existing = editor.lesson;
-    const bodyValue = values.body.trim();
+
+    // If in visual QA mode and questions exist, ensure body is freshly serialized
+    let bodyValue = values.body.trim();
+    if (questionsList.length > 0) {
+      bodyValue = serializeQuestionsToMarkdown(titleValue, questionsList);
+    }
+
     const durationRaw = values.durationSeconds.trim();
     const data = {
       title: titleValue,
@@ -265,25 +265,98 @@ export default function CourseEditor() {
     } catch { setCourseError('Lesson order could not be updated.'); }
   }
 
-  function insertSbaTemplate() {
-    const currentBody = lessonForm.getValues('body') || '';
-    const nextQNum = (liveParsedQuiz.questions.length || 0) + 1;
-    const template = `\n\n## Question ${nextQNum} of ${Math.max(15, nextQNum)}
+  // ─── Visual Q&A Operations ───────────────────────────────────────────────
 
-A 45-year-old male presents to the Emergency Department with acute central chest pain radiating to his left arm and diaphoresis.
-Which of the following is the most appropriate initial investigation?
+  function syncQuestionsToForm(qs: ParsedQuestion[]) {
+    const title = lessonForm.getValues('title') || 'Quiz';
+    const md = serializeQuestionsToMarkdown(title, qs);
+    lessonForm.setValue('body', md, { shouldDirty: true });
+  }
 
-- **A.** 12-lead electrocardiogram within 10 minutes
-- **B.** Immediate portable chest radiograph
-- **C.** High-sensitivity cardiac troponin I
-- **D.** CT pulmonary angiography
-- **E.** Transthoracic echocardiogram
+  function updateQuestionStem(index: number, newStem: string) {
+    const updated = [...questionsList];
+    updated[index] = { ...updated[index], stem: newStem };
+    setQuestionsList(updated);
+    syncQuestionsToForm(updated);
+  }
 
-**Correct Answer:** A
-**Explanation:**
-A 12-lead ECG is the mandatory first-line diagnostic investigation within 10 minutes of arrival for all adult emergency patients presenting with acute non-traumatic chest pain to identify ST-elevation myocardial infarction (STEMI) or acute ischemia requiring emergency reperfusion therapy.
-`;
-    lessonForm.setValue('body', (currentBody ? currentBody.trim() + '\n' : '') + template, { shouldDirty: true });
+  function updateQuestionOption(index: number, optIndex: number, newText: string) {
+    const updated = [...questionsList];
+    const newOptions = [...updated[index].options];
+    newOptions[optIndex] = { ...newOptions[optIndex], text: newText };
+    updated[index] = { ...updated[index], options: newOptions };
+    setQuestionsList(updated);
+    syncQuestionsToForm(updated);
+  }
+
+  function setQuestionCorrectKey(index: number, correctKey: string) {
+    const updated = [...questionsList];
+    updated[index] = { ...updated[index], correctKey };
+    setQuestionsList(updated);
+    syncQuestionsToForm(updated);
+  }
+
+  function updateQuestionExplanation(index: number, newExplanation: string) {
+    const updated = [...questionsList];
+    updated[index] = { ...updated[index], explanation: newExplanation };
+    setQuestionsList(updated);
+    syncQuestionsToForm(updated);
+  }
+
+  function addNewQuestion() {
+    const nextNum = questionsList.length + 1;
+    const newQ: ParsedQuestion = {
+      id: `q-${Date.now()}`,
+      questionNumber: nextNum,
+      stem: '',
+      options: [
+        { key: 'A', text: '' },
+        { key: 'B', text: '' },
+        { key: 'C', text: '' },
+        { key: 'D', text: '' },
+        { key: 'E', text: '' },
+      ],
+      correctKey: 'A',
+      explanation: '',
+    };
+    const updated = [...questionsList, newQ];
+    setQuestionsList(updated);
+    syncQuestionsToForm(updated);
+  }
+
+  function removeQuestion(index: number) {
+    if (!window.confirm(`هل أنت متأكد من حذف السؤال رقم ${index + 1}؟`)) return;
+    const updated = questionsList.filter((_, idx) => idx !== index).map((q, idx) => ({ ...q, questionNumber: idx + 1 }));
+    setQuestionsList(updated);
+    syncQuestionsToForm(updated);
+  }
+
+  function moveQuestion(index: number, delta: number) {
+    const target = index + delta;
+    if (target < 0 || target >= questionsList.length) return;
+    const updated = [...questionsList];
+    [updated[index], updated[target]] = [updated[target], updated[index]];
+    const renumbered = updated.map((q, idx) => ({ ...q, questionNumber: idx + 1 }));
+    setQuestionsList(renumbered);
+    syncQuestionsToForm(renumbered);
+  }
+
+  function loadVerifiedQuiz1() {
+    if (window.confirm('هل تريد استبدال محتوى الكويز بالـ 15 سؤال المعتمدة والمدققة رسمياً لـ Quiz 1 من منهج MRCEM Expert؟')) {
+      setQuestionsList(VERIFIED_QUIZ_1_QUESTIONS);
+      syncQuestionsToForm(VERIFIED_QUIZ_1_QUESTIONS);
+    }
+  }
+
+  function handleTabChange(tab: 'qa' | 'preview' | 'settings') {
+    if (tab === 'qa' && lessonTab === 'settings') {
+      const currentBody = lessonForm.getValues('body') || '';
+      const parsed = parseSbaQuestions(currentBody);
+      if (parsed.questions.length > 0) {
+        setQuestionsList(parsed.questions);
+      }
+    }
+    setLessonTab(tab);
   }
 
   const isSaving = updateCourse.isPending;
@@ -297,16 +370,29 @@ A 12-lead ECG is the mandatory first-line diagnostic investigation within 10 min
   }
 
   function openLesson(moduleId: string, lesson?: AdminLessonSummary) {
-    setLessonTab('edit');
-    setShowCheatsheet(false);
+    const rawBody = lesson?.body ?? '';
+    const parsed = parseSbaQuestions(rawBody);
+    setQuestionsList(parsed.questions);
+
+    // If this is quiz-1 and it had the old scrambled questions or no questions, offer easy start
+    if (lesson?.slug === 'quiz-1' && parsed.questions.length === 0) {
+      setQuestionsList(VERIFIED_QUIZ_1_QUESTIONS);
+    }
+
+    if (lesson?.type === 'quiz' || parsed.questions.length > 0 || /quiz|sba|mock|paper/i.test(`${lesson?.title || ''} ${lesson?.slug || ''}`)) {
+      setLessonTab('qa');
+    } else {
+      setLessonTab('settings');
+    }
+
     lessonForm.reset({
       title: lesson?.title ?? '',
       slug: lesson?.slug ?? '',
-      type: lesson?.type ?? 'article',
-      body: lesson?.body ?? '',
+      type: lesson?.type ?? 'quiz',
+      body: rawBody,
       durationSeconds: lesson?.durationSeconds?.toString() ?? '',
       isFreePreview: lesson?.isFreePreview ?? false,
-      status: lesson?.status ?? 'draft',
+      status: lesson?.status ?? 'published',
     });
     setUpload({ busy: false, error: '', filename: lesson?.assetFilename ?? '', progress: 0 });
     setModalError('');
@@ -366,26 +452,271 @@ A 12-lead ECG is the mandatory first-line diagnostic investigation within 10 min
           <div className="lesson-modal-tabs">
             <button
               type="button"
-              className={`lesson-modal-tab ${lessonTab === 'edit' ? 'active' : ''}`}
-              onClick={() => setLessonTab('edit')}
+              className={`lesson-modal-tab ${lessonTab === 'qa' ? 'active' : ''}`}
+              onClick={() => handleTabChange('qa')}
             >
-              <Code size={15} /> ✏️ Edit Content
+              <ListOrdered size={16} /> 🎯 تعديل الأسئلة والأجوبة (Q&amp;A Editor)
+              {questionsList.length > 0 && (
+                <span style={{ background: '#0d9488', color: '#fff', fontSize: '0.72rem', padding: '1px 7px', borderRadius: '10px', marginLeft: 4, fontWeight: 800 }}>
+                  {questionsList.length} سؤال
+                </span>
+              )}
             </button>
             <button
               type="button"
               className={`lesson-modal-tab ${lessonTab === 'preview' ? 'active' : ''}`}
-              onClick={() => setLessonTab('preview')}
+              onClick={() => handleTabChange('preview')}
             >
-              <Eye size={15} /> 👁️ Live Quiz Preview
-              {liveParsedQuiz.questions.length > 0 && (
-                <span style={{ background: '#10b981', color: '#fff', fontSize: '0.7rem', padding: '1px 6px', borderRadius: '10px', marginLeft: 4 }}>
-                  {liveParsedQuiz.questions.length} Qs
-                </span>
-              )}
+              <Eye size={16} /> 👁️ المعاينة الحية (Live Preview)
+            </button>
+            <button
+              type="button"
+              className={`lesson-modal-tab ${lessonTab === 'settings' ? 'active' : ''}`}
+              onClick={() => handleTabChange('settings')}
+            >
+              <Settings size={16} /> ⚙️ إعدادات الدرس والنص المصدري (Settings)
             </button>
           </div>
 
-          {lessonTab === 'edit' ? (
+          {/* ─── TAB 1: DEDICATED VISUAL Q&A EDITOR ─── */}
+          {lessonTab === 'qa' && (
+            <div className="editor-dialog-scrollable">
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 10, padding: '10px 14px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 8, marginBottom: 14 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <Sparkles size={16} style={{ color: '#0d9488' }} />
+                  <strong style={{ fontSize: '0.86rem', color: '#0f172a' }}>محرر الأسئلة والخيارات التفاعلي:</strong>
+                  <span style={{ fontSize: '0.8rem', color: '#059669', background: '#ecfdf5', padding: '2px 8px', borderRadius: 6, fontWeight: 700 }}>
+                    {questionsList.length} أسئلة جاهزة
+                  </span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  {editor.lesson?.slug === 'quiz-1' && (
+                    <button
+                      type="button"
+                      className="admin-button admin-button-outline"
+                      style={{ padding: '5px 11px', fontSize: '0.76rem', borderColor: '#0d9488', color: '#0f766e', fontWeight: 700 }}
+                      onClick={loadVerifiedQuiz1}
+                    >
+                      ✨ استعادة الـ 15 سؤال المعتمدة لـ Quiz 1
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    className="admin-button admin-button-primary"
+                    style={{ padding: '5px 12px', fontSize: '0.76rem' }}
+                    onClick={addNewQuestion}
+                  >
+                    <Plus size={14} /> إضافة سؤال جديد (+ Add Question)
+                  </button>
+                </div>
+              </div>
+
+              {questionsList.length === 0 ? (
+                <div style={{ padding: '36px 20px', textAlign: 'center', background: '#f8fafc', border: '1px dashed #cbd5e1', borderRadius: 10 }}>
+                  <AlertCircle size={36} style={{ color: '#d97706', margin: '0 auto 12px' }} />
+                  <h3 style={{ margin: '0 0 6px', color: '#1e293b' }}>لا توجد أسئلة مضافة بعد</h3>
+                  <p style={{ margin: '0 0 16px', color: '#64748b', fontSize: '0.85rem' }}>
+                    يمكنك البدء بإضافة أول سؤال سريري أو استعادة الأسئلة المعتمدة بنقرة واحدة.
+                  </p>
+                  <div style={{ display: 'flex', justifyContent: 'center', gap: 10 }}>
+                    <button type="button" className="admin-button admin-button-primary" onClick={addNewQuestion}>
+                      <Plus size={15} /> إضافة سؤال سريري الآن
+                    </button>
+                    {editor.lesson?.slug === 'quiz-1' && (
+                      <button type="button" className="admin-button admin-button-outline" onClick={loadVerifiedQuiz1}>
+                        ✨ تحميل الـ 15 سؤال المدققة لـ Quiz 1
+                      </button>
+                    )}
+                  </div>
+                </div>
+              ) : (
+                <div className="qa-editor-list">
+                  {questionsList.map((q, qIndex) => (
+                    <div key={q.id || qIndex} className="qa-editor-card">
+                      <div className="qa-card-top">
+                        <div className="qa-card-badge">
+                          <span style={{ width: 26, height: 26, borderRadius: '50%', background: '#0d9488', color: '#fff', display: 'grid', placeItems: 'center', fontSize: '0.82rem', fontWeight: 800 }}>
+                            {qIndex + 1}
+                          </span>
+                          <span>السؤال {qIndex + 1} من {questionsList.length}</span>
+                        </div>
+                        <div className="qa-card-actions">
+                          <button
+                            type="button"
+                            className="icon-button"
+                            disabled={qIndex === 0}
+                            onClick={() => moveQuestion(qIndex, -1)}
+                            title="تحريك لأعلى"
+                          >
+                            <ArrowUp size={14} />
+                          </button>
+                          <button
+                            type="button"
+                            className="icon-button"
+                            disabled={qIndex === questionsList.length - 1}
+                            onClick={() => moveQuestion(qIndex, 1)}
+                            title="تحريك لأسفل"
+                          >
+                            <ArrowDown size={14} />
+                          </button>
+                          <button
+                            type="button"
+                            className="icon-button danger-button"
+                            onClick={() => removeQuestion(qIndex)}
+                            title="حذف هذا السؤال"
+                          >
+                            <Trash2 size={14} />
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Question Stem */}
+                      <div style={{ marginBottom: 12 }}>
+                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#334155', marginBottom: 5 }}>
+                          السيناريو السريري ونص السؤال (Clinical Scenario &amp; Stem):
+                        </label>
+                        <textarea
+                          className="qa-stem-box"
+                          value={q.stem}
+                          rows={3}
+                          placeholder="اكتب الحالة السريرية والسؤال بالتفصيل هنا..."
+                          onChange={(e) => updateQuestionStem(qIndex, e.target.value)}
+                        />
+                      </div>
+
+                      {/* Options A to E */}
+                      <div style={{ marginBottom: 14 }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+                          <label style={{ fontSize: '0.82rem', fontWeight: 700, color: '#334155' }}>
+                            الخيارات الخمسة (اضغط الدائرة لتحديد الإجابة الصحيحة):
+                          </label>
+                          <span style={{ fontSize: '0.74rem', color: '#64748b' }}>
+                            الإجابة الصحيحة المحددة: <strong style={{ color: '#059669' }}>{q.correctKey}</strong>
+                          </span>
+                        </div>
+
+                        <div className="qa-options-container">
+                          {(q.options || []).map((opt, optIndex) => {
+                            const isCorrect = opt.key.toUpperCase() === q.correctKey?.toUpperCase();
+                            return (
+                              <div key={opt.key} className={`qa-option-row ${isCorrect ? 'is-correct' : ''}`}>
+                                <button
+                                  type="button"
+                                  className={`qa-opt-radio-btn ${isCorrect ? 'is-active' : ''}`}
+                                  onClick={() => setQuestionCorrectKey(qIndex, opt.key)}
+                                  title={isCorrect ? 'هذه هي الإجابة الصحيحة' : `اجعل ${opt.key} هي الإجابة الصحيحة`}
+                                >
+                                  {isCorrect && <Check size={14} strokeWidth={3} />}
+                                </button>
+                                <span className="qa-opt-letter">{opt.key}.</span>
+                                <input
+                                  type="text"
+                                  className="qa-opt-input"
+                                  value={opt.text}
+                                  placeholder={`نص الخيار ${opt.key}...`}
+                                  onChange={(e) => updateQuestionOption(qIndex, optIndex, e.target.value)}
+                                />
+                                {isCorrect && <span className="qa-opt-tag">✓ الإجابة الصحيحة</span>}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* Explanation */}
+                      <div>
+                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#0d9488', marginBottom: 5 }}>
+                          الشرح والتفسير السريري واللآلئ الطبية (Clinical Explanation &amp; Rationale):
+                        </label>
+                        <textarea
+                          className="qa-expl-box"
+                          value={q.explanation}
+                          rows={4}
+                          placeholder="اكتب التعليل الطبي المفصل، ولماذا الخيار صحيح، وتفنيد الخيارات الخاطئة ولآلئ الامتحان..."
+                          onChange={(e) => updateQuestionExplanation(qIndex, e.target.value)}
+                        />
+                      </div>
+                    </div>
+                  ))}
+
+                  <div style={{ textAlign: 'center', padding: '10px 0 16px' }}>
+                    <button
+                      type="button"
+                      className="admin-button admin-button-primary"
+                      onClick={addNewQuestion}
+                      style={{ padding: '8px 20px', fontSize: '0.84rem' }}
+                    >
+                      <Plus size={16} /> + إضافة سؤال آخر لهذا الكويز
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ─── TAB 2: LIVE STUDENT PREVIEW ─── */}
+          {lessonTab === 'preview' && (
+            <div className="editor-dialog-scrollable">
+              {questionsList.length === 0 ? (
+                <div style={{ padding: '30px 20px', textAlign: 'center', background: '#f8fafc', borderRadius: 8 }}>
+                  <AlertCircle size={32} style={{ color: '#d97706', margin: '0 auto 10px' }} />
+                  <h4 style={{ margin: '0 0 6px', color: '#1e293b' }}>لا توجد أسئلة لعرضها في المعاينة</h4>
+                  <p style={{ margin: '0 0 16px', color: '#64748b', fontSize: '0.84rem' }}>
+                    أضف أسئلة في تبويب محرر الأسئلة لترى المعاينة الحية فوراً.
+                  </p>
+                </div>
+              ) : (
+                <div className="quiz-preview-list">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 4px', borderBottom: '1px solid #e2e8f0', marginBottom: 8 }}>
+                    <span style={{ fontWeight: 700, fontSize: '0.86rem', color: '#0f172a' }}>
+                      معاينة حية لـ {questionsList.length} سؤال تماماً كما ستظهر للطبيب الطالب:
+                    </span>
+                    <span style={{ fontSize: '0.78rem', color: '#059669', background: '#ecfdf5', padding: '3px 10px', borderRadius: 12, fontWeight: 700 }}>
+                      مفحوصة بواسطة محرك الفرز الطبي ✓
+                    </span>
+                  </div>
+                  {questionsList.map((q, idx) => (
+                    <div key={q.id || idx} className="quiz-preview-card">
+                      <div className="quiz-preview-head">
+                        <span className="quiz-preview-qnum">سؤال {q.questionNumber || idx + 1}</span>
+                        <span style={{ fontSize: '0.76rem', background: '#ecfdf5', color: '#065f46', padding: '3px 10px', borderRadius: 4, fontWeight: 700, border: '1px solid #a7f3d0' }}>
+                          الإجابة الصحيحة: <strong>{q.correctKey || 'غير محددة'}</strong>
+                        </span>
+                      </div>
+                      <p style={{ fontWeight: 600, fontSize: '0.88rem', color: '#1e293b', margin: '6px 0 10px', lineHeight: 1.5 }}>
+                        {q.stem}
+                      </p>
+                      <ul className="quiz-preview-opt-list">
+                        {(q.options || []).map((opt) => {
+                          const isCorrect = opt.key.toUpperCase() === q.correctKey?.toUpperCase();
+                          return (
+                            <li key={opt.key} className={`quiz-preview-opt ${isCorrect ? 'is-correct' : ''}`}>
+                              <strong style={{ minWidth: 22 }}>{opt.key}.</strong>
+                              <span style={{ flex: 1 }}>{opt.text}</span>
+                              {isCorrect && (
+                                <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.75rem', fontWeight: 700, color: '#059669' }}>
+                                  <Check size={14} /> الإجابة المعتمدة
+                                </span>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      {q.explanation && (
+                        <div className="quiz-preview-expl">
+                          <strong style={{ display: 'block', color: '#0d9488', marginBottom: 4 }}>التفسير والتعليل السريري:</strong>
+                          <div style={{ whiteSpace: 'pre-line' }}>{q.explanation}</div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ─── TAB 3: LESSON SETTINGS & RAW MARKDOWN ─── */}
+          {lessonTab === 'settings' && (
             <div className="editor-dialog-scrollable">
               <label className="admin-field">
                 Lesson title
@@ -408,61 +739,19 @@ A 12-lead ECG is the mandatory first-line diagnostic investigation within 10 min
                 </label>
               </div>
 
-              {(watchedType === 'quiz' || liveParsedQuiz.questions.length > 0) && (
-                <div className="quiz-helper-bar">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.78rem' }}>
-                    <Sparkles size={14} style={{ color: '#0d9488' }} />
-                    <strong>SBA Questions Detected:</strong>
-                    <span style={{ color: liveParsedQuiz.questions.length > 0 ? '#059669' : '#d97706', fontWeight: 700 }}>
-                      {liveParsedQuiz.questions.length} questions
-                    </span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <button
-                      type="button"
-                      className="admin-button admin-button-outline"
-                      style={{ padding: '3px 9px', fontSize: '0.74rem' }}
-                      onClick={insertSbaTemplate}
-                    >
-                      <Plus size={13} /> + Add SBA Question Template
-                    </button>
-                    <button
-                      type="button"
-                      className="admin-button admin-button-quiet"
-                      style={{ padding: '3px 9px', fontSize: '0.74rem' }}
-                      onClick={() => setShowCheatsheet(!showCheatsheet)}
-                    >
-                      <HelpCircle size={13} /> {showCheatsheet ? 'Hide Format Guide' : 'Format Guide'}
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {showCheatsheet && (
-                <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 6, padding: '10px 14px', marginBottom: 10, fontSize: '0.77rem', color: '#166534', lineHeight: 1.6 }}>
-                  <strong>معايير كتابة وتعديل أسئلة الـ SBA باحتراف:</strong>
-                  <ol style={{ margin: '6px 0 0', paddingLeft: 18 }}>
-                    <li><strong>السيناريو السريري (Stem):</strong> يبدأ بوصف الحالة السريرية وينتهي بسؤال محدد بعلامة استفهام <code>?</code></li>
-                    <li><strong>الخيارات الخمسة (Options):</strong> كتابة الخيارات كقائمة نقطية من A إلى E: <code>- **A.** Choice 1</code> ... <code>- **E.** Choice 5</code></li>
-                    <li><strong>مفتاح الإجابة الصحيحة (Key):</strong> تحديد الحرف الصحيح بوضوح: <code>**Correct Answer:** C</code> أو <code>Answer: C</code> أو <code>RCEM Key: C</code></li>
-                    <li><strong>التفسير والشرح السريري (Explanation):</strong> شرح الحالة وسبب صحة الخيار ولماذا الخيارات الأخرى خاطئة بعد سطر <code>**Explanation:**</code></li>
-                  </ol>
-                </div>
-              )}
-
               <label className="admin-field">
-                Lesson text / questions &amp; notes
+                النص المصدري الكامل بصيغة Markdown (Raw Markdown):
                 <textarea
-                  rows={14}
+                  rows={12}
                   {...lessonForm.register('body')}
                   style={{
                     fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
                     fontSize: '0.84rem',
                     lineHeight: 1.6,
-                    minHeight: '260px',
+                    minHeight: '220px',
                     padding: '10px 12px',
                   }}
-                  placeholder="Write clinical scenarios, SBA questions, or lesson markdown here..."
+                  placeholder="Raw markdown text..."
                   data-testid="input-lesson-body"
                 />
               </label>
@@ -531,83 +820,15 @@ A 12-lead ECG is the mandatory first-line diagnostic investigation within 10 min
                 </div>
               )}
             </div>
-          ) : (
-            <div className="editor-dialog-scrollable">
-              {liveParsedQuiz.questions.length === 0 ? (
-                <div style={{ padding: '30px 20px', textAlign: 'center', background: '#f8fafc', borderRadius: 8 }}>
-                  <AlertCircle size={32} style={{ color: '#d97706', margin: '0 auto 10px' }} />
-                  <h4 style={{ margin: '0 0 6px', color: '#1e293b' }}>لم يتم العثور على أسئلة مفهرسة</h4>
-                  <p style={{ margin: '0 0 16px', color: '#64748b', fontSize: '0.84rem' }}>
-                    تأكد من تنسيق الخيارات كقائمة نقطية من A إلى E، وتحديد الإجابة الصحيحة.
-                  </p>
-                  <button
-                    type="button"
-                    className="admin-button admin-button-primary"
-                    onClick={() => {
-                      insertSbaTemplate();
-                      setLessonTab('edit');
-                    }}
-                  >
-                    + إدراج قالب سؤال نموذجي
-                  </button>
-                </div>
-              ) : (
-                <div className="quiz-preview-list">
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 4px', borderBottom: '1px solid #e2e8f0', marginBottom: 8 }}>
-                    <span style={{ fontWeight: 700, fontSize: '0.86rem', color: '#0f172a' }}>
-                      معاينة {liveParsedQuiz.questions.length} سؤال كما ستظهر للطلاب:
-                    </span>
-                    <span style={{ fontSize: '0.78rem', color: '#059669', background: '#ecfdf5', padding: '3px 10px', borderRadius: 12, fontWeight: 700 }}>
-                      مفحوصة بواسطة محرك الفرز الطبي ✓
-                    </span>
-                  </div>
-                  {liveParsedQuiz.questions.map((q, idx) => (
-                    <div key={q.id || idx} className="quiz-preview-card">
-                      <div className="quiz-preview-head">
-                        <span className="quiz-preview-qnum">سؤال {q.questionNumber || idx + 1}</span>
-                        <span style={{ fontSize: '0.76rem', background: '#f1f5f9', color: '#475569', padding: '2px 8px', borderRadius: 4, fontWeight: 600 }}>
-                          الإجابة الصحيحة: <strong>{q.correctKey || 'غير محددة'}</strong>
-                        </span>
-                      </div>
-                      <p style={{ fontWeight: 600, fontSize: '0.88rem', color: '#1e293b', margin: '6px 0 10px' }}>
-                        {q.stem}
-                      </p>
-                      <ul className="quiz-preview-opt-list">
-                        {q.options.map((opt) => {
-                          const isCorrect = opt.key.toUpperCase() === q.correctKey?.toUpperCase();
-                          return (
-                            <li key={opt.key} className={`quiz-preview-opt ${isCorrect ? 'is-correct' : ''}`}>
-                              <strong style={{ minWidth: 20 }}>{opt.key}.</strong>
-                              <span>{opt.text}</span>
-                              {isCorrect && (
-                                <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.75rem', fontWeight: 700, color: '#059669' }}>
-                                  <Check size={14} /> الإجابة المعتمدة
-                                </span>
-                              )}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                      {q.explanation && (
-                        <div className="quiz-preview-expl">
-                          <strong style={{ display: 'block', color: '#0d9488', marginBottom: 4 }}>التفسير والتعليل السريري:</strong>
-                          {q.explanation}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
           )}
 
           {modalError && <p className="admin-form-error" role="alert">{modalError}</p>}
           <div className="dialog-actions" style={{ marginTop: 16 }}>
             <button type="button" className="admin-button admin-button-quiet" onClick={() => setEditor(null)} disabled={upload.busy}>
-              Cancel
+              إلغاء (Cancel)
             </button>
             <button type="submit" className="admin-button admin-button-primary" disabled={isModalSaving || upload.busy}>
-              {isModalSaving ? 'Saving…' : editor.lesson ? 'Save lesson' : 'Create lesson'}
+              {isModalSaving ? 'Saving…' : editor.lesson ? 'حفظ الكويز والأسئلة (Save Lesson)' : 'إنشاء الدرس (Create Lesson)'}
             </button>
           </div>
         </form></Form>}
