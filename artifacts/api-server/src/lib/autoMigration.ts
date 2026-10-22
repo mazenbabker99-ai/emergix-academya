@@ -954,7 +954,7 @@ export async function runAutoMigrationsAndSeeds() {
     }
 
     // Track explicit curriculum content version so text additions and cleanups are always applied
-    const CURRENT_CURRICULUM_VERSION = "2026_10_22_v14_rename_quizzes_topics";
+    const CURRENT_CURRICULUM_VERSION = "2026_10_22_v17_permanent_quiz_titles_and_ordering";
     let isCurriculumUpToDate = false;
 
     try {
@@ -981,6 +981,7 @@ export async function runAutoMigrationsAndSeeds() {
       { file: "seed_primary_question_banks.sql", shouldRun: true },
       // Force-run: moves primary quizzes by slug into correct mrcem-primary modules (real course IDs)
       { file: "fix_move_primary_quizzes_to_primary_course.sql", shouldRun: true },
+      { file: "rename_and_order_quizzes.sql", shouldRun: true },
       { file: "rename_quizzes_to_medical_topics.sql", shouldRun: true },
       { file: "seed_sba_topic_quizzes.sql", shouldRun: !isCurriculumUpToDate || sbaLessonCount < 200 },
       { file: "seed_complete_sba_curriculum.sql", shouldRun: !isCurriculumUpToDate || sbaLessonCount < 350 },
@@ -1004,6 +1005,56 @@ export async function runAutoMigrationsAndSeeds() {
         logger.warn(`Master curriculum seed file ${seedFile} not found on disk, skipping.`);
       }
     }
+
+    // Direct, unconditional enforcement of clinical medical topic titles and exact 0..10 ordering for all 41 Primary quizzes
+    await pool.query(`
+      UPDATE "lessons" SET "title" = 'Quiz 01: Emergency Resuscitation, Cranial Nerves & Infection Microbiology', "position" = 0, "updated_at" = now() WHERE "slug" IN ('primary-quiz-01', 'quiz-01', 'quiz-1');
+      UPDATE "lessons" SET "title" = 'Quiz 02: Abdominal Viscera, Inguinal Anatomy & Autonomic Neuro-Ophthalmology', "position" = 1, "updated_at" = now() WHERE "slug" IN ('primary-quiz-02', 'quiz-02', 'quiz-2');
+      UPDATE "lessons" SET "title" = 'Quiz 03: Clinical Neuroanatomy, Cranial Nerves & Head-and-Neck Trauma', "position" = 2, "updated_at" = now() WHERE "slug" IN ('primary-quiz-03', 'quiz-03', 'quiz-3');
+      UPDATE "lessons" SET "title" = 'Quiz 04: Thoracic Cavity, Upper Limb Neurovascular & Trauma Mechanics', "position" = 3, "updated_at" = now() WHERE "slug" IN ('primary-quiz-04', 'quiz-04', 'quiz-4');
+      UPDATE "lessons" SET "title" = 'Quiz 05: Cardiovascular Physiology, Coronary Anatomy & Renal Mechanisms', "position" = 4, "updated_at" = now() WHERE "slug" IN ('primary-quiz-05', 'quiz-05', 'quiz-5');
+      UPDATE "lessons" SET "title" = 'Quiz 06: Endocrine Emergencies, Cardiac Cycle & Toxicological Crises', "position" = 5, "updated_at" = now() WHERE "slug" IN ('primary-quiz-06', 'quiz-06', 'quiz-6');
+      UPDATE "lessons" SET "title" = 'Quiz 07: Pharmacology & Toxicology, Autonomic System & Airway Anatomy', "position" = 6, "updated_at" = now() WHERE "slug" IN ('primary-quiz-07', 'quiz-07', 'quiz-7');
+      UPDATE "lessons" SET "title" = 'Quiz 08: Respiratory Tract Anatomy, Facial Innervation & Metabolic Disorders', "position" = 7, "updated_at" = now() WHERE "slug" IN ('primary-quiz-08', 'quiz-08', 'quiz-8');
+      UPDATE "lessons" SET "title" = 'Quiz 09: Lower Limb Nerves, Resuscitation Drugs & Gastrointestinal System', "position" = 8, "updated_at" = now() WHERE "slug" IN ('primary-quiz-09', 'quiz-09', 'quiz-9');
+      UPDATE "lessons" SET "title" = 'Quiz 10: Diabetic Ketoacidosis, Adrenoceptors & Skull Base Foramina', "position" = 9, "updated_at" = now() WHERE "slug" IN ('primary-quiz-10', 'quiz-10');
+
+      UPDATE "lessons" SET "title" = 'Quiz 11: Blood Gas Physiology, Electrolyte ECG & Hematological Disorders', "position" = 0, "updated_at" = now() WHERE "slug" IN ('primary-quiz-11', 'quiz-11');
+      UPDATE "lessons" SET "title" = 'Quiz 12: Peripheral Neuropathy, Hernia Anatomy & Inguinal Architecture', "position" = 1, "updated_at" = now() WHERE "slug" IN ('primary-quiz-12', 'quiz-12');
+      UPDATE "lessons" SET "title" = 'Quiz 13: Pharmacokinetics, Neuromuscular Junction & Shock Physiology', "position" = 2, "updated_at" = now() WHERE "slug" IN ('primary-quiz-13', 'quiz-13');
+      UPDATE "lessons" SET "title" = 'Quiz 14: Respiratory Mechanics, Acid-Base Chemoreceptors & Visual Pathways', "position" = 3, "updated_at" = now() WHERE "slug" IN ('primary-quiz-14', 'quiz-14');
+      UPDATE "lessons" SET "title" = 'Quiz 15: Cardiac Action Potential, Autonomic Pharmacology & Meninges', "position" = 4, "updated_at" = now() WHERE "slug" IN ('primary-quiz-15', 'quiz-15');
+      UPDATE "lessons" SET "title" = 'Quiz 16: Sepsis Biomarkers, Adrenal Crisis & Limb Compartments', "position" = 5, "updated_at" = now() WHERE "slug" IN ('primary-quiz-16', 'quiz-16');
+      UPDATE "lessons" SET "title" = 'Quiz 17: Emergency Toxicology, Antibiotic Mechanisms & Cellular Respiration', "position" = 6, "updated_at" = now() WHERE "slug" IN ('primary-quiz-17', 'quiz-17');
+      UPDATE "lessons" SET "title" = 'Quiz 18: Evidence-Based Medicine, Cardiac Conduction & Clinical Trials', "position" = 7, "updated_at" = now() WHERE "slug" IN ('primary-quiz-18', 'quiz-18');
+      UPDATE "lessons" SET "title" = 'Quiz 19: Pediatric Emergencies, Joint Ligaments & Parasitology', "position" = 8, "updated_at" = now() WHERE "slug" IN ('primary-quiz-19', 'quiz-19');
+      UPDATE "lessons" SET "title" = 'Quiz 20: Emergency Anesthetics, Toxicology Antidotes & Resuscitation Pharmacology', "position" = 9, "updated_at" = now() WHERE "slug" IN ('primary-quiz-20', 'quiz-20');
+
+      UPDATE "lessons" SET "title" = 'Quiz 21: Biophysics of Flow, Arrhythmia Mechanisms & Critical Care Burns', "position" = 0, "updated_at" = now() WHERE "slug" IN ('primary-quiz-21', 'quiz-21');
+      UPDATE "lessons" SET "title" = 'Quiz 22: Hematological Malignancies, Bone Healing & Surgical Anatomy', "position" = 1, "updated_at" = now() WHERE "slug" IN ('primary-quiz-22', 'quiz-22');
+      UPDATE "lessons" SET "title" = 'Quiz 23: Gastrointestinal Secretions, Pancreatic Enzymes & Lower Limb Blocks', "position" = 2, "updated_at" = now() WHERE "slug" IN ('primary-quiz-23', 'quiz-23');
+      UPDATE "lessons" SET "title" = 'Quiz 24: Abdominal Hernias, Intestinal Pathology & CSF Diagnostics', "position" = 3, "updated_at" = now() WHERE "slug" IN ('primary-quiz-24', 'quiz-24');
+      UPDATE "lessons" SET "title" = 'Quiz 25: Traumatic Brain Injury, Tuberculosis & Enzyme Induction', "position" = 4, "updated_at" = now() WHERE "slug" IN ('primary-quiz-25', 'quiz-25');
+      UPDATE "lessons" SET "title" = 'Quiz 26: Diving Physics, Musculoskeletal Trauma & Cardiovascular Drugs', "position" = 5, "updated_at" = now() WHERE "slug" IN ('primary-quiz-26', 'quiz-26');
+      UPDATE "lessons" SET "title" = 'Quiz 27: Upper & Lower Limb Trauma, Compartment Syndromes & Scaphoid Fracture', "position" = 6, "updated_at" = now() WHERE "slug" IN ('primary-quiz-27', 'quiz-27');
+      UPDATE "lessons" SET "title" = 'Quiz 28: Intracranial Dynamics, Acute Abdomen & Shock Resuscitation', "position" = 7, "updated_at" = now() WHERE "slug" IN ('primary-quiz-28', 'quiz-28');
+      UPDATE "lessons" SET "title" = 'Quiz 29: Splenic Trauma, Osteology & Neuromuscular Toxins', "position" = 8, "updated_at" = now() WHERE "slug" IN ('primary-quiz-29', 'quiz-29');
+      UPDATE "lessons" SET "title" = 'Quiz 30: Medical Statistics, Epidemiology & Cranial Nerve Palsies', "position" = 9, "updated_at" = now() WHERE "slug" IN ('primary-quiz-30', 'quiz-30');
+
+      UPDATE "lessons" SET "title" = 'Quiz 31: Lower Limb Anatomy, Gastrointestinal Surgery & Pharmacology', "position" = 0, "updated_at" = now() WHERE "slug" IN ('primary-quiz-31', 'quiz-31');
+      UPDATE "lessons" SET "title" = 'Quiz 32: Cranial Nerve Lesions, Brainstem Pathways & Vaccine Guidelines', "position" = 1, "updated_at" = now() WHERE "slug" IN ('primary-quiz-32', 'quiz-32');
+      UPDATE "lessons" SET "title" = 'Quiz 33: Glomerulonephritis, Upper Limb Fractures & Wound Microbiology', "position" = 2, "updated_at" = now() WHERE "slug" IN ('primary-quiz-33', 'quiz-33');
+      UPDATE "lessons" SET "title" = 'Quiz 34: Resuscitation Protocols, Airway Interventions & Cellular Biology', "position" = 3, "updated_at" = now() WHERE "slug" IN ('primary-quiz-34', 'quiz-34');
+      UPDATE "lessons" SET "title" = 'Quiz 35: Sepsis Resuscitation, Toxicology Antidotes & Immunization Rules', "position" = 4, "updated_at" = now() WHERE "slug" IN ('primary-quiz-35', 'quiz-35');
+      UPDATE "lessons" SET "title" = 'Quiz 36: Adrenal-Renal Physiology, Bowel Histology & Clinical Evidence', "position" = 5, "updated_at" = now() WHERE "slug" IN ('primary-quiz-36', 'quiz-36');
+      UPDATE "lessons" SET "title" = 'Quiz 37: Atypical Infections, Skull Base Pathology & Syncope Mechanisms', "position" = 6, "updated_at" = now() WHERE "slug" IN ('primary-quiz-37', 'quiz-37');
+      UPDATE "lessons" SET "title" = 'Quiz 38: Genitourinary Emergencies, Hip/Knee Muscles & Spinal Landmarks', "position" = 7, "updated_at" = now() WHERE "slug" IN ('primary-quiz-38', 'quiz-38');
+      UPDATE "lessons" SET "title" = 'Quiz 39: Neuromuscular Disorders, Thyroid Storm & Knee Biomechanics', "position" = 8, "updated_at" = now() WHERE "slug" IN ('primary-quiz-39', 'quiz-39');
+      UPDATE "lessons" SET "title" = 'Quiz 40: Neurotoxins, Enzyme Induction & Autoimmune Pathologies', "position" = 9, "updated_at" = now() WHERE "slug" IN ('primary-quiz-40', 'quiz-40');
+      UPDATE "lessons" SET "title" = 'Quiz 41: Neuroleptic Syndrome, Laryngeal Anatomy & Portal Hypertension', "position" = 10, "updated_at" = now() WHERE "slug" IN ('primary-quiz-41', 'quiz-41');
+
+      UPDATE "courses" SET "updated_at" = now() WHERE "slug" = 'mrcem-primary';
+    `);
 
     // Save curriculum version record
     try {

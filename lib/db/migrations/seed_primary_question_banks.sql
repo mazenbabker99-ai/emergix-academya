@@ -74,7 +74,7 @@ BEGIN
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-01', 'Primary Quiz 01', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-01', 'Quiz 01: Emergency Resuscitation, Cranial Nerves & Infection Microbiology', 'quiz',
       $QUIZ001I$# MRCEM Primary Question Bank - Quiz 01
 
 > [!NOTE]
@@ -529,7 +529,7 @@ $QUIZ001I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 01',
+      "title" = 'Quiz 01: Emergency Resuscitation, Cranial Nerves & Infection Microbiology',
       "type" = 'quiz',
       "body" = $QUIZ001U$# MRCEM Primary Question Bank - Quiz 01
 
@@ -996,7 +996,7 @@ $QUIZ001U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-02', 'Primary Quiz 02', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-02', 'Quiz 02: Abdominal Viscera, Inguinal Anatomy & Autonomic Neuro-Ophthalmology', 'quiz',
       $QUIZ002I$# MRCEM Primary Question Bank - Quiz 02
 
 > [!NOTE]
@@ -1444,7 +1444,7 @@ $QUIZ002I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 02',
+      "title" = 'Quiz 02: Abdominal Viscera, Inguinal Anatomy & Autonomic Neuro-Ophthalmology',
       "type" = 'quiz',
       "body" = $QUIZ002U$# MRCEM Primary Question Bank - Quiz 02
 
@@ -1904,7 +1904,7 @@ $QUIZ002U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-03', 'Primary Quiz 03', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-03', 'Quiz 03: Clinical Neuroanatomy, Cranial Nerves & Head-and-Neck Trauma', 'quiz',
       $QUIZ003I$# MRCEM Primary Question Bank - Quiz 03
 
 > [!NOTE]
@@ -2424,7 +2424,7 @@ $QUIZ003I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 03',
+      "title" = 'Quiz 03: Clinical Neuroanatomy, Cranial Nerves & Head-and-Neck Trauma',
       "type" = 'quiz',
       "body" = $QUIZ003U$# MRCEM Primary Question Bank - Quiz 03
 
@@ -2956,7 +2956,7 @@ $QUIZ003U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-04', 'Primary Quiz 04', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-04', 'Quiz 04: Thoracic Cavity, Upper Limb Neurovascular & Trauma Mechanics', 'quiz',
       $QUIZ004I$# MRCEM Primary Question Bank - Quiz 04
 
 > [!NOTE]
@@ -3456,7 +3456,7 @@ $QUIZ004I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 04',
+      "title" = 'Quiz 04: Thoracic Cavity, Upper Limb Neurovascular & Trauma Mechanics',
       "type" = 'quiz',
       "body" = $QUIZ004U$# MRCEM Primary Question Bank - Quiz 04
 
@@ -3968,7 +3968,7 @@ $QUIZ004U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-05', 'Primary Quiz 05', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-05', 'Quiz 05: Cardiovascular Physiology, Coronary Anatomy & Renal Mechanisms', 'quiz',
       $QUIZ005I$# MRCEM Primary Question Bank - Quiz 05
 
 > [!NOTE]
@@ -4343,7 +4343,7 @@ $QUIZ005I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 05',
+      "title" = 'Quiz 05: Cardiovascular Physiology, Coronary Anatomy & Renal Mechanisms',
       "type" = 'quiz',
       "body" = $QUIZ005U$# MRCEM Primary Question Bank - Quiz 05
 
@@ -4730,7 +4730,7 @@ $QUIZ005U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-06', 'Primary Quiz 06', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-06', 'Quiz 06: Endocrine Emergencies, Cardiac Cycle & Toxicological Crises', 'quiz',
       $QUIZ006I$# MRCEM Primary Question Bank - Quiz 06
 
 > [!NOTE]
@@ -5165,7 +5165,7 @@ $QUIZ006I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 06',
+      "title" = 'Quiz 06: Endocrine Emergencies, Cardiac Cycle & Toxicological Crises',
       "type" = 'quiz',
       "body" = $QUIZ006U$# MRCEM Primary Question Bank - Quiz 06
 
@@ -5612,7 +5612,7 @@ $QUIZ006U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-07', 'Primary Quiz 07', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-07', 'Quiz 07: Pharmacology & Toxicology, Autonomic System & Airway Anatomy', 'quiz',
       $QUIZ007I$# MRCEM Primary Question Bank - Quiz 07
 
 > [!NOTE]
@@ -5963,7 +5963,7 @@ $QUIZ007I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 07',
+      "title" = 'Quiz 07: Pharmacology & Toxicology, Autonomic System & Airway Anatomy',
       "type" = 'quiz',
       "body" = $QUIZ007U$# MRCEM Primary Question Bank - Quiz 07
 
@@ -6326,7 +6326,7 @@ $QUIZ007U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-08', 'Primary Quiz 08', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-08', 'Quiz 08: Respiratory Tract Anatomy, Facial Innervation & Metabolic Disorders', 'quiz',
       $QUIZ008I$# MRCEM Primary Question Bank - Quiz 08
 
 > [!NOTE]
@@ -6662,7 +6662,7 @@ $QUIZ008I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 08',
+      "title" = 'Quiz 08: Respiratory Tract Anatomy, Facial Innervation & Metabolic Disorders',
       "type" = 'quiz',
       "body" = $QUIZ008U$# MRCEM Primary Question Bank - Quiz 08
 
@@ -7010,7 +7010,7 @@ $QUIZ008U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-09', 'Primary Quiz 09', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-09', 'Quiz 09: Lower Limb Nerves, Resuscitation Drugs & Gastrointestinal System', 'quiz',
       $QUIZ009I$# MRCEM Primary Question Bank - Quiz 09
 
 > [!NOTE]
@@ -7478,7 +7478,7 @@ $QUIZ009I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 09',
+      "title" = 'Quiz 09: Lower Limb Nerves, Resuscitation Drugs & Gastrointestinal System',
       "type" = 'quiz',
       "body" = $QUIZ009U$# MRCEM Primary Question Bank - Quiz 09
 
@@ -7958,7 +7958,7 @@ $QUIZ009U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-10', 'Primary Quiz 10', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-10', 'Quiz 10: Diabetic Ketoacidosis, Adrenoceptors & Skull Base Foramina', 'quiz',
       $QUIZ010I$# MRCEM Primary Question Bank - Quiz 10
 
 > [!NOTE]
@@ -8342,7 +8342,7 @@ $QUIZ010I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 10',
+      "title" = 'Quiz 10: Diabetic Ketoacidosis, Adrenoceptors & Skull Base Foramina',
       "type" = 'quiz',
       "body" = $QUIZ010U$# MRCEM Primary Question Bank - Quiz 10
 
@@ -8752,7 +8752,7 @@ $QUIZ010U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-11', 'Primary Quiz 11', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-11', 'Quiz 11: Blood Gas Physiology, Electrolyte ECG & Hematological Disorders', 'quiz',
       $QUIZ011I$# MRCEM Primary Question Bank - Quiz 11
 
 > [!NOTE]
@@ -9169,7 +9169,7 @@ $QUIZ011I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 11',
+      "title" = 'Quiz 11: Blood Gas Physiology, Electrolyte ECG & Hematological Disorders',
       "type" = 'quiz',
       "body" = $QUIZ011U$# MRCEM Primary Question Bank - Quiz 11
 
@@ -9598,7 +9598,7 @@ $QUIZ011U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-12', 'Primary Quiz 12', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-12', 'Quiz 12: Peripheral Neuropathy, Hernia Anatomy & Inguinal Architecture', 'quiz',
       $QUIZ012I$# MRCEM Primary Question Bank - Quiz 12
 
 > [!NOTE]
@@ -9974,7 +9974,7 @@ $QUIZ012I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 12',
+      "title" = 'Quiz 12: Peripheral Neuropathy, Hernia Anatomy & Inguinal Architecture',
       "type" = 'quiz',
       "body" = $QUIZ012U$# MRCEM Primary Question Bank - Quiz 12
 
@@ -10362,7 +10362,7 @@ $QUIZ012U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-13', 'Primary Quiz 13', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-13', 'Quiz 13: Pharmacokinetics, Neuromuscular Junction & Shock Physiology', 'quiz',
       $QUIZ013I$# MRCEM Primary Question Bank - Quiz 13
 
 > [!NOTE]
@@ -10693,7 +10693,7 @@ $QUIZ013I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 13',
+      "title" = 'Quiz 13: Pharmacokinetics, Neuromuscular Junction & Shock Physiology',
       "type" = 'quiz',
       "body" = $QUIZ013U$# MRCEM Primary Question Bank - Quiz 13
 
@@ -11036,7 +11036,7 @@ $QUIZ013U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-14', 'Primary Quiz 14', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-14', 'Quiz 14: Respiratory Mechanics, Acid-Base Chemoreceptors & Visual Pathways', 'quiz',
       $QUIZ014I$# MRCEM Primary Question Bank - Quiz 14
 
 > [!NOTE]
@@ -11395,7 +11395,7 @@ $QUIZ014I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 14',
+      "title" = 'Quiz 14: Respiratory Mechanics, Acid-Base Chemoreceptors & Visual Pathways',
       "type" = 'quiz',
       "body" = $QUIZ014U$# MRCEM Primary Question Bank - Quiz 14
 
@@ -11766,7 +11766,7 @@ $QUIZ014U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-15', 'Primary Quiz 15', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-15', 'Quiz 15: Neuro-Aphasia, Inguinal Canal & Autonomic Receptors', 'quiz',
       $QUIZ015I$# MRCEM Primary Question Bank - Quiz 15
 
 > [!NOTE]
@@ -12126,7 +12126,7 @@ $QUIZ015I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 15',
+      "title" = 'Quiz 15: Neuro-Aphasia, Inguinal Canal & Autonomic Receptors',
       "type" = 'quiz',
       "body" = $QUIZ015U$# MRCEM Primary Question Bank - Quiz 15
 
@@ -12498,7 +12498,7 @@ $QUIZ015U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-16', 'Primary Quiz 16', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-16', 'Quiz 16: Musculoskeletal Biomechanics, Renal Tubular Transport & Immunology', 'quiz',
       $QUIZ016I$# MRCEM Primary Question Bank - Quiz 16
 
 > [!NOTE]
@@ -12906,7 +12906,7 @@ $QUIZ016I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 16',
+      "title" = 'Quiz 16: Musculoskeletal Biomechanics, Renal Tubular Transport & Immunology',
       "type" = 'quiz',
       "body" = $QUIZ016U$# MRCEM Primary Question Bank - Quiz 16
 
@@ -13326,7 +13326,7 @@ $QUIZ016U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-17', 'Primary Quiz 17', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-17', 'Quiz 17: Clinical Microbiology, Cerebrovascular Circulation & Infectious Disease', 'quiz',
       $QUIZ017I$# MRCEM Primary Question Bank - Quiz 17
 
 > [!NOTE]
@@ -13731,7 +13731,7 @@ $QUIZ017I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 17',
+      "title" = 'Quiz 17: Clinical Microbiology, Cerebrovascular Circulation & Infectious Disease',
       "type" = 'quiz',
       "body" = $QUIZ017U$# MRCEM Primary Question Bank - Quiz 17
 
@@ -14148,7 +14148,7 @@ $QUIZ017U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-18', 'Primary Quiz 18', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-18', 'Quiz 18: Evidence-Based Medicine, Cardiac Conduction & Clinical Trials', 'quiz',
       $QUIZ018I$# MRCEM Primary Question Bank - Quiz 18
 
 > [!NOTE]
@@ -14571,7 +14571,7 @@ $QUIZ018I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 18',
+      "title" = 'Quiz 18: Evidence-Based Medicine, Cardiac Conduction & Clinical Trials',
       "type" = 'quiz',
       "body" = $QUIZ018U$# MRCEM Primary Question Bank - Quiz 18
 
@@ -15006,7 +15006,7 @@ $QUIZ018U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-19', 'Primary Quiz 19', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-19', 'Quiz 19: Pediatric Emergencies, Joint Ligaments & Parasitology', 'quiz',
       $QUIZ019I$# MRCEM Primary Question Bank - Quiz 19
 
 > [!NOTE]
@@ -15428,7 +15428,7 @@ $QUIZ019I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 19',
+      "title" = 'Quiz 19: Pediatric Emergencies, Joint Ligaments & Parasitology',
       "type" = 'quiz',
       "body" = $QUIZ019U$# MRCEM Primary Question Bank - Quiz 19
 
@@ -15862,7 +15862,7 @@ $QUIZ019U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-20', 'Primary Quiz 20', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-20', 'Quiz 20: Emergency Anesthetics, Toxicology Antidotes & Resuscitation Pharmacology', 'quiz',
       $QUIZ020I$# MRCEM Primary Question Bank - Quiz 20
 
 > [!NOTE]
@@ -16287,7 +16287,7 @@ $QUIZ020I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 20',
+      "title" = 'Quiz 20: Emergency Anesthetics, Toxicology Antidotes & Resuscitation Pharmacology',
       "type" = 'quiz',
       "body" = $QUIZ020U$# MRCEM Primary Question Bank - Quiz 20
 
@@ -16738,7 +16738,7 @@ $QUIZ020U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-21', 'Primary Quiz 21', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-21', 'Quiz 21: Biophysics of Flow, Arrhythmia Mechanisms & Critical Care Burns', 'quiz',
       $QUIZ021I$# MRCEM Primary Question Bank - Quiz 21
 
 > [!NOTE]
@@ -17102,7 +17102,7 @@ $QUIZ021I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 21',
+      "title" = 'Quiz 21: Biophysics of Flow, Arrhythmia Mechanisms & Critical Care Burns',
       "type" = 'quiz',
       "body" = $QUIZ021U$# MRCEM Primary Question Bank - Quiz 21
 
@@ -17478,7 +17478,7 @@ $QUIZ021U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-22', 'Primary Quiz 22', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-22', 'Quiz 22: Hematological Malignancies, Bone Healing & Surgical Anatomy', 'quiz',
       $QUIZ022I$# MRCEM Primary Question Bank - Quiz 22
 
 > [!NOTE]
@@ -17843,7 +17843,7 @@ $QUIZ022I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 22',
+      "title" = 'Quiz 22: Hematological Malignancies, Bone Healing & Surgical Anatomy',
       "type" = 'quiz',
       "body" = $QUIZ022U$# MRCEM Primary Question Bank - Quiz 22
 
@@ -18220,7 +18220,7 @@ $QUIZ022U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-23', 'Primary Quiz 23', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-23', 'Quiz 23: Gastrointestinal Secretions, Pancreatic Enzymes & Lower Limb Blocks', 'quiz',
       $QUIZ023I$# MRCEM Primary Question Bank - Quiz 23
 
 > [!NOTE]
@@ -18623,7 +18623,7 @@ $QUIZ023I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 23',
+      "title" = 'Quiz 23: Gastrointestinal Secretions, Pancreatic Enzymes & Lower Limb Blocks',
       "type" = 'quiz',
       "body" = $QUIZ023U$# MRCEM Primary Question Bank - Quiz 23
 
@@ -19038,7 +19038,7 @@ $QUIZ023U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-24', 'Primary Quiz 24', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-24', 'Quiz 24: Abdominal Hernias, Intestinal Pathology & CSF Diagnostics', 'quiz',
       $QUIZ024I$# MRCEM Primary Question Bank - Quiz 24
 
 > [!NOTE]
@@ -19345,7 +19345,7 @@ $QUIZ024I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 24',
+      "title" = 'Quiz 24: Abdominal Hernias, Intestinal Pathology & CSF Diagnostics',
       "type" = 'quiz',
       "body" = $QUIZ024U$# MRCEM Primary Question Bank - Quiz 24
 
@@ -19664,7 +19664,7 @@ $QUIZ024U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-25', 'Primary Quiz 25', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-25', 'Quiz 25: Traumatic Brain Injury, Tuberculosis & Enzyme Induction', 'quiz',
       $QUIZ025I$# MRCEM Primary Question Bank - Quiz 25
 
 > [!NOTE]
@@ -20067,7 +20067,7 @@ $QUIZ025I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 25',
+      "title" = 'Quiz 25: Traumatic Brain Injury, Tuberculosis & Enzyme Induction',
       "type" = 'quiz',
       "body" = $QUIZ025U$# MRCEM Primary Question Bank - Quiz 25
 
@@ -20482,7 +20482,7 @@ $QUIZ025U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-26', 'Primary Quiz 26', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-26', 'Quiz 26: Diving Physics, Musculoskeletal Trauma & Cardiovascular Drugs', 'quiz',
       $QUIZ026I$# MRCEM Primary Question Bank - Quiz 26
 
 > [!NOTE]
@@ -20844,7 +20844,7 @@ $QUIZ026I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 26',
+      "title" = 'Quiz 26: Diving Physics, Musculoskeletal Trauma & Cardiovascular Drugs',
       "type" = 'quiz',
       "body" = $QUIZ026U$# MRCEM Primary Question Bank - Quiz 26
 
@@ -21218,7 +21218,7 @@ $QUIZ026U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-27', 'Primary Quiz 27', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-27', 'Quiz 27: Upper & Lower Limb Trauma, Compartment Syndromes & Scaphoid Fracture', 'quiz',
       $QUIZ027I$# MRCEM Primary Question Bank - Quiz 27
 
 > [!NOTE]
@@ -21853,7 +21853,7 @@ $QUIZ027I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 27',
+      "title" = 'Quiz 27: Upper & Lower Limb Trauma, Compartment Syndromes & Scaphoid Fracture',
       "type" = 'quiz',
       "body" = $QUIZ027U$# MRCEM Primary Question Bank - Quiz 27
 
@@ -22500,7 +22500,7 @@ $QUIZ027U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-28', 'Primary Quiz 28', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-28', 'Quiz 28: Intracranial Dynamics, Acute Abdomen & Shock Resuscitation', 'quiz',
       $QUIZ028I$# MRCEM Primary Question Bank - Quiz 28
 
 > [!NOTE]
@@ -22904,7 +22904,7 @@ $QUIZ028I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 28',
+      "title" = 'Quiz 28: Intracranial Dynamics, Acute Abdomen & Shock Resuscitation',
       "type" = 'quiz',
       "body" = $QUIZ028U$# MRCEM Primary Question Bank - Quiz 28
 
@@ -23320,7 +23320,7 @@ $QUIZ028U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-29', 'Primary Quiz 29', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-29', 'Quiz 29: Splenic Trauma, Osteology & Neuromuscular Toxins', 'quiz',
       $QUIZ029I$# MRCEM Primary Question Bank - Quiz 29
 
 > [!NOTE]
@@ -23808,7 +23808,7 @@ $QUIZ029I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 29',
+      "title" = 'Quiz 29: Splenic Trauma, Osteology & Neuromuscular Toxins',
       "type" = 'quiz',
       "body" = $QUIZ029U$# MRCEM Primary Question Bank - Quiz 29
 
@@ -24308,7 +24308,7 @@ $QUIZ029U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-30', 'Primary Quiz 30', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-30', 'Quiz 30: Medical Statistics, Epidemiology & Cranial Nerve Palsies', 'quiz',
       $QUIZ030I$# MRCEM Primary Question Bank - Quiz 30
 
 > [!NOTE]
@@ -24782,7 +24782,7 @@ $QUIZ030I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 30',
+      "title" = 'Quiz 30: Medical Statistics, Epidemiology & Cranial Nerve Palsies',
       "type" = 'quiz',
       "body" = $QUIZ030U$# MRCEM Primary Question Bank - Quiz 30
 
@@ -25282,7 +25282,7 @@ $QUIZ030U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-31', 'Primary Quiz 31', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-31', 'Quiz 31: Lower Limb Anatomy, Gastrointestinal Surgery & Pharmacology', 'quiz',
       $QUIZ031I$# MRCEM Primary Question Bank - Quiz 31
 
 > [!NOTE]
@@ -25728,7 +25728,7 @@ $QUIZ031I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 31',
+      "title" = 'Quiz 31: Lower Limb Anatomy, Gastrointestinal Surgery & Pharmacology',
       "type" = 'quiz',
       "body" = $QUIZ031U$# MRCEM Primary Question Bank - Quiz 31
 
@@ -26186,7 +26186,7 @@ $QUIZ031U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-32', 'Primary Quiz 32', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-32', 'Quiz 32: Cranial Nerve Lesions, Brainstem Pathways & Vaccine Guidelines', 'quiz',
       $QUIZ032I$# MRCEM Primary Question Bank - Quiz 32
 
 > [!NOTE]
@@ -26699,7 +26699,7 @@ $QUIZ032I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 32',
+      "title" = 'Quiz 32: Cranial Nerve Lesions, Brainstem Pathways & Vaccine Guidelines',
       "type" = 'quiz',
       "body" = $QUIZ032U$# MRCEM Primary Question Bank - Quiz 32
 
@@ -27224,7 +27224,7 @@ $QUIZ032U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-33', 'Primary Quiz 33', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-33', 'Quiz 33: Glomerulonephritis, Upper Limb Fractures & Wound Microbiology', 'quiz',
       $QUIZ033I$# MRCEM Primary Question Bank - Quiz 33
 
 > [!NOTE]
@@ -27811,7 +27811,7 @@ $QUIZ033I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 33',
+      "title" = 'Quiz 33: Glomerulonephritis, Upper Limb Fractures & Wound Microbiology',
       "type" = 'quiz',
       "body" = $QUIZ033U$# MRCEM Primary Question Bank - Quiz 33
 
@@ -28410,7 +28410,7 @@ $QUIZ033U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-34', 'Primary Quiz 34', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-34', 'Quiz 34: Resuscitation Protocols, Airway Interventions & Cellular Biology', 'quiz',
       $QUIZ034I$# MRCEM Primary Question Bank - Quiz 34
 
 > [!NOTE]
@@ -29005,7 +29005,7 @@ $QUIZ034I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 34',
+      "title" = 'Quiz 34: Resuscitation Protocols, Airway Interventions & Cellular Biology',
       "type" = 'quiz',
       "body" = $QUIZ034U$# MRCEM Primary Question Bank - Quiz 34
 
@@ -29612,7 +29612,7 @@ $QUIZ034U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-35', 'Primary Quiz 35', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-35', 'Quiz 35: Sepsis Resuscitation, Toxicology Antidotes & Immunization Rules', 'quiz',
       $QUIZ035I$# MRCEM Primary Question Bank - Quiz 35
 
 > [!NOTE]
@@ -30087,7 +30087,7 @@ $QUIZ035I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 35',
+      "title" = 'Quiz 35: Sepsis Resuscitation, Toxicology Antidotes & Immunization Rules',
       "type" = 'quiz',
       "body" = $QUIZ035U$# MRCEM Primary Question Bank - Quiz 35
 
@@ -30574,7 +30574,7 @@ $QUIZ035U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-36', 'Primary Quiz 36', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-36', 'Quiz 36: Adrenal-Renal Physiology, Bowel Histology & Clinical Evidence', 'quiz',
       $QUIZ036I$# MRCEM Primary Question Bank - Quiz 36
 
 > [!NOTE]
@@ -31066,7 +31066,7 @@ $QUIZ036I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 36',
+      "title" = 'Quiz 36: Adrenal-Renal Physiology, Bowel Histology & Clinical Evidence',
       "type" = 'quiz',
       "body" = $QUIZ036U$# MRCEM Primary Question Bank - Quiz 36
 
@@ -31570,7 +31570,7 @@ $QUIZ036U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-37', 'Primary Quiz 37', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-37', 'Quiz 37: Atypical Infections, Skull Base Pathology & Syncope Mechanisms', 'quiz',
       $QUIZ037I$# MRCEM Primary Question Bank - Quiz 37
 
 > [!NOTE]
@@ -32031,7 +32031,7 @@ $QUIZ037I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 37',
+      "title" = 'Quiz 37: Atypical Infections, Skull Base Pathology & Syncope Mechanisms',
       "type" = 'quiz',
       "body" = $QUIZ037U$# MRCEM Primary Question Bank - Quiz 37
 
@@ -32504,7 +32504,7 @@ $QUIZ037U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-38', 'Primary Quiz 38', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-38', 'Quiz 38: Genitourinary Emergencies, Hip/Knee Muscles & Spinal Landmarks', 'quiz',
       $QUIZ038I$# MRCEM Primary Question Bank - Quiz 38
 
 > [!NOTE]
@@ -32934,7 +32934,7 @@ $QUIZ038I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 38',
+      "title" = 'Quiz 38: Genitourinary Emergencies, Hip/Knee Muscles & Spinal Landmarks',
       "type" = 'quiz',
       "body" = $QUIZ038U$# MRCEM Primary Question Bank - Quiz 38
 
@@ -33376,7 +33376,7 @@ $QUIZ038U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-39', 'Primary Quiz 39', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-39', 'Quiz 39: Neuromuscular Disorders, Thyroid Storm & Knee Biomechanics', 'quiz',
       $QUIZ039I$# MRCEM Primary Question Bank - Quiz 39
 
 > [!NOTE]
@@ -33725,7 +33725,7 @@ $QUIZ039I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 39',
+      "title" = 'Quiz 39: Neuromuscular Disorders, Thyroid Storm & Knee Biomechanics',
       "type" = 'quiz',
       "body" = $QUIZ039U$# MRCEM Primary Question Bank - Quiz 39
 
@@ -34086,7 +34086,7 @@ $QUIZ039U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-40', 'Primary Quiz 40', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-40', 'Quiz 40: Neurotoxins, Enzyme Induction & Autoimmune Pathologies', 'quiz',
       $QUIZ040I$# MRCEM Primary Question Bank - Quiz 40
 
 > [!NOTE]
@@ -34481,7 +34481,7 @@ $QUIZ040I$,
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 40',
+      "title" = 'Quiz 40: Neurotoxins, Enzyme Induction & Autoimmune Pathologies',
       "type" = 'quiz',
       "body" = $QUIZ040U$# MRCEM Primary Question Bank - Quiz 40
 
@@ -34888,7 +34888,7 @@ $QUIZ040U$,
       "id", "module_id", "slug", "title", "type", "body",
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
-      gen_random_uuid(), v_module_id, 'primary-quiz-41', 'Primary Quiz 41', 'quiz',
+      gen_random_uuid(), v_module_id, 'primary-quiz-41', 'Quiz 41: Neuroleptic Syndrome, Laryngeal Anatomy & Portal Hypertension', 'quiz',
       $QUIZ041I$# MRCEM Primary Question Bank - Quiz 41
 
 > [!NOTE]
@@ -35068,11 +35068,11 @@ In cirrhosis, the normal liver architecture is replaced by fibrous tissue and re
 
 **Answer key, Quiz 41:** 1-A, 2-C, 3-C, 4-A, 5-C, 6-C, 7-B
 $QUIZ041I$,
-      false, 0, 'published', now(), now()
+      false, 10, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
-      "title" = 'Primary Quiz 41',
+      "title" = 'Quiz 41: Neuroleptic Syndrome, Laryngeal Anatomy & Portal Hypertension',
       "type" = 'quiz',
       "body" = $QUIZ041U$# MRCEM Primary Question Bank - Quiz 41
 
@@ -35253,7 +35253,7 @@ In cirrhosis, the normal liver architecture is replaced by fibrous tissue and re
 
 **Answer key, Quiz 41:** 1-A, 2-C, 3-C, 4-A, 5-C, 6-C, 7-B
 $QUIZ041U$,
-      "position" = 0,
+      "position" = 10,
       "status" = 'published',
       "updated_at" = now()
     WHERE "id" = v_lesson_id;
