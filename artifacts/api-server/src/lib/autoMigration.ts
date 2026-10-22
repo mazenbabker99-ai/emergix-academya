@@ -954,7 +954,7 @@ export async function runAutoMigrationsAndSeeds() {
     }
 
     // Track explicit curriculum content version so text additions and cleanups are always applied
-    const CURRENT_CURRICULUM_VERSION = "2026_10_22_v10_complete_sba_curriculum";
+    const CURRENT_CURRICULUM_VERSION = "2026_10_22_v11_fix_primary_quiz_banks";
     let isCurriculumUpToDate = false;
 
     try {
@@ -977,7 +977,8 @@ export async function runAutoMigrationsAndSeeds() {
       { file: "seed_flagship_mrcem_primary.sql", shouldRun: !isCurriculumUpToDate || primaryLessonCount < 200 },
       { file: "seed_flagship_mrcem_sba.sql", shouldRun: !isCurriculumUpToDate || sbaLessonCount < 40 },
       { file: "seed_topic_sba_curriculum.sql", shouldRun: !isCurriculumUpToDate || sbaLessonCount < 150 },
-      { file: "seed_primary_question_banks.sql", shouldRun: !isCurriculumUpToDate || primaryLessonCount < 250 },
+      // Force-run: adds 4 quiz bank modules (41 quizzes) to mrcem-primary; threshold > 265 to detect absence
+      { file: "seed_primary_question_banks.sql", shouldRun: true },
       { file: "seed_sba_topic_quizzes.sql", shouldRun: !isCurriculumUpToDate || sbaLessonCount < 200 },
       { file: "seed_complete_sba_curriculum.sql", shouldRun: !isCurriculumUpToDate || sbaLessonCount < 350 },
       { file: "cleanup_courses.sql", shouldRun: true },
