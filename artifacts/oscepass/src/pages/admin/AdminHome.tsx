@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { Link } from 'wouter';
-import { ArrowUpRight, BookOpen, CirclePlus, RefreshCw, Search, Sparkles, Trash2 } from 'lucide-react';
+import { ArrowUpRight, BookOpen, CirclePlus, Search, Trash2 } from 'lucide-react';
 import { getAdminListCoursesQueryKey, useAdminCreateCourse, useAdminDeleteCourse, useAdminListCourses } from '@workspace/api-client-react';
 import { AdminLayout } from '@/components/layouts/AdminLayout';
 import { EmptyState, ErrorState, PageSkeleton } from '@/components/shared/DataState';
@@ -20,8 +20,6 @@ export default function AdminHome() {
   const [search, setSearch] = useState('');
   const [showCreate, setShowCreate] = useState(false);
   const [error, setError] = useState('');
-  const [successMsg, setSuccessMsg] = useState('');
-  const [isTransferring, setIsTransferring] = useState(false);
 
   const params = useMemo(() => ({ limit: 100, ...(search.trim() ? { q: search.trim() } : {}) }), [search]);
   const courses = useAdminListCourses(params);
@@ -32,32 +30,6 @@ export default function AdminHome() {
   const rawData = courses.data?.data ?? [];
   // Keep only the two flagship courses in the admin view (sub-courses are inside mrcem-primary)
   const data = rawData.filter((c) => !['mrcem-anatomy', 'mrcem-physiology', 'mrcem-pharmacology', 'mrcem-pathology-micro', 'mrcem-upper-limb'].includes(c.slug));
-
-  async function handleTransferPrimaryQuizzes() {
-    if (!window.confirm('هل تريد نقل جميع كويزات البرايمري (41 كويز) من كورس SBA إلى كورس MRCEM Primary وتصنيفها في 4 وحدات مستقلة؟')) {
-      return;
-    }
-    setIsTransferring(true);
-    setError('');
-    setSuccessMsg('');
-    try {
-      const res = await fetch('/api/admin/move-primary-quizzes', {
-        method: 'POST',
-        credentials: 'include',
-      });
-      const json = await res.json();
-      if (json.status === 'ok') {
-        setSuccessMsg('تم بنجاح نقل الـ 41 كويز الخاصة بالبرايمري إلى كورس MRCEM Primary وتصنيفها في 4 وحدات!');
-        await queryClient.invalidateQueries({ queryKey: getAdminListCoursesQueryKey() });
-      } else {
-        setError(json.error || 'حدث خطأ أثناء نقل الكويزات.');
-      }
-    } catch (err: any) {
-      setError(err?.message || 'فشل الاتصال بالخادم.');
-    } finally {
-      setIsTransferring(false);
-    }
-  }
 
   async function handleCreate(values: CreateCourseValues) {
     setError('');
@@ -91,54 +63,10 @@ export default function AdminHome() {
             <h1>Courses</h1>
             <p>Shape exam knowledge into learning learners can follow.</p>
           </div>
-          <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <button
-              type="button"
-              className="admin-button"
-              style={{
-                background: '#1d4ed8',
-                color: '#ffffff',
-                border: 'none',
-                fontWeight: 600,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '8px 14px',
-                borderRadius: '6px',
-                cursor: isTransferring ? 'not-allowed' : 'pointer',
-              }}
-              disabled={isTransferring}
-              onClick={handleTransferPrimaryQuizzes}
-              title="نقل الـ 41 كويز الخاصة بالبرايمري من كورس SBA إلى كورس MRCEM Primary"
-            >
-              {isTransferring ? <RefreshCw size={16} className="animate-spin" /> : <Sparkles size={16} />}
-              {isTransferring ? 'جاري النقل...' : 'نقل كويزات البرايمري (41) إلى Primary'}
-            </button>
-            <button type="button" className="admin-button admin-button-primary" onClick={() => { setError(''); setShowCreate(true); }} data-testid="button-create-course">
-              <CirclePlus size={17} /> New course
-            </button>
-          </div>
+          <button type="button" className="admin-button admin-button-primary" onClick={() => { setError(''); setShowCreate(true); }} data-testid="button-create-course">
+            <CirclePlus size={17} /> New course
+          </button>
         </header>
-
-        {successMsg && (
-          <div
-            style={{
-              background: '#ecfdf5',
-              border: '1px solid #10b981',
-              color: '#065f46',
-              padding: '12px 16px',
-              borderRadius: '8px',
-              marginBottom: '16px',
-              fontWeight: 500,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}
-          >
-            <span>✓ {successMsg}</span>
-            <button type="button" onClick={() => setSuccessMsg('')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#065f46', fontWeight: 'bold' }}>✕</button>
-          </div>
-        )}
 
         <section className="catalog-panel" aria-label="Course catalogue">
           <div className="catalog-toolbar">
