@@ -210,7 +210,12 @@ BEGIN
         "type"       = 'quiz',
         "status"     = 'published',
         "deleted_at" = NULL,
-        "position"   = (v_quiz_num - 1) % 10,
+        "position"   = CASE
+          WHEN v_quiz_num BETWEEN 1 AND 10 THEN v_quiz_num - 1
+          WHEN v_quiz_num BETWEEN 11 AND 20 THEN v_quiz_num - 11
+          WHEN v_quiz_num BETWEEN 21 AND 30 THEN v_quiz_num - 21
+          ELSE v_quiz_num - 31
+        END,
         "updated_at" = now()
       WHERE "id" = v_keeper_id;
 
