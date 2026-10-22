@@ -954,7 +954,7 @@ export async function runAutoMigrationsAndSeeds() {
     }
 
     // Track explicit curriculum content version so text additions and cleanups are always applied
-    const CURRENT_CURRICULUM_VERSION = "2026_10_22_v12_move_primary_quizzes";
+    const CURRENT_CURRICULUM_VERSION = "2026_10_22_v13_reliable_move_primary_quizzes";
     let isCurriculumUpToDate = false;
 
     try {
