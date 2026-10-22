@@ -75,7 +75,7 @@ BEGIN
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-01', 'Primary Quiz 01', 'quiz',
-      $QUIZ001$# MRCEM Primary Question Bank - Quiz 01
+      $QUIZ001I$# MRCEM Primary Question Bank - Quiz 01
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -524,14 +524,14 @@ Mnemonic: "BCDU" Blurred Vision Constipation Dry Mouth Urinary Retention
 
 
 ---
-$QUIZ001$,
+$QUIZ001I$,
       false, 0, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 01',
       "type" = 'quiz',
-      "body" = $QUIZ001$# MRCEM Primary Question Bank - Quiz 01
+      "body" = $QUIZ001U$# MRCEM Primary Question Bank - Quiz 01
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -980,7 +980,7 @@ Mnemonic: "BCDU" Blurred Vision Constipation Dry Mouth Urinary Retention
 
 
 ---
-$QUIZ001$,
+$QUIZ001U$,
       "position" = 0,
       "status" = 'published',
       "updated_at" = now()
@@ -997,7 +997,7 @@ $QUIZ001$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-02', 'Primary Quiz 02', 'quiz',
-      $QUIZ002$# MRCEM Primary Question Bank - Quiz 02
+      $QUIZ002I$# MRCEM Primary Question Bank - Quiz 02
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -1439,14 +1439,14 @@ Pituitary adenoma: Pituitary gland lies in close proximity to optic chiasm,tumor
 
 
 ---
-$QUIZ002$,
+$QUIZ002I$,
       false, 1, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 02',
       "type" = 'quiz',
-      "body" = $QUIZ002$# MRCEM Primary Question Bank - Quiz 02
+      "body" = $QUIZ002U$# MRCEM Primary Question Bank - Quiz 02
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -1888,7 +1888,7 @@ Pituitary adenoma: Pituitary gland lies in close proximity to optic chiasm,tumor
 
 
 ---
-$QUIZ002$,
+$QUIZ002U$,
       "position" = 1,
       "status" = 'published',
       "updated_at" = now()
@@ -1905,7 +1905,7 @@ $QUIZ002$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-03', 'Primary Quiz 03', 'quiz',
-      $QUIZ003$# MRCEM Primary Question Bank - Quiz 03
+      $QUIZ003I$# MRCEM Primary Question Bank - Quiz 03
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -2419,14 +2419,14 @@ Note: Skin of ear lobule is innervated by greater auricular nerve (Sensory branc
 
 
 ---
-$QUIZ003$,
+$QUIZ003I$,
       false, 2, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 03',
       "type" = 'quiz',
-      "body" = $QUIZ003$# MRCEM Primary Question Bank - Quiz 03
+      "body" = $QUIZ003U$# MRCEM Primary Question Bank - Quiz 03
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -2940,7 +2940,7 @@ Note: Skin of ear lobule is innervated by greater auricular nerve (Sensory branc
 
 
 ---
-$QUIZ003$,
+$QUIZ003U$,
       "position" = 2,
       "status" = 'published',
       "updated_at" = now()
@@ -2957,7 +2957,7 @@ $QUIZ003$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-04', 'Primary Quiz 04', 'quiz',
-      $QUIZ004$# MRCEM Primary Question Bank - Quiz 04
+      $QUIZ004I$# MRCEM Primary Question Bank - Quiz 04
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -3451,14 +3451,14 @@ The inferior lobes of the left and right lungs are best auscultated in the back 
 
 
 ---
-$QUIZ004$,
+$QUIZ004I$,
       false, 3, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 04',
       "type" = 'quiz',
-      "body" = $QUIZ004$# MRCEM Primary Question Bank - Quiz 04
+      "body" = $QUIZ004U$# MRCEM Primary Question Bank - Quiz 04
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -3952,7 +3952,7 @@ The inferior lobes of the left and right lungs are best auscultated in the back 
 
 
 ---
-$QUIZ004$,
+$QUIZ004U$,
       "position" = 3,
       "status" = 'published',
       "updated_at" = now()
@@ -3969,7 +3969,7 @@ $QUIZ004$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-05', 'Primary Quiz 05', 'quiz',
-      $QUIZ005$# MRCEM Primary Question Bank - Quiz 05
+      $QUIZ005I$# MRCEM Primary Question Bank - Quiz 05
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -4338,14 +4338,14 @@ Lowest risk=ibuprofen Highest risk=piroxicam, ketorolac NSAIDs cause GERD by inh
 
 
 ---
-$QUIZ005$,
+$QUIZ005I$,
       false, 4, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 05',
       "type" = 'quiz',
-      "body" = $QUIZ005$# MRCEM Primary Question Bank - Quiz 05
+      "body" = $QUIZ005U$# MRCEM Primary Question Bank - Quiz 05
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -4714,7 +4714,7 @@ Lowest risk=ibuprofen Highest risk=piroxicam, ketorolac NSAIDs cause GERD by inh
 
 
 ---
-$QUIZ005$,
+$QUIZ005U$,
       "position" = 4,
       "status" = 'published',
       "updated_at" = now()
@@ -4731,7 +4731,7 @@ $QUIZ005$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-06', 'Primary Quiz 06', 'quiz',
-      $QUIZ006$# MRCEM Primary Question Bank - Quiz 06
+      $QUIZ006I$# MRCEM Primary Question Bank - Quiz 06
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -5160,14 +5160,14 @@ Atropa belladonna commonly known as deadly nightshade is a perennial herbaceous 
 
 
 ---
-$QUIZ006$,
+$QUIZ006I$,
       false, 5, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 06',
       "type" = 'quiz',
-      "body" = $QUIZ006$# MRCEM Primary Question Bank - Quiz 06
+      "body" = $QUIZ006U$# MRCEM Primary Question Bank - Quiz 06
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -5596,7 +5596,7 @@ Atropa belladonna commonly known as deadly nightshade is a perennial herbaceous 
 
 
 ---
-$QUIZ006$,
+$QUIZ006U$,
       "position" = 5,
       "status" = 'published',
       "updated_at" = now()
@@ -5613,7 +5613,7 @@ $QUIZ006$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-07', 'Primary Quiz 07', 'quiz',
-      $QUIZ007$# MRCEM Primary Question Bank - Quiz 07
+      $QUIZ007I$# MRCEM Primary Question Bank - Quiz 07
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -5958,14 +5958,14 @@ Conus medullaris lies at birth= L3 level By the age of 21= L1/L2
 
 
 ---
-$QUIZ007$,
+$QUIZ007I$,
       false, 6, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 07',
       "type" = 'quiz',
-      "body" = $QUIZ007$# MRCEM Primary Question Bank - Quiz 07
+      "body" = $QUIZ007U$# MRCEM Primary Question Bank - Quiz 07
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -6310,7 +6310,7 @@ Conus medullaris lies at birth= L3 level By the age of 21= L1/L2
 
 
 ---
-$QUIZ007$,
+$QUIZ007U$,
       "position" = 6,
       "status" = 'published',
       "updated_at" = now()
@@ -6327,7 +6327,7 @@ $QUIZ007$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-08', 'Primary Quiz 08', 'quiz',
-      $QUIZ008$# MRCEM Primary Question Bank - Quiz 08
+      $QUIZ008I$# MRCEM Primary Question Bank - Quiz 08
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -6657,14 +6657,14 @@ latissimus dorsi produces adduction, medial rotation and extension of humerus at
 
 
 ---
-$QUIZ008$,
+$QUIZ008I$,
       false, 7, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 08',
       "type" = 'quiz',
-      "body" = $QUIZ008$# MRCEM Primary Question Bank - Quiz 08
+      "body" = $QUIZ008U$# MRCEM Primary Question Bank - Quiz 08
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -6994,7 +6994,7 @@ latissimus dorsi produces adduction, medial rotation and extension of humerus at
 
 
 ---
-$QUIZ008$,
+$QUIZ008U$,
       "position" = 7,
       "status" = 'published',
       "updated_at" = now()
@@ -7011,7 +7011,7 @@ $QUIZ008$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-09', 'Primary Quiz 09', 'quiz',
-      $QUIZ009$# MRCEM Primary Question Bank - Quiz 09
+      $QUIZ009I$# MRCEM Primary Question Bank - Quiz 09
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -7473,14 +7473,14 @@ The pudendal nerve controls the external anal sphincter and is responsible for v
 
 
 ---
-$QUIZ009$,
+$QUIZ009I$,
       false, 8, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 09',
       "type" = 'quiz',
-      "body" = $QUIZ009$# MRCEM Primary Question Bank - Quiz 09
+      "body" = $QUIZ009U$# MRCEM Primary Question Bank - Quiz 09
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -7942,7 +7942,7 @@ The pudendal nerve controls the external anal sphincter and is responsible for v
 
 
 ---
-$QUIZ009$,
+$QUIZ009U$,
       "position" = 8,
       "status" = 'published',
       "updated_at" = now()
@@ -7959,7 +7959,7 @@ $QUIZ009$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-10', 'Primary Quiz 10', 'quiz',
-      $QUIZ010$# MRCEM Primary Question Bank - Quiz 10
+      $QUIZ010I$# MRCEM Primary Question Bank - Quiz 10
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -8337,14 +8337,14 @@ The structures that pass through the foramen s pinosum are:
 Meningeal branch of the mandibular nerve Middle meningeal artery Middle meningeal vein
 
 **Answer key, Quiz 10:** 1-B, 2-A, 3-D, 4-C, 5-D, 6-A, 7-D, 8-D, 9-E, 10-E, 11-C, 12-D, 13-D, 14-A, 15-E
-$QUIZ010$,
+$QUIZ010I$,
       false, 9, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 10',
       "type" = 'quiz',
-      "body" = $QUIZ010$# MRCEM Primary Question Bank - Quiz 10
+      "body" = $QUIZ010U$# MRCEM Primary Question Bank - Quiz 10
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -8722,7 +8722,7 @@ The structures that pass through the foramen s pinosum are:
 Meningeal branch of the mandibular nerve Middle meningeal artery Middle meningeal vein
 
 **Answer key, Quiz 10:** 1-B, 2-A, 3-D, 4-C, 5-D, 6-A, 7-D, 8-D, 9-E, 10-E, 11-C, 12-D, 13-D, 14-A, 15-E
-$QUIZ010$,
+$QUIZ010U$,
       "position" = 9,
       "status" = 'published',
       "updated_at" = now()
@@ -8753,7 +8753,7 @@ $QUIZ010$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-11', 'Primary Quiz 11', 'quiz',
-      $QUIZ011$# MRCEM Primary Question Bank - Quiz 11
+      $QUIZ011I$# MRCEM Primary Question Bank - Quiz 11
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -9164,14 +9164,14 @@ A patient with a known spinal cord ependymoma presents to his neurologist for a 
 
 **Correct Answer:** B
 
-$QUIZ011$,
+$QUIZ011I$,
       false, 0, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 11',
       "type" = 'quiz',
-      "body" = $QUIZ011$# MRCEM Primary Question Bank - Quiz 11
+      "body" = $QUIZ011U$# MRCEM Primary Question Bank - Quiz 11
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -9582,7 +9582,7 @@ A patient with a known spinal cord ependymoma presents to his neurologist for a 
 
 **Correct Answer:** B
 
-$QUIZ011$,
+$QUIZ011U$,
       "position" = 0,
       "status" = 'published',
       "updated_at" = now()
@@ -9599,7 +9599,7 @@ $QUIZ011$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-12', 'Primary Quiz 12', 'quiz',
-      $QUIZ012$# MRCEM Primary Question Bank - Quiz 12
+      $QUIZ012I$# MRCEM Primary Question Bank - Quiz 12
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -9969,14 +9969,14 @@ loop diuretic e.g.: furosemide inhibit the Na+k+2C L- symporter on luminal membr
 
 
 ---
-$QUIZ012$,
+$QUIZ012I$,
       false, 1, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 12',
       "type" = 'quiz',
-      "body" = $QUIZ012$# MRCEM Primary Question Bank - Quiz 12
+      "body" = $QUIZ012U$# MRCEM Primary Question Bank - Quiz 12
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -10346,7 +10346,7 @@ loop diuretic e.g.: furosemide inhibit the Na+k+2C L- symporter on luminal membr
 
 
 ---
-$QUIZ012$,
+$QUIZ012U$,
       "position" = 1,
       "status" = 'published',
       "updated_at" = now()
@@ -10363,7 +10363,7 @@ $QUIZ012$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-13', 'Primary Quiz 13', 'quiz',
-      $QUIZ013$# MRCEM Primary Question Bank - Quiz 13
+      $QUIZ013I$# MRCEM Primary Question Bank - Quiz 13
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -10688,14 +10688,14 @@ Note: lorazepam side effect=respiratory depression (RECALL). Should be used caut
 
 
 ---
-$QUIZ013$,
+$QUIZ013I$,
       false, 2, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 13',
       "type" = 'quiz',
-      "body" = $QUIZ013$# MRCEM Primary Question Bank - Quiz 13
+      "body" = $QUIZ013U$# MRCEM Primary Question Bank - Quiz 13
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -11020,7 +11020,7 @@ Note: lorazepam side effect=respiratory depression (RECALL). Should be used caut
 
 
 ---
-$QUIZ013$,
+$QUIZ013U$,
       "position" = 2,
       "status" = 'published',
       "updated_at" = now()
@@ -11037,7 +11037,7 @@ $QUIZ013$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-14', 'Primary Quiz 14', 'quiz',
-      $QUIZ014$# MRCEM Primary Question Bank - Quiz 14
+      $QUIZ014I$# MRCEM Primary Question Bank - Quiz 14
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -11390,14 +11390,14 @@ The medium-sized bronchi actually constitute th e site of highest resistance alo
 
 
 ---
-$QUIZ014$,
+$QUIZ014I$,
       false, 3, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 14',
       "type" = 'quiz',
-      "body" = $QUIZ014$# MRCEM Primary Question Bank - Quiz 14
+      "body" = $QUIZ014U$# MRCEM Primary Question Bank - Quiz 14
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -11750,7 +11750,7 @@ The medium-sized bronchi actually constitute th e site of highest resistance alo
 
 
 ---
-$QUIZ014$,
+$QUIZ014U$,
       "position" = 3,
       "status" = 'published',
       "updated_at" = now()
@@ -11767,7 +11767,7 @@ $QUIZ014$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-15', 'Primary Quiz 15', 'quiz',
-      $QUIZ015$# MRCEM Primary Question Bank - Quiz 15
+      $QUIZ015I$# MRCEM Primary Question Bank - Quiz 15
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -12121,14 +12121,14 @@ Ipratropium is an acetylcholine antagonist via blockade of muscarinic cholinergi
 
 
 ---
-$QUIZ015$,
+$QUIZ015I$,
       false, 4, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 15',
       "type" = 'quiz',
-      "body" = $QUIZ015$# MRCEM Primary Question Bank - Quiz 15
+      "body" = $QUIZ015U$# MRCEM Primary Question Bank - Quiz 15
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -12482,7 +12482,7 @@ Ipratropium is an acetylcholine antagonist via blockade of muscarinic cholinergi
 
 
 ---
-$QUIZ015$,
+$QUIZ015U$,
       "position" = 4,
       "status" = 'published',
       "updated_at" = now()
@@ -12499,7 +12499,7 @@ $QUIZ015$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-16', 'Primary Quiz 16', 'quiz',
-      $QUIZ016$# MRCEM Primary Question Bank - Quiz 16
+      $QUIZ016I$# MRCEM Primary Question Bank - Quiz 16
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -12901,14 +12901,14 @@ Camper's fascia is the most superficial fatty layer of the anterior abdominal wa
 
 
 ---
-$QUIZ016$,
+$QUIZ016I$,
       false, 5, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 16',
       "type" = 'quiz',
-      "body" = $QUIZ016$# MRCEM Primary Question Bank - Quiz 16
+      "body" = $QUIZ016U$# MRCEM Primary Question Bank - Quiz 16
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -13310,7 +13310,7 @@ Camper's fascia is the most superficial fatty layer of the anterior abdominal wa
 
 
 ---
-$QUIZ016$,
+$QUIZ016U$,
       "position" = 5,
       "status" = 'published',
       "updated_at" = now()
@@ -13327,7 +13327,7 @@ $QUIZ016$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-17', 'Primary Quiz 17', 'quiz',
-      $QUIZ017$# MRCEM Primary Question Bank - Quiz 17
+      $QUIZ017I$# MRCEM Primary Question Bank - Quiz 17
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -13726,14 +13726,14 @@ A 45-Year-old male suffered penetrating trauma to the parotid gland with facial 
 
 **Correct Answer:** D
 
-$QUIZ017$,
+$QUIZ017I$,
       false, 6, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 17',
       "type" = 'quiz',
-      "body" = $QUIZ017$# MRCEM Primary Question Bank - Quiz 17
+      "body" = $QUIZ017U$# MRCEM Primary Question Bank - Quiz 17
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -14132,7 +14132,7 @@ A 45-Year-old male suffered penetrating trauma to the parotid gland with facial 
 
 **Correct Answer:** D
 
-$QUIZ017$,
+$QUIZ017U$,
       "position" = 6,
       "status" = 'published',
       "updated_at" = now()
@@ -14149,7 +14149,7 @@ $QUIZ017$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-18', 'Primary Quiz 18', 'quiz',
-      $QUIZ018$# MRCEM Primary Question Bank - Quiz 18
+      $QUIZ018I$# MRCEM Primary Question Bank - Quiz 18
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -14566,14 +14566,14 @@ Metabolic alkalosis is associated with hypoventilation and hypokalemia (Recall).
 
 
 ---
-$QUIZ018$,
+$QUIZ018I$,
       false, 7, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 18',
       "type" = 'quiz',
-      "body" = $QUIZ018$# MRCEM Primary Question Bank - Quiz 18
+      "body" = $QUIZ018U$# MRCEM Primary Question Bank - Quiz 18
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -14990,7 +14990,7 @@ Metabolic alkalosis is associated with hypoventilation and hypokalemia (Recall).
 
 
 ---
-$QUIZ018$,
+$QUIZ018U$,
       "position" = 7,
       "status" = 'published',
       "updated_at" = now()
@@ -15007,7 +15007,7 @@ $QUIZ018$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-19', 'Primary Quiz 19', 'quiz',
-      $QUIZ019$# MRCEM Primary Question Bank - Quiz 19
+      $QUIZ019I$# MRCEM Primary Question Bank - Quiz 19
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -15423,14 +15423,14 @@ Doxycycline is used as prophylaxis for malaria who travel to countries with exte
 
 
 ---
-$QUIZ019$,
+$QUIZ019I$,
       false, 8, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 19',
       "type" = 'quiz',
-      "body" = $QUIZ019$# MRCEM Primary Question Bank - Quiz 19
+      "body" = $QUIZ019U$# MRCEM Primary Question Bank - Quiz 19
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -15846,7 +15846,7 @@ Doxycycline is used as prophylaxis for malaria who travel to countries with exte
 
 
 ---
-$QUIZ019$,
+$QUIZ019U$,
       "position" = 8,
       "status" = 'published',
       "updated_at" = now()
@@ -15863,7 +15863,7 @@ $QUIZ019$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-20', 'Primary Quiz 20', 'quiz',
-      $QUIZ020$# MRCEM Primary Question Bank - Quiz 20
+      $QUIZ020I$# MRCEM Primary Question Bank - Quiz 20
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -16282,14 +16282,14 @@ Patients are considered infectious for 3 days before the rash emerges and are ad
 Note: Regarding rubella: Patients are infectious from 7 days before the rash appears and until 4 days after the rash appears (Recall)
 
 **Answer key, Quiz 20:** 1-B, 2-C, 3-D, 4-E, 5-B, 6-D, 7-D, 8-E, 9-C, 10-B, 11-A, 12-E, 13-B, 14-C, 15-E
-$QUIZ020$,
+$QUIZ020I$,
       false, 9, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 20',
       "type" = 'quiz',
-      "body" = $QUIZ020$# MRCEM Primary Question Bank - Quiz 20
+      "body" = $QUIZ020U$# MRCEM Primary Question Bank - Quiz 20
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -16708,7 +16708,7 @@ Patients are considered infectious for 3 days before the rash emerges and are ad
 Note: Regarding rubella: Patients are infectious from 7 days before the rash appears and until 4 days after the rash appears (Recall)
 
 **Answer key, Quiz 20:** 1-B, 2-C, 3-D, 4-E, 5-B, 6-D, 7-D, 8-E, 9-C, 10-B, 11-A, 12-E, 13-B, 14-C, 15-E
-$QUIZ020$,
+$QUIZ020U$,
       "position" = 9,
       "status" = 'published',
       "updated_at" = now()
@@ -16739,7 +16739,7 @@ $QUIZ020$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-21', 'Primary Quiz 21', 'quiz',
-      $QUIZ021$# MRCEM Primary Question Bank - Quiz 21
+      $QUIZ021I$# MRCEM Primary Question Bank - Quiz 21
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -17097,14 +17097,14 @@ Burns initially cause capillary leakage resulting in severe hypovolemia and mass
 
 
 ---
-$QUIZ021$,
+$QUIZ021I$,
       false, 0, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 21',
       "type" = 'quiz',
-      "body" = $QUIZ021$# MRCEM Primary Question Bank - Quiz 21
+      "body" = $QUIZ021U$# MRCEM Primary Question Bank - Quiz 21
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -17462,7 +17462,7 @@ Burns initially cause capillary leakage resulting in severe hypovolemia and mass
 
 
 ---
-$QUIZ021$,
+$QUIZ021U$,
       "position" = 0,
       "status" = 'published',
       "updated_at" = now()
@@ -17479,7 +17479,7 @@ $QUIZ021$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-22', 'Primary Quiz 22', 'quiz',
-      $QUIZ022$# MRCEM Primary Question Bank - Quiz 22
+      $QUIZ022I$# MRCEM Primary Question Bank - Quiz 22
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -17838,14 +17838,14 @@ What pathway is most important for the primary haemostasis of this wound?
 **Explanation:**
 
 von Willebrand factor (vWF) is essential for primary haemostasis -- it bridges between collagen at the site of vascular injury and platelet GPIb receptors, enabling platelet adhesion. vWF also carries and protects Factor VIII from premature degradation. vWD (von Willebrand Disease) is the most common inherited bleeding disorder.
-$QUIZ022$,
+$QUIZ022I$,
       false, 1, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 22',
       "type" = 'quiz',
-      "body" = $QUIZ022$# MRCEM Primary Question Bank - Quiz 22
+      "body" = $QUIZ022U$# MRCEM Primary Question Bank - Quiz 22
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -18204,7 +18204,7 @@ What pathway is most important for the primary haemostasis of this wound?
 **Explanation:**
 
 von Willebrand factor (vWF) is essential for primary haemostasis -- it bridges between collagen at the site of vascular injury and platelet GPIb receptors, enabling platelet adhesion. vWF also carries and protects Factor VIII from premature degradation. vWD (von Willebrand Disease) is the most common inherited bleeding disorder.
-$QUIZ022$,
+$QUIZ022U$,
       "position" = 1,
       "status" = 'published',
       "updated_at" = now()
@@ -18221,7 +18221,7 @@ $QUIZ022$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-23', 'Primary Quiz 23', 'quiz',
-      $QUIZ023$# MRCEM Primary Question Bank - Quiz 23
+      $QUIZ023I$# MRCEM Primary Question Bank - Quiz 23
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -18618,14 +18618,14 @@ Sensory functions: Supplies cutaneous branches to the anteromedial thigh (Recall
 
 
 ---
-$QUIZ023$,
+$QUIZ023I$,
       false, 2, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 23',
       "type" = 'quiz',
-      "body" = $QUIZ023$# MRCEM Primary Question Bank - Quiz 23
+      "body" = $QUIZ023U$# MRCEM Primary Question Bank - Quiz 23
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -19022,7 +19022,7 @@ Sensory functions: Supplies cutaneous branches to the anteromedial thigh (Recall
 
 
 ---
-$QUIZ023$,
+$QUIZ023U$,
       "position" = 2,
       "status" = 'published',
       "updated_at" = now()
@@ -19039,7 +19039,7 @@ $QUIZ023$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-24', 'Primary Quiz 24', 'quiz',
-      $QUIZ024$# MRCEM Primary Question Bank - Quiz 24
+      $QUIZ024I$# MRCEM Primary Question Bank - Quiz 24
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -19340,14 +19340,14 @@ Regarding Einthoven's triangle, which one following show maximum deflection duri
 
 **Correct Answer:** A
 
-$QUIZ024$,
+$QUIZ024I$,
       false, 3, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 24',
       "type" = 'quiz',
-      "body" = $QUIZ024$# MRCEM Primary Question Bank - Quiz 24
+      "body" = $QUIZ024U$# MRCEM Primary Question Bank - Quiz 24
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -19648,7 +19648,7 @@ Regarding Einthoven's triangle, which one following show maximum deflection duri
 
 **Correct Answer:** A
 
-$QUIZ024$,
+$QUIZ024U$,
       "position" = 3,
       "status" = 'published',
       "updated_at" = now()
@@ -19665,7 +19665,7 @@ $QUIZ024$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-25', 'Primary Quiz 25', 'quiz',
-      $QUIZ025$# MRCEM Primary Question Bank - Quiz 25
+      $QUIZ025I$# MRCEM Primary Question Bank - Quiz 25
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -20062,14 +20062,14 @@ A 50 years old male with history of RTA brought into the ED in Shock. After init
 
 **Correct Answer:** D
 
-$QUIZ025$,
+$QUIZ025I$,
       false, 4, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 25',
       "type" = 'quiz',
-      "body" = $QUIZ025$# MRCEM Primary Question Bank - Quiz 25
+      "body" = $QUIZ025U$# MRCEM Primary Question Bank - Quiz 25
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -20466,7 +20466,7 @@ A 50 years old male with history of RTA brought into the ED in Shock. After init
 
 **Correct Answer:** D
 
-$QUIZ025$,
+$QUIZ025U$,
       "position" = 4,
       "status" = 'published',
       "updated_at" = now()
@@ -20483,7 +20483,7 @@ $QUIZ025$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-26', 'Primary Quiz 26', 'quiz',
-      $QUIZ026$# MRCEM Primary Question Bank - Quiz 26
+      $QUIZ026I$# MRCEM Primary Question Bank - Quiz 26
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -20839,14 +20839,14 @@ Lateral end is displaced inferiorly by the weight o f the arm and displaced medi
 
 
 ---
-$QUIZ026$,
+$QUIZ026I$,
       false, 5, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 26',
       "type" = 'quiz',
-      "body" = $QUIZ026$# MRCEM Primary Question Bank - Quiz 26
+      "body" = $QUIZ026U$# MRCEM Primary Question Bank - Quiz 26
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -21202,7 +21202,7 @@ Lateral end is displaced inferiorly by the weight o f the arm and displaced medi
 
 
 ---
-$QUIZ026$,
+$QUIZ026U$,
       "position" = 5,
       "status" = 'published',
       "updated_at" = now()
@@ -21219,7 +21219,7 @@ $QUIZ026$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-27', 'Primary Quiz 27', 'quiz',
-      $QUIZ027$# MRCEM Primary Question Bank - Quiz 27
+      $QUIZ027I$# MRCEM Primary Question Bank - Quiz 27
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -21848,14 +21848,14 @@ Boundaries and contents of popliteal fossa
 
 
 ---
-$QUIZ027$,
+$QUIZ027I$,
       false, 6, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 27',
       "type" = 'quiz',
-      "body" = $QUIZ027$# MRCEM Primary Question Bank - Quiz 27
+      "body" = $QUIZ027U$# MRCEM Primary Question Bank - Quiz 27
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -22484,7 +22484,7 @@ Boundaries and contents of popliteal fossa
 
 
 ---
-$QUIZ027$,
+$QUIZ027U$,
       "position" = 6,
       "status" = 'published',
       "updated_at" = now()
@@ -22501,7 +22501,7 @@ $QUIZ027$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-28', 'Primary Quiz 28', 'quiz',
-      $QUIZ028$# MRCEM Primary Question Bank - Quiz 28
+      $QUIZ028I$# MRCEM Primary Question Bank - Quiz 28
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -22899,14 +22899,14 @@ The normal A-a gradient is between 0- and 10m m Hg. Since O2 normally equilibrat
 
 
 ---
-$QUIZ028$,
+$QUIZ028I$,
       false, 7, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 28',
       "type" = 'quiz',
-      "body" = $QUIZ028$# MRCEM Primary Question Bank - Quiz 28
+      "body" = $QUIZ028U$# MRCEM Primary Question Bank - Quiz 28
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -23304,7 +23304,7 @@ The normal A-a gradient is between 0- and 10m m Hg. Since O2 normally equilibrat
 
 
 ---
-$QUIZ028$,
+$QUIZ028U$,
       "position" = 7,
       "status" = 'published',
       "updated_at" = now()
@@ -23321,7 +23321,7 @@ $QUIZ028$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-29', 'Primary Quiz 29', 'quiz',
-      $QUIZ029$# MRCEM Primary Question Bank - Quiz 29
+      $QUIZ029I$# MRCEM Primary Question Bank - Quiz 29
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -23803,14 +23803,14 @@ Thiazide diuretics increase Ca reabsorption in the early distal tubule and there
 
 
 ---
-$QUIZ029$,
+$QUIZ029I$,
       false, 8, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 29',
       "type" = 'quiz',
-      "body" = $QUIZ029$# MRCEM Primary Question Bank - Quiz 29
+      "body" = $QUIZ029U$# MRCEM Primary Question Bank - Quiz 29
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -24292,7 +24292,7 @@ Thiazide diuretics increase Ca reabsorption in the early distal tubule and there
 
 
 ---
-$QUIZ029$,
+$QUIZ029U$,
       "position" = 8,
       "status" = 'published',
       "updated_at" = now()
@@ -24309,7 +24309,7 @@ $QUIZ029$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-30', 'Primary Quiz 30', 'quiz',
-      $QUIZ030$# MRCEM Primary Question Bank - Quiz 30
+      $QUIZ030I$# MRCEM Primary Question Bank - Quiz 30
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -24777,14 +24777,14 @@ Loss to follow-up: those that are lost to follow-up or who withdraw from the stu
 3: Confounding: Results when the risk factor being studied is so mixed up with other possible risk factors that its single effect is very difficult to distinguish.
 
 **Answer key, Quiz 30:** 1-E, 2-E, 3-D, 4-C, 5-E, 6-D, 7-B, 8-E, 9-D, 10-C, 11-C, 12-C, 13-D, 14-B, 15-A
-$QUIZ030$,
+$QUIZ030I$,
       false, 9, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 30',
       "type" = 'quiz',
-      "body" = $QUIZ030$# MRCEM Primary Question Bank - Quiz 30
+      "body" = $QUIZ030U$# MRCEM Primary Question Bank - Quiz 30
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -25252,7 +25252,7 @@ Loss to follow-up: those that are lost to follow-up or who withdraw from the stu
 3: Confounding: Results when the risk factor being studied is so mixed up with other possible risk factors that its single effect is very difficult to distinguish.
 
 **Answer key, Quiz 30:** 1-E, 2-E, 3-D, 4-C, 5-E, 6-D, 7-B, 8-E, 9-D, 10-C, 11-C, 12-C, 13-D, 14-B, 15-A
-$QUIZ030$,
+$QUIZ030U$,
       "position" = 9,
       "status" = 'published',
       "updated_at" = now()
@@ -25283,7 +25283,7 @@ $QUIZ030$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-31', 'Primary Quiz 31', 'quiz',
-      $QUIZ031$# MRCEM Primary Question Bank - Quiz 31
+      $QUIZ031I$# MRCEM Primary Question Bank - Quiz 31
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -25723,14 +25723,14 @@ L3: Medial knee (Medial femoral condyle) L4: Medial malleolus, Medial surface of
 
 
 ---
-$QUIZ031$,
+$QUIZ031I$,
       false, 0, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 31',
       "type" = 'quiz',
-      "body" = $QUIZ031$# MRCEM Primary Question Bank - Quiz 31
+      "body" = $QUIZ031U$# MRCEM Primary Question Bank - Quiz 31
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -26170,7 +26170,7 @@ L3: Medial knee (Medial femoral condyle) L4: Medial malleolus, Medial surface of
 
 
 ---
-$QUIZ031$,
+$QUIZ031U$,
       "position" = 0,
       "status" = 'published',
       "updated_at" = now()
@@ -26187,7 +26187,7 @@ $QUIZ031$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-32', 'Primary Quiz 32', 'quiz',
-      $QUIZ032$# MRCEM Primary Question Bank - Quiz 32
+      $QUIZ032I$# MRCEM Primary Question Bank - Quiz 32
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -26694,14 +26694,14 @@ Note: Sub-costal nerve: (T12) Largest thoracic spinal nerve originates from ante
 
 
 ---
-$QUIZ032$,
+$QUIZ032I$,
       false, 1, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 32',
       "type" = 'quiz',
-      "body" = $QUIZ032$# MRCEM Primary Question Bank - Quiz 32
+      "body" = $QUIZ032U$# MRCEM Primary Question Bank - Quiz 32
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -27208,7 +27208,7 @@ Note: Sub-costal nerve: (T12) Largest thoracic spinal nerve originates from ante
 
 
 ---
-$QUIZ032$,
+$QUIZ032U$,
       "position" = 1,
       "status" = 'published',
       "updated_at" = now()
@@ -27225,7 +27225,7 @@ $QUIZ032$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-33', 'Primary Quiz 33', 'quiz',
-      $QUIZ033$# MRCEM Primary Question Bank - Quiz 33
+      $QUIZ033I$# MRCEM Primary Question Bank - Quiz 33
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -27806,14 +27806,14 @@ Cytochrome P450 enzyme inducer drugs increase rate of metabolism and hepatic cle
 
 
 ---
-$QUIZ033$,
+$QUIZ033I$,
       false, 2, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 33',
       "type" = 'quiz',
-      "body" = $QUIZ033$# MRCEM Primary Question Bank - Quiz 33
+      "body" = $QUIZ033U$# MRCEM Primary Question Bank - Quiz 33
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -28394,7 +28394,7 @@ Cytochrome P450 enzyme inducer drugs increase rate of metabolism and hepatic cle
 
 
 ---
-$QUIZ033$,
+$QUIZ033U$,
       "position" = 2,
       "status" = 'published',
       "updated_at" = now()
@@ -28411,7 +28411,7 @@ $QUIZ033$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-34', 'Primary Quiz 34', 'quiz',
-      $QUIZ034$# MRCEM Primary Question Bank - Quiz 34
+      $QUIZ034I$# MRCEM Primary Question Bank - Quiz 34
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -29000,14 +29000,14 @@ High Yield:
 
 
 ---
-$QUIZ034$,
+$QUIZ034I$,
       false, 3, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 34',
       "type" = 'quiz',
-      "body" = $QUIZ034$# MRCEM Primary Question Bank - Quiz 34
+      "body" = $QUIZ034U$# MRCEM Primary Question Bank - Quiz 34
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -29596,7 +29596,7 @@ High Yield:
 
 
 ---
-$QUIZ034$,
+$QUIZ034U$,
       "position" = 3,
       "status" = 'published',
       "updated_at" = now()
@@ -29613,7 +29613,7 @@ $QUIZ034$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-35', 'Primary Quiz 35', 'quiz',
-      $QUIZ035$# MRCEM Primary Question Bank - Quiz 35
+      $QUIZ035I$# MRCEM Primary Question Bank - Quiz 35
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -30082,14 +30082,14 @@ Reduced blood glucose Fasting Sympathetic stimulation Somatostatin
 
 
 ---
-$QUIZ035$,
+$QUIZ035I$,
       false, 4, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 35',
       "type" = 'quiz',
-      "body" = $QUIZ035$# MRCEM Primary Question Bank - Quiz 35
+      "body" = $QUIZ035U$# MRCEM Primary Question Bank - Quiz 35
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -30558,7 +30558,7 @@ Reduced blood glucose Fasting Sympathetic stimulation Somatostatin
 
 
 ---
-$QUIZ035$,
+$QUIZ035U$,
       "position" = 4,
       "status" = 'published',
       "updated_at" = now()
@@ -30575,7 +30575,7 @@ $QUIZ035$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-36', 'Primary Quiz 36', 'quiz',
-      $QUIZ036$# MRCEM Primary Question Bank - Quiz 36
+      $QUIZ036I$# MRCEM Primary Question Bank - Quiz 36
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -31061,14 +31061,14 @@ High Yield:
 
 
 ---
-$QUIZ036$,
+$QUIZ036I$,
       false, 5, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 36',
       "type" = 'quiz',
-      "body" = $QUIZ036$# MRCEM Primary Question Bank - Quiz 36
+      "body" = $QUIZ036U$# MRCEM Primary Question Bank - Quiz 36
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -31554,7 +31554,7 @@ High Yield:
 
 
 ---
-$QUIZ036$,
+$QUIZ036U$,
       "position" = 5,
       "status" = 'published',
       "updated_at" = now()
@@ -31571,7 +31571,7 @@ $QUIZ036$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-37', 'Primary Quiz 37', 'quiz',
-      $QUIZ037$# MRCEM Primary Question Bank - Quiz 37
+      $QUIZ037I$# MRCEM Primary Question Bank - Quiz 37
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -32026,14 +32026,14 @@ Lowest risk=ibuprofen (Safest NSAID) Intermediate risk: Aspirin, naproxen Highes
 
 
 ---
-$QUIZ037$,
+$QUIZ037I$,
       false, 6, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 37',
       "type" = 'quiz',
-      "body" = $QUIZ037$# MRCEM Primary Question Bank - Quiz 37
+      "body" = $QUIZ037U$# MRCEM Primary Question Bank - Quiz 37
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -32488,7 +32488,7 @@ Lowest risk=ibuprofen (Safest NSAID) Intermediate risk: Aspirin, naproxen Highes
 
 
 ---
-$QUIZ037$,
+$QUIZ037U$,
       "position" = 6,
       "status" = 'published',
       "updated_at" = now()
@@ -32505,7 +32505,7 @@ $QUIZ037$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-38', 'Primary Quiz 38', 'quiz',
-      $QUIZ038$# MRCEM Primary Question Bank - Quiz 38
+      $QUIZ038I$# MRCEM Primary Question Bank - Quiz 38
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -32929,14 +32929,14 @@ Note: Greater trochanter of femur is site of insertion of gluteus Medius, gluteu
 
 
 ---
-$QUIZ038$,
+$QUIZ038I$,
       false, 7, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 38',
       "type" = 'quiz',
-      "body" = $QUIZ038$# MRCEM Primary Question Bank - Quiz 38
+      "body" = $QUIZ038U$# MRCEM Primary Question Bank - Quiz 38
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -33360,7 +33360,7 @@ Note: Greater trochanter of femur is site of insertion of gluteus Medius, gluteu
 
 
 ---
-$QUIZ038$,
+$QUIZ038U$,
       "position" = 7,
       "status" = 'published',
       "updated_at" = now()
@@ -33377,7 +33377,7 @@ $QUIZ038$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-39', 'Primary Quiz 39', 'quiz',
-      $QUIZ039$# MRCEM Primary Question Bank - Quiz 39
+      $QUIZ039I$# MRCEM Primary Question Bank - Quiz 39
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -33720,14 +33720,14 @@ Ape hand= median nerve
 
 
 ---
-$QUIZ039$,
+$QUIZ039I$,
       false, 8, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 39',
       "type" = 'quiz',
-      "body" = $QUIZ039$# MRCEM Primary Question Bank - Quiz 39
+      "body" = $QUIZ039U$# MRCEM Primary Question Bank - Quiz 39
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -34070,7 +34070,7 @@ Ape hand= median nerve
 
 
 ---
-$QUIZ039$,
+$QUIZ039U$,
       "position" = 8,
       "status" = 'published',
       "updated_at" = now()
@@ -34087,7 +34087,7 @@ $QUIZ039$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-40', 'Primary Quiz 40', 'quiz',
-      $QUIZ040$# MRCEM Primary Question Bank - Quiz 40
+      $QUIZ040I$# MRCEM Primary Question Bank - Quiz 40
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -34476,14 +34476,14 @@ Creatinine ^ (Acute kidney injury)
 Hyperkalemia Hypotension
 
 **Answer key, Quiz 40:** 1-E, 2-B, 3-D, 4-A, 5-C, 6-D, 7-A, 8-E, 9-E, 10-A, 11-C, 12-A, 13-B, 14-E, 15-D
-$QUIZ040$,
+$QUIZ040I$,
       false, 9, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 40',
       "type" = 'quiz',
-      "body" = $QUIZ040$# MRCEM Primary Question Bank - Quiz 40
+      "body" = $QUIZ040U$# MRCEM Primary Question Bank - Quiz 40
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -34872,7 +34872,7 @@ Creatinine ^ (Acute kidney injury)
 Hyperkalemia Hypotension
 
 **Answer key, Quiz 40:** 1-E, 2-B, 3-D, 4-A, 5-C, 6-D, 7-A, 8-E, 9-E, 10-A, 11-C, 12-A, 13-B, 14-E, 15-D
-$QUIZ040$,
+$QUIZ040U$,
       "position" = 9,
       "status" = 'published',
       "updated_at" = now()
@@ -34889,7 +34889,7 @@ $QUIZ040$,
       "is_free_preview", "position", "status", "created_at", "updated_at"
     ) VALUES (
       gen_random_uuid(), v_module_id, 'primary-quiz-41', 'Primary Quiz 41', 'quiz',
-      $QUIZ041$# MRCEM Primary Question Bank - Quiz 41
+      $QUIZ041I$# MRCEM Primary Question Bank - Quiz 41
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -35067,14 +35067,14 @@ A 60-year-old man with a history of hepatitis C presents with hematemesis and ab
 In cirrhosis, the normal liver architecture is replaced by fibrous tissue and regenerative nodules. This disrupts the blood flow through the hepatic sinusoids, leading to increased intrahepatic vascular resistance. As a result, the portal vein pressure rises, causing portal hypertension. To compensate this body forms portosystemic collateral vessels (abnormal vascular channels that divert bloo d from the high-pressure portal system to lower-pressure systemic veins). These include esophageal and gastric varices, which are fragile and prone to rupture, leading to hematemesis. Additionally, increased hydrostatic pressure in the splanchnic circulation promotes the leakage of fluid into the peritoneal cavity, resulting in ascites. Compounding this, splanchnic vasodilation and hypoalbuminemia (due to impaired liver synthesis) contribute to further third-spacing of fluid. This entire process is a hallmark of intrahepatic portal hypertension and is most commonly seen in patient s with chronic liver disease such as hepatitis C or alcohol-related liver damage.
 
 **Answer key, Quiz 41:** 1-A, 2-C, 3-C, 4-A, 5-C, 6-C, 7-B
-$QUIZ041$,
+$QUIZ041I$,
       false, 0, 'published', now(), now()
     );
   ELSE
     UPDATE "lessons" SET
       "title" = 'Primary Quiz 41',
       "type" = 'quiz',
-      "body" = $QUIZ041$# MRCEM Primary Question Bank - Quiz 41
+      "body" = $QUIZ041U$# MRCEM Primary Question Bank - Quiz 41
 
 > [!NOTE]
 > **Instructions:** Single best answer questions from the MRCEM Primary Basic Sciences Question Bank. Select the single best answer before reviewing the detailed rationale.
@@ -35252,7 +35252,7 @@ A 60-year-old man with a history of hepatitis C presents with hematemesis and ab
 In cirrhosis, the normal liver architecture is replaced by fibrous tissue and regenerative nodules. This disrupts the blood flow through the hepatic sinusoids, leading to increased intrahepatic vascular resistance. As a result, the portal vein pressure rises, causing portal hypertension. To compensate this body forms portosystemic collateral vessels (abnormal vascular channels that divert bloo d from the high-pressure portal system to lower-pressure systemic veins). These include esophageal and gastric varices, which are fragile and prone to rupture, leading to hematemesis. Additionally, increased hydrostatic pressure in the splanchnic circulation promotes the leakage of fluid into the peritoneal cavity, resulting in ascites. Compounding this, splanchnic vasodilation and hypoalbuminemia (due to impaired liver synthesis) contribute to further third-spacing of fluid. This entire process is a hallmark of intrahepatic portal hypertension and is most commonly seen in patient s with chronic liver disease such as hepatitis C or alcohol-related liver damage.
 
 **Answer key, Quiz 41:** 1-A, 2-C, 3-C, 4-A, 5-C, 6-C, 7-B
-$QUIZ041$,
+$QUIZ041U$,
       "position" = 0,
       "status" = 'published',
       "updated_at" = now()
