@@ -33,6 +33,7 @@ export default function LessonPage() {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   const allLessons = course.data?.modules.flatMap((m) => m.lessons) ?? [];
+  const allQuizzes = useMemo(() => allLessons.filter(checkIsQuiz), [allLessons]);
   const currentIndex = allLessons.findIndex((l) => l.id === lessonId || l.slug === lessonId);
   const prevLesson = currentIndex > 0 ? allLessons[currentIndex - 1] : null;
   const nextLesson = currentIndex >= 0 && currentIndex < allLessons.length - 1 ? allLessons[currentIndex + 1] : null;
@@ -114,7 +115,6 @@ export default function LessonPage() {
   const isPdf = type === 'pdf' || mime === 'application/pdf';
 
   const isQuiz = type === 'quiz' || hasInteractiveQuiz || checkIsQuiz({ type, title, slug: lessonData?.slug || lessonId });
-  const allQuizzes = useMemo(() => allLessons.filter(checkIsQuiz), [allLessons]);
 
   // Dedicated quiz check: ONLY dedicated quiz sets (quizzes, mocks, papers), not clinical theory articles with a mini knowledge-check
   const isDedicatedQuiz =
