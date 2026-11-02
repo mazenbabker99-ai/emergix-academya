@@ -1,0 +1,3420 @@
+{
+  "cardiology/atrial-arrhythmias": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/atrial-arrhythmias/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "cardiology/atrial-septal-defect": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/atrial-septal-defect/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 65833,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/atrial-septal-defect/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 13247,
+      "width": 488,
+      "height": 497
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/atrial-septal-defect/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "cardiology/atrial-fibrillation": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/atrial-fibrillation/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 29835,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/atrial-fibrillation/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 94329,
+      "width": 1056,
+      "height": 511
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/atrial-fibrillation/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 9259,
+      "width": 215,
+      "height": 214
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/atrial-fibrillation/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 10147,
+      "width": 309,
+      "height": 217
+    },
+    {
+      "filename": "figure_05_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/atrial-fibrillation/figure_05_p6.jpeg",
+      "page": 6,
+      "size_bytes": 62674,
+      "width": 6127,
+      "height": 592
+    },
+    {
+      "filename": "figure_06_p7.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/atrial-fibrillation/figure_06_p7.jpeg",
+      "page": 7,
+      "size_bytes": 27852,
+      "width": 6127,
+      "height": 236
+    }
+  ],
+  "cardiology/axis-interpretation": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/axis-interpretation/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 32483,
+      "width": 779,
+      "height": 735
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/axis-interpretation/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 52514,
+      "width": 1362,
+      "height": 482
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/axis-interpretation/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 70654,
+      "width": 1026,
+      "height": 435
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/axis-interpretation/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 46018,
+      "width": 1154,
+      "height": 463
+    },
+    {
+      "filename": "figure_05_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/axis-interpretation/figure_05_p6.jpeg",
+      "page": 6,
+      "size_bytes": 14464,
+      "width": 6133,
+      "height": 136
+    },
+    {
+      "filename": "figure_06_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/axis-interpretation/figure_06_p6.jpeg",
+      "page": 6,
+      "size_bytes": 74800,
+      "width": 1047,
+      "height": 480
+    },
+    {
+      "filename": "figure_07_p7.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/axis-interpretation/figure_07_p7.jpeg",
+      "page": 7,
+      "size_bytes": 71011,
+      "width": 6127,
+      "height": 698
+    }
+  ],
+  "cardiology/bifascicular-trifascicular-block": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/bifascicular-trifascicular-block/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 213744,
+      "width": 2176,
+      "height": 1648
+    },
+    {
+      "filename": "figure_02_p2.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/bifascicular-trifascicular-block/figure_02_p2.jpeg",
+      "page": 2,
+      "size_bytes": 140633,
+      "width": 1398,
+      "height": 561
+    },
+    {
+      "filename": "figure_03_p3.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/bifascicular-trifascicular-block/figure_03_p3.jpeg",
+      "page": 3,
+      "size_bytes": 143772,
+      "width": 1398,
+      "height": 552
+    },
+    {
+      "filename": "figure_04_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/bifascicular-trifascicular-block/figure_04_p4.jpeg",
+      "page": 4,
+      "size_bytes": 122545,
+      "width": 1409,
+      "height": 561
+    },
+    {
+      "filename": "figure_05_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/bifascicular-trifascicular-block/figure_05_p5.jpeg",
+      "page": 5,
+      "size_bytes": 118063,
+      "width": 1398,
+      "height": 561
+    },
+    {
+      "filename": "figure_06_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/bifascicular-trifascicular-block/figure_06_p5.jpeg",
+      "page": 5,
+      "size_bytes": 159264,
+      "width": 1398,
+      "height": 561
+    },
+    {
+      "filename": "figure_07_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/bifascicular-trifascicular-block/figure_07_p6.jpeg",
+      "page": 6,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "cardiology/bradycardia": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/bradycardia/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 36053,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p10.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/bradycardia/figure_02_p10.jpeg",
+      "page": 10,
+      "size_bytes": 85939,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "cardiology/cardiogenic-pulmonary-edema": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/cardiogenic-pulmonary-edema/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 71324,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/cardiogenic-pulmonary-edema/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 34751,
+      "width": 913,
+      "height": 505
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/cardiogenic-pulmonary-edema/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 74007,
+      "width": 1548,
+      "height": 728
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/cardiogenic-pulmonary-edema/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 13257,
+      "width": 522,
+      "height": 451
+    },
+    {
+      "filename": "figure_05_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/cardiogenic-pulmonary-edema/figure_05_p6.jpeg",
+      "page": 6,
+      "size_bytes": 10067,
+      "width": 312,
+      "height": 264
+    },
+    {
+      "filename": "figure_06_p7.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/cardiogenic-pulmonary-edema/figure_06_p7.jpeg",
+      "page": 7,
+      "size_bytes": 85657,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "cardiology/congenital-heart-disease": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/congenital-heart-disease/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 104395,
+      "width": 1280,
+      "height": 643
+    },
+    {
+      "filename": "figure_02_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/congenital-heart-disease/figure_02_p6.jpeg",
+      "page": 6,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "cardiology/endocarditis": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/endocarditis/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 41146,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/endocarditis/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 12591,
+      "width": 279,
+      "height": 308
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/endocarditis/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "cardiology/hypertensive-emergency": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/hypertensive-emergency/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 55941,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/hypertensive-emergency/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 37339,
+      "width": 739,
+      "height": 404
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/hypertensive-emergency/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "cardiology/hypertension-pregnancy": [
+    {
+      "filename": "figure_01_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/hypertension-pregnancy/figure_01_p5.jpeg",
+      "page": 5,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "cardiology/left-right-bundle-branch-block": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-right-bundle-branch-block/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 51480,
+      "width": 957,
+      "height": 597
+    },
+    {
+      "filename": "figure_02_p2.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-right-bundle-branch-block/figure_02_p2.jpeg",
+      "page": 2,
+      "size_bytes": 286785,
+      "width": 2176,
+      "height": 1366
+    },
+    {
+      "filename": "figure_03_p3.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-right-bundle-branch-block/figure_03_p3.jpeg",
+      "page": 3,
+      "size_bytes": 97100,
+      "width": 998,
+      "height": 979
+    },
+    {
+      "filename": "figure_04_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-right-bundle-branch-block/figure_04_p4.jpeg",
+      "page": 4,
+      "size_bytes": 83308,
+      "width": 1216,
+      "height": 490
+    },
+    {
+      "filename": "figure_05_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-right-bundle-branch-block/figure_05_p5.jpeg",
+      "page": 5,
+      "size_bytes": 90217,
+      "width": 1054,
+      "height": 477
+    },
+    {
+      "filename": "figure_06_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-right-bundle-branch-block/figure_06_p6.jpeg",
+      "page": 6,
+      "size_bytes": 85774,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_07_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-right-bundle-branch-block/figure_07_p6.jpeg",
+      "page": 6,
+      "size_bytes": 123240,
+      "width": 1248,
+      "height": 490
+    }
+  ],
+  "cardiology/left-anterior-posterior-fascicular-block": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-anterior-posterior-fascicular-block/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 202214,
+      "width": 1280,
+      "height": 1421
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-anterior-posterior-fascicular-block/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 202214,
+      "width": 1280,
+      "height": 1421
+    },
+    {
+      "filename": "figure_03_p3.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-anterior-posterior-fascicular-block/figure_03_p3.jpeg",
+      "page": 3,
+      "size_bytes": 109084,
+      "width": 1271,
+      "height": 572
+    },
+    {
+      "filename": "figure_04_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-anterior-posterior-fascicular-block/figure_04_p4.jpeg",
+      "page": 4,
+      "size_bytes": 78149,
+      "width": 1016,
+      "height": 458
+    },
+    {
+      "filename": "figure_05_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-anterior-posterior-fascicular-block/figure_05_p5.jpeg",
+      "page": 5,
+      "size_bytes": 114446,
+      "width": 1302,
+      "height": 567
+    },
+    {
+      "filename": "figure_06_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-anterior-posterior-fascicular-block/figure_06_p6.jpeg",
+      "page": 6,
+      "size_bytes": 84125,
+      "width": 1271,
+      "height": 572
+    },
+    {
+      "filename": "figure_07_p7.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-anterior-posterior-fascicular-block/figure_07_p7.jpeg",
+      "page": 7,
+      "size_bytes": 83568,
+      "width": 1261,
+      "height": 572
+    },
+    {
+      "filename": "figure_08_p8.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-anterior-posterior-fascicular-block/figure_08_p8.jpeg",
+      "page": 8,
+      "size_bytes": 85774,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_09_p8.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/left-anterior-posterior-fascicular-block/figure_09_p8.jpeg",
+      "page": 8,
+      "size_bytes": 110853,
+      "width": 1500,
+      "height": 630
+    }
+  ],
+  "cardiology/long-qt-syndrome": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/long-qt-syndrome/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 57566,
+      "width": 1008,
+      "height": 442
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/long-qt-syndrome/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 78326,
+      "width": 989,
+      "height": 730
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/long-qt-syndrome/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/long-qt-syndrome/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 34321,
+      "width": 1013,
+      "height": 240
+    }
+  ],
+  "cardiology/myocarditis": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/myocarditis/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 41010,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/myocarditis/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 255620,
+      "width": 2176,
+      "height": 1469
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/myocarditis/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 86523,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "cardiology/niv-guidelines": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/niv-guidelines/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 129048,
+      "width": 1918,
+      "height": 1073
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/niv-guidelines/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "cardiology/pericarditis": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/pericarditis/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 50137,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/pericarditis/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 32279,
+      "width": 578,
+      "height": 366
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/pericarditis/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 163153,
+      "width": 4351,
+      "height": 2145
+    },
+    {
+      "filename": "figure_04_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/pericarditis/figure_04_p6.jpeg",
+      "page": 6,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "cardiology/tachyarrhythmia": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 58165,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p2.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_02_p2.jpeg",
+      "page": 2,
+      "size_bytes": 8540,
+      "width": 292,
+      "height": 172
+    },
+    {
+      "filename": "figure_03_p3.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_03_p3.jpeg",
+      "page": 3,
+      "size_bytes": 24962,
+      "width": 679,
+      "height": 324
+    },
+    {
+      "filename": "figure_04_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_04_p4.jpeg",
+      "page": 4,
+      "size_bytes": 33261,
+      "width": 685,
+      "height": 327
+    },
+    {
+      "filename": "figure_05_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_05_p5.jpeg",
+      "page": 5,
+      "size_bytes": 51895,
+      "width": 800,
+      "height": 398
+    },
+    {
+      "filename": "figure_06_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_06_p6.jpeg",
+      "page": 6,
+      "size_bytes": 41807,
+      "width": 691,
+      "height": 322
+    },
+    {
+      "filename": "figure_07_p7.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_07_p7.jpeg",
+      "page": 7,
+      "size_bytes": 20884,
+      "width": 619,
+      "height": 384
+    },
+    {
+      "filename": "figure_08_p8.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_08_p8.jpeg",
+      "page": 8,
+      "size_bytes": 40341,
+      "width": 699,
+      "height": 388
+    },
+    {
+      "filename": "figure_09_p10.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_09_p10.jpeg",
+      "page": 10,
+      "size_bytes": 23550,
+      "width": 526,
+      "height": 278
+    },
+    {
+      "filename": "figure_10_p10.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_10_p10.jpeg",
+      "page": 10,
+      "size_bytes": 20942,
+      "width": 516,
+      "height": 287
+    },
+    {
+      "filename": "figure_11_p11.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_11_p11.jpeg",
+      "page": 11,
+      "size_bytes": 24962,
+      "width": 679,
+      "height": 324
+    },
+    {
+      "filename": "figure_12_p12.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_12_p12.jpeg",
+      "page": 12,
+      "size_bytes": 36984,
+      "width": 576,
+      "height": 387
+    },
+    {
+      "filename": "figure_13_p13.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_13_p13.jpeg",
+      "page": 13,
+      "size_bytes": 20481,
+      "width": 534,
+      "height": 244
+    },
+    {
+      "filename": "figure_14_p14.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_14_p14.jpeg",
+      "page": 14,
+      "size_bytes": 36203,
+      "width": 523,
+      "height": 296
+    },
+    {
+      "filename": "figure_15_p15.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_15_p15.jpeg",
+      "page": 15,
+      "size_bytes": 60400,
+      "width": 714,
+      "height": 391
+    },
+    {
+      "filename": "figure_16_p16.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/tachyarrhythmia/figure_16_p16.jpeg",
+      "page": 16,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "cardiology/ventricular-tachycardia": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/ventricular-tachycardia/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 233304,
+      "width": 2048,
+      "height": 2048
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/ventricular-tachycardia/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 344604,
+      "width": 2176,
+      "height": 1282
+    },
+    {
+      "filename": "figure_03_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/ventricular-tachycardia/figure_03_p6.jpeg",
+      "page": 6,
+      "size_bytes": 98880,
+      "width": 1157,
+      "height": 556
+    },
+    {
+      "filename": "figure_04_p8.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/ventricular-tachycardia/figure_04_p8.jpeg",
+      "page": 8,
+      "size_bytes": 468176,
+      "width": 1999,
+      "height": 2048
+    },
+    {
+      "filename": "figure_05_p10.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/ventricular-tachycardia/figure_05_p10.jpeg",
+      "page": 10,
+      "size_bytes": 566856,
+      "width": 4351,
+      "height": 2232
+    },
+    {
+      "filename": "figure_06_p13.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/ventricular-tachycardia/figure_06_p13.jpeg",
+      "page": 13,
+      "size_bytes": 10492,
+      "width": 568,
+      "height": 132
+    },
+    {
+      "filename": "figure_07_p14.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/ventricular-tachycardia/figure_07_p14.jpeg",
+      "page": 14,
+      "size_bytes": 70410,
+      "width": 2176,
+      "height": 1810
+    },
+    {
+      "filename": "figure_08_p22.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/ventricular-tachycardia/figure_08_p22.jpeg",
+      "page": 22,
+      "size_bytes": 86523,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "cardiology/valvular-heart-disease": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/valvular-heart-disease/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 46874,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p2.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/valvular-heart-disease/figure_02_p2.jpeg",
+      "page": 2,
+      "size_bytes": 13449,
+      "width": 470,
+      "height": 271
+    },
+    {
+      "filename": "figure_03_p11.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/valvular-heart-disease/figure_03_p11.jpeg",
+      "page": 11,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "cardiology/acute-coronary-syndrome": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/acute-coronary-syndrome/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 36545,
+      "width": 877,
+      "height": 320
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/acute-coronary-syndrome/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 136878,
+      "width": 1485,
+      "height": 879
+    },
+    {
+      "filename": "figure_03_p6.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/acute-coronary-syndrome/figure_03_p6.jpeg",
+      "page": 6,
+      "size_bytes": 161496,
+      "width": 4251,
+      "height": 2201
+    },
+    {
+      "filename": "figure_04_p8.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/acute-coronary-syndrome/figure_04_p8.jpeg",
+      "page": 8,
+      "size_bytes": 144643,
+      "width": 4020,
+      "height": 1851
+    },
+    {
+      "filename": "figure_05_p10.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/acute-coronary-syndrome/figure_05_p10.jpeg",
+      "page": 10,
+      "size_bytes": 159662,
+      "width": 4251,
+      "height": 2226
+    },
+    {
+      "filename": "figure_06_p14.jpeg",
+      "web_path": "/lessons/images/sba/cardiology/acute-coronary-syndrome/figure_06_p14.jpeg",
+      "page": 14,
+      "size_bytes": 85187,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "gastroenterology/mallory-weiss-tear": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/mallory-weiss-tear/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 189838,
+      "width": 1280,
+      "height": 1584
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/mallory-weiss-tear/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 189838,
+      "width": 1280,
+      "height": 1584
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/mallory-weiss-tear/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 33362,
+      "width": 687,
+      "height": 639
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/mallory-weiss-tear/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "gastroenterology/peptic-ulcer": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/peptic-ulcer/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "gastroenterology/pyloric-stenosis": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/pyloric-stenosis/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 31943,
+      "width": 618,
+      "height": 626
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/pyloric-stenosis/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "gastroenterology/upper-gi-bleeding": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/upper-gi-bleeding/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 41200,
+      "width": 766,
+      "height": 759
+    },
+    {
+      "filename": "figure_02_p6.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/upper-gi-bleeding/figure_02_p6.jpeg",
+      "page": 6,
+      "size_bytes": 45088,
+      "width": 855,
+      "height": 790
+    },
+    {
+      "filename": "figure_03_p12.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/upper-gi-bleeding/figure_03_p12.jpeg",
+      "page": 12,
+      "size_bytes": 278125,
+      "width": 1243,
+      "height": 1800
+    },
+    {
+      "filename": "figure_04_p13.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/upper-gi-bleeding/figure_04_p13.jpeg",
+      "page": 13,
+      "size_bytes": 85774,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_05_p13.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/upper-gi-bleeding/figure_05_p13.jpeg",
+      "page": 13,
+      "size_bytes": 278125,
+      "width": 1243,
+      "height": 1800
+    }
+  ],
+  "gastroenterology/lower-gi-bleeding": [
+    {
+      "filename": "figure_01_p5.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/lower-gi-bleeding/figure_01_p5.jpeg",
+      "page": 5,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "gastroenterology/anal-pain-rectal-bleeding": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/anal-pain-rectal-bleeding/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 277597,
+      "width": 1517,
+      "height": 1786
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/anal-pain-rectal-bleeding/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 84433,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/anal-pain-rectal-bleeding/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 277597,
+      "width": 1517,
+      "height": 1786
+    }
+  ],
+  "gastroenterology/diverticular-disease": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/diverticular-disease/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 630339,
+      "width": 2131,
+      "height": 4320
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/diverticular-disease/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 630339,
+      "width": 2131,
+      "height": 4320
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/diverticular-disease/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "gastroenterology/acute-appendicitis": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/acute-appendicitis/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 85657,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "gastroenterology/loin-pain-pancreatitis": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/loin-pain-pancreatitis/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 77436,
+      "width": 6127,
+      "height": 754
+    }
+  ],
+  "gastroenterology/gastroenteritis": [
+    {
+      "filename": "figure_01_p5.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/gastroenteritis/figure_01_p5.jpeg",
+      "page": 5,
+      "size_bytes": 148082,
+      "width": 1280,
+      "height": 1325
+    },
+    {
+      "filename": "figure_02_p6.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/gastroenteritis/figure_02_p6.jpeg",
+      "page": 6,
+      "size_bytes": 62886,
+      "width": 1395,
+      "height": 546
+    },
+    {
+      "filename": "figure_03_p8.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/gastroenteritis/figure_03_p8.jpeg",
+      "page": 8,
+      "size_bytes": 24844,
+      "width": 971,
+      "height": 327
+    },
+    {
+      "filename": "figure_04_p9.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/gastroenteritis/figure_04_p9.jpeg",
+      "page": 9,
+      "size_bytes": 136666,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_05_p11.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/gastroenteritis/figure_05_p11.jpeg",
+      "page": 11,
+      "size_bytes": 63326,
+      "width": 1199,
+      "height": 416
+    },
+    {
+      "filename": "figure_06_p12.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/gastroenteritis/figure_06_p12.jpeg",
+      "page": 12,
+      "size_bytes": 14464,
+      "width": 6133,
+      "height": 136
+    },
+    {
+      "filename": "figure_07_p13.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/gastroenteritis/figure_07_p13.jpeg",
+      "page": 13,
+      "size_bytes": 71011,
+      "width": 6127,
+      "height": 698
+    }
+  ],
+  "gastroenterology/inflammatory-bowel-disease": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/inflammatory-bowel-disease/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 472539,
+      "width": 1280,
+      "height": 2822
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/inflammatory-bowel-disease/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 472539,
+      "width": 1280,
+      "height": 2822
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/inflammatory-bowel-disease/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 85192,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_04_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/inflammatory-bowel-disease/figure_04_p4.jpeg",
+      "page": 4,
+      "size_bytes": 472539,
+      "width": 1280,
+      "height": 2822
+    }
+  ],
+  "gastroenterology/ischemic-bowel": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/ischemic-bowel/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 340912,
+      "width": 1280,
+      "height": 1968
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/ischemic-bowel/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 86713,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_03_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/ischemic-bowel/figure_03_p3.jpeg",
+      "page": 3,
+      "size_bytes": 340912,
+      "width": 1280,
+      "height": 1968
+    }
+  ],
+  "gastroenterology/gallstones": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/gallstones/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 304576,
+      "width": 1280,
+      "height": 1968
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/gallstones/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 86713,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/gallstones/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 304576,
+      "width": 1280,
+      "height": 1968
+    }
+  ],
+  "gastroenterology/jaundice": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/jaundice/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 395076,
+      "width": 1280,
+      "height": 2112
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/jaundice/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 395076,
+      "width": 1280,
+      "height": 2112
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/jaundice/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 574443,
+      "width": 2035,
+      "height": 3072
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/jaundice/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 86523,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_05_p5.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/jaundice/figure_05_p5.jpeg",
+      "page": 5,
+      "size_bytes": 574443,
+      "width": 2035,
+      "height": 3072
+    }
+  ],
+  "gastroenterology/bowel-obstruction": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/bowel-obstruction/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 689367,
+      "width": 2035,
+      "height": 3168
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/bowel-obstruction/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 689367,
+      "width": 2035,
+      "height": 3168
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/bowel-obstruction/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 26456,
+      "width": 592,
+      "height": 694
+    },
+    {
+      "filename": "figure_04_p7.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/bowel-obstruction/figure_04_p7.jpeg",
+      "page": 7,
+      "size_bytes": 22368,
+      "width": 607,
+      "height": 742
+    },
+    {
+      "filename": "figure_05_p8.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/bowel-obstruction/figure_05_p8.jpeg",
+      "page": 8,
+      "size_bytes": 42465,
+      "width": 874,
+      "height": 725
+    },
+    {
+      "filename": "figure_06_p9.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/bowel-obstruction/figure_06_p9.jpeg",
+      "page": 9,
+      "size_bytes": 84433,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "gastroenterology/diarrhea": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/diarrhea/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 65094,
+      "width": 1024,
+      "height": 576
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/diarrhea/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 46917,
+      "width": 1024,
+      "height": 415
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/diarrhea/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 52745,
+      "width": 1024,
+      "height": 576
+    },
+    {
+      "filename": "figure_04_p8.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/diarrhea/figure_04_p8.jpeg",
+      "page": 8,
+      "size_bytes": 85939,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "gastroenterology/constipation": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/constipation/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "gastroenterology/alcoholic-liver-disease": [
+    {
+      "filename": "figure_01_p5.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/alcoholic-liver-disease/figure_01_p5.jpeg",
+      "page": 5,
+      "size_bytes": 39565,
+      "width": 720,
+      "height": 547
+    },
+    {
+      "filename": "figure_02_p7.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/alcoholic-liver-disease/figure_02_p7.jpeg",
+      "page": 7,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "gastroenterology/cirrhosis": [
+    {
+      "filename": "figure_01_p7.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/cirrhosis/figure_01_p7.jpeg",
+      "page": 7,
+      "size_bytes": 85187,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "gastroenterology/hepatitis": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/hepatitis/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 78262,
+      "width": 1316,
+      "height": 569
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/hepatitis/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 108702,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_03_p6.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/hepatitis/figure_03_p6.jpeg",
+      "page": 6,
+      "size_bytes": 55504,
+      "width": 720,
+      "height": 720
+    },
+    {
+      "filename": "figure_04_p11.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/hepatitis/figure_04_p11.jpeg",
+      "page": 11,
+      "size_bytes": 48762,
+      "width": 6127,
+      "height": 460
+    },
+    {
+      "filename": "figure_05_p12.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/hepatitis/figure_05_p12.jpeg",
+      "page": 12,
+      "size_bytes": 51749,
+      "width": 6127,
+      "height": 486
+    }
+  ],
+  "gastroenterology/foreign-body-ingestion": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/foreign-body-ingestion/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 256959,
+      "width": 2176,
+      "height": 1354
+    },
+    {
+      "filename": "figure_02_p6.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/foreign-body-ingestion/figure_02_p6.jpeg",
+      "page": 6,
+      "size_bytes": 28133,
+      "width": 666,
+      "height": 527
+    },
+    {
+      "filename": "figure_03_p7.jpeg",
+      "web_path": "/lessons/images/sba/gastroenterology/foreign-body-ingestion/figure_03_p7.jpeg",
+      "page": 7,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "nephrology/hyper-hypokalemia": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyper-hypokalemia/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 64845,
+      "width": 1024,
+      "height": 421
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyper-hypokalemia/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 63380,
+      "width": 1024,
+      "height": 369
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyper-hypokalemia/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 139698,
+      "width": 1280,
+      "height": 1709
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyper-hypokalemia/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 139698,
+      "width": 1280,
+      "height": 1709
+    },
+    {
+      "filename": "figure_05_p6.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyper-hypokalemia/figure_05_p6.jpeg",
+      "page": 6,
+      "size_bytes": 56433,
+      "width": 6127,
+      "height": 528
+    },
+    {
+      "filename": "figure_06_p7.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyper-hypokalemia/figure_06_p7.jpeg",
+      "page": 7,
+      "size_bytes": 51749,
+      "width": 6127,
+      "height": 486
+    }
+  ],
+  "nephrology/hyperkalemic-cardiac-arrest": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyperkalemic-cardiac-arrest/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 97580,
+      "width": 1280,
+      "height": 1709
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyperkalemic-cardiac-arrest/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 87393,
+      "width": 6127,
+      "height": 850
+    },
+    {
+      "filename": "figure_03_p3.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyperkalemic-cardiac-arrest/figure_03_p3.jpeg",
+      "page": 3,
+      "size_bytes": 97580,
+      "width": 1280,
+      "height": 1709
+    }
+  ],
+  "nephrology/hypokalemia": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hypokalemia/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 68431,
+      "width": 1024,
+      "height": 518
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hypokalemia/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 14464,
+      "width": 6133,
+      "height": 136
+    },
+    {
+      "filename": "figure_03_p6.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hypokalemia/figure_03_p6.jpeg",
+      "page": 6,
+      "size_bytes": 71011,
+      "width": 6127,
+      "height": 698
+    }
+  ],
+  "nephrology/hypernatremia": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hypernatremia/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 28103,
+      "width": 1024,
+      "height": 270
+    },
+    {
+      "filename": "figure_02_p6.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hypernatremia/figure_02_p6.jpeg",
+      "page": 6,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "nephrology/hyponatremia": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyponatremia/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 64348,
+      "width": 980,
+      "height": 558
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyponatremia/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 87393,
+      "width": 6127,
+      "height": 850
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hyponatremia/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 68229,
+      "width": 980,
+      "height": 533
+    }
+  ],
+  "nephrology/hypercalcemia": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hypercalcemia/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 87067,
+      "width": 6127,
+      "height": 844
+    }
+  ],
+  "nephrology/hypocalcemia": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hypocalcemia/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 14464,
+      "width": 6133,
+      "height": 136
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/hypocalcemia/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 71011,
+      "width": 6127,
+      "height": 698
+    }
+  ],
+  "nephrology/acute-kidney-injury": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/acute-kidney-injury/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 55062,
+      "width": 1024,
+      "height": 576
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/acute-kidney-injury/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 42366,
+      "width": 1024,
+      "height": 576
+    },
+    {
+      "filename": "figure_03_p9.jpeg",
+      "web_path": "/lessons/images/sba/nephrology/acute-kidney-injury/figure_03_p9.jpeg",
+      "page": 9,
+      "size_bytes": 85956,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "ophthalmology/acute-glaucoma": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/acute-glaucoma/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 231512,
+      "width": 1751,
+      "height": 1010
+    },
+    {
+      "filename": "figure_02_p2.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/acute-glaucoma/figure_02_p2.jpeg",
+      "page": 2,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "ophthalmology/orbital-periorbital-cellulitis": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/orbital-periorbital-cellulitis/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 171945,
+      "width": 1744,
+      "height": 1014
+    },
+    {
+      "filename": "figure_02_p2.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/orbital-periorbital-cellulitis/figure_02_p2.jpeg",
+      "page": 2,
+      "size_bytes": 85774,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_03_p2.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/orbital-periorbital-cellulitis/figure_03_p2.jpeg",
+      "page": 2,
+      "size_bytes": 103327,
+      "width": 3270,
+      "height": 1870
+    }
+  ],
+  "ophthalmology/red-eye": [
+    {
+      "filename": "figure_01_p7.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/red-eye/figure_01_p7.jpeg",
+      "page": 7,
+      "size_bytes": 15406,
+      "width": 617,
+      "height": 437
+    },
+    {
+      "filename": "figure_02_p9.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/red-eye/figure_02_p9.jpeg",
+      "page": 9,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_03_p9.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/red-eye/figure_03_p9.jpeg",
+      "page": 9,
+      "size_bytes": 70036,
+      "width": 2426,
+      "height": 1651
+    }
+  ],
+  "ophthalmology/sudden-vision-loss": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/sudden-vision-loss/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 22096,
+      "width": 725,
+      "height": 514
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/sudden-vision-loss/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 18235,
+      "width": 525,
+      "height": 519
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/sudden-vision-loss/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 86876,
+      "width": 2035,
+      "height": 1729
+    },
+    {
+      "filename": "figure_04_p10.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/sudden-vision-loss/figure_04_p10.jpeg",
+      "page": 10,
+      "size_bytes": 85192,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "ophthalmology/painful-eye": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/painful-eye/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 15474,
+      "width": 432,
+      "height": 402
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/painful-eye/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 37727,
+      "width": 705,
+      "height": 464
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/painful-eye/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 154129,
+      "width": 1798,
+      "height": 856
+    },
+    {
+      "filename": "figure_04_p7.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/painful-eye/figure_04_p7.jpeg",
+      "page": 7,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "ophthalmology/eye-trauma": [
+    {
+      "filename": "figure_01_p6.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/eye-trauma/figure_01_p6.jpeg",
+      "page": 6,
+      "size_bytes": 11825,
+      "width": 372,
+      "height": 249
+    },
+    {
+      "filename": "figure_02_p8.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/eye-trauma/figure_02_p8.jpeg",
+      "page": 8,
+      "size_bytes": 12264,
+      "width": 371,
+      "height": 255
+    },
+    {
+      "filename": "figure_03_p9.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/eye-trauma/figure_03_p9.jpeg",
+      "page": 9,
+      "size_bytes": 14464,
+      "width": 6133,
+      "height": 136
+    },
+    {
+      "filename": "figure_04_p9.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/eye-trauma/figure_04_p9.jpeg",
+      "page": 9,
+      "size_bytes": 9784,
+      "width": 366,
+      "height": 277
+    },
+    {
+      "filename": "figure_05_p10.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/eye-trauma/figure_05_p10.jpeg",
+      "page": 10,
+      "size_bytes": 71011,
+      "width": 6127,
+      "height": 698
+    }
+  ],
+  "ophthalmology/temporal-arteritis": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/temporal-arteritis/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "ophthalmology/inflammatory-eye-disease": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/inflammatory-eye-disease/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 47611,
+      "width": 1084,
+      "height": 602
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/inflammatory-eye-disease/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 209785,
+      "width": 1778,
+      "height": 1061
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/inflammatory-eye-disease/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/inflammatory-eye-disease/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 31478,
+      "width": 741,
+      "height": 492
+    }
+  ],
+  "ophthalmology/ophthalmia-neonatorum": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/ophthalmia-neonatorum/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 19631,
+      "width": 603,
+      "height": 315
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/ophthalmology/ophthalmia-neonatorum/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "pulmonology/pulmonology-basics": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/pulmonology-basics/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 34751,
+      "width": 913,
+      "height": 505
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/pulmonology-basics/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 74007,
+      "width": 1548,
+      "height": 728
+    },
+    {
+      "filename": "figure_03_p6.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/pulmonology-basics/figure_03_p6.jpeg",
+      "page": 6,
+      "size_bytes": 85657,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_04_p6.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/pulmonology-basics/figure_04_p6.jpeg",
+      "page": 6,
+      "size_bytes": 13257,
+      "width": 522,
+      "height": 451
+    }
+  ],
+  "pulmonology/copd": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/copd/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 36270,
+      "width": 720,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p8.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/copd/figure_02_p8.jpeg",
+      "page": 8,
+      "size_bytes": 85956,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "pulmonology/asthma": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/asthma/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 58073,
+      "width": 854,
+      "height": 662
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/asthma/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 240330,
+      "width": 1632,
+      "height": 1824
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/asthma/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 85187,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/asthma/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 240330,
+      "width": 1632,
+      "height": 1824
+    }
+  ],
+  "pulmonology/asthma-children": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/asthma-children/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 48471,
+      "width": 854,
+      "height": 662
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/asthma-children/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 219224,
+      "width": 1632,
+      "height": 1824
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/asthma-children/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 85956,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/asthma-children/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 219224,
+      "width": 1632,
+      "height": 1824
+    }
+  ],
+  "pulmonology/breathlessness": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/breathlessness/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 305523,
+      "width": 1280,
+      "height": 1834
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/breathlessness/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 305523,
+      "width": 1280,
+      "height": 1834
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/breathlessness/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 50658,
+      "width": 857,
+      "height": 933
+    },
+    {
+      "filename": "figure_04_p7.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/breathlessness/figure_04_p7.jpeg",
+      "page": 7,
+      "size_bytes": 25905,
+      "width": 631,
+      "height": 551
+    },
+    {
+      "filename": "figure_05_p8.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/breathlessness/figure_05_p8.jpeg",
+      "page": 8,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "pulmonology/hemoptysis": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/hemoptysis/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 14464,
+      "width": 6133,
+      "height": 136
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/hemoptysis/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 71011,
+      "width": 6127,
+      "height": 698
+    }
+  ],
+  "pulmonology/croup": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/croup/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 114560,
+      "width": 2176,
+      "height": 1213
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/croup/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 85657,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "pulmonology/whooping-cough": [
+    {
+      "filename": "figure_01_p5.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/whooping-cough/figure_01_p5.jpeg",
+      "page": 5,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "pulmonology/bronchiolitis": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/bronchiolitis/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 14464,
+      "width": 6133,
+      "height": 136
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/bronchiolitis/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 71011,
+      "width": 6127,
+      "height": 698
+    }
+  ],
+  "pulmonology/community-acquired-pneumonia": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/community-acquired-pneumonia/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 52713,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/community-acquired-pneumonia/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 109348,
+      "width": 1008,
+      "height": 989
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/community-acquired-pneumonia/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 30950,
+      "width": 864,
+      "height": 422
+    },
+    {
+      "filename": "figure_04_p6.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/community-acquired-pneumonia/figure_04_p6.jpeg",
+      "page": 6,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "pulmonology/cap-children": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/cap-children/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 89023,
+      "width": 941,
+      "height": 864
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/cap-children/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 87393,
+      "width": 6127,
+      "height": 850
+    }
+  ],
+  "pulmonology/foreign-body": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/foreign-body/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 69584,
+      "width": 960,
+      "height": 547
+    },
+    {
+      "filename": "figure_02_p6.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/foreign-body/figure_02_p6.jpeg",
+      "page": 6,
+      "size_bytes": 137992,
+      "width": 810,
+      "height": 999
+    },
+    {
+      "filename": "figure_03_p7.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/foreign-body/figure_03_p7.jpeg",
+      "page": 7,
+      "size_bytes": 85187,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_04_p7.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/foreign-body/figure_04_p7.jpeg",
+      "page": 7,
+      "size_bytes": 137992,
+      "width": 810,
+      "height": 999
+    }
+  ],
+  "pulmonology/pneumonitis": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/pneumonitis/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 14464,
+      "width": 6133,
+      "height": 136
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/pneumonitis/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 17185,
+      "width": 397,
+      "height": 450
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/pulmonology/pneumonitis/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 69267,
+      "width": 6127,
+      "height": 672
+    }
+  ],
+  "resuscitation/brue": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/brue/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 66859,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/brue/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 37301,
+      "width": 1040,
+      "height": 577
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/brue/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 87938,
+      "width": 6127,
+      "height": 850
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/brue/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 50727,
+      "width": 881,
+      "height": 614
+    }
+  ],
+  "resuscitation/choking-adult-pediatric": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/choking-adult-pediatric/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 87665,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p2.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/choking-adult-pediatric/figure_02_p2.jpeg",
+      "page": 2,
+      "size_bytes": 34479,
+      "width": 931,
+      "height": 580
+    },
+    {
+      "filename": "figure_03_p3.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/choking-adult-pediatric/figure_03_p3.jpeg",
+      "page": 3,
+      "size_bytes": 44703,
+      "width": 1069,
+      "height": 512
+    },
+    {
+      "filename": "figure_04_p4.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/choking-adult-pediatric/figure_04_p4.jpeg",
+      "page": 4,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "resuscitation/als": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/als/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 31810,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/als/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 175893,
+      "width": 1241,
+      "height": 1754
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/als/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 175893,
+      "width": 1241,
+      "height": 1754
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/als/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 281876,
+      "width": 1654,
+      "height": 2339
+    },
+    {
+      "filename": "figure_05_p6.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/als/figure_05_p6.jpeg",
+      "page": 6,
+      "size_bytes": 281876,
+      "width": 1654,
+      "height": 2339
+    },
+    {
+      "filename": "figure_06_p8.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/als/figure_06_p8.jpeg",
+      "page": 8,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "resuscitation/pls": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/pls/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 50620,
+      "width": 750,
+      "height": 1066
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/pls/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_03_p3.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/pls/figure_03_p3.jpeg",
+      "page": 3,
+      "size_bytes": 50620,
+      "width": 750,
+      "height": 1066
+    }
+  ],
+  "resuscitation/resuscitation-sepsis": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/resuscitation-sepsis/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 46118,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "filename": "figure_02_p2.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/resuscitation-sepsis/figure_02_p2.jpeg",
+      "page": 2,
+      "size_bytes": 99014,
+      "width": 1418,
+      "height": 699
+    },
+    {
+      "filename": "figure_03_p3.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/resuscitation-sepsis/figure_03_p3.jpeg",
+      "page": 3,
+      "size_bytes": 66063,
+      "width": 870,
+      "height": 699
+    },
+    {
+      "filename": "figure_04_p4.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/resuscitation-sepsis/figure_04_p4.jpeg",
+      "page": 4,
+      "size_bytes": 87067,
+      "width": 6127,
+      "height": 844
+    },
+    {
+      "filename": "figure_05_p4.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/resuscitation-sepsis/figure_05_p4.jpeg",
+      "page": 4,
+      "size_bytes": 69876,
+      "width": 1125,
+      "height": 499
+    }
+  ],
+  "resuscitation/sepsis-adult": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/sepsis-adult/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 120295,
+      "width": 1427,
+      "height": 782
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/sepsis-adult/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 125004,
+      "width": 1768,
+      "height": 980
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/sepsis-adult/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 74516,
+      "width": 959,
+      "height": 821
+    },
+    {
+      "filename": "figure_04_p5.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/sepsis-adult/figure_04_p5.jpeg",
+      "page": 5,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "resuscitation/neutropenic-sepsis": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/neutropenic-sepsis/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "resuscitation/cardiac-arrest-pregnancy": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/cardiac-arrest-pregnancy/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 86713,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_02_p2.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/cardiac-arrest-pregnancy/figure_02_p2.jpeg",
+      "page": 2,
+      "size_bytes": 98094,
+      "width": 1383,
+      "height": 670
+    }
+  ],
+  "resuscitation/hemorrhagic-shock": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/hemorrhagic-shock/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 86582,
+      "width": 1179,
+      "height": 729
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/hemorrhagic-shock/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 41806,
+      "width": 6127,
+      "height": 378
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/hemorrhagic-shock/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 51749,
+      "width": 6127,
+      "height": 486
+    }
+  ],
+  "resuscitation/transfusion-major-hemorrhage": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/transfusion-major-hemorrhage/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 96197,
+      "width": 815,
+      "height": 1040
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/transfusion-major-hemorrhage/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 85657,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_03_p3.jpeg",
+      "web_path": "/lessons/images/sba/resuscitation/transfusion-major-hemorrhage/figure_03_p3.jpeg",
+      "page": 3,
+      "size_bytes": 96197,
+      "width": 815,
+      "height": 1040
+    }
+  ],
+  "trauma/head-trauma": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/trauma/head-trauma/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 74663,
+      "width": 999,
+      "height": 603
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/trauma/head-trauma/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 19315,
+      "width": 392,
+      "height": 390
+    },
+    {
+      "filename": "figure_03_p6.jpeg",
+      "web_path": "/lessons/images/sba/trauma/head-trauma/figure_03_p6.jpeg",
+      "page": 6,
+      "size_bytes": 19606,
+      "width": 375,
+      "height": 435
+    },
+    {
+      "filename": "figure_04_p7.jpeg",
+      "web_path": "/lessons/images/sba/trauma/head-trauma/figure_04_p7.jpeg",
+      "page": 7,
+      "size_bytes": 19955,
+      "width": 390,
+      "height": 484
+    },
+    {
+      "filename": "figure_05_p8.jpeg",
+      "web_path": "/lessons/images/sba/trauma/head-trauma/figure_05_p8.jpeg",
+      "page": 8,
+      "size_bytes": 21852,
+      "width": 416,
+      "height": 466
+    },
+    {
+      "filename": "figure_06_p9.jpeg",
+      "web_path": "/lessons/images/sba/trauma/head-trauma/figure_06_p9.jpeg",
+      "page": 9,
+      "size_bytes": 25850,
+      "width": 432,
+      "height": 476
+    },
+    {
+      "filename": "figure_07_p11.jpeg",
+      "web_path": "/lessons/images/sba/trauma/head-trauma/figure_07_p11.jpeg",
+      "page": 11,
+      "size_bytes": 406440,
+      "width": 2339,
+      "height": 3307
+    },
+    {
+      "filename": "figure_08_p12.jpeg",
+      "web_path": "/lessons/images/sba/trauma/head-trauma/figure_08_p12.jpeg",
+      "page": 12,
+      "size_bytes": 406440,
+      "width": 2339,
+      "height": 3307
+    },
+    {
+      "filename": "figure_09_p14.jpeg",
+      "web_path": "/lessons/images/sba/trauma/head-trauma/figure_09_p14.jpeg",
+      "page": 14,
+      "size_bytes": 457260,
+      "width": 2339,
+      "height": 3307
+    },
+    {
+      "filename": "figure_10_p15.jpeg",
+      "web_path": "/lessons/images/sba/trauma/head-trauma/figure_10_p15.jpeg",
+      "page": 15,
+      "size_bytes": 457260,
+      "width": 2339,
+      "height": 3307
+    },
+    {
+      "filename": "figure_11_p23.jpeg",
+      "web_path": "/lessons/images/sba/trauma/head-trauma/figure_11_p23.jpeg",
+      "page": 23,
+      "size_bytes": 87067,
+      "width": 6127,
+      "height": 844
+    }
+  ],
+  "trauma/devastating-brain-injury": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/trauma/devastating-brain-injury/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 47997,
+      "width": 1073,
+      "height": 576
+    },
+    {
+      "filename": "figure_02_p2.jpeg",
+      "web_path": "/lessons/images/sba/trauma/devastating-brain-injury/figure_02_p2.jpeg",
+      "page": 2,
+      "size_bytes": 85956,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_03_p2.jpeg",
+      "web_path": "/lessons/images/sba/trauma/devastating-brain-injury/figure_03_p2.jpeg",
+      "page": 2,
+      "size_bytes": 56857,
+      "width": 1050,
+      "height": 578
+    }
+  ],
+  "trauma/laryngotracheal-injury": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/trauma/laryngotracheal-injury/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 461134,
+      "width": 4351,
+      "height": 1913
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/trauma/laryngotracheal-injury/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 23751,
+      "width": 901,
+      "height": 541
+    },
+    {
+      "filename": "figure_03_p6.jpeg",
+      "web_path": "/lessons/images/sba/trauma/laryngotracheal-injury/figure_03_p6.jpeg",
+      "page": 6,
+      "size_bytes": 28292,
+      "width": 735,
+      "height": 861
+    },
+    {
+      "filename": "figure_04_p7.jpeg",
+      "web_path": "/lessons/images/sba/trauma/laryngotracheal-injury/figure_04_p7.jpeg",
+      "page": 7,
+      "size_bytes": 28292,
+      "width": 735,
+      "height": 861
+    },
+    {
+      "filename": "figure_05_p8.jpeg",
+      "web_path": "/lessons/images/sba/trauma/laryngotracheal-injury/figure_05_p8.jpeg",
+      "page": 8,
+      "size_bytes": 45192,
+      "width": 1224,
+      "height": 895
+    },
+    {
+      "filename": "figure_06_p9.jpeg",
+      "web_path": "/lessons/images/sba/trauma/laryngotracheal-injury/figure_06_p9.jpeg",
+      "page": 9,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "trauma/spinal-cord-injury": [
+    {
+      "filename": "figure_01_p6.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_01_p6.jpeg",
+      "page": 6,
+      "size_bytes": 20940,
+      "width": 468,
+      "height": 460
+    },
+    {
+      "filename": "figure_02_p7.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_02_p7.jpeg",
+      "page": 7,
+      "size_bytes": 9785,
+      "width": 449,
+      "height": 227
+    },
+    {
+      "filename": "figure_03_p7.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_03_p7.jpeg",
+      "page": 7,
+      "size_bytes": 83355,
+      "width": 2851,
+      "height": 969
+    },
+    {
+      "filename": "figure_04_p8.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_04_p8.jpeg",
+      "page": 8,
+      "size_bytes": 33758,
+      "width": 743,
+      "height": 384
+    },
+    {
+      "filename": "figure_05_p9.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_05_p9.jpeg",
+      "page": 9,
+      "size_bytes": 16982,
+      "width": 425,
+      "height": 677
+    },
+    {
+      "filename": "figure_06_p11.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_06_p11.jpeg",
+      "page": 11,
+      "size_bytes": 8550,
+      "width": 257,
+      "height": 403
+    },
+    {
+      "filename": "figure_07_p13.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_07_p13.jpeg",
+      "page": 13,
+      "size_bytes": 17341,
+      "width": 290,
+      "height": 596
+    },
+    {
+      "filename": "figure_08_p14.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_08_p14.jpeg",
+      "page": 14,
+      "size_bytes": 47077,
+      "width": 1213,
+      "height": 337
+    },
+    {
+      "filename": "figure_09_p14.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_09_p14.jpeg",
+      "page": 14,
+      "size_bytes": 102311,
+      "width": 1444,
+      "height": 729
+    },
+    {
+      "filename": "figure_10_p15.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_10_p15.jpeg",
+      "page": 15,
+      "size_bytes": 62541,
+      "width": 1375,
+      "height": 506
+    },
+    {
+      "filename": "figure_11_p17.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_11_p17.jpeg",
+      "page": 17,
+      "size_bytes": 76329,
+      "width": 1124,
+      "height": 768
+    },
+    {
+      "filename": "figure_12_p18.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_12_p18.jpeg",
+      "page": 18,
+      "size_bytes": 95297,
+      "width": 1288,
+      "height": 546
+    },
+    {
+      "filename": "figure_13_p19.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_13_p19.jpeg",
+      "page": 19,
+      "size_bytes": 45137,
+      "width": 1136,
+      "height": 504
+    },
+    {
+      "filename": "figure_14_p20.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_14_p20.jpeg",
+      "page": 20,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    },
+    {
+      "filename": "figure_15_p20.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-cord-injury/figure_15_p20.jpeg",
+      "page": 20,
+      "size_bytes": 31761,
+      "width": 829,
+      "height": 518
+    }
+  ],
+  "trauma/spinal-injury-autonomic-dysreflexia": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-injury-autonomic-dysreflexia/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 112291,
+      "width": 1280,
+      "height": 1315
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-injury-autonomic-dysreflexia/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 116957,
+      "width": 1280,
+      "height": 1315
+    },
+    {
+      "filename": "figure_03_p6.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spinal-injury-autonomic-dysreflexia/figure_03_p6.jpeg",
+      "page": 6,
+      "size_bytes": 87306,
+      "width": 6127,
+      "height": 849
+    }
+  ],
+  "trauma/thoracic-trauma-life-threatening": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/trauma/thoracic-trauma-life-threatening/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 85337,
+      "width": 850,
+      "height": 950
+    },
+    {
+      "filename": "figure_02_p7.jpeg",
+      "web_path": "/lessons/images/sba/trauma/thoracic-trauma-life-threatening/figure_02_p7.jpeg",
+      "page": 7,
+      "size_bytes": 9753,
+      "width": 356,
+      "height": 304
+    },
+    {
+      "filename": "figure_03_p9.jpeg",
+      "web_path": "/lessons/images/sba/trauma/thoracic-trauma-life-threatening/figure_03_p9.jpeg",
+      "page": 9,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "trauma/spontaneous-pneumothorax-non-traumatic": [
+    {
+      "filename": "figure_01_p5.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spontaneous-pneumothorax-non-traumatic/figure_01_p5.jpeg",
+      "page": 5,
+      "size_bytes": 92964,
+      "width": 1551,
+      "height": 1766
+    },
+    {
+      "filename": "figure_02_p6.jpeg",
+      "web_path": "/lessons/images/sba/trauma/spontaneous-pneumothorax-non-traumatic/figure_02_p6.jpeg",
+      "page": 6,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "trauma/thoracic-trauma-flail-chest": [
+    {
+      "filename": "figure_01_p5.jpeg",
+      "web_path": "/lessons/images/sba/trauma/thoracic-trauma-flail-chest/figure_01_p5.jpeg",
+      "page": 5,
+      "size_bytes": 9282,
+      "width": 400,
+      "height": 350
+    },
+    {
+      "filename": "figure_02_p7.jpeg",
+      "web_path": "/lessons/images/sba/trauma/thoracic-trauma-flail-chest/figure_02_p7.jpeg",
+      "page": 7,
+      "size_bytes": 12593,
+      "width": 364,
+      "height": 349
+    },
+    {
+      "filename": "figure_03_p9.jpeg",
+      "web_path": "/lessons/images/sba/trauma/thoracic-trauma-flail-chest/figure_03_p9.jpeg",
+      "page": 9,
+      "size_bytes": 12808,
+      "width": 350,
+      "height": 430
+    },
+    {
+      "filename": "figure_04_p11.jpeg",
+      "web_path": "/lessons/images/sba/trauma/thoracic-trauma-flail-chest/figure_04_p11.jpeg",
+      "page": 11,
+      "size_bytes": 19915,
+      "width": 402,
+      "height": 430
+    },
+    {
+      "filename": "figure_05_p12.jpeg",
+      "web_path": "/lessons/images/sba/trauma/thoracic-trauma-flail-chest/figure_05_p12.jpeg",
+      "page": 12,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "trauma/abdominal-trauma": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/trauma/abdominal-trauma/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 12831,
+      "width": 2103,
+      "height": 137
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/trauma/abdominal-trauma/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 108161,
+      "width": 1286,
+      "height": 571
+    },
+    {
+      "filename": "figure_03_p6.jpeg",
+      "web_path": "/lessons/images/sba/trauma/abdominal-trauma/figure_03_p6.jpeg",
+      "page": 6,
+      "size_bytes": 109799,
+      "width": 1424,
+      "height": 678
+    },
+    {
+      "filename": "figure_04_p7.jpeg",
+      "web_path": "/lessons/images/sba/trauma/abdominal-trauma/figure_04_p7.jpeg",
+      "page": 7,
+      "size_bytes": 14464,
+      "width": 6133,
+      "height": 136
+    },
+    {
+      "filename": "figure_05_p7.jpeg",
+      "web_path": "/lessons/images/sba/trauma/abdominal-trauma/figure_05_p7.jpeg",
+      "page": 7,
+      "size_bytes": 60862,
+      "width": 924,
+      "height": 747
+    },
+    {
+      "filename": "figure_06_p8.jpeg",
+      "web_path": "/lessons/images/sba/trauma/abdominal-trauma/figure_06_p8.jpeg",
+      "page": 8,
+      "size_bytes": 71011,
+      "width": 6127,
+      "height": 698
+    }
+  ],
+  "trauma/genitourinary-trauma": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/trauma/genitourinary-trauma/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 21416,
+      "width": 2337,
+      "height": 125
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/trauma/genitourinary-trauma/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "trauma/renal-cancer-bladder-cancer": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/trauma/renal-cancer-bladder-cancer/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 12831,
+      "width": 2103,
+      "height": 137
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/trauma/renal-cancer-bladder-cancer/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "trauma/maxillofacial-trauma": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/trauma/maxillofacial-trauma/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 117844,
+      "width": 1291,
+      "height": 691
+    },
+    {
+      "filename": "figure_02_p6.jpeg",
+      "web_path": "/lessons/images/sba/trauma/maxillofacial-trauma/figure_02_p6.jpeg",
+      "page": 6,
+      "size_bytes": 94111,
+      "width": 1876,
+      "height": 1876
+    },
+    {
+      "filename": "figure_03_p8.jpeg",
+      "web_path": "/lessons/images/sba/trauma/maxillofacial-trauma/figure_03_p8.jpeg",
+      "page": 8,
+      "size_bytes": 52342,
+      "width": 1757,
+      "height": 1651
+    },
+    {
+      "filename": "figure_04_p14.jpeg",
+      "web_path": "/lessons/images/sba/trauma/maxillofacial-trauma/figure_04_p14.jpeg",
+      "page": 14,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "trauma/burn-injury": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/trauma/burn-injury/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 74642,
+      "width": 1000,
+      "height": 711
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/trauma/burn-injury/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 286181,
+      "width": 4351,
+      "height": 2150
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/trauma/burn-injury/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 162761,
+      "width": 4351,
+      "height": 2132
+    },
+    {
+      "filename": "figure_04_p8.jpeg",
+      "web_path": "/lessons/images/sba/trauma/burn-injury/figure_04_p8.jpeg",
+      "page": 8,
+      "size_bytes": 66181,
+      "width": 2176,
+      "height": 1316
+    },
+    {
+      "filename": "figure_05_p8.jpeg",
+      "web_path": "/lessons/images/sba/trauma/burn-injury/figure_05_p8.jpeg",
+      "page": 8,
+      "size_bytes": 27417,
+      "width": 1357,
+      "height": 1038
+    },
+    {
+      "filename": "figure_06_p9.jpeg",
+      "web_path": "/lessons/images/sba/trauma/burn-injury/figure_06_p9.jpeg",
+      "page": 9,
+      "size_bytes": 35968,
+      "width": 857,
+      "height": 1020
+    },
+    {
+      "filename": "figure_07_p9.jpeg",
+      "web_path": "/lessons/images/sba/trauma/burn-injury/figure_07_p9.jpeg",
+      "page": 9,
+      "size_bytes": 44486,
+      "width": 1632,
+      "height": 813
+    },
+    {
+      "filename": "figure_08_p14.jpeg",
+      "web_path": "/lessons/images/sba/trauma/burn-injury/figure_08_p14.jpeg",
+      "page": 14,
+      "size_bytes": 51337,
+      "width": 6127,
+      "height": 472
+    },
+    {
+      "filename": "figure_09_p15.jpeg",
+      "web_path": "/lessons/images/sba/trauma/burn-injury/figure_09_p15.jpeg",
+      "page": 15,
+      "size_bytes": 51749,
+      "width": 6127,
+      "height": 486
+    }
+  ],
+  "urology/dysuria": [
+    {
+      "filename": "figure_01_p8.jpeg",
+      "web_path": "/lessons/images/sba/urology/dysuria/figure_01_p8.jpeg",
+      "page": 8,
+      "size_bytes": 77244,
+      "width": 6127,
+      "height": 760
+    }
+  ],
+  "urology/urine-retention-lower-uti": [
+    {
+      "filename": "figure_01_p11.jpeg",
+      "web_path": "/lessons/images/sba/urology/urine-retention-lower-uti/figure_01_p11.jpeg",
+      "page": 11,
+      "size_bytes": 85774,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "urology/testicular-pain": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/urology/testicular-pain/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 235246,
+      "width": 1899,
+      "height": 1059
+    },
+    {
+      "filename": "figure_02_p3.jpeg",
+      "web_path": "/lessons/images/sba/urology/testicular-pain/figure_02_p3.jpeg",
+      "page": 3,
+      "size_bytes": 148461,
+      "width": 854,
+      "height": 1074
+    },
+    {
+      "filename": "figure_03_p4.jpeg",
+      "web_path": "/lessons/images/sba/urology/testicular-pain/figure_03_p4.jpeg",
+      "page": 4,
+      "size_bytes": 85657,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_04_p4.jpeg",
+      "web_path": "/lessons/images/sba/urology/testicular-pain/figure_04_p4.jpeg",
+      "page": 4,
+      "size_bytes": 148461,
+      "width": 854,
+      "height": 1074
+    }
+  ],
+  "urology/hematuria-cancer": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/urology/hematuria-cancer/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 37221,
+      "width": 882,
+      "height": 488
+    },
+    {
+      "filename": "figure_02_p7.jpeg",
+      "web_path": "/lessons/images/sba/urology/hematuria-cancer/figure_02_p7.jpeg",
+      "page": 7,
+      "size_bytes": 158764,
+      "width": 949,
+      "height": 1078
+    },
+    {
+      "filename": "figure_03_p8.jpeg",
+      "web_path": "/lessons/images/sba/urology/hematuria-cancer/figure_03_p8.jpeg",
+      "page": 8,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_04_p8.jpeg",
+      "web_path": "/lessons/images/sba/urology/hematuria-cancer/figure_04_p8.jpeg",
+      "page": 8,
+      "size_bytes": 158764,
+      "width": 949,
+      "height": 1078
+    }
+  ],
+  "urology/epididymo-orchitis": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/urology/epididymo-orchitis/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 84433,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "urology/renal-stone": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/urology/renal-stone/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 85770,
+      "width": 6127,
+      "height": 848
+    }
+  ],
+  "urology/phimosis-paraphimosis": [
+    {
+      "filename": "figure_01_p2.jpeg",
+      "web_path": "/lessons/images/sba/urology/phimosis-paraphimosis/figure_01_p2.jpeg",
+      "page": 2,
+      "size_bytes": 14464,
+      "width": 6133,
+      "height": 136
+    },
+    {
+      "filename": "figure_02_p2.jpeg",
+      "web_path": "/lessons/images/sba/urology/phimosis-paraphimosis/figure_02_p2.jpeg",
+      "page": 2,
+      "size_bytes": 123715,
+      "width": 1222,
+      "height": 1007
+    },
+    {
+      "filename": "figure_03_p3.jpeg",
+      "web_path": "/lessons/images/sba/urology/phimosis-paraphimosis/figure_03_p3.jpeg",
+      "page": 3,
+      "size_bytes": 71011,
+      "width": 6127,
+      "height": 698
+    }
+  ],
+  "urology/priapism": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/urology/priapism/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 67794,
+      "width": 774,
+      "height": 857
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/urology/priapism/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 67794,
+      "width": 774,
+      "height": 857
+    },
+    {
+      "filename": "figure_03_p5.jpeg",
+      "web_path": "/lessons/images/sba/urology/priapism/figure_03_p5.jpeg",
+      "page": 5,
+      "size_bytes": 45801,
+      "width": 744,
+      "height": 665
+    },
+    {
+      "filename": "figure_04_p7.jpeg",
+      "web_path": "/lessons/images/sba/urology/priapism/figure_04_p7.jpeg",
+      "page": 7,
+      "size_bytes": 72977,
+      "width": 739,
+      "height": 770
+    },
+    {
+      "filename": "figure_05_p8.jpeg",
+      "web_path": "/lessons/images/sba/urology/priapism/figure_05_p8.jpeg",
+      "page": 8,
+      "size_bytes": 53374,
+      "width": 6127,
+      "height": 498
+    },
+    {
+      "filename": "figure_06_p9.jpeg",
+      "web_path": "/lessons/images/sba/urology/priapism/figure_06_p9.jpeg",
+      "page": 9,
+      "size_bytes": 51749,
+      "width": 6127,
+      "height": 486
+    }
+  ],
+  "urology/testicular-torsion": [
+    {
+      "filename": "figure_01_p1.jpeg",
+      "web_path": "/lessons/images/sba/urology/testicular-torsion/figure_01_p1.jpeg",
+      "page": 1,
+      "size_bytes": 85939,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_02_p1.jpeg",
+      "web_path": "/lessons/images/sba/urology/testicular-torsion/figure_02_p1.jpeg",
+      "page": 1,
+      "size_bytes": 235246,
+      "width": 1899,
+      "height": 1059
+    }
+  ],
+  "urology/prostatitis": [
+    {
+      "filename": "figure_01_p6.jpeg",
+      "web_path": "/lessons/images/sba/urology/prostatitis/figure_01_p6.jpeg",
+      "page": 6,
+      "size_bytes": 84431,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "urology/acute-pyelonephritis": [
+    {
+      "filename": "figure_01_p5.jpeg",
+      "web_path": "/lessons/images/sba/urology/acute-pyelonephritis/figure_01_p5.jpeg",
+      "page": 5,
+      "size_bytes": 85657,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "vascular/peripheral-vascular-disease": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/vascular/peripheral-vascular-disease/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 44837,
+      "width": 864,
+      "height": 394
+    },
+    {
+      "filename": "figure_02_p6.jpeg",
+      "web_path": "/lessons/images/sba/vascular/peripheral-vascular-disease/figure_02_p6.jpeg",
+      "page": 6,
+      "size_bytes": 56266,
+      "width": 1024,
+      "height": 520
+    },
+    {
+      "filename": "figure_03_p8.jpeg",
+      "web_path": "/lessons/images/sba/vascular/peripheral-vascular-disease/figure_03_p8.jpeg",
+      "page": 8,
+      "size_bytes": 85187,
+      "width": 6127,
+      "height": 842
+    }
+  ],
+  "vascular/pulmonary-embolism": [
+    {
+      "filename": "figure_01_p3.jpeg",
+      "web_path": "/lessons/images/sba/vascular/pulmonary-embolism/figure_01_p3.jpeg",
+      "page": 3,
+      "size_bytes": 28857,
+      "width": 566,
+      "height": 518
+    },
+    {
+      "filename": "figure_02_p4.jpeg",
+      "web_path": "/lessons/images/sba/vascular/pulmonary-embolism/figure_02_p4.jpeg",
+      "page": 4,
+      "size_bytes": 53609,
+      "width": 739,
+      "height": 643
+    },
+    {
+      "filename": "figure_03_p8.jpeg",
+      "web_path": "/lessons/images/sba/vascular/pulmonary-embolism/figure_03_p8.jpeg",
+      "page": 8,
+      "size_bytes": 85192,
+      "width": 6127,
+      "height": 842
+    },
+    {
+      "filename": "figure_04_p8.jpeg",
+      "web_path": "/lessons/images/sba/vascular/pulmonary-embolism/figure_04_p8.jpeg",
+      "page": 8,
+      "size_bytes": 55262,
+      "width": 960,
+      "height": 597
+    }
+  ],
+  "vascular/deep-vein-thrombosis": [
+    {
+      "filename": "figure_01_p4.jpeg",
+      "web_path": "/lessons/images/sba/vascular/deep-vein-thrombosis/figure_01_p4.jpeg",
+      "page": 4,
+      "size_bytes": 222953,
+      "width": 2176,
+      "height": 1610
+    },
+    {
+      "filename": "figure_02_p5.jpeg",
+      "web_path": "/lessons/images/sba/vascular/deep-vein-thrombosis/figure_02_p5.jpeg",
+      "page": 5,
+      "size_bytes": 114873,
+      "width": 922,
+      "height": 960
+    },
+    {
+      "filename": "figure_03_p7.jpeg",
+      "web_path": "/lessons/images/sba/vascular/deep-vein-thrombosis/figure_03_p7.jpeg",
+      "page": 7,
+      "size_bytes": 72444,
+      "width": 966,
+      "height": 720
+    },
+    {
+      "filename": "figure_04_p8.jpeg",
+      "web_path": "/lessons/images/sba/vascular/deep-vein-thrombosis/figure_04_p8.jpeg",
+      "page": 8,
+      "size_bytes": 86712,
+      "width": 6127,
+      "height": 848
+    }
+  ]
+}

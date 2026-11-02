@@ -28,6 +28,90 @@ import {
 } from 'lucide-react';
 import type { ParsedQuestion } from './parseQuestions';
 
+function ClinicalMarkdownText({ content }: { content: string }) {
+  if (!content) return null;
+  const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = imageRegex.exec(content)) !== null) {
+    const textBefore = content.substring(lastIndex, match.index);
+    if (textBefore) {
+      parts.push(
+        <span key={`txt-${lastIndex}`} style={{ whiteSpace: 'pre-line' }}>
+          {textBefore}
+        </span>
+      );
+    }
+    const altText = match[1] || 'Clinical Figure';
+    const imgSrc = match[2];
+    parts.push(
+      <figure
+        key={`img-${match.index}`}
+        style={{
+          margin: '20px auto',
+          textAlign: 'center',
+          background: '#f8fafc',
+          borderRadius: 12,
+          border: '1px solid #e2e8f0',
+          padding: '14px',
+          maxWidth: '100%',
+        }}
+      >
+        <img
+          src={imgSrc}
+          alt={altText}
+          loading="lazy"
+          style={{
+            maxWidth: '100%',
+            maxHeight: '440px',
+            height: 'auto',
+            borderRadius: 8,
+            boxShadow: '0 4px 14px rgba(0,0,0,0.07)',
+            objectFit: 'contain',
+            display: 'inline-block',
+            cursor: 'zoom-in',
+          }}
+          onClick={() => {
+            window.open(imgSrc, '_blank');
+          }}
+          title="Click to view full resolution"
+        />
+        {altText && (
+          <figcaption
+            style={{
+              fontSize: '0.85rem',
+              color: '#64748b',
+              marginTop: 10,
+              fontWeight: 650,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 6,
+            }}
+          >
+            <span>{altText}</span>
+            <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>(click image to enlarge)</span>
+          </figcaption>
+        )}
+      </figure>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+
+  const remainingText = content.substring(lastIndex);
+  if (remainingText) {
+    parts.push(
+      <span key={`txt-${lastIndex}`} style={{ whiteSpace: 'pre-line' }}>
+        {remainingText}
+      </span>
+    );
+  }
+
+  return <>{parts}</>;
+}
+
 interface InteractiveQuizProps {
   quizTitle: string;
   questions: ParsedQuestion[];
@@ -716,7 +800,7 @@ export function InteractiveQuiz({
                     </div>
 
                     <h4 style={{ fontSize: '1.08rem', color: '#0f172a', lineHeight: 1.6, margin: '0 0 18px', fontWeight: 650 }}>
-                      {q.stem}
+                      <ClinicalMarkdownText content={q.stem} />
                     </h4>
 
                     {/* Options list */}
@@ -788,7 +872,7 @@ export function InteractiveQuiz({
                         <strong style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#0284c7', marginBottom: 8 }}>
                           <Sparkles size={16} /> Clinical Rationale & Teaching Points:
                         </strong>
-                        <div style={{ whiteSpace: 'pre-line' }}>{q.explanation}</div>
+                        <div><ClinicalMarkdownText content={q.explanation} /></div>
                       </div>
                     )}
                   </article>
@@ -1007,7 +1091,7 @@ export function InteractiveQuiz({
               letterSpacing: '-0.01em',
             }}
           >
-            {currentQ.stem}
+            <ClinicalMarkdownText content={currentQ.stem} />
           </div>
 
           {/* Options (A, B, C, D, E) */}
@@ -1157,7 +1241,7 @@ export function InteractiveQuiz({
                   <strong style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#0f172a', marginBottom: 6 }}>
                     <Sparkles size={16} color="#0284c7" /> Clinical Explanation & Key Learning Points:
                   </strong>
-                  <div style={{ whiteSpace: 'pre-line', paddingLeft: 6 }}>{currentQ.explanation}</div>
+                  <div style={{ paddingLeft: 6 }}><ClinicalMarkdownText content={currentQ.explanation} /></div>
                 </div>
               )}
             </div>

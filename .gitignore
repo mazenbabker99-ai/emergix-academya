@@ -57,3 +57,4 @@ __pycache__/
 # Zip archives
 *.zip
 .cache_sba_lessons/
+content/

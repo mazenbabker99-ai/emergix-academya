@@ -954,7 +954,7 @@ export async function runAutoMigrationsAndSeeds() {
     }
 
     // Track explicit curriculum content version so text additions and cleanups are always applied
-    const CURRENT_CURRICULUM_VERSION = "2026_10_22_v17_permanent_quiz_titles_and_ordering";
+    const CURRENT_CURRICULUM_VERSION = "2026_11_02_v18_complete_curriculum_and_quizzes";
     let isCurriculumUpToDate = false;
 
     try {
@@ -988,6 +988,8 @@ export async function runAutoMigrationsAndSeeds() {
       { file: "cleanup_courses.sql", shouldRun: true },
       { file: "set_two_flagship_courses.sql", shouldRun: true },
       { file: "update_quiz_1_verified.sql", shouldRun: true },
+      // Master complete curriculum migration with 109 interactive SBA quizzes & 400 clinical images
+      { file: "update_curriculum_complete.sql", shouldRun: true },
     ];
 
     for (const { file: seedFile, shouldRun } of masterSeeds) {
