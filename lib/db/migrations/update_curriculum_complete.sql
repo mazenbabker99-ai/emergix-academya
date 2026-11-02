@@ -1,57 +1,76 @@
 -- ==========================================================================
 -- MASTER CURRICULUM MIGRATION: 109 TOPIC SBA QUIZZES + 109 BEAUTIFIED LECTURES
--- Course: MRCEM SBA (ID: 4c794261-4f8e-4de7-8f77-b1bf8592154d)
--- Aligned with UK RCEM SBA format, 400 clinical figures, and interactive quizzes
+-- Target Course: MRCEM SBA
+-- Fully resilient & dynamic resolution across all DB environments
 -- ==========================================================================
 DO $$
 DECLARE
-  v_sba_id      uuid;
-  v_primary_id  uuid;
-  v_mod_id      uuid;
+  v_sba_id            uuid;
+  v_mod_resuscitation uuid;
+  v_mod_cardio        uuid;
+  v_mod_trauma        uuid;
+  v_mod_pulmonology   uuid;
+  v_mod_gastro        uuid;
+  v_mod_nephrology    uuid;
+  v_mod_urology       uuid;
+  v_mod_ophthalmology uuid;
+  v_mod_vascular      uuid;
+  v_mod_high_yield    uuid;
+  v_mod_mock          uuid;
+  v_mod_id            uuid;
 BEGIN
-  -- 1. Archive duplicate or conflicting courses with slug mrcem-sba
-  UPDATE "courses"
-  SET "slug" = 'mrcem-sba-deprecated-' || substr(id::text, 1, 8),
-      "status" = 'archived',
-      "deleted_at" = now()
-  WHERE "slug" = 'mrcem-sba' AND "id" != '4c794261-4f8e-4de7-8f77-b1bf8592154d';
-
-  -- 2. Target the exact live Flagship Course: MRCEM SBA
+  -- 1. Locate existing course by slug or title
   SELECT id INTO v_sba_id
   FROM "courses"
-  WHERE "id" = '4c794261-4f8e-4de7-8f77-b1bf8592154d'
-     OR ("slug" = 'mrcem-sba' AND "deleted_at" IS NULL)
-  ORDER BY ("id" = '4c794261-4f8e-4de7-8f77-b1bf8592154d') DESC
+  WHERE "slug" = 'mrcem-sba'
+     OR "slug" LIKE 'mrcem-sba%'
+     OR "title" ILIKE '%MRCEM SBA%'
+  ORDER BY ("status" = 'published') DESC, ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
+  -- 2. If not found, insert it!
   IF v_sba_id IS NULL THEN
-    RAISE EXCEPTION 'Course mrcem-sba (4c794261-4f8e-4de7-8f77-b1bf8592154d) not found';
+    v_sba_id := gen_random_uuid();
+    INSERT INTO "courses" (
+      "id", "slug", "title", "summary", "description", "is_free", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      v_sba_id,
+      'mrcem-sba',
+      'MRCEM SBA',
+      'Dedicated single best answer (SBA) question bank & timed mock simulations with comprehensive clinical explanations.',
+      'The flagship SBA masterclass for the Royal College of Emergency Medicine examination.',
+      false,
+      2,
+      'published',
+      now(),
+      now()
+    );
+  ELSE
+    -- Restore and ensure canonical slug and published status
+    UPDATE "courses"
+    SET "slug" = 'mrcem-sba',
+        "title" = 'MRCEM SBA',
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "position" = 2,
+        "updated_at" = now()
+    WHERE "id" = v_sba_id;
   END IF;
 
-  -- Ensure proper course metadata
-  UPDATE "courses"
-  SET "slug" = 'mrcem-sba',
-      "title" = 'MRCEM SBA',
-      "status" = 'published',
-      "deleted_at" = NULL,
-      "position" = 2,
-      "updated_at" = now()
-  WHERE "id" = v_sba_id;
-
   -- ========================================================================
-  -- STEP 1: MODULE ORDERING & STRUCTURE (Positions 0 to 10 in MRCEM SBA)
+  -- STEP 1: RESOLVE & ORDER ALL 11 MODULES (Positions 0 to 10 in MRCEM SBA)
   -- ========================================================================
-  -- Module 0: Resuscitation & Critical Care (UUID: 21d5a5bc-95f2-4152-b77c-34014b31892f)
-  SELECT id INTO v_mod_id
+  -- Module 0: Resuscitation & Critical Care
+  SELECT id INTO v_mod_resuscitation
   FROM "modules"
-  WHERE "id" = '21d5a5bc-95f2-4152-b77c-34014b31892f'
-     OR ("course_id" = v_sba_id AND "title" ILIKE '%Resuscitation%')
-  ORDER BY ("id" = '21d5a5bc-95f2-4152-b77c-34014b31892f') DESC
+  WHERE "course_id" = v_sba_id AND ("title" ILIKE '%Resuscitation%' OR "title" = 'Resuscitation & Critical Care')
+  ORDER BY ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
-  IF v_mod_id IS NULL THEN
+  IF v_mod_resuscitation IS NULL THEN
+    v_mod_resuscitation := gen_random_uuid();
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES ('21d5a5bc-95f2-4152-b77c-34014b31892f', v_sba_id, 'Resuscitation & Critical Care', 0, now(), now());
+    VALUES (v_mod_resuscitation, v_sba_id, 'Resuscitation & Critical Care', 0, now(), now());
   ELSE
     UPDATE "modules"
     SET "course_id" = v_sba_id,
@@ -59,20 +78,20 @@ BEGIN
         "position" = 0,
         "deleted_at" = NULL,
         "updated_at" = now()
-    WHERE "id" = v_mod_id;
+    WHERE "id" = v_mod_resuscitation;
   END IF;
 
-  -- Module 1: Cardiovascular Emergencies (UUID: dcd783c9-64a3-4feb-b212-e785368539af)
-  SELECT id INTO v_mod_id
+  -- Module 1: Cardiovascular Emergencies
+  SELECT id INTO v_mod_cardio
   FROM "modules"
-  WHERE "id" = 'dcd783c9-64a3-4feb-b212-e785368539af'
-     OR ("course_id" = v_sba_id AND "title" ILIKE '%Cardio%')
-  ORDER BY ("id" = 'dcd783c9-64a3-4feb-b212-e785368539af') DESC
+  WHERE "course_id" = v_sba_id AND ("title" ILIKE '%Cardio%' OR "title" = 'Cardiovascular Emergencies')
+  ORDER BY ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
-  IF v_mod_id IS NULL THEN
+  IF v_mod_cardio IS NULL THEN
+    v_mod_cardio := gen_random_uuid();
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES ('dcd783c9-64a3-4feb-b212-e785368539af', v_sba_id, 'Cardiovascular Emergencies', 1, now(), now());
+    VALUES (v_mod_cardio, v_sba_id, 'Cardiovascular Emergencies', 1, now(), now());
   ELSE
     UPDATE "modules"
     SET "course_id" = v_sba_id,
@@ -80,20 +99,20 @@ BEGIN
         "position" = 1,
         "deleted_at" = NULL,
         "updated_at" = now()
-    WHERE "id" = v_mod_id;
+    WHERE "id" = v_mod_cardio;
   END IF;
 
-  -- Module 2: Major Trauma & Injury Management (UUID: b39d612b-6474-4d09-88c4-b55bc2473575)
-  SELECT id INTO v_mod_id
+  -- Module 2: Major Trauma & Injury Management
+  SELECT id INTO v_mod_trauma
   FROM "modules"
-  WHERE "id" = 'b39d612b-6474-4d09-88c4-b55bc2473575'
-     OR ("course_id" = v_sba_id AND "title" ILIKE '%Trauma%')
-  ORDER BY ("id" = 'b39d612b-6474-4d09-88c4-b55bc2473575') DESC
+  WHERE "course_id" = v_sba_id AND ("title" ILIKE '%Trauma%' OR "title" = 'Major Trauma & Injury Management')
+  ORDER BY ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
-  IF v_mod_id IS NULL THEN
+  IF v_mod_trauma IS NULL THEN
+    v_mod_trauma := gen_random_uuid();
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES ('b39d612b-6474-4d09-88c4-b55bc2473575', v_sba_id, 'Major Trauma & Injury Management', 2, now(), now());
+    VALUES (v_mod_trauma, v_sba_id, 'Major Trauma & Injury Management', 2, now(), now());
   ELSE
     UPDATE "modules"
     SET "course_id" = v_sba_id,
@@ -101,20 +120,20 @@ BEGIN
         "position" = 2,
         "deleted_at" = NULL,
         "updated_at" = now()
-    WHERE "id" = v_mod_id;
+    WHERE "id" = v_mod_trauma;
   END IF;
 
-  -- Module 3: Pulmonology & Respiratory Emergencies (UUID: f0f17eab-9963-4ac2-84c6-30cec4789133)
-  SELECT id INTO v_mod_id
+  -- Module 3: Pulmonology & Respiratory Emergencies
+  SELECT id INTO v_mod_pulmonology
   FROM "modules"
-  WHERE "id" = 'f0f17eab-9963-4ac2-84c6-30cec4789133'
-     OR ("course_id" = v_sba_id AND "title" ILIKE '%Pulmon%')
-  ORDER BY ("id" = 'f0f17eab-9963-4ac2-84c6-30cec4789133') DESC
+  WHERE "course_id" = v_sba_id AND ("title" ILIKE '%Pulmon%' OR "title" = 'Pulmonology & Respiratory Emergencies')
+  ORDER BY ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
-  IF v_mod_id IS NULL THEN
+  IF v_mod_pulmonology IS NULL THEN
+    v_mod_pulmonology := gen_random_uuid();
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES ('f0f17eab-9963-4ac2-84c6-30cec4789133', v_sba_id, 'Pulmonology & Respiratory Emergencies', 3, now(), now());
+    VALUES (v_mod_pulmonology, v_sba_id, 'Pulmonology & Respiratory Emergencies', 3, now(), now());
   ELSE
     UPDATE "modules"
     SET "course_id" = v_sba_id,
@@ -122,20 +141,20 @@ BEGIN
         "position" = 3,
         "deleted_at" = NULL,
         "updated_at" = now()
-    WHERE "id" = v_mod_id;
+    WHERE "id" = v_mod_pulmonology;
   END IF;
 
-  -- Module 4: Gastroenterology Emergencies (UUID: 043d1f63-515c-4b6c-b2df-b78e420f8a2b)
-  SELECT id INTO v_mod_id
+  -- Module 4: Gastroenterology Emergencies
+  SELECT id INTO v_mod_gastro
   FROM "modules"
-  WHERE "id" = '043d1f63-515c-4b6c-b2df-b78e420f8a2b'
-     OR ("course_id" = v_sba_id AND "title" ILIKE '%Gastro%')
-  ORDER BY ("id" = '043d1f63-515c-4b6c-b2df-b78e420f8a2b') DESC
+  WHERE "course_id" = v_sba_id AND ("title" ILIKE '%Gastro%' OR "title" = 'Gastroenterology Emergencies')
+  ORDER BY ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
-  IF v_mod_id IS NULL THEN
+  IF v_mod_gastro IS NULL THEN
+    v_mod_gastro := gen_random_uuid();
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES ('043d1f63-515c-4b6c-b2df-b78e420f8a2b', v_sba_id, 'Gastroenterology Emergencies', 4, now(), now());
+    VALUES (v_mod_gastro, v_sba_id, 'Gastroenterology Emergencies', 4, now(), now());
   ELSE
     UPDATE "modules"
     SET "course_id" = v_sba_id,
@@ -143,20 +162,20 @@ BEGIN
         "position" = 4,
         "deleted_at" = NULL,
         "updated_at" = now()
-    WHERE "id" = v_mod_id;
+    WHERE "id" = v_mod_gastro;
   END IF;
 
-  -- Module 5: Nephrology & Acid-Base Disorders (UUID: 27ed28c6-c5e7-408f-ad2d-76c37e09c5a4)
-  SELECT id INTO v_mod_id
+  -- Module 5: Nephrology & Acid-Base Disorders
+  SELECT id INTO v_mod_nephrology
   FROM "modules"
-  WHERE "id" = '27ed28c6-c5e7-408f-ad2d-76c37e09c5a4'
-     OR ("course_id" = v_sba_id AND "title" ILIKE '%Nephro%')
-  ORDER BY ("id" = '27ed28c6-c5e7-408f-ad2d-76c37e09c5a4') DESC
+  WHERE "course_id" = v_sba_id AND ("title" ILIKE '%Nephro%' OR "title" = 'Nephrology & Acid-Base Disorders')
+  ORDER BY ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
-  IF v_mod_id IS NULL THEN
+  IF v_mod_nephrology IS NULL THEN
+    v_mod_nephrology := gen_random_uuid();
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES ('27ed28c6-c5e7-408f-ad2d-76c37e09c5a4', v_sba_id, 'Nephrology & Acid-Base Disorders', 5, now(), now());
+    VALUES (v_mod_nephrology, v_sba_id, 'Nephrology & Acid-Base Disorders', 5, now(), now());
   ELSE
     UPDATE "modules"
     SET "course_id" = v_sba_id,
@@ -164,20 +183,20 @@ BEGIN
         "position" = 5,
         "deleted_at" = NULL,
         "updated_at" = now()
-    WHERE "id" = v_mod_id;
+    WHERE "id" = v_mod_nephrology;
   END IF;
 
-  -- Module 6: Urological Emergencies (UUID: 3ac8ba66-ddd6-4057-aff3-dd6019e5cea6)
-  SELECT id INTO v_mod_id
+  -- Module 6: Urological Emergencies
+  SELECT id INTO v_mod_urology
   FROM "modules"
-  WHERE "id" = '3ac8ba66-ddd6-4057-aff3-dd6019e5cea6'
-     OR ("course_id" = v_sba_id AND "title" ILIKE '%Urolog%')
-  ORDER BY ("id" = '3ac8ba66-ddd6-4057-aff3-dd6019e5cea6') DESC
+  WHERE "course_id" = v_sba_id AND ("title" ILIKE '%Urolog%' OR "title" = 'Urological Emergencies')
+  ORDER BY ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
-  IF v_mod_id IS NULL THEN
+  IF v_mod_urology IS NULL THEN
+    v_mod_urology := gen_random_uuid();
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES ('3ac8ba66-ddd6-4057-aff3-dd6019e5cea6', v_sba_id, 'Urological Emergencies', 6, now(), now());
+    VALUES (v_mod_urology, v_sba_id, 'Urological Emergencies', 6, now(), now());
   ELSE
     UPDATE "modules"
     SET "course_id" = v_sba_id,
@@ -185,20 +204,20 @@ BEGIN
         "position" = 6,
         "deleted_at" = NULL,
         "updated_at" = now()
-    WHERE "id" = v_mod_id;
+    WHERE "id" = v_mod_urology;
   END IF;
 
-  -- Module 7: Ophthalmology Emergencies (UUID: ad2247ff-8eda-4596-a029-f64dc302c61a)
-  SELECT id INTO v_mod_id
+  -- Module 7: Ophthalmology Emergencies
+  SELECT id INTO v_mod_ophthalmology
   FROM "modules"
-  WHERE "id" = 'ad2247ff-8eda-4596-a029-f64dc302c61a'
-     OR ("course_id" = v_sba_id AND "title" ILIKE '%Ophthal%')
-  ORDER BY ("id" = 'ad2247ff-8eda-4596-a029-f64dc302c61a') DESC
+  WHERE "course_id" = v_sba_id AND ("title" ILIKE '%Ophthal%' OR "title" = 'Ophthalmology Emergencies')
+  ORDER BY ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
-  IF v_mod_id IS NULL THEN
+  IF v_mod_ophthalmology IS NULL THEN
+    v_mod_ophthalmology := gen_random_uuid();
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES ('ad2247ff-8eda-4596-a029-f64dc302c61a', v_sba_id, 'Ophthalmology Emergencies', 7, now(), now());
+    VALUES (v_mod_ophthalmology, v_sba_id, 'Ophthalmology Emergencies', 7, now(), now());
   ELSE
     UPDATE "modules"
     SET "course_id" = v_sba_id,
@@ -206,20 +225,20 @@ BEGIN
         "position" = 7,
         "deleted_at" = NULL,
         "updated_at" = now()
-    WHERE "id" = v_mod_id;
+    WHERE "id" = v_mod_ophthalmology;
   END IF;
 
-  -- Module 8: Vascular Emergencies (UUID: 7d06da21-b32e-4946-82b3-3ea2c69d5346)
-  SELECT id INTO v_mod_id
+  -- Module 8: Vascular Emergencies
+  SELECT id INTO v_mod_vascular
   FROM "modules"
-  WHERE "id" = '7d06da21-b32e-4946-82b3-3ea2c69d5346'
-     OR ("course_id" = v_sba_id AND "title" ILIKE '%Vascular%')
-  ORDER BY ("id" = '7d06da21-b32e-4946-82b3-3ea2c69d5346') DESC
+  WHERE "course_id" = v_sba_id AND ("title" ILIKE '%Vascular%' OR "title" = 'Vascular Emergencies')
+  ORDER BY ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
-  IF v_mod_id IS NULL THEN
+  IF v_mod_vascular IS NULL THEN
+    v_mod_vascular := gen_random_uuid();
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES ('7d06da21-b32e-4946-82b3-3ea2c69d5346', v_sba_id, 'Vascular Emergencies', 8, now(), now());
+    VALUES (v_mod_vascular, v_sba_id, 'Vascular Emergencies', 8, now(), now());
   ELSE
     UPDATE "modules"
     SET "course_id" = v_sba_id,
@@ -227,20 +246,20 @@ BEGIN
         "position" = 8,
         "deleted_at" = NULL,
         "updated_at" = now()
-    WHERE "id" = v_mod_id;
+    WHERE "id" = v_mod_vascular;
   END IF;
 
-  -- Module 9: High-Yield Rapid Clinical Revision (UUID: 5d56a3e8-d768-4005-b341-a48aae0897c1)
-  SELECT id INTO v_mod_id
+  -- Module 9: High-Yield Rapid Clinical Revision
+  SELECT id INTO v_mod_high_yield
   FROM "modules"
-  WHERE "id" = '5d56a3e8-d768-4005-b341-a48aae0897c1'
-     OR ("course_id" = v_sba_id AND "title" ILIKE '%High-Yield%')
-  ORDER BY ("id" = '5d56a3e8-d768-4005-b341-a48aae0897c1') DESC
+  WHERE "course_id" = v_sba_id AND ("title" ILIKE '%High-Yield%' OR "title" = 'High-Yield Rapid Clinical Revision')
+  ORDER BY ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
-  IF v_mod_id IS NULL THEN
+  IF v_mod_high_yield IS NULL THEN
+    v_mod_high_yield := gen_random_uuid();
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES ('5d56a3e8-d768-4005-b341-a48aae0897c1', v_sba_id, 'High-Yield Rapid Clinical Revision', 9, now(), now());
+    VALUES (v_mod_high_yield, v_sba_id, 'High-Yield Rapid Clinical Revision', 9, now(), now());
   ELSE
     UPDATE "modules"
     SET "course_id" = v_sba_id,
@@ -248,20 +267,20 @@ BEGIN
         "position" = 9,
         "deleted_at" = NULL,
         "updated_at" = now()
-    WHERE "id" = v_mod_id;
+    WHERE "id" = v_mod_high_yield;
   END IF;
 
-  -- Module 10: MRCEM SBA Mock Simulations (UUID: 5bacd90d-fbd6-4827-a20f-a3017597504b)
-  SELECT id INTO v_mod_id
+  -- Module 10: MRCEM SBA Mock Simulations
+  SELECT id INTO v_mod_mock
   FROM "modules"
-  WHERE "id" = '5bacd90d-fbd6-4827-a20f-a3017597504b'
-     OR ("course_id" = v_sba_id AND "title" ILIKE '%Mock%')
-  ORDER BY ("id" = '5bacd90d-fbd6-4827-a20f-a3017597504b') DESC
+  WHERE "course_id" = v_sba_id AND ("title" ILIKE '%Mock%' OR "title" = 'MRCEM SBA Mock Simulations')
+  ORDER BY ("deleted_at" IS NULL) DESC, "created_at" ASC
   LIMIT 1;
 
-  IF v_mod_id IS NULL THEN
+  IF v_mod_mock IS NULL THEN
+    v_mod_mock := gen_random_uuid();
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES ('5bacd90d-fbd6-4827-a20f-a3017597504b', v_sba_id, 'MRCEM SBA Mock Simulations', 10, now(), now());
+    VALUES (v_mod_mock, v_sba_id, 'MRCEM SBA Mock Simulations', 10, now(), now());
   ELSE
     UPDATE "modules"
     SET "course_id" = v_sba_id,
@@ -269,7 +288,7 @@ BEGIN
         "position" = 10,
         "deleted_at" = NULL,
         "updated_at" = now()
-    WHERE "id" = v_mod_id;
+    WHERE "id" = v_mod_mock;
   END IF;
 
   -- ========================================================================
@@ -286,7 +305,7 @@ BEGIN
   -- Soft-delete misplaced MOKA duplicates from Resuscitation module
   UPDATE "lessons"
   SET "deleted_at" = now(), "updated_at" = now()
-  WHERE "module_id" = '21d5a5bc-95f2-4152-b77c-34014b31892f'
+  WHERE "module_id" = v_mod_resuscitation
     AND "slug" IN ('high-yield-clinical-sba-practice-4', 'high-yield-clinical-sba-practice-65');
 
   -- ========================================================================
@@ -400,9 +419,9 @@ BEGIN
   -- ========================================================================
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Resuscitation & Critical Care (10 Topics) -> Module UUID 21d5a5bc-95f2-4152-b77c-34014b31892f
+  -- Specialty: Resuscitation & Critical Care (10 Topics) -> v_mod_resuscitation
   -- ------------------------------------------------------------------------
-  v_mod_id := '21d5a5bc-95f2-4152-b77c-34014b31892f';
+  v_mod_id := v_mod_resuscitation;
 
   -- Pair 1/10: Advanced Life Support (ALS)
   -- A) Upsert Clinical Theory Lecture (Position 0)
@@ -2303,9 +2322,9 @@ $SBA_RESU_010$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Cardiovascular Emergencies (21 Topics) -> Module UUID dcd783c9-64a3-4feb-b212-e785368539af
+  -- Specialty: Cardiovascular Emergencies (21 Topics) -> v_mod_cardio
   -- ------------------------------------------------------------------------
-  v_mod_id := 'dcd783c9-64a3-4feb-b212-e785368539af';
+  v_mod_id := v_mod_cardio;
 
   -- Pair 1/21: Acute Coronary Syndromes (ACS)
   -- A) Upsert Clinical Theory Lecture (Position 0)
@@ -7248,9 +7267,9 @@ $SBA_CARD_031$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Major Trauma & Injury Management (13 Topics) -> Module UUID b39d612b-6474-4d09-88c4-b55bc2473575
+  -- Specialty: Major Trauma & Injury Management (13 Topics) -> v_mod_trauma
   -- ------------------------------------------------------------------------
-  v_mod_id := 'b39d612b-6474-4d09-88c4-b55bc2473575';
+  v_mod_id := v_mod_trauma;
 
   -- Pair 1/13: Abdominal Trauma
   -- A) Upsert Clinical Theory Lecture (Position 0)
@@ -10010,9 +10029,9 @@ $SBA_TRAU_044$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Pulmonology & Respiratory Emergencies (13 Topics) -> Module UUID f0f17eab-9963-4ac2-84c6-30cec4789133
+  -- Specialty: Pulmonology & Respiratory Emergencies (13 Topics) -> v_mod_pulmonology
   -- ------------------------------------------------------------------------
-  v_mod_id := 'f0f17eab-9963-4ac2-84c6-30cec4789133';
+  v_mod_id := v_mod_pulmonology;
 
   -- Pair 1/13: Acute Severe & Life-Threatening Asthma in Adults
   -- A) Upsert Clinical Theory Lecture (Position 0)
@@ -12004,9 +12023,9 @@ $SBA_PULM_057$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Gastroenterology Emergencies (21 Topics) -> Module UUID 043d1f63-515c-4b6c-b2df-b78e420f8a2b
+  -- Specialty: Gastroenterology Emergencies (21 Topics) -> v_mod_gastro
   -- ------------------------------------------------------------------------
-  v_mod_id := '043d1f63-515c-4b6c-b2df-b78e420f8a2b';
+  v_mod_id := v_mod_gastro;
 
   -- Pair 1/21: Acute Appendicitis
   -- A) Upsert Clinical Theory Lecture (Position 0)
@@ -16040,9 +16059,9 @@ $SBA_GAST_078$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Nephrology & Acid-Base Disorders (8 Topics) -> Module UUID 27ed28c6-c5e7-408f-ad2d-76c37e09c5a4
+  -- Specialty: Nephrology & Acid-Base Disorders (8 Topics) -> v_mod_nephrology
   -- ------------------------------------------------------------------------
-  v_mod_id := '27ed28c6-c5e7-408f-ad2d-76c37e09c5a4';
+  v_mod_id := v_mod_nephrology;
 
   -- Pair 1/8: Acute Kidney Injury (AKI) & KDIGO Staging
   -- A) Upsert Clinical Theory Lecture (Position 0)
@@ -17751,9 +17770,9 @@ $SBA_NEPH_086$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Urological Emergencies (11 Topics) -> Module UUID 3ac8ba66-ddd6-4057-aff3-dd6019e5cea6
+  -- Specialty: Urological Emergencies (11 Topics) -> v_mod_urology
   -- ------------------------------------------------------------------------
-  v_mod_id := '3ac8ba66-ddd6-4057-aff3-dd6019e5cea6';
+  v_mod_id := v_mod_urology;
 
   -- Pair 1/11: Acute Pyelonephritis Management
   -- A) Upsert Clinical Theory Lecture (Position 0)
@@ -20188,9 +20207,9 @@ $SBA_UROL_097$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Ophthalmology Emergencies (9 Topics) -> Module UUID ad2247ff-8eda-4596-a029-f64dc302c61a
+  -- Specialty: Ophthalmology Emergencies (9 Topics) -> v_mod_ophthalmology
   -- ------------------------------------------------------------------------
-  v_mod_id := 'ad2247ff-8eda-4596-a029-f64dc302c61a';
+  v_mod_id := v_mod_ophthalmology;
 
   -- Pair 1/9: Acute Angle-Closure Glaucoma
   -- A) Upsert Clinical Theory Lecture (Position 0)
@@ -22099,9 +22118,9 @@ $SBA_OPHT_106$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Vascular Emergencies (3 Topics) -> Module UUID 7d06da21-b32e-4946-82b3-3ea2c69d5346
+  -- Specialty: Vascular Emergencies (3 Topics) -> v_mod_vascular
   -- ------------------------------------------------------------------------
-  v_mod_id := '7d06da21-b32e-4946-82b3-3ea2c69d5346';
+  v_mod_id := v_mod_vascular;
 
   -- Pair 1/3: Deep Vein Thrombosis (DVT) Guidelines
   -- A) Upsert Clinical Theory Lecture (Position 0)
@@ -22857,7 +22876,7 @@ $SBA_VASC_109$,
       "status" = 'published',
       "deleted_at" = NULL,
       "updated_at" = now()
-  WHERE "module_id" = '5d56a3e8-d768-4005-b341-a48aae0897c1'
+  WHERE "module_id" = v_mod_high_yield
     AND ("slug" ILIKE '%high-yield%practice%' OR "title" ILIKE '%Practice%');
 
   -- Module 10: MRCEM SBA Mock Simulations
@@ -22866,33 +22885,33 @@ $SBA_VASC_109$,
       "status" = 'published',
       "deleted_at" = NULL,
       "updated_at" = now()
-  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b'
+  WHERE "module_id" = v_mod_mock
     AND ("slug" ILIKE '%mock%' OR "title" ILIKE '%Mock%');
 
   -- Fix Mock simulation titles
   UPDATE "lessons"
   SET "title" = 'Mock 1 — Paper 1 (Clinical SBA Exam)', "position" = 0, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-i-paper-i' OR "slug" = 'mock-1-paper-1' OR "title" ILIKE '%Mock%1%Paper%1%' OR "title" ILIKE '%Mock%I%Paper%I%');
+  WHERE "module_id" = v_mod_mock AND ("slug" = 'mock-i-paper-i' OR "slug" = 'mock-1-paper-1' OR "title" ILIKE '%Mock%1%Paper%1%' OR "title" ILIKE '%Mock%I%Paper%I%');
 
   UPDATE "lessons"
   SET "title" = 'Mock 1 — Paper 2 (Clinical SBA Exam)', "position" = 1, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-i-paper-ii' OR "slug" = 'mock-1-paper-2' OR "title" ILIKE '%Mock%1%Paper%2%' OR "title" ILIKE '%Mock%I%Paper%Ii%');
+  WHERE "module_id" = v_mod_mock AND ("slug" = 'mock-i-paper-ii' OR "slug" = 'mock-1-paper-2' OR "title" ILIKE '%Mock%1%Paper%2%' OR "title" ILIKE '%Mock%I%Paper%Ii%');
 
   UPDATE "lessons"
   SET "title" = 'Mock 2 — Paper 1 (Clinical SBA Exam)', "position" = 2, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-ii-paper-i' OR "slug" = 'mock-2-paper-1' OR "title" ILIKE '%Mock%2%Paper%1%' OR "title" ILIKE '%Mock%Ii%Paper%I%');
+  WHERE "module_id" = v_mod_mock AND ("slug" = 'mock-ii-paper-i' OR "slug" = 'mock-2-paper-1' OR "title" ILIKE '%Mock%2%Paper%1%' OR "title" ILIKE '%Mock%Ii%Paper%I%');
 
   UPDATE "lessons"
   SET "title" = 'Mock 2 — Paper 2 (Clinical SBA Exam)', "position" = 3, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-ii-paper-ii' OR "slug" = 'mock-2-paper-2' OR "title" ILIKE '%Mock%2%Paper%2%' OR "title" ILIKE '%Mock%Ii%Paper%Ii%');
+  WHERE "module_id" = v_mod_mock AND ("slug" = 'mock-ii-paper-ii' OR "slug" = 'mock-2-paper-2' OR "title" ILIKE '%Mock%2%Paper%2%' OR "title" ILIKE '%Mock%Ii%Paper%Ii%');
 
   UPDATE "lessons"
   SET "title" = 'Mock 3 — Paper 1 (Clinical SBA Exam)', "position" = 4, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-iii-paper-i' OR "slug" = 'mock-3-paper-1' OR "title" ILIKE '%Mock%3%Paper%1%' OR "title" ILIKE '%Mock%Iii%Paper%I%');
+  WHERE "module_id" = v_mod_mock AND ("slug" = 'mock-iii-paper-i' OR "slug" = 'mock-3-paper-1' OR "title" ILIKE '%Mock%3%Paper%1%' OR "title" ILIKE '%Mock%Iii%Paper%I%');
 
   UPDATE "lessons"
   SET "title" = 'Mock 3 — Paper 2 (Clinical SBA Exam)', "position" = 5, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-iii-paper-ii' OR "slug" = 'mock-3-paper-2' OR "title" ILIKE '%Mock%3%Paper%2%' OR "title" ILIKE '%Mock%Iii%Paper%Ii%');
+  WHERE "module_id" = v_mod_mock AND ("slug" = 'mock-iii-paper-ii' OR "slug" = 'mock-3-paper-2' OR "title" ILIKE '%Mock%3%Paper%2%' OR "title" ILIKE '%Mock%Iii%Paper%Ii%');
 
   -- ========================================================================
   -- STEP 6: SYNC COURSE ENTITLEMENTS & MEMBERSHIP PLANS
@@ -22915,7 +22934,7 @@ $SBA_VASC_109$,
 
   -- Record curriculum version in meta
   INSERT INTO "app_system_meta" ("key", "value", "updated_at")
-  VALUES ('curriculum_version', '2026_11_02_v20_exact_ids_and_quizzes', now())
+  VALUES ('curriculum_version', '2026_11_02_v21_resilient_migration', now())
   ON CONFLICT ("key") DO UPDATE SET "value" = EXCLUDED."value", "updated_at" = now();
 
   RAISE NOTICE 'SUCCESS: Master migration completed! % quizzes created, % lectures beautified, % questions seeded, % images linked.',
