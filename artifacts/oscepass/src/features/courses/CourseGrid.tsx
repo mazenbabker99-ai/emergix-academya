@@ -63,11 +63,11 @@ const FLAGSHIP_COURSES: FlagshipCourseConfig[] = [
   {
     slug: 'mrcem-sba',
     title: 'MRCEM SBA',
-    badge: 'FLAGSHIP QUESTION BANK & MOCKS',
-    category: 'Clinical Reasoning & SBA Engine',
-    tagline: 'Topical SBA question bank and full-length timed mock examinations.',
+    badge: 'FLAGSHIP CLINICAL SCIENCES & SBAs',
+    category: 'Clinical Reasoning & SBA Masterclass',
+    tagline: 'Comprehensive clinical curriculum, paired topic SBAs, and timed mock examinations.',
     summary:
-      'The premier single-best-answer (SBA) training engine. Features 41 topical question banks across all emergency domains, 6 full-length timed mock exams, and an Amboss/UWorld-style test interface.',
+      'The definitive RCEM Intermediate & SBA masterclass. Includes 11 core clinical modules, 109 illustrated clinical theory lectures with 400 figures, 109 paired interactive topic quizzes, and 6 full-length timed mock exams.',
     image: '/brand/hero.jpg',
     icon: Stethoscope,
     color: '#10B981',
@@ -77,21 +77,21 @@ const FLAGSHIP_COURSES: FlagshipCourseConfig[] = [
       { name: 'Diet 2 / Full Pass', duration: '6 Months Access', price: '$249', isBestValue: true },
     ],
     stats: [
-      { label: 'Question Banks', value: '41 Topics' },
+      { label: 'Modules', value: '11 Modules' },
+      { label: 'Clinical Topics', value: '109 Topics' },
+      { label: 'Medical Figures', value: '400 Figures' },
       { label: 'Mock Exams', value: '6 Timed Papers' },
-      { label: 'Test Engine', value: 'Amboss-Style' },
-      { label: 'Rationales', value: 'Instant Explanations' },
     ],
     features: [
-      '41 topical SBA question banks covering every emergency subspecialty',
+      '11 clinical modules: Resuscitation, Cardiology, Trauma, Pulmonology, GI & more',
+      '109 in-depth illustrated clinical theory lectures with 400 figures',
+      '109 paired interactive topic SBA quizzes with full evidence rationales',
       '6 full-length timed mock examination papers (RCEM exam blueprint)',
       'World-class test engine with distractor elimination (strikethrough) and flagging',
-      'Comprehensive explanations and evidence-based clinical guidance',
-      'Performance analytics, accuracy tracking, and weak-area diagnosis',
       'Direct 1-on-1 mentor guidance & support on WhatsApp',
     ],
-    primaryLink: '/question-bank',
-    primaryCta: 'Launch SBA Question Bank',
+    primaryLink: '/courses/mrcem-sba',
+    primaryCta: 'Explore Curriculum (109 Topics & Quizzes)',
     secondaryLink: '/app/membership',
     secondaryCta: 'Subscribe via WhatsApp',
   },
@@ -486,6 +486,31 @@ export function CourseGrid() {
                   >
                     {flagship.primaryCta} <ArrowRight size={16} />
                   </Link>
+
+                  {flagship.slug === 'mrcem-sba' && (
+                    <Link
+                      href="/question-bank"
+                      style={{
+                        width: '100%',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: 8,
+                        fontWeight: 750,
+                        padding: '10px 16px',
+                        fontSize: '.86rem',
+                        color: '#0369a1',
+                        background: '#f0f9ff',
+                        border: '1.5px solid #bae6fd',
+                        borderRadius: 8,
+                        textDecoration: 'none',
+                        transition: 'all 0.2s ease',
+                      }}
+                    >
+                      <Stethoscope size={15} style={{ color: '#0284c7' }} />
+                      Launch SBA Question Bank Engine <ArrowRight size={14} />
+                    </Link>
+                  )}
 
                   <Link
                     href={flagship.secondaryLink}
