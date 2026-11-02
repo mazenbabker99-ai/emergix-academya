@@ -105,8 +105,8 @@ export function Router() {
     <Route path="/app/qbank/review/:id"><RequireAuth><QbankReview /></RequireAuth></Route>
     <Route path="/app/analytics"><RequireAuth><QbankAnalytics /></RequireAuth></Route>
     <Route path="/app/membership"><RequireAuth><Membership /></RequireAuth></Route>
-    <Route path="/app"><RequireAuth><Dashboard /></RequireAuth></Route>
     <Route path="/app/account"><RequireAuth><Account /></RequireAuth></Route>
+    <Route path="/app"><RequireAuth><Dashboard /></RequireAuth></Route>
     <Route path="/admin"><RequireAuth permission="admin:access"><AdminHome /></RequireAuth></Route>
     <Route path="/admin/questions"><RequireAuth permission="admin:access"><QuestionBank /></RequireAuth></Route>
     <Route path="/admin/access"><RequireAuth permission="admin:access"><AdminAccess /></RequireAuth></Route>

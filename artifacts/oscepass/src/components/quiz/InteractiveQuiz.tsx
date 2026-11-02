@@ -27,6 +27,7 @@ import {
   Zap,
 } from 'lucide-react';
 import type { ParsedQuestion } from './parseQuestions';
+import { safeHref } from '@/lib/prose';
 
 function ClinicalMarkdownText({ content }: { content: string }) {
   if (!content) return null;
@@ -60,7 +61,7 @@ function ClinicalMarkdownText({ content }: { content: string }) {
         }}
       >
         <img
-          src={imgSrc}
+          src={safeHref(imgSrc) || imgSrc}
           alt={altText}
           loading="lazy"
           style={{
@@ -74,7 +75,8 @@ function ClinicalMarkdownText({ content }: { content: string }) {
             cursor: 'zoom-in',
           }}
           onClick={() => {
-            window.open(imgSrc, '_blank');
+            const safeSrc = safeHref(imgSrc);
+            if (safeSrc) window.open(safeSrc, '_blank');
           }}
           title="Click to view full resolution"
         />
@@ -1035,6 +1037,8 @@ export function InteractiveQuiz({
                 transition: 'background .15s ease',
               }}
               title="Flag this question for review"
+              aria-label={isFlagged ? 'Unflag this question' : 'Flag this question for review'}
+              aria-pressed={isFlagged}
             >
               <Flag size={13} fill={isFlagged ? '#ffffff' : 'none'} />
               {isFlagged ? 'Flagged' : 'Flag'}
@@ -1059,6 +1063,7 @@ export function InteractiveQuiz({
                 transition: 'background .15s ease',
               }}
               title={isFullScreen ? 'Exit Full Screen' : 'Full Screen Exam Hall Mode'}
+              aria-label={isFullScreen ? 'Exit full screen mode' : 'Enter full screen exam mode'}
             >
               {isFullScreen ? <Minimize2 size={13} /> : <Maximize2 size={13} />}
               {isFullScreen ? 'Exit Full Screen' : 'Full Screen'}
@@ -1192,6 +1197,7 @@ export function InteractiveQuiz({
                         cursor: 'pointer',
                       }}
                       title="Eliminate (Strike through) this option"
+                      aria-label={`Eliminate option ${opt.key}`}
                     >
                       <Strikethrough size={14} />
                     </button>

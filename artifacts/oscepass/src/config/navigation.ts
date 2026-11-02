@@ -25,12 +25,12 @@ export const coursesMenu: NavLink[] = [
   {
     label: 'MRCEM PRIMARY',
     href: '/courses/mrcem-primary',
-    description: 'Basic sciences masterclass (21 modules, 221 lessons, 269 figures)',
+    description: 'Complete basic sciences curriculum with 25 modules and 266+ lessons',
   },
   {
     label: 'MRCEM SBA',
     href: '/courses/mrcem-sba',
-    description: 'Clinical SBA curriculum & quizzes (11 modules, 109 topics, 400 figures)',
+    description: 'Clinical SBA question bank with 360+ quizzes across 11 specialty modules',
   },
   {
     label: 'All Flagship Courses',

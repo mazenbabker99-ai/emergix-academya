@@ -150,18 +150,10 @@ async function canAccessCourse(req: Request, course: CourseRow) {
     .limit(1);
   if (activePlanSub) return true;
 
-  // 3. Any active platform subscription (All-access / WhatsApp manual bundle)
-  const [anyActiveSub] = await db
-    .select({ id: subscriptionsTable.id })
-    .from(subscriptionsTable)
-    .where(
-      and(
-        eq(subscriptionsTable.userId, req.auth.user.id),
-        eq(subscriptionsTable.status, "active"),
-      ),
-    )
-    .limit(1);
-  if (anyActiveSub) return true;
+  // 3. Previously this was an over-permissive check that granted access to ALL
+  //    courses for any active subscription. Now removed: access requires either a
+  //    plan that explicitly includes this course (check #2), a direct course
+  //    entitlement (#1), or an exam-wide entitlement (#4 below).
 
   if (!course.examId) return false;
 

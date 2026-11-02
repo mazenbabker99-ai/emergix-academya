@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowLeft,
   ArrowRight,
@@ -74,7 +74,19 @@ export default function LessonPage() {
 
   // Controls whether the full-screen exam overlay is open
   const [examOpen, setExamOpen] = useState(false);
-  const [readerFontSize, setReaderFontSize] = useState<'normal' | 'large' | 'xlarge'>('normal');
+  const [readerFontSize, setReaderFontSize] = useState<'normal' | 'large' | 'xlarge'>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('emergix-font-size');
+      if (saved === 'normal' || saved === 'large' || saved === 'xlarge') return saved;
+    }
+    return 'normal';
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('emergix-font-size', readerFontSize);
+    }
+  }, [readerFontSize]);
 
   const readingTime = useMemo(() => {
     if (!rawBody) return 2;
@@ -205,7 +217,7 @@ export default function LessonPage() {
                       border: '1px solid #bae6fd',
                     }}
                   >
-                    Quiz {currentIndex + 1} of {allLessons.length}
+                    Item {currentIndex + 1} of {allLessons.length}
                   </span>
                 )}
               </div>
@@ -321,7 +333,7 @@ export default function LessonPage() {
                 letterSpacing: '.06em',
               }}
             >
-              MRCEM SBA
+              {course.data?.course.title || 'MRCEM SBA'}
             </span>
             <span style={{ fontSize: '.94rem', fontWeight: 700, color: '#e2e8f0', maxWidth: 420, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {title}
@@ -406,7 +418,7 @@ export default function LessonPage() {
               )}
             </div>
 
-          <span className="eyebrow">{isQuiz ? 'MRCEM SBA Practice & Quiz Simulation' : 'MRCEM Primary Preparation'}</span>
+          <span className="eyebrow">{course.data?.course.title || (isQuiz ? 'SBA Practice & Quiz Simulation' : 'Course Preparation')}</span>
           <h1 style={{ fontSize: '2.1rem', fontWeight: 850, letterSpacing: '-0.02em', color: '#0a2342', marginBottom: '1.2rem' }}>
             {title}
           </h1>
