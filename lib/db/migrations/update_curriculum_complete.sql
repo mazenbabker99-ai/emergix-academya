@@ -1,11 +1,7 @@
 -- ==========================================================================
 -- MASTER CURRICULUM MIGRATION: 109 TOPIC SBA QUIZZES + 109 BEAUTIFIED LECTURES
--- Course: MRCEM SBA & MRCEM Primary
--- 1) Builds 109 interactive SBA quizzes (545 verified questions)
--- 2) Embeds 400 clinical images with zoom and high-definition review
--- 3) Formats all 109 theory lectures into structured clinical notes
--- 4) Reorders modules 0..10 and interleaves lectures & quizzes (2i and 2i+1)
--- 5) Sanitizes junk rows and aligns mock exams
+-- Course: MRCEM SBA (ID: 4c794261-4f8e-4de7-8f77-b1bf8592154d)
+-- Aligned with UK RCEM SBA format, 400 clinical figures, and interactive quizzes
 -- ==========================================================================
 DO $$
 DECLARE
@@ -13,114 +9,267 @@ DECLARE
   v_primary_id  uuid;
   v_mod_id      uuid;
 BEGIN
-  -- Locate Courses
-  SELECT id INTO v_sba_id     FROM "courses" WHERE "slug" = 'mrcem-sba' LIMIT 1;
-  SELECT id INTO v_primary_id FROM "courses" WHERE "slug" = 'mrcem-primary' LIMIT 1;
+  -- 1. Archive duplicate or conflicting courses with slug mrcem-sba
+  UPDATE "courses"
+  SET "slug" = 'mrcem-sba-deprecated-' || substr(id::text, 1, 8),
+      "status" = 'archived',
+      "deleted_at" = now()
+  WHERE "slug" = 'mrcem-sba' AND "id" != '4c794261-4f8e-4de7-8f77-b1bf8592154d';
+
+  -- 2. Target the exact live Flagship Course: MRCEM SBA
+  SELECT id INTO v_sba_id
+  FROM "courses"
+  WHERE "id" = '4c794261-4f8e-4de7-8f77-b1bf8592154d'
+     OR ("slug" = 'mrcem-sba' AND "deleted_at" IS NULL)
+  ORDER BY ("id" = '4c794261-4f8e-4de7-8f77-b1bf8592154d') DESC
+  LIMIT 1;
 
   IF v_sba_id IS NULL THEN
-    RAISE EXCEPTION 'Course mrcem-sba not found';
+    RAISE EXCEPTION 'Course mrcem-sba (4c794261-4f8e-4de7-8f77-b1bf8592154d) not found';
   END IF;
+
+  -- Ensure proper course metadata
+  UPDATE "courses"
+  SET "slug" = 'mrcem-sba',
+      "title" = 'MRCEM SBA',
+      "status" = 'published',
+      "deleted_at" = NULL,
+      "position" = 2,
+      "updated_at" = now()
+  WHERE "id" = v_sba_id;
 
   -- ========================================================================
-  -- STEP 1: MODULE ORDERING & STRUCTURE (Positions 0 to 10 in mrcem-sba)
+  -- STEP 1: MODULE ORDERING & STRUCTURE (Positions 0 to 10 in MRCEM SBA)
   -- ========================================================================
-  -- Module 0: Resuscitation & Critical Care
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Resuscitation & Critical Care' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 0: Resuscitation & Critical Care (UUID: 21d5a5bc-95f2-4152-b77c-34014b31892f)
+  SELECT id INTO v_mod_id
+  FROM "modules"
+  WHERE "id" = '21d5a5bc-95f2-4152-b77c-34014b31892f'
+     OR ("course_id" = v_sba_id AND "title" ILIKE '%Resuscitation%')
+  ORDER BY ("id" = '21d5a5bc-95f2-4152-b77c-34014b31892f') DESC
+  LIMIT 1;
+
   IF v_mod_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_sba_id, 'Resuscitation & Critical Care', 0, now(), now());
+    VALUES ('21d5a5bc-95f2-4152-b77c-34014b31892f', v_sba_id, 'Resuscitation & Critical Care', 0, now(), now());
   ELSE
-    UPDATE "modules" SET "position" = 0, "deleted_at" = NULL, "updated_at" = now() WHERE "id" = v_mod_id;
+    UPDATE "modules"
+    SET "course_id" = v_sba_id,
+        "title" = 'Resuscitation & Critical Care',
+        "position" = 0,
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "id" = v_mod_id;
   END IF;
 
-  -- Module 1: Cardiovascular Emergencies
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Cardiovascular Emergencies' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 1: Cardiovascular Emergencies (UUID: dcd783c9-64a3-4feb-b212-e785368539af)
+  SELECT id INTO v_mod_id
+  FROM "modules"
+  WHERE "id" = 'dcd783c9-64a3-4feb-b212-e785368539af'
+     OR ("course_id" = v_sba_id AND "title" ILIKE '%Cardio%')
+  ORDER BY ("id" = 'dcd783c9-64a3-4feb-b212-e785368539af') DESC
+  LIMIT 1;
+
   IF v_mod_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_sba_id, 'Cardiovascular Emergencies', 1, now(), now());
+    VALUES ('dcd783c9-64a3-4feb-b212-e785368539af', v_sba_id, 'Cardiovascular Emergencies', 1, now(), now());
   ELSE
-    UPDATE "modules" SET "position" = 1, "deleted_at" = NULL, "updated_at" = now() WHERE "id" = v_mod_id;
+    UPDATE "modules"
+    SET "course_id" = v_sba_id,
+        "title" = 'Cardiovascular Emergencies',
+        "position" = 1,
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "id" = v_mod_id;
   END IF;
 
-  -- Module 2: Major Trauma & Injury Management
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Major Trauma & Injury Management' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 2: Major Trauma & Injury Management (UUID: b39d612b-6474-4d09-88c4-b55bc2473575)
+  SELECT id INTO v_mod_id
+  FROM "modules"
+  WHERE "id" = 'b39d612b-6474-4d09-88c4-b55bc2473575'
+     OR ("course_id" = v_sba_id AND "title" ILIKE '%Trauma%')
+  ORDER BY ("id" = 'b39d612b-6474-4d09-88c4-b55bc2473575') DESC
+  LIMIT 1;
+
   IF v_mod_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_sba_id, 'Major Trauma & Injury Management', 2, now(), now());
+    VALUES ('b39d612b-6474-4d09-88c4-b55bc2473575', v_sba_id, 'Major Trauma & Injury Management', 2, now(), now());
   ELSE
-    UPDATE "modules" SET "position" = 2, "deleted_at" = NULL, "updated_at" = now() WHERE "id" = v_mod_id;
+    UPDATE "modules"
+    SET "course_id" = v_sba_id,
+        "title" = 'Major Trauma & Injury Management',
+        "position" = 2,
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "id" = v_mod_id;
   END IF;
 
-  -- Module 3: Pulmonology & Respiratory Emergencies
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Pulmonology & Respiratory Emergencies' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 3: Pulmonology & Respiratory Emergencies (UUID: f0f17eab-9963-4ac2-84c6-30cec4789133)
+  SELECT id INTO v_mod_id
+  FROM "modules"
+  WHERE "id" = 'f0f17eab-9963-4ac2-84c6-30cec4789133'
+     OR ("course_id" = v_sba_id AND "title" ILIKE '%Pulmon%')
+  ORDER BY ("id" = 'f0f17eab-9963-4ac2-84c6-30cec4789133') DESC
+  LIMIT 1;
+
   IF v_mod_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_sba_id, 'Pulmonology & Respiratory Emergencies', 3, now(), now());
+    VALUES ('f0f17eab-9963-4ac2-84c6-30cec4789133', v_sba_id, 'Pulmonology & Respiratory Emergencies', 3, now(), now());
   ELSE
-    UPDATE "modules" SET "position" = 3, "deleted_at" = NULL, "updated_at" = now() WHERE "id" = v_mod_id;
+    UPDATE "modules"
+    SET "course_id" = v_sba_id,
+        "title" = 'Pulmonology & Respiratory Emergencies',
+        "position" = 3,
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "id" = v_mod_id;
   END IF;
 
-  -- Module 4: Gastroenterology Emergencies
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Gastroenterology Emergencies' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 4: Gastroenterology Emergencies (UUID: 043d1f63-515c-4b6c-b2df-b78e420f8a2b)
+  SELECT id INTO v_mod_id
+  FROM "modules"
+  WHERE "id" = '043d1f63-515c-4b6c-b2df-b78e420f8a2b'
+     OR ("course_id" = v_sba_id AND "title" ILIKE '%Gastro%')
+  ORDER BY ("id" = '043d1f63-515c-4b6c-b2df-b78e420f8a2b') DESC
+  LIMIT 1;
+
   IF v_mod_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_sba_id, 'Gastroenterology Emergencies', 4, now(), now());
+    VALUES ('043d1f63-515c-4b6c-b2df-b78e420f8a2b', v_sba_id, 'Gastroenterology Emergencies', 4, now(), now());
   ELSE
-    UPDATE "modules" SET "position" = 4, "deleted_at" = NULL, "updated_at" = now() WHERE "id" = v_mod_id;
+    UPDATE "modules"
+    SET "course_id" = v_sba_id,
+        "title" = 'Gastroenterology Emergencies',
+        "position" = 4,
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "id" = v_mod_id;
   END IF;
 
-  -- Module 5: Nephrology & Acid-Base Disorders
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Nephrology & Acid-Base Disorders' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 5: Nephrology & Acid-Base Disorders (UUID: 27ed28c6-c5e7-408f-ad2d-76c37e09c5a4)
+  SELECT id INTO v_mod_id
+  FROM "modules"
+  WHERE "id" = '27ed28c6-c5e7-408f-ad2d-76c37e09c5a4'
+     OR ("course_id" = v_sba_id AND "title" ILIKE '%Nephro%')
+  ORDER BY ("id" = '27ed28c6-c5e7-408f-ad2d-76c37e09c5a4') DESC
+  LIMIT 1;
+
   IF v_mod_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_sba_id, 'Nephrology & Acid-Base Disorders', 5, now(), now());
+    VALUES ('27ed28c6-c5e7-408f-ad2d-76c37e09c5a4', v_sba_id, 'Nephrology & Acid-Base Disorders', 5, now(), now());
   ELSE
-    UPDATE "modules" SET "position" = 5, "deleted_at" = NULL, "updated_at" = now() WHERE "id" = v_mod_id;
+    UPDATE "modules"
+    SET "course_id" = v_sba_id,
+        "title" = 'Nephrology & Acid-Base Disorders',
+        "position" = 5,
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "id" = v_mod_id;
   END IF;
 
-  -- Module 6: Urological Emergencies
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Urological Emergencies' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 6: Urological Emergencies (UUID: 3ac8ba66-ddd6-4057-aff3-dd6019e5cea6)
+  SELECT id INTO v_mod_id
+  FROM "modules"
+  WHERE "id" = '3ac8ba66-ddd6-4057-aff3-dd6019e5cea6'
+     OR ("course_id" = v_sba_id AND "title" ILIKE '%Urolog%')
+  ORDER BY ("id" = '3ac8ba66-ddd6-4057-aff3-dd6019e5cea6') DESC
+  LIMIT 1;
+
   IF v_mod_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_sba_id, 'Urological Emergencies', 6, now(), now());
+    VALUES ('3ac8ba66-ddd6-4057-aff3-dd6019e5cea6', v_sba_id, 'Urological Emergencies', 6, now(), now());
   ELSE
-    UPDATE "modules" SET "position" = 6, "deleted_at" = NULL, "updated_at" = now() WHERE "id" = v_mod_id;
+    UPDATE "modules"
+    SET "course_id" = v_sba_id,
+        "title" = 'Urological Emergencies',
+        "position" = 6,
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "id" = v_mod_id;
   END IF;
 
-  -- Module 7: Ophthalmology Emergencies
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Ophthalmology Emergencies' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 7: Ophthalmology Emergencies (UUID: ad2247ff-8eda-4596-a029-f64dc302c61a)
+  SELECT id INTO v_mod_id
+  FROM "modules"
+  WHERE "id" = 'ad2247ff-8eda-4596-a029-f64dc302c61a'
+     OR ("course_id" = v_sba_id AND "title" ILIKE '%Ophthal%')
+  ORDER BY ("id" = 'ad2247ff-8eda-4596-a029-f64dc302c61a') DESC
+  LIMIT 1;
+
   IF v_mod_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_sba_id, 'Ophthalmology Emergencies', 7, now(), now());
+    VALUES ('ad2247ff-8eda-4596-a029-f64dc302c61a', v_sba_id, 'Ophthalmology Emergencies', 7, now(), now());
   ELSE
-    UPDATE "modules" SET "position" = 7, "deleted_at" = NULL, "updated_at" = now() WHERE "id" = v_mod_id;
+    UPDATE "modules"
+    SET "course_id" = v_sba_id,
+        "title" = 'Ophthalmology Emergencies',
+        "position" = 7,
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "id" = v_mod_id;
   END IF;
 
-  -- Module 8: Vascular Emergencies
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Vascular Emergencies' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 8: Vascular Emergencies (UUID: 7d06da21-b32e-4946-82b3-3ea2c69d5346)
+  SELECT id INTO v_mod_id
+  FROM "modules"
+  WHERE "id" = '7d06da21-b32e-4946-82b3-3ea2c69d5346'
+     OR ("course_id" = v_sba_id AND "title" ILIKE '%Vascular%')
+  ORDER BY ("id" = '7d06da21-b32e-4946-82b3-3ea2c69d5346') DESC
+  LIMIT 1;
+
   IF v_mod_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_sba_id, 'Vascular Emergencies', 8, now(), now());
+    VALUES ('7d06da21-b32e-4946-82b3-3ea2c69d5346', v_sba_id, 'Vascular Emergencies', 8, now(), now());
   ELSE
-    UPDATE "modules" SET "position" = 8, "deleted_at" = NULL, "updated_at" = now() WHERE "id" = v_mod_id;
+    UPDATE "modules"
+    SET "course_id" = v_sba_id,
+        "title" = 'Vascular Emergencies',
+        "position" = 8,
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "id" = v_mod_id;
   END IF;
 
-  -- Module 9: High-Yield Rapid Clinical Revision
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'High-Yield Rapid Clinical Revision' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 9: High-Yield Rapid Clinical Revision (UUID: 5d56a3e8-d768-4005-b341-a48aae0897c1)
+  SELECT id INTO v_mod_id
+  FROM "modules"
+  WHERE "id" = '5d56a3e8-d768-4005-b341-a48aae0897c1'
+     OR ("course_id" = v_sba_id AND "title" ILIKE '%High-Yield%')
+  ORDER BY ("id" = '5d56a3e8-d768-4005-b341-a48aae0897c1') DESC
+  LIMIT 1;
+
   IF v_mod_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_sba_id, 'High-Yield Rapid Clinical Revision', 9, now(), now());
+    VALUES ('5d56a3e8-d768-4005-b341-a48aae0897c1', v_sba_id, 'High-Yield Rapid Clinical Revision', 9, now(), now());
   ELSE
-    UPDATE "modules" SET "position" = 9, "deleted_at" = NULL, "updated_at" = now() WHERE "id" = v_mod_id;
+    UPDATE "modules"
+    SET "course_id" = v_sba_id,
+        "title" = 'High-Yield Rapid Clinical Revision',
+        "position" = 9,
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "id" = v_mod_id;
   END IF;
 
-  -- Module 10: MRCEM SBA Mock Simulations
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'MRCEM SBA Mock Simulations' AND "deleted_at" IS NULL LIMIT 1;
+  -- Module 10: MRCEM SBA Mock Simulations (UUID: 5bacd90d-fbd6-4827-a20f-a3017597504b)
+  SELECT id INTO v_mod_id
+  FROM "modules"
+  WHERE "id" = '5bacd90d-fbd6-4827-a20f-a3017597504b'
+     OR ("course_id" = v_sba_id AND "title" ILIKE '%Mock%')
+  ORDER BY ("id" = '5bacd90d-fbd6-4827-a20f-a3017597504b') DESC
+  LIMIT 1;
+
   IF v_mod_id IS NULL THEN
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_sba_id, 'MRCEM SBA Mock Simulations', 10, now(), now());
+    VALUES ('5bacd90d-fbd6-4827-a20f-a3017597504b', v_sba_id, 'MRCEM SBA Mock Simulations', 10, now(), now());
   ELSE
-    UPDATE "modules" SET "position" = 10, "deleted_at" = NULL, "updated_at" = now() WHERE "id" = v_mod_id;
+    UPDATE "modules"
+    SET "course_id" = v_sba_id,
+        "title" = 'MRCEM SBA Mock Simulations',
+        "position" = 10,
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "id" = v_mod_id;
   END IF;
 
   -- ========================================================================
@@ -135,17 +284,17 @@ BEGIN
   ) OR "title" ILIKE '%Elmokashfy%' OR "title" ILIKE '%Food Barcode%';
 
   -- Soft-delete misplaced MOKA duplicates from Resuscitation module
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Resuscitation & Critical Care' LIMIT 1;
-  IF v_mod_id IS NOT NULL THEN
-    UPDATE "lessons"
-    SET "deleted_at" = now(), "updated_at" = now()
-    WHERE "module_id" = v_mod_id
-      AND "slug" IN ('high-yield-clinical-sba-practice-4', 'high-yield-clinical-sba-practice-65');
-  END IF;
+  UPDATE "lessons"
+  SET "deleted_at" = now(), "updated_at" = now()
+  WHERE "module_id" = '21d5a5bc-95f2-4152-b77c-34014b31892f'
+    AND "slug" IN ('high-yield-clinical-sba-practice-4', 'high-yield-clinical-sba-practice-65');
 
   -- ========================================================================
   -- STEP 3: CLEAN UP EXISTING LECTURE TITLES (Fix typos)
   -- ========================================================================
+  UPDATE "lessons"
+  SET "title" = 'Transfusion Management of Major Haemorrhage', "updated_at" = now()
+  WHERE "slug" = 'transfution-mangement-of-major-hge';
   UPDATE "lessons"
   SET "title" = 'Transfusion Management of Major Haemorrhage', "updated_at" = now()
   WHERE "slug" = 'transfction-mangement-of-major-hge';
@@ -161,6 +310,9 @@ BEGIN
   UPDATE "lessons"
   SET "title" = 'Emergency Clinical Scores & Classifications', "updated_at" = now()
   WHERE "slug" = 'all-scores-and-classifications';
+  UPDATE "lessons"
+  SET "title" = 'Emergency Clinical Scores & Classifications', "updated_at" = now()
+  WHERE "slug" = 'all-scores';
   UPDATE "lessons"
   SET "title" = 'Head Trauma & Intracranial Haemorrhage', "updated_at" = now()
   WHERE "slug" = 'head-reauma';
@@ -248,18 +400,21 @@ BEGIN
   -- ========================================================================
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Resuscitation & Critical Care (10 Topics)
+  -- Specialty: Resuscitation & Critical Care (10 Topics) -> Module UUID 21d5a5bc-95f2-4152-b77c-34014b31892f
   -- ------------------------------------------------------------------------
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Resuscitation & Critical Care' AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NULL THEN
-    RAISE EXCEPTION 'Module Resuscitation & Critical Care not found in mrcem-sba';
-  END IF;
+  v_mod_id := '21d5a5bc-95f2-4152-b77c-34014b31892f';
 
   -- Pair 1/10: Advanced Life Support (ALS)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
-  UPDATE "lessons"
-  SET "title"      = 'Advanced Life Support (ALS)',
-      "body"       = $LEC_RESU_001$# Advanced Life Support (ALS)
+  -- A) Upsert Clinical Theory Lecture (Position 0)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'advanced-life-support-als-algorithms',
+    'Advanced Life Support (ALS)',
+    'article',
+    $LEC_RESU_001$# Advanced Life Support (ALS)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -354,13 +509,32 @@ During CPR
 
 ![Advanced Life Support (ALS) Algorithms - Clinical Figure 7](/lessons/images/sba/resuscitation-critical-care/advanced-life-support-als-algorithms/figure_07_p8.jpeg)
 *Advanced Life Support (ALS) Algorithms — Clinical Figure 7 (Page 8 Reference)*$LEC_RESU_001$,
-      "position"   = 0,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'advanced-life-support-als-algorithms' OR "slug" = 'als');
+    false,
+    0,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'als' != 'advanced-life-support-als-algorithms' THEN
+    UPDATE "lessons"
+    SET "title" = 'Advanced Life Support (ALS)',
+        "position" = 0,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'als';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
@@ -481,10 +655,16 @@ $SBA_RESU_001$,
     "updated_at" = now();
 
   -- Pair 2/10: Brief Resolved Unexplained Event (BRUE)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
-  UPDATE "lessons"
-  SET "title"      = 'Brief Resolved Unexplained Event (BRUE)',
-      "body"       = $LEC_RESU_002$# Brief Resolved Unexplained Event (BRUE)
+  -- A) Upsert Clinical Theory Lecture (Position 2)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'brief-resolved-unexplained-event-brue',
+    'Brief Resolved Unexplained Event (BRUE)',
+    'article',
+    $LEC_RESU_002$# Brief Resolved Unexplained Event (BRUE)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -563,13 +743,32 @@ Referral to Paediatrics for a 24-hour period of monitoring +/
 
 ![Brief Resolved Unexplained Event (BRUE) - Clinical Figure 4](/lessons/images/sba/resuscitation-critical-care/brief-resolved-unexplained-event-brue/figure_04_p5.jpeg)
 *Brief Resolved Unexplained Event (BRUE) — Clinical Figure 4 (Page 5 Reference)*$LEC_RESU_002$,
-      "position"   = 2,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'brief-resolved-unexplained-event-brue' OR "slug" = 'brue');
+    false,
+    2,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'brue' != 'brief-resolved-unexplained-event-brue' THEN
+    UPDATE "lessons"
+    SET "title" = 'Brief Resolved Unexplained Event (BRUE)',
+        "position" = 2,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'brue';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
@@ -684,10 +883,16 @@ $SBA_RESU_002$,
     "updated_at" = now();
 
   -- Pair 3/10: Cardiac Arrest in Pregnancy
-  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
-  UPDATE "lessons"
-  SET "title"      = 'Cardiac Arrest in Pregnancy',
-      "body"       = $LEC_RESU_003$# Cardiac Arrest in Pregnancy
+  -- A) Upsert Clinical Theory Lecture (Position 4)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'cardiac-arest-in-pregnancy',
+    'Cardiac Arrest in Pregnancy',
+    'article',
+    $LEC_RESU_003$# Cardiac Arrest in Pregnancy
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -701,13 +906,32 @@ Get expert help from obstetrician, anesthetist and neonatologist Add Left latera
 
 ![Cardiac Arest in Pregnancy - Clinical Figure 2](/lessons/images/sba/resuscitation-critical-care/cardiac-arest-in-pregnancy/figure_02_p2.jpeg)
 *Cardiac Arest in Pregnancy — Clinical Figure 2 (Page 2 Reference)*$LEC_RESU_003$,
-      "position"   = 4,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'cardiac-arest-in-pregnancy' OR "slug" = 'cardiac-arrest-pregnancy');
+    false,
+    4,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'cardiac-arrest-in-pregnancy' != 'cardiac-arest-in-pregnancy' THEN
+    UPDATE "lessons"
+    SET "title" = 'Cardiac Arrest in Pregnancy',
+        "position" = 4,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'cardiac-arrest-in-pregnancy';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
@@ -816,10 +1040,16 @@ $SBA_RESU_003$,
     "updated_at" = now();
 
   -- Pair 4/10: Choking (Adult & Paediatric)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
-  UPDATE "lessons"
-  SET "title"      = 'Choking (Adult & Paediatric)',
-      "body"       = $LEC_RESU_004$# Choking (Adult & Paediatric)
+  -- A) Upsert Clinical Theory Lecture (Position 6)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'chocking-andult-and-pedio',
+    'Choking (Adult & Paediatric)',
+    'article',
+    $LEC_RESU_004$# Choking (Adult & Paediatric)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -852,13 +1082,32 @@ previOUS
 
 ![Chocking Andult and Pedio - Clinical Figure 4](/lessons/images/sba/resuscitation-critical-care/chocking-andult-and-pedio/figure_04_p4.jpeg)
 *Chocking Andult and Pedio — Clinical Figure 4 (Page 4 Reference)*$LEC_RESU_004$,
-      "position"   = 6,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'chocking-andult-and-pedio' OR "slug" = 'choking-adult-pediatric');
+    false,
+    6,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'choking-adult-pediatric' != 'chocking-andult-and-pedio' THEN
+    UPDATE "lessons"
+    SET "title" = 'Choking (Adult & Paediatric)',
+        "position" = 6,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'choking-adult-pediatric';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
@@ -973,10 +1222,16 @@ $SBA_RESU_004$,
     "updated_at" = now();
 
   -- Pair 5/10: Haemorrhagic Shock & Massive Transfusion
-  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
-  UPDATE "lessons"
-  SET "title"      = 'Haemorrhagic Shock & Massive Transfusion',
-      "body"       = $LEC_RESU_005$# Haemorrhagic Shock & Massive Transfusion
+  -- A) Upsert Clinical Theory Lecture (Position 8)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hemorrhagic-shock-massive-transfusion',
+    'Haemorrhagic Shock & Massive Transfusion',
+    'article',
+    $LEC_RESU_005$# Haemorrhagic Shock & Massive Transfusion
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -1020,13 +1275,32 @@ $SBA_RESU_004$,
 
 ![Hemorrhagic Shock & Massive Transfusion - Clinical Figure 3](/lessons/images/sba/resuscitation-critical-care/hemorrhagic-shock-massive-transfusion/figure_03_p5.jpeg)
 *Hemorrhagic Shock & Massive Transfusion — Clinical Figure 3 (Page 5 Reference)*$LEC_RESU_005$,
-      "position"   = 8,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hemorrhagic-shock-massive-transfusion' OR "slug" = 'hemorrhagic-shock');
+    false,
+    8,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hemorrhagic-shock' != 'hemorrhagic-shock-massive-transfusion' THEN
+    UPDATE "lessons"
+    SET "title" = 'Haemorrhagic Shock & Massive Transfusion',
+        "position" = 8,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hemorrhagic-shock';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
@@ -1138,10 +1412,16 @@ $SBA_RESU_005$,
     "updated_at" = now();
 
   -- Pair 6/10: Neutropenic Sepsis
-  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
-  UPDATE "lessons"
-  SET "title"      = 'Neutropenic Sepsis',
-      "body"       = $LEC_RESU_006$# Neutropenic Sepsis
+  -- A) Upsert Clinical Theory Lecture (Position 10)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'neutropenic-sepsis-guidelines',
+    'Neutropenic Sepsis',
+    'article',
+    $LEC_RESU_006$# Neutropenic Sepsis
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -1156,13 +1436,32 @@ $SBA_RESU_005$,
 
 ![Neutropenic Sepsis Guidelines - Clinical Figure 1](/lessons/images/sba/resuscitation-critical-care/neutropenic-sepsis-guidelines/figure_01_p2.jpeg)
 *Neutropenic Sepsis Guidelines — Clinical Figure 1 (Page 2 Reference)*$LEC_RESU_006$,
-      "position"   = 10,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'neutropenic-sepsis-guidelines' OR "slug" = 'neutropenic-sepsis');
+    false,
+    10,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'neutropenic-sepsis' != 'neutropenic-sepsis-guidelines' THEN
+    UPDATE "lessons"
+    SET "title" = 'Neutropenic Sepsis',
+        "position" = 10,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'neutropenic-sepsis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
@@ -1268,10 +1567,16 @@ $SBA_RESU_006$,
     "updated_at" = now();
 
   -- Pair 7/10: Paediatric Life Support (PLS / PALS)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
-  UPDATE "lessons"
-  SET "title"      = 'Paediatric Life Support (PLS / PALS)',
-      "body"       = $LEC_RESU_007$# Paediatric Life Support (PLS / PALS)
+  -- A) Upsert Clinical Theory Lecture (Position 12)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'paediatric-life-support-pls-pals',
+    'Paediatric Life Support (PLS / PALS)',
+    'article',
+    $LEC_RESU_007$# Paediatric Life Support (PLS / PALS)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -1290,13 +1595,32 @@ step-5  monitoring/defibrilla tor when available Follow PAEDIATRIC ADVANCED LIFE
 
 ![Paediatric Life Support (PLS / PALS) - Clinical Figure 3](/lessons/images/sba/resuscitation-critical-care/paediatric-life-support-pls-pals/figure_03_p3.jpeg)
 *Paediatric Life Support (PLS / PALS) — Clinical Figure 3 (Page 3 Reference)*$LEC_RESU_007$,
-      "position"   = 12,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'paediatric-life-support-pls-pals' OR "slug" = 'pls');
+    false,
+    12,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'pls' != 'paediatric-life-support-pls-pals' THEN
+    UPDATE "lessons"
+    SET "title" = 'Paediatric Life Support (PLS / PALS)',
+        "position" = 12,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'pls';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
@@ -1408,10 +1732,16 @@ $SBA_RESU_007$,
     "updated_at" = now();
 
   -- Pair 8/10: Resuscitation in Sepsis & Septic Shock
-  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
-  UPDATE "lessons"
-  SET "title"      = 'Resuscitation in Sepsis & Septic Shock',
-      "body"       = $LEC_RESU_008$# Resuscitation in Sepsis & Septic Shock
+  -- A) Upsert Clinical Theory Lecture (Position 14)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'resucitiation-in-sepsis',
+    'Resuscitation in Sepsis & Septic Shock',
+    'article',
+    $LEC_RESU_008$# Resuscitation in Sepsis & Septic Shock
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -1446,13 +1776,32 @@ follow standard BLS and ALS protocol Early intubation respiratory rate 10 breath
 
 ![Resucitiation in Sepsis - Clinical Figure 6](/lessons/images/sba/resuscitation-critical-care/resucitiation-in-sepsis/figure_06_p4.jpeg)
 *Resucitiation in Sepsis — Clinical Figure 6 (Page 4 Reference)*$LEC_RESU_008$,
-      "position"   = 14,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'resucitiation-in-sepsis' OR "slug" = 'resuscitation-sepsis');
+    false,
+    14,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'resuscitation-sepsis' != 'resucitiation-in-sepsis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Resuscitation in Sepsis & Septic Shock',
+        "position" = 14,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'resuscitation-sepsis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
@@ -1570,10 +1919,16 @@ $SBA_RESU_008$,
     "updated_at" = now();
 
   -- Pair 9/10: Adult Sepsis & The Sepsis Six
-  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
-  UPDATE "lessons"
-  SET "title"      = 'Adult Sepsis & The Sepsis Six',
-      "body"       = $LEC_RESU_009$# Adult Sepsis & The Sepsis Six
+  -- A) Upsert Clinical Theory Lecture (Position 16)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'adult-sepsis-septic-shock',
+    'Adult Sepsis & The Sepsis Six',
+    'article',
+    $LEC_RESU_009$# Adult Sepsis & The Sepsis Six
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -1634,13 +1989,32 @@ previOUS
 
 ![Adult Sepsis & Septic Shock - Clinical Figure 4](/lessons/images/sba/resuscitation-critical-care/adult-sepsis-septic-shock/figure_04_p5.jpeg)
 *Adult Sepsis & Septic Shock — Clinical Figure 4 (Page 5 Reference)*$LEC_RESU_009$,
-      "position"   = 16,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'adult-sepsis-septic-shock' OR "slug" = 'sepsis-adult');
+    false,
+    16,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'sepsis-adult' != 'adult-sepsis-septic-shock' THEN
+    UPDATE "lessons"
+    SET "title" = 'Adult Sepsis & The Sepsis Six',
+        "position" = 16,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'sepsis-adult';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
@@ -1755,10 +2129,16 @@ $SBA_RESU_009$,
     "updated_at" = now();
 
   -- Pair 10/10: Transfusion Management of Major Haemorrhage
-  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
-  UPDATE "lessons"
-  SET "title"      = 'Transfusion Management of Major Haemorrhage',
-      "body"       = $LEC_RESU_010$# Transfusion Management of Major Haemorrhage
+  -- A) Upsert Clinical Theory Lecture (Position 18)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'transfution-mangement-of-major-hge',
+    'Transfusion Management of Major Haemorrhage',
+    'article',
+    $LEC_RESU_010$# Transfusion Management of Major Haemorrhage
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -1785,13 +2165,32 @@ $SBA_RESU_009$,
 
 ![Transfction Mangement of Major Hge - Clinical Figure 3](/lessons/images/sba/resuscitation-critical-care/transfction-mangement-of-major-hge/figure_03_p3.jpeg)
 *Transfction Mangement of Major Hge — Clinical Figure 3 (Page 3 Reference)*$LEC_RESU_010$,
-      "position"   = 18,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'transfction-mangement-of-major-hge' OR "slug" = 'transfusion-major-hemorrhage');
+    false,
+    18,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'transfction-mangement-of-major-hge' != 'transfution-mangement-of-major-hge' THEN
+    UPDATE "lessons"
+    SET "title" = 'Transfusion Management of Major Haemorrhage',
+        "position" = 18,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'transfction-mangement-of-major-hge';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
@@ -1904,18 +2303,21 @@ $SBA_RESU_010$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Cardiovascular Emergencies (21 Topics)
+  -- Specialty: Cardiovascular Emergencies (21 Topics) -> Module UUID dcd783c9-64a3-4feb-b212-e785368539af
   -- ------------------------------------------------------------------------
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Cardiovascular Emergencies' AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NULL THEN
-    RAISE EXCEPTION 'Module Cardiovascular Emergencies not found in mrcem-sba';
-  END IF;
+  v_mod_id := 'dcd783c9-64a3-4feb-b212-e785368539af';
 
   -- Pair 1/21: Acute Coronary Syndromes (ACS)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Coronary Syndromes (ACS)',
-      "body"       = $LEC_CARD_011$# Acute Coronary Syndromes (ACS)
+  -- A) Upsert Clinical Theory Lecture (Position 0)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'acute-coronary-syndromes-acs',
+    'Acute Coronary Syndromes (ACS)',
+    'article',
+    $LEC_CARD_011$# Acute Coronary Syndromes (ACS)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -2061,13 +2463,32 @@ ECG finding New ST-segment elevation
 
 ![Acute Coronary Syndromes (ACS) - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/acute-coronary-syndromes-acs/figure_07_p14.jpeg)
 *Acute Coronary Syndromes (ACS) — Clinical Figure 7 (Page 14 Reference)*$LEC_CARD_011$,
-      "position"   = 0,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-coronary-syndromes-acs' OR "slug" = 'acute-coronary-syndrome');
+    false,
+    0,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'acute-coronary-syndrome' != 'acute-coronary-syndromes-acs' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Coronary Syndromes (ACS)',
+        "position" = 0,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'acute-coronary-syndrome';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
@@ -2188,21 +2609,46 @@ $SBA_CARD_011$,
     "updated_at" = now();
 
   -- Pair 2/21: Atrial Arrhythmias & Atrial Flutter
-  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
-  UPDATE "lessons"
-  SET "title"      = 'Atrial Arrhythmias & Atrial Flutter',
-      "body"       = $LEC_CARD_012$# Atrial Arrhythmias & Atrial Flutter
+  -- A) Upsert Clinical Theory Lecture (Position 2)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'atrial-arrhythmias',
+    'Atrial Arrhythmias & Atrial Flutter',
+    'article',
+    $LEC_CARD_012$# Atrial Arrhythmias & Atrial Flutter
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
 $LEC_CARD_012$,
-      "position"   = 2,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'atrial-arrhythmias' OR "slug" = 'atrial-arrhythmias');
+    false,
+    2,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF '01-atrial-arrhythmias' != 'atrial-arrhythmias' THEN
+    UPDATE "lessons"
+    SET "title" = 'Atrial Arrhythmias & Atrial Flutter',
+        "position" = 2,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = '01-atrial-arrhythmias';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
@@ -2308,10 +2754,16 @@ $SBA_CARD_012$,
     "updated_at" = now();
 
   -- Pair 3/21: Atrial Fibrillation Management
-  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
-  UPDATE "lessons"
-  SET "title"      = 'Atrial Fibrillation Management',
-      "body"       = $LEC_CARD_013$# Atrial Fibrillation Management
+  -- A) Upsert Clinical Theory Lecture (Position 4)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'atrial-fibrillation-flutter-af',
+    'Atrial Fibrillation Management',
+    'article',
+    $LEC_CARD_013$# Atrial Fibrillation Management
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -2402,13 +2854,32 @@ of Recent-onset, Non-Life- threatening AF In the ED if a patient presents within
 
 ![Atrial Fibrillation & Flutter (AF) - Clinical Figure 6](/lessons/images/sba/cardiovascular-emergencies/atrial-fibrillation-flutter-af/figure_06_p7.jpeg)
 *Atrial Fibrillation & Flutter (AF) — Clinical Figure 6 (Page 7 Reference)*$LEC_CARD_013$,
-      "position"   = 4,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'atrial-fibrillation-flutter-af' OR "slug" = 'atrial-fibrillation');
+    false,
+    4,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'atrial-fibrillation' != 'atrial-fibrillation-flutter-af' THEN
+    UPDATE "lessons"
+    SET "title" = 'Atrial Fibrillation Management',
+        "position" = 4,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'atrial-fibrillation';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
@@ -2529,21 +3000,46 @@ $SBA_CARD_013$,
     "updated_at" = now();
 
   -- Pair 4/21: Atrial Septal Defect (ASD)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
-  UPDATE "lessons"
-  SET "title"      = 'Atrial Septal Defect (ASD)',
-      "body"       = $LEC_CARD_014$# Atrial Septal Defect (ASD)
+  -- A) Upsert Clinical Theory Lecture (Position 6)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'atrial-septal-defect',
+    'Atrial Septal Defect (ASD)',
+    'article',
+    $LEC_CARD_014$# Atrial Septal Defect (ASD)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
 $LEC_CARD_014$,
-      "position"   = 6,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'atrial-septal-defect' OR "slug" = 'atrial-septal-defect');
+    false,
+    6,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF '02-atrial-septal-defect' != 'atrial-septal-defect' THEN
+    UPDATE "lessons"
+    SET "title" = 'Atrial Septal Defect (ASD)',
+        "position" = 6,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = '02-atrial-septal-defect';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
@@ -2655,10 +3151,16 @@ $SBA_CARD_014$,
     "updated_at" = now();
 
   -- Pair 5/21: ECG Axis Interpretation
-  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
-  UPDATE "lessons"
-  SET "title"      = 'ECG Axis Interpretation',
-      "body"       = $LEC_CARD_015$# ECG Axis Interpretation
+  -- A) Upsert Clinical Theory Lecture (Position 8)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'ecg-axis-interpretation',
+    'ECG Axis Interpretation',
+    'article',
+    $LEC_CARD_015$# ECG Axis Interpretation
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -2719,13 +3221,32 @@ $SBA_CARD_014$,
 
 ![ECG Axis Interpretation - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/ecg-axis-interpretation/figure_07_p7.jpeg)
 *ECG Axis Interpretation — Clinical Figure 7 (Page 7 Reference)*$LEC_CARD_015$,
-      "position"   = 8,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'ecg-axis-interpretation' OR "slug" = 'axis-interpretation');
+    false,
+    8,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'axis-interpretation' != 'ecg-axis-interpretation' THEN
+    UPDATE "lessons"
+    SET "title" = 'ECG Axis Interpretation',
+        "position" = 8,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'axis-interpretation';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
@@ -2849,10 +3370,16 @@ $SBA_CARD_015$,
     "updated_at" = now();
 
   -- Pair 6/21: Bifascicular & Trifascicular Blocks
-  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
-  UPDATE "lessons"
-  SET "title"      = 'Bifascicular & Trifascicular Blocks',
-      "body"       = $LEC_CARD_016$# Bifascicular & Trifascicular Blocks
+  -- A) Upsert Clinical Theory Lecture (Position 10)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'bifascicular-trifascicular-blocks',
+    'Bifascicular & Trifascicular Blocks',
+    'article',
+    $LEC_CARD_016$# Bifascicular & Trifascicular Blocks
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -2902,13 +3429,32 @@ iiih — Incomplete trifascicular block (bifascicular block + first-degree AV
 
 ![Bifascicular & Trifascicular Blocks - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/bifascicular-trifascicular-blocks/figure_07_p6.jpeg)
 *Bifascicular & Trifascicular Blocks — Clinical Figure 7 (Page 6 Reference)*$LEC_CARD_016$,
-      "position"   = 10,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'bifascicular-trifascicular-blocks' OR "slug" = 'bifascicular-trifascicular-block');
+    false,
+    10,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'bifascicular-trifascicular-block' != 'bifascicular-trifascicular-blocks' THEN
+    UPDATE "lessons"
+    SET "title" = 'Bifascicular & Trifascicular Blocks',
+        "position" = 10,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'bifascicular-trifascicular-block';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
@@ -3032,10 +3578,16 @@ $SBA_CARD_016$,
     "updated_at" = now();
 
   -- Pair 7/21: Emergency Bradycardia Management
-  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
-  UPDATE "lessons"
-  SET "title"      = 'Emergency Bradycardia Management',
-      "body"       = $LEC_CARD_017$# Emergency Bradycardia Management
+  -- A) Upsert Clinical Theory Lecture (Position 12)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'emergency-bradycardia-management',
+    'Emergency Bradycardia Management',
+    'article',
+    $LEC_CARD_017$# Emergency Bradycardia Management
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -3150,13 +3702,32 @@ previous  Next 9
 ## Emergency Management Protocol
 /figure_03_p10.jpeg)
 *Emergency Bradycardia Management — Clinical Figure 3 (Page 10 Reference)*$LEC_CARD_017$,
-      "position"   = 12,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'emergency-bradycardia-management' OR "slug" = 'bradycardia');
+    false,
+    12,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'bradycardia' != 'emergency-bradycardia-management' THEN
+    UPDATE "lessons"
+    SET "title" = 'Emergency Bradycardia Management',
+        "position" = 12,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'bradycardia';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
@@ -3265,10 +3836,16 @@ $SBA_CARD_017$,
     "updated_at" = now();
 
   -- Pair 8/21: Cardiogenic Pulmonary Oedema
-  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
-  UPDATE "lessons"
-  SET "title"      = 'Cardiogenic Pulmonary Oedema',
-      "body"       = $LEC_CARD_018$# Cardiogenic Pulmonary Oedema
+  -- A) Upsert Clinical Theory Lecture (Position 14)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'cardiogenic-pulmonary-oedema',
+    'Cardiogenic Pulmonary Oedema',
+    'article',
+    $LEC_CARD_018$# Cardiogenic Pulmonary Oedema
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -3344,13 +3921,32 @@ Disability;lV opiate for chest pain Exposure: Position the patient sitting uprig
 
 ![Cardiogenic Pulmonary Oedema - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/cardiogenic-pulmonary-oedema/figure_07_p7.jpeg)
 *Cardiogenic Pulmonary Oedema — Clinical Figure 7 (Page 7 Reference)*$LEC_CARD_018$,
-      "position"   = 14,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'cardiogenic-pulmonary-oedema' OR "slug" = 'cardiogenic-pulmonary-edema');
+    false,
+    14,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'cardiogenic-pulmonary-edema' != 'cardiogenic-pulmonary-oedema' THEN
+    UPDATE "lessons"
+    SET "title" = 'Cardiogenic Pulmonary Oedema',
+        "position" = 14,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'cardiogenic-pulmonary-edema';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
@@ -3471,10 +4067,16 @@ $SBA_CARD_018$,
     "updated_at" = now();
 
   -- Pair 9/21: Congenital Heart Disease in the ED
-  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
-  UPDATE "lessons"
-  SET "title"      = 'Congenital Heart Disease in the ED',
-      "body"       = $LEC_CARD_019$# Congenital Heart Disease in the ED
+  -- A) Upsert Clinical Theory Lecture (Position 16)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'congenital-heart-disease-in-the-ed',
+    'Congenital Heart Disease in the ED',
+    'article',
+    $LEC_CARD_019$# Congenital Heart Disease in the ED
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -3582,13 +4184,32 @@ TAPVR (5 letters in the name) previous
 
 ![Congenital Heart Disease in the ED - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/congenital-heart-disease-in-the-ed/figure_07_p6.jpeg)
 *Congenital Heart Disease in the ED — Clinical Figure 7 (Page 6 Reference)*$LEC_CARD_019$,
-      "position"   = 16,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'congenital-heart-disease-in-the-ed' OR "slug" = 'congenital-heart-disease');
+    false,
+    16,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'congenital-heart-disease' != 'congenital-heart-disease-in-the-ed' THEN
+    UPDATE "lessons"
+    SET "title" = 'Congenital Heart Disease in the ED',
+        "position" = 16,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'congenital-heart-disease';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
@@ -3697,10 +4318,16 @@ $SBA_CARD_019$,
     "updated_at" = now();
 
   -- Pair 10/21: Infective Endocarditis
-  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
-  UPDATE "lessons"
-  SET "title"      = 'Infective Endocarditis',
-      "body"       = $LEC_CARD_020$# Infective Endocarditis
+  -- A) Upsert Clinical Theory Lecture (Position 18)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'infective-endocarditis',
+    'Infective Endocarditis',
+    'article',
+    $LEC_CARD_020$# Infective Endocarditis
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -3773,13 +4400,32 @@ Treatment should be based on complication eg: in sepsis patient, follow sepsis p
 
 ![Infective Endocarditis - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/infective-endocarditis/figure_04_p5.jpeg)
 *Infective Endocarditis — Clinical Figure 4 (Page 5 Reference)*$LEC_CARD_020$,
-      "position"   = 18,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'infective-endocarditis' OR "slug" = 'endocarditis');
+    false,
+    18,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'endocarditis' != 'infective-endocarditis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Infective Endocarditis',
+        "position" = 18,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'endocarditis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
@@ -3891,10 +4537,16 @@ $SBA_CARD_020$,
     "updated_at" = now();
 
   -- Pair 11/21: Hypertension in Pregnancy & Preeclampsia
-  -- A) Update & Beautify Clinical Theory Lecture (Position 20)
-  UPDATE "lessons"
-  SET "title"      = 'Hypertension in Pregnancy & Preeclampsia',
-      "body"       = $LEC_CARD_021$# Hypertension in Pregnancy & Preeclampsia
+  -- A) Upsert Clinical Theory Lecture (Position 20)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hypertension-in-pregnancy-preeclampsia',
+    'Hypertension in Pregnancy & Preeclampsia',
+    'article',
+    $LEC_CARD_021$# Hypertension in Pregnancy & Preeclampsia
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -3927,13 +4579,32 @@ e o
 
 ![Hypertension in Pregnancy & Preeclampsia - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/hypertension-in-pregnancy-preeclampsia/figure_02_p5.jpeg)
 *Hypertension in Pregnancy & Preeclampsia — Clinical Figure 2 (Page 5 Reference)*$LEC_CARD_021$,
-      "position"   = 20,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hypertension-in-pregnancy-preeclampsia' OR "slug" = 'hypertension-pregnancy');
+    false,
+    20,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hypertension-pregnancy' != 'hypertension-in-pregnancy-preeclampsia' THEN
+    UPDATE "lessons"
+    SET "title" = 'Hypertension in Pregnancy & Preeclampsia',
+        "position" = 20,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hypertension-pregnancy';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 21)
   INSERT INTO "lessons" (
@@ -4039,10 +4710,16 @@ $SBA_CARD_021$,
     "updated_at" = now();
 
   -- Pair 12/21: Hypertensive Emergencies
-  -- A) Update & Beautify Clinical Theory Lecture (Position 22)
-  UPDATE "lessons"
-  SET "title"      = 'Hypertensive Emergencies',
-      "body"       = $LEC_CARD_022$# Hypertensive Emergencies
+  -- A) Upsert Clinical Theory Lecture (Position 22)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hypertensive-emergencies',
+    'Hypertensive Emergencies',
+    'article',
+    $LEC_CARD_022$# Hypertensive Emergencies
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -4093,13 +4770,32 @@ Next
 
 ![Hypertensive Emergencies - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/hypertensive-emergencies/figure_04_p5.jpeg)
 *Hypertensive Emergencies — Clinical Figure 4 (Page 5 Reference)*$LEC_CARD_022$,
-      "position"   = 22,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hypertensive-emergencies' OR "slug" = 'hypertensive-emergency');
+    false,
+    22,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hypertensive-emergency' != 'hypertensive-emergencies' THEN
+    UPDATE "lessons"
+    SET "title" = 'Hypertensive Emergencies',
+        "position" = 22,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hypertensive-emergency';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 23)
   INSERT INTO "lessons" (
@@ -4211,10 +4907,16 @@ $SBA_CARD_022$,
     "updated_at" = now();
 
   -- Pair 13/21: Left Anterior vs Posterior Fascicular Block
-  -- A) Update & Beautify Clinical Theory Lecture (Position 24)
-  UPDATE "lessons"
-  SET "title"      = 'Left Anterior vs Posterior Fascicular Block',
-      "body"       = $LEC_CARD_023$# Left Anterior vs Posterior Fascicular Block
+  -- A) Upsert Clinical Theory Lecture (Position 24)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'left-anterior-vs-posterior-fascicular-block',
+    'Left Anterior vs Posterior Fascicular Block',
+    'article',
+    $LEC_CARD_023$# Left Anterior vs Posterior Fascicular Block
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -4285,13 +4987,32 @@ VF previOUS
 
 ![Left Anterior vs Posterior Fascicular Block - Clinical Figure 9](/lessons/images/sba/cardiovascular-emergencies/left-anterior-vs-posterior-fascicular-block/figure_09_p8.jpeg)
 *Left Anterior vs Posterior Fascicular Block — Clinical Figure 9 (Page 8 Reference)*$LEC_CARD_023$,
-      "position"   = 24,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'left-anterior-vs-posterior-fascicular-block' OR "slug" = 'left-anterior-posterior-fascicular-block');
+    false,
+    24,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'left-anterior-posterior-fascicular-block' != 'left-anterior-vs-posterior-fascicular-block' THEN
+    UPDATE "lessons"
+    SET "title" = 'Left Anterior vs Posterior Fascicular Block',
+        "position" = 24,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'left-anterior-posterior-fascicular-block';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 25)
   INSERT INTO "lessons" (
@@ -4421,10 +5142,16 @@ $SBA_CARD_023$,
     "updated_at" = now();
 
   -- Pair 14/21: Bundle Branch Blocks (LBBB & RBBB)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 26)
-  UPDATE "lessons"
-  SET "title"      = 'Bundle Branch Blocks (LBBB & RBBB)',
-      "body"       = $LEC_CARD_024$# Bundle Branch Blocks (LBBB & RBBB)
+  -- A) Upsert Clinical Theory Lecture (Position 26)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'bundle-branch-blocks-lbbb-rbbb',
+    'Bundle Branch Blocks (LBBB & RBBB)',
+    'article',
+    $LEC_CARD_024$# Bundle Branch Blocks (LBBB & RBBB)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -4479,13 +5206,32 @@ Isolated RBBB. RSR' pattern in VI-3
 
 ![Bundle Branch Blocks (LBBB & RBBB) - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/bundle-branch-blocks-lbbb-rbbb/figure_07_p6.jpeg)
 *Bundle Branch Blocks (LBBB & RBBB) — Clinical Figure 7 (Page 6 Reference)*$LEC_CARD_024$,
-      "position"   = 26,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'bundle-branch-blocks-lbbb-rbbb' OR "slug" = 'left-right-bundle-branch-block');
+    false,
+    26,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'left-right-bundle-branch-block' != 'bundle-branch-blocks-lbbb-rbbb' THEN
+    UPDATE "lessons"
+    SET "title" = 'Bundle Branch Blocks (LBBB & RBBB)',
+        "position" = 26,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'left-right-bundle-branch-block';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 27)
   INSERT INTO "lessons" (
@@ -4609,10 +5355,16 @@ $SBA_CARD_024$,
     "updated_at" = now();
 
   -- Pair 15/21: Long QT Syndrome & Torsades de Pointes
-  -- A) Update & Beautify Clinical Theory Lecture (Position 28)
-  UPDATE "lessons"
-  SET "title"      = 'Long QT Syndrome & Torsades de Pointes',
-      "body"       = $LEC_CARD_025$# Long QT Syndrome & Torsades de Pointes
+  -- A) Upsert Clinical Theory Lecture (Position 28)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'long-qt-syndrome-torsades',
+    'Long QT Syndrome & Torsades de Pointes',
+    'article',
+    $LEC_CARD_025$# Long QT Syndrome & Torsades de Pointes
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -4695,13 +5447,32 @@ Congenital LQTS with previous cardiac events First line Remove or treat the caus
 
 ![Long QT Syndrome & Torsades - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/long-qt-syndrome-torsades/figure_04_p5.jpeg)
 *Long QT Syndrome & Torsades — Clinical Figure 4 (Page 5 Reference)*$LEC_CARD_025$,
-      "position"   = 28,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'long-qt-syndrome-torsades' OR "slug" = 'long-qt-syndrome');
+    false,
+    28,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'long-qt-syndrome' != 'long-qt-syndrome-torsades' THEN
+    UPDATE "lessons"
+    SET "title" = 'Long QT Syndrome & Torsades de Pointes',
+        "position" = 28,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'long-qt-syndrome';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 29)
   INSERT INTO "lessons" (
@@ -4816,10 +5587,16 @@ $SBA_CARD_025$,
     "updated_at" = now();
 
   -- Pair 16/21: Acute Myocarditis
-  -- A) Update & Beautify Clinical Theory Lecture (Position 30)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Myocarditis',
-      "body"       = $LEC_CARD_026$# Acute Myocarditis
+  -- A) Upsert Clinical Theory Lecture (Position 30)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'acute-myocarditis',
+    'Acute Myocarditis',
+    'article',
+    $LEC_CARD_026$# Acute Myocarditis
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -4900,13 +5677,32 @@ previous  Next
 
 ![Acute Myocarditis - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/acute-myocarditis/figure_04_p5.jpeg)
 *Acute Myocarditis — Clinical Figure 4 (Page 5 Reference)*$LEC_CARD_026$,
-      "position"   = 30,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-myocarditis' OR "slug" = 'myocarditis');
+    false,
+    30,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'myocarditis' != 'acute-myocarditis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Myocarditis',
+        "position" = 30,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'myocarditis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 31)
   INSERT INTO "lessons" (
@@ -5018,10 +5814,16 @@ $SBA_CARD_026$,
     "updated_at" = now();
 
   -- Pair 17/21: Non-Invasive Ventilation (NIV) Guidelines
-  -- A) Update & Beautify Clinical Theory Lecture (Position 32)
-  UPDATE "lessons"
-  SET "title"      = 'Non-Invasive Ventilation (NIV) Guidelines',
-      "body"       = $LEC_CARD_027$# Non-Invasive Ventilation (NIV) Guidelines
+  -- A) Upsert Clinical Theory Lecture (Position 32)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'non-invasive-ventilation-niv-guidelines',
+    'Non-Invasive Ventilation (NIV) Guidelines',
+    'article',
+    $LEC_CARD_027$# Non-Invasive Ventilation (NIV) Guidelines
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -5049,13 +5851,32 @@ NIV Indications Types of NIV
 
 ![Non-Invasive Ventilation (NIV) Guidelines - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/non-invasive-ventilation-niv-guidelines/figure_03_p3.jpeg)
 *Non-Invasive Ventilation (NIV) Guidelines — Clinical Figure 3 (Page 3 Reference)*$LEC_CARD_027$,
-      "position"   = 32,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'non-invasive-ventilation-niv-guidelines' OR "slug" = 'niv-guidelines');
+    false,
+    32,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'niv-guidelines' != 'non-invasive-ventilation-niv-guidelines' THEN
+    UPDATE "lessons"
+    SET "title" = 'Non-Invasive Ventilation (NIV) Guidelines',
+        "position" = 32,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'niv-guidelines';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 33)
   INSERT INTO "lessons" (
@@ -5164,10 +5985,16 @@ $SBA_CARD_027$,
     "updated_at" = now();
 
   -- Pair 18/21: Acute Pericarditis & Cardiac Tamponade
-  -- A) Update & Beautify Clinical Theory Lecture (Position 34)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Pericarditis & Cardiac Tamponade',
-      "body"       = $LEC_CARD_028$# Acute Pericarditis & Cardiac Tamponade
+  -- A) Upsert Clinical Theory Lecture (Position 34)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'acute-pericarditis-tamponade',
+    'Acute Pericarditis & Cardiac Tamponade',
+    'article',
+    $LEC_CARD_028$# Acute Pericarditis & Cardiac Tamponade
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -5249,13 +6076,32 @@ first-line-drugs
 
 ![Acute Pericarditis & Tamponade - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/acute-pericarditis-tamponade/figure_05_p6.jpeg)
 *Acute Pericarditis & Tamponade — Clinical Figure 5 (Page 6 Reference)*$LEC_CARD_028$,
-      "position"   = 34,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-pericarditis-tamponade' OR "slug" = 'pericarditis');
+    false,
+    34,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'pericarditis' != 'acute-pericarditis-tamponade' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Pericarditis & Cardiac Tamponade',
+        "position" = 34,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'pericarditis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 35)
   INSERT INTO "lessons" (
@@ -5370,10 +6216,16 @@ $SBA_CARD_028$,
     "updated_at" = now();
 
   -- Pair 19/21: Tachyarrhythmias Management
-  -- A) Update & Beautify Clinical Theory Lecture (Position 36)
-  UPDATE "lessons"
-  SET "title"      = 'Tachyarrhythmias Management',
-      "body"       = $LEC_CARD_029$# Tachyarrhythmias Management
+  -- A) Upsert Clinical Theory Lecture (Position 36)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'tachyarrhythmias-management',
+    'Tachyarrhythmias Management',
+    'article',
+    $LEC_CARD_029$# Tachyarrhythmias Management
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -5574,13 +6426,32 @@ avR avu 6 Key Points
 ## Emergency Management Protocol
 /figure_17_p16.jpeg)
 *Tachyarrhythmias Management — Clinical Figure 17 (Page 16 Reference)*$LEC_CARD_029$,
-      "position"   = 36,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'tachyarrhythmias-management' OR "slug" = 'tachyarrhythmia');
+    false,
+    36,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'tachyarrhythmia' != 'tachyarrhythmias-management' THEN
+    UPDATE "lessons"
+    SET "title" = 'Tachyarrhythmias Management',
+        "position" = 36,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'tachyarrhythmia';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 37)
   INSERT INTO "lessons" (
@@ -5731,10 +6602,16 @@ $SBA_CARD_029$,
     "updated_at" = now();
 
   -- Pair 20/21: Valvular Heart Disease in the ED
-  -- A) Update & Beautify Clinical Theory Lecture (Position 38)
-  UPDATE "lessons"
-  SET "title"      = 'Valvular Heart Disease in the ED',
-      "body"       = $LEC_CARD_030$# Valvular Heart Disease in the ED
+  -- A) Upsert Clinical Theory Lecture (Position 38)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'valvular-heart-disease-in-the-ed',
+    'Valvular Heart Disease in the ED',
+    'article',
+    $LEC_CARD_030$# Valvular Heart Disease in the ED
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -5921,13 +6798,32 @@ A drug abuser needs blood cultures and aggressive antibiotic therapy covering st
 
 ![Valvular Heart Disease in the ED - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/valvular-heart-disease-in-the-ed/figure_04_p11.jpeg)
 *Valvular Heart Disease in the ED — Clinical Figure 4 (Page 11 Reference)*$LEC_CARD_030$,
-      "position"   = 38,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'valvular-heart-disease-in-the-ed' OR "slug" = 'valvular-heart-disease');
+    false,
+    38,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'valvular-heart-disease' != 'valvular-heart-disease-in-the-ed' THEN
+    UPDATE "lessons"
+    SET "title" = 'Valvular Heart Disease in the ED',
+        "position" = 38,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'valvular-heart-disease';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 39)
   INSERT INTO "lessons" (
@@ -6039,10 +6935,16 @@ $SBA_CARD_030$,
     "updated_at" = now();
 
   -- Pair 21/21: Ventricular Tachycardia (VT)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 40)
-  UPDATE "lessons"
-  SET "title"      = 'Ventricular Tachycardia (VT)',
-      "body"       = $LEC_CARD_031$# Ventricular Tachycardia (VT)
+  -- A) Upsert Clinical Theory Lecture (Position 40)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'ventricular-tachycardia-vt',
+    'Ventricular Tachycardia (VT)',
+    'article',
+    $LEC_CARD_031$# Ventricular Tachycardia (VT)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -6193,13 +7095,32 @@ previOUS  Next
 
 ![Ventricular Tachycardia (VT) - Clinical Figure 8](/lessons/images/sba/cardiovascular-emergencies/ventricular-tachycardia-vt/figure_08_p22.jpeg)
 *Ventricular Tachycardia (VT) — Clinical Figure 8 (Page 22 Reference)*$LEC_CARD_031$,
-      "position"   = 40,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'ventricular-tachycardia-vt' OR "slug" = 'ventricular-tachycardia');
+    false,
+    40,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'ventricular-tachycardia' != 'ventricular-tachycardia-vt' THEN
+    UPDATE "lessons"
+    SET "title" = 'Ventricular Tachycardia (VT)',
+        "position" = 40,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'ventricular-tachycardia';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 41)
   INSERT INTO "lessons" (
@@ -6327,18 +7248,21 @@ $SBA_CARD_031$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Major Trauma & Injury Management (13 Topics)
+  -- Specialty: Major Trauma & Injury Management (13 Topics) -> Module UUID b39d612b-6474-4d09-88c4-b55bc2473575
   -- ------------------------------------------------------------------------
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Major Trauma & Injury Management' AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NULL THEN
-    RAISE EXCEPTION 'Module Major Trauma & Injury Management not found in mrcem-sba';
-  END IF;
+  v_mod_id := 'b39d612b-6474-4d09-88c4-b55bc2473575';
 
   -- Pair 1/13: Abdominal Trauma
-  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
-  UPDATE "lessons"
-  SET "title"      = 'Abdominal Trauma',
-      "body"       = $LEC_TRAU_032$# Abdominal Trauma
+  -- A) Upsert Clinical Theory Lecture (Position 0)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'abdominal-trauma',
+    'Abdominal Trauma',
+    'article',
+    $LEC_TRAU_032$# Abdominal Trauma
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -6425,13 +7349,32 @@ CT CT with IV contrast is the noninvasive gold standard study for the evaluation
 
 ![Abdominal Trauma - Clinical Figure 6](/lessons/images/sba/major-trauma-injury/abdominal-trauma/figure_06_p8.jpeg)
 *Abdominal Trauma — Clinical Figure 6 (Page 8 Reference)*$LEC_TRAU_032$,
-      "position"   = 0,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'abdominal-trauma' OR "slug" = 'abdominal-trauma');
+    false,
+    0,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'abdominal-trauma' != 'abdominal-trauma' THEN
+    UPDATE "lessons"
+    SET "title" = 'Abdominal Trauma',
+        "position" = 0,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'abdominal-trauma';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
@@ -6552,10 +7495,16 @@ $SBA_TRAU_032$,
     "updated_at" = now();
 
   -- Pair 2/13: Burn Injury & Resuscitation
-  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
-  UPDATE "lessons"
-  SET "title"      = 'Burn Injury & Resuscitation',
-      "body"       = $LEC_TRAU_033$# Burn Injury & Resuscitation
+  -- A) Upsert Clinical Theory Lecture (Position 2)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'burn-injury',
+    'Burn Injury & Resuscitation',
+    'article',
+    $LEC_TRAU_033$# Burn Injury & Resuscitation
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -6670,13 +7619,32 @@ previous  Next
 
 ![Burn Injury - Clinical Figure 10](/lessons/images/sba/major-trauma-injury/burn-injury/figure_10_p15.jpeg)
 *Burn Injury — Clinical Figure 10 (Page 15 Reference)*$LEC_TRAU_033$,
-      "position"   = 2,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'burn-injury' OR "slug" = 'burn-injury');
+    false,
+    2,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'burn-injury' != 'burn-injury' THEN
+    UPDATE "lessons"
+    SET "title" = 'Burn Injury & Resuscitation',
+        "position" = 2,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'burn-injury';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
@@ -6806,10 +7774,16 @@ $SBA_TRAU_033$,
     "updated_at" = now();
 
   -- Pair 3/13: Devastating Brain Injury & Prognostication
-  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
-  UPDATE "lessons"
-  SET "title"      = 'Devastating Brain Injury & Prognostication',
-      "body"       = $LEC_TRAU_034$# Devastating Brain Injury & Prognostication
+  -- A) Upsert Clinical Theory Lecture (Position 4)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'devastatiing-brain-injury',
+    'Devastating Brain Injury & Prognostication',
+    'article',
+    $LEC_TRAU_034$# Devastating Brain Injury & Prognostication
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -6827,13 +7801,32 @@ $SBA_TRAU_033$,
 
 ![Devastatiing Brain Injury - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/devastatiing-brain-injury/figure_03_p2.jpeg)
 *Devastatiing Brain Injury — Clinical Figure 3 (Page 2 Reference)*$LEC_TRAU_034$,
-      "position"   = 4,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'devastatiing-brain-injury' OR "slug" = 'devastating-brain-injury');
+    false,
+    4,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'devastating-brain-injury' != 'devastatiing-brain-injury' THEN
+    UPDATE "lessons"
+    SET "title" = 'Devastating Brain Injury & Prognostication',
+        "position" = 4,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'devastating-brain-injury';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
@@ -6945,10 +7938,16 @@ $SBA_TRAU_034$,
     "updated_at" = now();
 
   -- Pair 4/13: Genitourinary Trauma & Urethral Injury
-  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
-  UPDATE "lessons"
-  SET "title"      = 'Genitourinary Trauma & Urethral Injury',
-      "body"       = $LEC_TRAU_035$# Genitourinary Trauma & Urethral Injury
+  -- A) Upsert Clinical Theory Lecture (Position 6)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'genetourinary-trauma',
+    'Genitourinary Trauma & Urethral Injury',
+    'article',
+    $LEC_TRAU_035$# Genitourinary Trauma & Urethral Injury
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -7017,13 +8016,32 @@ $SBA_TRAU_034$,
 
 ![Genetourinary Trauma - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/genetourinary-trauma/figure_02_p5.jpeg)
 *Genetourinary Trauma — Clinical Figure 2 (Page 5 Reference)*$LEC_TRAU_035$,
-      "position"   = 6,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'genetourinary-trauma' OR "slug" = 'genitourinary-trauma');
+    false,
+    6,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'genitourinary-trauma' != 'genetourinary-trauma' THEN
+    UPDATE "lessons"
+    SET "title" = 'Genitourinary Trauma & Urethral Injury',
+        "position" = 6,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'genitourinary-trauma';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
@@ -7132,10 +8150,16 @@ $SBA_TRAU_035$,
     "updated_at" = now();
 
   -- Pair 5/13: Head Trauma & Intracranial Haemorrhage
-  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
-  UPDATE "lessons"
-  SET "title"      = 'Head Trauma & Intracranial Haemorrhage',
-      "body"       = $LEC_TRAU_036$# Head Trauma & Intracranial Haemorrhage
+  -- A) Upsert Clinical Theory Lecture (Position 8)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'head-reauma',
+    'Head Trauma & Intracranial Haemorrhage',
+    'article',
+    $LEC_TRAU_036$# Head Trauma & Intracranial Haemorrhage
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -7404,13 +8428,32 @@ sufficiently cooperative to allow scanning.
 
 ![Head Reauma - Clinical Figure 11](/lessons/images/sba/major-trauma-injury/head-reauma/figure_11_p23.jpeg)
 *Head Reauma — Clinical Figure 11 (Page 23 Reference)*$LEC_TRAU_036$,
-      "position"   = 8,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'head-reauma' OR "slug" = 'head-trauma');
+    false,
+    8,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'head-trauma' != 'head-reauma' THEN
+    UPDATE "lessons"
+    SET "title" = 'Head Trauma & Intracranial Haemorrhage',
+        "position" = 8,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'head-trauma';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
@@ -7546,10 +8589,16 @@ $SBA_TRAU_036$,
     "updated_at" = now();
 
   -- Pair 6/13: Laryngotracheal Injury & Airway Trauma
-  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
-  UPDATE "lessons"
-  SET "title"      = 'Laryngotracheal Injury & Airway Trauma',
-      "body"       = $LEC_TRAU_037$# Laryngotracheal Injury & Airway Trauma
+  -- A) Upsert Clinical Theory Lecture (Position 10)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'laryngotrachila-injury',
+    'Laryngotracheal Injury & Airway Trauma',
+    'article',
+    $LEC_TRAU_037$# Laryngotracheal Injury & Airway Trauma
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -7608,13 +8657,32 @@ previOUS
 
 ![Laryngotrachila Injury - Clinical Figure 6](/lessons/images/sba/major-trauma-injury/laryngotrachila-injury/figure_06_p9.jpeg)
 *Laryngotrachila Injury — Clinical Figure 6 (Page 9 Reference)*$LEC_TRAU_037$,
-      "position"   = 10,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'laryngotrachila-injury' OR "slug" = 'laryngotracheal-injury');
+    false,
+    10,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'laryngotracheal-injury' != 'laryngotrachila-injury' THEN
+    UPDATE "lessons"
+    SET "title" = 'Laryngotracheal Injury & Airway Trauma',
+        "position" = 10,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'laryngotracheal-injury';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
@@ -7735,10 +8803,16 @@ $SBA_TRAU_037$,
     "updated_at" = now();
 
   -- Pair 7/13: Maxillofacial & Mandibular Trauma
-  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
-  UPDATE "lessons"
-  SET "title"      = 'Maxillofacial & Mandibular Trauma',
-      "body"       = $LEC_TRAU_038$# Maxillofacial & Mandibular Trauma
+  -- A) Upsert Clinical Theory Lecture (Position 12)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'maxilofascial-trauma',
+    'Maxillofacial & Mandibular Trauma',
+    'article',
+    $LEC_TRAU_038$# Maxillofacial & Mandibular Trauma
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -7853,13 +8927,32 @@ decompression (lateral canthotomy).
 
 ![Maxilofascial Trauma - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/maxilofascial-trauma/figure_04_p14.jpeg)
 *Maxilofascial Trauma — Clinical Figure 4 (Page 14 Reference)*$LEC_TRAU_038$,
-      "position"   = 12,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'maxilofascial-trauma' OR "slug" = 'maxillofacial-trauma');
+    false,
+    12,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'maxillofacial-trauma' != 'maxilofascial-trauma' THEN
+    UPDATE "lessons"
+    SET "title" = 'Maxillofacial & Mandibular Trauma',
+        "position" = 12,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'maxillofacial-trauma';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
@@ -7974,53 +9067,46 @@ $SBA_TRAU_038$,
     "updated_at" = now();
 
   -- Pair 8/13: Renal & Bladder Malignancies
-  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
-  UPDATE "lessons"
-  SET "title"      = 'Renal & Bladder Malignancies',
-      "body"       = $LEC_TRAU_039$# Renal & Bladder Malignancies
+  -- A) Upsert Clinical Theory Lecture (Position 14)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'renal-cancer-bladder-cancer',
+    'Renal & Bladder Malignancies',
+    'article',
+    $LEC_TRAU_039$# Renal & Bladder Malignancies
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_TRAU_039$,
+    false,
+    14,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Most common 10 renal malignancy C
-- Most common in males 50—70 years old
-- lncrease incidence with tobacco smoking and obesity.
-- Originate from PCT —Clinical features
-- Classic triad :
-- flank pain
-- palpable mass
-- hematuria
-- Other feature (fever, polycythemia, weight-loss)
-
-## Investigations & Diagnostic Workup
-- CT scan Z.Manageme.nt;-surgical intervention , immunotherapy eg:ipilimumab
-- Bladder carcinoma (transitional cells carcinoma or Urothelial carcinoma of the bladder)
-- Most common tumor of urinary tract system (can occur in renal calyces, renal pelvis, ureters and bladder)
-- Clinical feature
-
-- Painless haematuria (no casts)
-- Associated with Phenacetin, tobacco Smoking, Aromatic amines (found in dyes), Cyclophosphamide. Pneumonic (Pee SAC)
-
-## Investigations & Diagnostic Workup
-Cystoscopy and CT
-
-## Emergency Management Protocol
-chemotherapy and surgical intervention previous  Next
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Renal Ca vs Bladder Ca - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/renal-ca-vs-bladder-ca/figure_01_p1.jpeg)
-*Renal Ca vs Bladder Ca — Clinical Figure 1 (Page 1 Reference)*
-
-![Renal Ca vs Bladder Ca - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/renal-ca-vs-bladder-ca/figure_02_p3.jpeg)
-*Renal Ca vs Bladder Ca — Clinical Figure 2 (Page 3 Reference)*$LEC_TRAU_039$,
-      "position"   = 14,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'renal-ca-vs-bladder-ca' OR "slug" = 'renal-cancer-bladder-cancer');
+  -- Update alternate slug record if present
+  IF 'renal-cancer-bladder-cancer' != 'renal-cancer-bladder-cancer' THEN
+    UPDATE "lessons"
+    SET "title" = 'Renal & Bladder Malignancies',
+        "position" = 14,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'renal-cancer-bladder-cancer';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
@@ -8129,197 +9215,46 @@ $SBA_TRAU_039$,
     "updated_at" = now();
 
   -- Pair 9/13: Spinal Cord Injury & Incomplete Syndromes
-  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
-  UPDATE "lessons"
-  SET "title"      = 'Spinal Cord Injury & Incomplete Syndromes',
-      "body"       = $LEC_TRAU_040$# Spinal Cord Injury & Incomplete Syndromes
+  -- A) Upsert Clinical Theory Lecture (Position 16)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'spinal-cord-injury',
+    'Spinal Cord Injury & Incomplete Syndromes',
+    'article',
+    $LEC_TRAU_040$# Spinal Cord Injury & Incomplete Syndromes
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_TRAU_040$,
+    false,
+    16,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- has a history of past spinal problems, including previous spinal surgery or conditions that predispose to instability of the spine
-- Assessment for cervical spine injury
-- Assess whether the person is at high, low or no risk for cervical spine injury using the Canadian C-spine rule as follows: zHigh risk if patient has at-least one of the
-- age 65 years or older
-- dangerous mechanism of injury (fall from a height of greater than 1 metre or 5 steps, axial load to the head — for example diving, high-speed rnotor vehicle collision, rollover motor accident, ejection from a motor vehicle or bicycle collision.
-- Paraesthesia in the upper or lower limbs :Low risk if patient has at-least one of the following Iow risk factors
-- involved in a minor rear-end rnotor vehicle collision
-- comfortable in a sitting position
-- ambulatory at any time since the injury
-- no midline cervical spine tenderness
-- delayed onset of neck pain
-- heperson-remains-at-lowrisk-if-they-are;
-- unable to actively rotate their neck 45 degrees to the left and right (the range of the neck can only be assessed safely if the person is at Iow risk and there are no high-risk
-
-- factors).
-- The person has no risk if they;
-- have one of the above low-risk factors and
-- are able to actively rotate their neck 45 degrees to the left and right
-- Assessment for thoracic or lumbosacral spine injury.
-- Assess-the person-with-suspected-thoracic-or-lumbosacralspine-injury-using these factors:
-- age 65 years or older and reported pain in the thoracic or lumbosacral spine
-- dangerous mechanism of injury
-- pre-existing spinal pathology, or known or at risk of osteoporosis — for example steroid use
-- suspected spinal fracture in another region of the spine
-- abnormal neurological symptoms (paraesthesia or weakness or numbness) —On examination:
-- abnormal neurological signs (motor or sensory deficit)
-- new deformity or bony midline tenderness (on palpation)
-- bony midline tenderness (on percussion)
-
-- midline or spinal pain (on coughing)
-- Spinal immobilization
-- Fit an appropriately sized semi-rigid collar.
-- Carry out or maintain full in-line spinal immobilisation if:
-- A high-risk factor for cervical spine injury is identified and indicated by the Canadian C-spine rule
-- A Iow-risk factor for cervical spine injury is identified and indicated by the Canadian C-spine rule and the person is unable to actively rotate their neck 45 degrees left and right.
-- Do not carry out or maintain full in-line spinal immobilisation in people if:
-- they have Iow-risk factors for cervical spine injury as identified and indicated by the Canadian C-spine rule, are pain free and are able to actively rotate their neck 45 degrees left and right Æypes of spinal injuries Spinal column injuries:
-- The cervical spine (CI-C7) is particularly vulnerable to injury because it is the rnost exposed, flexible, and mobile portion of the spinal column. contrast to the cervical spine, the thoracic spine (TI-TIO) is a rigid segment, with its stiffness enhanced by articulation with the rib cage.
-- Cervical spine fracture and dislocations
-- Atlantoaxial dislocation:
-
-> Transverse ligament rupture without an associated fracture can occur in older patients from a direct blow to the occiput . >Radiographic diagnosis relies on measuring the predental space which is the space between the posterior aspect of the anterior arch of CI and the anterior border of the odontoid. A predental space of >3 mm on a lateral radiograph (2 mm for CT images) implies damage to the transverse ligament. -Atlanto-occipital dislocation >AOD is primarily an injury of the ligaments between the occiput and upper cervical spine, often without accompanying bony fractures. >Survivors of AOD often have neurological impairment, including lower cranial nerve deficits, unilateral or bilateral weakness, or even quadriplegia. However, there is a wide range of presentations, with some patients being completely asymptomatic and others being dependent on advanced life support measures.
-
-- —Jefferson burst fracture of atlas (potentially unstable)
-- Vertical compression forces/axial loading the occipital condyles downward and produces a burst fracture by driving the lateral masses of CI apart.
-- This is best seen as outward displacement of the lateral masses on the open-mouth odontoid radiograph or on CT.
-
-- Axis fracture: includes odontoid fracture and posterior element fractures Odontoid fractures
-- Frequently involves other injuries to the cervical spine and multisystem trauma. Conscious patients will usually describe immediate and severe high cervical pain with muscle spasm. The pain may radiate to the occiput.
-- patient may present with minimal sensory or motor loss to quadriplegia.
-- lnvestigation
-- CT to the level of injury to type I-Ill. Type I Type II Type Ill
-
-- fracture dens Posterior element fracture/hangman's fracture fracture cir
-- The hangman's fracture is a fracture of both pedicles of C2, with the anterior displacement of C2 on C3. was associated with the neck hyperextension from judicial hangings, where the noose knot is placed under the subject's chin and snaps the head backward.
-- Because of the large spinal canal at the level of C2,a hangman's fracture does not cause neurologic injury.
-
-- Extreme hyperflexion causes complete disruption of the spinal ligaments at the level of injury. The "teardrop" is the anteroinferior portion of the vertebral body that is separated and displaced from the vertebral body by the anterior spinal ligament.
-- Anterior spinal cord syndrome is associated with this injury.
-- Clay-shoveler fracture/Spinous process avulsion fracture an avulsion fracture of the lower cervical or upper thoracic spinous processes.
-- lt is caused by strong muscle contractions pulling on the bone via the ligamentous complex. In isolation, it is generally not associated with neurologic compromise.
-
-- Simple wedge(compression) fracture
-- Most common thoracic fracture.
-- A vertebral wedge fracture typically involves a fracture of the superior end plate of the vertebral body while sparing the inferior end plate.
-
-- Translational fracture-dislocation at thoraco- lumber region.
-- This is a high-energy disruption of all three columns of spine and is readily apparent both on radiographs and CT.
-- Patients commonly present with severe neurologic findings.
-- These fractures are most often unstable; however, in the absence of destabilizing rib cage fractures, lesions above T 7 can be stable.
-
-Spinal cord injuriesSpinaI tracts and their normal function
-
-Dorsal column Spinothalamic tract Lateral corticospinal tract Located: posteromedial aspect of spinal cord Anterolateral aspect of cord Posterolateral aspect of cord Spinal cord syndrome Card syndrome Complete cord transection Brown- Séquard syndrome Central cord syndrome Mechanism Major trauma Hemitransection or unilateral compression of the cord usually seen in older patients with preexisting cervical spondylosis who sustain a hyperextension injury Tract injury All tracts All tract on one side Corticospinal tract and spinothalamic tract Transmit ipsilateral proprioception, vibration and light touch sensation Transmit contralateral pain, crude touch and temperature sensation Control ipsilateral motor power Symptoms Death if cl-c3 injured. Quadriplegia Paraplegia Complete sensory loss below lesion Urinary and faecal continence Ipsilateral hemiparesis Ipsilateral loss of proprioception, vibration and fine touch sensation Contralateral loss Of crude touch, pain and temperature sensation Bilateral motor loss Varying degree of sensory loss Greater loss in upper limb than lower limb Greater loss Of motor in upper limb than sensory function
-
-- Anterior cord syndrome Posterior cord syndrome Direct anterior cord compresson Flexion of cervical spine Thrombosis of anterior spinal artery hyperextension injury associated with vertebral arch fractures or penetrating trauma to the back Corticospinal, spinothalamic and spinocerebellar tracts Dorsal column Bilateral motor loss Bilateral loss of crude touch, pain and temperature sensation Bilateral loss of proprioception, vibration and light touch sensation
-- Diagnostic imaging Oerform MRI for children (under 16s) if there is a strong suspicion of;
-- cervical spinal cord injury as indicated by the Canadian C-spine rule and by clinical assessment or
-- cervical spinal column injury as indicated by clinical assessment or abnormal neurological signs or symptoms, or both. —Consider plain X-rays in children (under 16s) who do not fulfil the criteria for MRI.
-- imaging for cervical spine injury is indicated by the Canadian C-spine rule or
-- there is a strong suspicion of thoracic or lumbosacral spine injury associated with abnormal neurological signs or symptoms.
-- Note: If-there-is-a-neurologjcaLabnor.r:naljty-w.h.ich-couLd-be-attr.ibuta.ble-tQ-s pinal cord injury,_perform MRI after CT, segardless of whether or not the abnormality is evident
-
-- on CT. —Diagnostic imaging in thoracic or lumbosacral column injury only_(children and adults);
-- Perform an X-ray as the first-line investigation for people with suspected spinal column injury without abnormal neurological signs or symptoms in the thoracic or lumbosacral regions (TI—L3).
-- Perform CT if the X-ray is abnormal or there are clinical signs or symptoms of a spinal column injury. —Whole-body scanning;
-- Use whole-body CT (consisting of a vertex-to-toes scanogram followed by CT from vertex to mid-thigh) in adults (16 or over) with blunt major traunna and suspected multiple injuries. Patients should not be repositioned during whole-body CT.
-- The canadian C-spine rule algorithm
-
-The Canadian C-Spine Rulel For alert Score 15) and trauma patients When spine injury is a Concern. Age Or Dangerous mechanism* or paresthesias in extremities ANY LOW RISK FACTOR THAT ALLOWS ASSESSMENT OF RANGE OF MOTION? Simple rear-end MVC" or Sitting position in ED or Ambulatory at any time or Of Or Absence Of midline cervical Spine tenderness V&ESD/j 45 degrees left and right II. Bt_ej NO RADIOGRAPHY
-- Dangerous mechanism
-- Fan
-- Axial to divi-mg
-- MVC high RADIOGRAPHY " Simple MVC Pushed into oncoming traffic
-- Hit by Sna rgø tn_.Ck
-- Hit by high
-- Not Of reference The Canadian C-Spine Rule — www.sira.nsw.gov.au
-- Early ED management
-- Pain relief For people with spinal injury use intravenous morphine as the first-line analgesic and adjust the dose as needed to achieve adequate pain relief.
-- Early consultation with the specialist neurosurgical or spinal surgeon on call in the traurna unit or nearest major traurna center.
-- Do not use the following medications, aimed at providing neuroprotection and prevention of secondary deterioration, in the acute stage after acute traumatic spinal
-
-- cord injury:
-- methylprednisolone
-- nimodipine
-- naloxone.
-- Neurogenic vs Spinal shock
-- Neurogenic shock Neurogenic shock occurs with CNS or spinal cord injury that
-- Spinal shock probably occurs in less than 20% of spinal cord—injured patients Spinal shock is the temporary loss or Loss of peripheral sympathetic innervation results in extreme vasodilatation secondary to loss of sympathetic arterial tone. If the Tl through T4 cord levels are compromised, loss Of sympathetic innervation to the heart leaves unopposed vagal parasympathetic cardiac innervation eventually leads to bradycardia or an absence of reflex tachycardia. General features: Patients with neurogenic shock are warm, peripherally vasodilated, and hypotensive with a relative bradycardia
-
-## Emergency Management Protocol
-Give Iv fluid along with vasopressors as patient does not respond to IV fluid alone. Neurogenic shock usually presents with hypovolemia so moderate fluid resuscitation should be given Give atropine if patient has significant bradycardia Myotome distribution Reflexes depression of spinal reflex activity that occurs below a complete or incomplete spinal cord Injury. General features: flaccidity, loss of reflexes, and loss Of voluntary movement
-
-Upper Extremity C5- shoulder abduction. C6— Elbow flexion Wrist extension C7 — Elbow extension C8 — Thumb Extension and wrist ulnar deviation Tl — Finger abduction Lower Extremity L2 — Hip flexion L3 — Knee extension L4 — Ankle dorsiflexion L5 — Big toe extension Sl —Ankle plantarflexion
-
-- Biceps Supinator Triceps Knee Ankle  L3 / L4
-- 9 Biceps brachii Brachioradialis Triceps brachii Quadriceps Gastrocnemius
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Spinal Cord - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_01_p5.jpeg)
-*Spinal Cord — Clinical Figure 1 (Page 5 Reference)*
-
-![Spinal Cord - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_02_p5.jpeg)
-*Spinal Cord — Clinical Figure 2 (Page 5 Reference)*
-
-![Spinal Cord - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_03_p6.jpeg)
-*Spinal Cord — Clinical Figure 3 (Page 6 Reference)*
-
-![Spinal Cord - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_04_p7.jpeg)
-*Spinal Cord — Clinical Figure 4 (Page 7 Reference)*
-
-![Spinal Cord - Clinical Figure 5](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_05_p7.jpeg)
-*Spinal Cord — Clinical Figure 5 (Page 7 Reference)*
-
-![Spinal Cord - Clinical Figure 6](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_06_p8.jpeg)
-*Spinal Cord — Clinical Figure 6 (Page 8 Reference)*
-
-![Spinal Cord - Clinical Figure 7](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_07_p9.jpeg)
-*Spinal Cord — Clinical Figure 7 (Page 9 Reference)*
-
-![Spinal Cord - Clinical Figure 8](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_08_p10.jpeg)
-*Spinal Cord — Clinical Figure 8 (Page 10 Reference)*
-
-![Spinal Cord - Clinical Figure 9](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_09_p11.jpeg)
-*Spinal Cord — Clinical Figure 9 (Page 11 Reference)*
-
-![Spinal Cord - Clinical Figure 10](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_10_p12.jpeg)
-*Spinal Cord — Clinical Figure 10 (Page 12 Reference)*
-
-![Spinal Cord - Clinical Figure 11](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_11_p13.jpeg)
-*Spinal Cord — Clinical Figure 11 (Page 13 Reference)*
-
-![Spinal Cord - Clinical Figure 12](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_12_p14.jpeg)
-*Spinal Cord — Clinical Figure 12 (Page 14 Reference)*
-
-![Spinal Cord - Clinical Figure 13](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_13_p14.jpeg)
-*Spinal Cord — Clinical Figure 13 (Page 14 Reference)*
-
-![Spinal Cord - Clinical Figure 14](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_14_p15.jpeg)
-*Spinal Cord — Clinical Figure 14 (Page 15 Reference)*
-
-![Spinal Cord - Clinical Figure 15](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_15_p17.jpeg)
-*Spinal Cord — Clinical Figure 15 (Page 17 Reference)*
-
-![Spinal Cord - Clinical Figure 16](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_16_p18.jpeg)
-*Spinal Cord — Clinical Figure 16 (Page 18 Reference)*
-
-![Spinal Cord - Clinical Figure 17](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_17_p19.jpeg)
-*Spinal Cord — Clinical Figure 17 (Page 19 Reference)*
-
-![Spinal Cord - Clinical Figure 18](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_18_p20.jpeg)
-*Spinal Cord — Clinical Figure 18 (Page 20 Reference)*
-
-![Spinal Cord - Clinical Figure 19](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_19_p20.jpeg)
-*Spinal Cord — Clinical Figure 19 (Page 20 Reference)*$LEC_TRAU_040$,
-      "position"   = 16,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'spinal-cord' OR "slug" = 'spinal-cord-injury');
+  -- Update alternate slug record if present
+  IF 'spinal-cord-injury' != 'spinal-cord-injury' THEN
+    UPDATE "lessons"
+    SET "title" = 'Spinal Cord Injury & Incomplete Syndromes',
+        "position" = 16,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'spinal-cord-injury';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
@@ -8467,69 +9402,46 @@ $SBA_TRAU_040$,
     "updated_at" = now();
 
   -- Pair 10/13: Spinal Injury & Autonomic Dysreflexia
-  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
-  UPDATE "lessons"
-  SET "title"      = 'Spinal Injury & Autonomic Dysreflexia',
-      "body"       = $LEC_TRAU_041$# Spinal Injury & Autonomic Dysreflexia
+  -- A) Upsert Clinical Theory Lecture (Position 18)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'spinal-injury-autonomic-dysreflexia',
+    'Spinal Injury & Autonomic Dysreflexia',
+    'article',
+    $LEC_TRAU_041$# Spinal Injury & Autonomic Dysreflexia
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_TRAU_041$,
+    false,
+    18,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Sexual stimulation
-- Labour childbirth
-- Menstruation and any condition that would usually cause abdominal pain
-
-## Key Clinical Features
-Hypertension BP 20-30mmHg ABOVE NORMAL
-- Sweating
-- Pounding headache
-- Flushed
-- Tight chest & stuffy nose
-- Blurred vision
-- Slow heart rate (bradycardia)
-- Pathophysiology: _algorithm
-
-Brain response to rise in Bp Brain sends messages via parasympathetic Vagus nerve to the heart to slow it down (bradycardia) and dilatation of blood vessels above the injury level as an attempt to compensate for the rise in BP. Below the cord iniury Attempted compensation message cannot pass through the spinal cord and blood pressure ntinues to rise Rise in BP detected by baroreceptors These then send signal to the brain is cause blood vessels in the Skin and abdomen to constrict. Blood ressures rise. When impulse reach at T6 level sympathetic neurons activated and release chemical called nor- epinephrine (catecholamine) Stretch bladder send nerve impulse to spinal cord Catheter blockage (example), too much urine in bladder O O O
-
-- The sympathetic response is exaggerated due to a lack of compensatory descending parasympathetic stimulation and intrinsic post-traumatic hypersensitivity. This leads to diffuse vasoconstriction, typically to the lower two- thirds of the body, and a significant rise in blood pressure despite maximum parasympathetic vasodilatory efforts above the level of injury.
-- In an intact autonomic system, this increased blood pressure activates the carotid sinus and aortic arch baroreceptors leading to a parasympathetic response slowing the heart rate via vagal nerve activity and causing diffuse vasodilation to correct the original increased sympathetic tone.
-
-## Emergency Management Protocol
-Emergency Treatment for Autonomic Dysreflexia Patient with Signs / Symptoms of Autonomic Dysreflexia
-- Sit upright and lower legs
-- Loosen any tight clothing / legs straps
-- Monitor BP until symptoms have resolved
-- Common causes to exclude / treat first are:
-- Bladder distension
-- Insert the catheter if patient doesn't have one Check existing catheters for kinks, fold, obstruction and correct placement.
-- If catheter is blocked — irrigate the bladder with 10-15mlof saline.
-- If catheter isn't draining — remove and replace it
-- Constipation (bowel)
-- Faecal impaction — insert lignocaine gel , wait 2 minutes, then insert a lubricated gloved finger into rectum to remove stool. If symptoms persisti-e BP above 150mmHg despite above measure or cause is unknown.
-- Take prescribed medication
-- Nifedipine 10mg capsule "bite and swallow" method
-- OR GTN spray to lower the BP Admit
-- the patient if poor response to treatment
-
-previOUS
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Spinal Injury Autonmic Dysreflexia - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/spinal-injury-autonmic-dysreflexia/figure_01_p3.jpeg)
-*Spinal Injury Autonmic Dysreflexia — Clinical Figure 1 (Page 3 Reference)*
-
-![Spinal Injury Autonmic Dysreflexia - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/spinal-injury-autonmic-dysreflexia/figure_02_p5.jpeg)
-*Spinal Injury Autonmic Dysreflexia — Clinical Figure 2 (Page 5 Reference)*
-
-![Spinal Injury Autonmic Dysreflexia - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/spinal-injury-autonmic-dysreflexia/figure_03_p6.jpeg)
-*Spinal Injury Autonmic Dysreflexia — Clinical Figure 3 (Page 6 Reference)*$LEC_TRAU_041$,
-      "position"   = 18,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'spinal-injury-autonmic-dysreflexia' OR "slug" = 'spinal-injury-autonomic-dysreflexia');
+  -- Update alternate slug record if present
+  IF 'spinal-injury-autonomic-dysreflexia' != 'spinal-injury-autonomic-dysreflexia' THEN
+    UPDATE "lessons"
+    SET "title" = 'Spinal Injury & Autonomic Dysreflexia',
+        "position" = 18,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'spinal-injury-autonomic-dysreflexia';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
@@ -8641,73 +9553,46 @@ $SBA_TRAU_041$,
     "updated_at" = now();
 
   -- Pair 11/13: Spontaneous Pneumothorax (Non-Traumatic)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 20)
-  UPDATE "lessons"
-  SET "title"      = 'Spontaneous Pneumothorax (Non-Traumatic)',
-      "body"       = $LEC_TRAU_042$# Spontaneous Pneumothorax (Non-Traumatic)
+  -- A) Upsert Clinical Theory Lecture (Position 20)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'spontaneous-pneumothorax-non-traumatic',
+    'Spontaneous Pneumothorax (Non-Traumatic)',
+    'article',
+    $LEC_TRAU_042$# Spontaneous Pneumothorax (Non-Traumatic)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_TRAU_042$,
+    false,
+    20,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Pneumothorax results from air entering the potential space (pleural space) between the visceral and parietal pleura.
-- There have been substantial changes in recommendation in this BTS guideline compared with the 2010 guidelines. Size of pneumothorax is no longer an indication for invasive management (although does dictate the safety of conducting an intervention) and the use of chest drains is mainly centred around patients with high-risk characteristics. The expanded evidence base now allows for a more personalised approach and greater patient choice. For details of interventions and how these are best conducted, please refer to the BTS Clinical Statement on Pleural Procedures for further details.
-- Primary Pneumothorax
-- Absence of an underlying cause
-- Secondary pneumothorax
-- Causes are underlying conditions
-- COPD
-- Cystic fibrosis
-- Emphysema
-- Lung cancer Marfan syndrome
-- Note: if patient age>50 and has significant smoking hx will consider in secondary pneumothorax
-
-## Emergency Management Protocol
-Patient with high risk features (mentioned in algorithm in red) and pneumothorax-size-2sm-ocgreater
-
-- Insert chest drain
-- If pt has some features of SSP but avoid procedures (chest drain, needle aspiration, ambulatory device) then patient can choose other treatment i-e conservative management depends on patient circumstance and clinical features/stability.
-- Please note, All treatment options should be discussed with the patient to determine their main priority, with consideration for the least invasive option. pneumothorax size <2 cm
-- Proceed to CT imaging and reassess. If required insert chest drain or other treatment options
--
-- Pneumothorax size <2cm discharge the patient review in OPD in 2-4 weeks
-- Pneumothorax
-- 2cm:
-- Needle aspiration or ambulatory but if patient avoid procedures then conservative management
-- Aspiration and chest drain hen required — Aspirate with 16-180 cannula Aspirate <2.51 at the level of 2nd ICS midclavicular line.
-- Insert Chest drain Size 8-14Fr and admit the patient
-- BTS Recommendations
-
-- Conservative management can be considered for the treatrnent of minimally symptomatic (ie, no significant pain or breathlessness and no physiological compromise) or asymptomatic PSP in adults regardless of size. (Conditional—by consensus)
-- Ambulatory management should be considered for the initial treatment of PSP in adults with good support, and in centres with available expertise and follow-up facilities. (Conditional)
-- In patients not deemed suitable for conservative or ambulatory management, NA or tube drainage should be considered for the initial treatrnent of PSP in adults. (Conditional)
-- Chemical pleurodesis can be considered for the prevention of recurrent SSP in adults (eg, patients with severe chronic obstructive pulmonary disease who significantly decompensated in the presence of a pneumothorax, even during/after the first episode). (Conditional)
-- Thoracic surgery can be considered for the treatment of pneumothorax in adults at initial presentation if recurrence prevention is deemed important (eg, patients presenting with tension pneumothorax, or those in high-risk occupations). (Conditional)
-- Good-practice-points
-- When establishing local ambulatory treatment pathways, planning and coordination between with the emergency department, general medicine and respiratory medicine is vital.
-- When performing chemical pleurodesis for the treatrnent of pneumothorax in adults, adequate analgesia should be provided before and after treatment.
-- All treatment options should be discussed with the patient to determine their main priority, with consideration for the least invasive option.
-
-APPENDIX . TREES
-
-previOUS
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Spontenus Pnemothroax (non Tramuatic - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/spontenus-pnemothroax-non-tramuatic/figure_01_p1.jpeg)
-*Spontenus Pnemothroax (non Tramuatic — Clinical Figure 1 (Page 1 Reference)*
-
-![Spontenus Pnemothroax (non Tramuatic - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/spontenus-pnemothroax-non-tramuatic/figure_02_p5.jpeg)
-*Spontenus Pnemothroax (non Tramuatic — Clinical Figure 2 (Page 5 Reference)*
-
-![Spontenus Pnemothroax (non Tramuatic - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/spontenus-pnemothroax-non-tramuatic/figure_03_p6.jpeg)
-*Spontenus Pnemothroax (non Tramuatic — Clinical Figure 3 (Page 6 Reference)*$LEC_TRAU_042$,
-      "position"   = 20,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'spontenus-pnemothroax-non-tramuatic' OR "slug" = 'spontaneous-pneumothorax-non-traumatic');
+  -- Update alternate slug record if present
+  IF 'spontaneous-pneumothorax-non-traumatic' != 'spontaneous-pneumothorax-non-traumatic' THEN
+    UPDATE "lessons"
+    SET "title" = 'Spontaneous Pneumothorax (Non-Traumatic)',
+        "position" = 20,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'spontaneous-pneumothorax-non-traumatic';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 21)
   INSERT INTO "lessons" (
@@ -8816,159 +9701,46 @@ $SBA_TRAU_042$,
     "updated_at" = now();
 
   -- Pair 12/13: Thoracic Trauma & Flail Chest
-  -- A) Update & Beautify Clinical Theory Lecture (Position 22)
-  UPDATE "lessons"
-  SET "title"      = 'Thoracic Trauma & Flail Chest',
-      "body"       = $LEC_TRAU_043$# Thoracic Trauma & Flail Chest
+  -- A) Upsert Clinical Theory Lecture (Position 22)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'thoracic-trauma-flail-chest',
+    'Thoracic Trauma & Flail Chest',
+    'article',
+    $LEC_TRAU_043$# Thoracic Trauma & Flail Chest
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_TRAU_043$,
+    false,
+    22,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Flail chest and pulmonary contusion(lung contusion)
-- Think free-floating segment of ribs or sternum). This is common and small flails may be missed clinically.
-- The multiple rib fractures are a potential source of significant haemorrhage
-- Considerable force is required to create a flail chest in young people bruise Of the lung cause by thoracic trauma. Blood and other fluids accumulate in the lung tissue
-- PuImonary contusion occurs with or without rib fracture or flail chest
-- Respiratory failure usually develop over time rather than occurring instantaneously.
-- Diagnosis
-- Chest pain, tachypnea, chest wall contusions, and hypoxia suggest underlying pulmonary contusion.
-- Areas of lung opacification on chest imaging(cxr) within 6 hours of blunt traurna are usually considered diagnostic of pulmonary contusion
-- CT is more sensitive than plain radiograpgh
-
-## Emergency Management Protocol
-Maintain adequate ventilation
-
-- Pain control via epidural analgesia if Cl then intercostal nerve block
-- Caution fluid resuscitation
-- lnsert a chest drain for associated pneumothorax and haemothorax. :Complicatjon; ARDS :MyocardiaI contusion or blunt cardiac injury_
-- Think bruised heart, for-example cardiac chamber rupture, coronary artery dissection and valvular disruption
-
-## Investigations & Diagnostic Workup
-- ECG, a normal ECG effectively rules out myocardial contusion
-- Unexplained tachycardia, atrial and ventricular ectopic maybe a clue of myocardial contusion
-- Consider bedside echocardiogram and troponin for evidence of myocardial injury ZMa.nage.m.e.nt
-- Monitor the patient for the first 24hrs if PT's ECG normal then don't need monitoring
-- Address Hypoxaemia, acidaemia, fluid status, low haemoglobin. —Traumatic Aortic injury
-- Traumatic aortic injury is rnost common cause of sudden death after vehicle collision usually chest strike with steering wheel or a motor vehicle crash at speeds greater than 30 mph (50 km/h), and fall from great height (IO ft or 3m)
-
-- —The proximal descending aorta is most commonly injured in blunt trauma because of the fixation of the vessels between the left subclavian artery and the ligamentum arteriosum.
-- The diagnosis of ascending aortic injury is rarely made since very few patients survive long enough to diagnosis and repair.
-- The more distal the injury, the better is the anticipated outcome, Although the subclavian artery is occasionally avulsed at its origin because of sudden deceleration, direct trauma to the distal artery with intimal damage and occlusion associated with fractures of the first rib or clavicle is more likely.
-
-## Key Clinical Features
-- OccasionaI clinical clues include generalised hypertension, upper extremity hypertension in combination with weak or absent femoral pulses, and a harsh systolic murmur
-- CXR features
-- W'idened mediastinum—the most reliable sign
-- Fractures of the first and second ribs
-- ObIiteration of the aortic knob
-- Deviation of the trachea to the right
-- Presence of a pleural cap
-- Elevation and rightward shift of the right main stem bronchus
-
-- Depression of the left main stem bronchus
-- ObIiteration of the space between the pulmonary artery and the aorta
-- Deviation of the nasogastric tube to the right
-- gation-of-cho.ice
-
-## Emergency Management Protocol
-- ControI pain with analgesia
-- Control BP and HR at level systolic no more than 110mmHg and HR 80 bpm with esmolol or labetalol
-- Surgical repair or endovascular stenting by a qualified surgeon
-
-- Aortic injury CXR —Diaphragmatic injury
-- Think breach in the diaphragm. It is usually caused by penetrating rather than blunt injury and is easily missed clinically and radiologically (X-RAY or CT).
-- Blunt injury is three times more common on left hemidiaphragm, its due to the protective effect of the liver on the right hemidiaphragm.
-- Any diaphragmatic breach will not heal spontaneously it's due to pressure gradients between chest and abdomen.
-- Abdominal content herniation is a possibility and may be picked up years later.
-- Diagnosingßiaphragmaticinjury
-- Orogastric tube placement with evaluation to see if the tube curves up from the abdomen into the chest
-- upper Cl series looking for displacement of viscera into the chest
-- CT of the chest and abdomen with contrast
-
-## Emergency Management Protocol
-- Surgically repair diaphragmatic injury
-- Operation for other abdominal injury often revealed a diaphragmatic injury
-
-- Diaphragmatic inj ur y CXR
-- Oesophageal injury.
-- Most commonly result from penetrating trauma, usually a ballistic injury.
-- BIunt trauma to esophagus is rare, however it does occurs due to forceful expulsion of gastric content (eg: extreme vomiting or injury) from the upper abdomen into esophagus which produce linear tear in the lower esophagus allowing content leakage into the mediastinum eventually leads to mediastinitis.
-- EsophageaI rupture secondary to vomiting called Boerhaave's syndrome.
-
-## Key Clinical Features
-- Chest or mid-epigastric pain
-- Pleuritic chest pain worsened by neck flexion and swallowing
-- Mediastinal crunch
-- Rapid development of sepsis
-- patient may have left pneumothorax & hemothorax without rib fracture
-- Presence of mediastinal air on CXR suggest esophageal rupture which can be confirmed by contrast study or oesophagoscopy
-
-## Emergency Management Protocol
-- Esophageal rupture has high mortality
-- Prompt surgical repair along with plural space and mediastinal drainage required.
-- lv antibiotics
-
-- Oesophageal ur y X—ray
-- Tracheobronchial Tree injury_
-- It's an injury to trachea or bronchi, however its rare, typically caused by impressive deceleration injuries and most patients die at the scene of the accident.
-- Majority of tracheobronchial injury occurs within I inch of carina.
-- lntubation can cause injury or worsen an injury to trachea or proximal bronchi
-
-## Key Clinical Features
-- Haemoptysis
-- pneumomediastinum
-- Cervical subcutaneous emphysema (surgical emphysema, can be found in x-ray)
-- Tension pneumothorax
-- Cyanosis
-- Diagnosis : bronchoscopy confirm the diagnosis
-
-## Emergency Management Protocol
-- Obtain immediate surgical consultation
-- Discuss intubation strategy with senior anaesthetic colleagues, consider single or double cuffed tubes with use of fiber optics technique
-- lnsert two large bore chest drains to counter the air leak of a tracheo-bronchial injury
-
-- Tracheobronchial Tree injury X—ray
-- Simple pneumothorax
-- Pneumothorax results from air entering the potential space between the visceral and parietal pleura
-- Both penetrating and non penetrating traur-na cause the injury.
-- Lung laceration with air leakage is the r-nost common cause of pneumothorax from blunt traurna
-
-- —Note: Medium-term/long-term, patients with traumatic pneumothorax may wish to fly. No guideline regarding the safe timing of this exists.
-- Diagnosis
-- lnspect the chest for bruising, laceration and contusion
-- Assess the chest wall movement and compare breath sound bilaterally
-- Hyperresonance on percussion
-- An upright expiratory CXR aid for diagnosis
-- Nanagement
-- Chest tube insertion at the level of fifth intercostal space anterior to mid-axillary line
-- Observe and aspiration of small pneumothorax maybe appropriate previous  Next
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Throacic Trauma and Faial Chest - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_01_p1.jpeg)
-*Throacic Trauma and Faial Chest — Clinical Figure 1 (Page 1 Reference)*
-
-![Throacic Trauma and Faial Chest - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_02_p5.jpeg)
-*Throacic Trauma and Faial Chest — Clinical Figure 2 (Page 5 Reference)*
-
-![Throacic Trauma and Faial Chest - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_03_p7.jpeg)
-*Throacic Trauma and Faial Chest — Clinical Figure 3 (Page 7 Reference)*
-
-![Throacic Trauma and Faial Chest - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_04_p9.jpeg)
-*Throacic Trauma and Faial Chest — Clinical Figure 4 (Page 9 Reference)*
-
-![Throacic Trauma and Faial Chest - Clinical Figure 5](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_05_p11.jpeg)
-*Throacic Trauma and Faial Chest — Clinical Figure 5 (Page 11 Reference)*
-
-![Throacic Trauma and Faial Chest - Clinical Figure 6](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_06_p12.jpeg)
-*Throacic Trauma and Faial Chest — Clinical Figure 6 (Page 12 Reference)*$LEC_TRAU_043$,
-      "position"   = 22,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'throacic-trauma-and-faial-chest' OR "slug" = 'thoracic-trauma-flail-chest');
+  -- Update alternate slug record if present
+  IF 'thoracic-trauma-flail-chest' != 'thoracic-trauma-flail-chest' THEN
+    UPDATE "lessons"
+    SET "title" = 'Thoracic Trauma & Flail Chest',
+        "position" = 22,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'thoracic-trauma-flail-chest';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 23)
   INSERT INTO "lessons" (
@@ -9086,117 +9858,46 @@ $SBA_TRAU_043$,
     "updated_at" = now();
 
   -- Pair 13/13: Thoracic Trauma: Immediate Life Threats
-  -- A) Update & Beautify Clinical Theory Lecture (Position 24)
-  UPDATE "lessons"
-  SET "title"      = 'Thoracic Trauma: Immediate Life Threats',
-      "body"       = $LEC_TRAU_044$# Thoracic Trauma: Immediate Life Threats
+  -- A) Upsert Clinical Theory Lecture (Position 24)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'thoracic-trauma-life-threatening',
+    'Thoracic Trauma: Immediate Life Threats',
+    'article',
+    $LEC_TRAU_044$# Thoracic Trauma: Immediate Life Threats
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_TRAU_044$,
+    false,
+    24,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Tension Pneumothorax
-- Mechanism of injury; most common mechanical positive-pressure ventilation in patient with visceral pleural injury
-- Others: in subclavian or internal jugular catheter insertion, occlusive four-sides dressing to traumatic chest defect (think hole in the chest).
-- Pathophysiology: ætension pneumothorax develop when one way air leak from the lung or through the chest, as a result of that air will be trapped eventually collapsed the affected lungs. The mediastinum will displaced to opposite side decreasing venous return and cardiac output
-
-## Key Clinical Features
-- Tachypnea, Tachycardia, hypotension, distended neck vein
-- Contralateral tracheal deviation
-- UniIateraI hyper-resonant on percussion and absence of breath sound
-- Cyanosis (late manifestation)
-- Diagnosis
-- Tension pneumothorax diagnosed clinically. patient is not critical then go for CXR or eFAST/US :Management
-- Perform immediate needle decompression, usually in the fifth/fourth intercostal space at the anterior axillary line, followed by chest tube insertion.
-
-- Due to variable thickness of chest the cannula/catheter can kink and cease to function.in this case, Finger thoracostomy is alternative
-- Tube thoracostomy is mandatory after needle or finger decompression of the chest.
-
-- Tension pneumothorax CXR :Qpen Pneumothorax
-- think 'hole in the chest'. It is also known as a communicating pneumothorax or sucking chest wound.
-- Prompt clinical inspection front and back is required; a small sucking chest wound is usually audible
-- Initial management
-- CIose the defect (hole) with any sterile occlusive dressing eg: plastic wrap, sheet of jolnet or Ashermann device
-- Tape dressing 3 sides to provide flutter valve effect.
-- Don't completely occlude/close the wound (risk of tension pneumothorax) until chest tube is in place
-- Further management
-- Place Chest tube remote from open wound(means not from the site of wound)
-- Definitive treatment is surgical repair (wound closure)
-
-- open pneumothorax CXR
-- Massive Haemothorax
-- A massive haemothorax is result from rapid accumulation of more than 1500 ml of blood or one-third of the patient's blood volume
-- Most commonly occurs due to penetrating trauma, however it also occurs due to blunt traur-na.
-
-## Key Clinical Features
-- Shock
-- Absence of breath sound
-- DuIIness on percussion
-- Flat neck veins
-
-- Contralateral shift of mediastinum may cause distended neck vein
-- Use CXR and FAST to confirm diagnosis
-
-## Emergency Management Protocol
-- lntravenous fluid resuscitation
-- Appropriate use of blood and blood products
-- lnsert a chest drain
-- VVhen appropriate blood from chest tube can be collected in a device suitable for autotransfusion. Massive Haemothorax CXR
-- ATLS Indication for Thoracotomy
-
-- Thoracotomy indication in massive hemothorax
-- Prompt drainage of 1500 ml blood, or a third of the patient's circulating volume
-- greater than 200 ml/hr blood loss for 2-4 hrs
-- Continued need for blood transfusion
-- Thoracotomy indication in other injury
-- Cardiac arrest in minutes in blunt trauma
-- Cardiac arrest minutes in penetrating trauma
-- Decompression of cardiac tamponade
-- Persistent hypotension in both blunt and penetrating trauma
-- Cardiac tamponade
-- Cardiac tamponade is the compression of the heart due to accumulation of the fluid in the pericardial sac
-- Penetrating injury to chest, back or upper abdomen? Think tension pneumothorax, think massive haemothorax, think tamponade.
-- FAST has 95% sensitivity according to ATLS and use to exclude or confirm the cardiac tamponade with FAST
-- PEA is suggestive of cardiac tamponade, however other causes can be possible.
-- 150 to 200 ml of blood in the pericardial sac enough to cause cardiac tamponade
-
-- Cardiac tamponade can develop slowly or rapidly, require rapid diagnosis and treatment.
-
-## Key Clinical Features
-- Classic triad
-- Hypotension
-- MuffIed heart sound
-- Distended neck vein, may not be if patient in hemorrhagic shock
-- KussmuaI's sign
-
-## Emergency Management Protocol
-- Fluid resuscitation to increase pre-load
-- Thoracotomy by qualified surgeon
-- Pericardiocentesis can be performed when qualified surgeon isn't available previous  Next
-- 9
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Throacic Trauma (life Threatining Injury ) - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/throacic-trauma-life-threatining-injury/figure_01_p1.jpeg)
-*Throacic Trauma (life Threatining Injury ) — Clinical Figure 1 (Page 1 Reference)*
-
-![Throacic Trauma (life Threatining Injury ) - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/throacic-trauma-life-threatining-injury/figure_02_p4.jpeg)
-*Throacic Trauma (life Threatining Injury ) — Clinical Figure 2 (Page 4 Reference)*
-
-![Throacic Trauma (life Threatining Injury ) - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/throacic-trauma-life-threatining-injury/figure_03_p6.jpeg)
-*Throacic Trauma (life Threatining Injury ) — Clinical Figure 3 (Page 6 Reference)*
-
-![Throacic Trauma (life Threatining Injury ) - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/throacic-trauma-life-threatining-injury/figure_04_p7.jpeg)
-*Throacic Trauma (life Threatining Injury ) — Clinical Figure 4 (Page 7 Reference)*
-
-![Throacic Trauma (life Threatining Injury ) - Clinical Figure 5](/lessons/images/sba/major-trauma-injury/throacic-trauma-life-threatining-injury/figure_05_p9.jpeg)
-*Throacic Trauma (life Threatining Injury ) — Clinical Figure 5 (Page 9 Reference)*$LEC_TRAU_044$,
-      "position"   = 24,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'throacic-trauma-life-threatining-injury' OR "slug" = 'thoracic-trauma-life-threatening');
+  -- Update alternate slug record if present
+  IF 'thoracic-trauma-life-threatening' != 'thoracic-trauma-life-threatening' THEN
+    UPDATE "lessons"
+    SET "title" = 'Thoracic Trauma: Immediate Life Threats',
+        "position" = 24,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'thoracic-trauma-life-threatening';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 25)
   INSERT INTO "lessons" (
@@ -9309,73 +10010,51 @@ $SBA_TRAU_044$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Pulmonology & Respiratory Emergencies (13 Topics)
+  -- Specialty: Pulmonology & Respiratory Emergencies (13 Topics) -> Module UUID f0f17eab-9963-4ac2-84c6-30cec4789133
   -- ------------------------------------------------------------------------
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Pulmonology & Respiratory Emergencies' AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NULL THEN
-    RAISE EXCEPTION 'Module Pulmonology & Respiratory Emergencies not found in mrcem-sba';
-  END IF;
+  v_mod_id := 'f0f17eab-9963-4ac2-84c6-30cec4789133';
 
   -- Pair 1/13: Acute Severe & Life-Threatening Asthma in Adults
-  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Severe & Life-Threatening Asthma in Adults',
-      "body"       = $LEC_PULM_045$# Acute Severe & Life-Threatening Asthma in Adults
+  -- A) Upsert Clinical Theory Lecture (Position 0)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'asthma',
+    'Acute Severe & Life-Threatening Asthma in Adults',
+    'article',
+    $LEC_PULM_045$# Acute Severe & Life-Threatening Asthma in Adults
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_045$,
+    false,
+    0,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Moderate acute asthma Acute severe asthma Life-threatening asthma Near-fatal asthma Increasing symptoms PEF
-- 50—75% best or predicted No features of acute severe asthma Any_gneM; PEF 33-50% best or predicted Respiratory rate 225/min Heart rate 2110/min Inability to complete sentences in one breath Any one of the following in a patient with severe asthma:
-- Clinical signs Altered conscious level PEF Exhaustion Arrhythmia Hypotension Cyanosis Silent chest Poor respiratory effort Measurements PEF <33% best predicted sp02 Pa02 <8kPa 'normal' PaC02 (4.6—6.0 kPa) Raised PaC02 and/or requiring mechanical ventilation with raised inflation pressures
-- Example
-- A; In exam, if they give you a scenario that a 34-year-old asthma patient who is unable to complete a sentence in one breath, his HR is 115 beats/min and Sp02 91%. How would you classify the severity of asthma in this patient?
-
-- Answer: Life-threatening asthma
--
-
-> [!NOTE]
-> **Clinical Explanation & RCEM Guidance:**
-> Any patient with features of acute severe asthma along with any one feature of life-threatening asthma (as in above scenario his saturation is below <92% )would be classified as having life-threatening asthma.
-
-## Emergency Management Protocol
-of acute asthma in adults in the emergency department
-
-Moderate asthma PEF best or predicted Give ß2 bronchodilator Via spacer (give one puff at a time; according to response, give another puff every 60 seconds up to maximum of 10 puffs) Acute severe asthma PEF 33-50% best or Give ß2 bronchodilator (salbutamol 5 mg) by oxygen- driven nebuliser Clinically stableANO PEF Consider discharge the patient stable AND PEF Clinically stable AND PEF Consider discharge No life threatening features AND PEF 50-75% Repeat salbutamol 5 mg nebuliser mg orally Patient recovering No signs of severe AND PEF asthma AND PEF Consider 50-75% discharge OBSERVE AND MONITOR
-- sp02
-- heart rate
-- respiratory rate life threatening features AND PEF Treat as life threatening asthma Signs of severe asthma OR PEF Patient stable AND PEF Consider discharge Signs of severe asthma OR PEF Admit Patient accompanied by a nurse or doctor at all times Life-threatening asthma PEF best or Obtain senior/lCU help now if any life-threatening features are present IMMEDIATE MANAGEMENT Oxygen to maintain Sp02 94- 98% ß2 bronchodilator with ipratropium- via nebuliser (preferably oxygen-driven), salbutamol 5 mg and ipratropium 0.5 mg Prednisolone 40—50 mg orally or IV hydrocortisone 100 mg. Measure arterial blood gases Markers of severitv: 'Normal' or raised PaC02 (PaC02>4.6 kPa; 35 mmHg) Severe hypoxia (pa02 <8kpa: 60mmhg) Low pH (or high H+). Give/repeat salbutamol 5 mg with ipratropium 0.5 mg by oxygen-driven nebuliser after 15 minutes Consider continuous salbutamol nebuliser 5—10 mg/hr Consider IV magnesium sulphate 1.2—2 g over 20 minutes Consider LY.A.minepbY!Une under senior supervision if patient still not improving Correct fluid/electrolvtes, especially K* disturbances Chest X-ray
-- Repeat ABG Admit patient accompanied by a nurse or doctor
-
-at an umes
-- Discharge plan
-- In all patients who received nebulised ß2 bronchodilator prior to presentation, consider an extended observation period prior to discharge
-- If PEF <50% on presentation, give prednisolone 40—50 mg/day until recovery (minimum 5 days).
-- In all patients ensure treatrnent supply of inhaled steroid and ß2 bronchodilator and check inhaler technique
-- Arrange GP follow-up within 2 working days post-discharge
-- Fax or email discharge letter to CP
-- Refer to asthma liaison nurse/chest clinic. Note: Admit to hospital if anys Life-threatening features, Features of acute severe asthma present after initial treatment, Previous near-fatal asthma (even if present with moderate asthma). previous  Next 9
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Acute Severe Asthma in Adults - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/acute-severe-asthma-in-adults/figure_01_p2.jpeg)
-*Acute Severe Asthma in Adults — Clinical Figure 1 (Page 2 Reference)*
-
-![Acute Severe Asthma in Adults - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/acute-severe-asthma-in-adults/figure_02_p4.jpeg)
-*Acute Severe Asthma in Adults — Clinical Figure 2 (Page 4 Reference)*
-
-![Acute Severe Asthma in Adults - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/acute-severe-asthma-in-adults/figure_03_p5.jpeg)
-*Acute Severe Asthma in Adults — Clinical Figure 3 (Page 5 Reference)*
-
-![Acute Severe Asthma in Adults - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/acute-severe-asthma-in-adults/figure_04_p5.jpeg)
-*Acute Severe Asthma in Adults — Clinical Figure 4 (Page 5 Reference)*$LEC_PULM_045$,
-      "position"   = 0,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-severe-asthma-in-adults' OR "slug" = 'asthma');
+  -- Update alternate slug record if present
+  IF 'asthma' != 'asthma' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Severe & Life-Threatening Asthma in Adults',
+        "position" = 0,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'asthma';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
@@ -9490,64 +10169,46 @@ $SBA_PULM_045$,
     "updated_at" = now();
 
   -- Pair 2/13: Acute Paediatric Asthma & Wheeze
-  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Paediatric Asthma & Wheeze',
-      "body"       = $LEC_PULM_046$# Acute Paediatric Asthma & Wheeze
+  -- A) Upsert Clinical Theory Lecture (Position 2)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'asthma-children',
+    'Acute Paediatric Asthma & Wheeze',
+    'article',
+    $LEC_PULM_046$# Acute Paediatric Asthma & Wheeze
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_046$,
+    false,
+    2,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Moderate acute asthma Acute severe asthma Life-threatening asthma sp02 292% PEF 250% best or predicted No clinical features of severe asthma NB: If a patient has signs and symptoms across categories, always treat according to their most severe features sp02 PEF 33-50% best or predicted Heart rate
-- 140/min in children aged 1-5 years
-- 125/min in children age years Respiratory rate
-- 40/min in children aged 1-5 years
-- 30/min in children
-- 5 years Use of accessory neck muscles S 02 lusa of: PEF <33% best or predicted Silent chest Poor respiratory effort Altered consciousness Cyanosis
-
-## Emergency Management Protocol
-of acute asthma in children in the emergency&partment (BTS guideline)
-
-- Moderate asthma PEF best or redicted Oral nisolone 30-40 mg in children
-- 5 years, 20mg below 5 years Reassess within 1 hour If great response, consider discharge PEF 33-50% best or via face mask/nasal prongs to achieve Sp02 94— B2 bronchodilator nebuliser (preferably oxygen- driven), salbutamol 5 mg
-- or, if nebuliser not available, via spacer* orl kgii 30-40 mg ne 4 mg/ Life-threatenink asthma via face mask/nasal prong$o achieve Sp02 BZ bronchodilator with nebuliser
-- driven), salbutamol 5 mg and ipratropium 0.25 mg bronchodilators Oral prednisolone mg/kg, 20mgin children years or IV hydrocortisone 4 mg/kg if vomiting
-- Discuss PICU team or paediatrician If poor response add 0.25 mg nebulised ipratropium bromide to every nebulised ß2 bronchodilator and repeat every 20 minutes for 2 hours accordin to res Consider adding 150 mg magnesium sulphate to each ipratropium in the first hour in children with a short duration of acute severe asthma symptoms presenting with an sp02
-- NOT RESPONDING TO ABOVE TREATMENT (FIRST LINE) Continue 20—30 minute nebulisers
-- Consider chest X-ray and blood gases
-- Consider admission to HDIJ/PICLJ
-- Consider follow
--
-- Bolus IV infusion of magnesium sulphate 40 mg/kg (max2 g) over
-- Bolus IV salbutamol 15 micrograms/kg if not already given mol infusion 1—5 micrograms/kg/min (200 uous sa mi
-- 'V aminophylline 5 theevewihk&åfifiébbhyllines) followed by continuous infusion Y?æ/kg/hour. Assess response before initiating each new treatment
-
-Note ß2 bronchodilator via spacer given one puff at a time, inhaled separately using tidal breathing; according to response, give another puff every 60 seconds up to a maximum of IO puffs.
-- Dischargeplan Continue ß2bronchodilator 4 hourly as necessary Continue prednisolone 30—40 mg daily until recovery (minimum 3—5 days) Advise to contact GP if not controlled on above treatment Provide a written asthma action plan Review regular treatment y Check inhaler technique
-- Arrange GP follow up within 48 hours
-- Arrange hospital asthma clinic follow up in 4—6 weeks if 2nd or subsequent attack in past 12 months.
-- 9
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Acute Pediatric Asthma & Wheeze - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/acute-pediatric-asthma-wheeze/figure_01_p2.jpeg)
-*Acute Pediatric Asthma & Wheeze — Clinical Figure 1 (Page 2 Reference)*
-
-![Acute Pediatric Asthma & Wheeze - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/acute-pediatric-asthma-wheeze/figure_02_p4.jpeg)
-*Acute Pediatric Asthma & Wheeze — Clinical Figure 2 (Page 4 Reference)*
-
-![Acute Pediatric Asthma & Wheeze - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/acute-pediatric-asthma-wheeze/figure_03_p5.jpeg)
-*Acute Pediatric Asthma & Wheeze — Clinical Figure 3 (Page 5 Reference)*
-
-![Acute Pediatric Asthma & Wheeze - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/acute-pediatric-asthma-wheeze/figure_04_p5.jpeg)
-*Acute Pediatric Asthma & Wheeze — Clinical Figure 4 (Page 5 Reference)*$LEC_PULM_046$,
-      "position"   = 2,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-pediatric-asthma-wheeze' OR "slug" = 'asthma-children');
+  -- Update alternate slug record if present
+  IF 'asthma-children' != 'asthma-children' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Paediatric Asthma & Wheeze',
+        "position" = 2,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'asthma-children';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
@@ -9662,108 +10323,46 @@ $SBA_PULM_046$,
     "updated_at" = now();
 
   -- Pair 3/13: Emergency Approach to Acute Breathlessness
-  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
-  UPDATE "lessons"
-  SET "title"      = 'Emergency Approach to Acute Breathlessness',
-      "body"       = $LEC_PULM_047$# Emergency Approach to Acute Breathlessness
+  -- A) Upsert Clinical Theory Lecture (Position 4)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'breathlessness',
+    'Emergency Approach to Acute Breathlessness',
+    'article',
+    $LEC_PULM_047$# Emergency Approach to Acute Breathlessness
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_047$,
+    false,
+    4,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-Clinical presentation Investigations Asbestosis
-- Asbestosis is diffuse interstitial fibrosis Of the lung as a consequence of exposure to asbestos fibers.
-- Common occupation associated with asbestos exposure include shipyard workers, builders, miners and pipefitters
-
-## Key Clinical Features
-dyspnea on exertion Dry, nonproductive cough
-- Crackles heard at lung bases
-- Chest pain & clubbing CXR- The presence Of interstitial fibrosis in the lower zones and bilateral pleural thickening is highly specific. HRCT is more sensitive.
-- Pulmonary function test(PFT) Restrictive- reduced FVC, TLC, DCLO (lung diffusion capacity testing) and normal FEVI/FVC ratio. Obstructive changes- reduced FEVI, FEVI/FVC ratio, DLCO, and (RV)/TLC ratio. "—Ast Löfgren
-- s Syndrorne Löfgren's syndrome is a subtype Of acute sarcoidosis.
-- Patients with Lofgren's syndrome generally have a good prognosis, are unlikelyto develop chronic disease (sarcoidosis is considered chronic when symptoms last for more than three years).
-- More common in female and young-middle age.
-
-## Key Clinical Features
-Triad-Hilar lymphadenopathy Erythema nodosum
-- Arthralgia (particularly affecting the ankles)
-- Other- fever, breathlessness, dry cough, weight loss
-- CXR
-- (abnormalities include mediastinal lymphadenopathy or pulmonary infiltration). Gallium-67 scan may be used when CXR is normal; shows increased hilar or paratracheal uptake). Lunq function tests (decreased forced vital capacity).
-- Serum calcium level (may be elevated).
-- Serum anqiotens$n- E2LEßLngenzyme (may be increased). Lymph node biopsy. MRI scan for ankle Idiopathic pu Imonary fibrosis
-- It is characterized by the formation Of scar tissue within the lungs and progressive dyspnea. It is the most common interstitial lung disease among the idiopathic interstitial pneumomas
-
-## Key Clinical Features
-age over 45 years persistent breathlessness on exertion persistent cough
-- bilateral inspiratory crackles when listening to the chest
-- clubbing of the fingers normal spirometry or impaired spirometry usually with a restrictive pattern but sometimes with an obstructive pattern.
-- CXR
-- HRCT
-- Antinuclear antibodies (by immunofluorescence) Rheumatoid factor
-- Consider PFT and surgical biopsy
-
-- Advise- quit smoking
-- Antibiotics
-- should be given if there is evidence Of infection, such as change in sputum production, fever and increasing dyspnea.
-- Pulmonary rehabilitation & 02 therapy
-
-## Emergency Management Protocol
-2nd line — pleural decortication or lung transplant. Complication
-- Mesothelioma Lung cancer
-- Example
-- I
-- Reassured the patient that the condition is benign and normally self-limiting.
-- Offer NSAID for arthralgia. Prednisolone may be required for more severe cases.
-- Arrange follow-up with respiratory specialist Supportive therapy with oxygen is recommended for those with significant resting hypoxaemia.
-- Pulmonary rehabilitation seems to be safe for people with pulmonary fibrosis and improvements in functional exercise capacity, dyspnoea and quality of life.
-- Consider PPI therapy NICE recommends Pirfenidone for treating IPF.
-
-Idiopathic pulmonary fibrosis Pancoast tumor Most Pancoast tumours are a type called non small cell cancer and most
-- commonly squamous cell cancer. Squamous cell cancers develop in the flat cells that cover the surface of your airways.
-
-## Key Clinical Features
-Because the cancer is at the top of the lungs, it might put pressure on or damage a
-- group of nerves that runs from the upper chest into your neck and arms. The group of nerves is called the brachial plexus. Pressure on the brachial plexus can cause several very_specific symptoms:
-- severe pain in the shoulder or the shoulder blade (scapula)
-- pain in the arm and weakness of the hand on the affected side
-- Horner's syndrome (miosis, enophthalmos, ptosis).
--
-- Other features Superior vena cava obstruction, with facial swelling, difficulty breathing and a
-- flushed appearance. Arm oedema secondary to the compression of blood vessels.
-- Less common, unilateral recurrent laryngeal nerve palsy producing unilateral vocal
-- cord paralysis (hoarse voice ± bovine cough).
-
-## Investigations & Diagnostic Workup
-CXR ( not reliable for early stage consider CT or MRI
-
-## Emergency Management Protocol
-Refer to a specialist for chemotherapy, radiotherapy, and surgery. Pancoast _ Tumor
-
-previOUS
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Emergency Approach to Acute Breathlessness - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/emergency-approach-to-acute-breathlessness/figure_01_p3.jpeg)
-*Emergency Approach to Acute Breathlessness — Clinical Figure 1 (Page 3 Reference)*
-
-![Emergency Approach to Acute Breathlessness - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/emergency-approach-to-acute-breathlessness/figure_02_p4.jpeg)
-*Emergency Approach to Acute Breathlessness — Clinical Figure 2 (Page 4 Reference)*
-
-![Emergency Approach to Acute Breathlessness - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/emergency-approach-to-acute-breathlessness/figure_03_p5.jpeg)
-*Emergency Approach to Acute Breathlessness — Clinical Figure 3 (Page 5 Reference)*
-
-![Emergency Approach to Acute Breathlessness - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/emergency-approach-to-acute-breathlessness/figure_04_p7.jpeg)
-*Emergency Approach to Acute Breathlessness — Clinical Figure 4 (Page 7 Reference)*
-
-![Emergency Approach to Acute Breathlessness - Clinical Figure 5](/lessons/images/sba/pulmonology-respiratory/emergency-approach-to-acute-breathlessness/figure_05_p8.jpeg)
-*Emergency Approach to Acute Breathlessness — Clinical Figure 5 (Page 8 Reference)*$LEC_PULM_047$,
-      "position"   = 4,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'emergency-approach-to-acute-breathlessness' OR "slug" = 'breathlessness');
+  -- Update alternate slug record if present
+  IF 'breathlessness' != 'breathlessness' THEN
+    UPDATE "lessons"
+    SET "title" = 'Emergency Approach to Acute Breathlessness',
+        "position" = 4,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'breathlessness';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
@@ -9881,10 +10480,16 @@ $SBA_PULM_047$,
     "updated_at" = now();
 
   -- Pair 4/13: Acute Bronchiolitis in Infants
-  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Bronchiolitis in Infants',
-      "body"       = $LEC_PULM_048$# Acute Bronchiolitis in Infants
+  -- A) Upsert Clinical Theory Lecture (Position 6)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'broncholilis',
+    'Acute Bronchiolitis in Infants',
+    'article',
+    $LEC_PULM_048$# Acute Bronchiolitis in Infants
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -9914,13 +10519,32 @@ Do not perform chest physiotherapy on babies and children with bronchiolitis who
 
 ![Broncholilis - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/broncholilis/figure_02_p4.jpeg)
 *Broncholilis — Clinical Figure 2 (Page 4 Reference)*$LEC_PULM_048$,
-      "position"   = 6,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'broncholilis' OR "slug" = 'bronchiolitis');
+    false,
+    6,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'bronchiolitis' != 'broncholilis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Bronchiolitis in Infants',
+        "position" = 6,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'bronchiolitis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
@@ -10029,66 +10653,46 @@ $SBA_PULM_048$,
     "updated_at" = now();
 
   -- Pair 5/13: Community-Acquired Pneumonia in Children
-  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
-  UPDATE "lessons"
-  SET "title"      = 'Community-Acquired Pneumonia in Children',
-      "body"       = $LEC_PULM_049$# Community-Acquired Pneumonia in Children
+  -- A) Upsert Clinical Theory Lecture (Position 8)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'cap-children',
+    'Community-Acquired Pneumonia in Children',
+    'article',
+    $LEC_PULM_049$# Community-Acquired Pneumonia in Children
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_049$,
+    false,
+    8,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-Cyanosis.
-- Raised respiratory rate (greater than 60 breaths per minute, age 0—5 months; greater than 50 breaths per minute, age 6—12 months; greater than 40 breaths per minute, age older than 12 months). Signs of increased work of breathing, such as chest indrawing and nasal flaring.
-- Persistently focal crackles. Oxygen saturation of 95% or less in air.
-- Absent breath sounds with a dull percussion note (possibility of pneumonia complicated by an effusion).
-
-## Investigations & Diagnostic Workup
-Chest radiography, acute phase reactant (inflammation markers) and CRP should not be considered a routine investigation in children thought to have community acquired pneumonia (CAP).
-- Microbiological diagnosis should only be attempted in children with severe pneumonia sufficient to require paediatric intensive care admission, or those with complications of CAP.
-- Microbiological methods used should include:
-- Blood culture
-- Nasopharyngeal secretions and/or nasal swabs for viral detection by PCR and/or immunofluorescence
-- Acute and convalescent serology for respiratory viruses, Mycoplasma and Chlamydia
-- If present, pleural fluid should be sent for microscopy, culture, pneumococcal antigen detection and/or PCR Management
-- Children under I month refer to paediatric specialist
-
-- Families of children who are well enough to be cared for at home should be given information on managing fever, preventing dehydration and identifying any deterioration.
-- Patients whose oxygen saturation is <92% while breathing air should be treated with oxygen given by nasal cannulae, high flow delivery device, head box or face mask to maintain oxygen saturation
-- 92%.
-- Plasma sodium, potassium, urea and/or creatinine should be measured at baseline and at least daily when on intravenous fluids.
-- Antibiotic therapy;
-- All children with a clear clinical diagnosis of pneumonia should receive antibiotics as bacterial and viral pneumonia cannot reliably be distinguished from each other.
-- Choice of antibiotics
-
-Children age & severity Children under 1 month First-choice oral antibiotic for children 1 month and over if non-severe symptoms or signs First-choice antibiotic(s) for children 1 month and over If severe symptoms or signs Antibiotics Refer to paediatric specialist
-- Amoxicillin
--
-- Alternative oral antibiotics for penicillin allergy or if amoxicillin unsuitable — Clarithromycin, erythromycin (in pregnancy),or Doxycycline (>12 years) Co-amoxiclav oral/lV
-- if atypical pathogen suspected
-- then: Co-amoxiclav with oral/lV Clarithromycin or erythromycin (in pregnancy) Alternative oral antibiotics for
-- penicillin allergy — consult with microbiologist
-
-- Complications Empyema
-- Lung abscesses
-- Pleural effusion
-- Septicaemia
-- Respiratory failure
-- Next
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Community-Acquired Pneumonia in Children - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/community-acquired-pneumonia-in-children/figure_01_p4.jpeg)
-*Community-Acquired Pneumonia in Children — Clinical Figure 1 (Page 4 Reference)*
-
-![Community-Acquired Pneumonia in Children - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/community-acquired-pneumonia-in-children/figure_02_p5.jpeg)
-*Community-Acquired Pneumonia in Children — Clinical Figure 2 (Page 5 Reference)*$LEC_PULM_049$,
-      "position"   = 8,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'community-acquired-pneumonia-in-children' OR "slug" = 'cap-children');
+  -- Update alternate slug record if present
+  IF 'cap-children' != 'cap-children' THEN
+    UPDATE "lessons"
+    SET "title" = 'Community-Acquired Pneumonia in Children',
+        "position" = 8,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'cap-children';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
@@ -10197,75 +10801,46 @@ $SBA_PULM_049$,
     "updated_at" = now();
 
   -- Pair 6/13: Community-Acquired Pneumonia (CAP) in Adults
-  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
-  UPDATE "lessons"
-  SET "title"      = 'Community-Acquired Pneumonia (CAP) in Adults',
-      "body"       = $LEC_PULM_050$# Community-Acquired Pneumonia (CAP) in Adults
+  -- A) Upsert Clinical Theory Lecture (Position 10)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'community-acquired-pneumonia',
+    'Community-Acquired Pneumonia (CAP) in Adults',
+    'article',
+    $LEC_PULM_050$# Community-Acquired Pneumonia (CAP) in Adults
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_050$,
+    false,
+    10,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Septecaemia
-- Drugs (cocaine, alcohol NSAID, BB,CCB)
-- Distinguishing CPO from other pathologies Symptom SOB Cough Chest pain Palpitations Sweating Acuity Nocturnal cpo Pink frothy sputum COPD Dry cough Pneumonia Green sputum Precipitating Cause e.g. ACS Haemoptysis
-
-Sign Heart rate Blood pressure Temperature 02 saturations Chest signs Skin Heart sounds CPO Bilateral crepitati ons Cold, pale and clammy COPD Diffuse wheeze Dry and warm Murmurs, 3rd/4th Normal heart sounds Pneumonia Focal crepitations Flushed and warm Normal Clear Dry Normal
-- Key_points CPO: symptom: Breathlessness( orthopnoea, paroxysmal nocturnal dypnoea
-- Coughing(Pink frothy sputum), edema, lightheadedness(syncope)
-- Sign: tachycardia, tachypnoea(basal crepitation, wheeze, plural effusion), hypertension, raised jvp, heart murmur, ascites and poor peripheral circulation.
-
-## Investigations & Diagnostic Workup
-ECGzit may reveal precipitating cause such as ST segment changes associate with ACS or arrhythmia.
-- CXR:
-- Upper lobe diversion
-
-Alveolar edema
-- Pleural effusion
-- Cardiomegaly
-- Kerely B lines ( basal septal lineo
-- ABGz(Type-I failure if with COPD then type-2)
-- LFTs, Troponin, TSH). ECHO: (valve dysfunction, tamponed, ventricular rupture)
-- ng/litre NT-proBNP:
-- 300 ng/litre.
-
-## Emergency Management Protocol
-(NICE guideline)
-- Initial pharmacological treatment Do not routinely offer opiates to people with acute heart failure.
--
-- Offer IV diuretic therapy (furosemide) 20-80 mg or increase the dose for people already taking a diuretic.
-- Offer IV nitrates are used in specific circumstances, such as for people with concomitant myocardial ischaemia, severe hypertension or regurgitant aortic or mitral valve disease, monitor blood pressure closely in a setting where at least level 2 care can be provided.
-
-- Do not offer sodium nitroprusside to people with acute heart failure.
-- Consider inotropes (dobutamine) or vasopressors in people with acute heart failure with potentially reversible cardiogenic shock.
-- Initial non-pharmacological treatment
-- Sit patient upright
-- High flow oxygen via a reservoir mask,
-- Do not routinely use non-invasive ventilation (NIV), continuous positive airways pressure [CPAP] or non-invasive positive pressure ventilation [NIPPV]) in people with acute heart failure and cardiogenic pulmonary oedema.
-- Start NIV without delay if a person has cardiogenic pulmonary oedema with severe dyspnoea and acidaemia at acute presentation or as an adjunct to medical therapy if the person's condition has failed to respond.
-- Consider invasive ventilation (intubation) in people with acute heart failure that, despite treatment, is leading to or is complicated by respiratory failure or reduced consciousness or physical exhaustion. Note: you can start NIV without delay if the patient has severe dyspnoea and acidaemia. However, in COPD you don't need to start NIV immediately. Initially you need to high flow oxygen with venturi mask. If hypoxaemia persist despite supplemental oxygen via venturi mask or acidaemia/acute respiratory acidosis (pH<7.35 and PaC02>6.5kPa ) then start NIV.
-
-ERECT Cardiogenic pulmonary oedema previous  Next
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Pulmo 1 - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/pulmo-1/figure_01_p2.jpeg)
-*Pulmo 1 — Clinical Figure 1 (Page 2 Reference)*
-
-![Pulmo 1 - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/pulmo-1/figure_02_p3.jpeg)
-*Pulmo 1 — Clinical Figure 2 (Page 3 Reference)*
-
-![Pulmo 1 - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/pulmo-1/figure_03_p6.jpeg)
-*Pulmo 1 — Clinical Figure 3 (Page 6 Reference)*
-
-![Pulmo 1 - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/pulmo-1/figure_04_p6.jpeg)
-*Pulmo 1 — Clinical Figure 4 (Page 6 Reference)*$LEC_PULM_050$,
-      "position"   = 10,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'pulmo-1' OR "slug" = 'community-acquired-pneumonia');
+  -- Update alternate slug record if present
+  IF 'community-acquired-pneumonia' != 'community-acquired-pneumonia' THEN
+    UPDATE "lessons"
+    SET "title" = 'Community-Acquired Pneumonia (CAP) in Adults',
+        "position" = 10,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'community-acquired-pneumonia';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
@@ -10380,101 +10955,46 @@ $SBA_PULM_050$,
     "updated_at" = now();
 
   -- Pair 7/13: COPD & Acute Exacerbations
-  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
-  UPDATE "lessons"
-  SET "title"      = 'COPD & Acute Exacerbations',
-      "body"       = $LEC_PULM_051$# COPD & Acute Exacerbations
+  -- A) Upsert Clinical Theory Lecture (Position 12)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'copd',
+    'COPD & Acute Exacerbations',
+    'article',
+    $LEC_PULM_051$# COPD & Acute Exacerbations
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_051$,
+    false,
+    12,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-
-
-## Investigations & Diagnostic Workup
-ABCs — Perform in patients with a moderate to severe acute exacerbation of COPD.
-- Use to detect chronic hypercapnia and assess for acute respiratory acidosis.
-- Ensure you compare results with prior baseline ABC(when available).
-- Document the fraction of inspired oxygen (Fi02) or 02flow rate of any supplemental oxygen given (controlled oxygen given via a Venturi mask).
-- Pa02<8.O kPa (approximately 60 mmHg) indicates respiratory failure.
-- pH <7.35 and PaC02>6.5 kPa define acute respiratory acidosis.
-- Repeat the ABC after 30 to 60 minutes of treatment with controlled oxygen (given via a Venturi mask) and bronchodilatorsto check for a rise in PaC020r a fall in PH.
-- British Thoracic Society (BTS) recommends performing a blood gas analysis within 2 hours of starting acute NIV.
-- in practice, specialists recommend ideally waiting only 30-60 minutesto check for changes in PaC02 and PH.
-- ECG FBC
-- Cardiac troponin Spirometry
-- pulse oximetry
-- CXR — it will show hyperinflation
-- sputum microscopy, culture, and Cram stain
-
-- Gradation of the severity of airflow obstruction
-
-GOLD and NICE quideline severity of airflow obstruction (post- broncho-dilator) Staqe 1 — Mild Staqe 2 — Moderate Staqe 3 — Severe Staqe 4 — Very severe (or FEVI below 50% with respiratory failure) Post-broncho-dilator FEVI/FVC ratio < 0.7 < 0.7 < 0.7 < 0.7 FEVI % predicted 50-79% 30—490/0 <
-
-## Emergency Management Protocol
-(100 micrograms/dose inhaler) 2-10 puffs inhaled every 10-20 minutes or when required (each puff should be inhaled separately via a large volume spacer); 5 mg inhaled via nebuliser every 20-30 minutes or when required.
-- For a moderate to severe exacerbation, use a nebuliser driven on air (not oxygen).
-- For a mild exacerbation,_use a metered-dose inhaler (MDI) plus spacer.
-- Add a short-acting muscarinic 500 micrograms inhaled via nebuliser)_administered via a nebuliser if the initial dose of the short- acting beta-2 agonist does not provide sufficient and prompt benefit. Or if the patient experiences adverse effects due to salbutamol (e.g., tremor, palpitations, headache, nausea, dizziness).
-- Systemic corticosteroid
-- Oral prednisolone: 30 mg orally once daily OR hydrocortisone sodium succinate: 100 mg intravenously every 6 hours; convert to oral prednisolone as soon as possible to complete course.
-- NICE and Global Initiative for Chronic Obstructive Lung Disease (GOLD) guidelines recommend a 5-day treatment course.
-- Oxygen therapy.
-- Administer the oxygen in a controlled fashion via a Venturi maskto deliver 24% to 28% oxygen.
-
-- Titrate controlled oxygento a target saturation of 88% to 92% as COPD patients are considered at risk for hypercapnic (type 2) respiratory failure.
-- Check arterial blood gas and pulse oximetry on presentation and then after 30 to 60 minutes to ensure satisfactory oxygenation and monitor for carbon dioxide retention and acidosis.
-- Avoid excessive oxygen use in patients with COPD due to the risk of hypercapnic (type 2) respiratory failure.
-- Ventilation
-- Provide non-invasive mechanical ventilation to patients with any of the following:
-- Respiratory acidosis/acute hypercapnic respiratory failure(pH <7.35 and Pac02
-- 6.5 kPa).
-- Severe dyspnoea(as shown by use of respiratory accessory muscles, paradoxical motion of the abdomen, or retraction of intercostal spaces).
-- Persistent hypoxaemia despite supplemental oxygen.
-- Note: NIV usage evidence is less clear for patients with arterial pH g .25.
-- The British Thoracic Society sets out specific timeframes as measurable markers of good practice for the use of acute NIV in the UK.
-- For patients who meet the criteria for acute NIV, start it within:
-- 60 minutes of the blood gas results associated with the clinical decision to go ahead with NIV
-- 120 minutes of hospital arrival for patients who present acutely.
-- Review the patient's clinical progress within 4 hours of starting NIV.
-
-- BTS recommends performing a blood gas analysis within 2 hours of starting NIV, in practice, specialists recommend ideally waiting only 30-60 minutes to check for changes in PaC02and PH.
-- Plan with senior colleagues what to do if the patient deteriorates.
-- Ad—it-the- i n iv r ni h y-have;
-- Severe dyspnoea with a poor response to initial emergency therapy
-- Changes in mental status
-- Persistent or worsening hypoxaemia (Pa02<40 mmHg or 5.3 kPa) and/or severe or worsening respiratory acidosis (pH <7.25) despite supplemental oxygen and non- invasive ventilation
-- Need for invasive mechanical ventilation
-- Haemodynamic instability (need for vasopressors)
-- Only consider invasive ventilation after careful consideration and discussion with the senior medical team.
-- Antibiotic therapy_
-- Give antibiotics to any patient who needs ventilation (invasive or non-invasive) or patients experiencing exacerbations with:
-- Increase in sputum purulence, plus
-- Increase in sputum volume, and/or
-- Increased dyspnoea.
-- NICE recommends — Oral amoxicillin, doxycycline, or clarithromycin as first-line
-- first-line intravenous options include amoxicillin, amoxicillin/clavulanate, clarithromycin, trimethoprim/sulfamethoxazole, or piperacillin/tazobactam.
-
-- After patient stabilisation
-- monitor recovery and plan discharge
-- Change drug delivery from a nebuliser to an MDI once the patient has stabilised.
-- If the patient smokes, reinforce the advice to the patient that they must stop smoking.
-- Refer for a pulmonary rehabilitation programme, as required, to improve exercise tolerance, physical ability, and quality of life. previous  Next
-- 9
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Acute Exacerbation of COPD - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/acute-exacerbation-of-copd/figure_01_p4.jpeg)
-*Acute Exacerbation of COPD — Clinical Figure 1 (Page 4 Reference)*
-
-![Acute Exacerbation of COPD - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/acute-exacerbation-of-copd/figure_02_p8.jpeg)
-*Acute Exacerbation of COPD — Clinical Figure 2 (Page 8 Reference)*$LEC_PULM_051$,
-      "position"   = 12,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-exacerbation-of-copd' OR "slug" = 'copd');
+  -- Update alternate slug record if present
+  IF 'copd' != 'copd' THEN
+    UPDATE "lessons"
+    SET "title" = 'COPD & Acute Exacerbations',
+        "position" = 12,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'copd';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
@@ -10583,51 +11103,46 @@ $SBA_PULM_051$,
     "updated_at" = now();
 
   -- Pair 8/13: Croup (Laryngotracheobronchitis)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
-  UPDATE "lessons"
-  SET "title"      = 'Croup (Laryngotracheobronchitis)',
-      "body"       = $LEC_PULM_052$# Croup (Laryngotracheobronchitis)
+  -- A) Upsert Clinical Theory Lecture (Position 14)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'croup',
+    'Croup (Laryngotracheobronchitis)',
+    'article',
+    $LEC_PULM_052$# Croup (Laryngotracheobronchitis)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_052$,
+    false,
+    14,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Moderate croup: 3-5
-- Severe croup: 6-11
-- Impending respiratory failure: 12-17.
-- Westly croup score Score 1 2 3 4 5 Stridor None On agitation On rest Intercostal recession None Mild Moderate Severe Air entry Normal Mild decrease Marked decrease None On agitation At rest Consciousness Normal Decreased
-
-## Emergency Management Protocol
-Mild-croup
-
-- Corticosteroid dexamethasone: 0.15 to 0.6 mg/kg orally as a single dose, and supportive care.
-- Moderate croup
-- Corticosteroid dexamethasone: 0.15 to 0.6 mg/kg orally/lM as a single dose. OR
-- budesonide inhaled: 2 mg nebulised as a single dose plus
-- Nebulised with adrenaline
-- adrenaline inhaled: (1:1000 solution of L-adrenaline) 5 rnL undiluted nebulised as a single dose.
-- Severe croup
-- 100% Oxygen supplement via a non-re-breather mask incase of respiratory distress
-- Corticosteroid — dexamethasone: 0.15 to 0.6 mg/kg orally/lM/lV as a single dose QR
-- budesonide inhaled: 2 mg nebulised as a single dose
-- Nebulised with adrenaline — adrenaline inhaled: (1:1000 solution of L-adrenaline) 5 mL undiluted nebulised as a single dose.
-- 100% Oxygen supplement via a non-re-breather mask incase of respiratory distress.
-- Croup with impending respiratory failure
-- Consider intubation. previous  Next
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Croup (Laryngotracheobronchitis) - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/croup-laryngotracheobronchitis/figure_01_p2.jpeg)
-*Croup (Laryngotracheobronchitis) — Clinical Figure 1 (Page 2 Reference)*
-
-![Croup (Laryngotracheobronchitis) - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/croup-laryngotracheobronchitis/figure_02_p3.jpeg)
-*Croup (Laryngotracheobronchitis) — Clinical Figure 2 (Page 3 Reference)*$LEC_PULM_052$,
-      "position"   = 14,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'croup-laryngotracheobronchitis' OR "slug" = 'croup');
+  -- Update alternate slug record if present
+  IF 'croup' != 'croup' THEN
+    UPDATE "lessons"
+    SET "title" = 'Croup (Laryngotracheobronchitis)',
+        "position" = 14,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'croup';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
@@ -10736,67 +11251,46 @@ $SBA_PULM_052$,
     "updated_at" = now();
 
   -- Pair 9/13: Airway Foreign Body Aspiration
-  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
-  UPDATE "lessons"
-  SET "title"      = 'Airway Foreign Body Aspiration',
-      "body"       = $LEC_PULM_053$# Airway Foreign Body Aspiration
+  -- A) Upsert Clinical Theory Lecture (Position 16)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'foreign-body',
+    'Airway Foreign Body Aspiration',
+    'article',
+    $LEC_PULM_053$# Airway Foreign Body Aspiration
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_053$,
+    false,
+    16,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- intractable cough fever dyspnea
-- bilateral wheezing
-
-## Investigations & Diagnostic Workup
-
-- The normal lung should appear smaller and denser than the affected lung
-- The affected lung will usually appear overinflated and hyperlucent, with concomitant rib flaring and a depressed ipsilateral hemidiaphragm
-- Interrupted bronchus sign The majority of foreign bodies are radiolucent.
-- unilateral emphysema or atelectasis are the most common findings; only uncommonly will a radiopaque foreign body be demonstrated.NOT
-- NOTE —the chest x-ray will be normal in —3596 (range 30-40%) of patients.
-- CT chest — In children, Iow-dose multidetector CT (MDCT) scanning with virtual bronchoscopy (VB) can be used to diagnose foreign body aspiration, and to determine the exact location of the obstruction.
-- stable adults, flexible bronchoscopy should be used initially to confirm suspected cases of foreign body aspiration and to attempt removal of the foreign body.
-
-## Emergency Management Protocol
-Conscious patient
-- ISt line: patient should be encouraged to cough. If cough
-- is ineffective and the foreign body isn't expelled. 2nd line (if above fail)
-- 5 back blows, chest thrust in infant )<1 year) or abdominal thrust in children and adult. 3rd line (if above failed) Bronchoscopy to remove foreign body. Unconscious patient ISt line: Secure airway: If external maneuvers are not effective and the patient becomes unconscious because of asphyxiation, immediate endotracheal intubation should be performed. Plus remove the foreiqn body with bronchoscopy Note: management of acute is same as chokingjn
-- resuscitation
-- Complications Atelectasis
-- Pneumonia
-- Bronchiectasis
--
-
-- Pneumomediastinum
-- Asphyxia resulting in death
-- X-ray chest (PA view)
-
-Hyperinflation of the left lung appears hyperlucent, with depression of the left hemidiaphragm and contralateral shift of the mediastinum. previous
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Airway Foreign Body Aspiration - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/airway-foreign-body-aspiration/figure_01_p3.jpeg)
-*Airway Foreign Body Aspiration — Clinical Figure 1 (Page 3 Reference)*
-
-![Airway Foreign Body Aspiration - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/airway-foreign-body-aspiration/figure_02_p6.jpeg)
-*Airway Foreign Body Aspiration — Clinical Figure 2 (Page 6 Reference)*
-
-![Airway Foreign Body Aspiration - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/airway-foreign-body-aspiration/figure_03_p7.jpeg)
-*Airway Foreign Body Aspiration — Clinical Figure 3 (Page 7 Reference)*
-
-![Airway Foreign Body Aspiration - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/airway-foreign-body-aspiration/figure_04_p7.jpeg)
-*Airway Foreign Body Aspiration — Clinical Figure 4 (Page 7 Reference)*
-
-![Airway Foreign Body Aspiration - Clinical Figure 5](/lessons/images/sba/pulmonology-respiratory/airway-foreign-body-aspiration/figure_05_p7.jpeg)
-*Airway Foreign Body Aspiration — Clinical Figure 5 (Page 7 Reference)*$LEC_PULM_053$,
-      "position"   = 16,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'airway-foreign-body-aspiration' OR "slug" = 'foreign-body');
+  -- Update alternate slug record if present
+  IF 'foreign-body' != 'foreign-body' THEN
+    UPDATE "lessons"
+    SET "title" = 'Airway Foreign Body Aspiration',
+        "position" = 16,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'foreign-body';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
@@ -10911,74 +11405,46 @@ $SBA_PULM_053$,
     "updated_at" = now();
 
   -- Pair 10/13: Haemoptysis Evaluation & Management
-  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
-  UPDATE "lessons"
-  SET "title"      = 'Haemoptysis Evaluation & Management',
-      "body"       = $LEC_PULM_054$# Haemoptysis Evaluation & Management
+  -- A) Upsert Clinical Theory Lecture (Position 18)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hemoptysis',
+    'Haemoptysis Evaluation & Management',
+    'article',
+    $LEC_PULM_054$# Haemoptysis Evaluation & Management
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_054$,
+    false,
+    18,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-Gastrointestinal: vasculitis and bleeding, bowel ischaemia and perforation,
-- appendicitis and pancreatitis.
-- Cholestatic liver dysfunction has been reported.
-- Malaise, fatigue, weight loss, fever, myalgia and arthralgia.
-
-## Investigations & Diagnostic Workup
-FBC — eosinophilia and aneamia
-- ESR
-- CRP Serum creatinine
-- Serum lgE levels, hypergammaglobulinaemia
-- Antineutrophil cytoplasmic antibodies (ANCAs)
-- — pulmonary opacities, transient pulmonary infiltrates, pleural effusions Pulmonary CT scan
-- Consider biopsy
--
-
-## Emergency Management Protocol
-High dose of corticosteroid and refer to specialist.
--
-- Consider_cyclophosphamide, either azathioprine or methotrexate in severe cases. Goodpasture syndrome
-- Goodpasture disease, also known as antiglomerular basement membrane antibody (anti-GBM) disease, is an important cause of pulmonary-renal syndrome (Goodpasture syndrome).
-- Pulmonary-renal syndrome consists of glomerulonephritis and pulmonary hemorrhage.
-
-Goodpasture disease is caused by an autoantibody to the alpha-3 chain of type IV
-- collagen. This type of collagen is principally found in the basement membranes of alveoli and glomeruli. It is common in male gender age 20 to 30 years or 60 to 70 years.
--
-
-## Key Clinical Features
-Respiratory feature — hemoptysis, SOB, cough, fever and crackles on lung
-
-## Clinical Examination & Assessment
-reduced urine output
--
-- Edema
-
-## Investigations & Diagnostic Workup
-Renal function test (RFT)
-- Renal biopsy
-- Antiglomerular basement membrane (anti-GBM) antibody titer
-- antineutrophil cytoplasmic antibodies (ANCA)
-- Clotting screen
--
-
-## Emergency Management Protocol
-Oral corticosteroid Consider cyclophosphamide and plasmapheresis in selected patients.
--
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Acute Hemoptysis Evaluation - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/acute-hemoptysis-evaluation/figure_01_p3.jpeg)
-*Acute Hemoptysis Evaluation — Clinical Figure 1 (Page 3 Reference)*
-
-![Acute Hemoptysis Evaluation - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/acute-hemoptysis-evaluation/figure_02_p4.jpeg)
-*Acute Hemoptysis Evaluation — Clinical Figure 2 (Page 4 Reference)*$LEC_PULM_054$,
-      "position"   = 18,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-hemoptysis-evaluation' OR "slug" = 'hemoptysis');
+  -- Update alternate slug record if present
+  IF 'hemoptysis' != 'hemoptysis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Haemoptysis Evaluation & Management',
+        "position" = 18,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hemoptysis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
@@ -11087,87 +11553,46 @@ $SBA_PULM_054$,
     "updated_at" = now();
 
   -- Pair 11/13: Aspiration Pneumonitis vs Aspiration Pneumonia
-  -- A) Update & Beautify Clinical Theory Lecture (Position 20)
-  UPDATE "lessons"
-  SET "title"      = 'Aspiration Pneumonitis vs Aspiration Pneumonia',
-      "body"       = $LEC_PULM_055$# Aspiration Pneumonitis vs Aspiration Pneumonia
+  -- A) Upsert Clinical Theory Lecture (Position 20)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'pneumonitis',
+    'Aspiration Pneumonitis vs Aspiration Pneumonia',
+    'article',
+    $LEC_PULM_055$# Aspiration Pneumonitis vs Aspiration Pneumonia
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_055$,
+    false,
+    20,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-Cough
-- Dyspnoea, sputum production,
-- pleural pain,
-- sweating, fever, shivers, aches and pains
-- tachypnoea, tachycardia, dyspnoea
-- Confusion (uncommon, but may be seen in older people)
--
-- Suspect-legionella-gause-otpneumonia-if-a-patiencpresents-with-aty.pical following symptoms
--
-- dry cough, no fever,
-- headache,
-- confusion,
--
-- diarrhoea, hyponatraemia Suspegt_mygoplasma pneumonia
-- upper respiratory involvement (hoarse voice, sore throat)
-- skin changes (rash),
-- encephalitis,
-- uveitis,
-- myocarditis, haemolytic anaemia
--
-
-## Investigations & Diagnostic Workup
-Blood tests- FBC, CRP
-- A definitive diagnosis of CAP requires evidence of consolidation on chest x-ray. Pulse oximetry
--
-
-- ABGs
-- Blood & Sputum culture (t Gram stain)AdeaIIy before antibiotics are given, in all patients with moderate- or high-severity CAP (as determined by the CURB-65 score) presenting in hospital.
-- Severity assessment and management (NICE & BTS guideline) RB65 Severity score 1 point for each feature present Confusion Urea mg/dL) Respiratory rate
-- 30/min DBP<60mmHg) Age years Treat according to clinical judgement and Low severity Consider for outpatient treatment. Antibiotic as per table below
-- Choice of antibiotics CU RB65 severity score Moderate severity Consider for short-stay inpatient treatment. Antibiotic as per table below High severity Arrange emergency assessment by a critical care specialist. Antibiotic as per table beloW
-
-Treatment First-choice oral antibiotic if Iow severity If penicillin allergic/alternative or atypical pathogen suspected then: First-choice oral antibiotics if moderate severity Alternative oral antibiotics if moderate severity, for penicillin allergy: First-choice antibiotics if high severity Alternative antibiotic if high severity, for penicillin allergy: Antibiotic, dosage and course length Amoxicillin: 500 mg TDS for 5 days
-- Doxycycline: 200 mg on first day, then
-- 100 mg OD for 4 days. Clarithromycin: 500 mg BD a day for 5 days
-- Erythromycin (in pregnancy): 500 mg four times a day for 5 days.
-- Amoxicillin: 500 mg TDS for 5 days
-- With (if atypical pathogens suspected) Clarithromycin: 500 mg BD a day for 5 days OR Erythromycin (in pregnancy):
-- 500 mg four times a day for 5 days.
-- Doxycycline: 200 mg on first day, then
-- 100 mg OD for 4 days. Clarithromycin: 500 mg BD a day for 5 days Co-amoxiclav:  mg TDS a day orally or 1.2 g TDS intravenouslyfor 5 days
-- With Clarithromycin: 500 mg BD orally or
-- intravenouslya day for 5 days OR Erythromycin (in pregnancy):
-- 500 mg four times orally a day for 5 days.
-- Levofloxacin (consider safety mg BD orally or intravenously for 5 days
-
--
-- Key_points CURB65 scoring for CAP in hospital setting CRB-65 scoring for CAP in community setting Difference in between only Urea in criteria
-- Complications Septic shock
-- ARDS Necrotizing pneumonia Pleural effusion Lung abscess pneumothorax Right Lung   SUperior Lobes Middle Lobe Inferior Lobes Cardiac notch Left Lung PA view of the chest demonstrating right middle lobe consolidation and ipsilateral hilar lymphadenopathy.
-
-previous  Next
-
-### Clinical Figures & Diagnostic Algorithms
-
-![10cap - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/10cap/figure_01_p3.jpeg)
-*10cap — Clinical Figure 1 (Page 3 Reference)*
-
-![10cap - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/10cap/figure_02_p4.jpeg)
-*10cap — Clinical Figure 2 (Page 4 Reference)*
-
-![10cap - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/10cap/figure_03_p5.jpeg)
-*10cap — Clinical Figure 3 (Page 5 Reference)*
-
-![10cap - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/10cap/figure_04_p6.jpeg)
-*10cap — Clinical Figure 4 (Page 6 Reference)*$LEC_PULM_055$,
-      "position"   = 20,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = '10cap' OR "slug" = 'pneumonitis');
+  -- Update alternate slug record if present
+  IF 'pneumonitis' != 'pneumonitis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Aspiration Pneumonitis vs Aspiration Pneumonia',
+        "position" = 20,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'pneumonitis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 21)
   INSERT INTO "lessons" (
@@ -11279,56 +11704,46 @@ $SBA_PULM_055$,
     "updated_at" = now();
 
   -- Pair 12/13: Pulmonology Foundations & Respiratory Physiology
-  -- A) Update & Beautify Clinical Theory Lecture (Position 22)
-  UPDATE "lessons"
-  SET "title"      = 'Pulmonology Foundations & Respiratory Physiology',
-      "body"       = $LEC_PULM_056$# Pulmonology Foundations & Respiratory Physiology
+  -- A) Upsert Clinical Theory Lecture (Position 22)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'pulmonology-basics',
+    'Pulmonology Foundations & Respiratory Physiology',
+    'article',
+    $LEC_PULM_056$# Pulmonology Foundations & Respiratory Physiology
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_056$,
+    false,
+    22,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-
-
-## Investigations & Diagnostic Workup
-chest x-ray —A variety of chest x-ray findings have been seen, including lobar consolidation, nodular lesions, pneumothorax, pneumomediastinum, and even a normal chest x-ray. There can be cysts or pneumatoceles present.
-- HRCT if X-ray normal
-- polymerase chain reaction (PCR)
-- serum level
-- ABG
-- induced sputum
-- Consider PFT
-
-## Emergency Management Protocol
-Mild to moderate disease
-- Co-trimoxazole in high dose.
-- If patient can't tolerate then Atovaquone or choose unlicensed drugs (Combination of dapsone with trimethoprim OR clindamycin and primaquine).
-- Severe disease
-- Co-trimoxazole in high dosage.
-- If patient can't tolerate then Pentamidine isetionate given by intravenous infusion
-- Adjunctive-therapy.
-- In moderate to severe infections associated with HIV infection, prednisolone is given by mouth for 5 days (alternatively,hydrocortisone may be given parenterally); the dose is then reduced to complete 21 days of treatment.
-- Prophylaxis
-- Co-trimoxazole by mouth is the drug of choice for prophylaxis against pneumocystis pneumonia.
-
-- If patient can't tolerate Co-trimoxazole then Inhaled pentamidine isethionate. PA view chest x-ray showing severe, bilateral pulmonary interstitial infiltrates with pneumatoceles previous
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Pneumocystis Jirovecii Pneumonia (PJP) - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/pneumocystis-jirovecii-pneumonia-pjp/figure_01_p3.jpeg)
-*Pneumocystis Jirovecii Pneumonia (PJP) — Clinical Figure 1 (Page 3 Reference)*
-
-![Pneumocystis Jirovecii Pneumonia (PJP) - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/pneumocystis-jirovecii-pneumonia-pjp/figure_02_p3.jpeg)
-*Pneumocystis Jirovecii Pneumonia (PJP) — Clinical Figure 2 (Page 3 Reference)*
-
-![Pneumocystis Jirovecii Pneumonia (PJP) - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/pneumocystis-jirovecii-pneumonia-pjp/figure_03_p4.jpeg)
-*Pneumocystis Jirovecii Pneumonia (PJP) — Clinical Figure 3 (Page 4 Reference)*$LEC_PULM_056$,
-      "position"   = 22,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'pneumocystis-jirovecii-pneumonia-pjp' OR "slug" = 'pulmonology-basics');
+  -- Update alternate slug record if present
+  IF 'pulmonology-basics' != 'pulmonology-basics' THEN
+    UPDATE "lessons"
+    SET "title" = 'Pulmonology Foundations & Respiratory Physiology',
+        "position" = 22,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'pulmonology-basics';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 23)
   INSERT INTO "lessons" (
@@ -11443,79 +11858,46 @@ $SBA_PULM_056$,
     "updated_at" = now();
 
   -- Pair 13/13: Pertussis (Whooping Cough)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 24)
-  UPDATE "lessons"
-  SET "title"      = 'Pertussis (Whooping Cough)',
-      "body"       = $LEC_PULM_057$# Pertussis (Whooping Cough)
+  -- A) Upsert Clinical Theory Lecture (Position 24)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'whooping-cough',
+    'Pertussis (Whooping Cough)',
+    'article',
+    $LEC_PULM_057$# Pertussis (Whooping Cough)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_PULM_057$,
+    false,
+    24,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Typically consist of a short expiratory burst followed by an inspiratory gasp, causing the 'whoop' sound. The 'whoop' is less common in adults, and in children younger than 3 months of age (who may present with apnoea alone).
-- The paroxysmal episodes are more common at night, may be triggered by external stimuli (for example cold or noise).
-- The convalescent phase (lasts up to 3 months)
-- during which there is a gradual improvement in cough frequency and severity.
-- Making a clinical diagnosis
-- Whooping cough should be suspected if a person has an acute cough that has lasted for 14 days or more without another apparent cause, and has one or more of the following features:
-- Paroxysmal cough.
-- Inspiratory whoop.
-- Post-tussive vomiting.
-- Undiagnosed apnoeic attacks in young infants.
-- Clinical suspicion should be raised if the person is not fully immunized, or has been in contact with a person who is confirmed or suspected of having whooping cough.
-
-## Investigations & Diagnostic Workup
-culture of a nasopharyngeal aspirate or swab from the posterior nasopharynx
-- Collect cultures from the nasopharynx within 2 weeks of cough onset.
-- Definitive test for diagnosis, with a specificity of 100%. Sensitivity is 30% to 60% if the specimen is obtained weeks after symptoms start.
-
-- Nucleic acid amplification test (NAAT) of nasopharyngeal aspirate or posterior nasopharyngeal-swab
-- NAAT, including polymerase chain reaction (PCR), can be obtained within 4 weeks of cough onset.
-- NAAT testing has increased sensitivity compared with culture (94%) and is recommended as adjunct to culture.
-- Serology-
-- Order between 2 and 12 weeks after cough onset in patients who have not received a pertussis-containing vaccine in the preceding 6 months.
-- A serum anti-pertussis toxin antibody concentration of
-- IOO IU/mL is suggestive of infection.
-- Oral fluid testing
-- Detection of anti-pertussis immunoglobulin G (IgG) in oral fluid is available in the UK for confirmation of pertussis in children
-- 2 years of age and adolescents.
-- FBC=An elevated WBC count and lymphocytosis are suggestive of pertussis and are common in young children.
-- CXR — normal or peribronchial thickening, infiltrates, atelectasis.
-
-## Emergency Management Protocol
-Arrange admission if the patient is :
-- Is 6 months of age or younger and acutely unwell.
-
-Has significant breathing difficulties (for example apnoea episodes, severe
-- paroxysms, or cyanosis). Has a significant complication (for example seizures or pneumonia).
-- [f admission is not needed,
-- prescribe an antibiotic if the onset of cough is within the previous 21 days.
-- Clarithromycin for infants< 1 month
-- Azithromycin or clarithromycin for children aged 1 month or older, and non-
-- pregnant adults. Erythromycin for pregnant women.
-- Advise
-- Patients with pertussis should be excluded from healthcare, childcare, and school
-- settings until they have completed at least 5 days of antimicrobial treatment, or for 21 days from the onset of their cough if untreated. Offer antibiotic prgpbylaxis (macrolides, jf macrolide contraindicated then Co-trimoxazole)
-- Offer antibiotic prophylaxis to close contacts of the 'index case' with suspected or confirmed pertussis (such as those living in the same household, or with overnight stays in the same room in an institutional setting), or people at increased risk of transmitting infection to infants. when the symptoms in the 'index case' occurred within the previous 21 days, and the close contact is in one of the Unimmunised infants
-- Infants aged 2 months or over who are unimmunised or partially immunised (less
-- than three doses of DTaP/lPV/Hib up to 1 year of age) regardless of maternal vaccine
-
-status.
-- Pregnant women at 32 weeks' gestation or more.
-- Healthcare workers who work with infants and pregnant women.
-- People whose work involves regular close or prolonged contact with infants too young to be fully vaccinated.
-- People who share a household with an infant too young to be fully vaccinated. previous  Next 9
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Pertussis (Whooping Cough) - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/pertussis-whooping-cough/figure_01_p5.jpeg)
-*Pertussis (Whooping Cough) — Clinical Figure 1 (Page 5 Reference)*$LEC_PULM_057$,
-      "position"   = 24,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'pertussis-whooping-cough' OR "slug" = 'whooping-cough');
+  -- Update alternate slug record if present
+  IF 'whooping-cough' != 'whooping-cough' THEN
+    UPDATE "lessons"
+    SET "title" = 'Pertussis (Whooping Cough)',
+        "position" = 24,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'whooping-cough';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 25)
   INSERT INTO "lessons" (
@@ -11622,18 +12004,21 @@ $SBA_PULM_057$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Gastroenterology Emergencies (21 Topics)
+  -- Specialty: Gastroenterology Emergencies (21 Topics) -> Module UUID 043d1f63-515c-4b6c-b2df-b78e420f8a2b
   -- ------------------------------------------------------------------------
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Gastroenterology Emergencies' AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NULL THEN
-    RAISE EXCEPTION 'Module Gastroenterology Emergencies not found in mrcem-sba';
-  END IF;
+  v_mod_id := '043d1f63-515c-4b6c-b2df-b78e420f8a2b';
 
   -- Pair 1/21: Acute Appendicitis
-  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Appendicitis',
-      "body"       = $LEC_GAST_058$# Acute Appendicitis
+  -- A) Upsert Clinical Theory Lecture (Position 0)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'acute-appendicitis-investigation-management',
+    'Acute Appendicitis',
+    'article',
+    $LEC_GAST_058$# Acute Appendicitis
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -11687,13 +12072,32 @@ Removal of the appendix is the gold standard treatrnent for uncomplicated append
 
 ![Acute Appendicitis - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/acute-appendicitis/figure_01_p4.jpeg)
 *Acute Appendicitis — Clinical Figure 1 (Page 4 Reference)*$LEC_GAST_058$,
-      "position"   = 0,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-appendicitis' OR "slug" = 'acute-appendicitis');
+    false,
+    0,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'acute-appendicitis' != 'acute-appendicitis-investigation-management' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Appendicitis',
+        "position" = 0,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'acute-appendicitis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
@@ -11799,10 +12203,16 @@ $SBA_GAST_058$,
     "updated_at" = now();
 
   -- Pair 2/21: Alcoholic Liver Disease & Decompensation
-  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
-  UPDATE "lessons"
-  SET "title"      = 'Alcoholic Liver Disease & Decompensation',
-      "body"       = $LEC_GAST_059$# Alcoholic Liver Disease & Decompensation
+  -- A) Upsert Clinical Theory Lecture (Position 2)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'alcoholic-ld',
+    'Alcoholic Liver Disease & Decompensation',
+    'article',
+    $LEC_GAST_059$# Alcoholic Liver Disease & Decompensation
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -11878,13 +12288,32 @@ Mild AWS high blood pressure and tachycardia Anorexia, anxiety, mood swings, ins
 
 ![Alcoholic Ld - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/alcoholic-ld/figure_02_p7.jpeg)
 *Alcoholic Ld — Clinical Figure 2 (Page 7 Reference)*$LEC_GAST_059$,
-      "position"   = 2,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'alcoholic-ld' OR "slug" = 'alcoholic-liver-disease');
+    false,
+    2,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'alcoholic-liver-disease' != 'alcoholic-ld' THEN
+    UPDATE "lessons"
+    SET "title" = 'Alcoholic Liver Disease & Decompensation',
+        "position" = 2,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'alcoholic-liver-disease';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
@@ -11993,70 +12422,46 @@ $SBA_GAST_059$,
     "updated_at" = now();
 
   -- Pair 3/21: Anal Pain & Rectal Bleeding Differential
-  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
-  UPDATE "lessons"
-  SET "title"      = 'Anal Pain & Rectal Bleeding Differential',
-      "body"       = $LEC_GAST_060$# Anal Pain & Rectal Bleeding Differential
+  -- A) Upsert Clinical Theory Lecture (Position 4)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'anal-pain-rectal-bleeding',
+    'Anal Pain & Rectal Bleeding Differential',
+    'article',
+    $LEC_GAST_060$# Anal Pain & Rectal Bleeding Differential
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_GAST_060$,
+    false,
+    4,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-
-
-## Key Clinical Features
-Haemorrhoids
-- Bright red, painless rectal bleeding
-- Anal itching or irritation
-- A feeling of rectal fullness, discomfort
-- Soiling (due to mucus discharge or impaired continence)
-- Pain is not usually reported in both internal & external haemorrhoids.
-- Perform DRE
-- A rigid anoscope, proctoscope, or Investigations rectoscope can be used Management to make a diagnosis of haemorrhoids
-- Conservative-lifestyle and dietary modification, specifically increased fibre intake and adequate fluids.
-- Non-surgical- Rubber band ligation, Injection sclerotherapy, Infrared coagulation.
-- Surgical- Haemorrhoidectomy, Peri-anal hematoma
-- A perianal hematoma is a pool of blood that collects in the tissue surrounding the anus.
-- bubbling or bulging skin near the anus (lump)
-- mild to severe pain, depending on the size
-- bloody stools (fresh blood)
-- physical exam to diagnose a perianal hematoma.
-- They only appear around the outside of anus, so don't need a colonoscopy.
-- Most perianal hematomas resolve on their own within five to seven days.
-- If not, consider drainage under local anesthesia. Anal fissure Anal pain always
-- occurs with passing a stool Bleeding may occur
-- with defecation. A tearing sensation
-- on passing stool may also be described. In children, anal
-- fissure typically presents with pain and/or crying during defecation and rectal bleeding Examine the person-
-- Acute anal fissures are typically superficial with well- demarcated edges. Stool softener and
-- bulk agents. Analgesia
--
-- Topical GTN 0.4% or diltiazem 2%.
-- Sphincterotomy — reserved for non- healing fissure.
-
-ocap.eu haemorrhoidectomy, or Haemorrhoidal artery ligation. Key_points
-- Suspect anal fissure — if a patient presents with complaint of anal pain while passing stool and noticed fresh blood on toilet paper.
-- Suspect haemorrhoids — if a young patient presents with a complaint of painless bleeding and noticed fresh blood on toilet paper.
-- Suspect diverticulosis — if an older patient (age
-- 40 years) presents with a complaint of painless bleeding.
-- a patient presents with bleeding per recturn and feels a lump around the anus. previOUS
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Anal Pain and Rectal Bleeding - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/anal-pain-and-rectal-bleeding/figure_01_p3.jpeg)
-*Anal Pain and Rectal Bleeding — Clinical Figure 1 (Page 3 Reference)*
-
-![Anal Pain and Rectal Bleeding - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/anal-pain-and-rectal-bleeding/figure_02_p4.jpeg)
-*Anal Pain and Rectal Bleeding — Clinical Figure 2 (Page 4 Reference)*
-
-![Anal Pain and Rectal Bleeding - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/anal-pain-and-rectal-bleeding/figure_03_p4.jpeg)
-*Anal Pain and Rectal Bleeding — Clinical Figure 3 (Page 4 Reference)*$LEC_GAST_060$,
-      "position"   = 4,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'anal-pain-and-rectal-bleeding' OR "slug" = 'anal-pain-rectal-bleeding');
+  -- Update alternate slug record if present
+  IF 'anal-pain-rectal-bleeding' != 'anal-pain-rectal-bleeding' THEN
+    UPDATE "lessons"
+    SET "title" = 'Anal Pain & Rectal Bleeding Differential',
+        "position" = 4,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'anal-pain-rectal-bleeding';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
@@ -12168,105 +12573,46 @@ $SBA_GAST_060$,
     "updated_at" = now();
 
   -- Pair 4/21: Small & Large Bowel Obstruction
-  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
-  UPDATE "lessons"
-  SET "title"      = 'Small & Large Bowel Obstruction',
-      "body"       = $LEC_GAST_061$# Small & Large Bowel Obstruction
+  -- A) Upsert Clinical Theory Lecture (Position 6)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'acute-intestinal-obstruction',
+    'Small & Large Bowel Obstruction',
+    'article',
+    $LEC_GAST_061$# Small & Large Bowel Obstruction
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_GAST_061$,
+    false,
+    6,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Large bowel obstruction mechanical interruption (either complete or partial) to the flow of intestinal contents, with multiple potential causes (e.g., malignant colorectal disease, colonic volvulus, benign stricture)
-- Approximately 60% of large Clinical presentations Investigations Small bowel obstruction At's a medical emergencies requiring early diagnosis and intervention Antra-abdominal adhesion is the most common cause of SBO.
-- Other- hemias, Crohn's disease, intestinal malignancy,appendicitis
-
-## Key Clinical Features
-- Abdominal pain,
-- bloating, vomiting (possibly biliary),
-- rectal flatus and cessation of defecation.
-- abdominal tenderness
-- computed tomography (CT) scan of the abdomen and pelvis
-- Plain x-rav features
-- dilation of the small bowel (>3cm diameter)
-- more prominent valvulae con niventes creating a 'coiled- spring appearance
-- small bowel usually lies more centrally
-- Blood tests
-- FBC,
-- Serurn amylase & lipase Fluid resuscitation,
-- bowel decompression (using Ileus
-- lleus is a slowing of gastrointestinal motility accompanied by distention, in the absence Of a mechanical intestinal obstruction. At is a diagnosis of exclusion bowel obstructions are caused by after bowel obstruction has an underlying colorectal malignancy.
-- Siqmoid volvulus is more usually seen in frail or older patients.
-- Caecal volvulus is more rare and more commonly seen in younger patients.
-
-## Key Clinical Features
-- Antermittent abdominal pain
-- abdominal distention
-- Nausea & vomiting
-- recent weight loss hectal bleeding, palpable rectal mass & tympanic abdomen. tenesmus
-- urgent computed tomography (CT) scan of the abdomen and pelvis to be performed as soon as possible.
-- Plain x-ray
-- dilation of colon>6cm
-- dilation Of cecum
-- 9cm
-- The small bowel usually lies more centrally, with the large bowel framing it (lateral).
-- Sigmoid volvulus: a characteristic 'coffee bean' appearance.
-- Caecal volvulus: often described as having a fetal appearance (comma' shaped), Medical emergencies requiring early diagnosis and intervention. been ruled Out. At usually occurs in response to physiological stress, including surgery (usually gastrointestinal), sepsis, metabolic derangements, and gastrointestinal diseases. Aleus is commonly seen in the postoperative setting.
-- Vomiting
-- Abdominal distension Anability to tolerate oral feeding
-- Absence of flatus.
-- FBC A-J&E
-- abdomen and pelvis CT
-- ABGs
-- Postoperative ileus Ail by mouth and Antravenous fluki
-
-- and analgesia
-- Surgical consultation — as patient need urgent surgical intervention
-
-## Emergency Management Protocol
-- Abdominal x-rays Example- 1 Irnuany- supporuve management Consider bowel decompression via nasogastric tube. Consider urgent flexible sigmoidoscopy in volvulus
-- Often endoscopic decompression using flexible sigmoidoscopy allows the twist in the bowel to be untwisted and the obstruction to be relieved. If decompression fail then refer to surgery. Refer to colorectal surgeon for emergency surgery — if patient has malignant obstruction or has developed peritonitis or perforation. Y-reduction in opioid analgesia ± replacement with non- opioid analgesia (to avoid narcotic Ileus).
-- Consider nasogastric decompression.
-- Nil by mouth and intravenous fluids
-
-## Emergency Management Protocol
-of the underlying condition (acute/systemic illnesses associated with intestinal hypomotility such as diabetes mellitus, Chagas disease, scleroderma, and neurological diseases, Sepsis) reduce opioids, anticholinergics. Consider NG
-
-- ray Abdominal x-ray of small bowel obstruction
-
-- Example
-- 2
-
-- Abdominal x-ray of sigmoid volvulus (large bowel obstruction) Example
-- 3
-
-Abdominal X-ray of a Caecal volvulus (large bowel obstruction). previous  Next 9
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Small & Large Bowel Obstruction - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_01_p3.jpeg)
-*Small & Large Bowel Obstruction — Clinical Figure 1 (Page 3 Reference)*
-
-![Small & Large Bowel Obstruction - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_02_p4.jpeg)
-*Small & Large Bowel Obstruction — Clinical Figure 2 (Page 4 Reference)*
-
-![Small & Large Bowel Obstruction - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_03_p5.jpeg)
-*Small & Large Bowel Obstruction — Clinical Figure 3 (Page 5 Reference)*
-
-![Small & Large Bowel Obstruction - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_04_p7.jpeg)
-*Small & Large Bowel Obstruction — Clinical Figure 4 (Page 7 Reference)*
-
-![Small & Large Bowel Obstruction - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_05_p8.jpeg)
-*Small & Large Bowel Obstruction — Clinical Figure 5 (Page 8 Reference)*
-
-![Small & Large Bowel Obstruction - Clinical Figure 6](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_06_p9.jpeg)
-*Small & Large Bowel Obstruction — Clinical Figure 6 (Page 9 Reference)*$LEC_GAST_061$,
-      "position"   = 6,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'small-large-bowel-obstruction' OR "slug" = 'bowel-obstruction');
+  -- Update alternate slug record if present
+  IF 'bowel-obstruction' != 'acute-intestinal-obstruction' THEN
+    UPDATE "lessons"
+    SET "title" = 'Small & Large Bowel Obstruction',
+        "position" = 6,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'bowel-obstruction';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
@@ -12387,10 +12733,16 @@ $SBA_GAST_061$,
     "updated_at" = now();
 
   -- Pair 5/21: Cirrhosis & Portal Hypertensive Bleeding
-  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
-  UPDATE "lessons"
-  SET "title"      = 'Cirrhosis & Portal Hypertensive Bleeding',
-      "body"       = $LEC_GAST_062$# Cirrhosis & Portal Hypertensive Bleeding
+  -- A) Upsert Clinical Theory Lecture (Position 8)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'cirrhosis',
+    'Cirrhosis & Portal Hypertensive Bleeding',
+    'article',
+    $LEC_GAST_062$# Cirrhosis & Portal Hypertensive Bleeding
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -12511,13 +12863,32 @@ Prothrombin time/lNR
 
 ![Cirrhosis ` - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/cirrhosis/figure_01_p7.jpeg)
 *Cirrhosis ` — Clinical Figure 1 (Page 7 Reference)*$LEC_GAST_062$,
-      "position"   = 8,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'cirrhosis' OR "slug" = 'cirrhosis');
+    false,
+    8,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'cirrhosis' != 'cirrhosis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Cirrhosis & Portal Hypertensive Bleeding',
+        "position" = 8,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'cirrhosis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
@@ -12623,72 +12994,46 @@ $SBA_GAST_062$,
     "updated_at" = now();
 
   -- Pair 6/21: Constipation & Faecal Impaction
-  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
-  UPDATE "lessons"
-  SET "title"      = 'Constipation & Faecal Impaction',
-      "body"       = $LEC_GAST_063$# Constipation & Faecal Impaction
+  -- A) Upsert Clinical Theory Lecture (Position 10)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'constipation',
+    'Constipation & Faecal Impaction',
+    'article',
+    $LEC_GAST_063$# Constipation & Faecal Impaction
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_GAST_063$,
+    false,
+    10,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Anxiety and/or depression.
-- Somatization disorders.
-- Eating disorders.
-- History of sexual abuse.
-- Physical . Female sex.
-- Older age.
-- Pyrexia, poor fluid intake/dehydration, immobility.
-- Sitting position on a toilet seat (compared with the squatting position for defecation).
-
-## Clinical Examination & Assessment
-difficulty passing stools, or a sensation of incomplete emptying
-- Lower abdominal pain or discomfort, distension, or bloating.
-- Consider a diagnosis of constipation in the elderly if there are non-specific symptoms, such as:
-- Confusion or delirium, functional decline.
-- Nausea or loss of appetite.
-- Overflow diarrhoea. Urinary retention.
-- Suspect a diagnosis of faecal loading or impaction if there is history of:
-- Hard, lumpy stools, which may be large and infrequent (for example passed every 7—10 days), or small and relatively frequent (for example passed every 2—3 days).
-- Having to use manual methods to extract faeces.
-- Overflow faecal incontinence, or loose stool.
-
-## Emergency Management Protocol
-Consider, investigate and manage any underlying secondary cause of constipation,
-- and if possible and appropriate advise the person to reduce or stop any drug treatmentthat may be causing or contributing to symptoms. Identify if faecal loading and/or impaction is present as this will need treatrnent to
-- resolve and may need enemas, suppositories, or disimpaction.
-- Advise-on-lifestyJe-measures increasing dietary fibre,
-- Ensuring adequate fluid intake, and activity levels
--
-- If the above measures fail then Offer a bulk-forming laxative first-line, such as ispaghula, and increase fluid intake
--
-- If stools remain hard or difficult to pass, add or switch to an osmotic laxative, such as a macrogol. If a macrogol is ineffective or not tolerated, offer treatment with a lactulose
-- second-line. If stools are soft but difficult to pass, or there is a sensation of inadequate emptying,
-- add a stimulant laxative. Note: If the person has opioid-induced constipation:
-- Do not prescribe bulk-forming laxatives.
--
-- Offer an osmotic laxative and a stimulant laxative.
-- Complications Faecal loading and impaction.
-- Progressive faecal retention, distension of the rectum, and loss of sensory and
-- motor function. Haemorrhoids or anal fissure.
--
-
-- Chronic dilatation of the colon may cause a megacolon.
-- Bowel obstruction, perforation, or ulceration.
-- Recurrent urinary tract infections, obstructive uropathy.
-- Rectal bleeding.
-- Rectal prolapse previous  Next
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Constibation - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/constibation/figure_01_p4.jpeg)
-*Constibation — Clinical Figure 1 (Page 4 Reference)*$LEC_GAST_063$,
-      "position"   = 10,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'constibation' OR "slug" = 'constipation');
+  -- Update alternate slug record if present
+  IF 'constipation' != 'constipation' THEN
+    UPDATE "lessons"
+    SET "title" = 'Constipation & Faecal Impaction',
+        "position" = 10,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'constipation';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
@@ -12794,10 +13139,16 @@ $SBA_GAST_063$,
     "updated_at" = now();
 
   -- Pair 7/21: Acute Diarrhoea & Infectious Enteritis
-  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Diarrhoea & Infectious Enteritis',
-      "body"       = $LEC_GAST_064$# Acute Diarrhoea & Infectious Enteritis
+  -- A) Upsert Clinical Theory Lecture (Position 12)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'diarrhea',
+    'Acute Diarrhoea & Infectious Enteritis',
+    'article',
+    $LEC_GAST_064$# Acute Diarrhoea & Infectious Enteritis
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -12932,13 +13283,32 @@ previous  Next
 
 ![Diarrhea - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/diarrhea/figure_04_p8.jpeg)
 *Diarrhea — Clinical Figure 4 (Page 8 Reference)*$LEC_GAST_064$,
-      "position"   = 12,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'diarrhea' OR "slug" = 'diarrhea');
+    false,
+    12,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'diarrhea' != 'diarrhea' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Diarrhoea & Infectious Enteritis',
+        "position" = 12,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'diarrhea';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
@@ -13053,68 +13423,46 @@ $SBA_GAST_064$,
     "updated_at" = now();
 
   -- Pair 8/21: Diverticular Disease & Acute Diverticulitis
-  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
-  UPDATE "lessons"
-  SET "title"      = 'Diverticular Disease & Acute Diverticulitis',
-      "body"       = $LEC_GAST_065$# Diverticular Disease & Acute Diverticulitis
+  -- A) Upsert Clinical Theory Lecture (Position 14)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'diverticular-disease',
+    'Diverticular Disease & Acute Diverticulitis',
+    'article',
+    $LEC_GAST_065$# Diverticular Disease & Acute Diverticulitis
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_GAST_065$,
+    false,
+    14,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Diverticulosis
-- Asymptomatic, At may present with a large, painless rectal bleed Clinical features
-- FBC, CRP,
-- Faecal occult blood test Investigations
-- Kidney function test
-- Endoscopy, colonoscopy, CT colonography to confirm the presence of diverticula. Advise
-- the condition is asymptomatic and no specific treatments are Diverticular disease Antermittent abdominal pain in the left lower quadrant (pain may be triggered by eating and may be relieved by the passage of stool or flatus).
-- Other symptoms
-- Bloating, constipation, diarrhoea, nausea. nectal bleeding.
-- Fever.
-- Dysuria Same
-- Arrange urgent admission a person with confirmed diverticular Diverticulitis
-- Constant abdominal pain (which is usually severe and starts in the hypogastrium before localizing in the left lower quadrant).
-- Sudden change in bowel habit and significant rectal bleeding or passage of mucus from the rectum.
-- Tenderness in the left lower quadrant, a palpable abdominal mass or distention on abdominal examination Same
-- Referral pathway
-- Urgent refer to surgery if patient has acute complicated diverticuliY
-
-- needed.
-- Eat a healthy balanced diet including whole grains, fruit and vegetables
-
-## Emergency Management Protocol
-- drink adequate fluid
-- Consider offering bulk- forming laxatives for people with constipation disease has significant rectal bleeding (for example, if the person is haemodynamically unstable), as urgent blood transfusion may be required. Af a person is symptomatic but does not need admission:
-- Advise Increase fiber diet and fluid intake
-- Quit smoking, weight loss
-- Avoid NSAID & Opiod
-- Offer Paracetamol for pain
-- Offer Bulk-forming laxatives if a high-fibre diet is unacceptable to the person. not prescribe antibiotics is (for example with peritonitis and sepsis), and for people who do not improve with medical treatment.
-- Offer an oral antibiotic if the person with acute diverticulitis is systemically unwell. but does not meet the criteria for referral.
-- Prescribe co-amoxiclav  mg tds for 5 days cefalexin 500 mg BD/tds + metronidazole 400 mg tds for 5 days.
-- For people with acute diverticulitis who are systemically well:
-- Offer paracetamol for pain
-- Advise lifestyle diet modification ( increase fiber diet & fluid intake).
-
-previOUS
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Diverticulr Disease - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/diverticulr-disease/figure_01_p2.jpeg)
-*Diverticulr Disease — Clinical Figure 1 (Page 2 Reference)*
-
-![Diverticulr Disease - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/diverticulr-disease/figure_02_p3.jpeg)
-*Diverticulr Disease — Clinical Figure 2 (Page 3 Reference)*
-
-![Diverticulr Disease - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/diverticulr-disease/figure_03_p4.jpeg)
-*Diverticulr Disease — Clinical Figure 3 (Page 4 Reference)*$LEC_GAST_065$,
-      "position"   = 14,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'diverticulr-disease' OR "slug" = 'diverticular-disease');
+  -- Update alternate slug record if present
+  IF 'diverticular-disease' != 'diverticular-disease' THEN
+    UPDATE "lessons"
+    SET "title" = 'Diverticular Disease & Acute Diverticulitis',
+        "position" = 14,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'diverticular-disease';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
@@ -13226,112 +13574,46 @@ $SBA_GAST_065$,
     "updated_at" = now();
 
   -- Pair 9/21: Foreign Body Ingestion & Food Impaction
-  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
-  UPDATE "lessons"
-  SET "title"      = 'Foreign Body Ingestion & Food Impaction',
-      "body"       = $LEC_GAST_066$# Foreign Body Ingestion & Food Impaction
+  -- A) Upsert Clinical Theory Lecture (Position 16)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'foreign-body-ingestion',
+    'Foreign Body Ingestion & Food Impaction',
+    'article',
+    $LEC_GAST_066$# Foreign Body Ingestion & Food Impaction
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_GAST_066$,
+    false,
+    16,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- dysphagia nonspecific abdominal pain
-- stridor and wheezing
-- drooling
--
-- Other features gagging, nausea/vomiting, neck/throat pain
-- atypical chest pain or noncardiac chest pain
-- choking
-- signs of upper gastrointestinal obstruction
-- lower gastrointestinal bleeding
--
-
-## Investigations & Diagnostic Workup
-x-rays of neck, chest, abdomen
-- Blood tests- FBC, LJ&E, PT/INR Consider CT of neck, chest and/or abdomen
-- Consider MRI
-- Consider laryngoscopy, endoscopy
--
-
-## Emergency Management Protocol
-Unstable patient management
-- Patients should be considered unstable if they present with airway compromise,
-- drooling, inability to tolerate fluids, evidence of sepsis, perforation, or active bleeding. Resuscitations
-- Follow ABCD protocol and resuscitate appropriately
-- Surgery
-- Emergency surgery is mandatory in patients with perforation due to obstruction.
-- Resect the perforated segment.
-
-- consider NG/OG — If patient has trouble handling secretions (drooling and/or spitting)
-- Consider IV antibiotic
-- if patient has sign of sepsis.
-- Stablepatient
-
-## Emergency Management Protocol
-- Stable patients: oropharyngeal foreign body Stable patients: esophageal or rectal foreign body (excluding multiple magnets and batteries) Stable patients: esophageal or rectal foreign body
-- multiple magnets Stable patients: esophageal or rectal foreign body
-- batteries
-- Complications 1st line Watchful waiting and serial radiographic follow-up 80% of ingested or inserted foreign bodies pass through the gastrointestinal (GI) tract without symptoms 2nd line
-- fiberoptic nasopharyngoscopy
-- should be considered for patients with an object in the oropharynx that could not be seen during the physical exam. Foreign bodies can be removed using tongue depressor and laryngoscopy
-- 1" line Watchful waiting and serial radiographic follow-up Endoscopy is required
-- for foreign bodies that are nonprogressive, sharp, or nonradiopaque, for multiple foreign bodies, for foreign bodies in the stomach
-- 2.5 cm in diameter or
-- 6 cm long, or for oddly shaped foreign bodies such as open safety pins. 2nd line Foley catheter removal
-- is a widely used technique for the removal of a single, smooth, blunt, radiopaque foreign body from the esophagus or rectum.
-- 3'd line Surgery
-- For failed extraction or object of
-- IO cm in rectum. line Emergency endoscopic or surgical removal Multiple magnets beyond reach of endoscope
-- urgent surgical consultation 1st line Emergency endoscopic or surgical removal if impacted Batteries beyond reach of endoscope
-- watchful waiting + radiology
-
-- gastrointestinal obstruction, perforation, and fistula formation gastrointestinal bleeding esophageal perforation infection
-
-Neodymium magnets (also known as NdFeB, NIB, Neo magnet or Super Strong Rare-Earth Magnets) They have become easy to purchase and are promoted as 'adult desk toys' or 'stress relievers'
-- Rare earth magnets are between five and ten times stronger than ceramic magnets and are sometimes called 'super strong' or powerful magnets.
-- They are often brightly coloured and can be of a variety of shapes such as balls, cylinders, discs, ellipses and bars, usually of less than 6 mm in diameter.
-- These inexpensive and readily available magnets can be accidentally swallowed by children with ease.
-- The ingestion of a single rare earth magnet is unlikely to cause significant harm, however, if multiple magnets are ingested, or if a magnet is swallowed along with a metal object significant injury can occur.
-- Ingestion of a magnet with a button battery is a time critical emergency.
-- Risk Factors for Complications following ingestion rare earth magnets Those who have co ingested a magnet with a button battery
-- Those who have ingested multiple magnets or a magnet and another metal object
-- Children and young people with developmental, behavioural or psychiatric problems
-- Delayed presentation (>12 hours after presentation)
-
-## Investigations & Diagnostic Workup
-Chest X-ray and abdominal X-ray (with the patient lying down, ideally AP
-
-- In the case of a single magnet being identified on an abdominal X-ray, a lateral abdominal X-ray should also be requested to confirm that only one magnet has been ingested.
-- Radiological interpretation
-- A neodymium magnet appears like a ball-bearing on an X-ray, and clinicians should be careful to not misdiagnose it as a metal ball
-- Misdiagnosis of multiple magnets as solitary magnet ingestion can lead to a delay in diagnosis and subsequent complications
-
-CCY-D license
-
-## Emergency Management Protocol
-The-following- earth-magnet-jngestion;
-
--
-- single magnet ingestion accidental ingestion no co-morbidities tolerating oral intake presents within 24hr of ingestion care-giver able to provide close observation (there is no need to examine the child's faeces)
-- All patients who are being discharged with rare earth magnet ingestion require follow-up imaging after 6-12 hours If a single magnet is ingested, it can be expected to be passed spontaneously, if the magnet is not too large. Patients who do not meet discharge criteria eg. symptomatic patients, signs of deterioration, ingestion of two or more rare earth magnets should be discussed with a specialist regional paediatric surgical centre in the first instance.
-- Admission under the care of a local surgical team maybe appropriate
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Fb Ingestion - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/fb-ingestion/figure_01_p3.jpeg)
-*Fb Ingestion — Clinical Figure 1 (Page 3 Reference)*
-
-![Fb Ingestion - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/fb-ingestion/figure_02_p6.jpeg)
-*Fb Ingestion — Clinical Figure 2 (Page 6 Reference)*
-
-![Fb Ingestion - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/fb-ingestion/figure_03_p7.jpeg)
-*Fb Ingestion — Clinical Figure 3 (Page 7 Reference)*$LEC_GAST_066$,
-      "position"   = 16,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'fb-ingestion' OR "slug" = 'foreign-body-ingestion');
+  -- Update alternate slug record if present
+  IF 'foreign-body-ingestion' != 'foreign-body-ingestion' THEN
+    UPDATE "lessons"
+    SET "title" = 'Foreign Body Ingestion & Food Impaction',
+        "position" = 16,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'foreign-body-ingestion';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
@@ -13443,75 +13725,46 @@ $SBA_GAST_066$,
     "updated_at" = now();
 
   -- Pair 10/21: Gallstones & Biliary Emergencies
-  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
-  UPDATE "lessons"
-  SET "title"      = 'Gallstones & Biliary Emergencies',
-      "body"       = $LEC_GAST_067$# Gallstones & Biliary Emergencies
+  -- A) Upsert Clinical Theory Lecture (Position 18)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'gallstones',
+    'Gallstones & Biliary Emergencies',
+    'article',
+    $LEC_GAST_067$# Gallstones & Biliary Emergencies
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_GAST_067$,
+    false,
+    18,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Blood tests- LFTs, FBC
-- Abdominal U/S
-- MRCP if IJ/S has not detected common bile duct stones, but the bile duct is dilated and/or
-- Liver function test results are abnormal.
-- Endoscopic ultrasound (EUS) if MRCP does not allow a diagnosis to be made.
-
-## Emergency Management Protocol
-n in n rm I r n n rm I ili ry—tre.e.;-
-- Reassure the patients that they do not need treatment unless they develop symptoms:
-- Asymptomatic gallstones are found in the common bile duct,
-- Offer referral for bile duct clearance and laparoscopic cholecystectomy
-
-## Emergency Management Protocol
-of symptomatic gallstones
-- pain relief
-- Severe pain
-- Diclofenac 75 mg 1M repeat second dose 75mg after 30 minutes if necessary.
-- For intermittent mild to moderate pain, offer paracetamol or NSAID, for example, diclofenac which can be given orally or rectally if nausea is a problem.
-- Urgent-emergency-admission
-- If patient systemically unwell with a suspected complication of gallstone disease,such as acute cholecystitis, cholangitis, or pancreatitis.
-- Refer — all other people diagnosed with symptomatic gallstone disease to a surgeon to consider laparoscopic cholecystectomy.
-
-- Complications
-- Biliary colic (most common) Acute cholangitis
-- Acute cholecystitis
-- Acute pancreatitis
-- Obstructive jaundice
-- Fistula formation
--
-- Biliary peritonitis. Gallbladder mucocele.
-- Gallbladder cancer
-
-## Key Clinical Features
-- Biliary colic It occurs when gallstone transiently obstruct either the cystic duct or Hartmann's pouch pain
-- occurs in the epigastrium or right upper quadrant, radiate to right back or shoulder and typically lasts for more than 30 minutes, but less than eight hours. Often severe, and may be associated with nausea & vomiting. Pain often worse after having a fatty meal. Abdominal UIS LFTs (liver enzyme in normal range and no jaundice) MRCP if UIS has not Acute cholecystitis Acute cholecystitis is an inflammation of the gallbladder It usually occurs when a gallstone completely obstructs the gallbladder neck or cystic duct. Pain
-- Sudden-onset, constant, severe pain in the upper right quadrant, lasting several hours (>12 hours). Fever/chills Nausea & vomiting Exan
-- ination
-- Right upper quadrant mass & tenderness Presence of Murphy's sign (inspiration is inhibited by pain on palpitation when the examiner's hand is positioned along the costal margin). Jaundice — occurs in up to 10% of patients Abdominal UIS Blood test FBC (elevated WCC & CRP) LFTs ( normal/ mild elevated liver enzymes) Serum amylase Investigations detected common bile duct stones, but the bile duct is dilated and/or Endoscopic ultrasound (EUS) if MRCP does not allow a diagnosis to be made. Acute cholangitis The most common causes of acute cholangitis are common bile duct stones and bile duct obstruction caused by gallstones. Charcottriad: Jaundice
-- (total bilirubin234 pmol/L [22mg/dL]) Fever
-- 380C with or without chills. Pain
-- right upper quadrant or epigastric pain. Reynold's pentad: It includes charcot's triad + altered mental status and hypotension secondary to septic shock. FBC (WBC count x 1000/pL or WBC count x 1000/pL) C-reactive protein (CRP)217 mmol/L [21 mg/dL]) LFTs (liver enzymes are elevated) Transabdominal ultrasonography Abdominal CT
-
-Follow symptomatic Management gallstone management protocol Admission Give IV antibiotics and analgesia Surgical assessment for cholecystectomy. previOUS  Next Admission Start IV antibiotic and fluid biliarv decompression biliary decompression is endoscopic retrograde cholangiopancreatogra phy (ERCP), with or without sphincterotomy and drainage stenting.
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Gallstones, Cholecystitis & Biliary Colic - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/gallstones-cholecystitis-biliary-colic/figure_01_p4.jpeg)
-*Gallstones, Cholecystitis & Biliary Colic — Clinical Figure 1 (Page 4 Reference)*
-
-![Gallstones, Cholecystitis & Biliary Colic - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/gallstones-cholecystitis-biliary-colic/figure_02_p5.jpeg)
-*Gallstones, Cholecystitis & Biliary Colic — Clinical Figure 2 (Page 5 Reference)*
-
-![Gallstones, Cholecystitis & Biliary Colic - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/gallstones-cholecystitis-biliary-colic/figure_03_p5.jpeg)
-*Gallstones, Cholecystitis & Biliary Colic — Clinical Figure 3 (Page 5 Reference)*$LEC_GAST_067$,
-      "position"   = 18,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'gallstones-cholecystitis-biliary-colic' OR "slug" = 'gallstones');
+  -- Update alternate slug record if present
+  IF 'gallstones' != 'gallstones' THEN
+    UPDATE "lessons"
+    SET "title" = 'Gallstones & Biliary Emergencies',
+        "position" = 18,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'gallstones';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
@@ -13623,194 +13876,46 @@ $SBA_GAST_067$,
     "updated_at" = now();
 
   -- Pair 11/21: Acute Gastroenteritis & Dehydration
-  -- A) Update & Beautify Clinical Theory Lecture (Position 20)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Gastroenteritis & Dehydration',
-      "body"       = $LEC_GAST_068$# Acute Gastroenteritis & Dehydration
+  -- A) Upsert Clinical Theory Lecture (Position 20)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'gastroenteritis',
+    'Acute Gastroenteritis & Dehydration',
+    'article',
+    $LEC_GAST_068$# Acute Gastroenteritis & Dehydration
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_GAST_068$,
+    false,
+    20,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Diarrhoea and vomiting usually have a rapid onset and last for less than 24 hours.
-- Clostridium perfringens— usually caused by inadequate storage and insufficient reheating of contaminated meat dishes or cooked rneats or meat products, for example in institutional catering settings.
-- Bacillus cereus— caused by contaminated cooked foods subjected to inadequate post-cooking temperature control that has allowed bacterial growth (such as reheated rice, pasta, meat or vegetable dishes, and dairy products).
-- Staphylococcus aureus— usually found in cooked meats and cream products.
-- Bacteria
-- Campylobacter jejuniand Campylobacter coli — These are the most commonly reported bacterial causes of infectious intestinal disease in England and Wales, and one of the commonest causes of travellers' diarrhoea in the UK.
-- Symptoms — diarrhoea (which may be bloody), nausea, vomiting, abdominal cramps, and fever.
-- It is usually associated with the consumption of contaminated food and drink, such as undercooked rneat (especially poultry), unpasteurised milk, or untreated water.
-- Most cases are self-limiting within 2—3 days and usually resolve within I week.
-- Escherichia coli(including Shiga toxin-producing
-- **E)** coli [STE  or verocytotoxin- producing
-- **E)** coli [VTE ) —
-- **E)** coli0157 is the most common serogroup of STEC causing infections in the I-JK.
-- Infection with
-- **E)** coli0157:H7 may be asymptomatic, or cause diarrhoea (which may be bloody), fever, abdominal cramps, and vomiting. Illness is usually self-limiting and resolves within 10 days.
-- Salmonellosis (excluding Salmonella typhiand Salmonella paratyphicausing enteric fever) — Ingestion of contaminated food is the most common source, such as red and white meats, raw eggs, milk, and dairy products.
-- Symptoms — bloody diarrhoea, abdominal pain, headache, nausea, vomiting, and
-
-- The illness usually lasts for 4—7 days, and people usually recover spontaneously.
-- Shigella dysenteriae, Shigella flexneri, Shigella boydii, and Shigella sonnei — Shigellosis occurs most commonly in children less than 5 years of age, but infection can occur in all ages. Infections peak in late summer in the I-JK. Symptoms — diarrhoea (may have blood and mucus), fever, and abdominal cramps, with or without nausea and vomiting, headache, and malaise.
-- Shigellosis usually resolves in 5—7 days.
-- Yersinia enterocolitica — occurs rnost commonly in children.
-- Symptoms — Common symptoms are watery diarrhoea (which is often bloody), fever, and abdominal pain. In older children and adults, right-sided abdominal pain and fever may occur.
-- Parasites
-- Cryptosporidium — is one Of the most common protozoal causes of gastroenteritis in the UK, and about 20% of cases are associated with recent foreign travel.
-- transmitted by animal-to-human or human-to-human contact, exposure to contaminated land or water, or by consuming contaminated water or food.
-- Symptoms — profuse watery diarrhoea associated with abdominal cramps or pain, nausea, vomiting, fever, and loss of appetite.
-- Entamoeba histolytica (amoebiasis) — Transmission occurs through the ingestion of contaminated food or water.
-- Most cases in the I-JK are imported by travellers to endemic areas. Symptoms — mild diarrhoea and abdominal pain, but severe disease (amoebic dysentery) can occur, causing fever, severe abdominal pain, and blood and mucus in the faeces.
-- Giardia intestinalisor Giardia lamblia — can be transmitted by person-to-person spread by the faecal-oral route; by contact with the faeces of infected animals; by
-
-consumption of contaminated food or drink; waterborne including swimming in contaminated water.
-- Many cases are associated with recent foreign travel, particularly from South Asia, and it is the most commonly identified pathogen in returning travellers with prolonged diarrhoea.
-- Symptoms — diarrhoea, malaise, abdominal pain, loss of appetite, flatulence, bloating, and rarely nausea. Malabsorption, weight loss, and faltering growth may occur in children.
-- Assessment
-- History and examination
-- Assessing for dehydration in children
-- Risk factors for developing dehydration in children include;
-- Infants younger than I year of age, particularly younger than 6 months.
-- Infants who were of Iow birthweight.
-- Children who have passed six or more diarrhoeal stools in the previous 24 hours.
-- Children who have vomited three or more times in the previous 24 hours.
-- Children who have not been offered, or have not been able to tolerate, supplementary fluids before presentation.
-- Infants who have stopped breastfeeding during the illness.
-- Children with signs of malnutrition. Table
-- **A)** Symptoms and signs of dehydration and shock
-
-No clinically detectable dehydration Appears well Alert and responsive Normal urine output Skin colour unchanged Warm extremities Eyes not sunken Moist mucous membranes (except after a drink) Normal heart rate Normal breathing pattern Normal peripheral pulses Normal capillary refill time Normal skin turgor Normal blood pressure Clinical dehydration Appears to be unwell or deteriorating Altered responsiveness (for example irritable, lethargic) Decreased urine output Skin colour unchanged Warm extremities Sunken eyes Dry mucous membranes (except for mouth breathing) Tachycardia Tachypnoea Normal peripheral pulses Normal capillary refill time Reduced skin turgor Normal blood pressure Clinical shock Decreased level of consciousness Pale or mottled skin Cold extremities Tachycardia Tachypnoea Weak peripheral pulses Prolonged capillary refill time Hypotension (decompensated shock)
-
-- Assessing-for-dehydration-in-adults Mild Symptoms include: Lassitude. Anorexia and nausea. Light-headedness. Signs include:
-- Possible postural hypotension.
-
-## Investigations & Diagnostic Workup
-Consider FBC and U&E Moderate Symptoms include:
-- Apathy/tiredness. . Dizziness. Nausea. Headache. Muscle cramps. Signs include: Pinched face. Dry tongue or sunken eyes. Reduced skin elasticity. Postural hypotension. Tachycardia. Oliguria. Severe Symptoms include:
-- Profound apathy and weakness. Confusion, leading to coma. Signs include: Marked peripheral vasoconstriction. Hypotension.
-- Tachycardia. Uraemia, oliguria, or anuria.
-- Shock.
-- stool culture and sensitivity testing if indicated.
-
-## Emergency Management Protocol
-Management of gastroenteritis in children
-- Arrange-emergency-hos feature :
-- The child is systemically unwell and/or there are clinical features suggesting severe dehydration and/or progression to shock.
-- There is intractable or bilious vomiting.
-
-- There is acute-onset painful, bloody diarrhoea in previously healthy children, or confirmed Shiga toxin-producing Escherichia coli (STEC) infection 0157. There is a suspected serious complication, such as haemolytic uraemic syndrome or sepsis. There are red flag symptoms or signs suggesting increased risk of progression to shock, and the child is clinically deteriorating despite use of ORS solution. There are risk factors for developing dehydration.
-- The parents/carers are unable to monitor the child's condition or provide appropriate management safely at home.
-- Steps of management in clinical shock patients
-- Follow ABCDE protocol
-- The preferred fluid type for IV maintenance is sodium chloride 0.9% with glucose 5%
-- Resuscitation step: — fluid bouls NICE recommends 10-20 ml/kg in shock patients and 10ml/kg in non shock patients.
-- Resus council 2021 guideline recommends 10ml/kg in both shock and non-clinical shock patient
-- Give a second bolus, if shock persist
-- If remains shocked after second bolus, Cive a further bolus, consider discussion with paediatric intensive care team.
-- Example-I A 7kg child brought into the ED with clinical shock, what would be fluid bolus for this patient? 7 x20= 140ml (to follow NICE) 7 x10=70mI (to follow resus 2021 )
-- Maintenance step — Once symptoms and signs of shock have resolved
-
-- Calculate daily maintenance requirement
-- Use 10% estimate for deficit calculation (Note: use 10% estimate for deficit calculation shock patient and 5% in non-shock patients, to assess that, check table- A in assessment). Body weight ISt 10kg 2nd 10kg 3rd 10kg Daily/per-day fluid requirements 100mI/kg 50ml/kg 20mI/kg Hourly fluid requirement 4mI/kg 2ml/kg Iml/kg
-- Example
-- I A 26 kg child responded to a 20 ml/kg or 10mI/kg (follow resus) fluid bolus and is no longer shocked. Calculate fluid deficit? formula: %age x weight x IO IO x 26 x 10 = 2600ml (replace in 24-48 hrs)
-- Example-2 A 26 kg child responded to a 20 ml/kg or 10ml/kg (follow resus) fluid bolus and is no longer shocked. What is his maintainance hourly IV fluid requirement using the standard regime?
-- Hourly maintenance = (10kg x 4mI) + (10kg x 2ml) + (6kg x Iml) = 66ml/hr
-
-if convert to daily maintenance = (100 ml/kg x 10 kg) + (50 ml/kg x IO kg) + (20 ml/kg x 6 kg) = 1620ml/day.
-
-## Emergency Management Protocol
-of gastroenteritis in children with clinical dehydration and without clinical dehydration Children with clinical features of dehydration Give the child low-osmolarity ORS solution frequently to rehydratethe child. Discourage fruit juices and carbonated drinks Avoid giving solid food until the child is rehydrated. After rehydration, advise the parents/carers to: Encourage the child to drink plenty of usual fluids, including milk feeds (if these were stopped). Reintroduce the child's usual diet Children without clinical features of dehydration Continue with usual feeds, includingbreastfeeding (if applicable) and other milk feeds. Encourage regular fluid intake Offer low-osmolarity oral rehydration salt (ORS) solution, if the child is at increased risk of dehydration Discourage fruit juices and carbonated drinks Advise that drug treatment with anti-diarrhoeal drugs, antiemetics, zinc supplements, and probiotics is not recommended. Do not routinely prescribe antibiotics to children and adult with gastroenteritis. Advise on methods to prevent transmission of infection- wash hands thoroughly, Always use a flush toilet, if possible. Advise that children/adult should not attend school or other childcare/social settings, institution/work place until at least 48 hours after the last episode of diarrhoea or vomiting. Advise parents/carers and adults on the need for follow up and to seek urgent medical advice if a child has any new features requiring stool culture testing, such as blood, mucus, and/or pus in the stool or Symptoms that do not resolve within the expected timeframe Notify the local health protection team immediately by completinga notification form, if any of the following notifiable diseases. in r mm El i n If using low-osmolarity oral rehydration salt (ORS) solution to rehydrate a child (240-250 mosm/L) :
-- Ages years or younger: give 50 mL/kg body weight for fluid deficit replacement, as well as maintenance volume of ORS solution, over 4 hours.
-
-- Note: breastfeeding can continue, but do not routinely give oral fluids other than ORS solution.
-- Age 5—11 years: give 200 mL ORS solution after each loose stool, in addition to the child's normal fluid intake. Note: the British National Formulary recommends this dose for children aged 1—11 years.
-- 200—400 mL ORS solution after every loose stool, dose according to fluid loss.
-- After rehydration, for children at increased risk of dehydration: give 5 mL/kg body weight after each large watery stool, to prevent recurrence of dehydration.
-- Managegastroenteritis due to a confirmed microbiological cause after stool culture-and-sensitiyity-testing-in-ch.ildreng
-- Seek advice from the local health protection teamregarding the need for antibiotic treatment or stool testing for microbiological clearance, particularly in a child:
-- With Shiga toxin-producing Escherichia coli(STEC) infection
-- With giardiasis- Drug treatment with tinidazole may be recommended following specialist advice.
-- With dysenteric shigellosis- Antibiotic treatment is not usually needed for children with mild symptoms of shigellosis, for severe symptoms seek specialist advise.
-- With dysenteric amoebiasis- seek specialist advise
-- With campylobacteriosis
-- Antibiotic treatment is not usually needed for children with mild symptoms, as infection is usually self-limiting.
-
-## Emergency Management Protocol
-of gastroenteritis in adults
-- Admit the patient if he has clinical shock or following features
-- The person is systemically unwell and/or there are clinical features suggesting severe dehydration and/or progression to shock.
-- There is intractable vomiting or high-output diarrhoea.
-- There is a suspected serious complication, such as sepsis.
-
-There is an inadequate response to oral rehydration salt (ORS) solution, the person
-- is unable to take ORS solution orally, or they are clinically deteriorating.
-- There are risk factors for developing dehydration, such as in the elderly, immunocompromised, those with co-morbid conditions or concurrent illness. The person/carers are unable to provide appropriate management safely at home
-
-## Emergency Management Protocol
-steps-jnapatient with above feature Follow ABCDE protocol Fluid bolus — Give a fluid bolus of 500 ml of crystalloid over less than 15 minutes.
-- Give a second bolus, if shock persist
-- If remains shocked after second bolus, Cive a further fluid bolus of 250—500 ml of
-- crystalloid and seek expert help. Once symptoms and signs of shock have resolved
-- Assess the patient's likely fluid and electrolyte needs- depends on history ,
-- comorbid and laboratory tests
-
-## Emergency Management Protocol
-of gastroenteritis in adults with clinical dehydration and
-- without clinical dehydration Adults with clinical features of dehydration Advise to use ORS solution frequently and in small amounts, such as 200—400 mL to be given after every loose motion, dose according to fluid loss, to rehydrate the person. After rehydration: Gradually reintroduce usual diet, advising that small, light, non-fatty, non- spicy meals may be better tolerated Adults without clinical features of dehydration Encourage regular fluid intake, and supplement with fruit juice and soups if needed. In adults at increased risk of dehydration (such as the elderly, immunocompromised, those with co-morbid conditions or concurrent illness)
-- Advise on the use of oral rehydration salt (ORS) solution as supplemental fluid
-
-## Emergency Management Protocol
-of gastroenteritis due to a confirmed microbiological cause after
-- stool-culture-and-sensitivity-testingjn-adults Seek advice from the local health protection team regarding the need
-- for antibiotic treatment or stool testing for microbiological clearance. Campylobacteriosis= Antibiotic treatment is not usually needed for people with
-- mild symptoms, as infection is usually self-limiting.
-- If symptoms are severe
-- consider early prescribing with clarithromycin 250—500 mg twice daily for 5—7 days, within 3 days of onset of illness. Amoebiasis or amoebic dysentery_
-- Consider metronidazole followed by the anti-protozoal drug diloxanide.
--
-- Escherichia-coli-(E2-CQli) There is no effective antibiotic treattnent available for Shiga toxin-producing
-- **E)**
-- coli(STEC) infection. Seek specialist advise
-- Giardiasis
-- Prescribe tinidazole 2 g as a single dose.
--
-- Shigellosis Antibiotic treatment is not usually needed for people with mild symptoms.
--
-- If symptoms are severe (high fever, bloody and/or high-output diarrhoea) or the person is immunocompromised, seek specialist advice on the need for antibiotic treatment. Salmonellosis (non-typhoidal)
-- Antibiotic treatment is not usually needed.
--
-- Cryptosporidiosis
-- There is no specific treatment licensed in the I-JK.  9
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Acute Gastroenteritis & Dehydration - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_01_p5.jpeg)
-*Acute Gastroenteritis & Dehydration — Clinical Figure 1 (Page 5 Reference)*
-
-![Acute Gastroenteritis & Dehydration - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_02_p6.jpeg)
-*Acute Gastroenteritis & Dehydration — Clinical Figure 2 (Page 6 Reference)*
-
-![Acute Gastroenteritis & Dehydration - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_03_p8.jpeg)
-*Acute Gastroenteritis & Dehydration — Clinical Figure 3 (Page 8 Reference)*
-
-![Acute Gastroenteritis & Dehydration - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_04_p9.jpeg)
-*Acute Gastroenteritis & Dehydration — Clinical Figure 4 (Page 9 Reference)*
-
-![Acute Gastroenteritis & Dehydration - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_05_p11.jpeg)
-*Acute Gastroenteritis & Dehydration — Clinical Figure 5 (Page 11 Reference)*
-
-![Acute Gastroenteritis & Dehydration - Clinical Figure 6](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_06_p12.jpeg)
-*Acute Gastroenteritis & Dehydration — Clinical Figure 6 (Page 12 Reference)*
-
-![Acute Gastroenteritis & Dehydration - Clinical Figure 7](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_07_p13.jpeg)
-*Acute Gastroenteritis & Dehydration — Clinical Figure 7 (Page 13 Reference)*$LEC_GAST_068$,
-      "position"   = 20,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-gastroenteritis-dehydration' OR "slug" = 'gastroenteritis');
+  -- Update alternate slug record if present
+  IF 'gastroenteritis' != 'gastroenteritis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Gastroenteritis & Dehydration',
+        "position" = 20,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'gastroenteritis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 21)
   INSERT INTO "lessons" (
@@ -13934,10 +14039,16 @@ $SBA_GAST_068$,
     "updated_at" = now();
 
   -- Pair 12/21: Acute Hepatitis & Liver Failure
-  -- A) Update & Beautify Clinical Theory Lecture (Position 22)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Hepatitis & Liver Failure',
-      "body"       = $LEC_GAST_069$# Acute Hepatitis & Liver Failure
+  -- A) Upsert Clinical Theory Lecture (Position 22)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hepatitis',
+    'Acute Hepatitis & Liver Failure',
+    'article',
+    $LEC_GAST_069$# Acute Hepatitis & Liver Failure
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -14098,13 +14209,32 @@ ReferraLpathway-
 
 ![Hepatitis - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/hepatitis/figure_05_p12.jpeg)
 *Hepatitis — Clinical Figure 5 (Page 12 Reference)*$LEC_GAST_069$,
-      "position"   = 22,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hepatitis' OR "slug" = 'hepatitis');
+    false,
+    22,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hepatitis' != 'hepatitis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Hepatitis & Liver Failure',
+        "position" = 22,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hepatitis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 23)
   INSERT INTO "lessons" (
@@ -14222,91 +14352,46 @@ $SBA_GAST_069$,
     "updated_at" = now();
 
   -- Pair 13/21: Inflammatory Bowel Disease (Crohn & UC)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 24)
-  UPDATE "lessons"
-  SET "title"      = 'Inflammatory Bowel Disease (Crohn & UC)',
-      "body"       = $LEC_GAST_070$# Inflammatory Bowel Disease (Crohn & UC)
+  -- A) Upsert Clinical Theory Lecture (Position 24)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'ibd-exacerbations-ulcerative-colitis-crohns',
+    'Inflammatory Bowel Disease (Crohn & UC)',
+    'article',
+    $LEC_GAST_070$# Inflammatory Bowel Disease (Crohn & UC)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_GAST_070$,
+    false,
+    24,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-Area of bowel affected Risk factors Common associations Clinical features Ulcerative colitis
-- Usually only affects rectum and colon. Terminal ileum may be affected if 'backwash ileitis' occurs
-- No 'skip lesions'
-- Primarily affects mucosa and submocosa
-- Mucosal ulcers, inflammatory cell infiltrate and crypt abscesses seen
-- Family history
-- Not smoking (smoking protect against UC)
-- Not Appendicectomy- Appendicectomy is thought to be protective against UC
-- Drugs — NSAID Liver associations:
--
-- Primary biliary cirrhosis
-- Chronic active hepatitis Primary sclerosing cholangitis Other systemic manifestations occur but less common than in Crohn's disease
-- Abdominal pain less prominent
-- Bloody diarrhoea in 90%. Passage of mucous common
-- Fever can be present Urgency, tenesmus and pre- defecation pain that is relieved by passage of stools common
-- FBC, ESR, C- reactive protein,U&E Crohn's disease Anywhere from the mouth to the
-- anus. these are called 'skip lesions' because they leave normal areas in between.
-- Transmural inflammation, lymphoid aggregates and neutrophil infiltrates present
-- Family history Smoking
--
-- Infectious gastroenteritis Appendicectomy
-- Drugs— NSAID Systemic manifestations more common than in UC: Erythema nodosum
-- Pyoderma gangrenosum
-- Iritis/uveitis
-- Cholelithiasis Joint pain/arthropathy
--
-- Abdominal pain
-- Diarrhoea (can be bloody)
-- Pallor, clubbing, aphthous mouth ulcers
-- Perianal pain or tenderness fatigue, malaise, anorexia, or fever
--
-- FBC, ESR, C- reactive protein,U&E
-
-## Investigations & Diagnostic Workup
-FTS, serum B12, folate and D level¯GQFTS, serum 812, folate and D leve
-- Colonoscopy with histology of
-- multiple intestinal biopsy specimens
-- Histology findings may include crypt distortion, acute inflammatory changes of cryptitis, crypt abscesses, and infiltrative changes.
-- Aminosalicylates — mesalazine and sulfasalazine (if corticosteroid Cl or not tolerated). previous
-- Immunosuppressive drugs — Next azathioprine, mercaptopurine.
-- Biologic therapy — the anti- tumour necrosis factor alpha monoclonal antibody agents infliximab and adalimumab Management & complications Complications
-- Fistulae rare 20-fold increase in 20-year risk of colonic carcinoma
-- Iron deficiency anaemia Colonoscopy: Findings may include discontinuous colonic or ileal inflammation or ulceration, a 'cobblestone' appearance, and rectal sparing. Endoscopy and biopsy gold-
-- standard for assessing mucosal activity
-- Corticosteroids —prednisolone
-- Immunosuppressive drugs — azathioprine, mercaptopurine agents infliximab and adalimumab
-- Aminosalicylates — mesalazine and sulfasalazine (if corticosteroid Cl or not tolerated). To maintain remission in people
-- with ileocolonic Crohn's disease who have had a complete macroscopic resection within the last 3 months- NICE guideline recommends azathioprine in combination with up to 3 months' postoperative metronidazole should be considered.
-- Complications
-- Fistulae and abscess formation common Slight increased risk of colonic carcinoma
-- 812 deficiency common
-
-- Iron aeTlclency anaemia
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Inflammatory Bowel Disease (Crohn & UC) - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/inflammatory-bowel-disease-crohn-uc/figure_01_p2.jpeg)
-*Inflammatory Bowel Disease (Crohn & UC) — Clinical Figure 1 (Page 2 Reference)*
-
-![Inflammatory Bowel Disease (Crohn & UC) - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/inflammatory-bowel-disease-crohn-uc/figure_02_p3.jpeg)
-*Inflammatory Bowel Disease (Crohn & UC) — Clinical Figure 2 (Page 3 Reference)*
-
-![Inflammatory Bowel Disease (Crohn & UC) - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/inflammatory-bowel-disease-crohn-uc/figure_03_p3.jpeg)
-*Inflammatory Bowel Disease (Crohn & UC) — Clinical Figure 3 (Page 3 Reference)*
-
-![Inflammatory Bowel Disease (Crohn & UC) - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/inflammatory-bowel-disease-crohn-uc/figure_04_p4.jpeg)
-*Inflammatory Bowel Disease (Crohn & UC) — Clinical Figure 4 (Page 4 Reference)*
-
-![Inflammatory Bowel Disease (Crohn & UC) - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/inflammatory-bowel-disease-crohn-uc/figure_05_p4.jpeg)
-*Inflammatory Bowel Disease (Crohn & UC) — Clinical Figure 5 (Page 4 Reference)*$LEC_GAST_070$,
-      "position"   = 24,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'inflammatory-bowel-disease-crohn-uc' OR "slug" = 'inflammatory-bowel-disease');
+  -- Update alternate slug record if present
+  IF 'inflammatory-bowel-disease' != 'ibd-exacerbations-ulcerative-colitis-crohns' THEN
+    UPDATE "lessons"
+    SET "title" = 'Inflammatory Bowel Disease (Crohn & UC)',
+        "position" = 24,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'inflammatory-bowel-disease';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 25)
   INSERT INTO "lessons" (
@@ -14421,59 +14506,46 @@ $SBA_GAST_070$,
     "updated_at" = now();
 
   -- Pair 14/21: Acute Mesenteric & Ischaemic Bowel Disease
-  -- A) Update & Beautify Clinical Theory Lecture (Position 26)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Mesenteric & Ischaemic Bowel Disease',
-      "body"       = $LEC_GAST_071$# Acute Mesenteric & Ischaemic Bowel Disease
+  -- A) Upsert Clinical Theory Lecture (Position 26)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'ischemic-bowel',
+    'Acute Mesenteric & Ischaemic Bowel Disease',
+    'article',
+    $LEC_GAST_071$# Acute Mesenteric & Ischaemic Bowel Disease
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_GAST_071$,
+    false,
+    26,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-- Definition Risk factors Clinical feature Investigations Acute mesenteric ischaemia This is an umbrella term covering a number Of conditions, includingacute mesenteric arterial embolus and thrombus, mesenteric venous thrombus and non- occlusive mesenteric ischaemia (NOMI). They all have the features of impaired blood transfusion to the intestine Age>50 years History of smoking Hypercoagulable states (strong risk factor for mesenteric venous thrombosis)
-- Afib, MI, structural heart disease History of vasculitis Of proportion. there may be minimal or no tenderness. later sta s- typical symptoms of peritonism develop, with rebound guarding and tenderness Urgent CT contrast/angiogram FBC (elevated WCC) ABGs & Serum lactate (metabolic acidosis and elevated lactate)
-- LFTS ECG
-- ECHO Chronic mesenteric ischaemia This is a chronic atherosclerotic disease of the vessels supplying the intestine. It is also known as intestinalangina. Usually all three major mesenteric arteries are involved Common in female age b/w 50 and
-
-#### Clinical Scenario 70:
-- Generally caused by factors predisposi ng to atherosclerosis
-- eg, smoking, hypertension, diabetes mellitus and hyperlipidaemia. weight loss, postprandial pain ('intestinal angina') and a fear of eating nausea, vomiting, or bowel irregularity
-
-## Clinical Examination & Assessment
-- reveal
-- vague abdominal tenderness disproportionateto the severity of the pain
-- FBC,LFTs Arteriography (gold standard) Mesenteric duplex ultrasonography Ischaemic colitis This is caused by a compromise of the blood circulation supplying the colon. Ischaemic colitis may also be caused by venous occlusion. The average age for diagnosis is
-
-#### Clinical Scenario 70:
-- Thrombosis- Inferior mesenteric artery thrombosis. Emboli
-- Mesenteric arterial emboli. Strangulated hernia or volvulus. Vasculitis Hypercoagulable states acute-onset abdominal pain
-- most frequently located in the left iliac fossa. Tenderness to palpation over the affected bowel Nausea and vomiting loose motion containingdark blood (late stage) Urgent CT contrast/angiogram
-- FBC (elevated WCC) ABCs & Serum lactate (metabolic acidosis and elevated lactate)
-- LFTS
-- AXR Colonoscopy may show blue, swollen mucosa Barium enema shows 'thumb orintinø' in the earlv nhase that
-
-- Medical thera Start IV fluid and antibiotics NG tube Should be sited Surgical intervention Urgent laparotomy should be done for patients with peritonitis
-
-## Emergency Management Protocol
-- The goals of surgery include re- establishmentof the blood supply to the ischaemic bowel; resection of all non-viable regions and preservation of all viablebowel. Endovascular revascularisation procedures may have a role with partial arterial occlusion.  Asymptomatic patients Managed conservatively, with smoking cessation and antiplatelettherapy. Symptomatic chronic mesenteric ischaemia open or endovascular revascularisation, Postoperative complication Renal failure Next may last for several days Medical therapy Start IV fluid and antibiotics The ischaemia may be transient and resolve once the cause of the hypoperfusion has been alleviated Surgical intervention Segmental colectomy Patients who have an acute episode of colonic ischaemia that evolves intoa segmental colitis pattern with symptoms persisting for
-- 2 weeks, or who develop a protein-losing colonopathyor Recurrent sepsis in a patient who has symptomatically recovered from an acute episode Of colonic ischaemia
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Acute Mesenteric & Ischemic Bowel Disease - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/acute-mesenteric-ischemic-bowel-disease/figure_01_p2.jpeg)
-*Acute Mesenteric & Ischemic Bowel Disease — Clinical Figure 1 (Page 2 Reference)*
-
-![Acute Mesenteric & Ischemic Bowel Disease - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/acute-mesenteric-ischemic-bowel-disease/figure_02_p3.jpeg)
-*Acute Mesenteric & Ischemic Bowel Disease — Clinical Figure 2 (Page 3 Reference)*
-
-![Acute Mesenteric & Ischemic Bowel Disease - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/acute-mesenteric-ischemic-bowel-disease/figure_03_p3.jpeg)
-*Acute Mesenteric & Ischemic Bowel Disease — Clinical Figure 3 (Page 3 Reference)*$LEC_GAST_071$,
-      "position"   = 26,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-mesenteric-ischemic-bowel-disease' OR "slug" = 'ischemic-bowel');
+  -- Update alternate slug record if present
+  IF 'ischemic-bowel' != 'ischemic-bowel' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Mesenteric & Ischaemic Bowel Disease',
+        "position" = 26,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'ischemic-bowel';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 27)
   INSERT INTO "lessons" (
@@ -14585,105 +14657,46 @@ $SBA_GAST_071$,
     "updated_at" = now();
 
   -- Pair 15/21: Acute Jaundice Differential in the ED
-  -- A) Update & Beautify Clinical Theory Lecture (Position 28)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Jaundice Differential in the ED',
-      "body"       = $LEC_GAST_072$# Acute Jaundice Differential in the ED
+  -- A) Upsert Clinical Theory Lecture (Position 28)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'jaundice',
+    'Acute Jaundice Differential in the ED',
+    'article',
+    $LEC_GAST_072$# Acute Jaundice Differential in the ED
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_GAST_072$,
+    false,
+    28,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
 
-Pre-hepatic
-- Haem molecules are degraded in macrophages via biliverdin to bilirubin. This occurs mainly in the spleen and liver but also in other tissues such as the skin and kidneys. . Causes Haemolytic anaemias
-- Sickle cell disease, thalassemia major, Hereditary spherocytosis, G6PD, Vitamin B12 deficiency, Autoimmune disorders) Drugs
-- Haemolysisof RBCs (for example, methyldopa, and sulphasalazine).
-- Hepatitis (for example, paracetamol overdose, pyrazinamide, rifampicin, and isoniazid).
-- Cholestasis (for example, co- amoxiclav, flucloxacillin, oral contraceptives, HRT, chlorpromazine, and corticosteroids).
-- Hepatic idiosyncratic reactions (for example, aspirin, NSAIDs, amiodarone, sodium valproate, and minocycline) Gilbert's syndron
-- e
-- Plasma bilirubin concentrations can rise in people with Gilbert's syndrome during intercurrent illness, periods of stress, when Intra-hepatic
-- Once in the liver, unconjugated bilirubin is selectively removed from the blood by hepatocytes. It is then conjugated in the hepatocytes with glucuronic acid, becomes water soluble, and can be excreted in bile. Causes Viral infection
-- HepatitisA, B, C, D, and E, Epstein-Barr virus, HIV infection. Alcohol Alcohol-related liver disease is a major cause of morbidity and mortality in Europe. Non-alcoholic fatty liver disease (NAFLD)
-- Non-alcoholic fatty liver disease refers to excessive fat accumulation (steatosis) in the hepatocytes. Autoimmune liver disorders. Primarv biliary cholangitis (common in middle age women, 95% of people with PBC have high titres of anti- mitochondrial antibodies). Primary sclerosing cholangitis (PSC is more common in men. Nearly 70% of people with PSC also have inflammatory bowel disease and it can lead Post-hepatic
-- Soluble bilirubin is transported through the liver and cystic ducts in bile and then stored in the gallbladder or passes into the duodenum. In the intestine, some bilirubin is excreted in the stool and the rest is metabolized by gut flora into urobilinogen and reabsorbed and excreted by the kidneys. Causes
-- Gallstones
-- Biliary colic
-- this describes pain in the epigastrium or right upper quadrant that is usually persistent, lasting from 15 minutes up to several hours. Pain lasting more than 24 hours or accompanied by fever suggests acute cholecystitis.
-- Acute cholecystitis
-- it is inflammation or infection of the gallbladder with pain similar to biliary colic along with fever and tenderness in the right upper quadrant.
-- Acute cholangitis
-- It is an inflammation or infection of the common bile duct. It is classically diagnosed by the symptoms of Charcot's triad fever, pain, and jaundice. Surqicalstrictures '&liary strictures and infectio
-
-menstruation Criqler-Naiiarsyndrome
-- presents in neonates with progressive jaundice in the first few days of life. If untreated it leads to bilirubin encephalopathy (kernicterus) and death. cnolanglocarcmo Antinuclear cytoplasmic antibody is present in 30% of people with PSC). Autoimmune hepatitis Metabolic causes of intra- hepatic iaundice Dubin-Johnson and Rotor's syndromes, Haemochromatosis, Wilson's disease. Druqs (mentioned in pre-hepatic) Maliqnancv of the biliarv system should be considered in people with post-operative jaundice.
-- Biliary strictures can occur following liver transplantation or cholecystectomy. Extra-hepatic ma lig nancv Pancreatic cancer
-- Pancreatitis
-- The most common causes of pancreatitis are alcohol misuse and gallstones. Parasitic infection
-- Plasmodium falciparum, Fasciola, Chlonorchis.
-- Hepatocellular carcinoma, Cholangiocarcinoma, Gallbladder cancer. Jaundice in newborn
-
-- Physiological jaundice Breastmilk jaundice Causes Risk factors At usually appears at 2 days of age, peaks on days 3—5, and then decreases, usually by around day 10
-- Physiological jaundice can occur in breastfed and formula-fed babies and results from increased bilirubin load, decreased uptake by the liver, decreased conjugation in the liver, and decreased excretion into bile.
-- Decreased gestational age/preterm delivery.
-- Low infant birth weight.
-- Development of jaundice within first 24 hours Of life.
-- Male sex
-- Visible bruising, Cephalhaematoa
-- Maternal age older than 25 years, or Maternal DM
-- Asian, European, or native American ethnicity.
-- Sibling born with jaundice.
-- Dehydration, Poor caloric intake, breastfeeding
-- Reassurance & Advice leaflet Management At is prolongation of physiological jaundice in breastfed babies. At usually presents within the first week of life (day 2—4) and peaks on day 7—
-
-#### Clinical Scenario 15:
-- In some cases, it can persist for up to 12 weeks. Ahe mechanism is unknown, but possible reasons include a decreased caloric intake and inhibition of hepatic bilirubin excretion Same as in physiological
-- First line Reassurance
-- Temporary breast-feeding cessation and supplemental feeding maybe considered.
-- Second-line — phototherapy and hydration.
-- Third-line — exchange transfusion Pathological jaundice Vit usually appears less than 24 hours. At can be caused bv a number of factors. including:
-- most commonly Rhesus or ABO incompatibility.
-- biliary atresia Sepsis
-- Metabolic disorders (for example galactosaemia, hereditary fructose intolerance, alpha-I antitrypsin deficiency, hypothyroidism)
-- Gilbert's syndrome and Cigler-Najjar syndrome
-- G6PD deficiency. Same there is jaundice with features Of bilirubin encephalopathy (for example atypical sleepiness, poor feeding, irritability, vomiting, hypotonia followed by hypertonia).
-- Arranqe urgent admission to a neonatal or paediatric unit
-- within 2 hours if jaundice first appears at less than 24 hours of age. Arranae uraent admission to a neonatal or paediatric unit
-- as soon as possible and to be seen within 6 hours (using clinical
-
-- previous  uagemem regaralng more urgent rererral o admission) if:
-- Jaundice first appears at more than 7 days of age.
-- The neonate is unwell (for example, lethargy, fever, vomiting, irritability).
-- Gestational age is of less than 35 weeks.
-- Prolonged jaundice is suspected — that is a gestational age Of less than 37 weeks with more than 21 days Of jaundice; or a gestational age Of 37 weeks or more with more than 14 days of jaundice.
-- There are feeding problems and/or concerns about weight, particularly in breastfed infants.
-- Pale stools and dark urine are noted.
-- Specialist treatment include
-- Phototherapy, hydration and exchange
-- nsfusion (if not respond to phototherapy Next
-
-### Clinical Figures & Diagnostic Algorithms
-
-![Acute Jaundice Differential in the ED - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/acute-jaundice-differential-in-the-ed/figure_01_p2.jpeg)
-*Acute Jaundice Differential in the ED — Clinical Figure 1 (Page 2 Reference)*
-
-![Acute Jaundice Differential in the ED - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/acute-jaundice-differential-in-the-ed/figure_02_p3.jpeg)
-*Acute Jaundice Differential in the ED — Clinical Figure 2 (Page 3 Reference)*
-
-![Acute Jaundice Differential in the ED - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/acute-jaundice-differential-in-the-ed/figure_03_p4.jpeg)
-*Acute Jaundice Differential in the ED — Clinical Figure 3 (Page 4 Reference)*
-
-![Acute Jaundice Differential in the ED - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/acute-jaundice-differential-in-the-ed/figure_04_p5.jpeg)
-*Acute Jaundice Differential in the ED — Clinical Figure 4 (Page 5 Reference)*
-
-![Acute Jaundice Differential in the ED - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/acute-jaundice-differential-in-the-ed/figure_05_p5.jpeg)
-*Acute Jaundice Differential in the ED — Clinical Figure 5 (Page 5 Reference)*$LEC_GAST_072$,
-      "position"   = 28,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-jaundice-differential-in-the-ed' OR "slug" = 'jaundice');
+  -- Update alternate slug record if present
+  IF 'jaundice' != 'jaundice' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Jaundice Differential in the ED',
+        "position" = 28,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'jaundice';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 29)
   INSERT INTO "lessons" (
@@ -14801,10 +14814,16 @@ $SBA_GAST_072$,
     "updated_at" = now();
 
   -- Pair 16/21: Pancreatitis & Loin Pain Differential
-  -- A) Update & Beautify Clinical Theory Lecture (Position 30)
-  UPDATE "lessons"
-  SET "title"      = 'Pancreatitis & Loin Pain Differential',
-      "body"       = $LEC_GAST_073$# Pancreatitis & Loin Pain Differential
+  -- A) Upsert Clinical Theory Lecture (Position 30)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'loin-pain-pancreatitis',
+    'Pancreatitis & Loin Pain Differential',
+    'article',
+    $LEC_GAST_073$# Pancreatitis & Loin Pain Differential
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -14843,13 +14862,32 @@ tissue.
 
 ![Loin Pain Pancreatitis - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/loin-pain-pancreatitis/figure_01_p3.jpeg)
 *Loin Pain Pancreatitis — Clinical Figure 1 (Page 3 Reference)*$LEC_GAST_073$,
-      "position"   = 30,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'loin-pain-pancreatitis' OR "slug" = 'loin-pain-pancreatitis');
+    false,
+    30,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'loin-pain-pancreatitis' != 'loin-pain-pancreatitis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Pancreatitis & Loin Pain Differential',
+        "position" = 30,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'loin-pain-pancreatitis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 31)
   INSERT INTO "lessons" (
@@ -14955,10 +14993,16 @@ $SBA_GAST_073$,
     "updated_at" = now();
 
   -- Pair 17/21: Acute Lower Gastrointestinal Bleeding
-  -- A) Update & Beautify Clinical Theory Lecture (Position 32)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Lower Gastrointestinal Bleeding',
-      "body"       = $LEC_GAST_074$# Acute Lower Gastrointestinal Bleeding
+  -- A) Upsert Clinical Theory Lecture (Position 32)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'lower-gi-bleeding',
+    'Acute Lower Gastrointestinal Bleeding',
+    'article',
+    $LEC_GAST_074$# Acute Lower Gastrointestinal Bleeding
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -15029,13 +15073,32 @@ Resuscitation
 
 ![Lower Gi Bleeding - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/lower-gi-bleeding/figure_01_p5.jpeg)
 *Lower Gi Bleeding — Clinical Figure 1 (Page 5 Reference)*$LEC_GAST_074$,
-      "position"   = 32,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'lower-gi-bleeding' OR "slug" = 'lower-gi-bleeding');
+    false,
+    32,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'lower-gi-bleeding' != 'lower-gi-bleeding' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Lower Gastrointestinal Bleeding',
+        "position" = 32,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'lower-gi-bleeding';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 33)
   INSERT INTO "lessons" (
@@ -15141,10 +15204,16 @@ $SBA_GAST_074$,
     "updated_at" = now();
 
   -- Pair 18/21: Mallory-Weiss Syndrome & Upper GI Bleeding
-  -- A) Update & Beautify Clinical Theory Lecture (Position 34)
-  UPDATE "lessons"
-  SET "title"      = 'Mallory-Weiss Syndrome & Upper GI Bleeding',
-      "body"       = $LEC_GAST_075$# Mallory-Weiss Syndrome & Upper GI Bleeding
+  -- A) Upsert Clinical Theory Lecture (Position 34)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'mallory-weiss-syndrome-upper-gi-bleeding',
+    'Mallory-Weiss Syndrome & Upper GI Bleeding',
+    'article',
+    $LEC_GAST_075$# Mallory-Weiss Syndrome & Upper GI Bleeding
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -15171,13 +15240,32 @@ previOUS
 
 ![Mallory-Weiss Syndrome & Upper GI Bleeding - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/mallory-weiss-syndrome-upper-gi-bleeding/figure_04_p5.jpeg)
 *Mallory-Weiss Syndrome & Upper GI Bleeding — Clinical Figure 4 (Page 5 Reference)*$LEC_GAST_075$,
-      "position"   = 34,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'mallory-weiss-syndrome-upper-gi-bleeding' OR "slug" = 'mallory-weiss-tear');
+    false,
+    34,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'mallory-weiss-tear' != 'mallory-weiss-syndrome-upper-gi-bleeding' THEN
+    UPDATE "lessons"
+    SET "title" = 'Mallory-Weiss Syndrome & Upper GI Bleeding',
+        "position" = 34,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'mallory-weiss-tear';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 35)
   INSERT INTO "lessons" (
@@ -15292,10 +15380,16 @@ $SBA_GAST_075$,
     "updated_at" = now();
 
   -- Pair 19/21: Peptic Ulcer Disease & Complications
-  -- A) Update & Beautify Clinical Theory Lecture (Position 36)
-  UPDATE "lessons"
-  SET "title"      = 'Peptic Ulcer Disease & Complications',
-      "body"       = $LEC_GAST_076$# Peptic Ulcer Disease & Complications
+  -- A) Upsert Clinical Theory Lecture (Position 36)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'peptic-ulcer',
+    'Peptic Ulcer Disease & Complications',
+    'article',
+    $LEC_GAST_076$# Peptic Ulcer Disease & Complications
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -15337,13 +15431,32 @@ previOUS
 
 ![Peptic Ulcer - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/peptic-ulcer/figure_01_p4.jpeg)
 *Peptic Ulcer — Clinical Figure 1 (Page 4 Reference)*$LEC_GAST_076$,
-      "position"   = 36,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'peptic-ulcer' OR "slug" = 'peptic-ulcer');
+    false,
+    36,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'peptic-ulcer' != 'peptic-ulcer' THEN
+    UPDATE "lessons"
+    SET "title" = 'Peptic Ulcer Disease & Complications',
+        "position" = 36,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'peptic-ulcer';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 37)
   INSERT INTO "lessons" (
@@ -15449,10 +15562,16 @@ $SBA_GAST_076$,
     "updated_at" = now();
 
   -- Pair 20/21: Infantile Hypertrophic Pyloric Stenosis
-  -- A) Update & Beautify Clinical Theory Lecture (Position 38)
-  UPDATE "lessons"
-  SET "title"      = 'Infantile Hypertrophic Pyloric Stenosis',
-      "body"       = $LEC_GAST_077$# Infantile Hypertrophic Pyloric Stenosis
+  -- A) Upsert Clinical Theory Lecture (Position 38)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'pykoric-stenosis',
+    'Infantile Hypertrophic Pyloric Stenosis',
+    'article',
+    $LEC_GAST_077$# Infantile Hypertrophic Pyloric Stenosis
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -15484,13 +15603,32 @@ previOUS
 
 ![Pykoric Stenosis - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/pykoric-stenosis/figure_02_p4.jpeg)
 *Pykoric Stenosis — Clinical Figure 2 (Page 4 Reference)*$LEC_GAST_077$,
-      "position"   = 38,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'pykoric-stenosis' OR "slug" = 'pyloric-stenosis');
+    false,
+    38,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'pyloric-stenosis' != 'pykoric-stenosis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Infantile Hypertrophic Pyloric Stenosis',
+        "position" = 38,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'pyloric-stenosis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 39)
   INSERT INTO "lessons" (
@@ -15599,10 +15737,16 @@ $SBA_GAST_077$,
     "updated_at" = now();
 
   -- Pair 21/21: Upper Gastrointestinal Bleeding & Resuscitation
-  -- A) Update & Beautify Clinical Theory Lecture (Position 40)
-  UPDATE "lessons"
-  SET "title"      = 'Upper Gastrointestinal Bleeding & Resuscitation',
-      "body"       = $LEC_GAST_078$# Upper Gastrointestinal Bleeding & Resuscitation
+  -- A) Upsert Clinical Theory Lecture (Position 40)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'upper-gi-bleeding',
+    'Upper Gastrointestinal Bleeding & Resuscitation',
+    'article',
+    $LEC_GAST_078$# Upper Gastrointestinal Bleeding & Resuscitation
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -15752,13 +15896,32 @@ IGV — isolated gastric varices. previOUS
 
 ![Upper Gi Bleeding - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/upper-gi-bleeding/figure_05_p13.jpeg)
 *Upper Gi Bleeding — Clinical Figure 5 (Page 13 Reference)*$LEC_GAST_078$,
-      "position"   = 40,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'upper-gi-bleeding' OR "slug" = 'upper-gi-bleeding');
+    false,
+    40,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'upper-gi-bleeding' != 'upper-gi-bleeding' THEN
+    UPDATE "lessons"
+    SET "title" = 'Upper Gastrointestinal Bleeding & Resuscitation',
+        "position" = 40,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'upper-gi-bleeding';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 41)
   INSERT INTO "lessons" (
@@ -15877,18 +16040,21 @@ $SBA_GAST_078$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Nephrology & Acid-Base Disorders (8 Topics)
+  -- Specialty: Nephrology & Acid-Base Disorders (8 Topics) -> Module UUID 27ed28c6-c5e7-408f-ad2d-76c37e09c5a4
   -- ------------------------------------------------------------------------
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Nephrology & Acid-Base Disorders' AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NULL THEN
-    RAISE EXCEPTION 'Module Nephrology & Acid-Base Disorders not found in mrcem-sba';
-  END IF;
+  v_mod_id := '27ed28c6-c5e7-408f-ad2d-76c37e09c5a4';
 
   -- Pair 1/8: Acute Kidney Injury (AKI) & KDIGO Staging
-  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Kidney Injury (AKI) & KDIGO Staging',
-      "body"       = $LEC_NEPH_079$# Acute Kidney Injury (AKI) & KDIGO Staging
+  -- A) Upsert Clinical Theory Lecture (Position 0)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'aki',
+    'Acute Kidney Injury (AKI) & KDIGO Staging',
+    'article',
+    $LEC_NEPH_079$# Acute Kidney Injury (AKI) & KDIGO Staging
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -16019,13 +16185,32 @@ will usually have oliguric AKI.
 
 ![AKI - Clinical Figure 3](/lessons/images/sba/nephrology-acid-base/aki/figure_03_p9.jpeg)
 *AKI — Clinical Figure 3 (Page 9 Reference)*$LEC_NEPH_079$,
-      "position"   = 0,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'aki' OR "slug" = 'acute-kidney-injury');
+    false,
+    0,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'acute-kidney-injury' != 'aki' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Kidney Injury (AKI) & KDIGO Staging',
+        "position" = 0,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'acute-kidney-injury';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
@@ -16137,10 +16322,16 @@ $SBA_NEPH_079$,
     "updated_at" = now();
 
   -- Pair 2/8: Potassium Disorders: Hyperkalaemia & Hypokalaemia
-  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
-  UPDATE "lessons"
-  SET "title"      = 'Potassium Disorders: Hyperkalaemia & Hypokalaemia',
-      "body"       = $LEC_NEPH_080$# Potassium Disorders: Hyperkalaemia & Hypokalaemia
+  -- A) Upsert Clinical Theory Lecture (Position 2)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hyper-and-hypokalemia',
+    'Potassium Disorders: Hyperkalaemia & Hypokalaemia',
+    'article',
+    $LEC_NEPH_080$# Potassium Disorders: Hyperkalaemia & Hypokalaemia
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -16205,13 +16396,32 @@ and medical therapy Monitor serum K + and blood glucose
 
 ![Hyper and Hypokalemia - Clinical Figure 6](/lessons/images/sba/nephrology-acid-base/hyper-and-hypokalemia/figure_06_p7.jpeg)
 *Hyper and Hypokalemia — Clinical Figure 6 (Page 7 Reference)*$LEC_NEPH_080$,
-      "position"   = 2,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hyper-and-hypokalemia' OR "slug" = 'hyper-hypokalemia');
+    false,
+    2,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hyper-hypokalemia' != 'hyper-and-hypokalemia' THEN
+    UPDATE "lessons"
+    SET "title" = 'Potassium Disorders: Hyperkalaemia & Hypokalaemia',
+        "position" = 2,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hyper-hypokalemia';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
@@ -16332,10 +16542,16 @@ $SBA_NEPH_080$,
     "updated_at" = now();
 
   -- Pair 3/8: Hypercalcaemia Emergency Management
-  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
-  UPDATE "lessons"
-  SET "title"      = 'Hypercalcaemia Emergency Management',
-      "body"       = $LEC_NEPH_081$# Hypercalcaemia Emergency Management
+  -- A) Upsert Clinical Theory Lecture (Position 4)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hypercalemia',
+    'Hypercalcaemia Emergency Management',
+    'article',
+    $LEC_NEPH_081$# Hypercalcaemia Emergency Management
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -16393,13 +16609,32 @@ depending on clinical judgement.
 
 ![Hypercalemia - Clinical Figure 2](/lessons/images/sba/nephrology-acid-base/hypercalemia/figure_02_p4.jpeg)
 *Hypercalemia — Clinical Figure 2 (Page 4 Reference)*$LEC_NEPH_081$,
-      "position"   = 4,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hypercalemia' OR "slug" = 'hypercalcemia');
+    false,
+    4,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hypercalcemia' != 'hypercalemia' THEN
+    UPDATE "lessons"
+    SET "title" = 'Hypercalcaemia Emergency Management',
+        "position" = 4,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hypercalcemia';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
@@ -16505,10 +16740,16 @@ $SBA_NEPH_081$,
     "updated_at" = now();
 
   -- Pair 4/8: Hyperkalaemic Cardiac Arrest Protocols
-  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
-  UPDATE "lessons"
-  SET "title"      = 'Hyperkalaemic Cardiac Arrest Protocols',
-      "body"       = $LEC_NEPH_082$# Hyperkalaemic Cardiac Arrest Protocols
+  -- A) Upsert Clinical Theory Lecture (Position 6)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hyperkalemic-cardiac-arest',
+    'Hyperkalaemic Cardiac Arrest Protocols',
+    'article',
+    $LEC_NEPH_082$# Hyperkalaemic Cardiac Arrest Protocols
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -16532,13 +16773,32 @@ a prevent recurrence Dose Regimen
 
 ![Hyperkalemic Cardiac Arest - Clinical Figure 3](/lessons/images/sba/nephrology-acid-base/hyperkalemic-cardiac-arest/figure_03_p3.jpeg)
 *Hyperkalemic Cardiac Arest — Clinical Figure 3 (Page 3 Reference)*$LEC_NEPH_082$,
-      "position"   = 6,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hyperkalemic-cardiac-arest' OR "slug" = 'hyperkalemic-cardiac-arrest');
+    false,
+    6,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hyperkalemic-cardiac-arrest' != 'hyperkalemic-cardiac-arest' THEN
+    UPDATE "lessons"
+    SET "title" = 'Hyperkalaemic Cardiac Arrest Protocols',
+        "position" = 6,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hyperkalemic-cardiac-arrest';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
@@ -16650,10 +16910,16 @@ $SBA_NEPH_082$,
     "updated_at" = now();
 
   -- Pair 5/8: Hypernatraemia Emergency Management
-  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
-  UPDATE "lessons"
-  SET "title"      = 'Hypernatraemia Emergency Management',
-      "body"       = $LEC_NEPH_083$# Hypernatraemia Emergency Management
+  -- A) Upsert Clinical Theory Lecture (Position 8)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hypernatremia',
+    'Hypernatraemia Emergency Management',
+    'article',
+    $LEC_NEPH_083$# Hypernatraemia Emergency Management
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -16732,13 +16998,32 @@ First line
 
 ![Hypernatremia - Clinical Figure 2](/lessons/images/sba/nephrology-acid-base/hypernatremia/figure_02_p6.jpeg)
 *Hypernatremia — Clinical Figure 2 (Page 6 Reference)*$LEC_NEPH_083$,
-      "position"   = 8,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hypernatremia' OR "slug" = 'hypernatremia');
+    false,
+    8,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hypernatremia' != 'hypernatremia' THEN
+    UPDATE "lessons"
+    SET "title" = 'Hypernatraemia Emergency Management',
+        "position" = 8,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hypernatremia';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
@@ -16847,10 +17132,16 @@ $SBA_NEPH_083$,
     "updated_at" = now();
 
   -- Pair 6/8: Hypocalcaemia & Tetany
-  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
-  UPDATE "lessons"
-  SET "title"      = 'Hypocalcaemia & Tetany',
-      "body"       = $LEC_NEPH_084$# Hypocalcaemia & Tetany
+  -- A) Upsert Clinical Theory Lecture (Position 10)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hypocalecemia',
+    'Hypocalcaemia & Tetany',
+    'article',
+    $LEC_NEPH_084$# Hypocalcaemia & Tetany
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -16898,13 +17189,32 @@ risk of complications with a serum calcium <1.90 mmol/L
 
 ![Hypocalecemia - Clinical Figure 2](/lessons/images/sba/nephrology-acid-base/hypocalecemia/figure_02_p4.jpeg)
 *Hypocalecemia — Clinical Figure 2 (Page 4 Reference)*$LEC_NEPH_084$,
-      "position"   = 10,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hypocalecemia' OR "slug" = 'hypocalcemia');
+    false,
+    10,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hypocalcemia' != 'hypocalecemia' THEN
+    UPDATE "lessons"
+    SET "title" = 'Hypocalcaemia & Tetany',
+        "position" = 10,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hypocalcemia';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
@@ -17013,10 +17323,16 @@ $SBA_NEPH_084$,
     "updated_at" = now();
 
   -- Pair 7/8: Hypokalaemia Emergency Management
-  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
-  UPDATE "lessons"
-  SET "title"      = 'Hypokalaemia Emergency Management',
-      "body"       = $LEC_NEPH_085$# Hypokalaemia Emergency Management
+  -- A) Upsert Clinical Theory Lecture (Position 12)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hypokalemia',
+    'Hypokalaemia Emergency Management',
+    'article',
+    $LEC_NEPH_085$# Hypokalaemia Emergency Management
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -17083,13 +17399,32 @@ potassium replacement — is required urgently in patients with severe hypokalae
 
 ![Hypokalemia - Clinical Figure 3](/lessons/images/sba/nephrology-acid-base/hypokalemia/figure_03_p6.jpeg)
 *Hypokalemia — Clinical Figure 3 (Page 6 Reference)*$LEC_NEPH_085$,
-      "position"   = 12,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hypokalemia' OR "slug" = 'hypokalemia');
+    false,
+    12,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hypokalemia' != 'hypokalemia' THEN
+    UPDATE "lessons"
+    SET "title" = 'Hypokalaemia Emergency Management',
+        "position" = 12,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hypokalemia';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
@@ -17201,10 +17536,16 @@ $SBA_NEPH_085$,
     "updated_at" = now();
 
   -- Pair 8/8: Hyponatraemia & Osmotic Demyelination
-  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
-  UPDATE "lessons"
-  SET "title"      = 'Hyponatraemia & Osmotic Demyelination',
-      "body"       = $LEC_NEPH_086$# Hyponatraemia & Osmotic Demyelination
+  -- A) Upsert Clinical Theory Lecture (Position 14)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hyponatremia',
+    'Hyponatraemia & Osmotic Demyelination',
+    'article',
+    $LEC_NEPH_086$# Hyponatraemia & Osmotic Demyelination
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -17272,13 +17613,32 @@ Hypervolaemic Hyponatraemia Treat underlying cause. Stop offending drugs and flu
 
 ![Hyponatremia - Clinical Figure 3](/lessons/images/sba/nephrology-acid-base/hyponatremia/figure_03_p5.jpeg)
 *Hyponatremia — Clinical Figure 3 (Page 5 Reference)*$LEC_NEPH_086$,
-      "position"   = 14,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hyponatremia' OR "slug" = 'hyponatremia');
+    false,
+    14,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hyponatremia' != 'hyponatremia' THEN
+    UPDATE "lessons"
+    SET "title" = 'Hyponatraemia & Osmotic Demyelination',
+        "position" = 14,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hyponatremia';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
@@ -17391,18 +17751,21 @@ $SBA_NEPH_086$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Urological Emergencies (11 Topics)
+  -- Specialty: Urological Emergencies (11 Topics) -> Module UUID 3ac8ba66-ddd6-4057-aff3-dd6019e5cea6
   -- ------------------------------------------------------------------------
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Urological Emergencies' AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NULL THEN
-    RAISE EXCEPTION 'Module Urological Emergencies not found in mrcem-sba';
-  END IF;
+  v_mod_id := '3ac8ba66-ddd6-4057-aff3-dd6019e5cea6';
 
   -- Pair 1/11: Acute Pyelonephritis Management
-  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Pyelonephritis Management',
-      "body"       = $LEC_UROL_087$# Acute Pyelonephritis Management
+  -- A) Upsert Clinical Theory Lecture (Position 0)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'acute-pyelonephritis-management',
+    'Acute Pyelonephritis Management',
+    'article',
+    $LEC_UROL_087$# Acute Pyelonephritis Management
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -17464,13 +17827,32 @@ Referral pathway Consider referring or seeking specialist advice for people with
 ## Emergency Management Protocol
 /figure_01_p5.jpeg)
 *Acute Pyelonephritis Management — Clinical Figure 1 (Page 5 Reference)*$LEC_UROL_087$,
-      "position"   = 0,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-pyelonephritis-management' OR "slug" = 'acute-pyelonephritis');
+    false,
+    0,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'acute-pyelonephritis' != 'acute-pyelonephritis-management' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Pyelonephritis Management',
+        "position" = 0,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'acute-pyelonephritis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
@@ -17576,10 +17958,16 @@ $SBA_UROL_087$,
     "updated_at" = now();
 
   -- Pair 2/11: Dysuria & Lower Urinary Tract Infections
-  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
-  UPDATE "lessons"
-  SET "title"      = 'Dysuria & Lower Urinary Tract Infections',
-      "body"       = $LEC_UROL_088$# Dysuria & Lower Urinary Tract Infections
+  -- A) Upsert Clinical Theory Lecture (Position 2)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'dysuria-lower-urinary-tract-infections',
+    'Dysuria & Lower Urinary Tract Infections',
+    'article',
+    $LEC_UROL_088$# Dysuria & Lower Urinary Tract Infections
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -17719,13 +18107,32 @@ Refer-to-urology-men-who;
 
 ![Dysuria & Lower Urinary Tract Infections - Clinical Figure 1](/lessons/images/sba/urological-emergencies/dysuria-lower-urinary-tract-infections/figure_01_p8.jpeg)
 *Dysuria & Lower Urinary Tract Infections — Clinical Figure 1 (Page 8 Reference)*$LEC_UROL_088$,
-      "position"   = 2,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'dysuria-lower-urinary-tract-infections' OR "slug" = 'dysuria');
+    false,
+    2,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'dysuria' != 'dysuria-lower-urinary-tract-infections' THEN
+    UPDATE "lessons"
+    SET "title" = 'Dysuria & Lower Urinary Tract Infections',
+        "position" = 2,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'dysuria';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
@@ -17831,10 +18238,16 @@ $SBA_UROL_088$,
     "updated_at" = now();
 
   -- Pair 3/11: Epididymo-Orchitis Management
-  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
-  UPDATE "lessons"
-  SET "title"      = 'Epididymo-Orchitis Management',
-      "body"       = $LEC_UROL_089$# Epididymo-Orchitis Management
+  -- A) Upsert Clinical Theory Lecture (Position 4)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'epididymo-orchitis',
+    'Epididymo-Orchitis Management',
+    'article',
+    $LEC_UROL_089$# Epididymo-Orchitis Management
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -17886,13 +18299,32 @@ Diagnosis made clinically
 
 ![Epididymo-Orchitis - Clinical Figure 1](/lessons/images/sba/urological-emergencies/epididymo-orchitis/figure_01_p4.jpeg)
 *Epididymo-Orchitis — Clinical Figure 1 (Page 4 Reference)*$LEC_UROL_089$,
-      "position"   = 4,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'epididymo-orchitis' OR "slug" = 'epididymo-orchitis');
+    false,
+    4,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'epididymo-orchitis' != 'epididymo-orchitis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Epididymo-Orchitis Management',
+        "position" = 4,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'epididymo-orchitis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
@@ -17998,10 +18430,16 @@ $SBA_UROL_089$,
     "updated_at" = now();
 
   -- Pair 4/11: Haematuria & Urological Malignancies
-  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
-  UPDATE "lessons"
-  SET "title"      = 'Haematuria & Urological Malignancies',
-      "body"       = $LEC_UROL_090$# Haematuria & Urological Malignancies
+  -- A) Upsert Clinical Theory Lecture (Position 6)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'hematuria-urological-malignancies',
+    'Haematuria & Urological Malignancies',
+    'article',
+    $LEC_UROL_090$# Haematuria & Urological Malignancies
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -18098,13 +18536,32 @@ previous  or persistem unexp
 
 ![Hematuria & Urological Malignancies - Clinical Figure 4](/lessons/images/sba/urological-emergencies/hematuria-urological-malignancies/figure_04_p8.jpeg)
 *Hematuria & Urological Malignancies — Clinical Figure 4 (Page 8 Reference)*$LEC_UROL_090$,
-      "position"   = 6,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'hematuria-urological-malignancies' OR "slug" = 'hematuria-cancer');
+    false,
+    6,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'hematuria-cancer' != 'hematuria-urological-malignancies' THEN
+    UPDATE "lessons"
+    SET "title" = 'Haematuria & Urological Malignancies',
+        "position" = 6,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'hematuria-cancer';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
@@ -18219,10 +18676,16 @@ $SBA_UROL_090$,
     "updated_at" = now();
 
   -- Pair 5/11: Phimosis & Paraphimosis Emergencies
-  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
-  UPDATE "lessons"
-  SET "title"      = 'Phimosis & Paraphimosis Emergencies',
-      "body"       = $LEC_UROL_091$# Phimosis & Paraphimosis Emergencies
+  -- A) Upsert Clinical Theory Lecture (Position 8)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'phimosis-paraphimosis-emergencies',
+    'Phimosis & Paraphimosis Emergencies',
+    'article',
+    $LEC_UROL_091$# Phimosis & Paraphimosis Emergencies
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -18241,13 +18704,32 @@ Step-I manipulation Step-2 Puncture technique Step-3 Surgical intervention
 
 ![Phimosis & Paraphimosis Emergencies - Clinical Figure 3](/lessons/images/sba/urological-emergencies/phimosis-paraphimosis-emergencies/figure_03_p3.jpeg)
 *Phimosis & Paraphimosis Emergencies — Clinical Figure 3 (Page 3 Reference)*$LEC_UROL_091$,
-      "position"   = 8,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'phimosis-paraphimosis-emergencies' OR "slug" = 'phimosis-paraphimosis');
+    false,
+    8,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'phimosis-paraphimosis' != 'phimosis-paraphimosis-emergencies' THEN
+    UPDATE "lessons"
+    SET "title" = 'Phimosis & Paraphimosis Emergencies',
+        "position" = 8,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'phimosis-paraphimosis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
@@ -18359,10 +18841,16 @@ $SBA_UROL_091$,
     "updated_at" = now();
 
   -- Pair 6/11: Priapism Emergency Management
-  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
-  UPDATE "lessons"
-  SET "title"      = 'Priapism Emergency Management',
-      "body"       = $LEC_UROL_092$# Priapism Emergency Management
+  -- A) Upsert Clinical Theory Lecture (Position 10)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'priapism-emergency-management',
+    'Priapism Emergency Management',
+    'article',
+    $LEC_UROL_092$# Priapism Emergency Management
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -18455,13 +18943,32 @@ Key_points
 ## Emergency Management Protocol
 /figure_06_p9.jpeg)
 *Priapism Emergency Management — Clinical Figure 6 (Page 9 Reference)*$LEC_UROL_092$,
-      "position"   = 10,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'priapism-emergency-management' OR "slug" = 'priapism');
+    false,
+    10,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'priapism' != 'priapism-emergency-management' THEN
+    UPDATE "lessons"
+    SET "title" = 'Priapism Emergency Management',
+        "position" = 10,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'priapism';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
@@ -18582,10 +19089,16 @@ $SBA_UROL_092$,
     "updated_at" = now();
 
   -- Pair 7/11: Acute Bacterial Prostatitis
-  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Bacterial Prostatitis',
-      "body"       = $LEC_UROL_093$# Acute Bacterial Prostatitis
+  -- A) Upsert Clinical Theory Lecture (Position 12)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'acute-bacterial-prostatitis',
+    'Acute Bacterial Prostatitis',
+    'article',
+    $LEC_UROL_093$# Acute Bacterial Prostatitis
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -18670,13 +19183,32 @@ Reassurance and counselling
 
 ![Acute Bacterial Prostatitis - Clinical Figure 1](/lessons/images/sba/urological-emergencies/acute-bacterial-prostatitis/figure_01_p6.jpeg)
 *Acute Bacterial Prostatitis — Clinical Figure 1 (Page 6 Reference)*$LEC_UROL_093$,
-      "position"   = 12,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-bacterial-prostatitis' OR "slug" = 'prostatitis');
+    false,
+    12,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'prostatitis' != 'acute-bacterial-prostatitis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Bacterial Prostatitis',
+        "position" = 12,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'prostatitis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
@@ -18782,10 +19314,16 @@ $SBA_UROL_093$,
     "updated_at" = now();
 
   -- Pair 8/11: Renal Colic & Nephrolithiasis
-  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
-  UPDATE "lessons"
-  SET "title"      = 'Renal Colic & Nephrolithiasis',
-      "body"       = $LEC_UROL_094$# Renal Colic & Nephrolithiasis
+  -- A) Upsert Clinical Theory Lecture (Position 14)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'renal-colic-nephrolithiasis',
+    'Renal Colic & Nephrolithiasis',
+    'article',
+    $LEC_UROL_094$# Renal Colic & Nephrolithiasis
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -18847,13 +19385,32 @@ Larger than 5 mm and the person (or their family or carers, as appropriate) agre
 
 ![Renal Colic & Nephrolithiasis - Clinical Figure 1](/lessons/images/sba/urological-emergencies/renal-colic-nephrolithiasis/figure_01_p4.jpeg)
 *Renal Colic & Nephrolithiasis — Clinical Figure 1 (Page 4 Reference)*$LEC_UROL_094$,
-      "position"   = 14,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'renal-colic-nephrolithiasis' OR "slug" = 'renal-stone');
+    false,
+    14,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'renal-stone' != 'renal-colic-nephrolithiasis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Renal Colic & Nephrolithiasis',
+        "position" = 14,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'renal-stone';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
@@ -18959,10 +19516,16 @@ $SBA_UROL_094$,
     "updated_at" = now();
 
   -- Pair 9/11: Acute Scrotal & Testicular Pain Assessment
-  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Scrotal & Testicular Pain Assessment',
-      "body"       = $LEC_UROL_095$# Acute Scrotal & Testicular Pain Assessment
+  -- A) Upsert Clinical Theory Lecture (Position 16)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'acute-scrotal-testicular-pain',
+    'Acute Scrotal & Testicular Pain Assessment',
+    'article',
+    $LEC_UROL_095$# Acute Scrotal & Testicular Pain Assessment
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -19007,13 +19570,32 @@ $SBA_UROL_094$,
 
 ![Acute Scrotal & Testicular Pain - Clinical Figure 4](/lessons/images/sba/urological-emergencies/acute-scrotal-testicular-pain/figure_04_p4.jpeg)
 *Acute Scrotal & Testicular Pain — Clinical Figure 4 (Page 4 Reference)*$LEC_UROL_095$,
-      "position"   = 16,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-scrotal-testicular-pain' OR "slug" = 'testicular-pain');
+    false,
+    16,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'testicular-pain' != 'acute-scrotal-testicular-pain' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Scrotal & Testicular Pain Assessment',
+        "position" = 16,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'testicular-pain';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
@@ -19128,10 +19710,16 @@ $SBA_UROL_095$,
     "updated_at" = now();
 
   -- Pair 10/11: Testicular Torsion (Surgical Emergency)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
-  UPDATE "lessons"
-  SET "title"      = 'Testicular Torsion (Surgical Emergency)',
-      "body"       = $LEC_UROL_096$# Testicular Torsion (Surgical Emergency)
+  -- A) Upsert Clinical Theory Lecture (Position 18)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'testicular-torsion-surgical-emergency',
+    'Testicular Torsion (Surgical Emergency)',
+    'article',
+    $LEC_UROL_096$# Testicular Torsion (Surgical Emergency)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -19143,13 +19731,32 @@ $SBA_UROL_095$,
 
 ![Testicular Torsion (Surgical Emergency) - Clinical Figure 2](/lessons/images/sba/urological-emergencies/testicular-torsion-surgical-emergency/figure_02_p1.jpeg)
 *Testicular Torsion (Surgical Emergency) — Clinical Figure 2 (Page 1 Reference)*$LEC_UROL_096$,
-      "position"   = 18,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'testicular-torsion-surgical-emergency' OR "slug" = 'testicular-torsion');
+    false,
+    18,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'testicular-torsion' != 'testicular-torsion-surgical-emergency' THEN
+    UPDATE "lessons"
+    SET "title" = 'Testicular Torsion (Surgical Emergency)',
+        "position" = 18,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'testicular-torsion';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
@@ -19258,10 +19865,16 @@ $SBA_UROL_096$,
     "updated_at" = now();
 
   -- Pair 11/11: Urinary Retention & Lower UTI
-  -- A) Update & Beautify Clinical Theory Lecture (Position 20)
-  UPDATE "lessons"
-  SET "title"      = 'Urinary Retention & Lower UTI',
-      "body"       = $LEC_UROL_097$# Urinary Retention & Lower UTI
+  -- A) Upsert Clinical Theory Lecture (Position 20)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'urine-retention-and-lower-uti',
+    'Urinary Retention & Lower UTI',
+    'article',
+    $LEC_UROL_097$# Urinary Retention & Lower UTI
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -19443,13 +20056,32 @@ of post micturition dribble not due to urinary_ obstruction
 
 ![Urine Retention and Lower Uti - Clinical Figure 1](/lessons/images/sba/urological-emergencies/urine-retention-and-lower-uti/figure_01_p11.jpeg)
 *Urine Retention and Lower Uti — Clinical Figure 1 (Page 11 Reference)*$LEC_UROL_097$,
-      "position"   = 20,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'urine-retention-and-lower-uti' OR "slug" = 'urine-retention-lower-uti');
+    false,
+    20,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'urine-retention-lower-uti' != 'urine-retention-and-lower-uti' THEN
+    UPDATE "lessons"
+    SET "title" = 'Urinary Retention & Lower UTI',
+        "position" = 20,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'urine-retention-lower-uti';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 21)
   INSERT INTO "lessons" (
@@ -19556,18 +20188,21 @@ $SBA_UROL_097$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Ophthalmology Emergencies (9 Topics)
+  -- Specialty: Ophthalmology Emergencies (9 Topics) -> Module UUID ad2247ff-8eda-4596-a029-f64dc302c61a
   -- ------------------------------------------------------------------------
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Ophthalmology Emergencies' AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NULL THEN
-    RAISE EXCEPTION 'Module Ophthalmology Emergencies not found in mrcem-sba';
-  END IF;
+  v_mod_id := 'ad2247ff-8eda-4596-a029-f64dc302c61a';
 
   -- Pair 1/9: Acute Angle-Closure Glaucoma
-  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
-  UPDATE "lessons"
-  SET "title"      = 'Acute Angle-Closure Glaucoma',
-      "body"       = $LEC_OPHT_098$# Acute Angle-Closure Glaucoma
+  -- A) Upsert Clinical Theory Lecture (Position 0)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'acute-glucoma',
+    'Acute Angle-Closure Glaucoma',
+    'article',
+    $LEC_OPHT_098$# Acute Angle-Closure Glaucoma
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -19585,13 +20220,32 @@ $SBA_UROL_097$,
 
 ![Acute Glucoma - Clinical Figure 3](/lessons/images/sba/ophthalmology-emergencies/acute-glucoma/figure_03_p2.jpeg)
 *Acute Glucoma — Clinical Figure 3 (Page 2 Reference)*$LEC_OPHT_098$,
-      "position"   = 0,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'acute-glucoma' OR "slug" = 'acute-glaucoma');
+    false,
+    0,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'acute-glaucoma' != 'acute-glucoma' THEN
+    UPDATE "lessons"
+    SET "title" = 'Acute Angle-Closure Glaucoma',
+        "position" = 0,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'acute-glaucoma';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
@@ -19700,10 +20354,16 @@ $SBA_OPHT_098$,
     "updated_at" = now();
 
   -- Pair 2/9: Ocular Trauma, Chemical Burns & Ruptured Globe
-  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
-  UPDATE "lessons"
-  SET "title"      = 'Ocular Trauma, Chemical Burns & Ruptured Globe',
-      "body"       = $LEC_OPHT_099$# Ocular Trauma, Chemical Burns & Ruptured Globe
+  -- A) Upsert Clinical Theory Lecture (Position 2)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'eye-trauma',
+    'Ocular Trauma, Chemical Burns & Ruptured Globe',
+    'article',
+    $LEC_OPHT_099$# Ocular Trauma, Chemical Burns & Ruptured Globe
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -19855,13 +20515,32 @@ Performing lateral canthotomy is vision-saving. Do not delay.
 
 ![Eye Trauma - Clinical Figure 5](/lessons/images/sba/ophthalmology-emergencies/eye-trauma/figure_05_p10.jpeg)
 *Eye Trauma — Clinical Figure 5 (Page 10 Reference)*$LEC_OPHT_099$,
-      "position"   = 2,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'eye-trauma' OR "slug" = 'eye-trauma');
+    false,
+    2,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'eye-trauma' != 'eye-trauma' THEN
+    UPDATE "lessons"
+    SET "title" = 'Ocular Trauma, Chemical Burns & Ruptured Globe',
+        "position" = 2,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'eye-trauma';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
@@ -19979,10 +20658,16 @@ $SBA_OPHT_099$,
     "updated_at" = now();
 
   -- Pair 3/9: Inflammatory Eye Diseases (Uveitis, Scleritis, Episcleritis)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
-  UPDATE "lessons"
-  SET "title"      = 'Inflammatory Eye Diseases (Uveitis, Scleritis, Episcleritis)',
-      "body"       = $LEC_OPHT_100$# Inflammatory Eye Diseases (Uveitis, Scleritis, Episcleritis)
+  -- A) Upsert Clinical Theory Lecture (Position 4)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'inflammetory-eye-disease',
+    'Inflammatory Eye Diseases (Uveitis, Scleritis, Episcleritis)',
+    'article',
+    $LEC_OPHT_100$# Inflammatory Eye Diseases (Uveitis, Scleritis, Episcleritis)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -20039,13 +20724,32 @@ Episcleritis previous  Next
 
 ![Inflammetory Eye Disease - Clinical Figure 4](/lessons/images/sba/ophthalmology-emergencies/inflammetory-eye-disease/figure_04_p5.jpeg)
 *Inflammetory Eye Disease — Clinical Figure 4 (Page 5 Reference)*$LEC_OPHT_100$,
-      "position"   = 4,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'inflammetory-eye-disease' OR "slug" = 'inflammatory-eye-disease');
+    false,
+    4,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'inflammatory-eye-disease' != 'inflammetory-eye-disease' THEN
+    UPDATE "lessons"
+    SET "title" = 'Inflammatory Eye Diseases (Uveitis, Scleritis, Episcleritis)',
+        "position" = 4,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'inflammatory-eye-disease';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
@@ -20160,10 +20864,16 @@ $SBA_OPHT_100$,
     "updated_at" = now();
 
   -- Pair 4/9: Ophthalmia Neonatorum & Neonatal Eye Infections
-  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
-  UPDATE "lessons"
-  SET "title"      = 'Ophthalmia Neonatorum & Neonatal Eye Infections',
-      "body"       = $LEC_OPHT_101$# Ophthalmia Neonatorum & Neonatal Eye Infections
+  -- A) Upsert Clinical Theory Lecture (Position 6)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'ophthalma-neonatorum',
+    'Ophthalmia Neonatorum & Neonatal Eye Infections',
+    'article',
+    $LEC_OPHT_101$# Ophthalmia Neonatorum & Neonatal Eye Infections
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -20182,13 +20892,32 @@ previOUS
 
 ![Ophthalma Neonatorum - Clinical Figure 2](/lessons/images/sba/ophthalmology-emergencies/ophthalma-neonatorum/figure_02_p3.jpeg)
 *Ophthalma Neonatorum — Clinical Figure 2 (Page 3 Reference)*$LEC_OPHT_101$,
-      "position"   = 6,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'ophthalma-neonatorum' OR "slug" = 'ophthalmia-neonatorum');
+    false,
+    6,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'ophthalmia-neonatorum' != 'ophthalma-neonatorum' THEN
+    UPDATE "lessons"
+    SET "title" = 'Ophthalmia Neonatorum & Neonatal Eye Infections',
+        "position" = 6,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'ophthalmia-neonatorum';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
@@ -20297,10 +21026,16 @@ $SBA_OPHT_101$,
     "updated_at" = now();
 
   -- Pair 5/9: Orbital vs Preseptal Cellulitis
-  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
-  UPDATE "lessons"
-  SET "title"      = 'Orbital vs Preseptal Cellulitis',
-      "body"       = $LEC_OPHT_102$# Orbital vs Preseptal Cellulitis
+  -- A) Upsert Clinical Theory Lecture (Position 8)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'orbital-and-per-celiltits',
+    'Orbital vs Preseptal Cellulitis',
+    'article',
+    $LEC_OPHT_102$# Orbital vs Preseptal Cellulitis
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -20317,13 +21052,32 @@ Orbital cellulitis Next
 
 ![Orbital and Per Celiltits - Clinical Figure 3](/lessons/images/sba/ophthalmology-emergencies/orbital-and-per-celiltits/figure_03_p2.jpeg)
 *Orbital and Per Celiltits — Clinical Figure 3 (Page 2 Reference)*$LEC_OPHT_102$,
-      "position"   = 8,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'orbital-and-per-celiltits' OR "slug" = 'orbital-periorbital-cellulitis');
+    false,
+    8,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'orbital-periorbital-cellulitis' != 'orbital-and-per-celiltits' THEN
+    UPDATE "lessons"
+    SET "title" = 'Orbital vs Preseptal Cellulitis',
+        "position" = 8,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'orbital-periorbital-cellulitis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
@@ -20435,10 +21189,16 @@ $SBA_OPHT_102$,
     "updated_at" = now();
 
   -- Pair 6/9: Painful Eye Differential & Corneal Emergencies
-  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
-  UPDATE "lessons"
-  SET "title"      = 'Painful Eye Differential & Corneal Emergencies',
-      "body"       = $LEC_OPHT_103$# Painful Eye Differential & Corneal Emergencies
+  -- A) Upsert Clinical Theory Lecture (Position 10)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'painful-eye',
+    'Painful Eye Differential & Corneal Emergencies',
+    'article',
+    $LEC_OPHT_103$# Painful Eye Differential & Corneal Emergencies
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -20526,13 +21286,32 @@ inhibitor. previous
 
 ![Painful Eye - Clinical Figure 4](/lessons/images/sba/ophthalmology-emergencies/painful-eye/figure_04_p7.jpeg)
 *Painful Eye — Clinical Figure 4 (Page 7 Reference)*$LEC_OPHT_103$,
-      "position"   = 10,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'painful-eye' OR "slug" = 'painful-eye');
+    false,
+    10,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'painful-eye' != 'painful-eye' THEN
+    UPDATE "lessons"
+    SET "title" = 'Painful Eye Differential & Corneal Emergencies',
+        "position" = 10,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'painful-eye';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
@@ -20647,10 +21426,16 @@ $SBA_OPHT_103$,
     "updated_at" = now();
 
   -- Pair 7/9: Red Eye Assessment & Triage
-  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
-  UPDATE "lessons"
-  SET "title"      = 'Red Eye Assessment & Triage',
-      "body"       = $LEC_OPHT_104$# Red Eye Assessment & Triage
+  -- A) Upsert Clinical Theory Lecture (Position 12)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'red-eye',
+    'Red Eye Assessment & Triage',
+    'article',
+    $LEC_OPHT_104$# Red Eye Assessment & Triage
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -20781,13 +21566,32 @@ revealed: an area of localized, well-demarcated haemorrhage in one eye
 
 ![Red Eye - Clinical Figure 3](/lessons/images/sba/ophthalmology-emergencies/red-eye/figure_03_p9.jpeg)
 *Red Eye — Clinical Figure 3 (Page 9 Reference)*$LEC_OPHT_104$,
-      "position"   = 12,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'red-eye' OR "slug" = 'red-eye');
+    false,
+    12,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'red-eye' != 'red-eye' THEN
+    UPDATE "lessons"
+    SET "title" = 'Red Eye Assessment & Triage',
+        "position" = 12,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'red-eye';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
@@ -20899,10 +21703,16 @@ $SBA_OPHT_104$,
     "updated_at" = now();
 
   -- Pair 8/9: Sudden Vision Loss Differential
-  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
-  UPDATE "lessons"
-  SET "title"      = 'Sudden Vision Loss Differential',
-      "body"       = $LEC_OPHT_105$# Sudden Vision Loss Differential
+  -- A) Upsert Clinical Theory Lecture (Position 14)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'sudden-vision-loss',
+    'Sudden Vision Loss Differential',
+    'article',
+    $LEC_OPHT_105$# Sudden Vision Loss Differential
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -20986,13 +21796,32 @@ previous  Next 9
 
 ![Sudden Vision Loss - Clinical Figure 4](/lessons/images/sba/ophthalmology-emergencies/sudden-vision-loss/figure_04_p10.jpeg)
 *Sudden Vision Loss — Clinical Figure 4 (Page 10 Reference)*$LEC_OPHT_105$,
-      "position"   = 14,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'sudden-vision-loss' OR "slug" = 'sudden-vision-loss');
+    false,
+    14,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'sudden-vision-loss' != 'sudden-vision-loss' THEN
+    UPDATE "lessons"
+    SET "title" = 'Sudden Vision Loss Differential',
+        "position" = 14,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'sudden-vision-loss';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
@@ -21107,10 +21936,16 @@ $SBA_OPHT_105$,
     "updated_at" = now();
 
   -- Pair 9/9: Giant Cell Arteritis (Temporal Arteritis)
-  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
-  UPDATE "lessons"
-  SET "title"      = 'Giant Cell Arteritis (Temporal Arteritis)',
-      "body"       = $LEC_OPHT_106$# Giant Cell Arteritis (Temporal Arteritis)
+  -- A) Upsert Clinical Theory Lecture (Position 16)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'temporal-artitis',
+    'Giant Cell Arteritis (Temporal Arteritis)',
+    'article',
+    $LEC_OPHT_106$# Giant Cell Arteritis (Temporal Arteritis)
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -21132,13 +21967,32 @@ Giant cell arteritis (CCA) is a medical emergency — Early treatrnent with effe
 
 ![Temporal Artitis - Clinical Figure 1](/lessons/images/sba/ophthalmology-emergencies/temporal-artitis/figure_01_p2.jpeg)
 *Temporal Artitis — Clinical Figure 1 (Page 2 Reference)*$LEC_OPHT_106$,
-      "position"   = 16,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'temporal-artitis' OR "slug" = 'temporal-arteritis');
+    false,
+    16,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'temporal-arteritis' != 'temporal-artitis' THEN
+    UPDATE "lessons"
+    SET "title" = 'Giant Cell Arteritis (Temporal Arteritis)',
+        "position" = 16,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'temporal-arteritis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
@@ -21245,18 +22099,21 @@ $SBA_OPHT_106$,
 
 
   -- ------------------------------------------------------------------------
-  -- Specialty: Vascular Emergencies (3 Topics)
+  -- Specialty: Vascular Emergencies (3 Topics) -> Module UUID 7d06da21-b32e-4946-82b3-3ea2c69d5346
   -- ------------------------------------------------------------------------
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'Vascular Emergencies' AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NULL THEN
-    RAISE EXCEPTION 'Module Vascular Emergencies not found in mrcem-sba';
-  END IF;
+  v_mod_id := '7d06da21-b32e-4946-82b3-3ea2c69d5346';
 
   -- Pair 1/3: Deep Vein Thrombosis (DVT) Guidelines
-  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
-  UPDATE "lessons"
-  SET "title"      = 'Deep Vein Thrombosis (DVT) Guidelines',
-      "body"       = $LEC_VASC_107$# Deep Vein Thrombosis (DVT) Guidelines
+  -- A) Upsert Clinical Theory Lecture (Position 0)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'deep-vein-thrombosis-dvt-guidelines',
+    'Deep Vein Thrombosis (DVT) Guidelines',
+    'article',
+    $LEC_VASC_107$# Deep Vein Thrombosis (DVT) Guidelines
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -21334,13 +22191,32 @@ previOUS
 
 ![Deep Vein Thrombosis (DVT) Guidelines - Clinical Figure 4](/lessons/images/sba/vascular-emergencies/deep-vein-thrombosis-dvt-guidelines/figure_04_p8.jpeg)
 *Deep Vein Thrombosis (DVT) Guidelines — Clinical Figure 4 (Page 8 Reference)*$LEC_VASC_107$,
-      "position"   = 0,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'deep-vein-thrombosis-dvt-guidelines' OR "slug" = 'deep-vein-thrombosis');
+    false,
+    0,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'deep-vein-thrombosis' != 'deep-vein-thrombosis-dvt-guidelines' THEN
+    UPDATE "lessons"
+    SET "title" = 'Deep Vein Thrombosis (DVT) Guidelines',
+        "position" = 0,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'deep-vein-thrombosis';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
@@ -21455,10 +22331,16 @@ $SBA_VASC_107$,
     "updated_at" = now();
 
   -- Pair 2/3: Peripheral Vascular Disease & Critical Limb Ischaemia
-  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
-  UPDATE "lessons"
-  SET "title"      = 'Peripheral Vascular Disease & Critical Limb Ischaemia',
-      "body"       = $LEC_VASC_108$# Peripheral Vascular Disease & Critical Limb Ischaemia
+  -- A) Upsert Clinical Theory Lecture (Position 2)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'peripheral-vascular-disease-critical-limb-ischemia',
+    'Peripheral Vascular Disease & Critical Limb Ischaemia',
+    'article',
+    $LEC_VASC_108$# Peripheral Vascular Disease & Critical Limb Ischaemia
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -21578,13 +22460,32 @@ Analgesia Paracetamol and an opioid (weak or strong) are recommended,
 
 ![Peripheral Vascular Disease & Critical Limb Ischemia - Clinical Figure 3](/lessons/images/sba/vascular-emergencies/peripheral-vascular-disease-critical-limb-ischemia/figure_03_p8.jpeg)
 *Peripheral Vascular Disease & Critical Limb Ischemia — Clinical Figure 3 (Page 8 Reference)*$LEC_VASC_108$,
-      "position"   = 2,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'peripheral-vascular-disease-critical-limb-ischemia' OR "slug" = 'peripheral-vascular-disease');
+    false,
+    2,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'peripheral-vascular-disease' != 'peripheral-vascular-disease-critical-limb-ischemia' THEN
+    UPDATE "lessons"
+    SET "title" = 'Peripheral Vascular Disease & Critical Limb Ischaemia',
+        "position" = 2,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'peripheral-vascular-disease';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
@@ -21696,10 +22597,16 @@ $SBA_VASC_108$,
     "updated_at" = now();
 
   -- Pair 3/3: Pulmonary Embolism (PE) Diagnosis & Management
-  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
-  UPDATE "lessons"
-  SET "title"      = 'Pulmonary Embolism (PE) Diagnosis & Management',
-      "body"       = $LEC_VASC_109$# Pulmonary Embolism (PE) Diagnosis & Management
+  -- A) Upsert Clinical Theory Lecture (Position 4)
+  INSERT INTO "lessons" (
+    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
+  ) VALUES (
+    gen_random_uuid(),
+    v_mod_id,
+    'pulmonary-embolism-pe-diagnosis-management',
+    'Pulmonary Embolism (PE) Diagnosis & Management',
+    'article',
+    $LEC_VASC_109$# Pulmonary Embolism (PE) Diagnosis & Management
 
 > [!NOTE]
 > **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
@@ -21802,13 +22709,32 @@ Pneumothorax.
 ## Emergency Management Protocol
 /figure_04_p8.jpeg)
 *Pulmonary Embolism (PE) Diagnosis & Management — Clinical Figure 4 (Page 8 Reference)*$LEC_VASC_109$,
-      "position"   = 4,
-      "type"       = 'article',
-      "status"     = 'published',
-      "deleted_at" = NULL,
-      "updated_at" = now()
-  WHERE "module_id" = v_mod_id
-    AND ("slug" = 'pulmonary-embolism-pe-diagnosis-management' OR "slug" = 'pulmonary-embolism');
+    false,
+    4,
+    'published',
+    now(),
+    now(),
+    NULL
+  )
+  ON CONFLICT ("module_id", "slug") DO UPDATE SET
+    "title"      = EXCLUDED."title",
+    "type"       = 'article',
+    "body"       = EXCLUDED."body",
+    "position"   = EXCLUDED."position",
+    "status"     = 'published',
+    "deleted_at" = NULL,
+    "updated_at" = now();
+
+  -- Update alternate slug record if present
+  IF 'pulmonary-embolism' != 'pulmonary-embolism-pe-diagnosis-management' THEN
+    UPDATE "lessons"
+    SET "title" = 'Pulmonary Embolism (PE) Diagnosis & Management',
+        "position" = 4,
+        "status" = 'published',
+        "deleted_at" = NULL,
+        "updated_at" = now()
+    WHERE "module_id" = v_mod_id AND "slug" = 'pulmonary-embolism';
+  END IF;
 
   -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
@@ -21923,42 +22849,53 @@ $SBA_VASC_109$,
     "updated_at" = now();
 
   -- ========================================================================
-  -- STEP 5: CLEAN TITLES & ORDERING IN HIGH-YIELD CLINICAL REVISION (MODULE 9)
+  -- STEP 5: MARK ALL 65 HIGH-YIELD PRACTICES & 6 MOCKS AS QUIZZES
   -- ========================================================================
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'High-Yield Rapid Clinical Revision' AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NOT NULL THEN
-    UPDATE "lessons"
-    SET "title" = REPLACE("title", ' ? ', ': '),
-        "updated_at" = now()
-    WHERE "module_id" = v_mod_id AND "title" LIKE '%?%';
-  END IF;
+  -- Module 9: High-Yield Rapid Clinical Revision
+  UPDATE "lessons"
+  SET "type" = 'quiz',
+      "status" = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
+  WHERE "module_id" = '5d56a3e8-d768-4005-b341-a48aae0897c1'
+    AND ("slug" ILIKE '%high-yield%practice%' OR "title" ILIKE '%Practice%');
+
+  -- Module 10: MRCEM SBA Mock Simulations
+  UPDATE "lessons"
+  SET "type" = 'quiz',
+      "status" = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
+  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b'
+    AND ("slug" ILIKE '%mock%' OR "title" ILIKE '%Mock%');
+
+  -- Fix Mock simulation titles
+  UPDATE "lessons"
+  SET "title" = 'Mock 1 — Paper 1 (Clinical SBA Exam)', "position" = 0, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
+  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-i-paper-i' OR "slug" = 'mock-1-paper-1' OR "title" ILIKE '%Mock%1%Paper%1%' OR "title" ILIKE '%Mock%I%Paper%I%');
+
+  UPDATE "lessons"
+  SET "title" = 'Mock 1 — Paper 2 (Clinical SBA Exam)', "position" = 1, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
+  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-i-paper-ii' OR "slug" = 'mock-1-paper-2' OR "title" ILIKE '%Mock%1%Paper%2%' OR "title" ILIKE '%Mock%I%Paper%Ii%');
+
+  UPDATE "lessons"
+  SET "title" = 'Mock 2 — Paper 1 (Clinical SBA Exam)', "position" = 2, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
+  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-ii-paper-i' OR "slug" = 'mock-2-paper-1' OR "title" ILIKE '%Mock%2%Paper%1%' OR "title" ILIKE '%Mock%Ii%Paper%I%');
+
+  UPDATE "lessons"
+  SET "title" = 'Mock 2 — Paper 2 (Clinical SBA Exam)', "position" = 3, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
+  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-ii-paper-ii' OR "slug" = 'mock-2-paper-2' OR "title" ILIKE '%Mock%2%Paper%2%' OR "title" ILIKE '%Mock%Ii%Paper%Ii%');
+
+  UPDATE "lessons"
+  SET "title" = 'Mock 3 — Paper 1 (Clinical SBA Exam)', "position" = 4, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
+  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-iii-paper-i' OR "slug" = 'mock-3-paper-1' OR "title" ILIKE '%Mock%3%Paper%1%' OR "title" ILIKE '%Mock%Iii%Paper%I%');
+
+  UPDATE "lessons"
+  SET "title" = 'Mock 3 — Paper 2 (Clinical SBA Exam)', "position" = 5, "type" = 'quiz', "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
+  WHERE "module_id" = '5bacd90d-fbd6-4827-a20f-a3017597504b' AND ("slug" = 'mock-iii-paper-ii' OR "slug" = 'mock-3-paper-2' OR "title" ILIKE '%Mock%3%Paper%2%' OR "title" ILIKE '%Mock%Iii%Paper%Ii%');
 
   -- ========================================================================
-  -- STEP 6: PROFESSIONAL TITLES & ORDER FOR MOCK EXAMS (MODULE 10)
-  -- ========================================================================
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'MRCEM SBA Mock Simulations' AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NOT NULL THEN
-    UPDATE "lessons" SET "title" = 'Mock 1: Paper 1 SBA Simulation (180 Questions)', "position" = 0, "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-    WHERE "module_id" = v_mod_id AND ("slug" = 'mock-i-paper-i' OR "slug" = 'mock-1-paper-1' OR "title" ILIKE '%Mock%1%Paper%1%' OR "title" ILIKE '%Mock%I%Paper%I%');
-
-    UPDATE "lessons" SET "title" = 'Mock 1: Paper 2 SBA Simulation (180 Questions)', "position" = 1, "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-    WHERE "module_id" = v_mod_id AND ("slug" = 'mock-i-paper-ii' OR "slug" = 'mock-1-paper-2' OR "title" ILIKE '%Mock%1%Paper%2%' OR "title" ILIKE '%Mock%I%Paper%Ii%');
-
-    UPDATE "lessons" SET "title" = 'Mock 2: Paper 1 SBA Simulation (180 Questions)', "position" = 2, "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-    WHERE "module_id" = v_mod_id AND ("slug" = 'mock-ii-paper-i' OR "slug" = 'mock-2-paper-1' OR "title" ILIKE '%Mock%2%Paper%1%' OR "title" ILIKE '%Mock%Ii%Paper%I%');
-
-    UPDATE "lessons" SET "title" = 'Mock 2: Paper 2 SBA Simulation (180 Questions)', "position" = 3, "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-    WHERE "module_id" = v_mod_id AND ("slug" = 'mock-ii-paper-ii' OR "slug" = 'mock-2-paper-2' OR "title" ILIKE '%Mock%2%Paper%2%' OR "title" ILIKE '%Mock%Ii%Paper%Ii%');
-
-    UPDATE "lessons" SET "title" = 'Mock 3: Paper 1 SBA Simulation (180 Questions)', "position" = 4, "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-    WHERE "module_id" = v_mod_id AND ("slug" = 'mock-iii-paper-i' OR "slug" = 'mock-3-paper-1' OR "title" ILIKE '%Mock%3%Paper%1%' OR "title" ILIKE '%Mock%Iii%Paper%I%');
-
-    UPDATE "lessons" SET "title" = 'Mock 3: Paper 2 SBA Simulation (180 Questions)', "position" = 5, "status" = 'published', "deleted_at" = NULL, "updated_at" = now()
-    WHERE "module_id" = v_mod_id AND ("slug" = 'mock-iii-paper-ii' OR "slug" = 'mock-3-paper-2' OR "title" ILIKE '%Mock%3%Paper%2%' OR "title" ILIKE '%Mock%Iii%Paper%Ii%');
-  END IF;
-
-  -- ========================================================================
-  -- STEP 7: SYNC COURSE ENTITLEMENTS & MEMBERSHIP PLANS
+  -- STEP 6: SYNC COURSE ENTITLEMENTS & MEMBERSHIP PLANS
   -- ========================================================================
   -- Attach published courses to WhatsApp manual plan
   INSERT INTO "plan_courses" ("id", "plan_id", "course_id", "created_at", "updated_at")
@@ -21978,7 +22915,7 @@ $SBA_VASC_109$,
 
   -- Record curriculum version in meta
   INSERT INTO "app_system_meta" ("key", "value", "updated_at")
-  VALUES ('curriculum_version', '2026_11_02_v19_beautified_curriculum_and_quizzes', now())
+  VALUES ('curriculum_version', '2026_11_02_v20_exact_ids_and_quizzes', now())
   ON CONFLICT ("key") DO UPDATE SET "value" = EXCLUDED."value", "updated_at" = now();
 
   RAISE NOTICE 'SUCCESS: Master migration completed! % quizzes created, % lectures beautified, % questions seeded, % images linked.',
