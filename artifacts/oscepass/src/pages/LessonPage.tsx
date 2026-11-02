@@ -11,6 +11,7 @@ import {
   PanelLeftOpen,
   PlayCircle,
   Zap,
+  Sparkles,
 } from 'lucide-react';
 import { Link, useParams } from 'wouter';
 import { ApiError, useGetCourse, useGetLesson } from '@workspace/api-client-react';
@@ -48,6 +49,28 @@ export default function LessonPage() {
   }, [rawBody]);
 
   const hasInteractiveQuiz = parsedQuiz.questions.length > 0;
+  const isCurrentQuiz = checkIsQuiz(lessonData ?? {});
+
+  // Find paired quiz for this theory lecture
+  const pairedQuizLesson = useMemo(() => {
+    if (isCurrentQuiz || !allLessons.length) return null;
+    // Interleaved layout: next lesson is the quiz
+    if (nextLesson && checkIsQuiz(nextLesson)) return nextLesson;
+    // Match by slug or module
+    const currentMod = course.data?.modules.find((m) =>
+      m.lessons.some((l) => l.id === lessonId || l.slug === lessonId)
+    );
+    if (currentMod) {
+      const curSlug = (lessonData?.slug || '').replace(/^topic-/, '').toLowerCase();
+      const found = currentMod.lessons.find(
+        (l) =>
+          checkIsQuiz(l) &&
+          (l.slug.includes(curSlug) || curSlug.includes(l.slug.replace(/^sba-quiz-[^-]+-/, '')))
+      );
+      if (found) return found;
+    }
+    return null;
+  }, [isCurrentQuiz, allLessons, nextLesson, course.data, lessonId, lessonData]);
 
   // Controls whether the full-screen exam overlay is open
   const [examOpen, setExamOpen] = useState(false);
@@ -529,6 +552,91 @@ export default function LessonPage() {
                 fontSize={readerFontSize}
               />
             </article>
+          )}
+
+          {/* Interactive Topic Quiz CTA Card - shown at end of theory lecture */}
+          {!isCurrentQuiz && pairedQuizLesson && (
+            <div
+              className="topic-quiz-cta-banner"
+              style={{
+                marginTop: 48,
+                marginBottom: 36,
+                background: 'linear-gradient(135deg, #0a2540 0%, #004d99 50%, #0284c7 100%)',
+                borderRadius: '16px',
+                padding: '36px 32px',
+                color: '#ffffff',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                gap: 18,
+                boxShadow: '0 12px 36px rgba(2, 132, 199, 0.25)',
+              }}
+            >
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  background: 'rgba(255, 255, 255, 0.18)',
+                  color: '#ffffff',
+                  padding: '5px 16px',
+                  borderRadius: '30px',
+                  fontSize: '.75rem',
+                  fontWeight: 800,
+                  textTransform: 'uppercase',
+                  letterSpacing: '.08em',
+                  backdropFilter: 'blur(6px)',
+                }}
+              >
+                <Zap size={14} style={{ color: '#38bdf8' }} /> Practice & Knowledge Check
+              </div>
+
+              <div>
+                <h3
+                  style={{
+                    fontSize: '1.65rem',
+                    fontWeight: 800,
+                    color: '#ffffff',
+                    margin: '0 0 8px',
+                    letterSpacing: '-0.02em',
+                  }}
+                >
+                  {pairedQuizLesson.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: '1rem',
+                    color: 'rgba(255, 255, 255, 0.9)',
+                    maxWidth: '560px',
+                    margin: '0 auto',
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Test your clinical decision-making on this topic with 5 high-yield Single Best Answer questions, verified clinical figures, and RCEM rationales.
+                </p>
+              </div>
+
+              <Link
+                href={`/courses/${slug}/lessons/${pairedQuizLesson.slug || pairedQuizLesson.id}`}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 10,
+                  background: '#ffffff',
+                  color: '#004d99',
+                  padding: '14px 34px',
+                  borderRadius: '12px',
+                  fontSize: '1.02rem',
+                  fontWeight: 800,
+                  textDecoration: 'none',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
+                  transition: 'transform .15s ease, box-shadow .15s ease',
+                }}
+              >
+                <Sparkles size={18} /> Start Topic Quiz Now <ArrowRight size={18} />
+              </Link>
+            </div>
           )}
 
           {/* Quiz Launch Card — shown after lesson content if quiz questions exist */}

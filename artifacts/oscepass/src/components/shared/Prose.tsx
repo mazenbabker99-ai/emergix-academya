@@ -126,28 +126,24 @@ export function Prose({ text, className = '', fontSize = 'default' }: ProseProps
               <h2
                 key={i}
                 style={{
-                  fontSize: '1.55rem',
+                  fontSize: '1.48rem',
                   fontWeight: 800,
-                  marginTop: '2.6rem',
-                  marginBottom: '1rem',
-                  color: '#0a2342',
-                  letterSpacing: '-0.025em',
+                  marginTop: '2.8rem',
+                  marginBottom: '1.2rem',
+                  color: '#0f2b48',
+                  letterSpacing: '-0.02em',
                   lineHeight: 1.35,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
+                  background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+                  padding: '12px 18px',
+                  borderRadius: '10px',
+                  border: '1px solid #e2e8f0',
+                  borderLeft: '5px solid #0284c7',
+                  boxShadow: '0 2px 6px rgba(0,0,0,0.02)',
                 }}
               >
-                <span
-                  style={{
-                    width: '5px',
-                    height: '24px',
-                    background: '#0066cc',
-                    borderRadius: '4px',
-                    display: 'inline-block',
-                    flexShrink: 0,
-                  }}
-                />
                 {block.text}
               </h2>
             );
@@ -206,15 +202,28 @@ export function Prose({ text, className = '', fontSize = 'default' }: ProseProps
               <h3
                 key={i}
                 style={{
-                  fontSize: '1.3rem',
+                  fontSize: '1.22rem',
                   fontWeight: 750,
                   marginTop: '2rem',
-                  marginBottom: '0.8rem',
-                  color: '#0a2342',
+                  marginBottom: '0.85rem',
+                  color: '#0369a1',
                   letterSpacing: '-0.015em',
                   lineHeight: 1.4,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
                 }}
               >
+                <span
+                  style={{
+                    width: '7px',
+                    height: '7px',
+                    borderRadius: '50%',
+                    background: '#0284c7',
+                    display: 'inline-block',
+                    flexShrink: 0,
+                  }}
+                />
                 {block.text}
               </h3>
             );

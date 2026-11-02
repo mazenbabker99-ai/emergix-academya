@@ -45,7 +45,99 @@ export function parseInline(src: string): Inline[] {
   return out;
 }
 
+
+/**
+ * Intelligent Clinical Markdown Preprocessor
+ * Cleans raw OCR glitches, structures unformatted bullet dumps into clean lists,
+ * and converts clinical headings into proper Markdown H2/H3 sections.
+ */
+export function beautifyClinicalMarkdown(raw: string): string {
+  if (!raw || typeof raw !== 'string') return '';
+
+  let text = raw;
+
+  // Clean common OCR typos and abbreviations
+  text = text
+    .replace(/\blt's\b/g, "It's")
+    .replace(/\blncludes\b/g, "Includes")
+    .replace(/\bCentraI\b/g, "Central")
+    .replace(/\bEpiIepsy\b/g, "Epilepsy")
+    .replace(/\bArrythmias\b/g, "Arrhythmias")
+    .replace(/\bHx\s*Of\b/gi, "History of")
+    .replace(/\babt\b/g, "about")
+    .replace(/\bPt\b/g, "patient")
+    .replace(/\bPts\b/g, "patients")
+    .replace(/\bECO\b/g, "ECG")
+    .replace(/\bECC\b/g, "ECG")
+    .replace(/\bSTEM'\b/g, "STEMI")
+    .replace(/\binabilityto\b/g, "inability to")
+    .replace(/\bcirculatingvolume\b/g, "circulating volume")
+    .replace(/\bNSAIDst\b/g, "NSAIDs")
+    .replace(/\s*-\s*-\s*-\s*/g, "\n\n");
+
+  // Recognize common clinical section headings
+  const sectionPatterns: [RegExp, string][] = [
+    [/(?:^|\n|[\.\-\>]\s*)(Differential\s+diagnosis)\s*[:\-\>]/gi, "\n\n## Differential Diagnosis\n"],
+    [/(?:^|\n|[\.\-\>]\s*)(Clinical\s+features|Key\s+clinical\s+features|Key\s+features)\s*[:\-\>]/gi, "\n\n## Key Clinical Features\n"],
+    [/(?:^|\n|[\.\-\>]\s*)(Examination|Physical\s+examination|Clinical\s+assessment)\s*[:\-\>]/gi, "\n\n## Clinical Examination & Assessment\n"],
+    [/(?:^|\n|[\.\-\>]\s*)(Risk\s+stratification)\s*[:\-\>]/gi, "\n\n## Risk Stratification\n"],
+    [/(?:^|\n|[\.\-\>]\s*)(Investigation\s*&\s*management|Investigations?\s*and\s*Management|Investigations?)\s*[:\-\>]/gi, "\n\n## Investigations & Diagnostic Workup\n"],
+    [/(?:^|\n|[\.\-\>]\s*)(Low\s+risk(?:\s+criteria|\s+features)?)\s*[:\-\>]/gi, "\n\n### Low-Risk Criteria\n"],
+    [/(?:^|\n|[\.\-\>]\s*)(High\s+risk(?:\s+criteria|\s+features)?)\s*[:\-\>]/gi, "\n\n### High-Risk Features (Red Flags)\n"],
+    [/(?:^|\n|[\.\-\>]\s*)(Emergency\s+Management|Management\s+pathway|Management)\s*[:\-\>]/gi, "\n\n## Emergency Management Protocol\n"],
+    [/(?:^|\n|[\.\-\>]\s*)(Disposition|Discharge\s+criteria|Follow-up)\s*[:\-\>]/gi, "\n\n## Disposition & Follow-Up\n"],
+    [/(?:^|\n|[\.\-\>]\s*)(Clinical\s+pearls?|High\s+yield\s+pearls?)\s*[:\-\>]/gi, "\n\n> [!TIP]\n> **Examiner Clinical Pearl:**\n"],
+  ];
+
+  for (const [pattern, replacement] of sectionPatterns) {
+    text = text.replace(pattern, replacement);
+  }
+
+  // Handle embedded raw bullet markers like '>CentraI cyanosis >Absent breathing' or ' -Item 1 -Item 2'
+  const lines = text.split('\n');
+  const outLines: string[] = [];
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) {
+      outLines.push('');
+      continue;
+    }
+
+    // Keep markdown headings, callouts, and images intact
+    if (line.startsWith('#') || line.startsWith('> [!') || line.startsWith('> **') || line.startsWith('![')) {
+      outLines.push(line);
+      continue;
+    }
+
+    // If line starts with '>' without space like '>It\'s an episode...'
+    let procLine = line;
+    if (procLine.startsWith('>') && !procLine.startsWith('> ') && !procLine.startsWith('>[')) {
+      procLine = '> ' + procLine.slice(1);
+    }
+
+    // If the line contains multiple bullet points chained with ' >' or ' -'
+    if (procLine.includes(' >') || procLine.includes(' -')) {
+      const parts = procLine.split(/(?<=\S)\s+(?:>|-)\s*|(?<=^)(?:>|-)\s*/);
+      for (let p of parts) {
+        p = p.trim().replace(/^[>\-]+/, '').trim();
+        if (p) {
+          outLines.push(`- ${p}`);
+        }
+      }
+    } else if (procLine.startsWith('- ')) {
+      outLines.push(procLine);
+    } else {
+      outLines.push(procLine);
+    }
+  }
+
+  return outLines.join('\n').replace(/\n{3,}/g, '\n\n');
+}
+
 export function parseBlocks(src: string): Block[] {
+  if (!src) return [];
+  src = beautifyClinicalMarkdown(src);
   const blocks: Block[] = [];
   let paragraph: string[] = [];
   let list: Inline[][] | null = null;

@@ -1,17 +1,17 @@
 -- ==========================================================================
--- MASTER CURRICULUM MIGRATION: 109 TOPIC SBA QUIZZES + CLINICAL FIGURES
+-- MASTER CURRICULUM MIGRATION: 109 TOPIC SBA QUIZZES + 109 BEAUTIFIED LECTURES
 -- Course: MRCEM SBA & MRCEM Primary
--- Adds 109 interactive SBA quizzes (545 verified questions)
--- Embeds 400 clinical images with zoom and high-definition review
--- Sanitizes junk lessons, re-orders modules 0..10, and aligns lectures
+-- 1) Builds 109 interactive SBA quizzes (545 verified questions)
+-- 2) Embeds 400 clinical images with zoom and high-definition review
+-- 3) Formats all 109 theory lectures into structured clinical notes
+-- 4) Reorders modules 0..10 and interleaves lectures & quizzes (2i and 2i+1)
+-- 5) Sanitizes junk rows and aligns mock exams
 -- ==========================================================================
 DO $$
 DECLARE
   v_sba_id      uuid;
   v_primary_id  uuid;
   v_mod_id      uuid;
-  v_lec_id      uuid;
-  v_quiz_id     uuid;
 BEGIN
   -- Locate Courses
   SELECT id INTO v_sba_id     FROM "courses" WHERE "slug" = 'mrcem-sba' LIMIT 1;
@@ -244,7 +244,7 @@ BEGIN
   WHERE "slug" = 'ophthalma-neonatorum';
 
   -- ========================================================================
-  -- STEP 4: 109 VERIFIED INTERACTIVE SBA QUIZZES WITH EMBEDDED CLINICAL IMAGES
+  -- STEP 4: 109 PAIRED CLINICAL MODULES (BEAUTIFIED LECTURE 2*i + SBA QUIZ 2*i+1)
   -- ========================================================================
 
   -- ------------------------------------------------------------------------
@@ -255,14 +255,114 @@ BEGIN
     RAISE EXCEPTION 'Module Resuscitation & Critical Care not found in mrcem-sba';
   END IF;
 
-  -- Topic 1/10: Advanced Life Support (ALS)
-  -- 1) Interleave Lecture (Position 0)
+  -- Pair 1/10: Advanced Life Support (ALS)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
   UPDATE "lessons"
-  SET "position" = 0, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Advanced Life Support (ALS)',
+      "body"       = $LEC_RESU_001$# Advanced Life Support (ALS)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Adult advanced life support (2025 Reus guideline)
+
+Resuscitation Council I-JK Adult advanced life support Maintain personal s afety Unresponsive with absent or abnormal breathing Call resuscitation team/ambulance service GUIDELINES 2025 Identify and treat reversible causes early SHOCKABLE VF/Pu1se1ess VT Shock Immediately resume CPR for 2 min* CPR 30:2 Attach defibrillator Assess rhythm Return Of spontaneous circulation (ROSC) High-quality chest compressions and ventilations. and: Reversible causes:
+- Hypoxia
+- Hypovolaemia Consider.
+- Changing pads to antero-posterior after NON-SHOCKABLE PEA /A systole Give adrenaline then every min Immediately resume CPR for 2 min Immediately after ROSC:
+
+- Ensure optimal defibrillator pad placement
+- Give oxygen
+- Continuous compressions if tracheal tube or SGA
+- use waveform capnography
+- Minimise interruptions to ch est compressions
+- Early IV access (IO if IV not possible) * Give 1st adrenaline after 3 shocks, then every 3—5 minutes * Give amiodarone after 3 shocks
+- Hyper-hypokalaemia,
+- calcaemia,
+- magnesaemia, hypoglycaemia (metabolic)
+- Hypo-hyperthermia
+- Thrombosis (coronary/ pulmonary)
+- Tension pneumothorax
+- Toxins
+- Tamponade (cardiac)
+- Mechanical chest compressions to facilitate transfer/treatment
+- Ultrasound to identify reversible causes
+- Extracorporeal CPR and/or Coronary angiography/PCl
+- Aim spo 94-98% and normal ÅaC02
+- 100 mmHg
+- 12-lead ECG
+- Identify and treat cause Temperature control Paediatric advanced life support
+
+Resuscitation Council UK GUIDELINES Paediatric advanced life support Recognise cardiac arrest Call for help 2222 Commence/continue CPR (5 initial breaths then CV ratio 15:2) Attach defibrillator/monitor Minimise interruptions SHOCKABLE VF/Pulseless VT I shock 4 J Immediately resume CPR for 2 min Minimise interruptions After 3 shocks give:
+- Adrenaline IV/IO 10 mcg kg' (and every alternate cycle thereafter) AND
+- Amiodarone IV/IO 5 mg (and repeat 5 mg kg
+- l once more onlv after 5th shock) Assess rhythm Return Of spontaneous circulation (ROSC) Post cardiac arrest care:
+- Use an ABCDE approach
+- Aim for Sp02 Of 94—98% and normal PaC02
+- Avoid hypotension
+- Targeted temp management
+- Glucose control NON-SHOCKABLE PEA/asystole/brady < 60 minÄ Immediately resume CPR for 2 min Minimise interruptions Give adrenaline IV/IO IO mcg kg-l as soon as possible and then every 3-5 min
+
+During CPR
+- Ensure high quality chest compressions are delivered:
+- Correct rate, depth and full recoil
+- Provide BMV With 100% oxygen (2 person approach)
+- Provide continuous chest compressions When a tracheal tube is in place.
+- Competent providers can consider an advanced airway and capnography, and ventilate at a rate (breaths minute 1) Of: Infants: 25 1-8 years: 20 8-12 years: 15
+- 12years: 10-12
+- Vascular access IV/IO
+- Once started, give Adrenaline every 3-5 min
+- Maximum single dose Adrenaline 1 mg
+- Maximum single dose Amiodarone 300 mg Key difference b/w Paeds & adult ALS Identify and treat reversible causes Hypoxia
+- Hypovolaemia
+- Hyperkalaemia, hypercalcaemia, hypermagnesemia, hypoglycaemia
+- Hypo-/hyperthermia
+- Thrombosis — coronary or pulmonary
+- Tension pneumothorax
+- Tamponade
+- cardiac
+- Toxic agents Adjust algorithm in specific settings (e.g. special circumstances)
+
+-
+- Hypoxia
+- Hypovolemia (massive blood/fluid loss).
+- Hyperkalemia (renal patient).
+- Hypothermia (patient may require prolong CPR).
+
+- Intubated patient (tracheal tube may lie below the cord. Thrombosis (massive PE if that's the cause of cardiac arrest then consider 50mg Tension pneumothorax following central line insertion. Cardiac tamponade should always consider in penetration injury. After ROSC Use an ABCDE approach Aim for Sp02 of 94—98% and normal PaC02 12-lead ECG Identify and treat the cause Targeted temperature management
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Advanced Life Support (ALS) Algorithms - Clinical Figure 1](/lessons/images/sba/resuscitation-critical-care/advanced-life-support-als-algorithms/figure_01_p1.jpeg)
+*Advanced Life Support (ALS) Algorithms — Clinical Figure 1 (Page 1 Reference)*
+
+![Advanced Life Support (ALS) Algorithms - Clinical Figure 2](/lessons/images/sba/resuscitation-critical-care/advanced-life-support-als-algorithms/figure_02_p1.jpeg)
+*Advanced Life Support (ALS) Algorithms — Clinical Figure 2 (Page 1 Reference)*
+
+![Advanced Life Support (ALS) Algorithms - Clinical Figure 3](/lessons/images/sba/resuscitation-critical-care/advanced-life-support-als-algorithms/figure_03_p3.jpeg)
+*Advanced Life Support (ALS) Algorithms — Clinical Figure 3 (Page 3 Reference)*
+
+![Advanced Life Support (ALS) Algorithms - Clinical Figure 4](/lessons/images/sba/resuscitation-critical-care/advanced-life-support-als-algorithms/figure_04_p4.jpeg)
+*Advanced Life Support (ALS) Algorithms — Clinical Figure 4 (Page 4 Reference)*
+
+![Advanced Life Support (ALS) Algorithms - Clinical Figure 5](/lessons/images/sba/resuscitation-critical-care/advanced-life-support-als-algorithms/figure_05_p5.jpeg)
+*Advanced Life Support (ALS) Algorithms — Clinical Figure 5 (Page 5 Reference)*
+
+![Advanced Life Support (ALS) Algorithms - Clinical Figure 6](/lessons/images/sba/resuscitation-critical-care/advanced-life-support-als-algorithms/figure_06_p6.jpeg)
+*Advanced Life Support (ALS) Algorithms — Clinical Figure 6 (Page 6 Reference)*
+
+![Advanced Life Support (ALS) Algorithms - Clinical Figure 7](/lessons/images/sba/resuscitation-critical-care/advanced-life-support-als-algorithms/figure_07_p8.jpeg)
+*Advanced Life Support (ALS) Algorithms — Clinical Figure 7 (Page 8 Reference)*$LEC_RESU_001$,
+      "position"   = 0,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'advanced-life-support-als-algorithms' OR "slug" = 'als');
 
-  -- 2) Upsert Quiz Lesson (Position 1)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -380,14 +480,98 @@ $SBA_RESU_001$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 2/10: Brief Resolved Unexplained Event (BRUE)
-  -- 1) Interleave Lecture (Position 2)
+  -- Pair 2/10: Brief Resolved Unexplained Event (BRUE)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
   UPDATE "lessons"
-  SET "position" = 2, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Brief Resolved Unexplained Event (BRUE)',
+      "body"       = $LEC_RESU_002$# Brief Resolved Unexplained Event (BRUE)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- It's an episode in an infant less than 12 months of age characterized by:
+- <1 minute duration (typically 20-30s)
+- A return to baseline state
+- Not explained by any identifiable medical condition (i.e. medically well).
+- Includes one or more of the following features:
+- Central cyanosis/pallor
+- Absent, decrease or irregular breathing
+- Marked change in tone (hyper- or hypotonia)
+- Altered level of consciousness
+
+## Differential Diagnosis
+- Gastro-esophageal reflux
+- infection
+- Epilepsy
+- Non-accidental injury
+- Arrhythmias (long QT)
+- Myocarditis
+- Metabolic error
+
+- Always take complete history from parents or eye witnessed including general description of event eg: choking gagging , last feed.
+- Gestational history, social history, family history.
+
+## Clinical Examination & Assessment
+- ABCDE assessment
+- exposure check for bruising, bleeding from nose/mouth, torn frenulum and subconjunctival hemorrhage.
+- measure weight, length and head circumference
+- Any dysmorphic features that might indicate underlying congenital abnormalities
+- Note: always documents any normal or negative finding in examination such as Mongolian blue spot.
+
+## Risk Stratification
+- —Investigation & management Gastro-esophageal reflux disease
+- It's one of the commonest causes of symptoms similar to a BRUE presentation, causing symptoms via laryngospasm. It is an important one to exclude as it is a very treatable cause of a presentation similar to a BRUE, and may cause repeated episodes.
+- Features from the history that are suggestive of it are:
+
+### Low-Risk Criteria
+- days of age Born
+- 32 weeks' gestation and have a corrected age of
+- 45 weeks. No CPR given by trained practitioner <1 minute duration First event
+-
+
+### High-Risk Features (Red Flags)
+- Infant< 2 months History of prematurity less than 32 weeks at birth More than one event
+- Episode occurred whilst infant was awake and supine
+- Occurred during feeding or shortly after feeding
+- Regurgitation or vomiting at time of event
+- Obstructive apnea (infant making respiratory efforts but not breathing successfully).
+- Note: Always consider NAI (e.g: drug ingestion, factitious illness, suffocation), especially if there are multiple or changing versions of the history
+
+### Low-Risk Criteria
+## Investigations & Diagnostic Workup
+May obtain pertussis testing and 12 lead ECG. Briefly monitor with pulse oximetry
+
+## Emergency Management Protocol
+Educate caregiver about BRUE and engage in shared decision & follow- up. Offer resources and CPR training previOUS  Next High risk Investigation: For high risk patients do a capillary blood gas and ECG as a minimum, and keep these patients on a cardiorespiratory monitor
+
+## Emergency Management Protocol
+Referral to Paediatrics for a 24-hour period of monitoring +/
+
+## Investigations & Diagnostic Workup
+.
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Brief Resolved Unexplained Event (BRUE) - Clinical Figure 1](/lessons/images/sba/resuscitation-critical-care/brief-resolved-unexplained-event-brue/figure_01_p1.jpeg)
+*Brief Resolved Unexplained Event (BRUE) — Clinical Figure 1 (Page 1 Reference)*
+
+![Brief Resolved Unexplained Event (BRUE) - Clinical Figure 2](/lessons/images/sba/resuscitation-critical-care/brief-resolved-unexplained-event-brue/figure_02_p4.jpeg)
+*Brief Resolved Unexplained Event (BRUE) — Clinical Figure 2 (Page 4 Reference)*
+
+![Brief Resolved Unexplained Event (BRUE) - Clinical Figure 3](/lessons/images/sba/resuscitation-critical-care/brief-resolved-unexplained-event-brue/figure_03_p5.jpeg)
+*Brief Resolved Unexplained Event (BRUE) — Clinical Figure 3 (Page 5 Reference)*
+
+![Brief Resolved Unexplained Event (BRUE) - Clinical Figure 4](/lessons/images/sba/resuscitation-critical-care/brief-resolved-unexplained-event-brue/figure_04_p5.jpeg)
+*Brief Resolved Unexplained Event (BRUE) — Clinical Figure 4 (Page 5 Reference)*$LEC_RESU_002$,
+      "position"   = 2,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'brief-resolved-unexplained-event-brue' OR "slug" = 'brue');
 
-  -- 2) Upsert Quiz Lesson (Position 3)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -499,14 +683,33 @@ $SBA_RESU_002$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 3/10: Cardiac Arrest in Pregnancy
-  -- 1) Interleave Lecture (Position 4)
+  -- Pair 3/10: Cardiac Arrest in Pregnancy
+  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
   UPDATE "lessons"
-  SET "position" = 4, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Cardiac Arrest in Pregnancy',
+      "body"       = $LEC_RESU_003$# Cardiac Arrest in Pregnancy
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Get expert help from obstetrician, anesthetist and neonatologist Add Left lateral tilt 15-30 degrees or maintain left uterine displacement manually. Due to potential IVC compression IV or IO access should be established above diaphragm Earlv intubation Position hands higher on the sternum during CPR for advanced pregnancy previOUS  If no ROSC within 4 minutes Of resuscitation then perform emergency caesarean section (hysterotomy) and deliver baby within 5 minutes. Resuscitative hysterotomy (Peri-mortem C- section) will: Relieve aorto-caval compression and Improves pulmonary mechanics and Reduces 02 demand. Note : Foetal viability starts from 24 weeks. The procedure should not be performed if uterus is not judged big enough to cause circulatory compromise through aortocaval compression. Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Cardiac Arest in Pregnancy - Clinical Figure 1](/lessons/images/sba/resuscitation-critical-care/cardiac-arest-in-pregnancy/figure_01_p2.jpeg)
+*Cardiac Arest in Pregnancy — Clinical Figure 1 (Page 2 Reference)*
+
+![Cardiac Arest in Pregnancy - Clinical Figure 2](/lessons/images/sba/resuscitation-critical-care/cardiac-arest-in-pregnancy/figure_02_p2.jpeg)
+*Cardiac Arest in Pregnancy — Clinical Figure 2 (Page 2 Reference)*$LEC_RESU_003$,
+      "position"   = 4,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'cardiac-arest-in-pregnancy' OR "slug" = 'cardiac-arrest-pregnancy');
 
-  -- 2) Upsert Quiz Lesson (Position 5)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -612,14 +815,52 @@ $SBA_RESU_003$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 4/10: Choking (Adult & Paediatric)
-  -- 1) Interleave Lecture (Position 6)
+  -- Pair 4/10: Choking (Adult & Paediatric)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
   UPDATE "lessons"
-  SET "position" = 6, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Choking (Adult & Paediatric)',
+      "body"       = $LEC_RESU_004$# Choking (Adult & Paediatric)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Mild obstruction
+- Patient able to: Speak Cough Breath Response Mnemonics BRCS
+
+## Emergency Management Protocol
+in adult
+- Sever obstruction Patient unable to: Speak Cough Breath Response (maybe unconscious)
+
+-
+- Mild obstruction Patient able to BRCS. Encourage patient to continue coughing Severe obstruction but patient is conscious. Give 5 back blows If not relived Give 5 abdominal thrusts If not relived continue alternating 5 back blows & abdominal thrusts patient become unconscious. Call resuscitation team and start CPR
+
+## Emergency Management Protocol
+in Paeds
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Chocking Andult and Pedio - Clinical Figure 1](/lessons/images/sba/resuscitation-critical-care/chocking-andult-and-pedio/figure_01_p1.jpeg)
+*Chocking Andult and Pedio — Clinical Figure 1 (Page 1 Reference)*
+
+![Chocking Andult and Pedio - Clinical Figure 2](/lessons/images/sba/resuscitation-critical-care/chocking-andult-and-pedio/figure_02_p2.jpeg)
+*Chocking Andult and Pedio — Clinical Figure 2 (Page 2 Reference)*
+
+![Chocking Andult and Pedio - Clinical Figure 3](/lessons/images/sba/resuscitation-critical-care/chocking-andult-and-pedio/figure_03_p3.jpeg)
+*Chocking Andult and Pedio — Clinical Figure 3 (Page 3 Reference)*
+
+![Chocking Andult and Pedio - Clinical Figure 4](/lessons/images/sba/resuscitation-critical-care/chocking-andult-and-pedio/figure_04_p4.jpeg)
+*Chocking Andult and Pedio — Clinical Figure 4 (Page 4 Reference)*$LEC_RESU_004$,
+      "position"   = 6,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'chocking-andult-and-pedio' OR "slug" = 'choking-adult-pediatric');
 
-  -- 2) Upsert Quiz Lesson (Position 7)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -731,14 +972,63 @@ $SBA_RESU_004$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 5/10: Haemorrhagic Shock & Massive Transfusion
-  -- 1) Interleave Lecture (Position 8)
+  -- Pair 5/10: Haemorrhagic Shock & Massive Transfusion
+  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
   UPDATE "lessons"
-  SET "position" = 8, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Haemorrhagic Shock & Massive Transfusion',
+      "body"       = $LEC_RESU_005$# Haemorrhagic Shock & Massive Transfusion
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Class of shock Volume of blood loss (mi) Volume of blood loss (%) Heart rate Blood pressure Pulse pressure Respiratory rate Mental state Class I Up to 750 0-15% <100 Normal Normal or increased 14-20 Slightly anxious Class II 750-1500 15-30%
+- 100 Normal Decreased 20-30 Mildly anxious Class Ill 1500-2000 30-40%
+- 120 Decreased Decreased 30-40 Class IV
+- 2000
+- 140 Decreased Decreased Confused, Anxious, confused lethargic —Management of hemorrhagic shock
+- In the ED, priorities are: 1 restore intravascular volume 2 maintain oxygen-carrying capacity so that tissue oxygen delivery meets demand Z limit ongoing blood loss 4_ Prevent the development of coagulopathy and hypothermia
+- Follow ABC approach
+
+- lf spontaneous ventilation is not adequate, intubate and ventilate to achieve an arterial hemoglobin oxygen saturation of 294%.
+- Vascular access and monitoring
+- Establish two large bore 14-16 guage peripheral lines or intraosseous/central line if peripheral problematic.
+- Draw blood sample for cross match , FBC, blood gas analysis , toxicology study and pregnancy testing for all female of childbearing age. —Initial fluid replacement
+- Administer IL bolus of isotonic fluid in adult and 20ml/kg for paediatric patient
+- Observe the patient response to initial fluid administration and base further therapeutic and diagnostic decision on this response.
+- Early resuscitation with blood and blood product should be considered in patient with evidence of class Ill and IV hemorrhage.
+- urine output is one of the prime indicator of fluid resuscitation and patient response.
+- Adequate resuscitation should produce 0.5mI/kg/hr urine out in adult and Iml/kg/hr in children or 2ml/kg/hr in infant.
+- Base deficit or lactate level can be useful to determine the presence and severity of the shock —Packed red blood cells (blood replacement)
+- Those patients who doesn't or little response to initial fluid therapy, they require pRBC, plasma and platelet as an early part of their resuscitation.
+
+- W'hen possible, typed and cross-matched blood is preferable. However, if time and the patient's clinical status do not permit full crossmatching, type-specific blood is the next option, followed by low-titer O-negative blood.
+- Rh-ve pRBC are preferred for female of child bearing age
+- Some patient needs massive transfusion. It defines as unit pRBC within 24 hours or
+- 4 units in I hour. —Coagulopathy
+- severe hemorrhage leads to consumption of coagulation factor and early coagulopathy.
+- The administration of RBC units without additional clotting factors or platelets during massive transfusion results in further impairment of haemostasis from both haemodilution (dilutional coagulopathy and thrombocytopenia) and metabolic derangement (acidosis and hypocalcaemia from citrate in storage solution, and hypothermia from refrigeration). Acidosis and hypocalcaemia are detrimental to normal haemostasis. Furthermore, hypothermia is associated with impairment of both platelet and coagulation factor activity.
+- AII of these factor contributes to progressive coagulopathy.
+- Progressive coagulopathy can be prevented if other blood products should be added to massive resuscitation eg; FFP, Platelets in patient with haemorrhagic shock. previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hemorrhagic Shock & Massive Transfusion - Clinical Figure 1](/lessons/images/sba/resuscitation-critical-care/hemorrhagic-shock-massive-transfusion/figure_01_p2.jpeg)
+*Hemorrhagic Shock & Massive Transfusion — Clinical Figure 1 (Page 2 Reference)*
+
+![Hemorrhagic Shock & Massive Transfusion - Clinical Figure 2](/lessons/images/sba/resuscitation-critical-care/hemorrhagic-shock-massive-transfusion/figure_02_p4.jpeg)
+*Hemorrhagic Shock & Massive Transfusion — Clinical Figure 2 (Page 4 Reference)*
+
+![Hemorrhagic Shock & Massive Transfusion - Clinical Figure 3](/lessons/images/sba/resuscitation-critical-care/hemorrhagic-shock-massive-transfusion/figure_03_p5.jpeg)
+*Hemorrhagic Shock & Massive Transfusion — Clinical Figure 3 (Page 5 Reference)*$LEC_RESU_005$,
+      "position"   = 8,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hemorrhagic-shock-massive-transfusion' OR "slug" = 'hemorrhagic-shock');
 
-  -- 2) Upsert Quiz Lesson (Position 9)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -847,14 +1137,34 @@ $SBA_RESU_005$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 6/10: Neutropenic Sepsis
-  -- 1) Interleave Lecture (Position 10)
+  -- Pair 6/10: Neutropenic Sepsis
+  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
   UPDATE "lessons"
-  SET "position" = 10, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Neutropenic Sepsis',
+      "body"       = $LEC_RESU_006$# Neutropenic Sepsis
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- therapy to patients with suspected neutropenic sepsis immediately.
+- Send full blood count, kidney and liver function tests (including albumin), C-reactive protein, lactate and blood culture.
+- urinalysis in all children aged under 5 years
+- 0ffer prophylaxis with a fluoroquinolone during the expected period of neutropenia only
+- previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Neutropenic Sepsis Guidelines - Clinical Figure 1](/lessons/images/sba/resuscitation-critical-care/neutropenic-sepsis-guidelines/figure_01_p2.jpeg)
+*Neutropenic Sepsis Guidelines — Clinical Figure 1 (Page 2 Reference)*$LEC_RESU_006$,
+      "position"   = 10,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'neutropenic-sepsis-guidelines' OR "slug" = 'neutropenic-sepsis');
 
-  -- 2) Upsert Quiz Lesson (Position 11)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -957,14 +1267,38 @@ $SBA_RESU_006$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 7/10: Paediatric Life Support (PLS / PALS)
-  -- 1) Interleave Lecture (Position 12)
+  -- Pair 7/10: Paediatric Life Support (PLS / PALS)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
   UPDATE "lessons"
-  SET "position" = 12, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Paediatric Life Support (PLS / PALS)',
+      "body"       = $LEC_RESU_007$# Paediatric Life Support (PLS / PALS)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Step-I Step-2 Step-3 Step-4 unresponsive call for help Open airway reathing normal y, NO 5 rescue breath Competent providers should use bag-mask ventilation with oxygen. If unable/unsafe to ventilate perform continuous chest compressions, ventilate as soon as possible If no signs of life observed during rescue breaths, Immediately commence chest compressions(15:2) Yes Assess ABC 02 monitoring Vascular access Call further assistance as appropriate
+
+step-5  monitoring/defibrilla tor when available Follow PAEDIATRIC ADVANCED LIFE SUPPORT ALGORITHM on arrival of in-hospital clinical emergency team
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Paediatric Life Support (PLS / PALS) - Clinical Figure 1](/lessons/images/sba/resuscitation-critical-care/paediatric-life-support-pls-pals/figure_01_p2.jpeg)
+*Paediatric Life Support (PLS / PALS) — Clinical Figure 1 (Page 2 Reference)*
+
+![Paediatric Life Support (PLS / PALS) - Clinical Figure 2](/lessons/images/sba/resuscitation-critical-care/paediatric-life-support-pls-pals/figure_02_p3.jpeg)
+*Paediatric Life Support (PLS / PALS) — Clinical Figure 2 (Page 3 Reference)*
+
+![Paediatric Life Support (PLS / PALS) - Clinical Figure 3](/lessons/images/sba/resuscitation-critical-care/paediatric-life-support-pls-pals/figure_03_p3.jpeg)
+*Paediatric Life Support (PLS / PALS) — Clinical Figure 3 (Page 3 Reference)*$LEC_RESU_007$,
+      "position"   = 12,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'paediatric-life-support-pls-pals' OR "slug" = 'pls');
 
-  -- 2) Upsert Quiz Lesson (Position 13)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -1073,14 +1407,54 @@ $SBA_RESU_007$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 8/10: Resuscitation in Sepsis & Septic Shock
-  -- 1) Interleave Lecture (Position 14)
+  -- Pair 8/10: Resuscitation in Sepsis & Septic Shock
+  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
   UPDATE "lessons"
-  SET "position" = 14, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Resuscitation in Sepsis & Septic Shock',
+      "body"       = $LEC_RESU_008$# Resuscitation in Sepsis & Septic Shock
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- History of allergen exposure, systemic compromise, skin changes
+- Cardiac arrest Eprly inty>ation by experienced airway practitioner. Ensure surgical airway equipment is immediately available. IV adrenaline — ensure 1 mg in 10ml in pre-filled syringe is given every 3-5 minutes. Laree crystalloid challenges through large bore cannula with pressure bags. Maybe 4-8L needed
+- Post- arrest management Start a titrated adrenaline infusion. Give 200 mg IV hydrocortisone and IO mg chlorpheniramine slowly. Measure the serum tryptase level Consider targeted temperature management Medig l.rt bracelet, augp/niector education and referral to an immunologist beta-blocked patients consider glucagon (1-2 mg every 5 minutes) in adrenaline-resistant cases. Remember that a biphasic reaction can recur many Be prepared for a prolonged resuscitation attempt hours later. No role of antihistamine or steroids in cardiac arrest if drug-induced anaphylaxis report to MHRA —Cardiac arrest in Asthma —Cardiac arrest associated with Drowning
+- The initial management of drowning follows the AT LS principles of Airway with cervical spine control, Breathing and Circulation. Spinal injury should be considered in all cases of drowning, especially in patients recovered from shallow water or those with evidence of head injury.
+
+follow standard BLS and ALS protocol Early intubation respiratory rate 10 breath/minutes if dynamic hyperinflation suspected the disconnect tracheal tube to relive the gas trapping. hyperinflation increase transthoracic impedance (resistance). Therefore increase defibrillator energy if first shock is unsuccessful. if tension pneumothorax suspected then go for pleural ultrasound which is faster and more sensitive than CXR. early decompression followed by chest drain insertion is needed and always consider bilateral pneumothoraces in asthma related cardiac arrest consider Extracorporeal life support(ECLS) in case of refractory respiratory and cardiac failure.
+
+- Airway & breathing: high flow oxygen. Early intubation if reduced level of consciousness. PEEP should be maintained at a minimum of 5cm H20 to prevent shear stress from the repeated opening and closing of alveoli. Circulation: The management of cardiac arrest follows ALS guidelines. Pulses may be difficult to feel in hypothermic patients. Hypotension is usually correctable with oxygenation, crystalloid infusion, and restoration of normal body temperature. Vasopressors should only be used in refractory hypotension after a trial with crystalloids.
+- Discontinue resuscitation: continue unless attempt are futile. Eg: rigor mortis. Submersion <10 minutes is a good prognostic factor and
+- 25 minutes is a poor- prognostic factor. previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Resucitiation in Sepsis - Clinical Figure 1](/lessons/images/sba/resuscitation-critical-care/resucitiation-in-sepsis/figure_01_p1.jpeg)
+*Resucitiation in Sepsis — Clinical Figure 1 (Page 1 Reference)*
+
+![Resucitiation in Sepsis - Clinical Figure 2](/lessons/images/sba/resuscitation-critical-care/resucitiation-in-sepsis/figure_02_p1.jpeg)
+*Resucitiation in Sepsis — Clinical Figure 2 (Page 1 Reference)*
+
+![Resucitiation in Sepsis - Clinical Figure 3](/lessons/images/sba/resuscitation-critical-care/resucitiation-in-sepsis/figure_03_p2.jpeg)
+*Resucitiation in Sepsis — Clinical Figure 3 (Page 2 Reference)*
+
+![Resucitiation in Sepsis - Clinical Figure 4](/lessons/images/sba/resuscitation-critical-care/resucitiation-in-sepsis/figure_04_p3.jpeg)
+*Resucitiation in Sepsis — Clinical Figure 4 (Page 3 Reference)*
+
+![Resucitiation in Sepsis - Clinical Figure 5](/lessons/images/sba/resuscitation-critical-care/resucitiation-in-sepsis/figure_05_p4.jpeg)
+*Resucitiation in Sepsis — Clinical Figure 5 (Page 4 Reference)*
+
+![Resucitiation in Sepsis - Clinical Figure 6](/lessons/images/sba/resuscitation-critical-care/resucitiation-in-sepsis/figure_06_p4.jpeg)
+*Resucitiation in Sepsis — Clinical Figure 6 (Page 4 Reference)*$LEC_RESU_008$,
+      "position"   = 14,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'resucitiation-in-sepsis' OR "slug" = 'resuscitation-sepsis');
 
-  -- 2) Upsert Quiz Lesson (Position 15)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -1195,14 +1569,80 @@ $SBA_RESU_008$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 9/10: Adult Sepsis & The Sepsis Six
-  -- 1) Interleave Lecture (Position 16)
+  -- Pair 9/10: Adult Sepsis & The Sepsis Six
+  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
   UPDATE "lessons"
-  SET "position" = 16, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Adult Sepsis & The Sepsis Six',
+      "body"       = $LEC_RESU_009$# Adult Sepsis & The Sepsis Six
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- people with any breach of skin integrity (for example, cuts, burns, blisters or skin infections)
+- people who misuse drugs intravenously
+- people with indwelling lines or catheters.
+- Sepsis risk stratification and assessment in people aged 18 or over (Nice guideline) or tongue) Behaviour Respiratory Heart rate Blood pressure Green (low risk) Normal No high risk or moderate to high risk None of or red signs Amber (moderate risk) from patient, friend or relative of new-onset altered behaviour or mental history Of acute deterioration Of functional ability
+- Trauma, surgery or invasive procedures in
+- 21—24 breaths per minute
+- 91—130 per minute for pregnant women, 100—130 beats per minute
+- New-onset arrhythmia Systolic blood pressure 91—100 mmHg Red (High risk) Pale. mottled. ashen. blue Objective evidence Of altered behaviour or mental state
+- all 25 breaths per minute or more
+- new need for 40% oxygen or more to maintain saturation more than 92% (or more than in known chronic Obstructive pulmonary disease)
+- more than 130 per minute
+- 90 mmHgor less OR more than 40 mmHg below normal Not passed urine in the past 12—18 hours, Not passed urine in previous 18 hours, or for catheterised patients passed 0.5—1 or for catheterised patients passed less ml/kg Of urine per hour than OS mukg of urine per hour Tympanic temperature less than WC Signs of potential infection:
+- Non-blanching rash
+- Redness
+- swelling or discharge at surgical site
+- Cyanosis Of Skin. lips or tongue
+
+## Emergency Management Protocol
+in out of hospital (healthcare community, school, workplace, aged 18 years and over —Green light: discharge with appropriate advice
+
+- —Amber light:
+- Can definitive condition diagnosed and treated in out of hospital setting ? yes! Then Treat definitive condition access medical care and/or provide information to safety net. not! Urgent referral to emergency care (which has resuscitation facility) —Red light: Urgent referral to emergency care (which has resuscitation facility)
+
+## Emergency Management Protocol
+of patient with green and amber risk factors in hospital setting:pegple aged 18 years and over Low risk Suspected sepsis, no high or high to moderate risk criteria Manage according to clinical judgment Moderate risk 2 or more moderate to high risk criteria met OR systolic blood pressure Of 91- 100 mmHg send tests blood gas lactate blood culture full blood C-reactive protein urea and electrolytes creatinine Lactate over 2 mmol/L Manage as high risk Only I moderate to high risk criteria met Consider blood test in I hr and clinician review Lactate 2mmol-less, no AKI Can definitive condition be diagnosed and treated? Yes! Manage definitive condition. If appropriate, discharge With information definitive condition Sn
+- t diagnosed then consider antibiotic and senior decision maker review within 3 hrs
+
+## Emergency Management Protocol
+of patient with High-risk factors in hospital setting:people aged 18 years and over
+- 1 or more high risk criteria met
+- Arrange immediate review by senior clinical decision maker (emergency care ST4 or above) Carry out venous blood tests for the following:
+- blood gas for glucose and lactate
+- blood culture
+- full blood count
+-
+- C-reactive protein
+- urea and electrolytes
+- . creatinine
+-
+- clotting screen Give intravenous antibiotics without delay (within a maximum of 1 hour) Discuss with consultant Lactate over 4 mmol/L Give IV fluid bolus 500ml without delay and discuss with critical care unit Lactate 2-4 mmol/L Give IV fluid bolus 500ml without delay Lactate< 2 mmol/L Consider IV fluid bolus 500m! without delay Continuous monitoring in emergency department Consultant review if patient condition isn't improved
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Adult Sepsis & Septic Shock - Clinical Figure 1](/lessons/images/sba/resuscitation-critical-care/adult-sepsis-septic-shock/figure_01_p2.jpeg)
+*Adult Sepsis & Septic Shock — Clinical Figure 1 (Page 2 Reference)*
+
+![Adult Sepsis & Septic Shock - Clinical Figure 2](/lessons/images/sba/resuscitation-critical-care/adult-sepsis-septic-shock/figure_02_p3.jpeg)
+*Adult Sepsis & Septic Shock — Clinical Figure 2 (Page 3 Reference)*
+
+![Adult Sepsis & Septic Shock - Clinical Figure 3](/lessons/images/sba/resuscitation-critical-care/adult-sepsis-septic-shock/figure_03_p4.jpeg)
+*Adult Sepsis & Septic Shock — Clinical Figure 3 (Page 4 Reference)*
+
+![Adult Sepsis & Septic Shock - Clinical Figure 4](/lessons/images/sba/resuscitation-critical-care/adult-sepsis-septic-shock/figure_04_p5.jpeg)
+*Adult Sepsis & Septic Shock — Clinical Figure 4 (Page 5 Reference)*$LEC_RESU_009$,
+      "position"   = 16,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'adult-sepsis-septic-shock' OR "slug" = 'sepsis-adult');
 
-  -- 2) Upsert Quiz Lesson (Position 17)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -1314,14 +1754,46 @@ $SBA_RESU_009$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 10/10: Transfusion Management of Major Haemorrhage
-  -- 1) Interleave Lecture (Position 18)
+  -- Pair 10/10: Transfusion Management of Major Haemorrhage
+  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
   UPDATE "lessons"
-  SET "position" = 18, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Transfusion Management of Major Haemorrhage',
+      "body"       = $LEC_RESU_010$# Transfusion Management of Major Haemorrhage
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Ptbleeding/collapsed or in clinical shock
+- Trigger the major blood loss protocol
+- If trauma and <3hrs from injury, give tranexamic acid lg bolus over IO minutes followed by infusion of lg over 8hr (Consider tranexamic acid lg bolus in non-traumatic patient)
+- Take baseline blood sample for: Cross-match, FBC, clotting screen, fibrinogen level, IJ&E and Calcium level Give initial MHP-1which include 4 or 6 units RBC 4 units Add 1 dose of plt in trauma patients earlier Reassess the patient If require further transfusion then take baseline sample for: FBC, clotting screen, fibrinogen level, I-J&E and Calcium level Order MHP-2 which include 4-6 units of RBC, 4units of FFP, I dose of plt 2 packs of cryoprecipitate Transfusion of MHP-2 depends on lab results eg: if Hb in lab value <8 then transfuse RBC otherwise not
+- Aim to maintain following
+- values PLT PT ratio APTT ratio Fibrinogen Ca2+ 8-1 Ogldl X 109 IL
+- 1.5gn
+- lmmol/l
+
+- Repeat the baseline investigation which include:
+- FBC, clotting screen, fibrinogen level, IJ&E and Calcium level Correct complications: hypocalcaemia, hypothermia, acidosis  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Transfction Mangement of Major Hge - Clinical Figure 1](/lessons/images/sba/resuscitation-critical-care/transfction-mangement-of-major-hge/figure_01_p2.jpeg)
+*Transfction Mangement of Major Hge — Clinical Figure 1 (Page 2 Reference)*
+
+![Transfction Mangement of Major Hge - Clinical Figure 2](/lessons/images/sba/resuscitation-critical-care/transfction-mangement-of-major-hge/figure_02_p3.jpeg)
+*Transfction Mangement of Major Hge — Clinical Figure 2 (Page 3 Reference)*
+
+![Transfction Mangement of Major Hge - Clinical Figure 3](/lessons/images/sba/resuscitation-critical-care/transfction-mangement-of-major-hge/figure_03_p3.jpeg)
+*Transfction Mangement of Major Hge — Clinical Figure 3 (Page 3 Reference)*$LEC_RESU_010$,
+      "position"   = 18,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'transfction-mangement-of-major-hge' OR "slug" = 'transfusion-major-hemorrhage');
 
-  -- 2) Upsert Quiz Lesson (Position 19)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -1439,14 +1911,165 @@ $SBA_RESU_010$,
     RAISE EXCEPTION 'Module Cardiovascular Emergencies not found in mrcem-sba';
   END IF;
 
-  -- Topic 1/21: Acute Coronary Syndromes (ACS)
-  -- 1) Interleave Lecture (Position 0)
+  -- Pair 1/21: Acute Coronary Syndromes (ACS)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
   UPDATE "lessons"
-  SET "position" = 0, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Coronary Syndromes (ACS)',
+      "body"       = $LEC_CARD_011$# Acute Coronary Syndromes (ACS)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- ACS describes a group of clinical conditions all of which presented with chest pain or discomfort resulting from myocardial ischemia, eventually myocardial cells death the condition known as MI
+- ACS classification:
+- STEM':
+- ST-segment elevation or new LBBB present on ECG.
+- NSTE-ACS:
+- NSTEMI: ST-segment depression & T wave inversion on ECG or normal ECG with deranged Troponin.
+- Unstable angina: normal ECG and Troponin (negative)
+- Risk Factors:
+- Positive family history
+- Advanced age
+- Hyperlipidaemia
+- Diabetic Mellitus Hypertension
+- Smoking
+- Aspirin usage
+- Obesity, sedentary lifestyle
+
+## Key Clinical Features
+Chest pain features:
+- Heavy, aching, or tight
+- Centre or left side of the chest
+- Not related to respiration or rnovernent
+-
+- It May radiate to one or both arms, neck, or jaw.
+- Chest pain association: Breathlessness, sweating, hemodynamically instability, nausea, and vomiting.
+-
+- Likelihood of AMI Increase likelihood ratio:
+- Describe as pressure
+- Associated with nausea, diaphoresis, or breathlessness
+- Radiation to either or both arms.
+- Worse than previous angina
+- Decrease likelihood ratio:
+- Describe as a sharp or positional.
+- Reproducible with palpation
+- Inframammary location
+- Not associated with exertion
+- Note: The highest likelihood for AMI is radiation of the pain to the right arm or
+- shoulder, or to both arms or shoulders [/boxl
+
+## Investigations & Diagnostic Workup
+ECG finding New ST-segment elevation
+- New Q wave formation
+- New ST-segment depression
+- New conduction deficit
+- T wave peaking or inversion
+- Other
+- Troponin level, ECHO, CXR
+- ST segment depression T wave inversion
+- Note: decrease the likelihood of MI if ECG is normal however it may be normal in UA and NSTEMI
+
+- Localization of the lesion in STEM': Affected myocardial area Septal Anterior Lateral
+-
+- Anteroseptal Anterolateral Inferior
+- Posterior Right ventricular Subendocardial Leads with ST- elevation VI-V2 V3-V4 Or VI-V4 R ST-dep in II, Ill, aVF V5-V6, l, aVL VI-V4 (R II, Ill, aVF) II Ill, aVF (R l, aVL) R v2-v3 ( V7-V9) 111>11 VI, V4R (R Q) aVR (R V2-V6 1, II, aVF) ccluded corona LAD LAD LCX LAD LAD or LCX RCA RCA RCA Arte Left main coronary Artery
+- ST-elevation ECG
+- Acute anterior myocardial infarction:
+- ST-elevation in v3-v4 OR
+- ST-elevation vl-v4 with reciprocal ST-depression in II Ill aVF
+- Example-I
+
+- Anterolateral Myocardial Infarction:
+- ST-elevation v3-v6 1, aVL with reciprocal ST- depression in II, Ill, aVF
+- ST- elevation high in lead I and aVL
+- Example-I
+
+- Example-22
+
+- Acute Inferior Myocardial Infarction:
+- Inferior MI:
+- St-elevation in inferior leads(ll, Ill,aVF) with reciprocal ST-depression in l, aVL
+- But if reciprocal St depression in anteroseptal leads (vl-v4) then posterior infarct likely, needs to confirm with additional leads.
+- Note: mostly right-sided and posterior infarcts occur due to the extension of inferior infarcts so they need to be confirmed with additional leads such as v7- v9 for posterior infarcts and V4R for right-sided infarcts [/box]
+
+- Posterior MI confirmed with additional leads v7-v9
+
+- Right-ventricular-infarction;
+- ST-elevation in 111>11, VI, V4R reciprocal depression in v2.
+- Note: any patient with inferior leads MI in 12 leads needs to routinely check for posterior and right-sided MI.
+
+- Initial management of ACS:
+- Any patient with ACS( STEMI, NSTEMI, or UA) MONA therapy should be started immediately.
+- Morphine (analgesia)
+
+- Oxygen (if needed)
+- Nitrites (GTN)
+- Aspirin
+- Further management of therapy(PCI or Fibrinolysis)
+- Angiography with follow-on primary PCI:
+- Offer if patient presents within 12 hours of symptoms and PCl can be delivered within 120 minutes.
+- Consider any patient presenting hours after symptoms and continuing myocardial ischemia or cardiogenic shock
+- Drug therapy for primary PCI:
+- In addition to aspirin,offer platelet ADP receptor blocker (clopidogrel, prasugrel)
+- Offer heparin or bivalirudin alternative to heparin with bailout CPI (abciximab, tirofiban).
+- Fibrinolysis_(reteplase or tenecteplase);
+- Offer if patient is presenting in 12 hours of symptoms and PCl not possible in 120 mins.
+- In addition to aspirin, Give antithrombin (unfractionated or LMW heparin) at the same time.
+- Offer ECG 60-90 minutes after fibrinolysis.
+- Offer plet ADP receptors blockers (prasugrel) with aspirin if Cl then aspirin alone.
+
+- Do not repeat fibrinolysis; offer immediate angiography with follow-on PCl if indicated by ECG or Seek specialist advice for recurrent myocardial ischaemia and offer angiography with follow-on PCl if appropriate.
+- Consider angiography during the same admission if stable after successful fibrinolysis.
+- Assess the left ventricular function
+- Further management of NSTEMI:
+- In addition to aspirin offer antithrombin, and unfractionated heparin in patient who are likely to undergo PCl within 24hrs
+- LMW who don't have high-risk bleeding and PCl not planned within 24hrs
+- Further treatment depends on a risk scoring system, such as TIMI or GRACE, to predict 6-month mortality
+
+### Low-Risk Criteria
+(predicted 6-month mortality S 3%);
+- Consider conservative management without angiography.
+- Offer ticagrelor with aspirin unless high bleeding risk:
+- Consider clopidogrel with aspirin, or aspirin alone, for high bleeding risk
+- Consider ischemia testing before discharge
+- Offer immediate angiography if the clinical condition is unstable Otherwise, consider angiography (with follow-on PCI if indicated) within 72 hours if no CI such as comorbidity or active bleeding.
+- Offer prasugrel* or ticagrelor with aspirin
+- Offer systemic unfractionated heparin in the catheter laboratory if having PCl
+
+- Secondary Prevention: Antithrombin therapy: Iow dose aspirin 75mg daily. Clopidogrel 75mg or prasugrel 10mg daily
+- ACEI to reduce the risk or severity of HF and MI Beta Blocker to reduce mortality Statin to reduce the future coronary event Antihypertensive therapy Smoking cessation
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Coronary Syndromes (ACS) - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/acute-coronary-syndromes-acs/figure_01_p1.jpeg)
+*Acute Coronary Syndromes (ACS) — Clinical Figure 1 (Page 1 Reference)*
+
+![Acute Coronary Syndromes (ACS) - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/acute-coronary-syndromes-acs/figure_02_p4.jpeg)
+*Acute Coronary Syndromes (ACS) — Clinical Figure 2 (Page 4 Reference)*
+
+![Acute Coronary Syndromes (ACS) - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/acute-coronary-syndromes-acs/figure_03_p5.jpeg)
+*Acute Coronary Syndromes (ACS) — Clinical Figure 3 (Page 5 Reference)*
+
+![Acute Coronary Syndromes (ACS) - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/acute-coronary-syndromes-acs/figure_04_p6.jpeg)
+*Acute Coronary Syndromes (ACS) — Clinical Figure 4 (Page 6 Reference)*
+
+![Acute Coronary Syndromes (ACS) - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/acute-coronary-syndromes-acs/figure_05_p8.jpeg)
+*Acute Coronary Syndromes (ACS) — Clinical Figure 5 (Page 8 Reference)*
+
+![Acute Coronary Syndromes (ACS) - Clinical Figure 6](/lessons/images/sba/cardiovascular-emergencies/acute-coronary-syndromes-acs/figure_06_p10.jpeg)
+*Acute Coronary Syndromes (ACS) — Clinical Figure 6 (Page 10 Reference)*
+
+![Acute Coronary Syndromes (ACS) - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/acute-coronary-syndromes-acs/figure_07_p14.jpeg)
+*Acute Coronary Syndromes (ACS) — Clinical Figure 7 (Page 14 Reference)*$LEC_CARD_011$,
+      "position"   = 0,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-coronary-syndromes-acs' OR "slug" = 'acute-coronary-syndrome');
 
-  -- 2) Upsert Quiz Lesson (Position 1)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -1564,14 +2187,24 @@ $SBA_CARD_011$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 2/21: Atrial Arrhythmias & Atrial Flutter
-  -- 1) Interleave Lecture (Position 2)
+  -- Pair 2/21: Atrial Arrhythmias & Atrial Flutter
+  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
   UPDATE "lessons"
-  SET "position" = 2, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Atrial Arrhythmias & Atrial Flutter',
+      "body"       = $LEC_CARD_012$# Atrial Arrhythmias & Atrial Flutter
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_CARD_012$,
+      "position"   = 2,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'atrial-arrhythmias' OR "slug" = 'atrial-arrhythmias');
 
-  -- 2) Upsert Quiz Lesson (Position 3)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -1674,14 +2307,110 @@ $SBA_CARD_012$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 3/21: Atrial Fibrillation Management
-  -- 1) Interleave Lecture (Position 4)
+  -- Pair 3/21: Atrial Fibrillation Management
+  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
   UPDATE "lessons"
-  SET "position" = 4, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Atrial Fibrillation Management',
+      "body"       = $LEC_CARD_013$# Atrial Fibrillation Management
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- AF is diagnosed using an ECG which typically shows an absolutely irregular RR interval and absent p waves. NICE guideline classification
+- paroxysmal AF
+- AF terminates spontaneously within seven days of onset and most often within 48 hours of onset.
+- Persistent AF AF presents continuously for seven days or more or is terminated by cardioversion.
+- Permanent AF
+- AF which is accepted without attempted cardioversion or which cannot be terminated by cardioversion
+- Pathophysiology: _
+- The primary pathological change seen in AF is progressive atrial fibrosis.
+- Prothrombotic state: Structural and functional changes in the atrial myocardium along with stasis of blood especially in the Left atrial appendage allow an environment in which a thrombus can form.
+- Damage to the myocardium causes the expression of prothrombotic factors on the atrial endothelial surface. This along with activation of platelets and inflammatory cells leads to clot formation.
+
+## Key Clinical Features
+breathlessness
+- palpitations
+
+- syncope or dizziness
+- chest discomfort
+- stroke or transient ischaemic attack
+- History and physical examination that is important in deciding the most appropriate treatment.
+- PIRATES
+- (secondary causes).
+- Ischemia,
+- Respiratory disease,
+- Atrial enlargement or myxoma,
+- Thyroid disease (check TSH and free T4 in first-time presenters),
+- Ethanol ("Holiday heart" after binging)
+- Sepsis or Sleep apnea
+
+## Investigations & Diagnostic Workup
+Physical examination
+- 12-lead ECG
+- Blood sample for Thyroid function and biochemical analysis
+
+evÅ cVF RHYTHM STRI u: 11 ':cm/mV
+- Stroke & Bleeding Risk Stratification
+- Consider anticoagulation for men with a CHA2DS2-VASc score ofl
+- Offer anticoagulation to people with a CHA2DS2-VASc score of 2 or above I
+- Take bleeding risk into account using a HAS-BLED score of greater than 2 as a relative contraindication to anticoagulation.
+
+- CHAPSrVASc Score HF (heart failure) Hy rtension 275 Qiabetes troke yascular Disease 2 2 Condition H
+- Hypertensbn A
+- Abnormal renal or fmctbn (1 point each) S
+- Stroke B
+- Bleeding L
+- Labde INRs E
+- Ederty 65 years) D
+- Drugs or abohol (1 point each) 'Points 1 or 2 1 e 65-74 ex te (female)
+
+## Emergency Management Protocol
+of hemodynamically-unstable AF
+- DC shock 120-1503 should be given if a patient presents with the following adverse features:
+- Shock
+- Syncope/reduce the level of consciousness.
+- Heart failure
+- Myocardial ischemia
+
+## Emergency Management Protocol
+of previously- identified AF
+- In patients presenting to the ED who are known to have AF long-term (>48 hours). a reason for why they are tachycardic should be sorted. If a secondary/reversible cause has been excluded then rate control should be considered
+
+- NICE recommends rate control (beta blockers and rate-limiting CCB) as the first- line strategy for people with atrial fibrillation, except in people: whose atrial fibrillation has a reversible cause. who have heart failure thought to be primarily caused by atrial fibrillation. with new-onset atrial fibrillation (<48hrs) For whom a rhythm control strategy would be more suitable based on clinical judgment Note: digoxin can be used in sedentary patients.
+
+## Emergency Management Protocol
+of Recent-onset, Non-Life- threatening AF In the ED if a patient presents within 48 hrs of onset consider either pharmacological or electrical cardioversion. Electrical: synchronized DC 120-1503.
+- Pharmacological:
+- A choice of flecainide in people with no evidence of structural or ischemic heart disease. Amiodarone should be used in people with evidence of structural heart disease. Note: if patient with AF is uncertain of time or greater than 48 hrs then anti-coagulate this pt for 3 weeks before cardioversion and rate should be controlled with Beta blockers.
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Atrial Fibrillation & Flutter (AF) - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/atrial-fibrillation-flutter-af/figure_01_p1.jpeg)
+*Atrial Fibrillation & Flutter (AF) — Clinical Figure 1 (Page 1 Reference)*
+
+![Atrial Fibrillation & Flutter (AF) - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/atrial-fibrillation-flutter-af/figure_02_p4.jpeg)
+*Atrial Fibrillation & Flutter (AF) — Clinical Figure 2 (Page 4 Reference)*
+
+![Atrial Fibrillation & Flutter (AF) - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/atrial-fibrillation-flutter-af/figure_03_p5.jpeg)
+*Atrial Fibrillation & Flutter (AF) — Clinical Figure 3 (Page 5 Reference)*
+
+![Atrial Fibrillation & Flutter (AF) - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/atrial-fibrillation-flutter-af/figure_04_p5.jpeg)
+*Atrial Fibrillation & Flutter (AF) — Clinical Figure 4 (Page 5 Reference)*
+
+![Atrial Fibrillation & Flutter (AF) - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/atrial-fibrillation-flutter-af/figure_05_p6.jpeg)
+*Atrial Fibrillation & Flutter (AF) — Clinical Figure 5 (Page 6 Reference)*
+
+![Atrial Fibrillation & Flutter (AF) - Clinical Figure 6](/lessons/images/sba/cardiovascular-emergencies/atrial-fibrillation-flutter-af/figure_06_p7.jpeg)
+*Atrial Fibrillation & Flutter (AF) — Clinical Figure 6 (Page 7 Reference)*$LEC_CARD_013$,
+      "position"   = 4,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'atrial-fibrillation-flutter-af' OR "slug" = 'atrial-fibrillation');
 
-  -- 2) Upsert Quiz Lesson (Position 5)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -1799,14 +2528,24 @@ $SBA_CARD_013$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 4/21: Atrial Septal Defect (ASD)
-  -- 1) Interleave Lecture (Position 6)
+  -- Pair 4/21: Atrial Septal Defect (ASD)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
   UPDATE "lessons"
-  SET "position" = 6, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Atrial Septal Defect (ASD)',
+      "body"       = $LEC_CARD_014$# Atrial Septal Defect (ASD)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+$LEC_CARD_014$,
+      "position"   = 6,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'atrial-septal-defect' OR "slug" = 'atrial-septal-defect');
 
-  -- 2) Upsert Quiz Lesson (Position 7)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -1915,14 +2654,80 @@ $SBA_CARD_014$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 5/21: ECG Axis Interpretation
-  -- 1) Interleave Lecture (Position 8)
+  -- Pair 5/21: ECG Axis Interpretation
+  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
   UPDATE "lessons"
-  SET "position" = 8, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'ECG Axis Interpretation',
+      "body"       = $LEC_CARD_015$# ECG Axis Interpretation
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- 1500 aVR 1800
+- 900 Extreme AXIS Deviation RAD aVF LAD
+- 300 aVL + 1200 +900 NORMAL QRS AXIS + 600
+
+- Methods of ECG Axis Interpretation There are several complementary approaches to estimating QRS axis, however, we will focus on two:
+- The Quadrant Method- (Lead I and aVF)
+- Three Lead analysis— (Lead I, Lead II and III)
+- The Quadrant Method
+- The rnost efficient way to estimate axis is to look at LEAD I and LEAD aVF.
+- Examine the QRS complex in each lead and determine if it is Positive, Isoelectric (Equiphasic) or Negative. iiiiiäi POSITIVE s s EQUIPHASIC NEGATIVE
+- A positive QRS in Lead I puts the axis in roughly the same direction as lead l.
+- A positive QRS in Lead aVF similarly aligns the axis with lead aVF.
+
+- Combining both coloured areas — the quadrant of overlap determines the axis. So If Lead I and aVF are both positive, the axis is between 00 and +900 (i.e. normal axis).
+- Example — I gift
+- To use Quadrant Method
+- Lead I = NEGATIVE
+- Lead II = Equiphasic
+- Lead aVF = POSITIVE
+- This puts the axis in the quadrant, between +900 and +1800, i.e.RAD (Right axis deviation)
+- Three Lead
+
+- Lead Illor aVF can both be used in three lead analysis Normal Axis 0 to 90 Left Axis Physiological O to-30 Left Axis Pathological
+- 30 to
+- 90 Right Axis 90 to 180 Extreme Axis
+- 90 to
+- 180 Indeterminate Lead I Lead 11 Lead 111
+- Example
+- 1
+
+-
+- To use Lead l, II, aVF Lead I = POSITIVE Lead II = POSITIVE aVF = POSITIVE
+- This puts the axis in the quadrant between 00 and +900 — i.e.normal axis previ0US
+
+### Clinical Figures & Diagnostic Algorithms
+
+![ECG Axis Interpretation - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/ecg-axis-interpretation/figure_01_p2.jpeg)
+*ECG Axis Interpretation — Clinical Figure 1 (Page 2 Reference)*
+
+![ECG Axis Interpretation - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/ecg-axis-interpretation/figure_02_p3.jpeg)
+*ECG Axis Interpretation — Clinical Figure 2 (Page 3 Reference)*
+
+![ECG Axis Interpretation - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/ecg-axis-interpretation/figure_03_p4.jpeg)
+*ECG Axis Interpretation — Clinical Figure 3 (Page 4 Reference)*
+
+![ECG Axis Interpretation - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/ecg-axis-interpretation/figure_04_p5.jpeg)
+*ECG Axis Interpretation — Clinical Figure 4 (Page 5 Reference)*
+
+![ECG Axis Interpretation - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/ecg-axis-interpretation/figure_05_p6.jpeg)
+*ECG Axis Interpretation — Clinical Figure 5 (Page 6 Reference)*
+
+![ECG Axis Interpretation - Clinical Figure 6](/lessons/images/sba/cardiovascular-emergencies/ecg-axis-interpretation/figure_06_p6.jpeg)
+*ECG Axis Interpretation — Clinical Figure 6 (Page 6 Reference)*
+
+![ECG Axis Interpretation - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/ecg-axis-interpretation/figure_07_p7.jpeg)
+*ECG Axis Interpretation — Clinical Figure 7 (Page 7 Reference)*$LEC_CARD_015$,
+      "position"   = 8,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'ecg-axis-interpretation' OR "slug" = 'axis-interpretation');
 
-  -- 2) Upsert Quiz Lesson (Position 9)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -2043,14 +2848,69 @@ $SBA_CARD_015$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 6/21: Bifascicular & Trifascicular Blocks
-  -- 1) Interleave Lecture (Position 10)
+  -- Pair 6/21: Bifascicular & Trifascicular Blocks
+  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
   UPDATE "lessons"
-  SET "position" = 10, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Bifascicular & Trifascicular Blocks',
+      "body"       = $LEC_CARD_016$# Bifascicular & Trifascicular Blocks
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Examples of complete Trifascicular heart block
+- Complete Trifascicular Block
+- Right bundle branch block
+- Left axis deviation (Left anterior fascicular block)
+- Third-degree heart block Example — 2
+
+iiih — Incomplete trifascicular block (bifascicular block + first-degree AV
+- Example block)
+
+- Incomplete heart block
+- Right bundle branch block
+- Left axis deviation (= left anterior fascicular block)
+- First-degree AV block
+- Example
+- Bifascicular block
+
+- bifascicular block pattern:RBBB combined with LAFB (manifested as LAD). Example
+- 2 *Æiiii"" "i itiiiiiütfi$fiii iiiii iii\i iiiiiiiiii iiiii iiiii iiifiiiiiifiiii iiiii Wiii iiiii iiiiifiiiiiiiii iiii Éiij iiiii iiiiiiii#iiiii iiiiiiiii iii liiii liiii iliiiiiiiiiiili)iiii gliii
+
+- RBBB with LAFB
+- RBBB pattern in precordial leads with RSR' complex in VI-2
+- Prominent LAD indicating LAFB. previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Bifascicular & Trifascicular Blocks - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/bifascicular-trifascicular-blocks/figure_01_p1.jpeg)
+*Bifascicular & Trifascicular Blocks — Clinical Figure 1 (Page 1 Reference)*
+
+![Bifascicular & Trifascicular Blocks - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/bifascicular-trifascicular-blocks/figure_02_p2.jpeg)
+*Bifascicular & Trifascicular Blocks — Clinical Figure 2 (Page 2 Reference)*
+
+![Bifascicular & Trifascicular Blocks - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/bifascicular-trifascicular-blocks/figure_03_p3.jpeg)
+*Bifascicular & Trifascicular Blocks — Clinical Figure 3 (Page 3 Reference)*
+
+![Bifascicular & Trifascicular Blocks - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/bifascicular-trifascicular-blocks/figure_04_p4.jpeg)
+*Bifascicular & Trifascicular Blocks — Clinical Figure 4 (Page 4 Reference)*
+
+![Bifascicular & Trifascicular Blocks - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/bifascicular-trifascicular-blocks/figure_05_p5.jpeg)
+*Bifascicular & Trifascicular Blocks — Clinical Figure 5 (Page 5 Reference)*
+
+![Bifascicular & Trifascicular Blocks - Clinical Figure 6](/lessons/images/sba/cardiovascular-emergencies/bifascicular-trifascicular-blocks/figure_06_p5.jpeg)
+*Bifascicular & Trifascicular Blocks — Clinical Figure 6 (Page 5 Reference)*
+
+![Bifascicular & Trifascicular Blocks - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/bifascicular-trifascicular-blocks/figure_07_p6.jpeg)
+*Bifascicular & Trifascicular Blocks — Clinical Figure 7 (Page 6 Reference)*$LEC_CARD_016$,
+      "position"   = 10,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'bifascicular-trifascicular-blocks' OR "slug" = 'bifascicular-trifascicular-block');
 
-  -- 2) Upsert Quiz Lesson (Position 11)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -2171,14 +3031,134 @@ $SBA_CARD_016$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 7/21: Emergency Bradycardia Management
-  -- 1) Interleave Lecture (Position 12)
+  -- Pair 7/21: Emergency Bradycardia Management
+  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
   UPDATE "lessons"
-  SET "position" = 12, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Emergency Bradycardia Management',
+      "body"       = $LEC_CARD_017$# Emergency Bradycardia Management
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Bradycardia is a heart rate of fewer than 60 beats per minute.
+-
+- Types Sinus bradycardia
+- Sinus arrest
+- Junctional bradycardia
+-
+- Atrioventricular blocks:
+- First degree Second degree (Mobitz types I and II)
+-
+- Third-degree (complete heart block)
+- Causes Normal physiological variants as seen in athletes
+- Cardiac causes (ischemic & structural heart disease)
+- Infectious
+- Systemic illness (hypothyroidism, hypothermia) Autonomic mediated (carotid hypersensitivity, vasovagal syncope)
+- Head injury
+-
+- Hyper-hypokalaemia
+- Drugs Beta-blockers
+-
+- CCB Amitriptyline
+- Quinidine
+- Clonidine
+-
+
+Digoxin
+- Organophosphate
+
+## Emergency Management Protocol
+approach (unstable patient) The ALS bradycardia algorithm recommends Atropine 500 mcg IV up to 3mg
+- maximum if any patient presents with the following:
+- risk of asystole:
+- Shock
+- Syncope Myocardial ischemia Heart failure
+- Risk of asystole:
+- Recent asystole
+- Mobiztype-2 Av block
+- Complete heart block
+- Ventricular pause
+- 3 seconds
+- Bradycardia (Resus council of the UK and European resuscitation council
+- guideline)
+- If bradycardia is accompanied by adverse signs (Shock, Syncope, Myocardial ischaemia ,Heart failure as mentioned above) give atropine 500mcg IV (IO) and, if necessary, repeat every 3 — 5 min to a total of 3 mg.
+- If treatrnent with atropine is ineffective consider second line drugs: These include isoprenaline (5mcg starting dose), and
+- adrenaline (2
+- 10mcg).
+
+- For bradycardia caused by inferior myocardial infarction, cardiac transplant or spinal cord injury, consider giving aminophylline (100 — 200 mcg slow intravenous injection).
+- Consider giving glucagon if beta-blockers or calcium channel blockers are a potential cause of the bradycardia.
+- Do not give atropine to patients with cardiac transplants it can cause a high-degree AV block or even sinus arrest use aminophylline.
+- Consider pacing in patients who are unstable, with symptomatic bradycardia refractory to drug therapies.
+- If transthoracic pacing is ineffective, consider transvenous pacing.
+- Whenever a diagnosis of asystole is made, check the ECG carefully for the presence of P waves because unlike true asystole, this is more likely to respond to cardiac pacing.
+- If atropine is ineffective and transcutaneous pacing is not immediately available, fist pacing can be attempted while waiting for pacing equipment.
+- There is a controversy between RCEM learning and resus council of the UK guideline for bradycardia secondary to beta-blocker. however, you've to stick with resus council of the UK guideline.
+- Sinus-bradycardia
+
+- In sinus bradycardia, the heart rate is below 60 bpm and there is a P wave before every QRS complex. The PR interval is constant.
+- Sinus bradycardia may be normal in healthy young adults, especially athletes.
+- Causes (find in the previous slide)
+- If patient is a symptomatic treatment with atropine or according to the underlying cause. ( hypothermia. Beta-blocker, CCB, Organophosphate).
+- Sinus arrest
+
+- Sinus arrest is characterized by the absence of P waves and pauses of3 seconds or more. It is the result of either sinus node disease or carotid sinus hypersensitivity.
+
+## Emergency Management Protocol
+exacerbating drugs such as beta-blockers or calcium channel antagonists should be stopped.
+
+- Junctional bradycardia is a regular rhythm (40-60 bpm) initiated in the AV nodal tissue and occurs when the SA-nodaLpacemake.Lfaj.ls:
+
+## Emergency Management Protocol
+if patient is symptomatic first-line treatment Atropine initially 0.5mg(500mcg) if persists then a permanent pacemaker may be required.
+- Atrioventricular block
+- First-degree heart block:
+- Constant prolongation of PR interval
+- 200ms and Qrs complex remain narrow.
+- It doesn't require treatment
+
+- Second:degree-heart-block
+- Mobitz type-I(Wenckebach):
+- The progressive lengthening of PR interval eventually dropped beat (ventricular conduction).
+- Required monitoring
+
+- Mobitz type-2: The intermittent dropping of ventricular conduction
+- 2nd degree 2:1 Av block:
+- Alternative P wave not conducted to the ventricle
+- Progress to complete heart block so requires urgent intervention
+- Third-degree-Hearth-ock
+- Complete dissociation between atria and ventricle (P wave and QRS complex)
+
+previous  Next 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Emergency Bradycardia Management - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/emergency-bradycardia
+
+## Emergency Management Protocol
+/figure_01_p1.jpeg)
+*Emergency Bradycardia Management — Clinical Figure 1 (Page 1 Reference)*
+
+![Emergency Bradycardia Management - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/emergency-bradycardia
+
+## Emergency Management Protocol
+/figure_02_p1.jpeg)
+*Emergency Bradycardia Management — Clinical Figure 2 (Page 1 Reference)*
+
+![Emergency Bradycardia Management - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/emergency-bradycardia
+
+## Emergency Management Protocol
+/figure_03_p10.jpeg)
+*Emergency Bradycardia Management — Clinical Figure 3 (Page 10 Reference)*$LEC_CARD_017$,
+      "position"   = 12,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'emergency-bradycardia-management' OR "slug" = 'bradycardia');
 
-  -- 2) Upsert Quiz Lesson (Position 13)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -2284,14 +3264,95 @@ $SBA_CARD_017$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 8/21: Cardiogenic Pulmonary Oedema
-  -- 1) Interleave Lecture (Position 14)
+  -- Pair 8/21: Cardiogenic Pulmonary Oedema
+  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
   UPDATE "lessons"
-  SET "position" = 14, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Cardiogenic Pulmonary Oedema',
+      "body"       = $LEC_CARD_018$# Cardiogenic Pulmonary Oedema
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+HF define clinically as a syndrome in which patient has sign and symptoms resulting
+- from abnormality of cardiac structure or function. Acute HF refers to rapid onset worsening of the symptoms and sign of the HF, requiring urgent evaluation and treatment.
+- Causes Cardiac disease
+- Coronary artery disease (most common)
+-
+- Hypertension Cardiomyopathy
+- Valvular HD
+- Congenital HD
+- Pericardial D
+- Others
+- High-cardiacou.tputstate=Thyrotoxicosis, Anaemia, Pheochromocytoma, Liver failure, Septecaemia
+- Drugs (cocaine, alcohol NSAID, BB, CCB)
+- Clinical Approach
+- Distinguishing CPO from other pathologies
+
+Symptom SOB Cough Chest pain Palpitations Sweating Acuity Nocturnal cpo Pink frothy sputum COPD Dry cough Pneumonia Green sputum Precipitating Cause e.g. ACS Haemoptysis
+
+Sign Heart rate Blood pressure Temperature 02 saturations Chest signs Skin Heart sounds CPO Bilateral crepitati ons Cold, pale and clammy COPD Diffuse wheeze Dry and warm Murmurs, 3rd/4th Normal heart sounds Pneumonia Focal crepitations Flushed and warm Normal Clear Dry Normal
+- Key points CPO: symptom: Breathlessness( orthopnoea, paroxysmal nocturnal dyspnoea
+- Coughing(Pink frothy sputum), edema, lightheadedness(syncope)
+- Sign: tachycardia, tachypnoea(basal crepitation, wheeze, plural effusion), hypertension, raised jvp, heart murmur, ascites and poor peripheral circulation.
+
+## Investigations & Diagnostic Workup
+ECG: it may reveal precipitating causes such as ST segment changes associated with ACS or arrhythmia
+- CXR features Upper lobe diversion
+- Alveolar edema
+- Pleural effusion
+
+- Cardiomegaly
+- ABC: (Type-I failure if with COPD then type-2)
+- LFTs, Troponin, TSH).
+- dysfunction, tamponed, ventricular rupture) ERECT
+
+Typical CPO ABG on air pH pC02 p02 Sats HC03 BXS Lactate
+
+## Emergency Management Protocol
+- 7.29 4.92 6.80 84% 16
+- 5 3.2 mmol/L The priorities are to relieve symptoms and to restore haemodynamic stability and tissue perfusion. Follow ABCDE approach
+- Airway & Breathing
+- If the airway is compromised intervene as required
+- BTS suggest maintain oxygen 94-98% in acute HF, if HF coexist with COPD then 88- 92%
+- Start with NIV on high flow oxygen 15L/min
+- Diuretics (furosemide)
+- Nitrates (initially sublingual then IV infusion 10-20mcg/min)
+- Nitroprusside (the ESC suggests commencing at the rate of 0.3-0.5 mcg/min). Its Cl if SBP<90mmHg
+- Inotropes ( dobutamine as a first-line agent).
+
+Disability;lV opiate for chest pain Exposure: Position the patient sitting upright supported with pillows as appropriate for their conscious level. previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Cardiogenic Pulmonary Oedema - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/cardiogenic-pulmonary-oedema/figure_01_p1.jpeg)
+*Cardiogenic Pulmonary Oedema — Clinical Figure 1 (Page 1 Reference)*
+
+![Cardiogenic Pulmonary Oedema - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/cardiogenic-pulmonary-oedema/figure_02_p1.jpeg)
+*Cardiogenic Pulmonary Oedema — Clinical Figure 2 (Page 1 Reference)*
+
+![Cardiogenic Pulmonary Oedema - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/cardiogenic-pulmonary-oedema/figure_03_p3.jpeg)
+*Cardiogenic Pulmonary Oedema — Clinical Figure 3 (Page 3 Reference)*
+
+![Cardiogenic Pulmonary Oedema - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/cardiogenic-pulmonary-oedema/figure_04_p4.jpeg)
+*Cardiogenic Pulmonary Oedema — Clinical Figure 4 (Page 4 Reference)*
+
+![Cardiogenic Pulmonary Oedema - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/cardiogenic-pulmonary-oedema/figure_05_p5.jpeg)
+*Cardiogenic Pulmonary Oedema — Clinical Figure 5 (Page 5 Reference)*
+
+![Cardiogenic Pulmonary Oedema - Clinical Figure 6](/lessons/images/sba/cardiovascular-emergencies/cardiogenic-pulmonary-oedema/figure_06_p6.jpeg)
+*Cardiogenic Pulmonary Oedema — Clinical Figure 6 (Page 6 Reference)*
+
+![Cardiogenic Pulmonary Oedema - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/cardiogenic-pulmonary-oedema/figure_07_p7.jpeg)
+*Cardiogenic Pulmonary Oedema — Clinical Figure 7 (Page 7 Reference)*$LEC_CARD_018$,
+      "position"   = 14,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'cardiogenic-pulmonary-oedema' OR "slug" = 'cardiogenic-pulmonary-edema');
 
-  -- 2) Upsert Quiz Lesson (Position 15)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -2409,14 +3470,127 @@ $SBA_CARD_018$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 9/21: Congenital Heart Disease in the ED
-  -- 1) Interleave Lecture (Position 16)
+  -- Pair 9/21: Congenital Heart Disease in the ED
+  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
   UPDATE "lessons"
-  SET "position" = 16, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Congenital Heart Disease in the ED',
+      "body"       = $LEC_CARD_019$# Congenital Heart Disease in the ED
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+e o
+
+## Key Clinical Features
+central cyanosis, hypoxia not improved by 02 CHD TAPVD Clinical presentation & management pulmonary veins do not drain into the left atrium patient may presents with PO,Pul-hypertension & cyanosis at birth CXR: imaging are ECHO, MRI management: surgical repair Truncus arteriosus single artery function as both aorta and Pul-A TGA Tetralogy of Fallot Tricuspid atresia
+- CXR signs wide pulse pressure, single heart sound. M: surgical repair Septation failure, Aorta-Rv and PA-LV.CXR: Egg on the string M:Prostaglandin infusion &balloon atrial septostomy to create an ASD TF 4 Lesion VSD, OV-aorta, RV-hypertrophy, PS. CXR ;b00t shaped Heart, M: cyanotic at birth then IV prostaglandin most have elective surgical repair at 6-9 months Lack of tricuspid valve , underdeveloped or small RV Harsh systolic murmur and large p-wave on ECG M: Definitive management is to establish Fontan circulation by 3-5 years of ag Time of presentation Birth-1st-2nd weeks However TGA present in the neonate period and TF can survive to adulthood after surgery
+- Boot-shaped heart:(tetralogy of fallout) upturned apex due to ventricular hypertrophy and a concave pulmonary artery
+
+- Snowman sign: (TAPVD): the shadow at the right hila is the prominent SVC. The head of snowman made of the innominate vessels and vertical vein. The body of snowman made of the heart.
+- Egg on the string: (TGA) heart appears globular due to convex RA border and LA enlargement.
+- CHD lesion presenting as Shock
+- Shock (poor feeding, lethargy, tachycardia, pallor/pale grey skin, weak peripheral pulse, increase capillary refill, hypotension, decrease BP to lower extremities).
+- Coarctation of the aorta (severe)
+
+Significant narrowing in the thoracic aorta distal to left subclavian artery.
+- femoral pulse or radio-femoral delay. 4 limb BP discrepancies — gradient of
+- IOmmHg between upper and lower limbs is clinically significant and cyanosis
+
+## Investigations & Diagnostic Workup
+ECG, LVH, and CXR may show 3 signs. All patient should have an MRI or CT for evaluation of the thoracic aorta. Usually diagnosed antenatally via USS scan
+
+## Emergency Management Protocol
+;-prostaglandin infusion, diuretic, surgery usually within 24hrs.
+- Hypoplastic left heart syndrome The lesion causes severe mitral and aortic valve stenosis or atresia
+- It is usually diagnosed prenatally.
+
+## Clinical Examination & Assessment
+Absent femoral and brachial pulses, delayed CRT, hypotension secondary to shock and PDA murmur can be found.
+- Signs of right heart failure — enlarged liver, tachypnoea, rales.
+
+## Investigations & Diagnostic Workup
+ECG absent LV force, CXR: Cardiomegaly
+- ECHO is the gold standard
+
+## Emergency Management Protocol
+prostaglandin infusion, surgery 3-5 days
+- Congestive heart failure-the breathless baby_
+
+- Symptoms: Feeding difficulty sweating/tachypnoea with feeds, failure to thrive, respiratory distress, and fussiness.
+- Sign;_Tachypnoea and laboured breathing rales, hepatomegaly, cyanosis if severe faltering growth, displaced apex beat, cool peripheries, gallop rhythm.
+- VSD
+- Usually asymptomatic
+- May have a pansystolic-murmur-
+- ECG reveal Bi-ventricular hypertrophy by 2 months
+- CXR may show pulmonary vascular marking and cardiomegaly
+
+## Emergency Management Protocol
+zloop diuretics
+- Surgical intervention for perimembranous VSD
+- ASD
+- There is an opening in the septum between the two atria
+- Isolated ASD rarely causes any symptoms in infants. CCF may develop at 2-3 years
+- Soft-systolic-murmur
+- CXR: cardiomegaly
+- ECG: RVH
+
+## Emergency Management Protocol
+zmedically if CCF developed.
+- CCF can develop once pulmonary vascular resistance falls in the first few months of life
+- Machinery murmur (continuous systolic murmur)
+- Mostly PDAs close with NSAIDs (ibuprofen, indomethacin)
+
+-
+- Eisenmenger-syndrome Mneumonic for cyanotic CHD The 5 T's:
+- I. Truncus arteriosus (I vessel)
+
+#### Clinical Scenario 2:
+Transposition (2 switched vessels)
+
+#### Clinical Scenario 3:
+Tricuspid atresia (3 = Tri)
+
+#### Clinical Scenario 4:
+Tetralogy of Fallot (4 = Tetra)
+
+#### Clinical Scenario 5:
+TAPVR (5 letters in the name) previous
+- Key_points
+- There is a right-left shunt in cyanotic CHD
+- There is a left to right shunt in congestive heart failure CHD (VSD, ASD, PDA). Large VSD will begin manifesting symptoms of CCF at the age ofl month. Uncorrected left-to-right shunt (VSD, ASD, PDA) leads to an increase in pulmonary blood flow pathological remodeling of vasculature Pulmonary arterial hypertension. RVH occurs to compensate
+- Shunt becomes right to left the condition knows Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Congenital Heart Disease in the ED - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/congenital-heart-disease-in-the-ed/figure_01_p1.jpeg)
+*Congenital Heart Disease in the ED — Clinical Figure 1 (Page 1 Reference)*
+
+![Congenital Heart Disease in the ED - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/congenital-heart-disease-in-the-ed/figure_02_p2.jpeg)
+*Congenital Heart Disease in the ED — Clinical Figure 2 (Page 2 Reference)*
+
+![Congenital Heart Disease in the ED - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/congenital-heart-disease-in-the-ed/figure_03_p2.jpeg)
+*Congenital Heart Disease in the ED — Clinical Figure 3 (Page 2 Reference)*
+
+![Congenital Heart Disease in the ED - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/congenital-heart-disease-in-the-ed/figure_04_p3.jpeg)
+*Congenital Heart Disease in the ED — Clinical Figure 4 (Page 3 Reference)*
+
+![Congenital Heart Disease in the ED - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/congenital-heart-disease-in-the-ed/figure_05_p3.jpeg)
+*Congenital Heart Disease in the ED — Clinical Figure 5 (Page 3 Reference)*
+
+![Congenital Heart Disease in the ED - Clinical Figure 6](/lessons/images/sba/cardiovascular-emergencies/congenital-heart-disease-in-the-ed/figure_06_p4.jpeg)
+*Congenital Heart Disease in the ED — Clinical Figure 6 (Page 4 Reference)*
+
+![Congenital Heart Disease in the ED - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/congenital-heart-disease-in-the-ed/figure_07_p6.jpeg)
+*Congenital Heart Disease in the ED — Clinical Figure 7 (Page 6 Reference)*$LEC_CARD_019$,
+      "position"   = 16,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'congenital-heart-disease-in-the-ed' OR "slug" = 'congenital-heart-disease');
 
-  -- 2) Upsert Quiz Lesson (Position 17)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -2522,14 +3696,92 @@ $SBA_CARD_019$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 10/21: Infective Endocarditis
-  -- 1) Interleave Lecture (Position 18)
+  -- Pair 10/21: Infective Endocarditis
+  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
   UPDATE "lessons"
-  SET "position" = 18, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Infective Endocarditis',
+      "body"       = $LEC_CARD_020$# Infective Endocarditis
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Endocarditis is defined as damage to the endocardium (due turbulent flow) associated with thrombus formation. The endothelial lining of the heart covers all internal structure of the heart including valvular surfaces. Endocarditis can be infective if colonised by bacteria or fungi or Non Bacterial Thrombotic Endocarditis (NBTE).
+- The hallmark of endocarditis is formation of 'vegetation' that binds to valves or mural endocardium.
+- Risk factor
+- Heart valve disease, prosthetic valve disease
+- Structural heart disease, Rheumatic heart disease
+- Previous infective endocarditis, Hypertrophic myocarditis
+- Cause
+- Native valve endocarditis
+- Overall most common Staph aureus
+- Dental procedure strep viridans
+- IVDU : Staph aureus
+- Prosthetic valve endocarditis
+- Most common both staph aureus and coagulase-ve Staph epidermis
+- Note: Tricuspid valve is most commonly affected.
+
+## Key Clinical Features
+patient often presents with emboli or cardiac failure. Therefore any patient with fever in
+- conjunction with chest pain, sudden shortness of breath, stroke like symptoms and visual disturbance need to be evaluated urgently for IE.
+
+## Clinical Examination & Assessment
+Soft right-sided murmurs can be heard on auscultation.
+- Four peripheral signs of endocarditis:
+- Roth spot
+- Osler's nodes
+- Janeway lesion
+- Splinter haemorrhages
+-
+
+## Investigations & Diagnostic Workup
+FBC, Rheumatic factor, CRP/ESR, blood culture
+- ECHO (TOE, ITE) TOE has high sensitivity.
+- ECG
+- CT but can miss minor vegetation MRI in suspected with cerebral involvement in IE
+
+LV 4 Note: Blood culture and ECHO are significant for the diagnosis of IE.
+-
+
+## Emergency Management Protocol
+Treatment should be based on complication eg: in sepsis patient, follow sepsis protocol
+- and cardiac failure patient may require diuresis and ventilatory support. use broad-spectrum antibiotics for eradicating bacteria
+- Surgical in patient with
+- Sinus of Valvsalva Abscess
+- Valve obstruction by vegetation
+- Acute Aortic or Mitral Regurgitation with N YHA Class 3 or 4 failure
+- Septal Perforation
+- Peri-valvular extension of abscess
+-
+
+- Lack of effective antibiotic therapy
+- Key Summary_
+- Any patient present with chest pain elevate with coughing or leaning forward along with pericardial friction rub and ECG changes think about pericarditis.
+- Any patient presented with chest pain associated with fever and has History of viral illness think about myocarditis.
+- For IE focus on its module. previous  Next
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Infective Endocarditis - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/infective-endocarditis/figure_01_p1.jpeg)
+*Infective Endocarditis — Clinical Figure 1 (Page 1 Reference)*
+
+![Infective Endocarditis - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/infective-endocarditis/figure_02_p1.jpeg)
+*Infective Endocarditis — Clinical Figure 2 (Page 1 Reference)*
+
+![Infective Endocarditis - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/infective-endocarditis/figure_03_p4.jpeg)
+*Infective Endocarditis — Clinical Figure 3 (Page 4 Reference)*
+
+![Infective Endocarditis - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/infective-endocarditis/figure_04_p5.jpeg)
+*Infective Endocarditis — Clinical Figure 4 (Page 5 Reference)*$LEC_CARD_020$,
+      "position"   = 18,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'infective-endocarditis' OR "slug" = 'endocarditis');
 
-  -- 2) Upsert Quiz Lesson (Position 19)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -2638,14 +3890,52 @@ $SBA_CARD_020$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 11/21: Hypertension in Pregnancy & Preeclampsia
-  -- 1) Interleave Lecture (Position 20)
+  -- Pair 11/21: Hypertension in Pregnancy & Preeclampsia
+  -- A) Update & Beautify Clinical Theory Lecture (Position 20)
   UPDATE "lessons"
-  SET "position" = 20, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Hypertension in Pregnancy & Preeclampsia',
+      "body"       = $LEC_CARD_021$# Hypertension in Pregnancy & Preeclampsia
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+e o
+
+- Definition: Pre-eclampsia defined as new onset hypertension after 20 weeks of gestation (systolic blood pressure
+- 140 and/or diastolic blood pressure
+- 90). it can be even SBP 2160 and/or DBP 2110 (with significant proteinuria) in severe pre-eclampsia. Eclampsia: This is pre-eclampsia that has progressed to cause seizure(s) HELLP syndrome : Is a variant of severe pre-eclampsia characterised by haemolysis, elevated liver enzymes and Iow platelets. Risk Factor: High risk Factors
+- Hypertension in previous pregnancy
+- Chronic kidney disease
+- SLE/anti-phospholipid syndrome
+- TIDM or T2DM
+- Chronic hypertension Low risk factors
+- First pregnancy Over 40 years old
+- Pregnancy interval more than 10 years
+- BMI over 35 at booking
+- Family history of pre-eclampsia
+
+> Multiple pregnancy Clinical Features: Clinical features of pre-eclampsia: > Asymptomatic hypertension (pick up or screening) > Headache (usually frontal) > RUQ or epigastric pain > Nausea and vomiting > Oedema(hand and face) > Visual disturbance(scotoma) > SOB > Hyper-reflexia and/or clonus Clinical features of eclampsia: > Tonic-clonic seizures along with other features of pre-eclampsia. — Clinical features of HELLP syndrome: > Hemolysis (anemia, dark urine , LDH>600) > Elevated liver enzyme(Epigastric/RUQ pain,raised transaminases and PT > Low Plat <IOO Investigations:
+
+> BP measurernent > FBC > u/S for feotal growth Management: Initial management of pre-eclampsia: Contact obstetrics early BP management: > Labetalol first line unless CI eg: asthma. > Nifedipine MR second line > Methyldopa third line (not used postpartum due to risk of depression) > Consider iv mgs04 for eclampsia prophylaxis > Monitor urine output > Fluid restriction to avoid pulmonary edema Management of Eclampsia > Contact ITU and obstetrics tearn early
+
+> ABC approach (early intubation if needed) > Manage in left lateral position > Magnesium sulphate IV is treatment of choice for seizures — 4g loading dose over 5- IO mins then Ig/hr infusion for 24 hours > If persist Further 2g boluses of magnesium sulphat. previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hypertension in Pregnancy & Preeclampsia - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/hypertension-in-pregnancy-preeclampsia/figure_01_p1.jpeg)
+*Hypertension in Pregnancy & Preeclampsia — Clinical Figure 1 (Page 1 Reference)*
+
+![Hypertension in Pregnancy & Preeclampsia - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/hypertension-in-pregnancy-preeclampsia/figure_02_p5.jpeg)
+*Hypertension in Pregnancy & Preeclampsia — Clinical Figure 2 (Page 5 Reference)*$LEC_CARD_021$,
+      "position"   = 20,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hypertension-in-pregnancy-preeclampsia' OR "slug" = 'hypertension-pregnancy');
 
-  -- 2) Upsert Quiz Lesson (Position 21)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 21)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -2748,14 +4038,70 @@ $SBA_CARD_021$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 12/21: Hypertensive Emergencies
-  -- 1) Interleave Lecture (Position 22)
+  -- Pair 12/21: Hypertensive Emergencies
+  -- A) Update & Beautify Clinical Theory Lecture (Position 22)
   UPDATE "lessons"
-  SET "position" = 22, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Hypertensive Emergencies',
+      "body"       = $LEC_CARD_022$# Hypertensive Emergencies
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- A hypertensive emergency_is defined as a clinical situation in which there is a marked elevation of blood pressure (BP) usually
+- 180/120mmhg and associated with acute or progressive end organ damage, e.g. cardiovascular, renal or neurological dysfunction.
+- The comtnonest form of hypertension is essential hypertension in which no specific cause can be identified but various risk factors are associated such as : age, family history, obesity, and salt ingestion.
+- Secondary_hypertension: is high BP caused by another medical condition such as renal disease, endocrine disorders, neurological disease, coarctation of aorta, pregnancy-related pre-eclampsia, eclampsia and immunological.
+- The most vulnerable organs are CNS, CVS Kidneys and uterus in pregnancy.
+
+## Key Clinical Features
+Orqan system Cardiovascular Central neurological Renal Svmptoms Chest pain, breathlessness, d s onae Headache/seizure Visual disturbance Confusion Weakness Oliguria Nocturia Underlvinq patholoqy MI, Aortic dissection Ventricle failure Pulmonary oedema Cerebral encephalopathy Cerebral haemorrhage Renal impairment Ebysical examination
+- Cardiovascular finding: Elevated JVP, the difference in pulse and BP in limbs, 3rd heart sound, pulmonary crepitation.
+- Central neurological: Reduced level of consciousness/focal neurological deficit retinal haemorrhages / papillodema
+
+## Investigations & Diagnostic Workup
+FBC, U&E, Urine analysis:
+- Blood sample for Cardiac enzyme and BNP
+- CT- head if encephalopathy present
+- CT-mediastinum if aortic dissection suspected
+- ECG and CXR
+
+## Emergency Management Protocol
+General-approach
+- Hypertensive urgencies: Most patients presenting to the ED with significantly elevated BP will not demonstrate acute progressive target organ damageso treatment option for them either to moderate increase in their current anti- hypertensive-drugs- r.com pertensiye-medication-s—ould-be ensured. Hypertensive emergency management
+- Reduce MAP up to 25% in the first hour.
+- If patient remains stable then further reduce BP to normal range over 24hrs
+- Labetalol first line therapy in hypertensive encephalopathy/malignant hypertension or intracranial haemorrhage
+- IV beta blockers and nitrates are choice of agents for HE complicated with cardiac ischemia/MI
+- standard treatment (IV nitrates, diuretic, opiates) is the treatment choice for HE with LV failure or pulmonary oedema
+- Beta-blocker (labetalol atenolol, esmolol) along with nitrates or nitroprusside treatrnent of choice for aortic dissection
+- Alpha with Beta blocker (phentolamine and labetalol) choice for phaeochromocytoma
+- Fenoldopam choice for AKI
+- IV labetalol/ hydralazine drug of choice for pre-eclampsia and MgS04 for eclampsia.
+
+Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hypertensive Emergencies - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/hypertensive-emergencies/figure_01_p1.jpeg)
+*Hypertensive Emergencies — Clinical Figure 1 (Page 1 Reference)*
+
+![Hypertensive Emergencies - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/hypertensive-emergencies/figure_02_p1.jpeg)
+*Hypertensive Emergencies — Clinical Figure 2 (Page 1 Reference)*
+
+![Hypertensive Emergencies - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/hypertensive-emergencies/figure_03_p3.jpeg)
+*Hypertensive Emergencies — Clinical Figure 3 (Page 3 Reference)*
+
+![Hypertensive Emergencies - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/hypertensive-emergencies/figure_04_p5.jpeg)
+*Hypertensive Emergencies — Clinical Figure 4 (Page 5 Reference)*$LEC_CARD_022$,
+      "position"   = 22,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hypertensive-emergencies' OR "slug" = 'hypertensive-emergency');
 
-  -- 2) Upsert Quiz Lesson (Position 23)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 23)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -2864,14 +4210,90 @@ $SBA_CARD_022$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 13/21: Left Anterior vs Posterior Fascicular Block
-  -- 1) Interleave Lecture (Position 24)
+  -- Pair 13/21: Left Anterior vs Posterior Fascicular Block
+  -- A) Update & Beautify Clinical Theory Lecture (Position 24)
   UPDATE "lessons"
-  SET "position" = 24, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Left Anterior vs Posterior Fascicular Block',
+      "body"       = $LEC_CARD_023$# Left Anterior vs Posterior Fascicular Block
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Left anterior fascicular block (LAFB) Left anterior/superiorfascicular block is due to to anatomical Of functional block in the anterior fascicle. Depolarization entirely depends on posterior fascicle. The initial vector will be directed inferiorly yieldinga small in inferior leads (II, Ill, aVF) and small q-wave lateral leads(aVL, l, aVR) The second vector which is considerably stronger be directed to the left, back and upwards. This result in deep S- wave in inferior leads and large R-wave in left lateral leads. Hence, inferior leadsrS complex and lateral leads shows qR complex (means small q-wave large-R wave). The electrical axis will be shifted to the left (left axis deviation) range between
+- 450 and
+- 900
+- Causes of LAFB Cardiomyopathy, hyperkalemia, hypertension, MI , LVF, myocarditits
+- 300 aVL AV node LAFB ECG Criteria Large-R wave LAFB The electrical axis will be shifted to the left (left axis deviation) range between
+- 450 and
+- 900. If the electrical axis is between
+- 300 to
+- 450 more likely to suggests LAFB QRS duration <0.12 seconds but slightly prolonged aVL show qR complex. V5-V6 usually also shows qR complexes. Left posterior fascicular block (LPFB) It's much less common Depolarization ofthe left ventricle depends entirely on impulses from the anterior fascicle if posterior one is defect. The vector initially directed upwards and to the left which yield q-wave in aVF and R-wave in lead in l. The second vector is directed downwards to the right, which results in prominent R- wave in lead aVF and equally prominentS-wave in lead l. The electrical axis will be more positive than 90' (right axis deviation). Causes of LAFB Cardiomyopathy, hyperkalemia, hypertension, MI , LVF, myocarditits
+- 30 aVL 2 LPFB
+- LPFB ECG Criteria Electrical axis +900 to +1800
+- rs complexes in lead I and aVL qR complexes in inferior leads (II, Ill and aVF). Q —wave is mandatoryin leads Ill and aVF.
+
+QHSdurauon<U.12 seconds Lead II, Ill, aVF displaysrS complexes.
+- ECG morphology of LAFB
+- qR complexes in lateral limb leads, and rs complexes in inferior leads
+- Axis deviation
+
+- Left Axis Deviation (LAD)
+- Leads I and aVL are POSITIVE;
+- Leads II, Ill and aVF are NEGATIVE
+- Example of LAFB
+
+- Left axis deviation
+- qR complexes in I, aVL
+- rScomplexes in II, Ill, aVF
+- Prolonged R wave peak time in aVL
+- Increased QRS voltage in limb leads
+- ECG morphology of LPFB
+
+VR 111
+- As above, there are rs complexes in leads I and aVL, and qR complexes in leads II, Ill and aVF
+- Axis deviation
+
+- 111 Right Axis Deviation (RAD) Leads II, Ill and aVF are POSITIVE; Leads I and aVL are NEGATIVE Example of LPFB
+
+VF previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Left Anterior vs Posterior Fascicular Block - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/left-anterior-vs-posterior-fascicular-block/figure_01_p2.jpeg)
+*Left Anterior vs Posterior Fascicular Block — Clinical Figure 1 (Page 2 Reference)*
+
+![Left Anterior vs Posterior Fascicular Block - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/left-anterior-vs-posterior-fascicular-block/figure_02_p3.jpeg)
+*Left Anterior vs Posterior Fascicular Block — Clinical Figure 2 (Page 3 Reference)*
+
+![Left Anterior vs Posterior Fascicular Block - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/left-anterior-vs-posterior-fascicular-block/figure_03_p3.jpeg)
+*Left Anterior vs Posterior Fascicular Block — Clinical Figure 3 (Page 3 Reference)*
+
+![Left Anterior vs Posterior Fascicular Block - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/left-anterior-vs-posterior-fascicular-block/figure_04_p4.jpeg)
+*Left Anterior vs Posterior Fascicular Block — Clinical Figure 4 (Page 4 Reference)*
+
+![Left Anterior vs Posterior Fascicular Block - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/left-anterior-vs-posterior-fascicular-block/figure_05_p5.jpeg)
+*Left Anterior vs Posterior Fascicular Block — Clinical Figure 5 (Page 5 Reference)*
+
+![Left Anterior vs Posterior Fascicular Block - Clinical Figure 6](/lessons/images/sba/cardiovascular-emergencies/left-anterior-vs-posterior-fascicular-block/figure_06_p6.jpeg)
+*Left Anterior vs Posterior Fascicular Block — Clinical Figure 6 (Page 6 Reference)*
+
+![Left Anterior vs Posterior Fascicular Block - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/left-anterior-vs-posterior-fascicular-block/figure_07_p7.jpeg)
+*Left Anterior vs Posterior Fascicular Block — Clinical Figure 7 (Page 7 Reference)*
+
+![Left Anterior vs Posterior Fascicular Block - Clinical Figure 8](/lessons/images/sba/cardiovascular-emergencies/left-anterior-vs-posterior-fascicular-block/figure_08_p8.jpeg)
+*Left Anterior vs Posterior Fascicular Block — Clinical Figure 8 (Page 8 Reference)*
+
+![Left Anterior vs Posterior Fascicular Block - Clinical Figure 9](/lessons/images/sba/cardiovascular-emergencies/left-anterior-vs-posterior-fascicular-block/figure_09_p8.jpeg)
+*Left Anterior vs Posterior Fascicular Block — Clinical Figure 9 (Page 8 Reference)*$LEC_CARD_023$,
+      "position"   = 24,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'left-anterior-vs-posterior-fascicular-block' OR "slug" = 'left-anterior-posterior-fascicular-block');
 
-  -- 2) Upsert Quiz Lesson (Position 25)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 25)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -2998,14 +4420,74 @@ $SBA_CARD_023$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 14/21: Bundle Branch Blocks (LBBB & RBBB)
-  -- 1) Interleave Lecture (Position 26)
+  -- Pair 14/21: Bundle Branch Blocks (LBBB & RBBB)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 26)
   UPDATE "lessons"
-  SET "position" = 26, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Bundle Branch Blocks (LBBB & RBBB)',
+      "body"       = $LEC_CARD_024$# Bundle Branch Blocks (LBBB & RBBB)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Right bundle branch block RBBB is due to an anatomical or functional dysfunction in the right bundle branch, such that the electrical impulse is block.
+- ECG criteria for Riqht bundle branch block:
+- QRS> 0.12 seconds Lead VI — V2: The QRS complex appears as the letter "M". To be specific the QRS complex displays rsr' , Rsr' or rsR' pattern.
+- The second R- wave (denoted R') is virtually always larger than the first R' wave.
+- Lead V5, V6, l, aVL : Broad S- wave duration is greater than R- wave duration or S- wave duration is greater than 40ms in V6 and I. ST- T changes: VI
+- V2 shows downsloping ST-segment and inverted T- waves. Lead V5- V6, I and aVL shows positive T-waves. Left bundle branch block LBBB is due to an anatomical or functional dysfunction in the left bundle branch, such that the electrical impulse is block. ECG criteria for Riqht bundle branch block:
+- QRS> 0.12 seconds Lead VI — V2: Deep and broad S-wave. The small r-wave is missing or smaller than normal. If it is missing, a QRS complex appears in VI and occasionally V2, but rarely V3. The S-wave in VI maybe notched and resemble the letter
+- Lead V5, V6, l, aVL: broad, clumsy, completely positive and often notched R
+- wave
+- ST- T changes: left sided leads (V5, V6, I and aVL) shows T-wave inversion and ST segment depressions. VI-V3 shows ST
+- segment elevation and positive rarely exceeds 5mm.
+
+Normal conduction VI V4 Left bundle branch block VI Deep S' wave Broad & clumsy R- wave Right bundle branch block VI V4 A second and largerR wave Broad and deep S-wave
+
+- Examples RBBB Ill avR
+- Isolated RBBB
+- Typical RSR' pattern in Nil-2
+- Widened S waves again demonstrated in lateral leads, especially V4-6 Appropriate discordance in leads VI-2
+- Example — 2
+
+Isolated RBBB. RSR' pattern in VI-3
+-
+- Lateral S wave changed are not evident here Note note normal axis in isolated RBBB
+- Example of LBBB
+-
+
+- Broad notched R waves are best appreciated in leads aVL and I here. There is absence of Q waves in leads V5-6. previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Bundle Branch Blocks (LBBB & RBBB) - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/bundle-branch-blocks-lbbb-rbbb/figure_01_p1.jpeg)
+*Bundle Branch Blocks (LBBB & RBBB) — Clinical Figure 1 (Page 1 Reference)*
+
+![Bundle Branch Blocks (LBBB & RBBB) - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/bundle-branch-blocks-lbbb-rbbb/figure_02_p2.jpeg)
+*Bundle Branch Blocks (LBBB & RBBB) — Clinical Figure 2 (Page 2 Reference)*
+
+![Bundle Branch Blocks (LBBB & RBBB) - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/bundle-branch-blocks-lbbb-rbbb/figure_03_p3.jpeg)
+*Bundle Branch Blocks (LBBB & RBBB) — Clinical Figure 3 (Page 3 Reference)*
+
+![Bundle Branch Blocks (LBBB & RBBB) - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/bundle-branch-blocks-lbbb-rbbb/figure_04_p4.jpeg)
+*Bundle Branch Blocks (LBBB & RBBB) — Clinical Figure 4 (Page 4 Reference)*
+
+![Bundle Branch Blocks (LBBB & RBBB) - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/bundle-branch-blocks-lbbb-rbbb/figure_05_p5.jpeg)
+*Bundle Branch Blocks (LBBB & RBBB) — Clinical Figure 5 (Page 5 Reference)*
+
+![Bundle Branch Blocks (LBBB & RBBB) - Clinical Figure 6](/lessons/images/sba/cardiovascular-emergencies/bundle-branch-blocks-lbbb-rbbb/figure_06_p6.jpeg)
+*Bundle Branch Blocks (LBBB & RBBB) — Clinical Figure 6 (Page 6 Reference)*
+
+![Bundle Branch Blocks (LBBB & RBBB) - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/bundle-branch-blocks-lbbb-rbbb/figure_07_p6.jpeg)
+*Bundle Branch Blocks (LBBB & RBBB) — Clinical Figure 7 (Page 6 Reference)*$LEC_CARD_024$,
+      "position"   = 26,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'bundle-branch-blocks-lbbb-rbbb' OR "slug" = 'left-right-bundle-branch-block');
 
-  -- 2) Upsert Quiz Lesson (Position 27)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 27)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -3126,14 +4608,102 @@ $SBA_CARD_024$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 15/21: Long QT Syndrome & Torsades de Pointes
-  -- 1) Interleave Lecture (Position 28)
+  -- Pair 15/21: Long QT Syndrome & Torsades de Pointes
+  -- A) Update & Beautify Clinical Theory Lecture (Position 28)
   UPDATE "lessons"
-  SET "position" = 28, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Long QT Syndrome & Torsades de Pointes',
+      "body"       = $LEC_CARD_025$# Long QT Syndrome & Torsades de Pointes
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+## Key Clinical Features
+palpitations
+- chest pain, and dyspnea
+- dizziness
+- syncope during heightened adrenergic tones
+- Patients with LQTI (mutations in
+- the KCNQI gene) typically have cardiac events during exercise, particularly swimming. Angina
+- Fatigue
+- Muscle weakness
+-
+
+## Investigations & Diagnostic Workup
+ECG for LQTI, LQT2, LQT3
+- ECG for hypokalaemia, hypocalcemia, hypomagnesemia ECG for heart block
+- Serum calcium, potassium, magnesium
+- Consider genetic testing
+- Consider echocardiography
+- Consider Holter monitor
+-
+
+## Emergency Management Protocol
+Management of Acquired LQTS
+-
+
+Acquired LQTS without previous cardiac events First line
+- Remove or treat the causative factors
+- i-e correct electrolyte imbalance or discontinue the causative drugs. Consider beta blocker therapy: Low-dose
+- beta-blockers are prescribed initially and titrated up as tolerated
+- Advise on lifestyle modification
+
+## Emergency Management Protocol
+of-Congeni.taLLQTS Acquired LQTS with previous cardiac events First line
+- Remove or treat the causative factors
+- Advise on lifestyle modification
+- Consider beta blocker therapy
+- Consider implantable cardioverter- defibrillator (ICD) Second line Temporary or permanent pacing
+
+Congenital LQTS without previous cardiac events Low risk Remove or treat the causative
+- factors
+- Advise on lifestyle modification
+- Consider beta blocker therapy High risk
+- Remove or treat the causative
+- factors.
+- Plus beta blocker therapy
+- Consider implantable cardioverter- defibrillator (ICD) Consider mexiletine Second line
+-
+- Consider left cervicothoracic sympathetic denervation.
+- Complications
+- Torsades de pointes
+- Cardiac arrest
+- Sudden cardiac death
+
+## Emergency Management Protocol
+of torsade de pointes
+
+Congenital LQTS with previous cardiac events First line Remove or treat the causative factors. Plus beta blocker therapy Consider implantable cardioverter- defibrillator (ICD) Consider mexiletine Second line left cervicothoracic sympathetic denervation. Third line Permanent pacing
+
+- Treat or remove the causative agents
+- Correct electrolyte imbalance
+- If patient has adverse features (hypotension, shock, etc) treat immediately with synchronized cardioversion
+- Other-a.LLQa.tj.e.n.ts-give intravenous magnesium sulfate 2g over IO minutes
+- ECG torsade de pointes
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Long QT Syndrome & Torsades - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/long-qt-syndrome-torsades/figure_01_p3.jpeg)
+*Long QT Syndrome & Torsades — Clinical Figure 1 (Page 3 Reference)*
+
+![Long QT Syndrome & Torsades - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/long-qt-syndrome-torsades/figure_02_p4.jpeg)
+*Long QT Syndrome & Torsades — Clinical Figure 2 (Page 4 Reference)*
+
+![Long QT Syndrome & Torsades - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/long-qt-syndrome-torsades/figure_03_p5.jpeg)
+*Long QT Syndrome & Torsades — Clinical Figure 3 (Page 5 Reference)*
+
+![Long QT Syndrome & Torsades - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/long-qt-syndrome-torsades/figure_04_p5.jpeg)
+*Long QT Syndrome & Torsades — Clinical Figure 4 (Page 5 Reference)*$LEC_CARD_025$,
+      "position"   = 28,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'long-qt-syndrome-torsades' OR "slug" = 'long-qt-syndrome');
 
-  -- 2) Upsert Quiz Lesson (Position 29)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 29)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -3245,14 +4815,100 @@ $SBA_CARD_025$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 16/21: Acute Myocarditis
-  -- 1) Interleave Lecture (Position 30)
+  -- Pair 16/21: Acute Myocarditis
+  -- A) Update & Beautify Clinical Theory Lecture (Position 30)
   UPDATE "lessons"
-  SET "position" = 30, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Myocarditis',
+      "body"       = $LEC_CARD_026$# Acute Myocarditis
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+### Definition
+
+- Myocarditis is an acute infectious or immunologically mediated syndrome causing inflammation of the heart muscle.
+- The histological dead myocytes with surrounding inflammatory infiltrates.
+- Cause
+- Virus Cocksackie (most common)
+- Adenovirus Influenza
+- Parainfluenza
+- Mumps
+- Rubella
+- Varicella zoster
+-
+- Epstein Barr Rabies
+-
+- CMV Bacteria
+- Lyme disease
+- Mycobacteria Mycoplasma Legionella
+- Streptococcus species
+-
+- Chlamydia pneumonia
+
+- Parasite-I-Eungi Aspergillus
+-
+- Cryptococcus Candida
+- Trypanosoma cruzi — Chagas disease
+- Toxoplasmosis
+- Schistosomiasis
+- Trichinosis
+- Drugs-a-toxinslother TCA Sulphonamide
+- Cephalosporin
+- Vaccination
+- Metal toxin
+- Cocaine
+- Immunological
+-
+
+## Key Clinical Features
+patient presents with chest pain and 90% of them has a history of viral prodrome illness
+- such as UPRTI or gastroenteritis (sore throat, vomiting, diarrhea. Most patient are young blow 50 years
+-
+
+## Investigations & Diagnostic Workup
+ECG
+- CXR to check pulmonary oedema, cardiomegaly. Etc
+- ECHO to check ejection fraction, dilated heart or pericardial effusion.
+- FBC, U&E, CRP/ESR ,
+- Troponin/creatinine kinase elevated but can be normal
+- EndomyocardiaLbiopsy_is the Cold standard for diagnosis of myocarditis
+
+## Emergency Management Protocol
+Haemodynamically stable: no evidence of LV systolic dysfunction
+-
+- Haemodynamically stable: evidence of left ventricular systolic dysfunction Haemodynamically unstable: adults Haemodynamically unstable: children End-stage heart failure or refractory life-threatening arrhythmias
+
+-
+- First line
+- supportive care ± treatment of underlying cause depends on the cause if autoimmune then methylprednisolone etc. Consider IVIG First line
+- ACE inhibitor (e.g., captopril, enalapril, lisinopril) or angiotensin-II receptor antagonist (e.g., candesartan, valsartan). Consider IVIG and treat underlying cause Consider diuretics and beta blockers (in selected patients only) First line
+- arterial vasodilator (Sodium nitroprusside) + invasive haemodynamic monitoring Consider IVIG, GTN, inotropes or vesopressors First line — inotropes (milrinone or dobutamine) Consider IVIG and mechanical circulatory support First line
+- Heart transplantation
+
+previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Myocarditis - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/acute-myocarditis/figure_01_p1.jpeg)
+*Acute Myocarditis — Clinical Figure 1 (Page 1 Reference)*
+
+![Acute Myocarditis - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/acute-myocarditis/figure_02_p1.jpeg)
+*Acute Myocarditis — Clinical Figure 2 (Page 1 Reference)*
+
+![Acute Myocarditis - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/acute-myocarditis/figure_03_p4.jpeg)
+*Acute Myocarditis — Clinical Figure 3 (Page 4 Reference)*
+
+![Acute Myocarditis - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/acute-myocarditis/figure_04_p5.jpeg)
+*Acute Myocarditis — Clinical Figure 4 (Page 5 Reference)*$LEC_CARD_026$,
+      "position"   = 30,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-myocarditis' OR "slug" = 'myocarditis');
 
-  -- 2) Upsert Quiz Lesson (Position 31)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 31)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -3361,14 +5017,47 @@ $SBA_CARD_026$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 17/21: Non-Invasive Ventilation (NIV) Guidelines
-  -- 1) Interleave Lecture (Position 32)
+  -- Pair 17/21: Non-Invasive Ventilation (NIV) Guidelines
+  -- A) Update & Beautify Clinical Theory Lecture (Position 32)
   UPDATE "lessons"
-  SET "position" = 32, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Non-Invasive Ventilation (NIV) Guidelines',
+      "body"       = $LEC_CARD_027$# Non-Invasive Ventilation (NIV) Guidelines
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+NIV Indications Types of NIV
+- CPAP RAO 3 tin Neuromuscular disease *4th vcstl 6.0 Absolute (pH«7.25 nd Indications for referral to ICU Mth MV failing to ln
+- bait" to need Contra- indications Mnemonic: she has a Beautiful face CPR675 for (c02 6.5, PH<7.35 RR_23) Fixed upper airway obstruction eg: the tongue, oropharynx and larynx, trauma, foreign body, and infection etc
+- Indicate for type-I respiratory failure eg: acute cardiogenic oedema and obstructive sleep apnoea
+- Procedure:
+- Start with a CPAP 5-10cmH20 can increase to 15cmH20 Try to achieve saturation 94-98%
+
+- BiPAp
+- Indicate for type-2 failure eg: COPD and neuromuscular disease
+- Start with initial IPAP 12-15cmH20 up-to maximum 30cmH20 as per need and EPAP 3-5cmH20 Try to achieve saturation of 88-92% in COPD and 94-98% in other patients
+- Note: NIV isn't indicated in asthma and pneumonia. previous  Next
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Non-Invasive Ventilation (NIV) Guidelines - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/non-invasive-ventilation-niv-guidelines/figure_01_p1.jpeg)
+*Non-Invasive Ventilation (NIV) Guidelines — Clinical Figure 1 (Page 1 Reference)*
+
+![Non-Invasive Ventilation (NIV) Guidelines - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/non-invasive-ventilation-niv-guidelines/figure_02_p2.jpeg)
+*Non-Invasive Ventilation (NIV) Guidelines — Clinical Figure 2 (Page 2 Reference)*
+
+![Non-Invasive Ventilation (NIV) Guidelines - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/non-invasive-ventilation-niv-guidelines/figure_03_p3.jpeg)
+*Non-Invasive Ventilation (NIV) Guidelines — Clinical Figure 3 (Page 3 Reference)*$LEC_CARD_027$,
+      "position"   = 32,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'non-invasive-ventilation-niv-guidelines' OR "slug" = 'niv-guidelines');
 
-  -- 2) Upsert Quiz Lesson (Position 33)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 33)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -3474,14 +5163,101 @@ $SBA_CARD_027$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 18/21: Acute Pericarditis & Cardiac Tamponade
-  -- 1) Interleave Lecture (Position 34)
+  -- Pair 18/21: Acute Pericarditis & Cardiac Tamponade
+  -- A) Update & Beautify Clinical Theory Lecture (Position 34)
   UPDATE "lessons"
-  SET "position" = 34, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Pericarditis & Cardiac Tamponade',
+      "body"       = $LEC_CARD_028$# Acute Pericarditis & Cardiac Tamponade
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Acute pericarditis is an inflammatory pericardial syndrome with or without pericardial effusion.
+- Causes
+- rnost commonly idiopathic
+- Viral — Echovirus , Enterovirus , Coxsackie, CMV, Hep B, Infectious mononucleosis, HIV
+- Bacterial
+- Pneumococcus, Staphylococcus, Streptococcus, Mycoplasma, Tuberculosis
+- Others
+- Post MI, Trauma, Neoplastic, Uraemia, Inflammatory(RA, SLE)
+- Drugs— Isoniazid Hydralazine
+- Pathophysiology: .
+- The pericardium is composed of 2 layers: (i) the outer thicker fibrous pericardium and (ii) the inner visceral or serosal pericardium. In a normal physiological state, the pericardial sac between these 2 layers contains 15-50mls of fluid. The combined thickness of these 2 layers should measure less than 2mm.
+
+## Key Clinical Features
+The clinical presentation is usually one of acute onset of retrosternal chest pain which is pleuritic in nature and which is worse on coughing and lying flat and eased by sitting up and leaning forward. A characteristic feature of the pain that is specific for pericarditis is radiation to the trapezius ridge.
+
+A diagnosis of acute pericarditis should be made when at least 2 out of 4 of the
+- following criteria are met:
+- Characteristic chest pain (retrosternal, pleuritic) Pericardial friction rub
+- Suggestive ECG changes (diffuse ST elevation, typically concave up and depression
+- of the PR segment New or worsening pericardial effusion.
+- Additional features: fever and raised CRP &ESR
+-
+
+## Risk Stratification
+High-risk features:
+- Fever (>380C or 100.40F)
+- Subacute course
+- Large pericardial effusion (echo-free space mm)
+- Cardiac tamponade (of note the classic triad of distended neck veins, muffled heart
+- sounds, and hypotension. Failure to respond to aspirin/(NSAlD)
+- Myopericarditis (elevated troponin) Immunosuppression
+- Trauma
+-
+- Oral anticoagulant therapy Note: any patient with the following feature should be admitted to in-patient
+
+## Emergency Management Protocol
+## Investigations & Diagnostic Workup
+ECG Upward concave ST-eIevation and PR depression in most of the leads.
+
+PR Elevation ST Depression ST elevation PR Depression
+- ST-depression and PR elevation in VI and aVR
+
+- Other Investigation
+- Troponin: may be elevated and reflect myocardial involvement.
+- Hematology: WCC, CRP/ESR ECHO: consider the presence of large pericardial effusion and cardiac tamponade
+- CXR: look for an alternative cause (pneumonia or neoplasia). CT for PE or aortic dissection
+
+## Emergency Management Protocol
+first-line-drugs
+- Uncomplicated idiopathic pericarditis:
+- NSAID & colchicine
+- Complicated with MI
+
+- Add aspirin
+- Key_points
+- No role of steroids unless the underlying cause is immune-mediated.
+- NSAID can be stopped after resolution of symptoms but colchicine continues for 3 months
+- Complication
+- Most common are cardiac tamponade and chronic constrictive pericarditis.
+- Purulent pericarditis associated with tamponade requires urgent drainage and IV antibiotics previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Pericarditis & Tamponade - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/acute-pericarditis-tamponade/figure_01_p1.jpeg)
+*Acute Pericarditis & Tamponade — Clinical Figure 1 (Page 1 Reference)*
+
+![Acute Pericarditis & Tamponade - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/acute-pericarditis-tamponade/figure_02_p1.jpeg)
+*Acute Pericarditis & Tamponade — Clinical Figure 2 (Page 1 Reference)*
+
+![Acute Pericarditis & Tamponade - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/acute-pericarditis-tamponade/figure_03_p4.jpeg)
+*Acute Pericarditis & Tamponade — Clinical Figure 3 (Page 4 Reference)*
+
+![Acute Pericarditis & Tamponade - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/acute-pericarditis-tamponade/figure_04_p5.jpeg)
+*Acute Pericarditis & Tamponade — Clinical Figure 4 (Page 5 Reference)*
+
+![Acute Pericarditis & Tamponade - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/acute-pericarditis-tamponade/figure_05_p6.jpeg)
+*Acute Pericarditis & Tamponade — Clinical Figure 5 (Page 6 Reference)*$LEC_CARD_028$,
+      "position"   = 34,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-pericarditis-tamponade' OR "slug" = 'pericarditis');
 
-  -- 2) Upsert Quiz Lesson (Position 35)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 35)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -3593,14 +5369,220 @@ $SBA_CARD_028$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 19/21: Tachyarrhythmias Management
-  -- 1) Interleave Lecture (Position 36)
+  -- Pair 19/21: Tachyarrhythmias Management
+  -- A) Update & Beautify Clinical Theory Lecture (Position 36)
   UPDATE "lessons"
-  SET "position" = 36, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Tachyarrhythmias Management',
+      "body"       = $LEC_CARD_029$# Tachyarrhythmias Management
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+- Two Types Regular or irregular narrow complex Regular or Irregular broad complex Ismall box= 0.04s 1 Large box=O.20s
+- PR interval 0.12-0.20 In narrow complex tachycardia QRS <O.12s In broad complex QRS>O.12s
+- Tachycardia Unstable patient
+- Adverse features
+- Shock (SBP<90, confusion, drowsiness, cold extremities, pallor).
+- Syncope (loss of consciousness) Myocardial ischemia (Chest pain, breathlessness, ECG changes) Heart failure (Pulmonary edema, raised JVP, Hepatomegaly). Extreme heart rate:
+- 150 mostly patient are unstable
+
+## Emergency Management Protocol
+Give 3 synchronized DC shocks (120-150j for broad complex and 70-120 for narrow complex)
+
+- If not successful then administer Amiodarone 300mg over IO to 20 minutes and repeat the shock
+- Followed by 900mg over 24hrs
+- Note: Any unstable patient requires electrical cardioversion rather than drugs regardless of the underlying rhythm. Regular narrow complex tachycardia
+- Sinus tachycardia(only HR>IOObpm)
+- Atrial flutter
+
+Regular narrow complex SVT AVNRT — most common
+-
+- HR: 150-250bpm Retrograde P wave, don't always see them
+-
+
+- Supraventricular Tachycardia:AVnodaI reentrant _
+- slow-fast- conduction p-wave me QRS
+
+- Regular narrow complex SVT
+- AVRT — Delta wave and short PR interval
+
+Normal electrical pathways (AV) node (SA) Abnormal el«trieal pathway in Wolff-Parkinson-White syndrome
+
+## Emergency Management Protocol
+First line Vagal maneuver
+- Carotid massage
+- Valsalva maneuver
+- Second line
+- According to NICE guidelines Adenosine 6mg if no response
+- 12mg if no response further
+- 12mg adenosine
+-
+
+- According to RESUS COUNCIL UK guidelines Adenosine 6mg if no response
+- 12 mg if no response further
+- 18 mg can be given
+- If contraindicates or not effective then rate limiting CCB verapamil or Beta blockers. If they're also ineffective then synchronized cardioversion.
+- Note: if sinus rhythm isn't restored even after adenosine then think about atrial flutter and treat with beta-blocker and seek expert help.
+- Adenosine in Cl in heart block, sick sinus syndrome, and asthma.
+- Adenosine in heart transplant patient dose should be half 3mg
+- Irregular narrow complex tachycardia
+- Atrial Fibrillation
+- Example: 1
+
+- Example:2
+- Atrial flutter with a variable block
+
+### Management
+
+- AF: rate, rhythm control.
+- Atrial flutter: Rate control drugs (beta blocker)
+- Regular-broad-complex-tachycardia
+- Ventricular tachycardia
+- SVTwith BBB
+- Note: Any patient
+- 50 years with ischemic or structural heart disease assumed to have
+
+apture beat stp:patient
+- t: AV dissociation
+- f
+
+## Emergency Management Protocol
+IF VT or uncertain rhythm Fusion beat
+- Amiodarone 300mg over 20 to 60 minutes then 900mg over 24hrs
+- If previously confirmed SVT with BBB then adenosine as for regular narrow complex tachycardia
+- Irregular broad complex tachycardia
+- AF with bundle branch block( most common).
+- Treat as narrow complex tachycardia
+
+- Torsades de pointes
+- Treatment: Magnesium 2g over IO minutes
+
+- Pre-excited atrial fibrillation( in patient with WPW)
+- Treatment: DC cardioversion. Drug treatment can consider flecainide or procainamide
+
+avR avu 6 Key Points
+- Any patient with adverse features regardless of rhythm treated with DC cardioversion.
+- Approach:
+- focus on the QRS complex, Is it narrow or wide? Then on rhythm: is it regular? How's the rate? SVT: narrow complex tachycardia is always SVT. Sometimes SVT presents as broad complex tachycardia.
+- AVNRT: look for inverted P waves in inferior leads 11, 111, and AFV, sometimes causing a 'pseudo' S wave. P wave simultaneous with QRS.
+- AVRT: triad: narrow complex, delta wave, and short PR interval.
+
+- Atrial flutter: Sawtooth's appearance in lead Ill and aVF previous
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Tachyarrhythmias Management - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_01_p1.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 1 (Page 1 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_02_p1.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 2 (Page 1 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_03_p2.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 3 (Page 2 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_04_p3.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 4 (Page 3 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_05_p4.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 5 (Page 4 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 6](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_06_p5.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 6 (Page 5 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_07_p6.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 7 (Page 6 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 8](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_08_p7.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 8 (Page 7 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 9](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_09_p8.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 9 (Page 8 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 10](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_10_p10.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 10 (Page 10 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 11](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_11_p10.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 11 (Page 10 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 12](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_12_p11.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 12 (Page 11 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 13](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_13_p12.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 13 (Page 12 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 14](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_14_p13.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 14 (Page 13 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 15](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_15_p14.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 15 (Page 14 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 16](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_16_p15.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 16 (Page 15 Reference)*
+
+![Tachyarrhythmias Management - Clinical Figure 17](/lessons/images/sba/cardiovascular-emergencies/tachyarrhythmias
+
+## Emergency Management Protocol
+/figure_17_p16.jpeg)
+*Tachyarrhythmias Management — Clinical Figure 17 (Page 16 Reference)*$LEC_CARD_029$,
+      "position"   = 36,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'tachyarrhythmias-management' OR "slug" = 'tachyarrhythmia');
 
-  -- 2) Upsert Quiz Lesson (Position 37)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 37)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -3748,14 +5730,206 @@ $SBA_CARD_029$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 20/21: Valvular Heart Disease in the ED
-  -- 1) Interleave Lecture (Position 38)
+  -- Pair 20/21: Valvular Heart Disease in the ED
+  -- A) Update & Beautify Clinical Theory Lecture (Position 38)
   UPDATE "lessons"
-  SET "position" = 38, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Valvular Heart Disease in the ED',
+      "body"       = $LEC_CARD_030$# Valvular Heart Disease in the ED
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+-
+- Early systolic Associated with acute severe
+- Aortic Stenosis
+- Stenosis: narrowing of the valve (restricted opening), Heart murmur due to forward flow through a narrowed outlet Regurgitant-valvular incompetence (failure of closure) Heart murmur due to backwards or regurgitant flow through a leaking/ incompetent valve
+- Diastolic murmur: AR, PR, MS and TS systolic murmurs: MR, TR, AS, PS, VSD Clinical classification of systolic murmurs Cardiac murmur heard nocent physiological due to high-output state Pathological outflow obstruction AS, PS, HCM
+- athological MR, VSO
+- AS is defined as a restricted opening of the valve cusps causing an obstruction to left ventricular (LV) outflow.
+- AS is severe once the valve area has decreased to lcm2 or less (normal 3-4cm2).
+- Causes Congenital (most common in young adults)
+
+Acquired
+-
+- Rheumatic: (Commonest cause worldwide) Age-related degenerative calcific (commonest cause in the UK)
+- Pathophysiology: _ As the aortic valve area reduces the LV contracts more forcefully to maintain the
+- stroke volume, eventually resulting in LV hypertrophy. In severe disease, the ventricle can no longer respond and LV function becomes
+- abnormal. The balance between cardiac output and myocardial muscle oxygen demand can be easily disrupted, causing severe pump failure
+
+## Key Clinical Features
+Classic triad (breathlessness, chest pain, exertional syncope)
+- pulse: Slow rising small volume with a sustained peak (pulsus parvus et tardus)
+- Cardiac impulsezl-aterally displaced apex beat indicates the onset of heart failure.
+- Auscultation: Harsh systolic ejection murmur second intercostal space right sternal
+- edge and radiating to the carotids. Fourth heart sound 'gallop rhythm'
+-
+
+## Investigations & Diagnostic Workup
+ECG: LVH criteria (or strain pattern) but may be absent despite severe obstruction:
+- 10-15% of severe AS have normal ECGs, and may show RBBB or I-BBB.
+- CXR: May show normal-sized heart and a dilated proximal ascending aorta. Late signs are LV/LA dilatation and pulmonary oedema.
+
+## Emergency Management Protocol
+of AS
+- Pulmonary oedema:
+- Treat with diuretic and CPAP
+- Nitrates and ACE inhibitors may cause a drop in after load and a significant drop in blood pressure and should be avoided.
+- Atrial fibrillation:
+- Acute-onset AF can be treated with digoxin to slow ventricular response and improve stroke volume.
+- Chest pain:
+- Chest pain may be relieved by beta-blockers, which reduce myocardial oxygen demand and may improve coronary blood flow.
+- Cardiogenic shock:
+- These patients need aggressive rnedjcaLth.e.rapy-anderne.rgency-
+- Aortic Regurgitation
+- Aortic valve incompetence results from failure of the valve to prevent leakage (regurgitation) of some of the stroke volume back into the left ventricle from the aorta.
+- Causes
+- Acute AR:
+
+Aortic dissection
+- Infective endocarditis
+- Prosthetic valve dysfunction
+- Rupture of aortic valve leaflet e:g trauma
+- Chronic AR
+- Calcific degeneration
+- Aortic root dilatation
+-
+- Rheumatic Connective tissue and autoimmune disorders
+-
+
+## Key Clinical Features
+Common symptoms Palpitation
+-
+- Chest pain Angina
+- Heart failure
+- Angina
+- Pulse: Rapid rise and quick collapse (water hammer pulse), double impulse, wide
+- pulse pressure. Corrigan's sign — visible carotid pulsation
+- Traube's sign — 'pistol shot' sound heard over the femoral artery
+- Quincke's pulse — capillary pulsation visible on shining a light through the fingertips
+- Auscultation: Early diastolic murmur best heard with the patient sitting forward in fully
+- held expiration. Austin Flint murmur
+- apical diastolic murmur caused by obstruction of mitral flow
+- produced by the partial closure of the Mitral Valve by the regurgitant jet and rapid
+
+rising LV diastolic pressure
+
+## Investigations & Diagnostic Workup
+ECG LVH
+- CXR: Cardiomegaly with LV prominence and possibly dilated aorta
+
+## Emergency Management Protocol
+Acute AR
+- Contact specialist services as may need surgical intervention in an emergency
+- Treatr-rnent should be focused on reducing pulmonary venous pressure and increasing cardiac output. They will include the use of vasodilators, intubation and positive pressure ventilation.
+- Inotropic support may be needed but can worsen the AR
+- Nitrates and diuretics have little effect and the intra-aortic balloon pump is contraindicated.
+- Chronic AR
+- adjustment of medical therapies such as diuretics, vasodilators, and rate and rhythm control is needed acutely.
+- Other management:
+- Blood cultures should be taken unless there is an obvious underlying cause (e.g. Aortic dissection or AMI).
+- AR patients have an increased risk of developing endocarditis and should receive appropriate antibiotic prophylaxis.
+
+Mitral Stenosis MS is where mitral valve narrowing restricts the flow of blood from the left atrium
+- into the ventricle impairing left ventricular filling. Symptoms may not occur until the valve area is reduced to 1-1.5cm2 (normal 4-6cm2).
+- Causes
+- Rheumatic heart disease (commonest cause worldwide) Infective endocarditis
+- Calcification of the mitral annulus
+-
+- SLE Carcinoid syndrome
+- Left atrial myxoma
+-
+- Pathophysiology: .
+- The obstruction to atrial emptying in MS causes an elevation in left atrial and pulmonary venous pressure and LA hypertrophy, leading to reduced lung compliance and breathlessness on exertion. Reactive pulmonary arterial hypertension causes right ventricular hypertrophy and
+- failure.
+
+## Key Clinical Features
+Exertional breathlessness, orthopnoea and PND, AF and pulmonary edema
+- Breathlessness is the first common presentation
+- Haemoptysis is the second rnost common presentation
+- volume, irregular (usually AF)
+-
+
+- Auscultation: Loud first heart sound (Sl) (in sinus rhythm), opening snap, and rumbling mid-diastolic murmur. Early diastolic murmur of pulmonary regurgitation (Graham Steell murmur due to secondary pulmonary hypertension).
+- Mitral-facies;-peripheral cyanosis of the cheeks
+- ECG;-Broad or biphasic p wave best seen in Lead 2 indicating LA hypertrophy. R axis deviation. AF common, RV hypertrophy in later stages
+- CXR: Straightening of the left heart border indicating a dilated LA (double atrial shadow). Pulmonary congestion.
+
+## Emergency Management Protocol
+Find and treat the underlying infection if suspected
+- Diuretics may be needed to relieve pulmonary congestion.
+- Rate control with beta-blockers, digoxin, or calcium channel blockers will be required for rapid atrial fibrillation. Any consideration of cardioversion must recognize the significant incidence of atrial thrombus and the risks of embolization
+- Acute haemoptysWs relatively rare but can be severe, may require referral to a cardiothoracic surgeon.
+- AILMSpatients in atrial fibrillation should be on long-term anticoagulants. Mitral Regurgitation
+- Mitral regurgitation is the backflow of blood from the left ventricle into the left atrium during systole.
+- Causes
+
+- Ruptured chordae tendinae or partial or complete papillary muscle rupture (e.g. due to acute myocardial infarction, trauma or infective endocarditis).
+- Rheumatic heart disease
+- LV dilatation secondary to ischaemic heart disease or cardiomyopathy Myxomatous degeneration
+- Mitral valve prolapse
+
+## Key Clinical Features
+Pulse: Tachycardia/AF common (Prominent 'a' wave in JVP in MR)
+- Cardiac impulsezDiffuse and displaced laterally. Systolic thrill at the apex
+- Auscultation: Pansystolic murmur radiating to the axilla and back third heart sou nd.
+- ECG: LA and LV hypertrophy AF common
+- CXRzPuImonary oedema with a normal-sized heart or minimally enlarged LA
+- ECHO: Urgent
+- to rule out the ventricular septal defect, diagnose MP, and assess LV function.
+
+## Emergency Management Protocol
+Acute MR associated with myocardial infarction is a cardiovascular emergency and may require surgical intervention.
+- Treat pulmonary oedema: (intubation in case of cardiogenic shock, CPAP, diuretics, nitrates, inotropes, and ACEI).
+- Patients with cardiogenic shock with acute MR may benefit from Intra aortic balloon pump.
+
+- Treat AF: Therapy is directed at reducing afterload to reduce LV work and controlling AF. Mitral Valve Prolapse
+- MVP is the prolapse of a portion of the valve leaflets into the left atrium during systole associated with a small amount of regurgitation of blood.
+- Clinical examination is normal apart from Mid-systolic click a high-pitched sound on auscultation caused by sudden tensing of the Mitral Valve apparatus as the leaflets prolapse
+- Normal antibiotic prophylaxis precautions should be followed if no other symptoms require treatment.
+- Tricuspid regurgitation
+- Insufficiency of the tricuspid valve
+- Causes Congenital: Ebstein's anomaly RV dilatation — mitral valve disease, RV infarction, pulmonary hypertension
+- Infective endocarditis (intravenous drug abuse) Marfan's syndrome
+
+## Key Clinical Features
+patient is usually asymptomatic
+- Can develop right HF, edema, ascities due to liver congestion
+
+- Pulse;_large C-V waves in JVP
+- Auscultation;
+- Soft pansystolic murmur at LSE louder on inspiration
+- Third heart sound (S3) often heard
+- CXR: shows Cardiomegaly
+- Others: liver congestion
+- Intravenous drug abusers may present acutely unwell with staphylococcal endocarditis.
+
+## Emergency Management Protocol
+A drug abuser needs blood cultures and aggressive antibiotic therapy covering staphylococcal infection. Early surgery may be needed. previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Valvular Heart Disease in the ED - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/valvular-heart-disease-in-the-ed/figure_01_p1.jpeg)
+*Valvular Heart Disease in the ED — Clinical Figure 1 (Page 1 Reference)*
+
+![Valvular Heart Disease in the ED - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/valvular-heart-disease-in-the-ed/figure_02_p1.jpeg)
+*Valvular Heart Disease in the ED — Clinical Figure 2 (Page 1 Reference)*
+
+![Valvular Heart Disease in the ED - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/valvular-heart-disease-in-the-ed/figure_03_p2.jpeg)
+*Valvular Heart Disease in the ED — Clinical Figure 3 (Page 2 Reference)*
+
+![Valvular Heart Disease in the ED - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/valvular-heart-disease-in-the-ed/figure_04_p11.jpeg)
+*Valvular Heart Disease in the ED — Clinical Figure 4 (Page 11 Reference)*$LEC_CARD_030$,
+      "position"   = 38,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'valvular-heart-disease-in-the-ed' OR "slug" = 'valvular-heart-disease');
 
-  -- 2) Upsert Quiz Lesson (Position 39)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 39)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -3864,14 +6038,170 @@ $SBA_CARD_030$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 21/21: Ventricular Tachycardia (VT)
-  -- 1) Interleave Lecture (Position 40)
+  -- Pair 21/21: Ventricular Tachycardia (VT)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 40)
   UPDATE "lessons"
-  SET "position" = 40, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Ventricular Tachycardia (VT)',
+      "body"       = $LEC_CARD_031$# Ventricular Tachycardia (VT)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Polymorphic ventricular tachycardia (PVT) — Continually changing QRS morphology.
+- sustained monomorphiclpoJymorphicyentricuNar-tachycardia-(SMYTlSPMT); Continuous VT for at least 30 s, or which requires an intervention for termination.
+- Torsades de pointes ventricular tachycardia (TdP) —Subtype of a polymorphic VT in the context of QT prolongation with continually changing QRS complexes that appear to spiral around the baseline of the electrocardiogram (ECG) lead in a sinusoidal pattern.
+- Ventricular fibrillation (ME); A chaotic rhythm with undulations that are irregular in timing and morphology, without discrete QRS complexes on the surface ECG. Acute management of sustained monomorphic ventricular tachycardia (SMVT)
+- Unstable patient
+- Patients presenting with haemodynamic instability require immediate synchronized cardioversion. If synchronization is not possible, an unsynchronized shock should be used. Cardioversion is not indicated in patients with repetitive NSVTs.
+- Haemodynamically_ stable patients
+- Administration of adenosine or vagal manoeuvres with continuous recording of 12- lead ECG should be considered if supraventricular tachycardia (SVT) is likely.
+
+- Prompt termination of SMVT is recommended even for tolerated SMVT, as rapid haemodynamical deterioration may occur. Termination can be achieved with electrical cardioversion, anti-arrhythmic medications, or pacing techniques.
+- For pharmacological termination of a haemodynamically tolerated VT of unknown aetiology, intravenous procainamide or amiodarone can be used.
+- Intravenous procainamide should not be used in patients with severe heart failure, acute MI, and end-stage renal disease.
+- In case of a known idiopathic VT, treatrnent with beta-blockers for Right ventricular outflow tract (RVOT) tachycardia (for RVOT VT)or verapamil (for fascicular VT) is recommended for acute conversion.
+
+Acute management of a patient with regular wide QRS complex tachycardia
+- overslon rl atton (Class l) fascicular VT rapam (Class l) aem ynaml tolerated or susp of structural heart disease Idiopathic VT nown outflow tract VT ta-blockers (Class l) er type or uncertain aeste ris for cardioversionb Procainamide (Class Ila) Flecainide Ajmaline Sotalol Amiodarone' (Class 11b) Cardioversion (Class l)
+- story, p Ica examination, 12-lead ECG Adenosine or vagal manoeuvres if SVT likely (Class Ila) for cardioversions Procainamide (Class Ila) Amiodarone (Class 11b)  ESC
+
+- Example-=-01
+- Monomorphic Sustained Ventricular Tachycardia ECG
+- Treatment depends on clinical features.
+
+- Example-02 av ECG show Idiopathic Fascicular VT:
+- Broad-complex complex tachycardia with modest increase in QRS width fr120 ms)
+-
+- RBBB morphology (RSR' in VI) Left axis deviation (-90 degrees)
+- Narrow-complex capture beat (complex #6)
+- Several dissociated P waves are seen in the lead II rhythm strip (associated with the
+- 3rd, 10th, 14th, 18th and 22nd QRS complexes)
+
+RVOTVT (LBBB-like, inferior axis, V4 transition) LV fascicular VT (RBBB- like, superior axis, QRS 130 ms) O ESC
+
+ycardia
+- 90% of patients presenting with monomorphic VT are secondary to structural heart disease, including ischaemic heart disease, congenital heart disease, valvular dysfunction and myocardial dysfunction
+- 10% of cases of monomorphic VT occur in the absence of structural heart disease and are termed idiopathicVT
+- 75-90% of idiopathic VT arise from the right ventricle — e.gright ventricular outflow tract tachycardia
+- 10-25% of idiopathic VT arise from an ectopic focus within the left ventricle, especially the left posterior fascicle (Fascicular VT).
+- Diagnosis can be difficult and this rhythm is often misdiagnosed as SVT with RBBB; the diagnosis is made by observing specific features of VT, e.g. fusion/capture beats, AV dissociation.
+- Classification
+- Posterior fascicular VT — (90-95% of cases) RBBBmorphoIogy + left axis deviation; arises close to the left posterior fascicle
+- Anterior fascicular VT — (5-10% of cases) RBBBmorphoIogy + right axis deviation; arises close to the left anterior fascicle
+- Upper septal fascicular VT — (rare) atypical morphology — usually RBBB but may resemble LBBB instead; cases with narrow QRS and normal axis have also been reported. Arises from the region of the upper septum.
+
+## Emergency Management Protocol
+in-stab-e I patient . Verapamil
+
+- Digoxin-induced fascicular VT is responsive to Digoxin Immune Fab
+- Above ineffective then cardioversion.
+- Example-—-03 RVOT tachycardia: Regular broad complex tachycardia
+-
+- LBBB-like morphology with rs complex in VI and R complex in V6 Precordial transition at V3
+- Inferior axis (+ 90 degrees)
+-
+
+- Right-Ventricu/ar-Outflow-Tract-Tachygardia-(RMOT)
+- Right ventricular outflow tract (RVOT) tachycardia is a form of monomorphic VT originating from the outflow tract of the right ventricle or occasionally from the tricuspid annulus. It is usually seen in patients without underlying structural heart disease. The majority (80%) of outflow tract ventricular arrhythmias (OTVAs) originate from
+- the AVOT.
+- RVOT tachycardia is most commonly a form of idiopathic VT, whereby no structural heart disease, metabolic/electrolyte abnormalities, or long QT syndrome can be found.
+- RVOT tachycardia can be difficult to distinguish from SVT with I-BBB Inferior axis (+90 degrees) is usually the most differentiating feature, but other
+- features of VT such as AV dissociation may be present ECG features
+- LBBB morphology Inferior axis
+-
+- rs complex in VI and R complex in V6 Precordial transition usually 2 V3, with the exception of septal origin, which occurs
+- at V3
+- Beta-blockers
+- Above ineffective then cardioversion.
+-
+
+Non-sustained ventricular tachycardias
+- Non-sustained ventricular tachycardia (NSVT) is an ectopic ventricular rhythm with wide QRS complex (120 milliseconds or greater), rate faster than 100 bpm, lasting for at least 3 beats that spontaneously resolves in less than 30 seconds.
+- It may occur in the absence of any underlying heart disease. However, it is more commonly associated with ischaemic and non-ischaemic heart disease; known genetic disorders such as long QT syndrome, Brugada's syndrome, and arrhythmogenic right ventricular cardiomyopathy; congenital heart disease; metabolic problems, including drug toxicity; or electrolyte imbalance.
+- Risk factors
+- CAD (coronary artery disease)
+- LVF
+- Hypertrophic cardiomyopathy
+- Brugada's syndrome
+- Long QT syndrome
+- Electrolyte imbalance Digoxin toxicity
+
+## Key Clinical Features
+In the vast majority of cases, NSVT is asymptomatic
+- Patient may presents with tachycardia, dizziness, pre-syncope or syncope
+- Other features depends on history of condition
+- ECG features
+
+- wide QRS complex (120 milliseconds or greater), rate
+- IOO bpm lasting for 3 or more beats, spontaneously resolving in <30 seconds. VI
+
+## Emergency Management Protocol
+- Example
+- 01
+
+- Initiation of wide QRS rhythm is not preceded by a P-wave, suggesting non- sustained ventricular tachycardia
+- Example
+- 02 ECG from a patient with long QT syndrome
+
+- Example
+- 03
+
+- ECG finding;
+- Normal sinus rhythm
+- Non-sustained monomorphic ventricular tachycardia with a rate of slightly less than 300.
+
+## Emergency Management Protocol
+— depends on clinical features, usually patients are asymptomatic, hence required reassurance and monitoring only. Symptomatic cause without electrolyte abnormality require beta-blockers or calcium channel blockers therapy as the first line.
+- Correct the electrolyte imbalance if electrolyte imbalance is the cause.
+- ICD if criteria match.
+
+Ventricular-fibrillatiom(UE);
+- A chaotic rhythm with undulations that are irregular in timing and morphology, without discrete QRS complexes on the surface ECG.
+- The diagnosis of idiopathic ventricular fibrillation (IVF) is made in SCA (sudden cardiac arrest) survivors, preferably with documented VF, after exclusion of structural, channelopathic, metabolic, or toxicological aetiologies.
+- Diagnostic tests — include blood chemistry, ECG (including high lead), cardiac CT/coronary angiography, telemetry/HoIter, exercise stress test, echocardiogram, sodium-channel blocker testing and CMR.
+- Genetic testing for channelopathy and cardiomyopathy genes may be considered
+
+## Emergency Management Protocol
+In IVF patients, ICD implantation reduces the risk of arrhythmic death by up to 68% compared to amiodarone.
+- Isoproterenol, verapamil, or quinidine have been employed for acute treatrnent of recurrent ICD discharges or electrical storrn.
+- In patients with recurrent episodes of VF triggered by a similar PVC unresponsive to medical treatment, catheter ablation has shown success
+
+previOUS  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Ventricular Tachycardia (VT) - Clinical Figure 1](/lessons/images/sba/cardiovascular-emergencies/ventricular-tachycardia-vt/figure_01_p4.jpeg)
+*Ventricular Tachycardia (VT) — Clinical Figure 1 (Page 4 Reference)*
+
+![Ventricular Tachycardia (VT) - Clinical Figure 2](/lessons/images/sba/cardiovascular-emergencies/ventricular-tachycardia-vt/figure_02_p5.jpeg)
+*Ventricular Tachycardia (VT) — Clinical Figure 2 (Page 5 Reference)*
+
+![Ventricular Tachycardia (VT) - Clinical Figure 3](/lessons/images/sba/cardiovascular-emergencies/ventricular-tachycardia-vt/figure_03_p6.jpeg)
+*Ventricular Tachycardia (VT) — Clinical Figure 3 (Page 6 Reference)*
+
+![Ventricular Tachycardia (VT) - Clinical Figure 4](/lessons/images/sba/cardiovascular-emergencies/ventricular-tachycardia-vt/figure_04_p8.jpeg)
+*Ventricular Tachycardia (VT) — Clinical Figure 4 (Page 8 Reference)*
+
+![Ventricular Tachycardia (VT) - Clinical Figure 5](/lessons/images/sba/cardiovascular-emergencies/ventricular-tachycardia-vt/figure_05_p10.jpeg)
+*Ventricular Tachycardia (VT) — Clinical Figure 5 (Page 10 Reference)*
+
+![Ventricular Tachycardia (VT) - Clinical Figure 6](/lessons/images/sba/cardiovascular-emergencies/ventricular-tachycardia-vt/figure_06_p13.jpeg)
+*Ventricular Tachycardia (VT) — Clinical Figure 6 (Page 13 Reference)*
+
+![Ventricular Tachycardia (VT) - Clinical Figure 7](/lessons/images/sba/cardiovascular-emergencies/ventricular-tachycardia-vt/figure_07_p14.jpeg)
+*Ventricular Tachycardia (VT) — Clinical Figure 7 (Page 14 Reference)*
+
+![Ventricular Tachycardia (VT) - Clinical Figure 8](/lessons/images/sba/cardiovascular-emergencies/ventricular-tachycardia-vt/figure_08_p22.jpeg)
+*Ventricular Tachycardia (VT) — Clinical Figure 8 (Page 22 Reference)*$LEC_CARD_031$,
+      "position"   = 40,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'ventricular-tachycardia-vt' OR "slug" = 'ventricular-tachycardia');
 
-  -- 2) Upsert Quiz Lesson (Position 41)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 41)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -4004,14 +6334,106 @@ $SBA_CARD_031$,
     RAISE EXCEPTION 'Module Major Trauma & Injury Management not found in mrcem-sba';
   END IF;
 
-  -- Topic 1/13: Abdominal Trauma
-  -- 1) Interleave Lecture (Position 0)
+  -- Pair 1/13: Abdominal Trauma
+  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
   UPDATE "lessons"
-  SET "position" = 0, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Abdominal Trauma',
+      "body"       = $LEC_TRAU_032$# Abdominal Trauma
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- ln the UK, this is most commonly knife- related injury penetrating trauma, the injuries sustained are caused by direct injury as the penetrating item passes through the organs and tissues in its path. Stab wounds and Iow-energy gunshot wounds cause tissue damage by lacerating and tearing. High- energy gunshot wounds transfer more kinetic energy, causing increased damage surrounding the track of the missile due to temporary cavitation
+- Commonly affected organs
+- Liver 40%
+- Small bowel 30%
+- Diaphragm 20%
+- colon 15%
+- Gunshot injury
+- SmaII bowel 50%
+- colon 40%
+- Liver 30%
+- Wound assessment
+- Caution is required in assessrnent of penetrating abdominal wounds. Patients with penetrating injury, even with normal vital signs, should be assessed by a senior surgeon.
+
+- Do not remove any object remaining in the wound, such as a knife, as this may be tamponading underlying vessels
+- Blunt abdominal trauma
+- The spleen and liver are the rnost commonly injured intraperitoneal organs in blunt trauma.
+- Blunt abdominal trauma commonly results from either a compression force, a deceleration injury or after direct impact with a car steering wheel . It has greater mortality than penetrating as there is often injury to multiple organ systems
+
+## Key Clinical Features
+
+## Clinical Examination & Assessment
+- lnspection — of the injured abdomen may show evidence of bruising, abrasions or penetrating trauma.
+- PaIpate- the abdomen in all quadrants, making note of general or regional tenderness and signs of acute abdomen (rigidity, rebound, guarding). Regardless of imaging, document serial exams for patients who remain in the ED for several hours.
+- RectaI examination — is useful if it demonstrates bleeding or a high-riding prostate suggestive of a pelvic injury and involvement of the genitourinary tract. Anal tone and sensation should be tested
+- Top-to-toe examination — including a log-roll is imperative to ensure there are no other injuries.
+- Solid organ injury_
+
+- Signs and symptoms of a solid organ injury are generally due to pain and blood loss.
+- Hepatic and splenic injuries are at high risk for hemorrhage in both penetrating and blunt abdominal trauma.
+- An y-blunt-abdominal-trauma- patient-with-diffuseperjtonjtis-or-who-is hemodynamically unstable should be taken urgently for laparotomy.
+- Splenic injury is graded according to CT findings and treatment is guided by grade:
+- Grad-1 Minor subcapsular tear or haematoma
+- Grad-2 Parenchymal injury not extending to the hilum
+- Grad-3 Major parenchymal injury involving vessels and hilum
+- Grad-4 Shattered spleen
+- Grade I or 2 injuries can usually be managed conservatively
+- Other injuries
+- Hollow viscus injury_
+- Peritoneal contamination with bowel contents will produce peritonism. —Pancreatic injury
+- lnjury to the pancreas may cause pancreatitis, which may develop over days. —Diaphragmatic injury
+
+- Diaphragmatic injuries are uncommon (0.8% to 5% of patients with thoracoabdominal injury).
+- Delayed diagnosis may lead to herniation or strangulation of abdominal contents through the diaphragmatic defect.
+- Diagnosis tools
+- FAST/US indication patient unstable hemodynamically with blunt trauma or penetrating trauma but without immediate laparotomy It is accurate, rapid, noninvasive, repeatable, and portable. Massive hemoperitoneum is quickly detected with a single view Of Morison's pouch
+- Disadvantage: US compared to CT is the inability to identify the exact source of free intraperitoneal fluid. Cl is indication for laparotomy
+
+## Emergency Management Protocol
+CT CT with IV contrast is the noninvasive gold standard study for the evaluation of abdominal injury patient should be hemodynamically stable
+- Disadvantage: high cost longer time can miss some viscus or pancreatic injuries GI: hemodynamically unstable PT. uncooperative or allergic PT DPL indication in hemodynamically unstable patient with blunt trauma or penetrating but without indication of laparotomy
+- Disadvantage: Invasive and risk of procedure related injury
+- Cl indication Of laparotomv. previous abdominal surgery or!iver cirrhosis
+
+- Indication in blunt trauma
+- Absolute: Anterior abdominal injury with hypotension Abdominal wall disruption peritonitis Free air under diaphragm on chest radiograph Positive FAST or DPL in hemodynamically unstable patient CT-diagnosed injury requiring surgery
+- Relative Positive FAST or DPL in hemodynamically stable patient Solid visceral injury in stable patient Hemoperitoneum on CT without clear source
+- Note: A definitive patient management plan should be formulated as early as possible, including early consultation by relevant speciality team. This may include surgeons, radiologists, anaesthetists, theatre staff, critical care and transfer teams
+- Indication of laparotomy in penetrating trauma
+
+- Indication of laparotomy in penetratinq trauma
+- Absolute Injury to abdomen, back, and flank with hypotension Abdominal tenderness GI evisceration High suspicion for transabdominal trajectory after gunshot wound CT-diagnosed injury requiring surgery
+- Relative Positive local wound exploration after stab wound previous
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Abdominal Trauma - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/abdominal-trauma/figure_01_p1.jpeg)
+*Abdominal Trauma — Clinical Figure 1 (Page 1 Reference)*
+
+![Abdominal Trauma - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/abdominal-trauma/figure_02_p5.jpeg)
+*Abdominal Trauma — Clinical Figure 2 (Page 5 Reference)*
+
+![Abdominal Trauma - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/abdominal-trauma/figure_03_p6.jpeg)
+*Abdominal Trauma — Clinical Figure 3 (Page 6 Reference)*
+
+![Abdominal Trauma - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/abdominal-trauma/figure_04_p7.jpeg)
+*Abdominal Trauma — Clinical Figure 4 (Page 7 Reference)*
+
+![Abdominal Trauma - Clinical Figure 5](/lessons/images/sba/major-trauma-injury/abdominal-trauma/figure_05_p7.jpeg)
+*Abdominal Trauma — Clinical Figure 5 (Page 7 Reference)*
+
+![Abdominal Trauma - Clinical Figure 6](/lessons/images/sba/major-trauma-injury/abdominal-trauma/figure_06_p8.jpeg)
+*Abdominal Trauma — Clinical Figure 6 (Page 8 Reference)*$LEC_TRAU_032$,
+      "position"   = 0,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'abdominal-trauma' OR "slug" = 'abdominal-trauma');
 
-  -- 2) Upsert Quiz Lesson (Position 1)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -4129,14 +6551,134 @@ $SBA_TRAU_032$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 2/13: Burn Injury & Resuscitation
-  -- 1) Interleave Lecture (Position 2)
+  -- Pair 2/13: Burn Injury & Resuscitation
+  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
   UPDATE "lessons"
-  SET "position" = 2, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Burn Injury & Resuscitation',
+      "body"       = $LEC_TRAU_033$# Burn Injury & Resuscitation
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- A burn is defined as a traumatic injury to the skin or other organic tissue primarily caused by thermal or other acute exposures
+- Children and adults are more vulnerable to burn injury. It is important to exclude NAI in children ly-Pes of burn: Thermal : This is the most common type of burn and includes flame burns, scalds (from hot liquids) and contact burns (from hot objects e.g. an iron or radiator). Acids and alkalis found in household chemical products can produce very deep burns through coagulative and liquefactive necrosis.4They will continue to burn the skin until completely removed. Electrical: As an electrical current travels through the body it creates an entry and exit point, damaging tissue along its path as it is converted from electrical to thermal energy. Cold exposure (frostbite)zThese burns are caused by ice crystals which can form both intra and extracellularly. Radiation;-Radio frequency energy or ionising radiation causes tissue damage. The most common type of radiation burn is sun burn. Pathophysiology: _
+
+Jackson's burn wound model
+- Local response Zone of Coagulation: occurs at the point of maximum damage i.e. the nearest point to the heat source. There is irreversible tissue necrosis here due to coagulation of proteins. Zone of Stasis:surrounding the zone of coagulation, this area is characterised by decreased tissue perfusion. Burns resuscitation can help to increase tissue perfusion and prevent this damage from becoming irreversible. otherwise it could evolve into an area of necrosis. Zone of Hyperaemia: the outermost zone as its name suggests is where there is increased tissue perfusion. This is a reversible zone. Note: The release of cytokines and other inflammatory mediators at the site of injury has a systemic effect once the burn reaches 20-30% of total body surface area. Such as CVS changes (Capillary permeability is increased). Respiratory changes(bronchoconstriction). metabolic rate increases. Initial assessment
+- Need to follow trauma protocol such as primary or secondary survey
+
+- Use ABCDE approach to the primary survey is critical to ensure that any life- threatening issues are not missed Airway
+- Following features that increase the suspicion of airway obstruction or inhalation injury
+- Assessment Singed nasal/facial hairs Burns to the face/oropharynx Inflamed oropharynx Breathing
+
+## Emergency Management Protocol
+Sit patient upright Any suspected airway
+
+- Circulation & Fluid resuscitation
+- Assessment
+- Burns total body surface area (TBSA) in Adults and in children can cause profound circulatory shock that can occur from both large fluid losses through tissue damage and from a systemic inflammatory response
+- Burns <15% in adults and in children do not require immediate fluid resuscitation.
+- Capillary refill time (CRT), blood pressure and mucous membrane assessment are important indicators of hydration status.
+- early catheterisation is important as urine output is a reliable sign that can demonstrate poor perfusion and serve as a guide to ongoing resuscitation.
+
+- ln circumferential limb burns, blood supply to the extremities should be checked regularly.
+- ln a significant burn there can be an increased metabolic demand on the patient which can cause organ dysfunction therefore:
+- blood tests (FBC, U&E, C-reactive Protein, LFTs and capillary blood glucose) should be send.
+
+## Emergency Management Protocol
+- Fluid resuscitation:
+- AduIts with burns
+- 15% TBSA and children with burns TBSA require fluid resuscitation.
+- Get IV access, If it's not possible to get IV or IO access through unburnt skin then place the IV in burnt skin.
+- use parkland formula (2-4mI x weight in kg x %TBSA).
+- AduIt: 2-ml (Hartman or plasma-lyte) x weight in kg x %TBSA
+- Paeds 3-ml x weight in kg x %TBSA
+- the total resuscitation fluid required over 24 hours from the time of the burn. One half of fluid should be given in first 8hrs and remaining half in 16 hours
+- Note: Urine output targets should be doubled if rhabdomyolysis is suspected
+- Send blood tests
+
+- Creatine kinase is a useful test to perform to assess muscle breakdown
+- EvaIuate any areas of circumferential burns in limbs and constantly reassess perfusion.any deterioration in the circulation to a limb could indicate ischaemia or a compartment syndrome. require urgent intervention such as escharotomy or fasciotomy. Disability-exposure
+- Full exposure to assess of size and depth of burns
+- maintain body temperature by both active and passive warming.
+- Clean the burn with normal saline and cover with strips of cling film
+- Analgesia:
+- Non-pharmacoIogical
+- cooling the burn under cold running water and covering with cling film. Cling film also helps to reduce heat loss and the risk of infection. and NSAIDs or opiods and ketamine Assessment of the burn (Secondary survey) _
+- Assessment of burn Formulas/charts
+
+- Hoad and neck Anterior Lund and Browder chart Arm 9%
+- Assess depth of the burn Superficial epidermal burn: only epidermis affected . Skin is red and painful but not blistered eg: sun burn
+
+Superficial partial thickness : burn extend to superficial layer. Skin is moist painfully hypersensitive and blanch to touch Deeæpartial thickness burn: Extend to deeper layer dermis. Skin is drier ,cherry red, less painful, blistered red or mottled appearance and doesn't blanch to touch Full thickness burn : extends through entire dermis to subcutaneous tissue skin appears waxy white, brown , painless , generally dry and doesn't blanch to pressure
+
+## Emergency Management Protocol
+of burn wound Chemical burn & management
+
+Electrical burn & management
+
+- Referral to specialist burn center
+- AII burns 22% TBSA in children or 23% TBSA in adults
+- AII full thickness burns
+- AII circumferential burns
+- Any burn not healed in 2 weeks
+- Any burn with suspicion of non-accidental injury should be referred to a burn unit/centre for expert assessment within 24 hours
+- AII burns to hands, feet, face, perineum, or genitalia
+
+- Any chemical, electrical or friction burn
+- Any cold injury
+- Any unwell/febrile child with a burn
+- Any concerns regarding burn injuries and co-morbidities(e.g. serious medical conditions (such cardiac dysfunction, diabetes, cancer or immunosuppression) that may affect treatment or healing of the burn Escharotomy
+- VVith full thickness and deep partial thickness burns, the dermis can become very stiff. If this occurs circumferentially over the chest it can restrict chest wall mover-nent and lead to mechanical respiratory failure. Equally if there are circumferential burns to the limbs this can cause limb ischaemia. In these cases an emergency escharotomy needs to be undertaken to release the rigid skin to allow: adequate ventilation (if the chest is involved) or circulation (in the limb).
+- Procedure: The limb should be kept in the anatomical position.
+- The area is cleaned and incised along the anatomical lines with a scalpel down to the fat
+- The incision should not go down to the muscle or fascia
+- For the limbs the incisions need to release both medial and lateral aspects
+- For the chest the incision needs to release the whole breast plate
+- Care must be taken to avoid the named important structures
+
+previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Burn Injury - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/burn-injury/figure_01_p1.jpeg)
+*Burn Injury — Clinical Figure 1 (Page 1 Reference)*
+
+![Burn Injury - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/burn-injury/figure_02_p3.jpeg)
+*Burn Injury — Clinical Figure 2 (Page 3 Reference)*
+
+![Burn Injury - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/burn-injury/figure_03_p4.jpeg)
+*Burn Injury — Clinical Figure 3 (Page 4 Reference)*
+
+![Burn Injury - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/burn-injury/figure_04_p5.jpeg)
+*Burn Injury — Clinical Figure 4 (Page 5 Reference)*
+
+![Burn Injury - Clinical Figure 5](/lessons/images/sba/major-trauma-injury/burn-injury/figure_05_p8.jpeg)
+*Burn Injury — Clinical Figure 5 (Page 8 Reference)*
+
+![Burn Injury - Clinical Figure 6](/lessons/images/sba/major-trauma-injury/burn-injury/figure_06_p8.jpeg)
+*Burn Injury — Clinical Figure 6 (Page 8 Reference)*
+
+![Burn Injury - Clinical Figure 7](/lessons/images/sba/major-trauma-injury/burn-injury/figure_07_p9.jpeg)
+*Burn Injury — Clinical Figure 7 (Page 9 Reference)*
+
+![Burn Injury - Clinical Figure 8](/lessons/images/sba/major-trauma-injury/burn-injury/figure_08_p9.jpeg)
+*Burn Injury — Clinical Figure 8 (Page 9 Reference)*
+
+![Burn Injury - Clinical Figure 9](/lessons/images/sba/major-trauma-injury/burn-injury/figure_09_p14.jpeg)
+*Burn Injury — Clinical Figure 9 (Page 14 Reference)*
+
+![Burn Injury - Clinical Figure 10](/lessons/images/sba/major-trauma-injury/burn-injury/figure_10_p15.jpeg)
+*Burn Injury — Clinical Figure 10 (Page 15 Reference)*$LEC_TRAU_033$,
+      "position"   = 2,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'burn-injury' OR "slug" = 'burn-injury');
 
-  -- 2) Upsert Quiz Lesson (Position 3)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -4263,14 +6805,37 @@ $SBA_TRAU_033$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 3/13: Devastating Brain Injury & Prognostication
-  -- 1) Interleave Lecture (Position 4)
+  -- Pair 3/13: Devastating Brain Injury & Prognostication
+  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
   UPDATE "lessons"
-  SET "position" = 4, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Devastating Brain Injury & Prognostication',
+      "body"       = $LEC_TRAU_034$# Devastating Brain Injury & Prognostication
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Discuss with donor coordinator Decision to test for brain death and brain death confirmed Consider or offer donation of organ after brain stem death (DBD)  Consider withdraw life support Discuss with donor coordinator Decision to withdraw life support treatment Consider DCD(donation after cardiac death) in those patients who's DBI isn't improved even after 72 hrs of life support treatment
+- 9 Review management plan
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Devastatiing Brain Injury - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/devastatiing-brain-injury/figure_01_p1.jpeg)
+*Devastatiing Brain Injury — Clinical Figure 1 (Page 1 Reference)*
+
+![Devastatiing Brain Injury - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/devastatiing-brain-injury/figure_02_p2.jpeg)
+*Devastatiing Brain Injury — Clinical Figure 2 (Page 2 Reference)*
+
+![Devastatiing Brain Injury - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/devastatiing-brain-injury/figure_03_p2.jpeg)
+*Devastatiing Brain Injury — Clinical Figure 3 (Page 2 Reference)*$LEC_TRAU_034$,
+      "position"   = 4,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'devastatiing-brain-injury' OR "slug" = 'devastating-brain-injury');
 
-  -- 2) Upsert Quiz Lesson (Position 5)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -4379,14 +6944,88 @@ $SBA_TRAU_034$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 4/13: Genitourinary Trauma & Urethral Injury
-  -- 1) Interleave Lecture (Position 6)
+  -- Pair 4/13: Genitourinary Trauma & Urethral Injury
+  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
   UPDATE "lessons"
-  SET "position" = 6, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Genitourinary Trauma & Urethral Injury',
+      "body"       = $LEC_TRAU_035$# Genitourinary Trauma & Urethral Injury
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- motor vehicle crashes, falls, assaults and sports injuries are the rnost common mechanisms for blunt GU injuries, whereas gunshot wounds and stab wounds are the most common causes for penetrating injuries.
+- SeatbeIt use and air bag deployment have increasingly been associated with decreased rates of nephrectomy in renal trauma patients.
+- Renal trauma (kidney_jnjury) following-features-indicates-renaLinjury
+- Flank contusions or ecchymosis,
+- palpable mass,
+- lower rib fractures,
+- penetrating wounds in the flank
+
+## Key Clinical Features
+- patient will complain flank and loin pain followed by haematuria. :P.iagnosi.s; contrast-enhanced CT scan of the abdomen and pelvis is the imaging "gold standard" for the stable patient with suspected renal injury
+- RenaI angiography can identify renal vascular injury
+
+## Emergency Management Protocol
+- mostly conservatively (analgesia, bed rest, antibiotic
+- Bladder trauma
+- only 2%
+
+- Associated with pelvic fracture
+- Suspect bladder injury in alcohol-intoxicated patients (bladder often distended) who are in a motor vehicle crash (potentially high-energy transfer resulting in pelvic fracture).
+
+## Key Clinical Features
+- ;
+- Lower abdominal pain and tenderness and gross hematuria are commonly associated findings cystogram is the "gold standard"
+
+## Emergency Management Protocol
+- Extraperitoneal rupture is most common and usually manage with catheter drainage
+- lntraperitoneal rupture always require surgical repair
+- ExtraperitoneaI ruptures may need surgical intervention in following situation .
+- Urinary catheter does not allow appropriate drainage
+- Associated rectal or vaginal injury
+- Associated bladder neck injury
+- Open fixation of a pelvic fracture (to avoid contamination of the hardware)
+- Pelvic fracture with bone spicules in bladder lumen
+- Urethral injury_
+
+- The posterior urethra consists of prostatic and membranous portions.
+- Associated with rnotor vehicle collisions or falls from heights.
+- The anterior urethra is divided into the relatively fixed bulbar segment and the penile segment.
+- Associated with direct perineal trauma
+
+## Key Clinical Features
+- Symptoms may include hematuria, dysuria, or inability to void. Rectal and perineal examination may demonstrate a perineal hematoma or high-riding prostate.
+- Posterior urethral injury is suggested by the triad of urinary retention, blood at the meatus, and a high-riding prostate
+- Following feature indicates consideration of suprapubic catheter and for bladder drainage and retrograde urethrogram for diagnosis of urethral injury so for that patient urgently refer to urologist
+- high-riding prostate,
+- meatal blood,
+- perineal ecchymosis,
+- scrotal hematoma,
+- pelvic fracture, or gross hematuria,
+- any resistance to gentle passage of a Foley catheter
+
+## Emergency Management Protocol
+- FoIIow ATLS protocol
+- Male PT with posterior urethral injury secondary to pelvic fracture need immediate placement of suprapubic catheter for bladder drainage with delay surgical repair
+- Most penetrating injuries to the anterior urethra require surgical exploration and repair. —Note: scrotal and testicular trauma (scrotal or testicular hematoma) ,manage conservatively with good analgesia however testicular rupture need surgical intervention.
+- Fracture of penis refer urgently to urologist for surgical exploration, evacuation of haematoma and repair. previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Genetourinary Trauma - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/genetourinary-trauma/figure_01_p1.jpeg)
+*Genetourinary Trauma — Clinical Figure 1 (Page 1 Reference)*
+
+![Genetourinary Trauma - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/genetourinary-trauma/figure_02_p5.jpeg)
+*Genetourinary Trauma — Clinical Figure 2 (Page 5 Reference)*$LEC_TRAU_035$,
+      "position"   = 6,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'genetourinary-trauma' OR "slug" = 'genitourinary-trauma');
 
-  -- 2) Upsert Quiz Lesson (Position 7)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -4492,14 +7131,288 @@ $SBA_TRAU_035$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 5/13: Head Trauma & Intracranial Haemorrhage
-  -- 1) Interleave Lecture (Position 8)
+  -- Pair 5/13: Head Trauma & Intracranial Haemorrhage
+  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
   UPDATE "lessons"
-  SET "position" = 8, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Head Trauma & Intracranial Haemorrhage',
+      "body"       = $LEC_TRAU_036$# Head Trauma & Intracranial Haemorrhage
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Other causes of increase ICP, including cerebral oedema and hypercapnia, Epileptic fits, Infection.
+- Cerebral arterioles remain sensitive to pC02 , however, with an increase pC02 resulting in marked arterial vasodilatation and unwanted increase ICP. Controlling pC02 to within normal levels is therefore important.
+- Assessment in the ED
+- Be aware that the priority for all emergency department patients is the stabilisation of airway, breathing and circulation (ABC) before attention to other injuries: patients with GCS 8 or less, ensure there is early involvement of an anaesthetist or critical care physician to provide appropriate airway management:
+- A trained member of staff should assess all patients presenting to an emergency department with a head injury within a maximum of 15 minutes of arrival at hospital.
+- Head injury examination
+- Consider the possibility of cervical spine injury in all cases Signs of base of skull fracture This is often a clinical diagnosis. One or more of the following may be seen:
+
+- Bilateral orbital bruising confined to the orbital margin ('panda eyes').
+- Subconjunctival haemorrhage (no posterior margin of bleeding seen).
+- Haemotympanum or bleeding from the auditory rneatus.
+- CSF otorrhoea or rhinorrhoea (± anosmia). Fluid mixtures containing relatively similar quantities of blood and CSF will separate into a 'double ring' when dropped onto blotting paper.
+- BattIe's sign: bruising over the mastoid process without local direct trauma follows a petrous temporal bone fracture but takes several days to appear.
+- Glasgow coma score (adults)
+
+- Score 1 2 3 4 5 6 Eyes Does not open eyes Opens eyes in response to painful stimuli Opens eyes in response to voice Opens eyes spontaneously Verbal Makes no sounds Incomprehensible sounds Utters inappropriate words Confused, disorientated Orientated, Motor Makes no movements Extension to painful stimuli(decerebrate response) Abnormal flexion to painful stimuli(decorticate response) Flexion/withdrawal to painful stimuli Localized to painful converses normally stimuli Obeys commands
+- Specific head injury. zEpidural haematoma
+- An epidural hematoma results when blood collects in the potential space between the skull and the dura mater.
+- lnjury to middle meningeal artery
+- CT reveal biconvex (football-shaped) mass.
+- Early recognition and evacuation reduce morbidity and mortality.
+
+- Subdural haematoma:
+- Subdural hematoma is caused by sudden acceleration-deceleration of brain parenchyma with subsequent tearing of the bridging dural veins.
+- This results in hematoma formation between the dura rnater and the arachnoid
+- Brains with extensive atrophy, such as in the elderly or in chronic alcoholics, are more susceptible to the development of acute subdural hematoma.
+- On CT scan, acute subdural hematomas are hyperdense (white), crescent-shaped lesions that cross suture lines
+
+- Subarachnoid hemorrhage
+- Traumatic subarachnoid hemorrhage results from the disruption of the parenchyma and subarachnoid vessels and presents with blood in the cerebrospinal fluid.
+- Traumatic subarachnoid hemorrhage is the most common CT abnormality in patients with moderate to severe T Bl.
+- CT scans performed 6 to 8 hours after injury are sensitive for detecting traumatic subarachnoid hemorrhage.
+
+- Diffuse axonal injury_
+- Diffuse axonal injury is the disruption of axonal fibers in the white matter and brainstem.
+- Shearing forces on the neurons generated by sudden deceleration cause diffuse axonal injury.
+- CT scan of a patient with diffuse axonal injury may appear normal, however, classic CT findings include punctuate hemorrhagic injury along the gray white junction of
+
+- the cerebral cortex. n
+- Contusion and intracerebral haematoma
+- Contusions rnost commonly occur in the subfrontal cortex, in the frontal and temporal lobes, and, occasionally, in the occipital lobes
+- lntracerebral hemorrhage can occur days after significant blunt trauma, often at the site of resolving contusions.
+
+- CT immediately after injury maybe normal.
+- Obtain serial CTs if any change in mental status occurs in a patient with coagulopathy until the clot is stable
+
+## Investigations & Diagnostic Workup
+(Nice guideline recommendations) Criteria for performing a CT head scan in Adults
+
+For adults who have sustained a head injury and have any of the following risk
+- factors, perform a CT head scan within 1 hour of the risk factor being identified: GCS less than 13 on initial assessment in the emergency department.
+- GCS less than 15 at 2 hours after the injury on assessment in the emergency department. Suspected open or depressed skull fracture.
+- Any sign of basal skull fracture (haemotympanum, 'panda' eyes, cerebrospinal fluid
+- leakage from the ear or nose, Battle's sign). Post-traumatic seizure.
+- Focal neurological deficit.
+- More than I episode of vomiting.
+- —Note: A provisional written radiology report should be made available within 1 hour
+- of the scan being performed Eocau-s-wi-h-any-gf-th.e-fo"owing-r.isk-factors-who-haye-experienced some loss of consciousness or amnesia since the injury,_perform a CT head scan within 8 hours-of-the-head-injury; Age 65 years or older.
+- Any history of bleeding or clotting disorders.
+- Dangerous mechanism of injury (a pedestrian or cyclist struck by a motor vehicle, an occupant ejected from a motor vehicle or a fall from a height of greater than 1 metre or 5 stairs).
+- More than 30 minutes' retrograde amnesia of events immediately before the head injury.
+- —Note: A provisional written radiology report should be made available within 1 hour of the scan being performed.
+
+Algorithm 1: selecting people 16 and over for a CT head scan Person 16 or over presenting to the emergency department with a head injury Are any Of these risk factors present:
+- a GCS score of 12 or less on initial assessment in the emergency department
+- a GCS score of less than 15 at 2 hours after the injury on assessment in the emergency department
+- suspected open or depressed skull fracture
+- any sign of basal skull fracture (haemotympanum, 'panda' eyes, cerebrospinal fluid leakage from the ear or nose, Battle's sign)
+- post-traumatic seizure
+- focal neurological deficit
+- more than 1 episode of vomiting Yes No Is there loss Of consciousness or amnesia since the head injury? Yes Are any Of these risk factors present:
+- age 65 years or over
+- any bleeding or clotting disorders (liver failure, haemophilia, taking anticoagulants or antiplatelets)
+- dangerous mechanism of injury (a pedestrian or cyclist struck by a motor vehicle, an occupant ejected from a motor vehicle, or fall from a height of more than 1 m or 5 stairs)
+- more than 30 minutes' retrograde amnesia Of events NO immediately before the head injury Yes NO they takütg anticoagulants (including vitamin antagonists, direct-acting oral anticoagulants, heparin and IOW molecular weight heparins) or antiplatelets (excluding aspirin monotherapy)?
+
+CT head scan not needed hour of any of the risk ctors being identified Make a provisional written radiology report available ithin 1 hour of the scan NICE Nation. nstitute for Hætth and scan w n hours of the injury, or within 1 hour if they present more than 8 hours after injury Make a provisional written radiology report available Within I hour Of the scan Consider a CT head scan within 8 hours of injury, or within 1 hour if they present more than 8 hours after injury Make a provisional written radiology report available Within I hour Of the scan Criteria for performing a CT head scan in under 16 years age:
+- For children who have sustained a head injury and have any of the following risk factors, perform a CT head scan within I hour of the risk factor being identified:
+- Suspicion of non-accidental injury
+- Post-traumatic seizure but no history of epilepsy.
+- On initial emergency department assessment, GCS less than 14, or for children under 1 year GCS (paediatric) less than 15.
+- At 2 hours after the injury, GCS less than 15.
+- Suspected open or depressed skull fracture or tense fontanelle.
+- Any sign of basal skull fracture (haemotympanum, 'panda' eyes, cerebrospinal fluid leakage from the ear or nose, Battle's sign).
+- Focal neurological deficit.
+- For children under I year, presence of bruise, swelling or laceration of more than 5 cm on the head.
+- —Note: A provisional written radiology report should be made available within I hour of the scan being performed.
+
+- jury-and-have-more-than-lof-the following risk factors (and none listed above),_perform a CT head scan within 1 hour-of-the-risk-factors&eingjdentified;
+- Loss of consciousness lasting more than 5 minutes (witnessed).
+- Abnormal drowsiness.
+- Three or more discrete episodes of vomiting.
+- Dangerous mechanism of injury (high-speed road traffic accident either as pedestrian, cyclist or vehicle occupant, fall from a height of greater than 3 metres, high-speed injury from a projectile or other object).
+- Amnesia (antegrade or retrograde) lasting more than 5 minutes.
+- However, Assessment of amnesia will not be possible in preverbal children and is unlikely to be possible in children aged under 5 years.
+- Children who have sustained a head injury and have only 1 of the risk factors above should be observed for a minimum of 4 hours after the head injury. If during observation any of the risk factors below are identified, perform a CT head scan within 1 hour:
+- GCS less than 15
+- Further vomiting.
+- A further episode of abnormal drowsiness.
+
+Algorithm 2: selecting people under 16 for a CT head scan Person under 16 presenting to the emergency department with a head injury Are any of these risk factors present:
+- suspicion Of non-accidental injury
+- post-traumatic seizure but no history of epilepsy
+- a CCS score Of less than 14 or, for children under I, a GCS (paediatric) score Of less than 15, on initial assessment in the emergency department
+- a GCS score of less than 15 at 2 hours after the injury
+- suspected open or depressed skull fracture, or tense fontanelle
+- any sign of basal skull fracture (haemotympanum, 'panda' eyes, cerebrospinal fluid leakage from the ear or nose, Battle's sign)
+- focal neurological deficit
+- for children under 1 year, a bruise, swelling or laceration of more than 5 cm on the head Yes Are any of these risk factors present: No
+- loss of consciousness lasting more than 5 minutes (witnessed)
+- any bleeding or clotting disorders (liver failure, haemophilia, taking anticoagulants or antiplatelets)
+- abnormal drowsiness
+- 3 or more discrete episodes of vomiting
+- dangerous mechanism of injury (high-speed road traffic accident as a pedestrian, cyclist or vehicle occupant, fall from a height Of more than 3 m, high-speed injury from a projectile or other object)
+- amnesia (antegrade or retrograde) lasting more than 5 minutes (it will not be possible to assess amnesia in children Who are preverbal and is unlikely to be possible in children under 5) Yes, more than 1 factor Yes, 1 factor No Are any Of these risk factors present While observing:
+- a GCS score of less than 15
+- further vomiting
+- further episodes of abnormal drowsiness Yes NO Are they taking anticoagulants (including vitamin K antagonists, direct-acting oral anticoagulants, heparin and low molecular weight hoarinsi or antiDlatelets (excludina asoirin monotheraov)?
+
+- Yes ns era scan w n any of the risk factors being entified Make a provisional written radiology report available within ur of the scan NICE NationS hstnute tor Health and Cae hours of injury, or within I hour they present more than 8 hours after injury Make a provisional written radiology report available within 1 hour of the scan No CT head scan not needed Use clinical judgement to determine when further observation is needed a 2023. A" su*t
+- Investigating injuries to the cervical spine
+- Criteria for performing a CT cervical spine scan in adults
+- For adults who have sustained a head injury and have any of the following risk factors, perform a CT cervical spine scan within I hour of the risk factor being identified:
+- GCS less than 13 on initial assessment.
+- The patient has been intubated.
+- Plain X-rays are technically inadequate (for example, the desired view is unavailable).
+- Plain X-rays are suspicious or definitely abnormal.
+- A definitive diagnosis of cervical spine injury is needed urgently (for example, before surgery). The patient is having other body areas scanned for head injury or multi-region traurna.
+
+- The patient is alert and stable, there is clinical suspicion of cervical spine injury and any of the following apply: Age 65 years or older
+- Dangerous mechanism of injury (fall from a height of greater than I meter or 5 stairs; axial load to the head, for example, diving; high-speed motor vehicle collision; rollover rnotor accident; ejection from a rnotor vehicle; accident involving motorized recreational vehicles; bicycle collision)
+- Focal peripheral neurological deficit
+- Paraesthesia in the upper or lower limbs Eon peo jury,-and-haye-neckpain-or tenderness but no high-risk indications for a CT cervical spine scan do a CT cer-uicaLs pine-scan-within-Jhour-focany-of-these-risk-factors;
+- It is not considered safe to assess the range of movement in the neck.
+- Safe assessment of range of neck movement shows that the patient cannot actively rotate their neck to 45 degrees to the left and right.
+- the person has a condition predisposing them to a higher risk of injury to the cervical spine (for example, axial spondylarthritis) — Criteria for performing a CT cervical spine scan in children For children who have sustained a head injury, perform a CT cervical spine scan only if any of the following apply (because of the increased risk to the thyroid gland from ionising radiation and the generally lower risk of significant spinal injury):
+- GCS less than 13 on initial assessment.
+
+- The patient has been intubated.
+- Focal peripheral neurological signs.
+- Paraesthesia in the upper or lower limbs.
+- A definitive diagnosis of cervical spine injury is needed urgently (for example, before surgery).
+- The patient is having other body areas scanned for head injury or multi-region trauma.
+- There is strong clinical suspicion of injury despite normal X-rays.
+- Plain X-rays are technically difficult or inadequate.
+- Plain X-rays identify a significant bony injury.
+- Note: Do the scan within I hour of the risk factor being identified.
+- Three view cervical spine x-ray in Children.
+- For children who have sustained a head injury and have neck pain or tenderness but no indications for a CT cervical spine scan, perform 3-view cervical spine X-rays before assessing range of movement in the neck if either of these risk factors are identified:
+- Dangerous mechanism of injury (that is, fall from a height of greater than 1 metre or 5 stairs; axial load to the head, for example, diving; high-speed motor vehicle collision; rollover motor accident; ejection from a motor vehicle; accident involving motorized recreational vehicles; bicycle collision).
+- Safe assessrnent of range of movement in the neck is not possible.
+- child cannot actively rotate their neck 45 degrees to the left and right.
+- Note: The X-rays should be done within 1 hour of this risk factor being identified, and reviewed by a clinician trained in their interpretation
+- Assessing range of movement in the neck
+- Be aware that in adults and children who have sustained a head injury and in whom there is clinical suspicion of cervical spine injury, range of movement in the neck can
+
+be assessed safely before imaging only if no high-risk factors and at least 1 of the following Iow-risk features apply. The patient: was involved in a simple rear-end motor vehicle collision.
+- is comfortable in a sitting position in the emergency department.
+- has been ambulatory at any time since injury.
+- has no midline cervical spine tenderness.
+- presents with delayed onset of neck pain.
+- ED management of serious head injury
+- Follow ABC protocol.
+- The primary goals of treatment are to maintain cerebral perfusion and oxygenation by optimizing intravascular volume and ventilation.
+- Recognize and treat elevated ICP —Airway & breathing
+- Treat any condition that compromises ventilation (e.g., altered mental status, facial/neck trauma, pneumothorax).
+- Patients with severe injury (GCS score of '8) require intubation. Circulation-Provide aggressive fluid resuscitation to prevent hypotension and secondary brain injury. Normal saline is recommended for volume resuscitation.
+- Maintain systolic blood pressure at 2100 mm Hg for patients 50 to 69 years old or at 2110 mm Hg for patients 15 to 49 years old or
+- 70 years old
+
+- —Pain control Give titrated IV opioid analgesia —Patient positioning
+- Raising the head of the bed to 30 degrees may improve cerebral blood flow by lowering ICP. —Temporary_byperventilation
+- Use hyperventilation only in moderation and for as limited a period as possible. It is preferable to keep paC02 at 4.5 to 5kpa.
+- HyperventiIation will lower ICP in deterioration patient with expanding intracranial haematoma until surgeon perform craniotomy. —Mannitol and hypertonic saline
+- Mannitol is osmotic diuretic.it is used to decrease ICP
+- Avoid mannitol in hypotensive patients
+- Hypertonic saline is alternative to mannitol in the patient who is not adequately fluid resuscitated or hypotensive. —Seizure treatment and prophylaxis
+- Prolonged seizures can worsen secondary injury.
+- Treat acute seizures with midazolam or lorazepam, and if seizures continue, treat as for status epilepticus.
+- Temperature-control
+
+- —Glucose control maintain at 100 to 180 milligrams/dL or 5.55 to 9.99 mmol/L
+- Involving the neurosurgical department
+- Discuss with a neurosurgeon the care of all patients with new, surgically significant abnormalities on imaging. The definition of 'surgically significant' should be developed by local neurosurgical centres and agreed with referring hospitals, along with referral procedures. Regardless of imaging, other reasons for discussing a patient's care plan with a
+- neurosurgeon include: Persisting coma (GCS 8 or less) after initial resuscitation.
+- Unexplained confusion which persists for more than 4 hours.
+- Deterioration in GCS score after admission (greater attention should be paid to
+- motor response deterioration). Progressive focal neurological signs.
+-
+- A seizure without full recovery. Definite or suspected penetrating injury.
+- A cerebrospinal fluid leak
+- Transfer from hospital to a neuroscience unit
+- Transfer is often urgent, complete the initial resuscitation and stabilisation of the patient and establish comprehensive monitoring before transfer to avoid complications during the journey.
+- Do not transport a patient with persistent hypotension, despite resuscitation, until the cause of the hypotension has been identified and the patient stabilized.
+- Intubate and ventilate all patients with GCS 8 or less requiring transfer to a neuroscience unit. Antubate-and-yentilate-thepatient-immediate.'y-in-the-fo."owi.n gsircumstances:
+
+-
+- Coma — not obeying commands, not speaking, not eye opening (that is, GCS 8 or Loss of protective laryngeal reflexes. Ventilatory insufficiency as judged by blood gases: hypoxaemia (Pa02 < 13 kPa on oxygen) or hypercarbia (PaC02
+- 6 kPa). Spontaneous hyperventilation causing PaC02 < 4 kPa. Irregular respirations —Use intubation and ventilation before the start of the journey in the following circumstances: Significantly deteriorating conscious level (1 or more points on the motor score), even if not coma.
+- Unstable fractures of the facial skeleton.
+- Copious bleeding into mouth (for example, from skull base fracture).
+- Seizure
+- Ventilate an intubated patient with muscle relaxation and appropriate short-acting sedation and analgesia. Aim for a Pa02 greater than 13 kPa, PaC02 4.5 to 5.0 kPa unless there is clinical or radiological evidence of raised intracranial pressure, in which case more aggressive hyperventilation is justified.
+- Maintain the mean arterial pressure at 80 mm Hg or more by infusion of fluid and vasopressors as indicated.
+- Admission: use the criteria below for admitting patients to hospital following a head injury:
+- Patients with new, clinically significant abnormalities on imaging.
+- Patients whose GCS has not returned to 15 after imaging, regardless of the imaging results.
+- When a patient has indications for CT scanning but this cannot be done within the appropriate period, either because CT is not available or because the patient is not
+
+sufficiently cooperative to allow scanning.
+- Continuing worrying signs (for example, persistent vomiting, severe headaches) of concern to the clinician.
+- Other sources of concern to the clinician (for example, drug or alcohol intoxication, other injuries, shock, suspected non-accidental injury, meningism, cerebrospinal fluid leak)
+- Observation of admitted patients
+- For patients admitted for head injury observation the minimum acceptable documented neurological observations are: GCS; pupil size and reactivity; limb movements; respiratory rate; heart rate; blood pressure; temperature; blood oxygen saturation.
+- Perform and record observations on a half-hourly basis until GCS equal to 15 has been achieved. The minimum frequency of observations for patients with GCS equal to 15 should be as follows, starting after the initial assessrnent in the emergency department:
+- Half-hourly for 2 hours.
+- Then I-hourly for 4 hours.
+- Then 2-hourly thereafter.
+- Discharge and follow-up
+- After normal imaging of the cervical spine the clinician may conclude that the risk of injury to the cervical spine is low enough to warrant transfer to the community, as long as the patient has returned to GCS equal to 15 and their clinical examination is normal, and no other factors that would warrant a hospital admission are present (for example, drug or alcohol intoxication, other injuries, shock, suspected non-accidental injury, meningism, cerebrospinal fluid leak) and there are appropriate support structures for safe transfer to the community and for subsequent care (for example, competent supervision at home.
+
+- Discharge advise
+- Printed advice for patients, families and carers should be age-appropriate and include:
+- Details of the nature and severity of the injury.
+- A specification that a responsible adult should stay with the patient for the first 24 hours after their injury.
+- Details about the recovery process, including the fact that some patients may appear to make a quick recovery but later experience difficulties or complications.
+- Contact details of community and hospital services in case of delayed complications.
+- Information about return to everyday activities, including school, work, sports and driving.
+- Details of support organisations. previous  Next 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Head Reauma - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/head-reauma/figure_01_p4.jpeg)
+*Head Reauma — Clinical Figure 1 (Page 4 Reference)*
+
+![Head Reauma - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/head-reauma/figure_02_p5.jpeg)
+*Head Reauma — Clinical Figure 2 (Page 5 Reference)*
+
+![Head Reauma - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/head-reauma/figure_03_p6.jpeg)
+*Head Reauma — Clinical Figure 3 (Page 6 Reference)*
+
+![Head Reauma - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/head-reauma/figure_04_p7.jpeg)
+*Head Reauma — Clinical Figure 4 (Page 7 Reference)*
+
+![Head Reauma - Clinical Figure 5](/lessons/images/sba/major-trauma-injury/head-reauma/figure_05_p8.jpeg)
+*Head Reauma — Clinical Figure 5 (Page 8 Reference)*
+
+![Head Reauma - Clinical Figure 6](/lessons/images/sba/major-trauma-injury/head-reauma/figure_06_p9.jpeg)
+*Head Reauma — Clinical Figure 6 (Page 9 Reference)*
+
+![Head Reauma - Clinical Figure 7](/lessons/images/sba/major-trauma-injury/head-reauma/figure_07_p11.jpeg)
+*Head Reauma — Clinical Figure 7 (Page 11 Reference)*
+
+![Head Reauma - Clinical Figure 8](/lessons/images/sba/major-trauma-injury/head-reauma/figure_08_p12.jpeg)
+*Head Reauma — Clinical Figure 8 (Page 12 Reference)*
+
+![Head Reauma - Clinical Figure 9](/lessons/images/sba/major-trauma-injury/head-reauma/figure_09_p14.jpeg)
+*Head Reauma — Clinical Figure 9 (Page 14 Reference)*
+
+![Head Reauma - Clinical Figure 10](/lessons/images/sba/major-trauma-injury/head-reauma/figure_10_p15.jpeg)
+*Head Reauma — Clinical Figure 10 (Page 15 Reference)*
+
+![Head Reauma - Clinical Figure 11](/lessons/images/sba/major-trauma-injury/head-reauma/figure_11_p23.jpeg)
+*Head Reauma — Clinical Figure 11 (Page 23 Reference)*$LEC_TRAU_036$,
+      "position"   = 8,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'head-reauma' OR "slug" = 'head-trauma');
 
-  -- 2) Upsert Quiz Lesson (Position 9)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -4632,14 +7545,78 @@ $SBA_TRAU_036$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 6/13: Laryngotracheal Injury & Airway Trauma
-  -- 1) Interleave Lecture (Position 10)
+  -- Pair 6/13: Laryngotracheal Injury & Airway Trauma
+  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
   UPDATE "lessons"
-  SET "position" = 10, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Laryngotracheal Injury & Airway Trauma',
+      "body"       = $LEC_TRAU_037$# Laryngotracheal Injury & Airway Trauma
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+-
+- Biphasic stridor (inspiratory and expiratory) implies an injury at the level of the glottis. Hemoptysis. Ecchymosis of overlying cervical skin. Subcutaneous emphysema. y Loss of normal thyroid prominence. Deviation of larynx. Loss of laryngeal crepitus—A "click" is generally palpated when the larynx is palpated and moved laterally. The loss of this "click" may occur due to laryngeal fixation or an injured larynx In the surgical management of laryngeal and tracheal trauma, the priorities are evaluating the risk of airway obstruction and classifying the severity of the injury. Laryngeal injuries are grouped into five grades according to the Shaefer-Furhman's classification (mentioned in table below). There is no severity classification for tracheal injuries, but the presence of partial or complete disruption, with or without massive destruction of the trachea can be used as a reference. Classification Scheme for Categorizing the Injuries
+
+Groups Group 1 Group 2 Group 3 Group 4 Group 5 Severity of Injury in Ascending Order
+- Minor endolaryngeal hematomas or lacerations without detectable fractures More severe edema, hematoma, minor mucosal disruption without exposed cartilage, or nondisplaced fractures. Massive edema, large mucosal lacerations, exposed cartilage, displaced fractures, or vocal cord immobility. Same as group 3, but more severe, with disruption of anterior larynx, unstable fractures, two or more fractures lines, or severe mucosal injuries.
+- Complete laryngotracheal separation.
+
+## Emergency Management Protocol
+Initial management
+- Setting up a secure airway is the first priority in ED.
+- All patients with hemodynamic instability or high risk of a difficult airway, should undergo orotracheal intubation by expert personnel, through direct vision, ideally using a fiberoptic bronchoscope, placing the balloon distal to the lesion and without applying pressure on the cricoid cartilage.
+- If orotracheal intubation is not possible, the need for an emergency tracheostomy or a cricothyroidotomy, as a last resource, should be evaluated.
+- Once the airway is deemed to be stable, further evaluation of the laryngeal injury is possible. Flexible fiberoptic laryngoscopy is a critical step in evaluating the status of the airway after laryngeal trauma
+
+Airway Management via Endotracheal Intubation Laryngeal Trauma management accordingX grades: Grade Ill Laryngeal Injury
+- In massive laryngeal edema, with local bleeding and without disruption of the airway, a conservative approach and local hemostasis maneuvers should be performed.
+- For grade II laryngeal lesions, a simple suture using 3-0 absorbable monofilament should be performed.
+
+- Finally, for grade III-IV-V laryngeal lesions, primary repair should not be attempted. The airway must be secured by orotracheal intubation, if not possible, a tracheostomy should be made, and management by the head and neck surgery service should be deferred
+
+eraae IV scnaener-runrman Laryngeal lnJury Multiple fractures with massive mucosal injury
+- Tracheal-Trauma
+
+## Emergency Management Protocol
+In tracheal injuries with less than 50% disruption on the circumference, a primary repair should be performed through suture using simple stitches of absorbable monofilament material or 3-0 vicryl.
+- In tracheal lesions with a disruption greater than 50% of its circumference, the airway must be guaranteed. A primary repair can be attempted by suturing with simple stitches using absorbable monofilament material or 3-0 vicryl. In massive destruction, the airway must be secured, local hemostasis performed, a negative pressure system placed, and the management by head and neck surgery should be delayed.
+
+Tracheal trauma with partial disruption of the tracheal ring Damage Control Surgery for tracheal injury using interrupted sutures
+- In addition to managing the laryngeal or tracheal injury, damage control of associated lesions, hemostasis and packaging should be performed if necessary.
+- Transfer the patient to ICU or relevant specialty for further management.
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Laryngotrachila Injury - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/laryngotrachila-injury/figure_01_p3.jpeg)
+*Laryngotrachila Injury — Clinical Figure 1 (Page 3 Reference)*
+
+![Laryngotrachila Injury - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/laryngotrachila-injury/figure_02_p4.jpeg)
+*Laryngotrachila Injury — Clinical Figure 2 (Page 4 Reference)*
+
+![Laryngotrachila Injury - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/laryngotrachila-injury/figure_03_p6.jpeg)
+*Laryngotrachila Injury — Clinical Figure 3 (Page 6 Reference)*
+
+![Laryngotrachila Injury - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/laryngotrachila-injury/figure_04_p7.jpeg)
+*Laryngotrachila Injury — Clinical Figure 4 (Page 7 Reference)*
+
+![Laryngotrachila Injury - Clinical Figure 5](/lessons/images/sba/major-trauma-injury/laryngotrachila-injury/figure_05_p8.jpeg)
+*Laryngotrachila Injury — Clinical Figure 5 (Page 8 Reference)*
+
+![Laryngotrachila Injury - Clinical Figure 6](/lessons/images/sba/major-trauma-injury/laryngotrachila-injury/figure_06_p9.jpeg)
+*Laryngotrachila Injury — Clinical Figure 6 (Page 9 Reference)*$LEC_TRAU_037$,
+      "position"   = 10,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'laryngotrachila-injury' OR "slug" = 'laryngotracheal-injury');
 
-  -- 2) Upsert Quiz Lesson (Position 11)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -4757,14 +7734,134 @@ $SBA_TRAU_037$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 7/13: Maxillofacial & Mandibular Trauma
-  -- 1) Interleave Lecture (Position 12)
+  -- Pair 7/13: Maxillofacial & Mandibular Trauma
+  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
   UPDATE "lessons"
-  SET "position" = 12, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Maxillofacial & Mandibular Trauma',
+      "body"       = $LEC_TRAU_038$# Maxillofacial & Mandibular Trauma
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- lf the patient has got the missing tooth with them, further questions to ask are:
+- What medium was the tooth kept in (ideal medium is saliva or milk)?
+- ls the patient aware if this is an adult or a baby tooth?
+- If-thepatjent-js-not-aware-where-the-mjssin following considerations should be thought_Qf;
+- if there are deep lacerations to the lips or cheeks, it is important to consider that the fragment may have become lodged in these areas. A soft tissue x-ray can help identify if there are any foreign bodies in the lips
+- lf there is a risk of the teeth and/or teeth fragments being aspirated, it is worth considering taking a chest x-ray to exclude this. As enamel is the most calcified structure in the human body, it often appears quite easily on an x-ray.
+
+## Investigations & Diagnostic Workup
+- CXR: Used to exclude aspiration risk when patient is unaware of where a missing tooth or tooth fragment is.
+- Soft tissue view: Useful to exclude fragments of teeth becoming lodged within deep lacerations to the lips, cheeks and face.
+- Orthopantomogram (OPT or OPG): Can be useful if doubt exists over whether tooth is a deciduous (baby) or adult tooth, and useful to assess degree of damage to dental and periodontal structures.
+
+## Emergency Management Protocol
+- Immediate manaqement of avulsed tooth hold the tooth at the crown only and avoid touching the root of tooth. The tooth should be held in a physiologically acceptable medium (saliva or milk) before re-implantation. Primarv teeth manaqement If the primary tooth has been avulsed then it shouldn't be re-implanted. Doing this is likely to result in further damage to the underlying adult tooth. f the primary teeth are very loose and present a potential airway risk, then they should be removed Adult tooth management Adult Luxated intruded and extruded teeth should be replaced into the correct position, and a splint(wire splint or silk suture splints) should be used to stabilize them and arrange follow-up with dentist. Avulsed adult teeth should be picked up from the crown only, and saline used to briefly clean debris from the root of the tooth. saline should also be used to irrigate the socket to remove any blood clots that may be present here The tooth should be gently placed back into the socket, and splinting carried out. Tetanus booster should be consider and antibiotic (tetracycline or penicillin V) should be recommended patients advised to rinse with chlorhexidine 0.1% mouthwash for 1-2 weeks Eygomaticomaxillary Complex (ZMC) fractures
+- ZMC fractures, also known as tripod, tetrapod, quadripod, malar or trimalar fractures.
+- functionally it is more correct to consider it as having four legs, like a four-legged stool ponding-to-the-four-legs.-Q.f-the-stQQl-ar.e.2
+- Lateral orbital rim
+- lnferior orbital rim
+- Zygomaticomaxillary buttress — the thickened area of bone forming the lateral wall of the maxillary sinus
+
+- Zygomatic arch —MOI: blow to the side of the face from a fist, from an object, or secondary to motor vehicle accidents.
+- Initial assessment
+- Follow ABDE approach
+- The airway is of particular concern, either from direct injury or from complications of local trauma, bleeding, swelling or foreign body
+- Allowing a conscious patient to sit up may help maintain airway patency and reduce the risk of aspiration (only if no spinal injuries are present).
+- left lateral position may be required in patient with spinal injury
+- Prompt haemostasis of external bleeding may involve direct pressure, sutures or staples.
+- lnternal haemorrhage control may require packing, balloon tamponade, temporary reduction of fractures, or either embolization or surgical ligation of bleeding vessels.
+- AII maxillofacial traurna patients should be considered high risk for cervical spine injuries. —On physical examination, flattening of the malar eminence will be noted in the absence of often significant swelling
+- The position of the eye and visual acuity r
+- nust be checked.
+- Enophthalmos and proptosis both indicate a significant orbital injury. Features suggesting progressive retrobulbar haemorrhage require an emergency
+
+decompression (lateral canthotomy).
+
+## Investigations & Diagnostic Workup
+- ;
+- Request Occipitomental 150 (OM15) or occipitomental 300 (OM30) views
+- SubmentoverticaI view
+- CT scan is far more accurate at identifying ZMC and zygomatic arch fractures, its use in the ED is restricted to either a second line investigation, usually initiated by the maxillofacial team ZManagement;
+- Most of ZMC fracture can be manage expectantly until local swelling subsides and and reviewed by a maxillofacial surgeon.
+- urgent referral to maxillofacial surgeon or ophthalmologist if patient with reduced visual acuity or diplopia due to orbital involvement.
+- Advise patient avoidance of nose blowing as this may produce surgical emphysema, not to occlude the nose when sneezing and application of ice packs to the area to reduce swelling to infraorbital nerve
+
+- e Eygomatic arch fractures
+- The zygomatic arch is predominantly formed by the zygomatic process of the temporal bone which articulates with the much smaller temporal process of the zygoma forming the arch. —MOI: Assault, motor vehicle or motorcycle accidents —Clinical features: patient may have alteration in bite or difficulty moving the jaw.
+- Sensory disturbance to the cheek and upper gum due to infraorbital nerve injury. —Investigation: Request Submentovertical view or lateral facial view
+- FaciaI CT is needed to define the extent of the injury. —Management: mostly patient are manage conservatively and follow-up
+
+- Urgent referral to maxillofacial surgeon if patient has restriction to mouth opening due to trapping of the temporalis muscle or mandibular condyle.
+- Advise patient avoidance of nose blowing as this may produce surgical emphysema, not to occlude the nose when sneezing and application of ice packs to the area to reduce swelling Submentovertex view
+- Orbital blow out fracture
+
+- —MOI: Direct blow to the globe of the eye (commonly from a squash ball or a shuttlecock), resulting in a fracture of the orbital floor and prolapse of contents into the maxillary sinus. —Clinical features: patient may have diplopia and can't look up and medially due to inferior rectus entrapment.
+- Test infra-orbital nerve function as infra-orbital nerve commonly damage in this injury. —Investigation: X-ray will reveal "tear drop sign", clouding of sinus and surgical emphysema. —Management: Urgently Refer all patient with orbital blow-out fracture (e.g. diplopia or reduced eye movements) to a maxillofacial surgeon and/or an ophthalmologist
+- facial CT scan will be needed to visualise the fracture in detail and plan surgical repair.
+
+- Nasal bone fracture
+- The nasal bones are easily fractured due to them being broad and flat, however, proximal nasal bone fracture may be accompanied by fractures of adjacent bones which may lead to CSF rhinorrhoea (due to involvement of the cribriform plate of the ethmoid bone) and orbital emphysema from fracture of the orbital plate. —Clinical features: Epistaxis, Septal haematoma, nasal discharge eg CSF rhinorrhoea and supraorbital or supratrochlear nerve paraesthesia. —Diagnosis: Nasal fracture is a clinical diagnosis and displaced fractures must be reduced before 14 days. —Management: referral to otolaryngologist if patient has following features:
+- UncontroIIed haemorrhage, septal haematoma/ abscess or CSF rhinorrhoea
+- Refe.r.raLtQ-o.tQ.laryngQ.logist-wj.thinüzlQ-days.-Q.f-jnjury-if-e.t-wjth-fQ.llowj.ng features: obvious new deformity or new septal deviation.
+- 0ther all manage conservatively and arrange otolaryngology follow-up within 7 to IO days.
+- Mid facial fractures/ Le Fort facial fractures
+- MOI: Midfacial fractures can be caused by motor vehicle crashes, sports, assault, and falls due to seizures or intoxication or in the elderly.
+- Le Fort fractures lie between the frontal bone, the skull base, and the mandible. They involve the upper jaw, teeth, nose, and maxillary and ethmoid air sinuses.
+
+—Le Fort I is a transverse fracture separating the body of the maxilla from the pterygoid plate and nasal septum. Only the hard palate and teeth move, similar to a loose upper denture. —Le Fort II is a pyramidal fracture through the central maxilla and hard palate. Movement of the hard palate and nose occurs, but not the eyes. —Le Fort III is craniofacial dysjunction when the entire face is separated from the skull from fractures of the frontozygomatic suture line, across the orbit and through the base of the nose and ethmoids. the entire face shifts with the globes held in place only by the optic nerve. —Le Fort IV fracture includes characteristics of the Le Fort Ill and also involves the frontal bone.
+
+## Key Clinical Features
+- patient often present with significant hemorrhage, early swelling, bilateral orbital ecchymosis, and cerebrospinal fluid leaks in Le Fort II and Ill injuries. —Investigation: CT scan of the face with coronal and axial slices with three- dimensional reconstructions. —Management:
+- Resuscitate and establish a clear airway:
+- patient often present with significant haemorrhage, requiring nasal or oral packing.
+- Refer all patients with middle third or naso-ethmoidal fractures to the maxillofacial surgeons for admission.
+
+- Discuss patients with CSF leaks with the neurosurgeons
+- CIean and dress compound facial lacerations and may need formal debridement and they provide access to fractures for open reduction and internal fixation.
+
+- Mandibular fracture
+- Mandible fractures are the second rnost common facial fracture after nasal fractures. —MOI: Assaults, motor vehicle crashes and falls.
+- The mandible may be fractured at a site distant from the point of impact eg a fall on the chin may cause condylar fractures. —Clinical features:
+- Pain aggravated by jaw rnovement or biting.
+- patient may present with swelling, tenderness and intraoral bruising.
+- Numbness of the lower lip indicates injury to the inferior dental nerve. —Investigation:
+- Request an orthopantomogram (OPG). —Management:
+- Manage undisplaced fractures not involving teeth with analgesia , soft diet, prophylaxis antibiotic (penicillin , co-amoxiclav), tetanus cover and arrange outpatient follow-up with maxillofacial surgeon.
+- Refer displaced or multiple fractures, bilateral condyle fractures or single fractures with malocclusion or deviation of the jaw on opening to on-call maxillofacial surgeon.
+
+- Temporomandibular joint dislocation
+- Anterior dislocations are the rnost common, however, it can be uni- or bilateral. —MOI: Acute dislocations can be seen after trauma or dystonic reactions, but they are usually a result of extrerne mouth opening such as with yawning. —Clinical features:
+- Pain over the temporal fossa
+- Patient cannot close the mouth.
+- The jaw protrudes anteriorly, and difficulty in swallowing leads to drooling of saliva
+
+- —Investigation: obtain x-ray incase of direct traurna only. —Management:
+- Reduce the dislocated joint
+- After reduction, advise the patient to take a soft diet and not to yawn or open the mouth widely for 24hr previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Maxilofascial Trauma - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/maxilofascial-trauma/figure_01_p3.jpeg)
+*Maxilofascial Trauma — Clinical Figure 1 (Page 3 Reference)*
+
+![Maxilofascial Trauma - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/maxilofascial-trauma/figure_02_p6.jpeg)
+*Maxilofascial Trauma — Clinical Figure 2 (Page 6 Reference)*
+
+![Maxilofascial Trauma - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/maxilofascial-trauma/figure_03_p8.jpeg)
+*Maxilofascial Trauma — Clinical Figure 3 (Page 8 Reference)*
+
+![Maxilofascial Trauma - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/maxilofascial-trauma/figure_04_p14.jpeg)
+*Maxilofascial Trauma — Clinical Figure 4 (Page 14 Reference)*$LEC_TRAU_038$,
+      "position"   = 12,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'maxilofascial-trauma' OR "slug" = 'maxillofacial-trauma');
 
-  -- 2) Upsert Quiz Lesson (Position 13)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -4876,14 +7973,56 @@ $SBA_TRAU_038$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 8/13: Renal & Bladder Malignancies
-  -- 1) Interleave Lecture (Position 14)
+  -- Pair 8/13: Renal & Bladder Malignancies
+  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
   UPDATE "lessons"
-  SET "position" = 14, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Renal & Bladder Malignancies',
+      "body"       = $LEC_TRAU_039$# Renal & Bladder Malignancies
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Most common 10 renal malignancy C
+- Most common in males 50—70 years old
+- lncrease incidence with tobacco smoking and obesity.
+- Originate from PCT —Clinical features
+- Classic triad :
+- flank pain
+- palpable mass
+- hematuria
+- Other feature (fever, polycythemia, weight-loss)
+
+## Investigations & Diagnostic Workup
+- CT scan Z.Manageme.nt;-surgical intervention , immunotherapy eg:ipilimumab
+- Bladder carcinoma (transitional cells carcinoma or Urothelial carcinoma of the bladder)
+- Most common tumor of urinary tract system (can occur in renal calyces, renal pelvis, ureters and bladder)
+- Clinical feature
+
+- Painless haematuria (no casts)
+- Associated with Phenacetin, tobacco Smoking, Aromatic amines (found in dyes), Cyclophosphamide. Pneumonic (Pee SAC)
+
+## Investigations & Diagnostic Workup
+Cystoscopy and CT
+
+## Emergency Management Protocol
+chemotherapy and surgical intervention previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Renal Ca vs Bladder Ca - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/renal-ca-vs-bladder-ca/figure_01_p1.jpeg)
+*Renal Ca vs Bladder Ca — Clinical Figure 1 (Page 1 Reference)*
+
+![Renal Ca vs Bladder Ca - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/renal-ca-vs-bladder-ca/figure_02_p3.jpeg)
+*Renal Ca vs Bladder Ca — Clinical Figure 2 (Page 3 Reference)*$LEC_TRAU_039$,
+      "position"   = 14,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'renal-ca-vs-bladder-ca' OR "slug" = 'renal-cancer-bladder-cancer');
 
-  -- 2) Upsert Quiz Lesson (Position 15)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -4989,14 +8128,200 @@ $SBA_TRAU_039$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 9/13: Spinal Cord Injury & Incomplete Syndromes
-  -- 1) Interleave Lecture (Position 16)
+  -- Pair 9/13: Spinal Cord Injury & Incomplete Syndromes
+  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
   UPDATE "lessons"
-  SET "position" = 16, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Spinal Cord Injury & Incomplete Syndromes',
+      "body"       = $LEC_TRAU_040$# Spinal Cord Injury & Incomplete Syndromes
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- has a history of past spinal problems, including previous spinal surgery or conditions that predispose to instability of the spine
+- Assessment for cervical spine injury
+- Assess whether the person is at high, low or no risk for cervical spine injury using the Canadian C-spine rule as follows: zHigh risk if patient has at-least one of the
+- age 65 years or older
+- dangerous mechanism of injury (fall from a height of greater than 1 metre or 5 steps, axial load to the head — for example diving, high-speed rnotor vehicle collision, rollover motor accident, ejection from a motor vehicle or bicycle collision.
+- Paraesthesia in the upper or lower limbs :Low risk if patient has at-least one of the following Iow risk factors
+- involved in a minor rear-end rnotor vehicle collision
+- comfortable in a sitting position
+- ambulatory at any time since the injury
+- no midline cervical spine tenderness
+- delayed onset of neck pain
+- heperson-remains-at-lowrisk-if-they-are;
+- unable to actively rotate their neck 45 degrees to the left and right (the range of the neck can only be assessed safely if the person is at Iow risk and there are no high-risk
+
+- factors).
+- The person has no risk if they;
+- have one of the above low-risk factors and
+- are able to actively rotate their neck 45 degrees to the left and right
+- Assessment for thoracic or lumbosacral spine injury.
+- Assess-the person-with-suspected-thoracic-or-lumbosacralspine-injury-using these factors:
+- age 65 years or older and reported pain in the thoracic or lumbosacral spine
+- dangerous mechanism of injury
+- pre-existing spinal pathology, or known or at risk of osteoporosis — for example steroid use
+- suspected spinal fracture in another region of the spine
+- abnormal neurological symptoms (paraesthesia or weakness or numbness) —On examination:
+- abnormal neurological signs (motor or sensory deficit)
+- new deformity or bony midline tenderness (on palpation)
+- bony midline tenderness (on percussion)
+
+- midline or spinal pain (on coughing)
+- Spinal immobilization
+- Fit an appropriately sized semi-rigid collar.
+- Carry out or maintain full in-line spinal immobilisation if:
+- A high-risk factor for cervical spine injury is identified and indicated by the Canadian C-spine rule
+- A Iow-risk factor for cervical spine injury is identified and indicated by the Canadian C-spine rule and the person is unable to actively rotate their neck 45 degrees left and right.
+- Do not carry out or maintain full in-line spinal immobilisation in people if:
+- they have Iow-risk factors for cervical spine injury as identified and indicated by the Canadian C-spine rule, are pain free and are able to actively rotate their neck 45 degrees left and right Æypes of spinal injuries Spinal column injuries:
+- The cervical spine (CI-C7) is particularly vulnerable to injury because it is the rnost exposed, flexible, and mobile portion of the spinal column. contrast to the cervical spine, the thoracic spine (TI-TIO) is a rigid segment, with its stiffness enhanced by articulation with the rib cage.
+- Cervical spine fracture and dislocations
+- Atlantoaxial dislocation:
+
+> Transverse ligament rupture without an associated fracture can occur in older patients from a direct blow to the occiput . >Radiographic diagnosis relies on measuring the predental space which is the space between the posterior aspect of the anterior arch of CI and the anterior border of the odontoid. A predental space of >3 mm on a lateral radiograph (2 mm for CT images) implies damage to the transverse ligament. -Atlanto-occipital dislocation >AOD is primarily an injury of the ligaments between the occiput and upper cervical spine, often without accompanying bony fractures. >Survivors of AOD often have neurological impairment, including lower cranial nerve deficits, unilateral or bilateral weakness, or even quadriplegia. However, there is a wide range of presentations, with some patients being completely asymptomatic and others being dependent on advanced life support measures.
+
+- —Jefferson burst fracture of atlas (potentially unstable)
+- Vertical compression forces/axial loading the occipital condyles downward and produces a burst fracture by driving the lateral masses of CI apart.
+- This is best seen as outward displacement of the lateral masses on the open-mouth odontoid radiograph or on CT.
+
+- Axis fracture: includes odontoid fracture and posterior element fractures Odontoid fractures
+- Frequently involves other injuries to the cervical spine and multisystem trauma. Conscious patients will usually describe immediate and severe high cervical pain with muscle spasm. The pain may radiate to the occiput.
+- patient may present with minimal sensory or motor loss to quadriplegia.
+- lnvestigation
+- CT to the level of injury to type I-Ill. Type I Type II Type Ill
+
+- fracture dens Posterior element fracture/hangman's fracture fracture cir
+- The hangman's fracture is a fracture of both pedicles of C2, with the anterior displacement of C2 on C3. was associated with the neck hyperextension from judicial hangings, where the noose knot is placed under the subject's chin and snaps the head backward.
+- Because of the large spinal canal at the level of C2,a hangman's fracture does not cause neurologic injury.
+
+- Extreme hyperflexion causes complete disruption of the spinal ligaments at the level of injury. The "teardrop" is the anteroinferior portion of the vertebral body that is separated and displaced from the vertebral body by the anterior spinal ligament.
+- Anterior spinal cord syndrome is associated with this injury.
+- Clay-shoveler fracture/Spinous process avulsion fracture an avulsion fracture of the lower cervical or upper thoracic spinous processes.
+- lt is caused by strong muscle contractions pulling on the bone via the ligamentous complex. In isolation, it is generally not associated with neurologic compromise.
+
+- Simple wedge(compression) fracture
+- Most common thoracic fracture.
+- A vertebral wedge fracture typically involves a fracture of the superior end plate of the vertebral body while sparing the inferior end plate.
+
+- Translational fracture-dislocation at thoraco- lumber region.
+- This is a high-energy disruption of all three columns of spine and is readily apparent both on radiographs and CT.
+- Patients commonly present with severe neurologic findings.
+- These fractures are most often unstable; however, in the absence of destabilizing rib cage fractures, lesions above T 7 can be stable.
+
+Spinal cord injuriesSpinaI tracts and their normal function
+
+Dorsal column Spinothalamic tract Lateral corticospinal tract Located: posteromedial aspect of spinal cord Anterolateral aspect of cord Posterolateral aspect of cord Spinal cord syndrome Card syndrome Complete cord transection Brown- Séquard syndrome Central cord syndrome Mechanism Major trauma Hemitransection or unilateral compression of the cord usually seen in older patients with preexisting cervical spondylosis who sustain a hyperextension injury Tract injury All tracts All tract on one side Corticospinal tract and spinothalamic tract Transmit ipsilateral proprioception, vibration and light touch sensation Transmit contralateral pain, crude touch and temperature sensation Control ipsilateral motor power Symptoms Death if cl-c3 injured. Quadriplegia Paraplegia Complete sensory loss below lesion Urinary and faecal continence Ipsilateral hemiparesis Ipsilateral loss of proprioception, vibration and fine touch sensation Contralateral loss Of crude touch, pain and temperature sensation Bilateral motor loss Varying degree of sensory loss Greater loss in upper limb than lower limb Greater loss Of motor in upper limb than sensory function
+
+- Anterior cord syndrome Posterior cord syndrome Direct anterior cord compresson Flexion of cervical spine Thrombosis of anterior spinal artery hyperextension injury associated with vertebral arch fractures or penetrating trauma to the back Corticospinal, spinothalamic and spinocerebellar tracts Dorsal column Bilateral motor loss Bilateral loss of crude touch, pain and temperature sensation Bilateral loss of proprioception, vibration and light touch sensation
+- Diagnostic imaging Oerform MRI for children (under 16s) if there is a strong suspicion of;
+- cervical spinal cord injury as indicated by the Canadian C-spine rule and by clinical assessment or
+- cervical spinal column injury as indicated by clinical assessment or abnormal neurological signs or symptoms, or both. —Consider plain X-rays in children (under 16s) who do not fulfil the criteria for MRI.
+- imaging for cervical spine injury is indicated by the Canadian C-spine rule or
+- there is a strong suspicion of thoracic or lumbosacral spine injury associated with abnormal neurological signs or symptoms.
+- Note: If-there-is-a-neurologjcaLabnor.r:naljty-w.h.ich-couLd-be-attr.ibuta.ble-tQ-s pinal cord injury,_perform MRI after CT, segardless of whether or not the abnormality is evident
+
+- on CT. —Diagnostic imaging in thoracic or lumbosacral column injury only_(children and adults);
+- Perform an X-ray as the first-line investigation for people with suspected spinal column injury without abnormal neurological signs or symptoms in the thoracic or lumbosacral regions (TI—L3).
+- Perform CT if the X-ray is abnormal or there are clinical signs or symptoms of a spinal column injury. —Whole-body scanning;
+- Use whole-body CT (consisting of a vertex-to-toes scanogram followed by CT from vertex to mid-thigh) in adults (16 or over) with blunt major traunna and suspected multiple injuries. Patients should not be repositioned during whole-body CT.
+- The canadian C-spine rule algorithm
+
+The Canadian C-Spine Rulel For alert Score 15) and trauma patients When spine injury is a Concern. Age Or Dangerous mechanism* or paresthesias in extremities ANY LOW RISK FACTOR THAT ALLOWS ASSESSMENT OF RANGE OF MOTION? Simple rear-end MVC" or Sitting position in ED or Ambulatory at any time or Of Or Absence Of midline cervical Spine tenderness V&ESD/j 45 degrees left and right II. Bt_ej NO RADIOGRAPHY
+- Dangerous mechanism
+- Fan
+- Axial to divi-mg
+- MVC high RADIOGRAPHY " Simple MVC Pushed into oncoming traffic
+- Hit by Sna rgø tn_.Ck
+- Hit by high
+- Not Of reference The Canadian C-Spine Rule — www.sira.nsw.gov.au
+- Early ED management
+- Pain relief For people with spinal injury use intravenous morphine as the first-line analgesic and adjust the dose as needed to achieve adequate pain relief.
+- Early consultation with the specialist neurosurgical or spinal surgeon on call in the traurna unit or nearest major traurna center.
+- Do not use the following medications, aimed at providing neuroprotection and prevention of secondary deterioration, in the acute stage after acute traumatic spinal
+
+- cord injury:
+- methylprednisolone
+- nimodipine
+- naloxone.
+- Neurogenic vs Spinal shock
+- Neurogenic shock Neurogenic shock occurs with CNS or spinal cord injury that
+- Spinal shock probably occurs in less than 20% of spinal cord—injured patients Spinal shock is the temporary loss or Loss of peripheral sympathetic innervation results in extreme vasodilatation secondary to loss of sympathetic arterial tone. If the Tl through T4 cord levels are compromised, loss Of sympathetic innervation to the heart leaves unopposed vagal parasympathetic cardiac innervation eventually leads to bradycardia or an absence of reflex tachycardia. General features: Patients with neurogenic shock are warm, peripherally vasodilated, and hypotensive with a relative bradycardia
+
+## Emergency Management Protocol
+Give Iv fluid along with vasopressors as patient does not respond to IV fluid alone. Neurogenic shock usually presents with hypovolemia so moderate fluid resuscitation should be given Give atropine if patient has significant bradycardia Myotome distribution Reflexes depression of spinal reflex activity that occurs below a complete or incomplete spinal cord Injury. General features: flaccidity, loss of reflexes, and loss Of voluntary movement
+
+Upper Extremity C5- shoulder abduction. C6— Elbow flexion Wrist extension C7 — Elbow extension C8 — Thumb Extension and wrist ulnar deviation Tl — Finger abduction Lower Extremity L2 — Hip flexion L3 — Knee extension L4 — Ankle dorsiflexion L5 — Big toe extension Sl —Ankle plantarflexion
+
+- Biceps Supinator Triceps Knee Ankle  L3 / L4
+- 9 Biceps brachii Brachioradialis Triceps brachii Quadriceps Gastrocnemius
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Spinal Cord - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_01_p5.jpeg)
+*Spinal Cord — Clinical Figure 1 (Page 5 Reference)*
+
+![Spinal Cord - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_02_p5.jpeg)
+*Spinal Cord — Clinical Figure 2 (Page 5 Reference)*
+
+![Spinal Cord - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_03_p6.jpeg)
+*Spinal Cord — Clinical Figure 3 (Page 6 Reference)*
+
+![Spinal Cord - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_04_p7.jpeg)
+*Spinal Cord — Clinical Figure 4 (Page 7 Reference)*
+
+![Spinal Cord - Clinical Figure 5](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_05_p7.jpeg)
+*Spinal Cord — Clinical Figure 5 (Page 7 Reference)*
+
+![Spinal Cord - Clinical Figure 6](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_06_p8.jpeg)
+*Spinal Cord — Clinical Figure 6 (Page 8 Reference)*
+
+![Spinal Cord - Clinical Figure 7](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_07_p9.jpeg)
+*Spinal Cord — Clinical Figure 7 (Page 9 Reference)*
+
+![Spinal Cord - Clinical Figure 8](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_08_p10.jpeg)
+*Spinal Cord — Clinical Figure 8 (Page 10 Reference)*
+
+![Spinal Cord - Clinical Figure 9](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_09_p11.jpeg)
+*Spinal Cord — Clinical Figure 9 (Page 11 Reference)*
+
+![Spinal Cord - Clinical Figure 10](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_10_p12.jpeg)
+*Spinal Cord — Clinical Figure 10 (Page 12 Reference)*
+
+![Spinal Cord - Clinical Figure 11](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_11_p13.jpeg)
+*Spinal Cord — Clinical Figure 11 (Page 13 Reference)*
+
+![Spinal Cord - Clinical Figure 12](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_12_p14.jpeg)
+*Spinal Cord — Clinical Figure 12 (Page 14 Reference)*
+
+![Spinal Cord - Clinical Figure 13](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_13_p14.jpeg)
+*Spinal Cord — Clinical Figure 13 (Page 14 Reference)*
+
+![Spinal Cord - Clinical Figure 14](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_14_p15.jpeg)
+*Spinal Cord — Clinical Figure 14 (Page 15 Reference)*
+
+![Spinal Cord - Clinical Figure 15](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_15_p17.jpeg)
+*Spinal Cord — Clinical Figure 15 (Page 17 Reference)*
+
+![Spinal Cord - Clinical Figure 16](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_16_p18.jpeg)
+*Spinal Cord — Clinical Figure 16 (Page 18 Reference)*
+
+![Spinal Cord - Clinical Figure 17](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_17_p19.jpeg)
+*Spinal Cord — Clinical Figure 17 (Page 19 Reference)*
+
+![Spinal Cord - Clinical Figure 18](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_18_p20.jpeg)
+*Spinal Cord — Clinical Figure 18 (Page 20 Reference)*
+
+![Spinal Cord - Clinical Figure 19](/lessons/images/sba/major-trauma-injury/spinal-cord/figure_19_p20.jpeg)
+*Spinal Cord — Clinical Figure 19 (Page 20 Reference)*$LEC_TRAU_040$,
+      "position"   = 16,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'spinal-cord' OR "slug" = 'spinal-cord-injury');
 
-  -- 2) Upsert Quiz Lesson (Position 17)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -5141,14 +8466,72 @@ $SBA_TRAU_040$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 10/13: Spinal Injury & Autonomic Dysreflexia
-  -- 1) Interleave Lecture (Position 18)
+  -- Pair 10/13: Spinal Injury & Autonomic Dysreflexia
+  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
   UPDATE "lessons"
-  SET "position" = 18, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Spinal Injury & Autonomic Dysreflexia',
+      "body"       = $LEC_TRAU_041$# Spinal Injury & Autonomic Dysreflexia
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Sexual stimulation
+- Labour childbirth
+- Menstruation and any condition that would usually cause abdominal pain
+
+## Key Clinical Features
+Hypertension BP 20-30mmHg ABOVE NORMAL
+- Sweating
+- Pounding headache
+- Flushed
+- Tight chest & stuffy nose
+- Blurred vision
+- Slow heart rate (bradycardia)
+- Pathophysiology: _algorithm
+
+Brain response to rise in Bp Brain sends messages via parasympathetic Vagus nerve to the heart to slow it down (bradycardia) and dilatation of blood vessels above the injury level as an attempt to compensate for the rise in BP. Below the cord iniury Attempted compensation message cannot pass through the spinal cord and blood pressure ntinues to rise Rise in BP detected by baroreceptors These then send signal to the brain is cause blood vessels in the Skin and abdomen to constrict. Blood ressures rise. When impulse reach at T6 level sympathetic neurons activated and release chemical called nor- epinephrine (catecholamine) Stretch bladder send nerve impulse to spinal cord Catheter blockage (example), too much urine in bladder O O O
+
+- The sympathetic response is exaggerated due to a lack of compensatory descending parasympathetic stimulation and intrinsic post-traumatic hypersensitivity. This leads to diffuse vasoconstriction, typically to the lower two- thirds of the body, and a significant rise in blood pressure despite maximum parasympathetic vasodilatory efforts above the level of injury.
+- In an intact autonomic system, this increased blood pressure activates the carotid sinus and aortic arch baroreceptors leading to a parasympathetic response slowing the heart rate via vagal nerve activity and causing diffuse vasodilation to correct the original increased sympathetic tone.
+
+## Emergency Management Protocol
+Emergency Treatment for Autonomic Dysreflexia Patient with Signs / Symptoms of Autonomic Dysreflexia
+- Sit upright and lower legs
+- Loosen any tight clothing / legs straps
+- Monitor BP until symptoms have resolved
+- Common causes to exclude / treat first are:
+- Bladder distension
+- Insert the catheter if patient doesn't have one Check existing catheters for kinks, fold, obstruction and correct placement.
+- If catheter is blocked — irrigate the bladder with 10-15mlof saline.
+- If catheter isn't draining — remove and replace it
+- Constipation (bowel)
+- Faecal impaction — insert lignocaine gel , wait 2 minutes, then insert a lubricated gloved finger into rectum to remove stool. If symptoms persisti-e BP above 150mmHg despite above measure or cause is unknown.
+- Take prescribed medication
+- Nifedipine 10mg capsule "bite and swallow" method
+- OR GTN spray to lower the BP Admit
+- the patient if poor response to treatment
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Spinal Injury Autonmic Dysreflexia - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/spinal-injury-autonmic-dysreflexia/figure_01_p3.jpeg)
+*Spinal Injury Autonmic Dysreflexia — Clinical Figure 1 (Page 3 Reference)*
+
+![Spinal Injury Autonmic Dysreflexia - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/spinal-injury-autonmic-dysreflexia/figure_02_p5.jpeg)
+*Spinal Injury Autonmic Dysreflexia — Clinical Figure 2 (Page 5 Reference)*
+
+![Spinal Injury Autonmic Dysreflexia - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/spinal-injury-autonmic-dysreflexia/figure_03_p6.jpeg)
+*Spinal Injury Autonmic Dysreflexia — Clinical Figure 3 (Page 6 Reference)*$LEC_TRAU_041$,
+      "position"   = 18,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'spinal-injury-autonmic-dysreflexia' OR "slug" = 'spinal-injury-autonomic-dysreflexia');
 
-  -- 2) Upsert Quiz Lesson (Position 19)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -5257,14 +8640,76 @@ $SBA_TRAU_041$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 11/13: Spontaneous Pneumothorax (Non-Traumatic)
-  -- 1) Interleave Lecture (Position 20)
+  -- Pair 11/13: Spontaneous Pneumothorax (Non-Traumatic)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 20)
   UPDATE "lessons"
-  SET "position" = 20, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Spontaneous Pneumothorax (Non-Traumatic)',
+      "body"       = $LEC_TRAU_042$# Spontaneous Pneumothorax (Non-Traumatic)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Pneumothorax results from air entering the potential space (pleural space) between the visceral and parietal pleura.
+- There have been substantial changes in recommendation in this BTS guideline compared with the 2010 guidelines. Size of pneumothorax is no longer an indication for invasive management (although does dictate the safety of conducting an intervention) and the use of chest drains is mainly centred around patients with high-risk characteristics. The expanded evidence base now allows for a more personalised approach and greater patient choice. For details of interventions and how these are best conducted, please refer to the BTS Clinical Statement on Pleural Procedures for further details.
+- Primary Pneumothorax
+- Absence of an underlying cause
+- Secondary pneumothorax
+- Causes are underlying conditions
+- COPD
+- Cystic fibrosis
+- Emphysema
+- Lung cancer Marfan syndrome
+- Note: if patient age>50 and has significant smoking hx will consider in secondary pneumothorax
+
+## Emergency Management Protocol
+Patient with high risk features (mentioned in algorithm in red) and pneumothorax-size-2sm-ocgreater
+
+- Insert chest drain
+- If pt has some features of SSP but avoid procedures (chest drain, needle aspiration, ambulatory device) then patient can choose other treatment i-e conservative management depends on patient circumstance and clinical features/stability.
+- Please note, All treatment options should be discussed with the patient to determine their main priority, with consideration for the least invasive option. pneumothorax size <2 cm
+- Proceed to CT imaging and reassess. If required insert chest drain or other treatment options
+-
+- Pneumothorax size <2cm discharge the patient review in OPD in 2-4 weeks
+- Pneumothorax
+- 2cm:
+- Needle aspiration or ambulatory but if patient avoid procedures then conservative management
+- Aspiration and chest drain hen required — Aspirate with 16-180 cannula Aspirate <2.51 at the level of 2nd ICS midclavicular line.
+- Insert Chest drain Size 8-14Fr and admit the patient
+- BTS Recommendations
+
+- Conservative management can be considered for the treatrnent of minimally symptomatic (ie, no significant pain or breathlessness and no physiological compromise) or asymptomatic PSP in adults regardless of size. (Conditional—by consensus)
+- Ambulatory management should be considered for the initial treatment of PSP in adults with good support, and in centres with available expertise and follow-up facilities. (Conditional)
+- In patients not deemed suitable for conservative or ambulatory management, NA or tube drainage should be considered for the initial treatrnent of PSP in adults. (Conditional)
+- Chemical pleurodesis can be considered for the prevention of recurrent SSP in adults (eg, patients with severe chronic obstructive pulmonary disease who significantly decompensated in the presence of a pneumothorax, even during/after the first episode). (Conditional)
+- Thoracic surgery can be considered for the treatment of pneumothorax in adults at initial presentation if recurrence prevention is deemed important (eg, patients presenting with tension pneumothorax, or those in high-risk occupations). (Conditional)
+- Good-practice-points
+- When establishing local ambulatory treatment pathways, planning and coordination between with the emergency department, general medicine and respiratory medicine is vital.
+- When performing chemical pleurodesis for the treatrnent of pneumothorax in adults, adequate analgesia should be provided before and after treatment.
+- All treatment options should be discussed with the patient to determine their main priority, with consideration for the least invasive option.
+
+APPENDIX . TREES
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Spontenus Pnemothroax (non Tramuatic - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/spontenus-pnemothroax-non-tramuatic/figure_01_p1.jpeg)
+*Spontenus Pnemothroax (non Tramuatic — Clinical Figure 1 (Page 1 Reference)*
+
+![Spontenus Pnemothroax (non Tramuatic - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/spontenus-pnemothroax-non-tramuatic/figure_02_p5.jpeg)
+*Spontenus Pnemothroax (non Tramuatic — Clinical Figure 2 (Page 5 Reference)*
+
+![Spontenus Pnemothroax (non Tramuatic - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/spontenus-pnemothroax-non-tramuatic/figure_03_p6.jpeg)
+*Spontenus Pnemothroax (non Tramuatic — Clinical Figure 3 (Page 6 Reference)*$LEC_TRAU_042$,
+      "position"   = 20,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'spontenus-pnemothroax-non-tramuatic' OR "slug" = 'spontaneous-pneumothorax-non-traumatic');
 
-  -- 2) Upsert Quiz Lesson (Position 21)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 21)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -5370,14 +8815,162 @@ $SBA_TRAU_042$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 12/13: Thoracic Trauma & Flail Chest
-  -- 1) Interleave Lecture (Position 22)
+  -- Pair 12/13: Thoracic Trauma & Flail Chest
+  -- A) Update & Beautify Clinical Theory Lecture (Position 22)
   UPDATE "lessons"
-  SET "position" = 22, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Thoracic Trauma & Flail Chest',
+      "body"       = $LEC_TRAU_043$# Thoracic Trauma & Flail Chest
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Flail chest and pulmonary contusion(lung contusion)
+- Think free-floating segment of ribs or sternum). This is common and small flails may be missed clinically.
+- The multiple rib fractures are a potential source of significant haemorrhage
+- Considerable force is required to create a flail chest in young people bruise Of the lung cause by thoracic trauma. Blood and other fluids accumulate in the lung tissue
+- PuImonary contusion occurs with or without rib fracture or flail chest
+- Respiratory failure usually develop over time rather than occurring instantaneously.
+- Diagnosis
+- Chest pain, tachypnea, chest wall contusions, and hypoxia suggest underlying pulmonary contusion.
+- Areas of lung opacification on chest imaging(cxr) within 6 hours of blunt traurna are usually considered diagnostic of pulmonary contusion
+- CT is more sensitive than plain radiograpgh
+
+## Emergency Management Protocol
+Maintain adequate ventilation
+
+- Pain control via epidural analgesia if Cl then intercostal nerve block
+- Caution fluid resuscitation
+- lnsert a chest drain for associated pneumothorax and haemothorax. :Complicatjon; ARDS :MyocardiaI contusion or blunt cardiac injury_
+- Think bruised heart, for-example cardiac chamber rupture, coronary artery dissection and valvular disruption
+
+## Investigations & Diagnostic Workup
+- ECG, a normal ECG effectively rules out myocardial contusion
+- Unexplained tachycardia, atrial and ventricular ectopic maybe a clue of myocardial contusion
+- Consider bedside echocardiogram and troponin for evidence of myocardial injury ZMa.nage.m.e.nt
+- Monitor the patient for the first 24hrs if PT's ECG normal then don't need monitoring
+- Address Hypoxaemia, acidaemia, fluid status, low haemoglobin. —Traumatic Aortic injury
+- Traumatic aortic injury is rnost common cause of sudden death after vehicle collision usually chest strike with steering wheel or a motor vehicle crash at speeds greater than 30 mph (50 km/h), and fall from great height (IO ft or 3m)
+
+- —The proximal descending aorta is most commonly injured in blunt trauma because of the fixation of the vessels between the left subclavian artery and the ligamentum arteriosum.
+- The diagnosis of ascending aortic injury is rarely made since very few patients survive long enough to diagnosis and repair.
+- The more distal the injury, the better is the anticipated outcome, Although the subclavian artery is occasionally avulsed at its origin because of sudden deceleration, direct trauma to the distal artery with intimal damage and occlusion associated with fractures of the first rib or clavicle is more likely.
+
+## Key Clinical Features
+- OccasionaI clinical clues include generalised hypertension, upper extremity hypertension in combination with weak or absent femoral pulses, and a harsh systolic murmur
+- CXR features
+- W'idened mediastinum—the most reliable sign
+- Fractures of the first and second ribs
+- ObIiteration of the aortic knob
+- Deviation of the trachea to the right
+- Presence of a pleural cap
+- Elevation and rightward shift of the right main stem bronchus
+
+- Depression of the left main stem bronchus
+- ObIiteration of the space between the pulmonary artery and the aorta
+- Deviation of the nasogastric tube to the right
+- gation-of-cho.ice
+
+## Emergency Management Protocol
+- ControI pain with analgesia
+- Control BP and HR at level systolic no more than 110mmHg and HR 80 bpm with esmolol or labetalol
+- Surgical repair or endovascular stenting by a qualified surgeon
+
+- Aortic injury CXR —Diaphragmatic injury
+- Think breach in the diaphragm. It is usually caused by penetrating rather than blunt injury and is easily missed clinically and radiologically (X-RAY or CT).
+- Blunt injury is three times more common on left hemidiaphragm, its due to the protective effect of the liver on the right hemidiaphragm.
+- Any diaphragmatic breach will not heal spontaneously it's due to pressure gradients between chest and abdomen.
+- Abdominal content herniation is a possibility and may be picked up years later.
+- Diagnosingßiaphragmaticinjury
+- Orogastric tube placement with evaluation to see if the tube curves up from the abdomen into the chest
+- upper Cl series looking for displacement of viscera into the chest
+- CT of the chest and abdomen with contrast
+
+## Emergency Management Protocol
+- Surgically repair diaphragmatic injury
+- Operation for other abdominal injury often revealed a diaphragmatic injury
+
+- Diaphragmatic inj ur y CXR
+- Oesophageal injury.
+- Most commonly result from penetrating trauma, usually a ballistic injury.
+- BIunt trauma to esophagus is rare, however it does occurs due to forceful expulsion of gastric content (eg: extreme vomiting or injury) from the upper abdomen into esophagus which produce linear tear in the lower esophagus allowing content leakage into the mediastinum eventually leads to mediastinitis.
+- EsophageaI rupture secondary to vomiting called Boerhaave's syndrome.
+
+## Key Clinical Features
+- Chest or mid-epigastric pain
+- Pleuritic chest pain worsened by neck flexion and swallowing
+- Mediastinal crunch
+- Rapid development of sepsis
+- patient may have left pneumothorax & hemothorax without rib fracture
+- Presence of mediastinal air on CXR suggest esophageal rupture which can be confirmed by contrast study or oesophagoscopy
+
+## Emergency Management Protocol
+- Esophageal rupture has high mortality
+- Prompt surgical repair along with plural space and mediastinal drainage required.
+- lv antibiotics
+
+- Oesophageal ur y X—ray
+- Tracheobronchial Tree injury_
+- It's an injury to trachea or bronchi, however its rare, typically caused by impressive deceleration injuries and most patients die at the scene of the accident.
+- Majority of tracheobronchial injury occurs within I inch of carina.
+- lntubation can cause injury or worsen an injury to trachea or proximal bronchi
+
+## Key Clinical Features
+- Haemoptysis
+- pneumomediastinum
+- Cervical subcutaneous emphysema (surgical emphysema, can be found in x-ray)
+- Tension pneumothorax
+- Cyanosis
+- Diagnosis : bronchoscopy confirm the diagnosis
+
+## Emergency Management Protocol
+- Obtain immediate surgical consultation
+- Discuss intubation strategy with senior anaesthetic colleagues, consider single or double cuffed tubes with use of fiber optics technique
+- lnsert two large bore chest drains to counter the air leak of a tracheo-bronchial injury
+
+- Tracheobronchial Tree injury X—ray
+- Simple pneumothorax
+- Pneumothorax results from air entering the potential space between the visceral and parietal pleura
+- Both penetrating and non penetrating traur-na cause the injury.
+- Lung laceration with air leakage is the r-nost common cause of pneumothorax from blunt traurna
+
+- —Note: Medium-term/long-term, patients with traumatic pneumothorax may wish to fly. No guideline regarding the safe timing of this exists.
+- Diagnosis
+- lnspect the chest for bruising, laceration and contusion
+- Assess the chest wall movement and compare breath sound bilaterally
+- Hyperresonance on percussion
+- An upright expiratory CXR aid for diagnosis
+- Nanagement
+- Chest tube insertion at the level of fifth intercostal space anterior to mid-axillary line
+- Observe and aspiration of small pneumothorax maybe appropriate previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Throacic Trauma and Faial Chest - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_01_p1.jpeg)
+*Throacic Trauma and Faial Chest — Clinical Figure 1 (Page 1 Reference)*
+
+![Throacic Trauma and Faial Chest - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_02_p5.jpeg)
+*Throacic Trauma and Faial Chest — Clinical Figure 2 (Page 5 Reference)*
+
+![Throacic Trauma and Faial Chest - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_03_p7.jpeg)
+*Throacic Trauma and Faial Chest — Clinical Figure 3 (Page 7 Reference)*
+
+![Throacic Trauma and Faial Chest - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_04_p9.jpeg)
+*Throacic Trauma and Faial Chest — Clinical Figure 4 (Page 9 Reference)*
+
+![Throacic Trauma and Faial Chest - Clinical Figure 5](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_05_p11.jpeg)
+*Throacic Trauma and Faial Chest — Clinical Figure 5 (Page 11 Reference)*
+
+![Throacic Trauma and Faial Chest - Clinical Figure 6](/lessons/images/sba/major-trauma-injury/throacic-trauma-and-faial-chest/figure_06_p12.jpeg)
+*Throacic Trauma and Faial Chest — Clinical Figure 6 (Page 12 Reference)*$LEC_TRAU_043$,
+      "position"   = 22,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'throacic-trauma-and-faial-chest' OR "slug" = 'thoracic-trauma-flail-chest');
 
-  -- 2) Upsert Quiz Lesson (Position 23)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 23)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -5492,14 +9085,120 @@ $SBA_TRAU_043$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 13/13: Thoracic Trauma: Immediate Life Threats
-  -- 1) Interleave Lecture (Position 24)
+  -- Pair 13/13: Thoracic Trauma: Immediate Life Threats
+  -- A) Update & Beautify Clinical Theory Lecture (Position 24)
   UPDATE "lessons"
-  SET "position" = 24, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Thoracic Trauma: Immediate Life Threats',
+      "body"       = $LEC_TRAU_044$# Thoracic Trauma: Immediate Life Threats
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Tension Pneumothorax
+- Mechanism of injury; most common mechanical positive-pressure ventilation in patient with visceral pleural injury
+- Others: in subclavian or internal jugular catheter insertion, occlusive four-sides dressing to traumatic chest defect (think hole in the chest).
+- Pathophysiology: ætension pneumothorax develop when one way air leak from the lung or through the chest, as a result of that air will be trapped eventually collapsed the affected lungs. The mediastinum will displaced to opposite side decreasing venous return and cardiac output
+
+## Key Clinical Features
+- Tachypnea, Tachycardia, hypotension, distended neck vein
+- Contralateral tracheal deviation
+- UniIateraI hyper-resonant on percussion and absence of breath sound
+- Cyanosis (late manifestation)
+- Diagnosis
+- Tension pneumothorax diagnosed clinically. patient is not critical then go for CXR or eFAST/US :Management
+- Perform immediate needle decompression, usually in the fifth/fourth intercostal space at the anterior axillary line, followed by chest tube insertion.
+
+- Due to variable thickness of chest the cannula/catheter can kink and cease to function.in this case, Finger thoracostomy is alternative
+- Tube thoracostomy is mandatory after needle or finger decompression of the chest.
+
+- Tension pneumothorax CXR :Qpen Pneumothorax
+- think 'hole in the chest'. It is also known as a communicating pneumothorax or sucking chest wound.
+- Prompt clinical inspection front and back is required; a small sucking chest wound is usually audible
+- Initial management
+- CIose the defect (hole) with any sterile occlusive dressing eg: plastic wrap, sheet of jolnet or Ashermann device
+- Tape dressing 3 sides to provide flutter valve effect.
+- Don't completely occlude/close the wound (risk of tension pneumothorax) until chest tube is in place
+- Further management
+- Place Chest tube remote from open wound(means not from the site of wound)
+- Definitive treatment is surgical repair (wound closure)
+
+- open pneumothorax CXR
+- Massive Haemothorax
+- A massive haemothorax is result from rapid accumulation of more than 1500 ml of blood or one-third of the patient's blood volume
+- Most commonly occurs due to penetrating trauma, however it also occurs due to blunt traur-na.
+
+## Key Clinical Features
+- Shock
+- Absence of breath sound
+- DuIIness on percussion
+- Flat neck veins
+
+- Contralateral shift of mediastinum may cause distended neck vein
+- Use CXR and FAST to confirm diagnosis
+
+## Emergency Management Protocol
+- lntravenous fluid resuscitation
+- Appropriate use of blood and blood products
+- lnsert a chest drain
+- VVhen appropriate blood from chest tube can be collected in a device suitable for autotransfusion. Massive Haemothorax CXR
+- ATLS Indication for Thoracotomy
+
+- Thoracotomy indication in massive hemothorax
+- Prompt drainage of 1500 ml blood, or a third of the patient's circulating volume
+- greater than 200 ml/hr blood loss for 2-4 hrs
+- Continued need for blood transfusion
+- Thoracotomy indication in other injury
+- Cardiac arrest in minutes in blunt trauma
+- Cardiac arrest minutes in penetrating trauma
+- Decompression of cardiac tamponade
+- Persistent hypotension in both blunt and penetrating trauma
+- Cardiac tamponade
+- Cardiac tamponade is the compression of the heart due to accumulation of the fluid in the pericardial sac
+- Penetrating injury to chest, back or upper abdomen? Think tension pneumothorax, think massive haemothorax, think tamponade.
+- FAST has 95% sensitivity according to ATLS and use to exclude or confirm the cardiac tamponade with FAST
+- PEA is suggestive of cardiac tamponade, however other causes can be possible.
+- 150 to 200 ml of blood in the pericardial sac enough to cause cardiac tamponade
+
+- Cardiac tamponade can develop slowly or rapidly, require rapid diagnosis and treatment.
+
+## Key Clinical Features
+- Classic triad
+- Hypotension
+- MuffIed heart sound
+- Distended neck vein, may not be if patient in hemorrhagic shock
+- KussmuaI's sign
+
+## Emergency Management Protocol
+- Fluid resuscitation to increase pre-load
+- Thoracotomy by qualified surgeon
+- Pericardiocentesis can be performed when qualified surgeon isn't available previous  Next
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Throacic Trauma (life Threatining Injury ) - Clinical Figure 1](/lessons/images/sba/major-trauma-injury/throacic-trauma-life-threatining-injury/figure_01_p1.jpeg)
+*Throacic Trauma (life Threatining Injury ) — Clinical Figure 1 (Page 1 Reference)*
+
+![Throacic Trauma (life Threatining Injury ) - Clinical Figure 2](/lessons/images/sba/major-trauma-injury/throacic-trauma-life-threatining-injury/figure_02_p4.jpeg)
+*Throacic Trauma (life Threatining Injury ) — Clinical Figure 2 (Page 4 Reference)*
+
+![Throacic Trauma (life Threatining Injury ) - Clinical Figure 3](/lessons/images/sba/major-trauma-injury/throacic-trauma-life-threatining-injury/figure_03_p6.jpeg)
+*Throacic Trauma (life Threatining Injury ) — Clinical Figure 3 (Page 6 Reference)*
+
+![Throacic Trauma (life Threatining Injury ) - Clinical Figure 4](/lessons/images/sba/major-trauma-injury/throacic-trauma-life-threatining-injury/figure_04_p7.jpeg)
+*Throacic Trauma (life Threatining Injury ) — Clinical Figure 4 (Page 7 Reference)*
+
+![Throacic Trauma (life Threatining Injury ) - Clinical Figure 5](/lessons/images/sba/major-trauma-injury/throacic-trauma-life-threatining-injury/figure_05_p9.jpeg)
+*Throacic Trauma (life Threatining Injury ) — Clinical Figure 5 (Page 9 Reference)*$LEC_TRAU_044$,
+      "position"   = 24,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'throacic-trauma-life-threatining-injury' OR "slug" = 'thoracic-trauma-life-threatening');
 
-  -- 2) Upsert Quiz Lesson (Position 25)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 25)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -5617,14 +9316,68 @@ $SBA_TRAU_044$,
     RAISE EXCEPTION 'Module Pulmonology & Respiratory Emergencies not found in mrcem-sba';
   END IF;
 
-  -- Topic 1/13: Acute Severe & Life-Threatening Asthma in Adults
-  -- 1) Interleave Lecture (Position 0)
+  -- Pair 1/13: Acute Severe & Life-Threatening Asthma in Adults
+  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
   UPDATE "lessons"
-  SET "position" = 0, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Severe & Life-Threatening Asthma in Adults',
+      "body"       = $LEC_PULM_045$# Acute Severe & Life-Threatening Asthma in Adults
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Moderate acute asthma Acute severe asthma Life-threatening asthma Near-fatal asthma Increasing symptoms PEF
+- 50—75% best or predicted No features of acute severe asthma Any_gneM; PEF 33-50% best or predicted Respiratory rate 225/min Heart rate 2110/min Inability to complete sentences in one breath Any one of the following in a patient with severe asthma:
+- Clinical signs Altered conscious level PEF Exhaustion Arrhythmia Hypotension Cyanosis Silent chest Poor respiratory effort Measurements PEF <33% best predicted sp02 Pa02 <8kPa 'normal' PaC02 (4.6—6.0 kPa) Raised PaC02 and/or requiring mechanical ventilation with raised inflation pressures
+- Example
+- A; In exam, if they give you a scenario that a 34-year-old asthma patient who is unable to complete a sentence in one breath, his HR is 115 beats/min and Sp02 91%. How would you classify the severity of asthma in this patient?
+
+- Answer: Life-threatening asthma
+-
+
+> [!NOTE]
+> **Clinical Explanation & RCEM Guidance:**
+> Any patient with features of acute severe asthma along with any one feature of life-threatening asthma (as in above scenario his saturation is below <92% )would be classified as having life-threatening asthma.
+
+## Emergency Management Protocol
+of acute asthma in adults in the emergency department
+
+Moderate asthma PEF best or predicted Give ß2 bronchodilator Via spacer (give one puff at a time; according to response, give another puff every 60 seconds up to maximum of 10 puffs) Acute severe asthma PEF 33-50% best or Give ß2 bronchodilator (salbutamol 5 mg) by oxygen- driven nebuliser Clinically stableANO PEF Consider discharge the patient stable AND PEF Clinically stable AND PEF Consider discharge No life threatening features AND PEF 50-75% Repeat salbutamol 5 mg nebuliser mg orally Patient recovering No signs of severe AND PEF asthma AND PEF Consider 50-75% discharge OBSERVE AND MONITOR
+- sp02
+- heart rate
+- respiratory rate life threatening features AND PEF Treat as life threatening asthma Signs of severe asthma OR PEF Patient stable AND PEF Consider discharge Signs of severe asthma OR PEF Admit Patient accompanied by a nurse or doctor at all times Life-threatening asthma PEF best or Obtain senior/lCU help now if any life-threatening features are present IMMEDIATE MANAGEMENT Oxygen to maintain Sp02 94- 98% ß2 bronchodilator with ipratropium- via nebuliser (preferably oxygen-driven), salbutamol 5 mg and ipratropium 0.5 mg Prednisolone 40—50 mg orally or IV hydrocortisone 100 mg. Measure arterial blood gases Markers of severitv: 'Normal' or raised PaC02 (PaC02>4.6 kPa; 35 mmHg) Severe hypoxia (pa02 <8kpa: 60mmhg) Low pH (or high H+). Give/repeat salbutamol 5 mg with ipratropium 0.5 mg by oxygen-driven nebuliser after 15 minutes Consider continuous salbutamol nebuliser 5—10 mg/hr Consider IV magnesium sulphate 1.2—2 g over 20 minutes Consider LY.A.minepbY!Une under senior supervision if patient still not improving Correct fluid/electrolvtes, especially K* disturbances Chest X-ray
+- Repeat ABG Admit patient accompanied by a nurse or doctor
+
+at an umes
+- Discharge plan
+- In all patients who received nebulised ß2 bronchodilator prior to presentation, consider an extended observation period prior to discharge
+- If PEF <50% on presentation, give prednisolone 40—50 mg/day until recovery (minimum 5 days).
+- In all patients ensure treatrnent supply of inhaled steroid and ß2 bronchodilator and check inhaler technique
+- Arrange GP follow-up within 2 working days post-discharge
+- Fax or email discharge letter to CP
+- Refer to asthma liaison nurse/chest clinic. Note: Admit to hospital if anys Life-threatening features, Features of acute severe asthma present after initial treatment, Previous near-fatal asthma (even if present with moderate asthma). previous  Next 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Severe Asthma in Adults - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/acute-severe-asthma-in-adults/figure_01_p2.jpeg)
+*Acute Severe Asthma in Adults — Clinical Figure 1 (Page 2 Reference)*
+
+![Acute Severe Asthma in Adults - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/acute-severe-asthma-in-adults/figure_02_p4.jpeg)
+*Acute Severe Asthma in Adults — Clinical Figure 2 (Page 4 Reference)*
+
+![Acute Severe Asthma in Adults - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/acute-severe-asthma-in-adults/figure_03_p5.jpeg)
+*Acute Severe Asthma in Adults — Clinical Figure 3 (Page 5 Reference)*
+
+![Acute Severe Asthma in Adults - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/acute-severe-asthma-in-adults/figure_04_p5.jpeg)
+*Acute Severe Asthma in Adults — Clinical Figure 4 (Page 5 Reference)*$LEC_PULM_045$,
+      "position"   = 0,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-severe-asthma-in-adults' OR "slug" = 'asthma');
 
-  -- 2) Upsert Quiz Lesson (Position 1)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -5736,14 +9489,67 @@ $SBA_PULM_045$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 2/13: Acute Paediatric Asthma & Wheeze
-  -- 1) Interleave Lecture (Position 2)
+  -- Pair 2/13: Acute Paediatric Asthma & Wheeze
+  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
   UPDATE "lessons"
-  SET "position" = 2, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Paediatric Asthma & Wheeze',
+      "body"       = $LEC_PULM_046$# Acute Paediatric Asthma & Wheeze
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Moderate acute asthma Acute severe asthma Life-threatening asthma sp02 292% PEF 250% best or predicted No clinical features of severe asthma NB: If a patient has signs and symptoms across categories, always treat according to their most severe features sp02 PEF 33-50% best or predicted Heart rate
+- 140/min in children aged 1-5 years
+- 125/min in children age years Respiratory rate
+- 40/min in children aged 1-5 years
+- 30/min in children
+- 5 years Use of accessory neck muscles S 02 lusa of: PEF <33% best or predicted Silent chest Poor respiratory effort Altered consciousness Cyanosis
+
+## Emergency Management Protocol
+of acute asthma in children in the emergency&partment (BTS guideline)
+
+- Moderate asthma PEF best or redicted Oral nisolone 30-40 mg in children
+- 5 years, 20mg below 5 years Reassess within 1 hour If great response, consider discharge PEF 33-50% best or via face mask/nasal prongs to achieve Sp02 94— B2 bronchodilator nebuliser (preferably oxygen- driven), salbutamol 5 mg
+- or, if nebuliser not available, via spacer* orl kgii 30-40 mg ne 4 mg/ Life-threatenink asthma via face mask/nasal prong$o achieve Sp02 BZ bronchodilator with nebuliser
+- driven), salbutamol 5 mg and ipratropium 0.25 mg bronchodilators Oral prednisolone mg/kg, 20mgin children years or IV hydrocortisone 4 mg/kg if vomiting
+- Discuss PICU team or paediatrician If poor response add 0.25 mg nebulised ipratropium bromide to every nebulised ß2 bronchodilator and repeat every 20 minutes for 2 hours accordin to res Consider adding 150 mg magnesium sulphate to each ipratropium in the first hour in children with a short duration of acute severe asthma symptoms presenting with an sp02
+- NOT RESPONDING TO ABOVE TREATMENT (FIRST LINE) Continue 20—30 minute nebulisers
+- Consider chest X-ray and blood gases
+- Consider admission to HDIJ/PICLJ
+- Consider follow
+-
+- Bolus IV infusion of magnesium sulphate 40 mg/kg (max2 g) over
+- Bolus IV salbutamol 15 micrograms/kg if not already given mol infusion 1—5 micrograms/kg/min (200 uous sa mi
+- 'V aminophylline 5 theevewihk&åfifiébbhyllines) followed by continuous infusion Y?æ/kg/hour. Assess response before initiating each new treatment
+
+Note ß2 bronchodilator via spacer given one puff at a time, inhaled separately using tidal breathing; according to response, give another puff every 60 seconds up to a maximum of IO puffs.
+- Dischargeplan Continue ß2bronchodilator 4 hourly as necessary Continue prednisolone 30—40 mg daily until recovery (minimum 3—5 days) Advise to contact GP if not controlled on above treatment Provide a written asthma action plan Review regular treatment y Check inhaler technique
+- Arrange GP follow up within 48 hours
+- Arrange hospital asthma clinic follow up in 4—6 weeks if 2nd or subsequent attack in past 12 months.
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Pediatric Asthma & Wheeze - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/acute-pediatric-asthma-wheeze/figure_01_p2.jpeg)
+*Acute Pediatric Asthma & Wheeze — Clinical Figure 1 (Page 2 Reference)*
+
+![Acute Pediatric Asthma & Wheeze - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/acute-pediatric-asthma-wheeze/figure_02_p4.jpeg)
+*Acute Pediatric Asthma & Wheeze — Clinical Figure 2 (Page 4 Reference)*
+
+![Acute Pediatric Asthma & Wheeze - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/acute-pediatric-asthma-wheeze/figure_03_p5.jpeg)
+*Acute Pediatric Asthma & Wheeze — Clinical Figure 3 (Page 5 Reference)*
+
+![Acute Pediatric Asthma & Wheeze - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/acute-pediatric-asthma-wheeze/figure_04_p5.jpeg)
+*Acute Pediatric Asthma & Wheeze — Clinical Figure 4 (Page 5 Reference)*$LEC_PULM_046$,
+      "position"   = 2,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-pediatric-asthma-wheeze' OR "slug" = 'asthma-children');
 
-  -- 2) Upsert Quiz Lesson (Position 3)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -5855,14 +9661,111 @@ $SBA_PULM_046$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 3/13: Emergency Approach to Acute Breathlessness
-  -- 1) Interleave Lecture (Position 4)
+  -- Pair 3/13: Emergency Approach to Acute Breathlessness
+  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
   UPDATE "lessons"
-  SET "position" = 4, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Emergency Approach to Acute Breathlessness',
+      "body"       = $LEC_PULM_047$# Emergency Approach to Acute Breathlessness
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Clinical presentation Investigations Asbestosis
+- Asbestosis is diffuse interstitial fibrosis Of the lung as a consequence of exposure to asbestos fibers.
+- Common occupation associated with asbestos exposure include shipyard workers, builders, miners and pipefitters
+
+## Key Clinical Features
+dyspnea on exertion Dry, nonproductive cough
+- Crackles heard at lung bases
+- Chest pain & clubbing CXR- The presence Of interstitial fibrosis in the lower zones and bilateral pleural thickening is highly specific. HRCT is more sensitive.
+- Pulmonary function test(PFT) Restrictive- reduced FVC, TLC, DCLO (lung diffusion capacity testing) and normal FEVI/FVC ratio. Obstructive changes- reduced FEVI, FEVI/FVC ratio, DLCO, and (RV)/TLC ratio. "—Ast Löfgren
+- s Syndrorne Löfgren's syndrome is a subtype Of acute sarcoidosis.
+- Patients with Lofgren's syndrome generally have a good prognosis, are unlikelyto develop chronic disease (sarcoidosis is considered chronic when symptoms last for more than three years).
+- More common in female and young-middle age.
+
+## Key Clinical Features
+Triad-Hilar lymphadenopathy Erythema nodosum
+- Arthralgia (particularly affecting the ankles)
+- Other- fever, breathlessness, dry cough, weight loss
+- CXR
+- (abnormalities include mediastinal lymphadenopathy or pulmonary infiltration). Gallium-67 scan may be used when CXR is normal; shows increased hilar or paratracheal uptake). Lunq function tests (decreased forced vital capacity).
+- Serum calcium level (may be elevated).
+- Serum anqiotens$n- E2LEßLngenzyme (may be increased). Lymph node biopsy. MRI scan for ankle Idiopathic pu Imonary fibrosis
+- It is characterized by the formation Of scar tissue within the lungs and progressive dyspnea. It is the most common interstitial lung disease among the idiopathic interstitial pneumomas
+
+## Key Clinical Features
+age over 45 years persistent breathlessness on exertion persistent cough
+- bilateral inspiratory crackles when listening to the chest
+- clubbing of the fingers normal spirometry or impaired spirometry usually with a restrictive pattern but sometimes with an obstructive pattern.
+- CXR
+- HRCT
+- Antinuclear antibodies (by immunofluorescence) Rheumatoid factor
+- Consider PFT and surgical biopsy
+
+- Advise- quit smoking
+- Antibiotics
+- should be given if there is evidence Of infection, such as change in sputum production, fever and increasing dyspnea.
+- Pulmonary rehabilitation & 02 therapy
+
+## Emergency Management Protocol
+2nd line — pleural decortication or lung transplant. Complication
+- Mesothelioma Lung cancer
+- Example
+- I
+- Reassured the patient that the condition is benign and normally self-limiting.
+- Offer NSAID for arthralgia. Prednisolone may be required for more severe cases.
+- Arrange follow-up with respiratory specialist Supportive therapy with oxygen is recommended for those with significant resting hypoxaemia.
+- Pulmonary rehabilitation seems to be safe for people with pulmonary fibrosis and improvements in functional exercise capacity, dyspnoea and quality of life.
+- Consider PPI therapy NICE recommends Pirfenidone for treating IPF.
+
+Idiopathic pulmonary fibrosis Pancoast tumor Most Pancoast tumours are a type called non small cell cancer and most
+- commonly squamous cell cancer. Squamous cell cancers develop in the flat cells that cover the surface of your airways.
+
+## Key Clinical Features
+Because the cancer is at the top of the lungs, it might put pressure on or damage a
+- group of nerves that runs from the upper chest into your neck and arms. The group of nerves is called the brachial plexus. Pressure on the brachial plexus can cause several very_specific symptoms:
+- severe pain in the shoulder or the shoulder blade (scapula)
+- pain in the arm and weakness of the hand on the affected side
+- Horner's syndrome (miosis, enophthalmos, ptosis).
+-
+- Other features Superior vena cava obstruction, with facial swelling, difficulty breathing and a
+- flushed appearance. Arm oedema secondary to the compression of blood vessels.
+- Less common, unilateral recurrent laryngeal nerve palsy producing unilateral vocal
+- cord paralysis (hoarse voice ± bovine cough).
+
+## Investigations & Diagnostic Workup
+CXR ( not reliable for early stage consider CT or MRI
+
+## Emergency Management Protocol
+Refer to a specialist for chemotherapy, radiotherapy, and surgery. Pancoast _ Tumor
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Emergency Approach to Acute Breathlessness - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/emergency-approach-to-acute-breathlessness/figure_01_p3.jpeg)
+*Emergency Approach to Acute Breathlessness — Clinical Figure 1 (Page 3 Reference)*
+
+![Emergency Approach to Acute Breathlessness - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/emergency-approach-to-acute-breathlessness/figure_02_p4.jpeg)
+*Emergency Approach to Acute Breathlessness — Clinical Figure 2 (Page 4 Reference)*
+
+![Emergency Approach to Acute Breathlessness - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/emergency-approach-to-acute-breathlessness/figure_03_p5.jpeg)
+*Emergency Approach to Acute Breathlessness — Clinical Figure 3 (Page 5 Reference)*
+
+![Emergency Approach to Acute Breathlessness - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/emergency-approach-to-acute-breathlessness/figure_04_p7.jpeg)
+*Emergency Approach to Acute Breathlessness — Clinical Figure 4 (Page 7 Reference)*
+
+![Emergency Approach to Acute Breathlessness - Clinical Figure 5](/lessons/images/sba/pulmonology-respiratory/emergency-approach-to-acute-breathlessness/figure_05_p8.jpeg)
+*Emergency Approach to Acute Breathlessness — Clinical Figure 5 (Page 8 Reference)*$LEC_PULM_047$,
+      "position"   = 4,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'emergency-approach-to-acute-breathlessness' OR "slug" = 'breathlessness');
 
-  -- 2) Upsert Quiz Lesson (Position 5)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -5977,14 +9880,49 @@ $SBA_PULM_047$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 4/13: Acute Bronchiolitis in Infants
-  -- 1) Interleave Lecture (Position 6)
+  -- Pair 4/13: Acute Bronchiolitis in Infants
+  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
   UPDATE "lessons"
-  SET "position" = 6, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Bronchiolitis in Infants',
+      "body"       = $LEC_PULM_048$# Acute Bronchiolitis in Infants
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+Do not routinely perform a chest X-ray and blood tests in babies or children with bronchiolitis. Consider performing a chest X-ray if intensive care is being proposed for a baby or child
+
+## Emergency Management Protocol
+Do not perform chest physiotherapy on babies and children with bronchiolitis who do not have relevant comorbidities (for example spinal muscular atrophy, severe tracheomalacia). Do not use any of the following to treat bronchiolitis in babies or children: antibiotics hypertonic saline adrenaline (nebulised) salbutamol montelukast ipratropium bromide systemic or inhaled corticosteroids a combination of systemic corticosteroids and nebulised adrenaline. Give oxygen supplementation to babies and children with bronchiolitis if their oxygen-saturation-is; persistently less than 90%, for children aged 6 weeks and over persistently less than 92%, for babies under 6 weeks or children of any age with underlying health conditions. Consider continuous positive airway pressure (CPAP) in babies and children with bronchiolitis who have impending respiratory failure.
+
+- Consider upper airway suctioning in babies and children who have respiratory distress or feeding difficulties because of upper airway secretions.
+- Perform upper airway suctioning_in babies and children with bronchiolitis presenting with apnoea even if there are no obvious upper airway secretions.
+- Give fluids by-nasogastric-or-orogastric-tube in babies and children with bronchiolitis if they cannot take enough fluid by mouth. Or give IV fluid if patient do not tolerate nasogastric or orogastric fluids or have impending respiratory failure. or child if he has
+- apnoea (observed or reported)
+- persistent oxygen saturation (when breathing air) of'. less than 90%, for children aged 6 weeks and over or less than 92%, for babies under 6 weeks or children of any age with underlying health conditions
+- inadequate oral fluid intake (50% to 75% of usual volume, taking account of risk factors [see recommendation 1.3.3] and using clinical judgement)
+- persisting severe respiratory distress, for example grunting, marked chest recession, or a respiratory rate of over 70 breaths/minute.
+- If the child does not require hospital admission:
+- Advise the parents/carers that bronchiolitis is usually a self-limiting illness and that symptoms tend to peak between three and five days of onset.
+- Provide parents or carers with key safety information.
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Broncholilis - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/broncholilis/figure_01_p3.jpeg)
+*Broncholilis — Clinical Figure 1 (Page 3 Reference)*
+
+![Broncholilis - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/broncholilis/figure_02_p4.jpeg)
+*Broncholilis — Clinical Figure 2 (Page 4 Reference)*$LEC_PULM_048$,
+      "position"   = 6,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'broncholilis' OR "slug" = 'bronchiolitis');
 
-  -- 2) Upsert Quiz Lesson (Position 7)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -6090,14 +10028,69 @@ $SBA_PULM_048$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 5/13: Community-Acquired Pneumonia in Children
-  -- 1) Interleave Lecture (Position 8)
+  -- Pair 5/13: Community-Acquired Pneumonia in Children
+  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
   UPDATE "lessons"
-  SET "position" = 8, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Community-Acquired Pneumonia in Children',
+      "body"       = $LEC_PULM_049$# Community-Acquired Pneumonia in Children
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Cyanosis.
+- Raised respiratory rate (greater than 60 breaths per minute, age 0—5 months; greater than 50 breaths per minute, age 6—12 months; greater than 40 breaths per minute, age older than 12 months). Signs of increased work of breathing, such as chest indrawing and nasal flaring.
+- Persistently focal crackles. Oxygen saturation of 95% or less in air.
+- Absent breath sounds with a dull percussion note (possibility of pneumonia complicated by an effusion).
+
+## Investigations & Diagnostic Workup
+Chest radiography, acute phase reactant (inflammation markers) and CRP should not be considered a routine investigation in children thought to have community acquired pneumonia (CAP).
+- Microbiological diagnosis should only be attempted in children with severe pneumonia sufficient to require paediatric intensive care admission, or those with complications of CAP.
+- Microbiological methods used should include:
+- Blood culture
+- Nasopharyngeal secretions and/or nasal swabs for viral detection by PCR and/or immunofluorescence
+- Acute and convalescent serology for respiratory viruses, Mycoplasma and Chlamydia
+- If present, pleural fluid should be sent for microscopy, culture, pneumococcal antigen detection and/or PCR Management
+- Children under I month refer to paediatric specialist
+
+- Families of children who are well enough to be cared for at home should be given information on managing fever, preventing dehydration and identifying any deterioration.
+- Patients whose oxygen saturation is <92% while breathing air should be treated with oxygen given by nasal cannulae, high flow delivery device, head box or face mask to maintain oxygen saturation
+- 92%.
+- Plasma sodium, potassium, urea and/or creatinine should be measured at baseline and at least daily when on intravenous fluids.
+- Antibiotic therapy;
+- All children with a clear clinical diagnosis of pneumonia should receive antibiotics as bacterial and viral pneumonia cannot reliably be distinguished from each other.
+- Choice of antibiotics
+
+Children age & severity Children under 1 month First-choice oral antibiotic for children 1 month and over if non-severe symptoms or signs First-choice antibiotic(s) for children 1 month and over If severe symptoms or signs Antibiotics Refer to paediatric specialist
+- Amoxicillin
+-
+- Alternative oral antibiotics for penicillin allergy or if amoxicillin unsuitable — Clarithromycin, erythromycin (in pregnancy),or Doxycycline (>12 years) Co-amoxiclav oral/lV
+- if atypical pathogen suspected
+- then: Co-amoxiclav with oral/lV Clarithromycin or erythromycin (in pregnancy) Alternative oral antibiotics for
+- penicillin allergy — consult with microbiologist
+
+- Complications Empyema
+- Lung abscesses
+- Pleural effusion
+- Septicaemia
+- Respiratory failure
+- Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Community-Acquired Pneumonia in Children - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/community-acquired-pneumonia-in-children/figure_01_p4.jpeg)
+*Community-Acquired Pneumonia in Children — Clinical Figure 1 (Page 4 Reference)*
+
+![Community-Acquired Pneumonia in Children - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/community-acquired-pneumonia-in-children/figure_02_p5.jpeg)
+*Community-Acquired Pneumonia in Children — Clinical Figure 2 (Page 5 Reference)*$LEC_PULM_049$,
+      "position"   = 8,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'community-acquired-pneumonia-in-children' OR "slug" = 'cap-children');
 
-  -- 2) Upsert Quiz Lesson (Position 9)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -6203,14 +10196,78 @@ $SBA_PULM_049$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 6/13: Community-Acquired Pneumonia (CAP) in Adults
-  -- 1) Interleave Lecture (Position 10)
+  -- Pair 6/13: Community-Acquired Pneumonia (CAP) in Adults
+  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
   UPDATE "lessons"
-  SET "position" = 10, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Community-Acquired Pneumonia (CAP) in Adults',
+      "body"       = $LEC_PULM_050$# Community-Acquired Pneumonia (CAP) in Adults
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Septecaemia
+- Drugs (cocaine, alcohol NSAID, BB,CCB)
+- Distinguishing CPO from other pathologies Symptom SOB Cough Chest pain Palpitations Sweating Acuity Nocturnal cpo Pink frothy sputum COPD Dry cough Pneumonia Green sputum Precipitating Cause e.g. ACS Haemoptysis
+
+Sign Heart rate Blood pressure Temperature 02 saturations Chest signs Skin Heart sounds CPO Bilateral crepitati ons Cold, pale and clammy COPD Diffuse wheeze Dry and warm Murmurs, 3rd/4th Normal heart sounds Pneumonia Focal crepitations Flushed and warm Normal Clear Dry Normal
+- Key_points CPO: symptom: Breathlessness( orthopnoea, paroxysmal nocturnal dypnoea
+- Coughing(Pink frothy sputum), edema, lightheadedness(syncope)
+- Sign: tachycardia, tachypnoea(basal crepitation, wheeze, plural effusion), hypertension, raised jvp, heart murmur, ascites and poor peripheral circulation.
+
+## Investigations & Diagnostic Workup
+ECGzit may reveal precipitating cause such as ST segment changes associate with ACS or arrhythmia.
+- CXR:
+- Upper lobe diversion
+
+Alveolar edema
+- Pleural effusion
+- Cardiomegaly
+- Kerely B lines ( basal septal lineo
+- ABGz(Type-I failure if with COPD then type-2)
+- LFTs, Troponin, TSH). ECHO: (valve dysfunction, tamponed, ventricular rupture)
+- ng/litre NT-proBNP:
+- 300 ng/litre.
+
+## Emergency Management Protocol
+(NICE guideline)
+- Initial pharmacological treatment Do not routinely offer opiates to people with acute heart failure.
+-
+- Offer IV diuretic therapy (furosemide) 20-80 mg or increase the dose for people already taking a diuretic.
+- Offer IV nitrates are used in specific circumstances, such as for people with concomitant myocardial ischaemia, severe hypertension or regurgitant aortic or mitral valve disease, monitor blood pressure closely in a setting where at least level 2 care can be provided.
+
+- Do not offer sodium nitroprusside to people with acute heart failure.
+- Consider inotropes (dobutamine) or vasopressors in people with acute heart failure with potentially reversible cardiogenic shock.
+- Initial non-pharmacological treatment
+- Sit patient upright
+- High flow oxygen via a reservoir mask,
+- Do not routinely use non-invasive ventilation (NIV), continuous positive airways pressure [CPAP] or non-invasive positive pressure ventilation [NIPPV]) in people with acute heart failure and cardiogenic pulmonary oedema.
+- Start NIV without delay if a person has cardiogenic pulmonary oedema with severe dyspnoea and acidaemia at acute presentation or as an adjunct to medical therapy if the person's condition has failed to respond.
+- Consider invasive ventilation (intubation) in people with acute heart failure that, despite treatment, is leading to or is complicated by respiratory failure or reduced consciousness or physical exhaustion. Note: you can start NIV without delay if the patient has severe dyspnoea and acidaemia. However, in COPD you don't need to start NIV immediately. Initially you need to high flow oxygen with venturi mask. If hypoxaemia persist despite supplemental oxygen via venturi mask or acidaemia/acute respiratory acidosis (pH<7.35 and PaC02>6.5kPa ) then start NIV.
+
+ERECT Cardiogenic pulmonary oedema previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Pulmo 1 - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/pulmo-1/figure_01_p2.jpeg)
+*Pulmo 1 — Clinical Figure 1 (Page 2 Reference)*
+
+![Pulmo 1 - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/pulmo-1/figure_02_p3.jpeg)
+*Pulmo 1 — Clinical Figure 2 (Page 3 Reference)*
+
+![Pulmo 1 - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/pulmo-1/figure_03_p6.jpeg)
+*Pulmo 1 — Clinical Figure 3 (Page 6 Reference)*
+
+![Pulmo 1 - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/pulmo-1/figure_04_p6.jpeg)
+*Pulmo 1 — Clinical Figure 4 (Page 6 Reference)*$LEC_PULM_050$,
+      "position"   = 10,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'pulmo-1' OR "slug" = 'community-acquired-pneumonia');
 
-  -- 2) Upsert Quiz Lesson (Position 11)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -6322,14 +10379,104 @@ $SBA_PULM_050$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 7/13: COPD & Acute Exacerbations
-  -- 1) Interleave Lecture (Position 12)
+  -- Pair 7/13: COPD & Acute Exacerbations
+  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
   UPDATE "lessons"
-  SET "position" = 12, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'COPD & Acute Exacerbations',
+      "body"       = $LEC_PULM_051$# COPD & Acute Exacerbations
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+## Investigations & Diagnostic Workup
+ABCs — Perform in patients with a moderate to severe acute exacerbation of COPD.
+- Use to detect chronic hypercapnia and assess for acute respiratory acidosis.
+- Ensure you compare results with prior baseline ABC(when available).
+- Document the fraction of inspired oxygen (Fi02) or 02flow rate of any supplemental oxygen given (controlled oxygen given via a Venturi mask).
+- Pa02<8.O kPa (approximately 60 mmHg) indicates respiratory failure.
+- pH <7.35 and PaC02>6.5 kPa define acute respiratory acidosis.
+- Repeat the ABC after 30 to 60 minutes of treatment with controlled oxygen (given via a Venturi mask) and bronchodilatorsto check for a rise in PaC020r a fall in PH.
+- British Thoracic Society (BTS) recommends performing a blood gas analysis within 2 hours of starting acute NIV.
+- in practice, specialists recommend ideally waiting only 30-60 minutesto check for changes in PaC02 and PH.
+- ECG FBC
+- Cardiac troponin Spirometry
+- pulse oximetry
+- CXR — it will show hyperinflation
+- sputum microscopy, culture, and Cram stain
+
+- Gradation of the severity of airflow obstruction
+
+GOLD and NICE quideline severity of airflow obstruction (post- broncho-dilator) Staqe 1 — Mild Staqe 2 — Moderate Staqe 3 — Severe Staqe 4 — Very severe (or FEVI below 50% with respiratory failure) Post-broncho-dilator FEVI/FVC ratio < 0.7 < 0.7 < 0.7 < 0.7 FEVI % predicted 50-79% 30—490/0 <
+
+## Emergency Management Protocol
+(100 micrograms/dose inhaler) 2-10 puffs inhaled every 10-20 minutes or when required (each puff should be inhaled separately via a large volume spacer); 5 mg inhaled via nebuliser every 20-30 minutes or when required.
+- For a moderate to severe exacerbation, use a nebuliser driven on air (not oxygen).
+- For a mild exacerbation,_use a metered-dose inhaler (MDI) plus spacer.
+- Add a short-acting muscarinic 500 micrograms inhaled via nebuliser)_administered via a nebuliser if the initial dose of the short- acting beta-2 agonist does not provide sufficient and prompt benefit. Or if the patient experiences adverse effects due to salbutamol (e.g., tremor, palpitations, headache, nausea, dizziness).
+- Systemic corticosteroid
+- Oral prednisolone: 30 mg orally once daily OR hydrocortisone sodium succinate: 100 mg intravenously every 6 hours; convert to oral prednisolone as soon as possible to complete course.
+- NICE and Global Initiative for Chronic Obstructive Lung Disease (GOLD) guidelines recommend a 5-day treatment course.
+- Oxygen therapy.
+- Administer the oxygen in a controlled fashion via a Venturi maskto deliver 24% to 28% oxygen.
+
+- Titrate controlled oxygento a target saturation of 88% to 92% as COPD patients are considered at risk for hypercapnic (type 2) respiratory failure.
+- Check arterial blood gas and pulse oximetry on presentation and then after 30 to 60 minutes to ensure satisfactory oxygenation and monitor for carbon dioxide retention and acidosis.
+- Avoid excessive oxygen use in patients with COPD due to the risk of hypercapnic (type 2) respiratory failure.
+- Ventilation
+- Provide non-invasive mechanical ventilation to patients with any of the following:
+- Respiratory acidosis/acute hypercapnic respiratory failure(pH <7.35 and Pac02
+- 6.5 kPa).
+- Severe dyspnoea(as shown by use of respiratory accessory muscles, paradoxical motion of the abdomen, or retraction of intercostal spaces).
+- Persistent hypoxaemia despite supplemental oxygen.
+- Note: NIV usage evidence is less clear for patients with arterial pH g .25.
+- The British Thoracic Society sets out specific timeframes as measurable markers of good practice for the use of acute NIV in the UK.
+- For patients who meet the criteria for acute NIV, start it within:
+- 60 minutes of the blood gas results associated with the clinical decision to go ahead with NIV
+- 120 minutes of hospital arrival for patients who present acutely.
+- Review the patient's clinical progress within 4 hours of starting NIV.
+
+- BTS recommends performing a blood gas analysis within 2 hours of starting NIV, in practice, specialists recommend ideally waiting only 30-60 minutes to check for changes in PaC02and PH.
+- Plan with senior colleagues what to do if the patient deteriorates.
+- Ad—it-the- i n iv r ni h y-have;
+- Severe dyspnoea with a poor response to initial emergency therapy
+- Changes in mental status
+- Persistent or worsening hypoxaemia (Pa02<40 mmHg or 5.3 kPa) and/or severe or worsening respiratory acidosis (pH <7.25) despite supplemental oxygen and non- invasive ventilation
+- Need for invasive mechanical ventilation
+- Haemodynamic instability (need for vasopressors)
+- Only consider invasive ventilation after careful consideration and discussion with the senior medical team.
+- Antibiotic therapy_
+- Give antibiotics to any patient who needs ventilation (invasive or non-invasive) or patients experiencing exacerbations with:
+- Increase in sputum purulence, plus
+- Increase in sputum volume, and/or
+- Increased dyspnoea.
+- NICE recommends — Oral amoxicillin, doxycycline, or clarithromycin as first-line
+- first-line intravenous options include amoxicillin, amoxicillin/clavulanate, clarithromycin, trimethoprim/sulfamethoxazole, or piperacillin/tazobactam.
+
+- After patient stabilisation
+- monitor recovery and plan discharge
+- Change drug delivery from a nebuliser to an MDI once the patient has stabilised.
+- If the patient smokes, reinforce the advice to the patient that they must stop smoking.
+- Refer for a pulmonary rehabilitation programme, as required, to improve exercise tolerance, physical ability, and quality of life. previous  Next
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Exacerbation of COPD - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/acute-exacerbation-of-copd/figure_01_p4.jpeg)
+*Acute Exacerbation of COPD — Clinical Figure 1 (Page 4 Reference)*
+
+![Acute Exacerbation of COPD - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/acute-exacerbation-of-copd/figure_02_p8.jpeg)
+*Acute Exacerbation of COPD — Clinical Figure 2 (Page 8 Reference)*$LEC_PULM_051$,
+      "position"   = 12,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-exacerbation-of-copd' OR "slug" = 'copd');
 
-  -- 2) Upsert Quiz Lesson (Position 13)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -6435,14 +10582,54 @@ $SBA_PULM_051$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 8/13: Croup (Laryngotracheobronchitis)
-  -- 1) Interleave Lecture (Position 14)
+  -- Pair 8/13: Croup (Laryngotracheobronchitis)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
   UPDATE "lessons"
-  SET "position" = 14, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Croup (Laryngotracheobronchitis)',
+      "body"       = $LEC_PULM_052$# Croup (Laryngotracheobronchitis)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Moderate croup: 3-5
+- Severe croup: 6-11
+- Impending respiratory failure: 12-17.
+- Westly croup score Score 1 2 3 4 5 Stridor None On agitation On rest Intercostal recession None Mild Moderate Severe Air entry Normal Mild decrease Marked decrease None On agitation At rest Consciousness Normal Decreased
+
+## Emergency Management Protocol
+Mild-croup
+
+- Corticosteroid dexamethasone: 0.15 to 0.6 mg/kg orally as a single dose, and supportive care.
+- Moderate croup
+- Corticosteroid dexamethasone: 0.15 to 0.6 mg/kg orally/lM as a single dose. OR
+- budesonide inhaled: 2 mg nebulised as a single dose plus
+- Nebulised with adrenaline
+- adrenaline inhaled: (1:1000 solution of L-adrenaline) 5 rnL undiluted nebulised as a single dose.
+- Severe croup
+- 100% Oxygen supplement via a non-re-breather mask incase of respiratory distress
+- Corticosteroid — dexamethasone: 0.15 to 0.6 mg/kg orally/lM/lV as a single dose QR
+- budesonide inhaled: 2 mg nebulised as a single dose
+- Nebulised with adrenaline — adrenaline inhaled: (1:1000 solution of L-adrenaline) 5 mL undiluted nebulised as a single dose.
+- 100% Oxygen supplement via a non-re-breather mask incase of respiratory distress.
+- Croup with impending respiratory failure
+- Consider intubation. previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Croup (Laryngotracheobronchitis) - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/croup-laryngotracheobronchitis/figure_01_p2.jpeg)
+*Croup (Laryngotracheobronchitis) — Clinical Figure 1 (Page 2 Reference)*
+
+![Croup (Laryngotracheobronchitis) - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/croup-laryngotracheobronchitis/figure_02_p3.jpeg)
+*Croup (Laryngotracheobronchitis) — Clinical Figure 2 (Page 3 Reference)*$LEC_PULM_052$,
+      "position"   = 14,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'croup-laryngotracheobronchitis' OR "slug" = 'croup');
 
-  -- 2) Upsert Quiz Lesson (Position 15)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -6548,14 +10735,70 @@ $SBA_PULM_052$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 9/13: Airway Foreign Body Aspiration
-  -- 1) Interleave Lecture (Position 16)
+  -- Pair 9/13: Airway Foreign Body Aspiration
+  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
   UPDATE "lessons"
-  SET "position" = 16, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Airway Foreign Body Aspiration',
+      "body"       = $LEC_PULM_053$# Airway Foreign Body Aspiration
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- intractable cough fever dyspnea
+- bilateral wheezing
+
+## Investigations & Diagnostic Workup
+
+- The normal lung should appear smaller and denser than the affected lung
+- The affected lung will usually appear overinflated and hyperlucent, with concomitant rib flaring and a depressed ipsilateral hemidiaphragm
+- Interrupted bronchus sign The majority of foreign bodies are radiolucent.
+- unilateral emphysema or atelectasis are the most common findings; only uncommonly will a radiopaque foreign body be demonstrated.NOT
+- NOTE —the chest x-ray will be normal in —3596 (range 30-40%) of patients.
+- CT chest — In children, Iow-dose multidetector CT (MDCT) scanning with virtual bronchoscopy (VB) can be used to diagnose foreign body aspiration, and to determine the exact location of the obstruction.
+- stable adults, flexible bronchoscopy should be used initially to confirm suspected cases of foreign body aspiration and to attempt removal of the foreign body.
+
+## Emergency Management Protocol
+Conscious patient
+- ISt line: patient should be encouraged to cough. If cough
+- is ineffective and the foreign body isn't expelled. 2nd line (if above fail)
+- 5 back blows, chest thrust in infant )<1 year) or abdominal thrust in children and adult. 3rd line (if above failed) Bronchoscopy to remove foreign body. Unconscious patient ISt line: Secure airway: If external maneuvers are not effective and the patient becomes unconscious because of asphyxiation, immediate endotracheal intubation should be performed. Plus remove the foreiqn body with bronchoscopy Note: management of acute is same as chokingjn
+- resuscitation
+- Complications Atelectasis
+- Pneumonia
+- Bronchiectasis
+-
+
+- Pneumomediastinum
+- Asphyxia resulting in death
+- X-ray chest (PA view)
+
+Hyperinflation of the left lung appears hyperlucent, with depression of the left hemidiaphragm and contralateral shift of the mediastinum. previous
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Airway Foreign Body Aspiration - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/airway-foreign-body-aspiration/figure_01_p3.jpeg)
+*Airway Foreign Body Aspiration — Clinical Figure 1 (Page 3 Reference)*
+
+![Airway Foreign Body Aspiration - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/airway-foreign-body-aspiration/figure_02_p6.jpeg)
+*Airway Foreign Body Aspiration — Clinical Figure 2 (Page 6 Reference)*
+
+![Airway Foreign Body Aspiration - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/airway-foreign-body-aspiration/figure_03_p7.jpeg)
+*Airway Foreign Body Aspiration — Clinical Figure 3 (Page 7 Reference)*
+
+![Airway Foreign Body Aspiration - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/airway-foreign-body-aspiration/figure_04_p7.jpeg)
+*Airway Foreign Body Aspiration — Clinical Figure 4 (Page 7 Reference)*
+
+![Airway Foreign Body Aspiration - Clinical Figure 5](/lessons/images/sba/pulmonology-respiratory/airway-foreign-body-aspiration/figure_05_p7.jpeg)
+*Airway Foreign Body Aspiration — Clinical Figure 5 (Page 7 Reference)*$LEC_PULM_053$,
+      "position"   = 16,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'airway-foreign-body-aspiration' OR "slug" = 'foreign-body');
 
-  -- 2) Upsert Quiz Lesson (Position 17)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -6667,14 +10910,77 @@ $SBA_PULM_053$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 10/13: Haemoptysis Evaluation & Management
-  -- 1) Interleave Lecture (Position 18)
+  -- Pair 10/13: Haemoptysis Evaluation & Management
+  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
   UPDATE "lessons"
-  SET "position" = 18, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Haemoptysis Evaluation & Management',
+      "body"       = $LEC_PULM_054$# Haemoptysis Evaluation & Management
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Gastrointestinal: vasculitis and bleeding, bowel ischaemia and perforation,
+- appendicitis and pancreatitis.
+- Cholestatic liver dysfunction has been reported.
+- Malaise, fatigue, weight loss, fever, myalgia and arthralgia.
+
+## Investigations & Diagnostic Workup
+FBC — eosinophilia and aneamia
+- ESR
+- CRP Serum creatinine
+- Serum lgE levels, hypergammaglobulinaemia
+- Antineutrophil cytoplasmic antibodies (ANCAs)
+- — pulmonary opacities, transient pulmonary infiltrates, pleural effusions Pulmonary CT scan
+- Consider biopsy
+-
+
+## Emergency Management Protocol
+High dose of corticosteroid and refer to specialist.
+-
+- Consider_cyclophosphamide, either azathioprine or methotrexate in severe cases. Goodpasture syndrome
+- Goodpasture disease, also known as antiglomerular basement membrane antibody (anti-GBM) disease, is an important cause of pulmonary-renal syndrome (Goodpasture syndrome).
+- Pulmonary-renal syndrome consists of glomerulonephritis and pulmonary hemorrhage.
+
+Goodpasture disease is caused by an autoantibody to the alpha-3 chain of type IV
+- collagen. This type of collagen is principally found in the basement membranes of alveoli and glomeruli. It is common in male gender age 20 to 30 years or 60 to 70 years.
+-
+
+## Key Clinical Features
+Respiratory feature — hemoptysis, SOB, cough, fever and crackles on lung
+
+## Clinical Examination & Assessment
+reduced urine output
+-
+- Edema
+
+## Investigations & Diagnostic Workup
+Renal function test (RFT)
+- Renal biopsy
+- Antiglomerular basement membrane (anti-GBM) antibody titer
+- antineutrophil cytoplasmic antibodies (ANCA)
+- Clotting screen
+-
+
+## Emergency Management Protocol
+Oral corticosteroid Consider cyclophosphamide and plasmapheresis in selected patients.
+-
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Hemoptysis Evaluation - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/acute-hemoptysis-evaluation/figure_01_p3.jpeg)
+*Acute Hemoptysis Evaluation — Clinical Figure 1 (Page 3 Reference)*
+
+![Acute Hemoptysis Evaluation - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/acute-hemoptysis-evaluation/figure_02_p4.jpeg)
+*Acute Hemoptysis Evaluation — Clinical Figure 2 (Page 4 Reference)*$LEC_PULM_054$,
+      "position"   = 18,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-hemoptysis-evaluation' OR "slug" = 'hemoptysis');
 
-  -- 2) Upsert Quiz Lesson (Position 19)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -6780,14 +11086,90 @@ $SBA_PULM_054$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 11/13: Aspiration Pneumonitis vs Aspiration Pneumonia
-  -- 1) Interleave Lecture (Position 20)
+  -- Pair 11/13: Aspiration Pneumonitis vs Aspiration Pneumonia
+  -- A) Update & Beautify Clinical Theory Lecture (Position 20)
   UPDATE "lessons"
-  SET "position" = 20, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Aspiration Pneumonitis vs Aspiration Pneumonia',
+      "body"       = $LEC_PULM_055$# Aspiration Pneumonitis vs Aspiration Pneumonia
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Cough
+- Dyspnoea, sputum production,
+- pleural pain,
+- sweating, fever, shivers, aches and pains
+- tachypnoea, tachycardia, dyspnoea
+- Confusion (uncommon, but may be seen in older people)
+-
+- Suspect-legionella-gause-otpneumonia-if-a-patiencpresents-with-aty.pical following symptoms
+-
+- dry cough, no fever,
+- headache,
+- confusion,
+-
+- diarrhoea, hyponatraemia Suspegt_mygoplasma pneumonia
+- upper respiratory involvement (hoarse voice, sore throat)
+- skin changes (rash),
+- encephalitis,
+- uveitis,
+- myocarditis, haemolytic anaemia
+-
+
+## Investigations & Diagnostic Workup
+Blood tests- FBC, CRP
+- A definitive diagnosis of CAP requires evidence of consolidation on chest x-ray. Pulse oximetry
+-
+
+- ABGs
+- Blood & Sputum culture (t Gram stain)AdeaIIy before antibiotics are given, in all patients with moderate- or high-severity CAP (as determined by the CURB-65 score) presenting in hospital.
+- Severity assessment and management (NICE & BTS guideline) RB65 Severity score 1 point for each feature present Confusion Urea mg/dL) Respiratory rate
+- 30/min DBP<60mmHg) Age years Treat according to clinical judgement and Low severity Consider for outpatient treatment. Antibiotic as per table below
+- Choice of antibiotics CU RB65 severity score Moderate severity Consider for short-stay inpatient treatment. Antibiotic as per table below High severity Arrange emergency assessment by a critical care specialist. Antibiotic as per table beloW
+
+Treatment First-choice oral antibiotic if Iow severity If penicillin allergic/alternative or atypical pathogen suspected then: First-choice oral antibiotics if moderate severity Alternative oral antibiotics if moderate severity, for penicillin allergy: First-choice antibiotics if high severity Alternative antibiotic if high severity, for penicillin allergy: Antibiotic, dosage and course length Amoxicillin: 500 mg TDS for 5 days
+- Doxycycline: 200 mg on first day, then
+- 100 mg OD for 4 days. Clarithromycin: 500 mg BD a day for 5 days
+- Erythromycin (in pregnancy): 500 mg four times a day for 5 days.
+- Amoxicillin: 500 mg TDS for 5 days
+- With (if atypical pathogens suspected) Clarithromycin: 500 mg BD a day for 5 days OR Erythromycin (in pregnancy):
+- 500 mg four times a day for 5 days.
+- Doxycycline: 200 mg on first day, then
+- 100 mg OD for 4 days. Clarithromycin: 500 mg BD a day for 5 days Co-amoxiclav:  mg TDS a day orally or 1.2 g TDS intravenouslyfor 5 days
+- With Clarithromycin: 500 mg BD orally or
+- intravenouslya day for 5 days OR Erythromycin (in pregnancy):
+- 500 mg four times orally a day for 5 days.
+- Levofloxacin (consider safety mg BD orally or intravenously for 5 days
+
+-
+- Key_points CURB65 scoring for CAP in hospital setting CRB-65 scoring for CAP in community setting Difference in between only Urea in criteria
+- Complications Septic shock
+- ARDS Necrotizing pneumonia Pleural effusion Lung abscess pneumothorax Right Lung   SUperior Lobes Middle Lobe Inferior Lobes Cardiac notch Left Lung PA view of the chest demonstrating right middle lobe consolidation and ipsilateral hilar lymphadenopathy.
+
+previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![10cap - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/10cap/figure_01_p3.jpeg)
+*10cap — Clinical Figure 1 (Page 3 Reference)*
+
+![10cap - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/10cap/figure_02_p4.jpeg)
+*10cap — Clinical Figure 2 (Page 4 Reference)*
+
+![10cap - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/10cap/figure_03_p5.jpeg)
+*10cap — Clinical Figure 3 (Page 5 Reference)*
+
+![10cap - Clinical Figure 4](/lessons/images/sba/pulmonology-respiratory/10cap/figure_04_p6.jpeg)
+*10cap — Clinical Figure 4 (Page 6 Reference)*$LEC_PULM_055$,
+      "position"   = 20,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = '10cap' OR "slug" = 'pneumonitis');
 
-  -- 2) Upsert Quiz Lesson (Position 21)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 21)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -6896,14 +11278,59 @@ $SBA_PULM_055$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 12/13: Pulmonology Foundations & Respiratory Physiology
-  -- 1) Interleave Lecture (Position 22)
+  -- Pair 12/13: Pulmonology Foundations & Respiratory Physiology
+  -- A) Update & Beautify Clinical Theory Lecture (Position 22)
   UPDATE "lessons"
-  SET "position" = 22, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Pulmonology Foundations & Respiratory Physiology',
+      "body"       = $LEC_PULM_056$# Pulmonology Foundations & Respiratory Physiology
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+## Investigations & Diagnostic Workup
+chest x-ray —A variety of chest x-ray findings have been seen, including lobar consolidation, nodular lesions, pneumothorax, pneumomediastinum, and even a normal chest x-ray. There can be cysts or pneumatoceles present.
+- HRCT if X-ray normal
+- polymerase chain reaction (PCR)
+- serum level
+- ABG
+- induced sputum
+- Consider PFT
+
+## Emergency Management Protocol
+Mild to moderate disease
+- Co-trimoxazole in high dose.
+- If patient can't tolerate then Atovaquone or choose unlicensed drugs (Combination of dapsone with trimethoprim OR clindamycin and primaquine).
+- Severe disease
+- Co-trimoxazole in high dosage.
+- If patient can't tolerate then Pentamidine isetionate given by intravenous infusion
+- Adjunctive-therapy.
+- In moderate to severe infections associated with HIV infection, prednisolone is given by mouth for 5 days (alternatively,hydrocortisone may be given parenterally); the dose is then reduced to complete 21 days of treatment.
+- Prophylaxis
+- Co-trimoxazole by mouth is the drug of choice for prophylaxis against pneumocystis pneumonia.
+
+- If patient can't tolerate Co-trimoxazole then Inhaled pentamidine isethionate. PA view chest x-ray showing severe, bilateral pulmonary interstitial infiltrates with pneumatoceles previous
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Pneumocystis Jirovecii Pneumonia (PJP) - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/pneumocystis-jirovecii-pneumonia-pjp/figure_01_p3.jpeg)
+*Pneumocystis Jirovecii Pneumonia (PJP) — Clinical Figure 1 (Page 3 Reference)*
+
+![Pneumocystis Jirovecii Pneumonia (PJP) - Clinical Figure 2](/lessons/images/sba/pulmonology-respiratory/pneumocystis-jirovecii-pneumonia-pjp/figure_02_p3.jpeg)
+*Pneumocystis Jirovecii Pneumonia (PJP) — Clinical Figure 2 (Page 3 Reference)*
+
+![Pneumocystis Jirovecii Pneumonia (PJP) - Clinical Figure 3](/lessons/images/sba/pulmonology-respiratory/pneumocystis-jirovecii-pneumonia-pjp/figure_03_p4.jpeg)
+*Pneumocystis Jirovecii Pneumonia (PJP) — Clinical Figure 3 (Page 4 Reference)*$LEC_PULM_056$,
+      "position"   = 22,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'pneumocystis-jirovecii-pneumonia-pjp' OR "slug" = 'pulmonology-basics');
 
-  -- 2) Upsert Quiz Lesson (Position 23)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 23)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -7015,14 +11442,82 @@ $SBA_PULM_056$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 13/13: Pertussis (Whooping Cough)
-  -- 1) Interleave Lecture (Position 24)
+  -- Pair 13/13: Pertussis (Whooping Cough)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 24)
   UPDATE "lessons"
-  SET "position" = 24, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Pertussis (Whooping Cough)',
+      "body"       = $LEC_PULM_057$# Pertussis (Whooping Cough)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Typically consist of a short expiratory burst followed by an inspiratory gasp, causing the 'whoop' sound. The 'whoop' is less common in adults, and in children younger than 3 months of age (who may present with apnoea alone).
+- The paroxysmal episodes are more common at night, may be triggered by external stimuli (for example cold or noise).
+- The convalescent phase (lasts up to 3 months)
+- during which there is a gradual improvement in cough frequency and severity.
+- Making a clinical diagnosis
+- Whooping cough should be suspected if a person has an acute cough that has lasted for 14 days or more without another apparent cause, and has one or more of the following features:
+- Paroxysmal cough.
+- Inspiratory whoop.
+- Post-tussive vomiting.
+- Undiagnosed apnoeic attacks in young infants.
+- Clinical suspicion should be raised if the person is not fully immunized, or has been in contact with a person who is confirmed or suspected of having whooping cough.
+
+## Investigations & Diagnostic Workup
+culture of a nasopharyngeal aspirate or swab from the posterior nasopharynx
+- Collect cultures from the nasopharynx within 2 weeks of cough onset.
+- Definitive test for diagnosis, with a specificity of 100%. Sensitivity is 30% to 60% if the specimen is obtained weeks after symptoms start.
+
+- Nucleic acid amplification test (NAAT) of nasopharyngeal aspirate or posterior nasopharyngeal-swab
+- NAAT, including polymerase chain reaction (PCR), can be obtained within 4 weeks of cough onset.
+- NAAT testing has increased sensitivity compared with culture (94%) and is recommended as adjunct to culture.
+- Serology-
+- Order between 2 and 12 weeks after cough onset in patients who have not received a pertussis-containing vaccine in the preceding 6 months.
+- A serum anti-pertussis toxin antibody concentration of
+- IOO IU/mL is suggestive of infection.
+- Oral fluid testing
+- Detection of anti-pertussis immunoglobulin G (IgG) in oral fluid is available in the UK for confirmation of pertussis in children
+- 2 years of age and adolescents.
+- FBC=An elevated WBC count and lymphocytosis are suggestive of pertussis and are common in young children.
+- CXR — normal or peribronchial thickening, infiltrates, atelectasis.
+
+## Emergency Management Protocol
+Arrange admission if the patient is :
+- Is 6 months of age or younger and acutely unwell.
+
+Has significant breathing difficulties (for example apnoea episodes, severe
+- paroxysms, or cyanosis). Has a significant complication (for example seizures or pneumonia).
+- [f admission is not needed,
+- prescribe an antibiotic if the onset of cough is within the previous 21 days.
+- Clarithromycin for infants< 1 month
+- Azithromycin or clarithromycin for children aged 1 month or older, and non-
+- pregnant adults. Erythromycin for pregnant women.
+- Advise
+- Patients with pertussis should be excluded from healthcare, childcare, and school
+- settings until they have completed at least 5 days of antimicrobial treatment, or for 21 days from the onset of their cough if untreated. Offer antibiotic prgpbylaxis (macrolides, jf macrolide contraindicated then Co-trimoxazole)
+- Offer antibiotic prophylaxis to close contacts of the 'index case' with suspected or confirmed pertussis (such as those living in the same household, or with overnight stays in the same room in an institutional setting), or people at increased risk of transmitting infection to infants. when the symptoms in the 'index case' occurred within the previous 21 days, and the close contact is in one of the Unimmunised infants
+- Infants aged 2 months or over who are unimmunised or partially immunised (less
+- than three doses of DTaP/lPV/Hib up to 1 year of age) regardless of maternal vaccine
+
+status.
+- Pregnant women at 32 weeks' gestation or more.
+- Healthcare workers who work with infants and pregnant women.
+- People whose work involves regular close or prolonged contact with infants too young to be fully vaccinated.
+- People who share a household with an infant too young to be fully vaccinated. previous  Next 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Pertussis (Whooping Cough) - Clinical Figure 1](/lessons/images/sba/pulmonology-respiratory/pertussis-whooping-cough/figure_01_p5.jpeg)
+*Pertussis (Whooping Cough) — Clinical Figure 1 (Page 5 Reference)*$LEC_PULM_057$,
+      "position"   = 24,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'pertussis-whooping-cough' OR "slug" = 'whooping-cough');
 
-  -- 2) Upsert Quiz Lesson (Position 25)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 25)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -7134,14 +11629,73 @@ $SBA_PULM_057$,
     RAISE EXCEPTION 'Module Gastroenterology Emergencies not found in mrcem-sba';
   END IF;
 
-  -- Topic 1/21: Acute Appendicitis
-  -- 1) Interleave Lecture (Position 0)
+  -- Pair 1/21: Acute Appendicitis
+  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
   UPDATE "lessons"
-  SET "position" = 0, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Appendicitis',
+      "body"       = $LEC_GAST_058$# Acute Appendicitis
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Children — infants and young children may present with non-specific abdominal pain and anorexia, and may appear withdrawn.
+- Older age —there may be minimal pain or fever; may present with acute confusion or shock.
+- Pregnancy — there may be displacement of the appendix by the gravid uterus. In the later stages of pregnancy, may present with right upper quadrant or right flank pain. Nausea and vomiting may be mistaken for pregnancy-related symptoms.
+
+## Clinical Examination & Assessment
+Tenderness in the right lower quadrant,
+- The site of maximal tenderness is typically over 'McBurney's point', which lies two- thirds of the way along a line drawn from the umbilicus to the anterior superior iliac spine.
+- Children may present with right lower quadrant pain on coughing or hopping
+- A palpable abdominal mass may suggest an appendix mass or abscess.
+- Abdominal distension, guarding (muscular rigidity), and rebound tenderness or percussion tenderness may suggest peritonitis.
+- Consider-testing-focperitonealsigns-specif.ic-for-acute-appendici.tis:
+- Rovsing's sign — palpation of the left lower quadrant increases the pain felt in the right lower quadrant.
+- Psoas sign — passive extension of the right thigh with the person in the left lateral position elicits pain in the right lower quadrant.
+- Obturator sign — passive internal rotation of the flexed right thigh elicits pain in the right lower quadrant.
+- The-anatomical-position-of-theappendix
+- A retrocaecal/retrocolic appendix may present with right loin pain and tenderness, and a positive psoas test.
+
+- A pre-ileal and post-ileal appendix may present with vomiting and diarrhoea (due to irritation of the distal ileum).
+- A subcaecal and pelvic appendix may present with suprapubic pain and urinary frequency; diarrhoea and tenesmus
+
+## Investigations & Diagnostic Workup
+Full blood count — neutrophil-predominant leucocytosis is present in 80-90% of people with appendicitis.
+- C-reactive protein (CRP).
+- Urine dipstick test — to help exclude a urinary tract infection (UT I).
+- Pregnancy test— to exclude ectopic pregnancy and other pregnancy-related conditions. Ultrasonography, abdominal computed tomography (CT) and magnetic resonance imaging (MRI) are most commonly used.
+- Ultrasound should be the preferred imaging modality in children, pregnant, and breastfeeding women.
+- MRI scans are mainly reserved for pregnant women when ultrasound is non- diagnostic
+
+## Emergency Management Protocol
+Nonsurgical
+
+## Emergency Management Protocol
+IV fluid and antibiotic can be a safe and effective approach in selected patients with uncomplicated acute appendicitis
+- Surgical
+
+## Emergency Management Protocol
+Removal of the appendix is the gold standard treatrnent for uncomplicated appendicitis.
+- Complications
+- Perforation
+
+- Appendix mass
+- Appendix abscess
+- Sepsis
+- Bowel obstruction previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Appendicitis - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/acute-appendicitis/figure_01_p4.jpeg)
+*Acute Appendicitis — Clinical Figure 1 (Page 4 Reference)*$LEC_GAST_058$,
+      "position"   = 0,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-appendicitis' OR "slug" = 'acute-appendicitis');
 
-  -- 2) Upsert Quiz Lesson (Position 1)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -7244,14 +11798,95 @@ $SBA_GAST_058$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 2/21: Alcoholic Liver Disease & Decompensation
-  -- 1) Interleave Lecture (Position 2)
+  -- Pair 2/21: Alcoholic Liver Disease & Decompensation
+  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
   UPDATE "lessons"
-  SET "position" = 2, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Alcoholic Liver Disease & Decompensation',
+      "body"       = $LEC_GAST_059$# Alcoholic Liver Disease & Decompensation
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+In advanced liver disease
+- Bloating and weight gain (ascites)
+- Consciousness disturbance (hepatic encephalopathy)
+- Vomiting blood or black stools (bleeding from the gastrointestinal tract)
+- flapping tremor
+- Lower extremity swelling.
+- Dupuytren's contracture
+- Finger clubbing
+- skin telangiectasia
+-
+- Diagnosis Medical history
+- A comprehensive drinking history provided by the patient and family members is
+- critical. Questionnaires commonly used to assess the presence of alcohol dependence are the alcohol use disorders identification test (AUDIT), AUDIT-C, and CAGE. The CAGE questionnaire is easier to use, but the AUDIT and AUDIT-C are more reliable
+
+## Clinical Examination & Assessment
+Patients with advanced alcoholic liver disease can present with manifestations of
+- portal hypertension, including: ascites
+- splenomegaly
+- Venous collateral circulation.
+-
+
+## Investigations & Diagnostic Workup
+LFTs- Serum aspartate aminotransferase (AST) and alanine aminotransferase (ALT) are markers of alcoholic liver injury.
+- AST levels are almost always elevated (usually higher than ALT levels) in patients with alcoholic liver disease. The usual ratio is AST/ALT>2, which occurs in about 70% of cases.
+- Elevated levels of both CGT and ALP suggest that the liver is the source of ALP
+- Albumin and bilirubin are markers of hepatocyte function. Low albumin reflects impaired hepatic synthesis; elevated bilirubin in the absence of biliary obstruction is usually the result of substantial liver disease.
+- FBC — Anemia is common in patients with alcoholic liver disease and has a variety of triggers, including iron deficiency, gastrointestinal bleeding, folate deficiency, hemolysis, and hypersplenism.
+- Prolonged prothrombin time (PT) and increased international normalised ratio (INR) suggest decreased hepatic synthetic function seen in advanced liver diseases such as cirrhosis or liver failure. Hyponatremia often occurs in patients with advanced cirrhosis. Hypokalemia and hypophosphatemia are common causes of myasthenia in alcoholic liver disease.
+- Serum laboratory tests to rule out other major diseases include: Viral hepatitis serology test (hepatitis A, hepatitis B, hepatitis C).
+- diagnostic and helpful in grading ALD in patients with a history of alcohol abuse, but is not required in every patient Management
+- The main goal of treatment is to reduce liver damage caused by alcohol overuse and prevent liver disease progression.
+- Other goals of treatment include reducing alcoholic liver disease-related symptoms and preventing complications.
+
+- Alcohol withdrawal
+- It is important for ALD management
+- Abstinence or simply reducing alcohol intake can improve the expected survival of patients with ALD, and even those with decompensated cirrhosis. Abstinence from alcohol reduces the risk of steatosis, fibrosis, and hepatocellular carcinoma.
+- Alcohol withdrawal syndrome (AWS) may occur when alcohol is withdrawn. Mild or moderate AWS can appear within 6 to 24 hours of a patient's last drink and may progress to more severe conditions
+
+Mild AWS high blood pressure and tachycardia Anorexia, anxiety, mood swings, insomnia, irritability, sweating, headache, and fine tremors. Moderate AWS Mild AWS aggravation, plus, Agitation and Gross Tremor Severe AWS/delirium tremens moderate AWS exacerbation, plus, Confusion/delirium Generalized tonic- clonic seizures (in some patients this may be the initial presentation of AWS) auditory, visual or tactile hallucinations Hyperthermia secondary to psychomotor agitation.
+- Long-acting benzodiazepines (eg, diazepam) have better protection against seizures and delirium.
+- short-acting benzodiazepines (eg, oxazepam, lorazepam) Safer for the elderly and patients with liver dysfunction.
+- lose weight , quit smoking
+
+- Immunization — Influenza and pneumococcal vaccines are recommended for patients with chronic ALD.
+- If hepatitis B surface antibodies and hepatitis A immunoglobulin G (IgG) antibodies are negative, hepatitis A and B immunization should be considered in patients with all stages of ALD.
+- Review medications and note whether any changes to drugs or dosage are required in relation to liver function.
+- Nutritional-supplements— — advise him healthy eating and diet
+- Enteral nutrition is recommended. Enteral tube feeding should be considered if the patient cannot consume adequate calories by mouth. . Medical therapy_
+- Consider corticosteroid (prednisolone)
+- Pentoxifylline — guidelines do not recommend the use of pentoxifylline for the treatment of severe alcoholic hepatitis.
+- Ascites treatment
+- Diagnostic aspiration should be performed in patients with ascites to rule out spontaneous bacterial peritonitis.
+- Advise sodium-restricted diet.
+- A moderately salt-restricted diet (2 g sodium per day) alone may be effective in patients with milder disease.
+- Consider diuretic (furosemide combined with spironolactone) along with sodium- restricted diet if liver function worsens.
+- In massive ascites — a transjugular intrahepatic portosystemic shunt (TIPS) may be required.
+
+- Treatment of concomitant hepatitis C
+- The use of antiviral therapy in ALD patients with hepatitis C infection should be determined on an individual basis. Interferon or other antiviral drugs are generally not recommended for patients with active alcohol abuse,
+- Antiviral therapy may improve efficacy after alcohol withdrawal.
+- Terminal disease
+- Liver transplantation should be considered in patients with end-stage ALD.
+- ALD patients must be screened for alcohol-related comorbidities, and most transplant centers require patients to have a clear history of alcohol abstinence for at least 6 months. previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Alcoholic Ld - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/alcoholic-ld/figure_01_p5.jpeg)
+*Alcoholic Ld — Clinical Figure 1 (Page 5 Reference)*
+
+![Alcoholic Ld - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/alcoholic-ld/figure_02_p7.jpeg)
+*Alcoholic Ld — Clinical Figure 2 (Page 7 Reference)*$LEC_GAST_059$,
+      "position"   = 2,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'alcoholic-ld' OR "slug" = 'alcoholic-liver-disease');
 
-  -- 2) Upsert Quiz Lesson (Position 3)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -7357,14 +11992,73 @@ $SBA_GAST_059$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 3/21: Anal Pain & Rectal Bleeding Differential
-  -- 1) Interleave Lecture (Position 4)
+  -- Pair 3/21: Anal Pain & Rectal Bleeding Differential
+  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
   UPDATE "lessons"
-  SET "position" = 4, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Anal Pain & Rectal Bleeding Differential',
+      "body"       = $LEC_GAST_060$# Anal Pain & Rectal Bleeding Differential
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+## Key Clinical Features
+Haemorrhoids
+- Bright red, painless rectal bleeding
+- Anal itching or irritation
+- A feeling of rectal fullness, discomfort
+- Soiling (due to mucus discharge or impaired continence)
+- Pain is not usually reported in both internal & external haemorrhoids.
+- Perform DRE
+- A rigid anoscope, proctoscope, or Investigations rectoscope can be used Management to make a diagnosis of haemorrhoids
+- Conservative-lifestyle and dietary modification, specifically increased fibre intake and adequate fluids.
+- Non-surgical- Rubber band ligation, Injection sclerotherapy, Infrared coagulation.
+- Surgical- Haemorrhoidectomy, Peri-anal hematoma
+- A perianal hematoma is a pool of blood that collects in the tissue surrounding the anus.
+- bubbling or bulging skin near the anus (lump)
+- mild to severe pain, depending on the size
+- bloody stools (fresh blood)
+- physical exam to diagnose a perianal hematoma.
+- They only appear around the outside of anus, so don't need a colonoscopy.
+- Most perianal hematomas resolve on their own within five to seven days.
+- If not, consider drainage under local anesthesia. Anal fissure Anal pain always
+- occurs with passing a stool Bleeding may occur
+- with defecation. A tearing sensation
+- on passing stool may also be described. In children, anal
+- fissure typically presents with pain and/or crying during defecation and rectal bleeding Examine the person-
+- Acute anal fissures are typically superficial with well- demarcated edges. Stool softener and
+- bulk agents. Analgesia
+-
+- Topical GTN 0.4% or diltiazem 2%.
+- Sphincterotomy — reserved for non- healing fissure.
+
+ocap.eu haemorrhoidectomy, or Haemorrhoidal artery ligation. Key_points
+- Suspect anal fissure — if a patient presents with complaint of anal pain while passing stool and noticed fresh blood on toilet paper.
+- Suspect haemorrhoids — if a young patient presents with a complaint of painless bleeding and noticed fresh blood on toilet paper.
+- Suspect diverticulosis — if an older patient (age
+- 40 years) presents with a complaint of painless bleeding.
+- a patient presents with bleeding per recturn and feels a lump around the anus. previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Anal Pain and Rectal Bleeding - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/anal-pain-and-rectal-bleeding/figure_01_p3.jpeg)
+*Anal Pain and Rectal Bleeding — Clinical Figure 1 (Page 3 Reference)*
+
+![Anal Pain and Rectal Bleeding - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/anal-pain-and-rectal-bleeding/figure_02_p4.jpeg)
+*Anal Pain and Rectal Bleeding — Clinical Figure 2 (Page 4 Reference)*
+
+![Anal Pain and Rectal Bleeding - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/anal-pain-and-rectal-bleeding/figure_03_p4.jpeg)
+*Anal Pain and Rectal Bleeding — Clinical Figure 3 (Page 4 Reference)*$LEC_GAST_060$,
+      "position"   = 4,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'anal-pain-and-rectal-bleeding' OR "slug" = 'anal-pain-rectal-bleeding');
 
-  -- 2) Upsert Quiz Lesson (Position 5)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -7473,14 +12167,108 @@ $SBA_GAST_060$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 4/21: Small & Large Bowel Obstruction
-  -- 1) Interleave Lecture (Position 6)
+  -- Pair 4/21: Small & Large Bowel Obstruction
+  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
   UPDATE "lessons"
-  SET "position" = 6, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Small & Large Bowel Obstruction',
+      "body"       = $LEC_GAST_061$# Small & Large Bowel Obstruction
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Large bowel obstruction mechanical interruption (either complete or partial) to the flow of intestinal contents, with multiple potential causes (e.g., malignant colorectal disease, colonic volvulus, benign stricture)
+- Approximately 60% of large Clinical presentations Investigations Small bowel obstruction At's a medical emergencies requiring early diagnosis and intervention Antra-abdominal adhesion is the most common cause of SBO.
+- Other- hemias, Crohn's disease, intestinal malignancy,appendicitis
+
+## Key Clinical Features
+- Abdominal pain,
+- bloating, vomiting (possibly biliary),
+- rectal flatus and cessation of defecation.
+- abdominal tenderness
+- computed tomography (CT) scan of the abdomen and pelvis
+- Plain x-rav features
+- dilation of the small bowel (>3cm diameter)
+- more prominent valvulae con niventes creating a 'coiled- spring appearance
+- small bowel usually lies more centrally
+- Blood tests
+- FBC,
+- Serurn amylase & lipase Fluid resuscitation,
+- bowel decompression (using Ileus
+- lleus is a slowing of gastrointestinal motility accompanied by distention, in the absence Of a mechanical intestinal obstruction. At is a diagnosis of exclusion bowel obstructions are caused by after bowel obstruction has an underlying colorectal malignancy.
+- Siqmoid volvulus is more usually seen in frail or older patients.
+- Caecal volvulus is more rare and more commonly seen in younger patients.
+
+## Key Clinical Features
+- Antermittent abdominal pain
+- abdominal distention
+- Nausea & vomiting
+- recent weight loss hectal bleeding, palpable rectal mass & tympanic abdomen. tenesmus
+- urgent computed tomography (CT) scan of the abdomen and pelvis to be performed as soon as possible.
+- Plain x-ray
+- dilation of colon>6cm
+- dilation Of cecum
+- 9cm
+- The small bowel usually lies more centrally, with the large bowel framing it (lateral).
+- Sigmoid volvulus: a characteristic 'coffee bean' appearance.
+- Caecal volvulus: often described as having a fetal appearance (comma' shaped), Medical emergencies requiring early diagnosis and intervention. been ruled Out. At usually occurs in response to physiological stress, including surgery (usually gastrointestinal), sepsis, metabolic derangements, and gastrointestinal diseases. Aleus is commonly seen in the postoperative setting.
+- Vomiting
+- Abdominal distension Anability to tolerate oral feeding
+- Absence of flatus.
+- FBC A-J&E
+- abdomen and pelvis CT
+- ABGs
+- Postoperative ileus Ail by mouth and Antravenous fluki
+
+- and analgesia
+- Surgical consultation — as patient need urgent surgical intervention
+
+## Emergency Management Protocol
+- Abdominal x-rays Example- 1 Irnuany- supporuve management Consider bowel decompression via nasogastric tube. Consider urgent flexible sigmoidoscopy in volvulus
+- Often endoscopic decompression using flexible sigmoidoscopy allows the twist in the bowel to be untwisted and the obstruction to be relieved. If decompression fail then refer to surgery. Refer to colorectal surgeon for emergency surgery — if patient has malignant obstruction or has developed peritonitis or perforation. Y-reduction in opioid analgesia ± replacement with non- opioid analgesia (to avoid narcotic Ileus).
+- Consider nasogastric decompression.
+- Nil by mouth and intravenous fluids
+
+## Emergency Management Protocol
+of the underlying condition (acute/systemic illnesses associated with intestinal hypomotility such as diabetes mellitus, Chagas disease, scleroderma, and neurological diseases, Sepsis) reduce opioids, anticholinergics. Consider NG
+
+- ray Abdominal x-ray of small bowel obstruction
+
+- Example
+- 2
+
+- Abdominal x-ray of sigmoid volvulus (large bowel obstruction) Example
+- 3
+
+Abdominal X-ray of a Caecal volvulus (large bowel obstruction). previous  Next 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Small & Large Bowel Obstruction - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_01_p3.jpeg)
+*Small & Large Bowel Obstruction — Clinical Figure 1 (Page 3 Reference)*
+
+![Small & Large Bowel Obstruction - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_02_p4.jpeg)
+*Small & Large Bowel Obstruction — Clinical Figure 2 (Page 4 Reference)*
+
+![Small & Large Bowel Obstruction - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_03_p5.jpeg)
+*Small & Large Bowel Obstruction — Clinical Figure 3 (Page 5 Reference)*
+
+![Small & Large Bowel Obstruction - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_04_p7.jpeg)
+*Small & Large Bowel Obstruction — Clinical Figure 4 (Page 7 Reference)*
+
+![Small & Large Bowel Obstruction - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_05_p8.jpeg)
+*Small & Large Bowel Obstruction — Clinical Figure 5 (Page 8 Reference)*
+
+![Small & Large Bowel Obstruction - Clinical Figure 6](/lessons/images/sba/gastroenterology-emergencies/small-large-bowel-obstruction/figure_06_p9.jpeg)
+*Small & Large Bowel Obstruction — Clinical Figure 6 (Page 9 Reference)*$LEC_GAST_061$,
+      "position"   = 6,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'small-large-bowel-obstruction' OR "slug" = 'bowel-obstruction');
 
-  -- 2) Upsert Quiz Lesson (Position 7)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -7598,14 +12386,140 @@ $SBA_GAST_061$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 5/21: Cirrhosis & Portal Hypertensive Bleeding
-  -- 1) Interleave Lecture (Position 8)
+  -- Pair 5/21: Cirrhosis & Portal Hypertensive Bleeding
+  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
   UPDATE "lessons"
-  SET "position" = 8, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Cirrhosis & Portal Hypertensive Bleeding',
+      "body"       = $LEC_GAST_062$# Cirrhosis & Portal Hypertensive Bleeding
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Glycogen storage disease
+
+## Key Clinical Features
+Palpable left lobe of the liver, hepatomegaly, splenomegaly.
+- The presence of stigmata of chronic liver disease (spider naevi, palmar erythema,
+- white nails, muscle wasting). Jaundice (examine the sclera under natural light).
+-
+- Abnormal bruising. Peripheral oedema.
+- Ascites.
+- Sepsis.
+- Variceal bleeding.
+- Encephalopathy (a sign of this is asterixis — sudden involuntary flexion-extension
+- movements of the wrist and metacarpophalangeal joints when the arms are extended, the wrists dorsiflexed, and the eyes closed for at least 30 seconds).
+
+## Investigations & Diagnostic Workup
+LFTs — elevated aspartate aminotransferase (AST) and alanine transaminase (ALT) ratio high bilirubin Iow albumin, or increased prothrombin time or international normalized ratio (INR).
+- Note-that liver function tests may be normal in cirrhosis, so the whole clinical
+- picture should be taken into account..
+- Offer-transient-elastography(if available) to diagnose cirrhosis for: People with hepatitis C virus infection.
+- Men who drink over 50 units of alcohol per week and women who drink over 35
+- units of alcohol per week and have done so for several months. People diagnosed with alcohol-related liver disease.
+-
+
+## Emergency Management Protocol
+Referral pathway.
+-
+- All people diagnosed with cirrhosis on transient elastography, refer to a specialist in hepatology.
+- All people who develop decompensated liver disease, refer immediately to a hepatologist or to a gastroenterologist with an interest in hepatology.
+- All people who misuse alcohol, consider referral to specialist alcohol services
+- All people with end-stage liver disease requiring symptom control or palliative care, refer to the local palliative care team, especially if the likely prognosis is less than 12 months
+
+## Emergency Management Protocol
+of other patients with cirrhosis
+-
+- Advise Healthy eating and diet
+- Quit alcohol consumption and smoking
+- Using medications safely— seek medical advice before taking any over-the-counter
+- drugs or herbal remedies. Review medications and note whether any changes to drugs or dosage are
+- required in relation to liver function. Ensure the underlying liver disease is being treated (if possible) and they are
+- receiving appropriate specialist follow up and screening for complications of cirrhosis.
+- Complications and its management
+- Ascites Diagnostic aspiration should be performed in patients with ascites to rule out
+- spontaneous bacterial peritonitis.
+- Advise sodium restricted diet.
+
+- A moderately salt-restricted diet (2 g sodium per day) alone may be effective in patients with milder disease.
+- Consider diuretic (furosemide combined with spironolactone) along with sodium restricted diet if liver function worsens.
+- In massive ascites — transjugular intrahepatic portosystemic shunt (TIPS) may be required.
+- t:lepatic encephalopathy
+- Hepatic encephalopathy is a dysfunction of the brain as a result of liver insufficiency and/or portosystemic shunting and is related to the effect of nitrogenous waste products (such as ammonia and glutamine) on the brain.
+- predisposing factors, for example, constipation, dehydration, infection, gastrointestinal bleeding, or drugs (for example opiates, benzodiazepines, diuretics).
+
+## Emergency Management Protocol
+Early diagnosis and aggressive identification and management of precipitating factors.
+- The nitrogen load from the gut should be reduced using lactulose or bowel enemas
+- Antibiotics — rifaximin, neomycin/paromomycin/metronidazole, or vancomycin) are often prescribed.
+- Haemorrhage-from-oesophageal-yarices
+- Offer terlipressin or vasopressin, somatostatin to patients with suspected variceal bleeding at presentation. Stop treatrnent after definitive haemostasis has been achieved, or after 5 days, unless there is another indication for its use.
+- Offer prophylactic antibiotic therapy at presentation to patients with suspected or confirmed variceal bleeding.
+
+Use endoscopic band ligation in patients with upper gastrointestinal bleeding
+- from oesophageal varices. Consider transjugular intrahepatic portosystemic shunts (TIPS) if bleeding from
+- oesophageal varices is not controlled by band ligation. A balloon tamponade device can be used to quell the bleeding until the shunt is
+- placed (Sengstaken-Blakemore for esophageal varices, Linton-Nachlas for gastric varices).
+- Spontaneous-bacterial-peritonitis-(SBP)
+- It is one of the most frequently encountered bacterial infections in patients with cirrhosis, and most commonly seen in patients with end-stage liver disease. The most common causative pathogens are: Escherichia coli (most common)
+- Staphylococcus aureus
+-
+- Streptococcus pneumoniae Enterococcus faecalis
+- Klebsiella pneumoniae
+
+## Key Clinical Features
+.
+- Patients can be symptomatic or asymptomatic
+- abdominal pain
+- fever
+- nausea and vomiting
+- altered mental status
+- gastrointestinal bleeding.
+-
+
+## Investigations & Diagnostic Workup
+Initial labs
+-
+- FBC
+
+Prothrombin time/lNR
+- Blood culture
+- Consider U/S or CT abdomen
+-
+- Ascitic fluid laboratory_ analysis
+- The following features on peritoneal fluid analysis are highly suggestive of SBP: Ascitic fluid total white cell count
+- 500 cells/pL
+- Ascitic fluid absolute/total neutrophil count
+- 250 cells/pL
+- Ascitic fluid lactate level
+- 25 mg/dL
+- Ascitic fluid pH<7.35 Bacteria on gram stain
+
+## Emergency Management Protocol
+
+- IV antibiotics — First-line empiric antibiotic therapy for community-acquired SBP is an intravenous third-generation cephalosporin (e.g., cefotaxime, ceftriaxone).
+- Alternative options include intravenous ciprofloxacin or ampicillin/sulbactam. Consider albumin — Intravenous albumin treatment has been shown to reduce in-
+- hospital mortality of patients with uncomplicated SBP. Consider large-volume paracentesis in selected patients (LVP).
+-
+- Hypovolemic [Hypervolemic Hyponatremia Hyponatremia (Na<130mmol/L) is a common finding in cirrhosis The first step in treatment is to determine whether the patient is hypovolemic or
+- hypervolemic
+
+- Hypovolemic hyponatremia is less typical, and presents as a patient with low serum sodium in the absence of edema and ascites. This is often secondary to overdiuresis and the first step in management is to withhold diuretics and administration of normal saline (500-1000mI). Avoid large volume of fluid in this patient
+- Hypervolemic hyponatremia is the production of oversecretion of antidiuretic hormone leading to an unbalanced retention of water and sodium. The primary treatment of hypervolemic hyponatremia is free water restriction (<IOOOmI/d). There are no data to support saline administration in this setting. The European Association for the Study of the Liver guidelines support the use of albumin in this situation to serve as potential volume expander to decrease RAAS activity based on 82 practice guidelines.
+- Other complications include Hepatorenal syndrome Hepatocellular carcinoma. Portal hypertensive gastropathy. Portal vein thrombosis.  9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Cirrhosis ` - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/cirrhosis/figure_01_p7.jpeg)
+*Cirrhosis ` — Clinical Figure 1 (Page 7 Reference)*$LEC_GAST_062$,
+      "position"   = 8,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'cirrhosis' OR "slug" = 'cirrhosis');
 
-  -- 2) Upsert Quiz Lesson (Position 9)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -7708,14 +12622,75 @@ $SBA_GAST_062$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 6/21: Constipation & Faecal Impaction
-  -- 1) Interleave Lecture (Position 10)
+  -- Pair 6/21: Constipation & Faecal Impaction
+  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
   UPDATE "lessons"
-  SET "position" = 10, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Constipation & Faecal Impaction',
+      "body"       = $LEC_GAST_063$# Constipation & Faecal Impaction
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Anxiety and/or depression.
+- Somatization disorders.
+- Eating disorders.
+- History of sexual abuse.
+- Physical . Female sex.
+- Older age.
+- Pyrexia, poor fluid intake/dehydration, immobility.
+- Sitting position on a toilet seat (compared with the squatting position for defecation).
+
+## Clinical Examination & Assessment
+difficulty passing stools, or a sensation of incomplete emptying
+- Lower abdominal pain or discomfort, distension, or bloating.
+- Consider a diagnosis of constipation in the elderly if there are non-specific symptoms, such as:
+- Confusion or delirium, functional decline.
+- Nausea or loss of appetite.
+- Overflow diarrhoea. Urinary retention.
+- Suspect a diagnosis of faecal loading or impaction if there is history of:
+- Hard, lumpy stools, which may be large and infrequent (for example passed every 7—10 days), or small and relatively frequent (for example passed every 2—3 days).
+- Having to use manual methods to extract faeces.
+- Overflow faecal incontinence, or loose stool.
+
+## Emergency Management Protocol
+Consider, investigate and manage any underlying secondary cause of constipation,
+- and if possible and appropriate advise the person to reduce or stop any drug treatmentthat may be causing or contributing to symptoms. Identify if faecal loading and/or impaction is present as this will need treatrnent to
+- resolve and may need enemas, suppositories, or disimpaction.
+- Advise-on-lifestyJe-measures increasing dietary fibre,
+- Ensuring adequate fluid intake, and activity levels
+-
+- If the above measures fail then Offer a bulk-forming laxative first-line, such as ispaghula, and increase fluid intake
+-
+- If stools remain hard or difficult to pass, add or switch to an osmotic laxative, such as a macrogol. If a macrogol is ineffective or not tolerated, offer treatment with a lactulose
+- second-line. If stools are soft but difficult to pass, or there is a sensation of inadequate emptying,
+- add a stimulant laxative. Note: If the person has opioid-induced constipation:
+- Do not prescribe bulk-forming laxatives.
+-
+- Offer an osmotic laxative and a stimulant laxative.
+- Complications Faecal loading and impaction.
+- Progressive faecal retention, distension of the rectum, and loss of sensory and
+- motor function. Haemorrhoids or anal fissure.
+-
+
+- Chronic dilatation of the colon may cause a megacolon.
+- Bowel obstruction, perforation, or ulceration.
+- Recurrent urinary tract infections, obstructive uropathy.
+- Rectal bleeding.
+- Rectal prolapse previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Constibation - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/constibation/figure_01_p4.jpeg)
+*Constibation — Clinical Figure 1 (Page 4 Reference)*$LEC_GAST_063$,
+      "position"   = 10,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'constibation' OR "slug" = 'constipation');
 
-  -- 2) Upsert Quiz Lesson (Position 11)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -7818,14 +12793,154 @@ $SBA_GAST_063$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 7/21: Acute Diarrhoea & Infectious Enteritis
-  -- 1) Interleave Lecture (Position 12)
+  -- Pair 7/21: Acute Diarrhoea & Infectious Enteritis
+  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
   UPDATE "lessons"
-  SET "position" = 12, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Diarrhoea & Infectious Enteritis',
+      "body"       = $LEC_GAST_064$# Acute Diarrhoea & Infectious Enteritis
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Other causes
+-
+- Drugsdaxatives, allopurinol, angiotensin-II receptor blockers, antibiotics, chemotherapy, magnesium-containing antacids, metformin, NSAID, proton pump inhibitors, and selective serotonin reuptake inhibitors. Anxiety.
+- Food allergy.
+- Acute appendicitis.
+- Pelvic radiation treatment.
+- Intestinal ischaemia
+-
+- Causes of chronic diarrhoea Irritable bowel syndrome
+- Diet— artificial sweeteners such as sorbitol, caffeine, and excess alcohol.
+- Inflammatory bowel disease (Crohn's disease, ulcerative colitis).
+- Coeliac disease
+- Colorectal cancer
+-
+- Drugs— antibiotics (particularly macrolides such as erythromycin), antihypertensives (for example ACE inhibitors).
+
+## Key Clinical Features
+Chronic diarrhea Red flag Unexplained weight loss. Unexplained rectal bleeding. Persistent blood in the stool. Abdominal mass. Rectal mass. Severe abdominal pain. Iron deficiency anaemia.
+- Raised inflammatory markers (may indicate inflammatory bowel disease). Nocturnal or continuous diarrhoea Fever, tachycardia, hypotension, dehydration. Other features
+- Travel abroad — consider an infective cause, especially Giardia. Laxative use Recent use Of an antibioticor proton pump inhibitoris associated with Clostridium difficile infection.
+- Assessment-of-dehydration Acute diarrhea Red fla
+- Blood in the stool.
+- Recent hospital treatment or antibiotic treatment. Weight loss.
+- Evidence Of dehydration. Nocturnal symptoms — organiccause more likely Other features Fever.
+- Vomiting.
+- Recent contact with a person with diarrhoea. Exposure to possible sources of enteric infection (for example, havingeaten meals Out, or recent farm Or petting zoo visits).
+- Travel abroad — increases the likelihood ofinfection. Ask about potential exposures such as raw milk or untreated water.
+- Being in a higher risk group such as food handlers, nursing home residents, and recently hospitalized people. Mild dehydration Lassitude. Anorexia, nausea. Light-headedness. Postural hypotension. Usually no signs. Moderate dehydration Apathy/tiredness. Dizziness. Nausea/headache. Muscle cramps. Pinched face. Dry tongue or sunken eyes. Reduced skin elasticity. Postural hypotension. Tachycardia. Oliguria. Severe dehydration Profound apathy. Weakness. Confusion, leading to coma. Shock. Tachycardia. Marked peripheral vasoconstriction. Systolic blood pressure less than 90 mmHg. Oliguria or anuria.
+
+## Investigations & Diagnostic Workup
+Chronic diarrhea Full blood count — to detect anaemia.
+- Urea and electrolytes. Liver function tests, includingalbumin level. Calcium.
+- Vitamin BIQ and red blood cell folate.
+- Iron status (ferritin). Thyroid function tests.
+- ESR (erythrocyte sedimentation rate) and CRP (C- reactive protein).
+- Testing for coeliac disease — immunoglobulin A (IgA), and IgA tissue transglutaminase (tTG), or IgA endomysial antibody (EMA)
+- Consider testing if symptoms suggestive Of ovarian cancer. Clostridium difficile testing Routine microbiology investigation and examination for ova, Cysts and parasites, if an infectious cause is suspected or there is a history Of exotic foreign travel. Acute diarrhea Routine microbiology investigation and examination for ova, cysts and parasites, if an infectious cause is suspected or there is a history of exotic foreign travel.
+- Consider blood tests Management of acute diarrhea < 4 weeks
+- Arrange emergency admission to hospital if: The person is vomiting and unable to retain oral fluids, or
+- They have features of severe dehydration or shock
+- Other factors that influence the threshold for admission include (use clinical judgment):
+- Older age (people 60 years of age or older are more at risk of complications).
+
+Home circumstances and level of support.
+- Bloody diarrhoea.
+-
+- Abdominal pain and tenderness. Increased risk of poor outcome, for example:
+- Coexisting medical conditions — immunodeficiency, lack of stomach acid,
+- inflammatory bowel disease, valvular heart disease, diabetes mellitus, renal impairment, rheumatoid disease, systemic lupus erythematosus.
+- Drugs — immunosuppressants or systemic steroids, proton pump inhibitors, angiotensin-converting enzyme inhibitors, diuretics.
+
+## Emergency Management Protocol
+- of chronic diarrhea
+- 4 weeks Refer adults using a suspected cancer pathway referral(for an appointment
+- within 2 weeks) for colorectal cancer if:
+- They are aged 40 and over with unexplained weight loss and abdominal pain, or
+- They are aged 50 and over with unexplained rectal bleeding, or
+- They are aged 60 and over with iron deficiency anaemia or changes in their bowel habit, or tests show occult blood in their faeces.
+- Adults with a rectal or abdominal mass Refer patient for further assessr-nent and management if patient history,
+
+## Clinical Examination & Assessment
+, and blood test results suggest any of the following: Coeliac disease.
+- Crohn's disease.
+- Ulcerative colitis.
+- Bile acid diarrhoea.
+- Microscopic colitis. Malabsorption.
+
+- Diarrhea
+- antibiotic associated Disruption of the bowel microbiota and mucosal integrity.
+- Overgrowth of toxin-producing strains of Clostridium (Clostridioides) difficile (a
+- Gram-positive, spore-forming, anaerobic bacillus) due to disruption of harmless bacteria in the gut,
+- Risk factors Age more than 65 years Underlying morbidity— Abdominal surgery, CKD, immunosuppression.
+- Prolonged hospitalization or residence in a nursing home
+- Antibiotics that have been frequently associated with
+- **C)** difficileinfection include
+- clindamycin,
+- cephalosporins (especially third and fourth generation),
+- fluoroquinolones,
+- broad-spectrum penicillins.
+-
+- Other suppression) PPI and H2-receptor antagonists
+-
+
+## Investigations & Diagnostic Workup
+FBC Send stool sample to test for
+- **C)** difficile infection
+-
+- Mild: no increase WCC, Moderate: WCC <15 x 109/L,
+- Severe: WCC
+- 15 x 109/L and temperature higher than 38.50C
+-
+
+Life-threatening: signs and symptoms include hypotension, partial or complete
+- ileus, toxic megacolon, or computerised tomography (CT) evidence of severe
+
+## Emergency Management Protocol
+Manage fluid loss and symptoms as for acute gastroenteritis: Avoid the use of antimotility drugs (such as loperamide) to treat diarrhoeal
+- symptoms.
+- NICE recommends: For the initial episode of mild-to-moderate
+- **C)** difficile infection: vancomycin 125mg
+- orally four times a day for 10 days. Second-line antibiotic advice for a first epsiode of mild-to-moderate
+- **C)**
+- difficile infection: fidaxomicin 200mg orally twice a day for IO days.
+- Advise
+- Wash hand frequently with soap water Note that alcohol-based hand rubs are not effective in removing C.difficile spores.
+- The diarrhoea should resolve in 1—2 weeks. It is not usually possible to determine
+- whether antibiotic treatment is effective until day 7.
+- They should not return to work or school until they have been free from diarrhoea for 48 hours. If medication is prescribed, they should ensure that the full course is completed and there is no further diarrhoea or vomiting for 48 hours afterwards.
+- Complications Pseudomembranous colitis.
+- Toxic megacolon.
+- Perforation of the colon.
+- Sepsis.
+- Death.
+-
+
+previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Diarrhea - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/diarrhea/figure_01_p3.jpeg)
+*Diarrhea — Clinical Figure 1 (Page 3 Reference)*
+
+![Diarrhea - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/diarrhea/figure_02_p3.jpeg)
+*Diarrhea — Clinical Figure 2 (Page 3 Reference)*
+
+![Diarrhea - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/diarrhea/figure_03_p4.jpeg)
+*Diarrhea — Clinical Figure 3 (Page 4 Reference)*
+
+![Diarrhea - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/diarrhea/figure_04_p8.jpeg)
+*Diarrhea — Clinical Figure 4 (Page 8 Reference)*$LEC_GAST_064$,
+      "position"   = 12,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'diarrhea' OR "slug" = 'diarrhea');
 
-  -- 2) Upsert Quiz Lesson (Position 13)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -7937,14 +13052,71 @@ $SBA_GAST_064$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 8/21: Diverticular Disease & Acute Diverticulitis
-  -- 1) Interleave Lecture (Position 14)
+  -- Pair 8/21: Diverticular Disease & Acute Diverticulitis
+  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
   UPDATE "lessons"
-  SET "position" = 14, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Diverticular Disease & Acute Diverticulitis',
+      "body"       = $LEC_GAST_065$# Diverticular Disease & Acute Diverticulitis
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Diverticulosis
+- Asymptomatic, At may present with a large, painless rectal bleed Clinical features
+- FBC, CRP,
+- Faecal occult blood test Investigations
+- Kidney function test
+- Endoscopy, colonoscopy, CT colonography to confirm the presence of diverticula. Advise
+- the condition is asymptomatic and no specific treatments are Diverticular disease Antermittent abdominal pain in the left lower quadrant (pain may be triggered by eating and may be relieved by the passage of stool or flatus).
+- Other symptoms
+- Bloating, constipation, diarrhoea, nausea. nectal bleeding.
+- Fever.
+- Dysuria Same
+- Arrange urgent admission a person with confirmed diverticular Diverticulitis
+- Constant abdominal pain (which is usually severe and starts in the hypogastrium before localizing in the left lower quadrant).
+- Sudden change in bowel habit and significant rectal bleeding or passage of mucus from the rectum.
+- Tenderness in the left lower quadrant, a palpable abdominal mass or distention on abdominal examination Same
+- Referral pathway
+- Urgent refer to surgery if patient has acute complicated diverticuliY
+
+- needed.
+- Eat a healthy balanced diet including whole grains, fruit and vegetables
+
+## Emergency Management Protocol
+- drink adequate fluid
+- Consider offering bulk- forming laxatives for people with constipation disease has significant rectal bleeding (for example, if the person is haemodynamically unstable), as urgent blood transfusion may be required. Af a person is symptomatic but does not need admission:
+- Advise Increase fiber diet and fluid intake
+- Quit smoking, weight loss
+- Avoid NSAID & Opiod
+- Offer Paracetamol for pain
+- Offer Bulk-forming laxatives if a high-fibre diet is unacceptable to the person. not prescribe antibiotics is (for example with peritonitis and sepsis), and for people who do not improve with medical treatment.
+- Offer an oral antibiotic if the person with acute diverticulitis is systemically unwell. but does not meet the criteria for referral.
+- Prescribe co-amoxiclav  mg tds for 5 days cefalexin 500 mg BD/tds + metronidazole 400 mg tds for 5 days.
+- For people with acute diverticulitis who are systemically well:
+- Offer paracetamol for pain
+- Advise lifestyle diet modification ( increase fiber diet & fluid intake).
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Diverticulr Disease - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/diverticulr-disease/figure_01_p2.jpeg)
+*Diverticulr Disease — Clinical Figure 1 (Page 2 Reference)*
+
+![Diverticulr Disease - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/diverticulr-disease/figure_02_p3.jpeg)
+*Diverticulr Disease — Clinical Figure 2 (Page 3 Reference)*
+
+![Diverticulr Disease - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/diverticulr-disease/figure_03_p4.jpeg)
+*Diverticulr Disease — Clinical Figure 3 (Page 4 Reference)*$LEC_GAST_065$,
+      "position"   = 14,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'diverticulr-disease' OR "slug" = 'diverticular-disease');
 
-  -- 2) Upsert Quiz Lesson (Position 15)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -8053,14 +13225,115 @@ $SBA_GAST_065$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 9/21: Foreign Body Ingestion & Food Impaction
-  -- 1) Interleave Lecture (Position 16)
+  -- Pair 9/21: Foreign Body Ingestion & Food Impaction
+  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
   UPDATE "lessons"
-  SET "position" = 16, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Foreign Body Ingestion & Food Impaction',
+      "body"       = $LEC_GAST_066$# Foreign Body Ingestion & Food Impaction
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- dysphagia nonspecific abdominal pain
+- stridor and wheezing
+- drooling
+-
+- Other features gagging, nausea/vomiting, neck/throat pain
+- atypical chest pain or noncardiac chest pain
+- choking
+- signs of upper gastrointestinal obstruction
+- lower gastrointestinal bleeding
+-
+
+## Investigations & Diagnostic Workup
+x-rays of neck, chest, abdomen
+- Blood tests- FBC, LJ&E, PT/INR Consider CT of neck, chest and/or abdomen
+- Consider MRI
+- Consider laryngoscopy, endoscopy
+-
+
+## Emergency Management Protocol
+Unstable patient management
+- Patients should be considered unstable if they present with airway compromise,
+- drooling, inability to tolerate fluids, evidence of sepsis, perforation, or active bleeding. Resuscitations
+- Follow ABCD protocol and resuscitate appropriately
+- Surgery
+- Emergency surgery is mandatory in patients with perforation due to obstruction.
+- Resect the perforated segment.
+
+- consider NG/OG — If patient has trouble handling secretions (drooling and/or spitting)
+- Consider IV antibiotic
+- if patient has sign of sepsis.
+- Stablepatient
+
+## Emergency Management Protocol
+- Stable patients: oropharyngeal foreign body Stable patients: esophageal or rectal foreign body (excluding multiple magnets and batteries) Stable patients: esophageal or rectal foreign body
+- multiple magnets Stable patients: esophageal or rectal foreign body
+- batteries
+- Complications 1st line Watchful waiting and serial radiographic follow-up 80% of ingested or inserted foreign bodies pass through the gastrointestinal (GI) tract without symptoms 2nd line
+- fiberoptic nasopharyngoscopy
+- should be considered for patients with an object in the oropharynx that could not be seen during the physical exam. Foreign bodies can be removed using tongue depressor and laryngoscopy
+- 1" line Watchful waiting and serial radiographic follow-up Endoscopy is required
+- for foreign bodies that are nonprogressive, sharp, or nonradiopaque, for multiple foreign bodies, for foreign bodies in the stomach
+- 2.5 cm in diameter or
+- 6 cm long, or for oddly shaped foreign bodies such as open safety pins. 2nd line Foley catheter removal
+- is a widely used technique for the removal of a single, smooth, blunt, radiopaque foreign body from the esophagus or rectum.
+- 3'd line Surgery
+- For failed extraction or object of
+- IO cm in rectum. line Emergency endoscopic or surgical removal Multiple magnets beyond reach of endoscope
+- urgent surgical consultation 1st line Emergency endoscopic or surgical removal if impacted Batteries beyond reach of endoscope
+- watchful waiting + radiology
+
+- gastrointestinal obstruction, perforation, and fistula formation gastrointestinal bleeding esophageal perforation infection
+
+Neodymium magnets (also known as NdFeB, NIB, Neo magnet or Super Strong Rare-Earth Magnets) They have become easy to purchase and are promoted as 'adult desk toys' or 'stress relievers'
+- Rare earth magnets are between five and ten times stronger than ceramic magnets and are sometimes called 'super strong' or powerful magnets.
+- They are often brightly coloured and can be of a variety of shapes such as balls, cylinders, discs, ellipses and bars, usually of less than 6 mm in diameter.
+- These inexpensive and readily available magnets can be accidentally swallowed by children with ease.
+- The ingestion of a single rare earth magnet is unlikely to cause significant harm, however, if multiple magnets are ingested, or if a magnet is swallowed along with a metal object significant injury can occur.
+- Ingestion of a magnet with a button battery is a time critical emergency.
+- Risk Factors for Complications following ingestion rare earth magnets Those who have co ingested a magnet with a button battery
+- Those who have ingested multiple magnets or a magnet and another metal object
+- Children and young people with developmental, behavioural or psychiatric problems
+- Delayed presentation (>12 hours after presentation)
+
+## Investigations & Diagnostic Workup
+Chest X-ray and abdominal X-ray (with the patient lying down, ideally AP
+
+- In the case of a single magnet being identified on an abdominal X-ray, a lateral abdominal X-ray should also be requested to confirm that only one magnet has been ingested.
+- Radiological interpretation
+- A neodymium magnet appears like a ball-bearing on an X-ray, and clinicians should be careful to not misdiagnose it as a metal ball
+- Misdiagnosis of multiple magnets as solitary magnet ingestion can lead to a delay in diagnosis and subsequent complications
+
+CCY-D license
+
+## Emergency Management Protocol
+The-following- earth-magnet-jngestion;
+
+-
+- single magnet ingestion accidental ingestion no co-morbidities tolerating oral intake presents within 24hr of ingestion care-giver able to provide close observation (there is no need to examine the child's faeces)
+- All patients who are being discharged with rare earth magnet ingestion require follow-up imaging after 6-12 hours If a single magnet is ingested, it can be expected to be passed spontaneously, if the magnet is not too large. Patients who do not meet discharge criteria eg. symptomatic patients, signs of deterioration, ingestion of two or more rare earth magnets should be discussed with a specialist regional paediatric surgical centre in the first instance.
+- Admission under the care of a local surgical team maybe appropriate
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Fb Ingestion - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/fb-ingestion/figure_01_p3.jpeg)
+*Fb Ingestion — Clinical Figure 1 (Page 3 Reference)*
+
+![Fb Ingestion - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/fb-ingestion/figure_02_p6.jpeg)
+*Fb Ingestion — Clinical Figure 2 (Page 6 Reference)*
+
+![Fb Ingestion - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/fb-ingestion/figure_03_p7.jpeg)
+*Fb Ingestion — Clinical Figure 3 (Page 7 Reference)*$LEC_GAST_066$,
+      "position"   = 16,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'fb-ingestion' OR "slug" = 'foreign-body-ingestion');
 
-  -- 2) Upsert Quiz Lesson (Position 17)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -8169,14 +13442,78 @@ $SBA_GAST_066$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 10/21: Gallstones & Biliary Emergencies
-  -- 1) Interleave Lecture (Position 18)
+  -- Pair 10/21: Gallstones & Biliary Emergencies
+  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
   UPDATE "lessons"
-  SET "position" = 18, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Gallstones & Biliary Emergencies',
+      "body"       = $LEC_GAST_067$# Gallstones & Biliary Emergencies
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Blood tests- LFTs, FBC
+- Abdominal U/S
+- MRCP if IJ/S has not detected common bile duct stones, but the bile duct is dilated and/or
+- Liver function test results are abnormal.
+- Endoscopic ultrasound (EUS) if MRCP does not allow a diagnosis to be made.
+
+## Emergency Management Protocol
+n in n rm I r n n rm I ili ry—tre.e.;-
+- Reassure the patients that they do not need treatment unless they develop symptoms:
+- Asymptomatic gallstones are found in the common bile duct,
+- Offer referral for bile duct clearance and laparoscopic cholecystectomy
+
+## Emergency Management Protocol
+of symptomatic gallstones
+- pain relief
+- Severe pain
+- Diclofenac 75 mg 1M repeat second dose 75mg after 30 minutes if necessary.
+- For intermittent mild to moderate pain, offer paracetamol or NSAID, for example, diclofenac which can be given orally or rectally if nausea is a problem.
+- Urgent-emergency-admission
+- If patient systemically unwell with a suspected complication of gallstone disease,such as acute cholecystitis, cholangitis, or pancreatitis.
+- Refer — all other people diagnosed with symptomatic gallstone disease to a surgeon to consider laparoscopic cholecystectomy.
+
+- Complications
+- Biliary colic (most common) Acute cholangitis
+- Acute cholecystitis
+- Acute pancreatitis
+- Obstructive jaundice
+- Fistula formation
+-
+- Biliary peritonitis. Gallbladder mucocele.
+- Gallbladder cancer
+
+## Key Clinical Features
+- Biliary colic It occurs when gallstone transiently obstruct either the cystic duct or Hartmann's pouch pain
+- occurs in the epigastrium or right upper quadrant, radiate to right back or shoulder and typically lasts for more than 30 minutes, but less than eight hours. Often severe, and may be associated with nausea & vomiting. Pain often worse after having a fatty meal. Abdominal UIS LFTs (liver enzyme in normal range and no jaundice) MRCP if UIS has not Acute cholecystitis Acute cholecystitis is an inflammation of the gallbladder It usually occurs when a gallstone completely obstructs the gallbladder neck or cystic duct. Pain
+- Sudden-onset, constant, severe pain in the upper right quadrant, lasting several hours (>12 hours). Fever/chills Nausea & vomiting Exan
+- ination
+- Right upper quadrant mass & tenderness Presence of Murphy's sign (inspiration is inhibited by pain on palpitation when the examiner's hand is positioned along the costal margin). Jaundice — occurs in up to 10% of patients Abdominal UIS Blood test FBC (elevated WCC & CRP) LFTs ( normal/ mild elevated liver enzymes) Serum amylase Investigations detected common bile duct stones, but the bile duct is dilated and/or Endoscopic ultrasound (EUS) if MRCP does not allow a diagnosis to be made. Acute cholangitis The most common causes of acute cholangitis are common bile duct stones and bile duct obstruction caused by gallstones. Charcottriad: Jaundice
+- (total bilirubin234 pmol/L [22mg/dL]) Fever
+- 380C with or without chills. Pain
+- right upper quadrant or epigastric pain. Reynold's pentad: It includes charcot's triad + altered mental status and hypotension secondary to septic shock. FBC (WBC count x 1000/pL or WBC count x 1000/pL) C-reactive protein (CRP)217 mmol/L [21 mg/dL]) LFTs (liver enzymes are elevated) Transabdominal ultrasonography Abdominal CT
+
+Follow symptomatic Management gallstone management protocol Admission Give IV antibiotics and analgesia Surgical assessment for cholecystectomy. previOUS  Next Admission Start IV antibiotic and fluid biliarv decompression biliary decompression is endoscopic retrograde cholangiopancreatogra phy (ERCP), with or without sphincterotomy and drainage stenting.
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Gallstones, Cholecystitis & Biliary Colic - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/gallstones-cholecystitis-biliary-colic/figure_01_p4.jpeg)
+*Gallstones, Cholecystitis & Biliary Colic — Clinical Figure 1 (Page 4 Reference)*
+
+![Gallstones, Cholecystitis & Biliary Colic - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/gallstones-cholecystitis-biliary-colic/figure_02_p5.jpeg)
+*Gallstones, Cholecystitis & Biliary Colic — Clinical Figure 2 (Page 5 Reference)*
+
+![Gallstones, Cholecystitis & Biliary Colic - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/gallstones-cholecystitis-biliary-colic/figure_03_p5.jpeg)
+*Gallstones, Cholecystitis & Biliary Colic — Clinical Figure 3 (Page 5 Reference)*$LEC_GAST_067$,
+      "position"   = 18,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'gallstones-cholecystitis-biliary-colic' OR "slug" = 'gallstones');
 
-  -- 2) Upsert Quiz Lesson (Position 19)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -8285,14 +13622,197 @@ $SBA_GAST_067$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 11/21: Acute Gastroenteritis & Dehydration
-  -- 1) Interleave Lecture (Position 20)
+  -- Pair 11/21: Acute Gastroenteritis & Dehydration
+  -- A) Update & Beautify Clinical Theory Lecture (Position 20)
   UPDATE "lessons"
-  SET "position" = 20, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Gastroenteritis & Dehydration',
+      "body"       = $LEC_GAST_068$# Acute Gastroenteritis & Dehydration
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Diarrhoea and vomiting usually have a rapid onset and last for less than 24 hours.
+- Clostridium perfringens— usually caused by inadequate storage and insufficient reheating of contaminated meat dishes or cooked rneats or meat products, for example in institutional catering settings.
+- Bacillus cereus— caused by contaminated cooked foods subjected to inadequate post-cooking temperature control that has allowed bacterial growth (such as reheated rice, pasta, meat or vegetable dishes, and dairy products).
+- Staphylococcus aureus— usually found in cooked meats and cream products.
+- Bacteria
+- Campylobacter jejuniand Campylobacter coli — These are the most commonly reported bacterial causes of infectious intestinal disease in England and Wales, and one of the commonest causes of travellers' diarrhoea in the UK.
+- Symptoms — diarrhoea (which may be bloody), nausea, vomiting, abdominal cramps, and fever.
+- It is usually associated with the consumption of contaminated food and drink, such as undercooked rneat (especially poultry), unpasteurised milk, or untreated water.
+- Most cases are self-limiting within 2—3 days and usually resolve within I week.
+- Escherichia coli(including Shiga toxin-producing
+- **E)** coli [STE  or verocytotoxin- producing
+- **E)** coli [VTE ) —
+- **E)** coli0157 is the most common serogroup of STEC causing infections in the I-JK.
+- Infection with
+- **E)** coli0157:H7 may be asymptomatic, or cause diarrhoea (which may be bloody), fever, abdominal cramps, and vomiting. Illness is usually self-limiting and resolves within 10 days.
+- Salmonellosis (excluding Salmonella typhiand Salmonella paratyphicausing enteric fever) — Ingestion of contaminated food is the most common source, such as red and white meats, raw eggs, milk, and dairy products.
+- Symptoms — bloody diarrhoea, abdominal pain, headache, nausea, vomiting, and
+
+- The illness usually lasts for 4—7 days, and people usually recover spontaneously.
+- Shigella dysenteriae, Shigella flexneri, Shigella boydii, and Shigella sonnei — Shigellosis occurs most commonly in children less than 5 years of age, but infection can occur in all ages. Infections peak in late summer in the I-JK. Symptoms — diarrhoea (may have blood and mucus), fever, and abdominal cramps, with or without nausea and vomiting, headache, and malaise.
+- Shigellosis usually resolves in 5—7 days.
+- Yersinia enterocolitica — occurs rnost commonly in children.
+- Symptoms — Common symptoms are watery diarrhoea (which is often bloody), fever, and abdominal pain. In older children and adults, right-sided abdominal pain and fever may occur.
+- Parasites
+- Cryptosporidium — is one Of the most common protozoal causes of gastroenteritis in the UK, and about 20% of cases are associated with recent foreign travel.
+- transmitted by animal-to-human or human-to-human contact, exposure to contaminated land or water, or by consuming contaminated water or food.
+- Symptoms — profuse watery diarrhoea associated with abdominal cramps or pain, nausea, vomiting, fever, and loss of appetite.
+- Entamoeba histolytica (amoebiasis) — Transmission occurs through the ingestion of contaminated food or water.
+- Most cases in the I-JK are imported by travellers to endemic areas. Symptoms — mild diarrhoea and abdominal pain, but severe disease (amoebic dysentery) can occur, causing fever, severe abdominal pain, and blood and mucus in the faeces.
+- Giardia intestinalisor Giardia lamblia — can be transmitted by person-to-person spread by the faecal-oral route; by contact with the faeces of infected animals; by
+
+consumption of contaminated food or drink; waterborne including swimming in contaminated water.
+- Many cases are associated with recent foreign travel, particularly from South Asia, and it is the most commonly identified pathogen in returning travellers with prolonged diarrhoea.
+- Symptoms — diarrhoea, malaise, abdominal pain, loss of appetite, flatulence, bloating, and rarely nausea. Malabsorption, weight loss, and faltering growth may occur in children.
+- Assessment
+- History and examination
+- Assessing for dehydration in children
+- Risk factors for developing dehydration in children include;
+- Infants younger than I year of age, particularly younger than 6 months.
+- Infants who were of Iow birthweight.
+- Children who have passed six or more diarrhoeal stools in the previous 24 hours.
+- Children who have vomited three or more times in the previous 24 hours.
+- Children who have not been offered, or have not been able to tolerate, supplementary fluids before presentation.
+- Infants who have stopped breastfeeding during the illness.
+- Children with signs of malnutrition. Table
+- **A)** Symptoms and signs of dehydration and shock
+
+No clinically detectable dehydration Appears well Alert and responsive Normal urine output Skin colour unchanged Warm extremities Eyes not sunken Moist mucous membranes (except after a drink) Normal heart rate Normal breathing pattern Normal peripheral pulses Normal capillary refill time Normal skin turgor Normal blood pressure Clinical dehydration Appears to be unwell or deteriorating Altered responsiveness (for example irritable, lethargic) Decreased urine output Skin colour unchanged Warm extremities Sunken eyes Dry mucous membranes (except for mouth breathing) Tachycardia Tachypnoea Normal peripheral pulses Normal capillary refill time Reduced skin turgor Normal blood pressure Clinical shock Decreased level of consciousness Pale or mottled skin Cold extremities Tachycardia Tachypnoea Weak peripheral pulses Prolonged capillary refill time Hypotension (decompensated shock)
+
+- Assessing-for-dehydration-in-adults Mild Symptoms include: Lassitude. Anorexia and nausea. Light-headedness. Signs include:
+- Possible postural hypotension.
+
+## Investigations & Diagnostic Workup
+Consider FBC and U&E Moderate Symptoms include:
+- Apathy/tiredness. . Dizziness. Nausea. Headache. Muscle cramps. Signs include: Pinched face. Dry tongue or sunken eyes. Reduced skin elasticity. Postural hypotension. Tachycardia. Oliguria. Severe Symptoms include:
+- Profound apathy and weakness. Confusion, leading to coma. Signs include: Marked peripheral vasoconstriction. Hypotension.
+- Tachycardia. Uraemia, oliguria, or anuria.
+- Shock.
+- stool culture and sensitivity testing if indicated.
+
+## Emergency Management Protocol
+Management of gastroenteritis in children
+- Arrange-emergency-hos feature :
+- The child is systemically unwell and/or there are clinical features suggesting severe dehydration and/or progression to shock.
+- There is intractable or bilious vomiting.
+
+- There is acute-onset painful, bloody diarrhoea in previously healthy children, or confirmed Shiga toxin-producing Escherichia coli (STEC) infection 0157. There is a suspected serious complication, such as haemolytic uraemic syndrome or sepsis. There are red flag symptoms or signs suggesting increased risk of progression to shock, and the child is clinically deteriorating despite use of ORS solution. There are risk factors for developing dehydration.
+- The parents/carers are unable to monitor the child's condition or provide appropriate management safely at home.
+- Steps of management in clinical shock patients
+- Follow ABCDE protocol
+- The preferred fluid type for IV maintenance is sodium chloride 0.9% with glucose 5%
+- Resuscitation step: — fluid bouls NICE recommends 10-20 ml/kg in shock patients and 10ml/kg in non shock patients.
+- Resus council 2021 guideline recommends 10ml/kg in both shock and non-clinical shock patient
+- Give a second bolus, if shock persist
+- If remains shocked after second bolus, Cive a further bolus, consider discussion with paediatric intensive care team.
+- Example-I A 7kg child brought into the ED with clinical shock, what would be fluid bolus for this patient? 7 x20= 140ml (to follow NICE) 7 x10=70mI (to follow resus 2021 )
+- Maintenance step — Once symptoms and signs of shock have resolved
+
+- Calculate daily maintenance requirement
+- Use 10% estimate for deficit calculation (Note: use 10% estimate for deficit calculation shock patient and 5% in non-shock patients, to assess that, check table- A in assessment). Body weight ISt 10kg 2nd 10kg 3rd 10kg Daily/per-day fluid requirements 100mI/kg 50ml/kg 20mI/kg Hourly fluid requirement 4mI/kg 2ml/kg Iml/kg
+- Example
+- I A 26 kg child responded to a 20 ml/kg or 10mI/kg (follow resus) fluid bolus and is no longer shocked. Calculate fluid deficit? formula: %age x weight x IO IO x 26 x 10 = 2600ml (replace in 24-48 hrs)
+- Example-2 A 26 kg child responded to a 20 ml/kg or 10ml/kg (follow resus) fluid bolus and is no longer shocked. What is his maintainance hourly IV fluid requirement using the standard regime?
+- Hourly maintenance = (10kg x 4mI) + (10kg x 2ml) + (6kg x Iml) = 66ml/hr
+
+if convert to daily maintenance = (100 ml/kg x 10 kg) + (50 ml/kg x IO kg) + (20 ml/kg x 6 kg) = 1620ml/day.
+
+## Emergency Management Protocol
+of gastroenteritis in children with clinical dehydration and without clinical dehydration Children with clinical features of dehydration Give the child low-osmolarity ORS solution frequently to rehydratethe child. Discourage fruit juices and carbonated drinks Avoid giving solid food until the child is rehydrated. After rehydration, advise the parents/carers to: Encourage the child to drink plenty of usual fluids, including milk feeds (if these were stopped). Reintroduce the child's usual diet Children without clinical features of dehydration Continue with usual feeds, includingbreastfeeding (if applicable) and other milk feeds. Encourage regular fluid intake Offer low-osmolarity oral rehydration salt (ORS) solution, if the child is at increased risk of dehydration Discourage fruit juices and carbonated drinks Advise that drug treatment with anti-diarrhoeal drugs, antiemetics, zinc supplements, and probiotics is not recommended. Do not routinely prescribe antibiotics to children and adult with gastroenteritis. Advise on methods to prevent transmission of infection- wash hands thoroughly, Always use a flush toilet, if possible. Advise that children/adult should not attend school or other childcare/social settings, institution/work place until at least 48 hours after the last episode of diarrhoea or vomiting. Advise parents/carers and adults on the need for follow up and to seek urgent medical advice if a child has any new features requiring stool culture testing, such as blood, mucus, and/or pus in the stool or Symptoms that do not resolve within the expected timeframe Notify the local health protection team immediately by completinga notification form, if any of the following notifiable diseases. in r mm El i n If using low-osmolarity oral rehydration salt (ORS) solution to rehydrate a child (240-250 mosm/L) :
+- Ages years or younger: give 50 mL/kg body weight for fluid deficit replacement, as well as maintenance volume of ORS solution, over 4 hours.
+
+- Note: breastfeeding can continue, but do not routinely give oral fluids other than ORS solution.
+- Age 5—11 years: give 200 mL ORS solution after each loose stool, in addition to the child's normal fluid intake. Note: the British National Formulary recommends this dose for children aged 1—11 years.
+- 200—400 mL ORS solution after every loose stool, dose according to fluid loss.
+- After rehydration, for children at increased risk of dehydration: give 5 mL/kg body weight after each large watery stool, to prevent recurrence of dehydration.
+- Managegastroenteritis due to a confirmed microbiological cause after stool culture-and-sensitiyity-testing-in-ch.ildreng
+- Seek advice from the local health protection teamregarding the need for antibiotic treatment or stool testing for microbiological clearance, particularly in a child:
+- With Shiga toxin-producing Escherichia coli(STEC) infection
+- With giardiasis- Drug treatment with tinidazole may be recommended following specialist advice.
+- With dysenteric shigellosis- Antibiotic treatment is not usually needed for children with mild symptoms of shigellosis, for severe symptoms seek specialist advise.
+- With dysenteric amoebiasis- seek specialist advise
+- With campylobacteriosis
+- Antibiotic treatment is not usually needed for children with mild symptoms, as infection is usually self-limiting.
+
+## Emergency Management Protocol
+of gastroenteritis in adults
+- Admit the patient if he has clinical shock or following features
+- The person is systemically unwell and/or there are clinical features suggesting severe dehydration and/or progression to shock.
+- There is intractable vomiting or high-output diarrhoea.
+- There is a suspected serious complication, such as sepsis.
+
+There is an inadequate response to oral rehydration salt (ORS) solution, the person
+- is unable to take ORS solution orally, or they are clinically deteriorating.
+- There are risk factors for developing dehydration, such as in the elderly, immunocompromised, those with co-morbid conditions or concurrent illness. The person/carers are unable to provide appropriate management safely at home
+
+## Emergency Management Protocol
+steps-jnapatient with above feature Follow ABCDE protocol Fluid bolus — Give a fluid bolus of 500 ml of crystalloid over less than 15 minutes.
+- Give a second bolus, if shock persist
+- If remains shocked after second bolus, Cive a further fluid bolus of 250—500 ml of
+- crystalloid and seek expert help. Once symptoms and signs of shock have resolved
+- Assess the patient's likely fluid and electrolyte needs- depends on history ,
+- comorbid and laboratory tests
+
+## Emergency Management Protocol
+of gastroenteritis in adults with clinical dehydration and
+- without clinical dehydration Adults with clinical features of dehydration Advise to use ORS solution frequently and in small amounts, such as 200—400 mL to be given after every loose motion, dose according to fluid loss, to rehydrate the person. After rehydration: Gradually reintroduce usual diet, advising that small, light, non-fatty, non- spicy meals may be better tolerated Adults without clinical features of dehydration Encourage regular fluid intake, and supplement with fruit juice and soups if needed. In adults at increased risk of dehydration (such as the elderly, immunocompromised, those with co-morbid conditions or concurrent illness)
+- Advise on the use of oral rehydration salt (ORS) solution as supplemental fluid
+
+## Emergency Management Protocol
+of gastroenteritis due to a confirmed microbiological cause after
+- stool-culture-and-sensitivity-testingjn-adults Seek advice from the local health protection team regarding the need
+- for antibiotic treatment or stool testing for microbiological clearance. Campylobacteriosis= Antibiotic treatment is not usually needed for people with
+- mild symptoms, as infection is usually self-limiting.
+- If symptoms are severe
+- consider early prescribing with clarithromycin 250—500 mg twice daily for 5—7 days, within 3 days of onset of illness. Amoebiasis or amoebic dysentery_
+- Consider metronidazole followed by the anti-protozoal drug diloxanide.
+-
+- Escherichia-coli-(E2-CQli) There is no effective antibiotic treattnent available for Shiga toxin-producing
+- **E)**
+- coli(STEC) infection. Seek specialist advise
+- Giardiasis
+- Prescribe tinidazole 2 g as a single dose.
+-
+- Shigellosis Antibiotic treatment is not usually needed for people with mild symptoms.
+-
+- If symptoms are severe (high fever, bloody and/or high-output diarrhoea) or the person is immunocompromised, seek specialist advice on the need for antibiotic treatment. Salmonellosis (non-typhoidal)
+- Antibiotic treatment is not usually needed.
+-
+- Cryptosporidiosis
+- There is no specific treatment licensed in the I-JK.  9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Gastroenteritis & Dehydration - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_01_p5.jpeg)
+*Acute Gastroenteritis & Dehydration — Clinical Figure 1 (Page 5 Reference)*
+
+![Acute Gastroenteritis & Dehydration - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_02_p6.jpeg)
+*Acute Gastroenteritis & Dehydration — Clinical Figure 2 (Page 6 Reference)*
+
+![Acute Gastroenteritis & Dehydration - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_03_p8.jpeg)
+*Acute Gastroenteritis & Dehydration — Clinical Figure 3 (Page 8 Reference)*
+
+![Acute Gastroenteritis & Dehydration - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_04_p9.jpeg)
+*Acute Gastroenteritis & Dehydration — Clinical Figure 4 (Page 9 Reference)*
+
+![Acute Gastroenteritis & Dehydration - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_05_p11.jpeg)
+*Acute Gastroenteritis & Dehydration — Clinical Figure 5 (Page 11 Reference)*
+
+![Acute Gastroenteritis & Dehydration - Clinical Figure 6](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_06_p12.jpeg)
+*Acute Gastroenteritis & Dehydration — Clinical Figure 6 (Page 12 Reference)*
+
+![Acute Gastroenteritis & Dehydration - Clinical Figure 7](/lessons/images/sba/gastroenterology-emergencies/acute-gastroenteritis-dehydration/figure_07_p13.jpeg)
+*Acute Gastroenteritis & Dehydration — Clinical Figure 7 (Page 13 Reference)*$LEC_GAST_068$,
+      "position"   = 20,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-gastroenteritis-dehydration' OR "slug" = 'gastroenteritis');
 
-  -- 2) Upsert Quiz Lesson (Position 21)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 21)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -8413,14 +13933,180 @@ $SBA_GAST_068$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 12/21: Acute Hepatitis & Liver Failure
-  -- 1) Interleave Lecture (Position 22)
+  -- Pair 12/21: Acute Hepatitis & Liver Failure
+  -- A) Update & Beautify Clinical Theory Lecture (Position 22)
   UPDATE "lessons"
-  SET "position" = 22, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Hepatitis & Liver Failure',
+      "body"       = $LEC_GAST_069$# Acute Hepatitis & Liver Failure
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Prodromal phase of hepatitis Usually lasts 3-10 days Flu-like symptoms
+- general fatigue, malaise, headache , joint and muscle pain, low-grade fever up to 390C). Gastrointestinal symptoms
+- anorexia, nausea, vomiting, and right upper quadrant abdominal discomfort).
+
+## Investigations & Diagnostic Workup
+Icteric phase of hepatitis usually lasts 1—3 weeks Jaundice, pale stools and dark urine if cholestasis. Pruritus (present in 40% of those with jaundice). Fatigue, anorexia, nausea, and vomiting — symptoms often improve once jaundice occurs. Hepatomegaly (85%), splenomegaly (15%), Convalescent phase of hepatitis Lasts up to 6 months Malaise, anorexia, muscle weakness, and hepatic tenderness.
+- A PCR test for hepatitis A RNA (most sensitive)
+- In the absence of RNA testing, request detection of hepatitis A virus immunoglobulin M (HAV-IgM) and hepatitis A virus immunoglobulin G (HAV-IgG).
+
+## Emergency Management Protocol
+Supportive care
+- If pain relief is required — prescribe Paracetamol or ibuprofen or a weak opioid (such as codeine) if the liver impairment is mild.
+- Prescribe metoclopramide or cyclizine for nausea
+- Chlorphenamine for itch
+
+- Advise
+- Avoid alcohol
+- Avoid work, school, or nursery — typically 7 days after the onset of jaundice, or 7 days after the onset of symptoms if there is no history of jaundice.
+- Notify the Health Protection Unit (HPU) promptly to facilitate appropriate surveillance and contact tracing.
+- Prevention
+- Vaccination for hepatitis
+- **A)** Hepatitis B
+- It is an infectious disease of the liver caused by the hepatitis B virus. Acute hepatitis B is a notifiable disease.
+-
+- Transmission
+- Sharing of drug injecting equipment Occupational hazards
+- Blood transfusions and blood products
+- Tattoos, body piercing, or acupuncture
+- Household contact and sharing of toiletry items
+- Sexual transmission
+- Mother-to-baby transmission — Perinatal transmission (during childbirth) is
+- common in areas of high prevalence. However, mother-to-baby transmission has been reduced by the universal vaccination programme recommended by the WHO. Hepatitis B cannot be transmitted to infants during breastfeeding (unless nipples
+- are cracked or bleeding).
+
+## Key Clinical Features
+Acute hep —B infection Prodromal illness that includes fever, arthralgia, or a rash (that may appear about 2 weeks before the onset Of jaundice, then resolves in acute hepatitis malaise, fatigue, fever, nausea, and poor appetite. Right upper quadrant abdominal pain. Jaundice (with dark urine and/or pale stools if cholestasis). Extrahepatic manifestations such as glomerulonephritis, vasculitis, and polyarteritis. Liver function test (!-FTs) ALT and AST level significantly elevated (usually between 500 and 10,000 IU/L). Bilirubin may be elevated Prothrombin time may be prolonged (5 seconds or more suggests severe hepatitis and 50 seconds or more suggests acute liver failure).
+- Diagnosis Chronic hep—B infection Depending on the severity and duration, there may be signs Of chronic liver disease including: Spider naevi. Finger clubbing. Jaundice. Hepatosplenomegaly. In severe cases thin skin, bruising, ascites, liver flap and encephalopathy. Liver function test (LFTs) In most patient ALT will be mildly elevated, Other liver enzymes in normal range.
+- Diagnosis of hepatitis B virus (HBV) is based upon the presence of serological markers (antigens and antibodies) in plasma or serum. These include: Hepatitis B Surface Antigen (HBsAg)
+- Hepatitis B e antigen (HBeAg)
+- Antibody to HBeAg (Anti-HBe)
+- Antibody to HBcAg (anti-HBc)
+-
+
+- IgM antibody to hepatitis core antigen (anti-HBc IgM)
+- IgG antibody to hepatitis core antigen (anti-HBc IgG)
+- Antibody to HBsAg (anti-HBs)
+- Additional tests include quantification of HBV DNA (often referred to as HBV viral load), and HBV core avidity testing. High levels of HBV DNA are associated with a greater risk of progression to cirrhosis and hepatocellular cancer.
+- Table
+
+#### Clinical Scenario 1:
+Interpretation of serology tests for hepatitis
+- **B)** Marker
+- HBsAg
+- HBeAg
+- Anti-HBc Anti-HBs
+-
+- HBsAg H BeAg Anti-HBc
+-
+- Anti-HBs
+- HBsAg
+- HBeAg
+- Anti-HBc
+- Anti-HBs
+- IgM anti-HBc
+- HBsAg
+- HBeAg
+- Anti-HBc Anti-HBs
+- IgM anti-HBc
+
+- Result Negative Negative Positive Positive Negative Negative Negative Positive Positive Positive Positive Negative Positive Positive Negative Positive Negative Negative
+- Situation Immunity following infection
+- Immunitydue to vaccination
+- Acute infection
+- Chronic infection
+
+## Emergency Management Protocol
+ReferraLpathway-
+- Refer anyone who is found to be HBsAg positive to a hepatologist or to a gastroenterologist or infectious disease specialist.
+- Use clinical judgement to decide the urgency of referral (people with suspected chronic hepatitis B infection and severe symptoms, or significantly abnormal liver function tests should be referred more urgently).
+- Pregnant women who screen positive for hepatitis B surface antigen (HBsAg) require specialist assessment within 6 weeks of the positive result, in order to allow for possible treatr-rnent in the third trimester.
+- While awaiting referral, advise supportive symptomatic care as required;
+- If pain relief is required — prescribe Paracetamol or ibuprofen or a weak opioid (such as codeine) if liver impairment is mild.
+- Prescribe metoclopramide or cyclizine for nausea
+- Chlorphenamine for itch
+- Advise
+- Take proper rest and stay hydrated
+- Avoid sharing items that might be contaminated with small arnounts of blood (such as toothbrushes, razors, and scissors).
+- Avoid unprotected sexual intercourse, including Oro-anal and orogenital contact, until they have become non-infectious or their partners have been successfully immunized
+- Avoid sharing needles and other drug injecting equipment
+- Avoid alcohol
+
+- Advise for pregnant women (and women planning to become pregnant)
+- The infant should be immunized against hepatitis B from birth.
+- There is a 90% risk of the infant contracting hepatitis B (especially if the mother is a chronic carrier) unless immunization takes place at birth. There may be an increased risk of preterm delivery and low infant birth weight.
+- Breastfeeding is safe providing the infant has been immunized.
+- Notify the Health Protection Unit (HPU) promptly to facilitate appropriate surveillance and contact tracing.
+- Prevention
+- Offer hepatitis B immunization to people at high risk of hepatitis B Hepatitis C Hepatitis C infection is a slow, progressive disease of the liver caused by infection
+- with the hepatitis C virus (HCV).
+- Transmission Parenteral spread accounts for the majority of cases of HCV in the UK — Sharing of
+- needles or other injecting paraphernalia in people who inject drugs (P\A/ID) is the rnost common route of parenteral transmission. Transfusion of infected blood or blood products
+- Re-use or inadequate sterilization of medical equipment.
+- Needlestick or other sharps injuries
+- Exposure to infected blood, for example through sharing personal items that may
+- have blood on them (such as razors or toothbrushes), body modification (tattooing and body piercing), Sexual transmission
+-
+
+- Vertical transmission —of HCV from mother to baby generally occurs at a low rate (4—8%), but higher rates (10.8—25%) are seen if the mother is co-infected with HIV. HCV can be transmitted to the infant in utero or during the peripartum period.
+
+## Key Clinical Features
+Non-specific fatigue, myalgia, anxiety, depression, poor memory or concentration (may be indicative of chronic hepatitis C infection).
+- Nausea and vomiting.
+- Right upper quadrant abdominal pain.
+- Jaundice (with dark urine and/or pale stools if cholestasis). Signs of chronic liver disease (in advanced chronic hepatitis C).
+- Note that only 25—35% of people experience symptoms in the early stages of infection, and infection occurs after an incubation period. Therefore, a person may not connect their present symptoms to the time of risk exposure.
+- Diagnosis
+- HCV infection is diagnosed with an antibody test (which indicates if a person has ever been infected with HCV) and HCV ribonucleic acid (RNA) test (to check if HCV infection is active and for genotype analysis).
+- If a healthcare professional has, or may have, sustained an occupational exposure to HCV (for example, from a needlestick injury):
+- Advise that they will need HCV antibody testing at 12 and 24 weeks, and HCV RNA testing at 6, 12, and 24 weeks. This should be arranged through their Occupational Health department.
+- Also consider testing people with abnormal liver function tests.
+
+- Alanine aminotransferase (AL T) raised more than 10 times the upper limit of normal may indicate acute viral hepatitis, but this is not specific for HCV infection.
+
+## Emergency Management Protocol
+ReferraLpathway-
+- People with hepatitis C virus (HCV) infection should be under the care of a hepatologist or specialist gastroenterologist.
+- If acute hepatitis C virus (HCV) infection is suspected — Arrange a same-day assessment or seek immediate specialist advice.
+- If chronic HCV infection is suspected — Arrange an urgent referral.
+- Specialist management
+- Around 15—45% of people with acute hepatitis C virus (HCV) infection spontaneously clear the virus within 6 months of infection without any treatment. If spontaneous resolution (defined as loss of HCV ribonucleic acid [RNA] within the first 6 months) occurs, no antiviral treatment is necessary.
+- All people with chronic HCV infection should be considered for antiviral therapy, which is always initiated by a specialist. Nice guideline now recommends direct- acting antivirals (DAAs) therapy as first-line treatment.
+- The treatrnent is usually a once daily, oral tablet regimen for either 8 or 12 weeks and is most effective when given before the onset of cirrhosis.
+- Interferon-based treatment regimens are no longer recommended for HCV infection.
+
+-
+- Specialist investigations are carried out to assess the state of infection and the progression-of-liver-disease& Blood tests include — Viral load — to assess response to treatment. Clotting studies — clotting may be affected if there is significant liver damage. Autoantibodies Transient elastography can be offered to diagnose cirrhosis. Liver ultrasound Liver biopsy Advise on measures to reduce the risk of disease progression
+- Maintain healthy body weight and diet Quit smoking & drinking Advise on measures to prevent the spread of the infection of hepatitis C
+- Advise that they should not — Donate blood or carry an organ donor card.
+- Share razors, needles, toothbrushes, toiletries, or other items that may be contaminated with blood. Advise on the risk of sexual transmission — In people with multiple partners or those at risk for sexually transmitted infections (STIS). previ0US
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hepatitis - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/hepatitis/figure_01_p2.jpeg)
+*Hepatitis — Clinical Figure 1 (Page 2 Reference)*
+
+![Hepatitis - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/hepatitis/figure_02_p4.jpeg)
+*Hepatitis — Clinical Figure 2 (Page 4 Reference)*
+
+![Hepatitis - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/hepatitis/figure_03_p6.jpeg)
+*Hepatitis — Clinical Figure 3 (Page 6 Reference)*
+
+![Hepatitis - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/hepatitis/figure_04_p11.jpeg)
+*Hepatitis — Clinical Figure 4 (Page 11 Reference)*
+
+![Hepatitis - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/hepatitis/figure_05_p12.jpeg)
+*Hepatitis — Clinical Figure 5 (Page 12 Reference)*$LEC_GAST_069$,
+      "position"   = 22,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hepatitis' OR "slug" = 'hepatitis');
 
-  -- 2) Upsert Quiz Lesson (Position 23)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 23)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -8535,14 +14221,94 @@ $SBA_GAST_069$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 13/21: Inflammatory Bowel Disease (Crohn & UC)
-  -- 1) Interleave Lecture (Position 24)
+  -- Pair 13/21: Inflammatory Bowel Disease (Crohn & UC)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 24)
   UPDATE "lessons"
-  SET "position" = 24, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Inflammatory Bowel Disease (Crohn & UC)',
+      "body"       = $LEC_GAST_070$# Inflammatory Bowel Disease (Crohn & UC)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Area of bowel affected Risk factors Common associations Clinical features Ulcerative colitis
+- Usually only affects rectum and colon. Terminal ileum may be affected if 'backwash ileitis' occurs
+- No 'skip lesions'
+- Primarily affects mucosa and submocosa
+- Mucosal ulcers, inflammatory cell infiltrate and crypt abscesses seen
+- Family history
+- Not smoking (smoking protect against UC)
+- Not Appendicectomy- Appendicectomy is thought to be protective against UC
+- Drugs — NSAID Liver associations:
+-
+- Primary biliary cirrhosis
+- Chronic active hepatitis Primary sclerosing cholangitis Other systemic manifestations occur but less common than in Crohn's disease
+- Abdominal pain less prominent
+- Bloody diarrhoea in 90%. Passage of mucous common
+- Fever can be present Urgency, tenesmus and pre- defecation pain that is relieved by passage of stools common
+- FBC, ESR, C- reactive protein,U&E Crohn's disease Anywhere from the mouth to the
+- anus. these are called 'skip lesions' because they leave normal areas in between.
+- Transmural inflammation, lymphoid aggregates and neutrophil infiltrates present
+- Family history Smoking
+-
+- Infectious gastroenteritis Appendicectomy
+- Drugs— NSAID Systemic manifestations more common than in UC: Erythema nodosum
+- Pyoderma gangrenosum
+- Iritis/uveitis
+- Cholelithiasis Joint pain/arthropathy
+-
+- Abdominal pain
+- Diarrhoea (can be bloody)
+- Pallor, clubbing, aphthous mouth ulcers
+- Perianal pain or tenderness fatigue, malaise, anorexia, or fever
+-
+- FBC, ESR, C- reactive protein,U&E
+
+## Investigations & Diagnostic Workup
+FTS, serum B12, folate and D level¯GQFTS, serum 812, folate and D leve
+- Colonoscopy with histology of
+- multiple intestinal biopsy specimens
+- Histology findings may include crypt distortion, acute inflammatory changes of cryptitis, crypt abscesses, and infiltrative changes.
+- Aminosalicylates — mesalazine and sulfasalazine (if corticosteroid Cl or not tolerated). previous
+- Immunosuppressive drugs — Next azathioprine, mercaptopurine.
+- Biologic therapy — the anti- tumour necrosis factor alpha monoclonal antibody agents infliximab and adalimumab Management & complications Complications
+- Fistulae rare 20-fold increase in 20-year risk of colonic carcinoma
+- Iron deficiency anaemia Colonoscopy: Findings may include discontinuous colonic or ileal inflammation or ulceration, a 'cobblestone' appearance, and rectal sparing. Endoscopy and biopsy gold-
+- standard for assessing mucosal activity
+- Corticosteroids —prednisolone
+- Immunosuppressive drugs — azathioprine, mercaptopurine agents infliximab and adalimumab
+- Aminosalicylates — mesalazine and sulfasalazine (if corticosteroid Cl or not tolerated). To maintain remission in people
+- with ileocolonic Crohn's disease who have had a complete macroscopic resection within the last 3 months- NICE guideline recommends azathioprine in combination with up to 3 months' postoperative metronidazole should be considered.
+- Complications
+- Fistulae and abscess formation common Slight increased risk of colonic carcinoma
+- 812 deficiency common
+
+- Iron aeTlclency anaemia
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Inflammatory Bowel Disease (Crohn & UC) - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/inflammatory-bowel-disease-crohn-uc/figure_01_p2.jpeg)
+*Inflammatory Bowel Disease (Crohn & UC) — Clinical Figure 1 (Page 2 Reference)*
+
+![Inflammatory Bowel Disease (Crohn & UC) - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/inflammatory-bowel-disease-crohn-uc/figure_02_p3.jpeg)
+*Inflammatory Bowel Disease (Crohn & UC) — Clinical Figure 2 (Page 3 Reference)*
+
+![Inflammatory Bowel Disease (Crohn & UC) - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/inflammatory-bowel-disease-crohn-uc/figure_03_p3.jpeg)
+*Inflammatory Bowel Disease (Crohn & UC) — Clinical Figure 3 (Page 3 Reference)*
+
+![Inflammatory Bowel Disease (Crohn & UC) - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/inflammatory-bowel-disease-crohn-uc/figure_04_p4.jpeg)
+*Inflammatory Bowel Disease (Crohn & UC) — Clinical Figure 4 (Page 4 Reference)*
+
+![Inflammatory Bowel Disease (Crohn & UC) - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/inflammatory-bowel-disease-crohn-uc/figure_05_p4.jpeg)
+*Inflammatory Bowel Disease (Crohn & UC) — Clinical Figure 5 (Page 4 Reference)*$LEC_GAST_070$,
+      "position"   = 24,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'inflammatory-bowel-disease-crohn-uc' OR "slug" = 'inflammatory-bowel-disease');
 
-  -- 2) Upsert Quiz Lesson (Position 25)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 25)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -8654,14 +14420,62 @@ $SBA_GAST_070$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 14/21: Acute Mesenteric & Ischaemic Bowel Disease
-  -- 1) Interleave Lecture (Position 26)
+  -- Pair 14/21: Acute Mesenteric & Ischaemic Bowel Disease
+  -- A) Update & Beautify Clinical Theory Lecture (Position 26)
   UPDATE "lessons"
-  SET "position" = 26, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Mesenteric & Ischaemic Bowel Disease',
+      "body"       = $LEC_GAST_071$# Acute Mesenteric & Ischaemic Bowel Disease
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Definition Risk factors Clinical feature Investigations Acute mesenteric ischaemia This is an umbrella term covering a number Of conditions, includingacute mesenteric arterial embolus and thrombus, mesenteric venous thrombus and non- occlusive mesenteric ischaemia (NOMI). They all have the features of impaired blood transfusion to the intestine Age>50 years History of smoking Hypercoagulable states (strong risk factor for mesenteric venous thrombosis)
+- Afib, MI, structural heart disease History of vasculitis Of proportion. there may be minimal or no tenderness. later sta s- typical symptoms of peritonism develop, with rebound guarding and tenderness Urgent CT contrast/angiogram FBC (elevated WCC) ABGs & Serum lactate (metabolic acidosis and elevated lactate)
+- LFTS ECG
+- ECHO Chronic mesenteric ischaemia This is a chronic atherosclerotic disease of the vessels supplying the intestine. It is also known as intestinalangina. Usually all three major mesenteric arteries are involved Common in female age b/w 50 and
+
+#### Clinical Scenario 70:
+- Generally caused by factors predisposi ng to atherosclerosis
+- eg, smoking, hypertension, diabetes mellitus and hyperlipidaemia. weight loss, postprandial pain ('intestinal angina') and a fear of eating nausea, vomiting, or bowel irregularity
+
+## Clinical Examination & Assessment
+- reveal
+- vague abdominal tenderness disproportionateto the severity of the pain
+- FBC,LFTs Arteriography (gold standard) Mesenteric duplex ultrasonography Ischaemic colitis This is caused by a compromise of the blood circulation supplying the colon. Ischaemic colitis may also be caused by venous occlusion. The average age for diagnosis is
+
+#### Clinical Scenario 70:
+- Thrombosis- Inferior mesenteric artery thrombosis. Emboli
+- Mesenteric arterial emboli. Strangulated hernia or volvulus. Vasculitis Hypercoagulable states acute-onset abdominal pain
+- most frequently located in the left iliac fossa. Tenderness to palpation over the affected bowel Nausea and vomiting loose motion containingdark blood (late stage) Urgent CT contrast/angiogram
+- FBC (elevated WCC) ABCs & Serum lactate (metabolic acidosis and elevated lactate)
+- LFTS
+- AXR Colonoscopy may show blue, swollen mucosa Barium enema shows 'thumb orintinø' in the earlv nhase that
+
+- Medical thera Start IV fluid and antibiotics NG tube Should be sited Surgical intervention Urgent laparotomy should be done for patients with peritonitis
+
+## Emergency Management Protocol
+- The goals of surgery include re- establishmentof the blood supply to the ischaemic bowel; resection of all non-viable regions and preservation of all viablebowel. Endovascular revascularisation procedures may have a role with partial arterial occlusion.  Asymptomatic patients Managed conservatively, with smoking cessation and antiplatelettherapy. Symptomatic chronic mesenteric ischaemia open or endovascular revascularisation, Postoperative complication Renal failure Next may last for several days Medical therapy Start IV fluid and antibiotics The ischaemia may be transient and resolve once the cause of the hypoperfusion has been alleviated Surgical intervention Segmental colectomy Patients who have an acute episode of colonic ischaemia that evolves intoa segmental colitis pattern with symptoms persisting for
+- 2 weeks, or who develop a protein-losing colonopathyor Recurrent sepsis in a patient who has symptomatically recovered from an acute episode Of colonic ischaemia
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Mesenteric & Ischemic Bowel Disease - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/acute-mesenteric-ischemic-bowel-disease/figure_01_p2.jpeg)
+*Acute Mesenteric & Ischemic Bowel Disease — Clinical Figure 1 (Page 2 Reference)*
+
+![Acute Mesenteric & Ischemic Bowel Disease - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/acute-mesenteric-ischemic-bowel-disease/figure_02_p3.jpeg)
+*Acute Mesenteric & Ischemic Bowel Disease — Clinical Figure 2 (Page 3 Reference)*
+
+![Acute Mesenteric & Ischemic Bowel Disease - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/acute-mesenteric-ischemic-bowel-disease/figure_03_p3.jpeg)
+*Acute Mesenteric & Ischemic Bowel Disease — Clinical Figure 3 (Page 3 Reference)*$LEC_GAST_071$,
+      "position"   = 26,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-mesenteric-ischemic-bowel-disease' OR "slug" = 'ischemic-bowel');
 
-  -- 2) Upsert Quiz Lesson (Position 27)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 27)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -8770,14 +14584,108 @@ $SBA_GAST_071$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 15/21: Acute Jaundice Differential in the ED
-  -- 1) Interleave Lecture (Position 28)
+  -- Pair 15/21: Acute Jaundice Differential in the ED
+  -- A) Update & Beautify Clinical Theory Lecture (Position 28)
   UPDATE "lessons"
-  SET "position" = 28, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Jaundice Differential in the ED',
+      "body"       = $LEC_GAST_072$# Acute Jaundice Differential in the ED
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Pre-hepatic
+- Haem molecules are degraded in macrophages via biliverdin to bilirubin. This occurs mainly in the spleen and liver but also in other tissues such as the skin and kidneys. . Causes Haemolytic anaemias
+- Sickle cell disease, thalassemia major, Hereditary spherocytosis, G6PD, Vitamin B12 deficiency, Autoimmune disorders) Drugs
+- Haemolysisof RBCs (for example, methyldopa, and sulphasalazine).
+- Hepatitis (for example, paracetamol overdose, pyrazinamide, rifampicin, and isoniazid).
+- Cholestasis (for example, co- amoxiclav, flucloxacillin, oral contraceptives, HRT, chlorpromazine, and corticosteroids).
+- Hepatic idiosyncratic reactions (for example, aspirin, NSAIDs, amiodarone, sodium valproate, and minocycline) Gilbert's syndron
+- e
+- Plasma bilirubin concentrations can rise in people with Gilbert's syndrome during intercurrent illness, periods of stress, when Intra-hepatic
+- Once in the liver, unconjugated bilirubin is selectively removed from the blood by hepatocytes. It is then conjugated in the hepatocytes with glucuronic acid, becomes water soluble, and can be excreted in bile. Causes Viral infection
+- HepatitisA, B, C, D, and E, Epstein-Barr virus, HIV infection. Alcohol Alcohol-related liver disease is a major cause of morbidity and mortality in Europe. Non-alcoholic fatty liver disease (NAFLD)
+- Non-alcoholic fatty liver disease refers to excessive fat accumulation (steatosis) in the hepatocytes. Autoimmune liver disorders. Primarv biliary cholangitis (common in middle age women, 95% of people with PBC have high titres of anti- mitochondrial antibodies). Primary sclerosing cholangitis (PSC is more common in men. Nearly 70% of people with PSC also have inflammatory bowel disease and it can lead Post-hepatic
+- Soluble bilirubin is transported through the liver and cystic ducts in bile and then stored in the gallbladder or passes into the duodenum. In the intestine, some bilirubin is excreted in the stool and the rest is metabolized by gut flora into urobilinogen and reabsorbed and excreted by the kidneys. Causes
+- Gallstones
+- Biliary colic
+- this describes pain in the epigastrium or right upper quadrant that is usually persistent, lasting from 15 minutes up to several hours. Pain lasting more than 24 hours or accompanied by fever suggests acute cholecystitis.
+- Acute cholecystitis
+- it is inflammation or infection of the gallbladder with pain similar to biliary colic along with fever and tenderness in the right upper quadrant.
+- Acute cholangitis
+- It is an inflammation or infection of the common bile duct. It is classically diagnosed by the symptoms of Charcot's triad fever, pain, and jaundice. Surqicalstrictures '&liary strictures and infectio
+
+menstruation Criqler-Naiiarsyndrome
+- presents in neonates with progressive jaundice in the first few days of life. If untreated it leads to bilirubin encephalopathy (kernicterus) and death. cnolanglocarcmo Antinuclear cytoplasmic antibody is present in 30% of people with PSC). Autoimmune hepatitis Metabolic causes of intra- hepatic iaundice Dubin-Johnson and Rotor's syndromes, Haemochromatosis, Wilson's disease. Druqs (mentioned in pre-hepatic) Maliqnancv of the biliarv system should be considered in people with post-operative jaundice.
+- Biliary strictures can occur following liver transplantation or cholecystectomy. Extra-hepatic ma lig nancv Pancreatic cancer
+- Pancreatitis
+- The most common causes of pancreatitis are alcohol misuse and gallstones. Parasitic infection
+- Plasmodium falciparum, Fasciola, Chlonorchis.
+- Hepatocellular carcinoma, Cholangiocarcinoma, Gallbladder cancer. Jaundice in newborn
+
+- Physiological jaundice Breastmilk jaundice Causes Risk factors At usually appears at 2 days of age, peaks on days 3—5, and then decreases, usually by around day 10
+- Physiological jaundice can occur in breastfed and formula-fed babies and results from increased bilirubin load, decreased uptake by the liver, decreased conjugation in the liver, and decreased excretion into bile.
+- Decreased gestational age/preterm delivery.
+- Low infant birth weight.
+- Development of jaundice within first 24 hours Of life.
+- Male sex
+- Visible bruising, Cephalhaematoa
+- Maternal age older than 25 years, or Maternal DM
+- Asian, European, or native American ethnicity.
+- Sibling born with jaundice.
+- Dehydration, Poor caloric intake, breastfeeding
+- Reassurance & Advice leaflet Management At is prolongation of physiological jaundice in breastfed babies. At usually presents within the first week of life (day 2—4) and peaks on day 7—
+
+#### Clinical Scenario 15:
+- In some cases, it can persist for up to 12 weeks. Ahe mechanism is unknown, but possible reasons include a decreased caloric intake and inhibition of hepatic bilirubin excretion Same as in physiological
+- First line Reassurance
+- Temporary breast-feeding cessation and supplemental feeding maybe considered.
+- Second-line — phototherapy and hydration.
+- Third-line — exchange transfusion Pathological jaundice Vit usually appears less than 24 hours. At can be caused bv a number of factors. including:
+- most commonly Rhesus or ABO incompatibility.
+- biliary atresia Sepsis
+- Metabolic disorders (for example galactosaemia, hereditary fructose intolerance, alpha-I antitrypsin deficiency, hypothyroidism)
+- Gilbert's syndrome and Cigler-Najjar syndrome
+- G6PD deficiency. Same there is jaundice with features Of bilirubin encephalopathy (for example atypical sleepiness, poor feeding, irritability, vomiting, hypotonia followed by hypertonia).
+- Arranqe urgent admission to a neonatal or paediatric unit
+- within 2 hours if jaundice first appears at less than 24 hours of age. Arranae uraent admission to a neonatal or paediatric unit
+- as soon as possible and to be seen within 6 hours (using clinical
+
+- previous  uagemem regaralng more urgent rererral o admission) if:
+- Jaundice first appears at more than 7 days of age.
+- The neonate is unwell (for example, lethargy, fever, vomiting, irritability).
+- Gestational age is of less than 35 weeks.
+- Prolonged jaundice is suspected — that is a gestational age Of less than 37 weeks with more than 21 days Of jaundice; or a gestational age Of 37 weeks or more with more than 14 days of jaundice.
+- There are feeding problems and/or concerns about weight, particularly in breastfed infants.
+- Pale stools and dark urine are noted.
+- Specialist treatment include
+- Phototherapy, hydration and exchange
+- nsfusion (if not respond to phototherapy Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Jaundice Differential in the ED - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/acute-jaundice-differential-in-the-ed/figure_01_p2.jpeg)
+*Acute Jaundice Differential in the ED — Clinical Figure 1 (Page 2 Reference)*
+
+![Acute Jaundice Differential in the ED - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/acute-jaundice-differential-in-the-ed/figure_02_p3.jpeg)
+*Acute Jaundice Differential in the ED — Clinical Figure 2 (Page 3 Reference)*
+
+![Acute Jaundice Differential in the ED - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/acute-jaundice-differential-in-the-ed/figure_03_p4.jpeg)
+*Acute Jaundice Differential in the ED — Clinical Figure 3 (Page 4 Reference)*
+
+![Acute Jaundice Differential in the ED - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/acute-jaundice-differential-in-the-ed/figure_04_p5.jpeg)
+*Acute Jaundice Differential in the ED — Clinical Figure 4 (Page 5 Reference)*
+
+![Acute Jaundice Differential in the ED - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/acute-jaundice-differential-in-the-ed/figure_05_p5.jpeg)
+*Acute Jaundice Differential in the ED — Clinical Figure 5 (Page 5 Reference)*$LEC_GAST_072$,
+      "position"   = 28,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-jaundice-differential-in-the-ed' OR "slug" = 'jaundice');
 
-  -- 2) Upsert Quiz Lesson (Position 29)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 29)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -8892,14 +14800,58 @@ $SBA_GAST_072$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 16/21: Pancreatitis & Loin Pain Differential
-  -- 1) Interleave Lecture (Position 30)
+  -- Pair 16/21: Pancreatitis & Loin Pain Differential
+  -- A) Update & Beautify Clinical Theory Lecture (Position 30)
   UPDATE "lessons"
-  SET "position" = 30, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Pancreatitis & Loin Pain Differential',
+      "body"       = $LEC_GAST_073$# Pancreatitis & Loin Pain Differential
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+## Key Clinical Features
+Severe and sudden onset of abdominal pain which becomes constant, is located
+- in the epigastric region, right and/or left upper quadrant, and may radiate to the back or flanks. If caused by gallstones, pain may be described as sudden and knife-like, and may
+- be worse after food. nausea, anorexia, and vomiting.
+
+## Clinical Examination & Assessment
+
+- Signs of shock — such as tachycardia, tachypnoea, and hypotension.
+- Abdominal distension
+- Abdominal tenderness — may be signs of generalized peritonitis, rebound tenderness, and guarding if severe episode. Cullen's sign — Ecchymoses (bluish discolouration) around the umbilicus.
+- Grey-Turner's sign — Ecchymoses (bluish discolouration) around the flank.
+-
+
+## Investigations & Diagnostic Workup
+Blood tests — FBC, CRP, serum amylase & lipase, LFTS
+- CT or MRI
+- Magnetic resonance cholangiopancreatography (MRCP) and/or endoscopic ultrasonography (EUS) may be needed if the underlying cause is unknown Management Resuscitation with intravenous fluids.
+- Supplemental oxygen.
+- Intravenous analgesia.
+
+tissue.
+- Complications Pancreatic necrosis
+- Pancreatic abscess
+- Pancreatic fistulae
+- Sepsis
+- DIC previous  Intravenous antibiotics for treatment of infected pancreatic necrosis and/or associated cholangitis. Early nutritional support which may involve initial parenteral feeding if the person is unable to tolerate oral intake SurgicaLmanagement Endoscopic retrograde cholangiopancreatography (ERCP) to relieve the obstruction within 72 hours of the onset of pain, for those with gallstones and cholangitis, jaundice, or common bile duct obstruction.
+- Cholecystectomy may be arranged during the same hospital admission for mild acute gallstone pancreatitis or may be deferred until after the resolution of severe acute pancreatitis. Percutaneous or endoscopic drainage of pancreatic collections, and potential surgical management of other complications such as debridement of necrotic Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Loin Pain Pancreatitis - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/loin-pain-pancreatitis/figure_01_p3.jpeg)
+*Loin Pain Pancreatitis — Clinical Figure 1 (Page 3 Reference)*$LEC_GAST_073$,
+      "position"   = 30,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'loin-pain-pancreatitis' OR "slug" = 'loin-pain-pancreatitis');
 
-  -- 2) Upsert Quiz Lesson (Position 31)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 31)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -9002,14 +14954,90 @@ $SBA_GAST_073$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 17/21: Acute Lower Gastrointestinal Bleeding
-  -- 1) Interleave Lecture (Position 32)
+  -- Pair 17/21: Acute Lower Gastrointestinal Bleeding
+  -- A) Update & Beautify Clinical Theory Lecture (Position 32)
   UPDATE "lessons"
-  SET "position" = 32, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Lower Gastrointestinal Bleeding',
+      "body"       = $LEC_GAST_074$# Acute Lower Gastrointestinal Bleeding
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Severe lower GI bleeding has been defined as continued bleeding within the first
+- 24 hours of hospitalization (transfusion of 22 units of blood and/or hematocrit decrease of 220%).
+- The-following bleeding;
+- Systolic BP <115 mmHg Heart rate
+- IOO bpm
+-
+- Syncope Nontender abdomen
+- Bleeding per rectum during the first 4 hours of presentation
+- Aspirin use
+- More than 2 active comorbid states
+- Shock index
+
+#### Clinical Scenario 21:
+The shock index is calculated by dividing the patient's heart rate by
+- the systolic blood pressure and is a marker of hemodynamic instability. Detail history
+- Age of patient: Diverticular disease and angiodysplasia are more common in older patients (age
+- 60 years). Duration of the bleeding
+- Color of the blood: The color of the blood in the stool, and whether the blood coats
+- the stool or is mixed with the stool, helps to localize the site of bleeding
+- Associated dizziness or syncope: Presence of syncope may suggest that the patient has lost a significant arnount of blood.
+- Other associated features include abdominal pain, constipation, rectal pain, weight loss, diarrhea, and tenesmus. The presence of abdominal pain and diarrhea with hematochezia (bright red rectal bleeding) suggests colitis, either inflammatory or ischemic, while angiodysplasia does not usually cause pain.
+
+## Clinical Examination & Assessment
+Assessment of vital signs — Presence of hemodynamic instability suggests presence of severe bleeding.
+- Palpation of the abdomen — for tenderness, hepatomegaly or abdominal masses. Hepatomegaly or abdominal masses prompt evaluation for colorectal cancer as the source of the bleeding.
+- Rectal exam — It is essential to perform a rectal exam in all patients with lower GI bleeding to exclude a palpable rectal mass.
+
+## Investigations & Diagnostic Workup
+FBC ESR
+- C-Reactive protein
+- Stool culture
+- Coagulation screen
+- LFTs
+- Cross-match
+- VBC
+- CXR
+- Anoscopy — In a patient with suspected anorectal source of bleeding, anoscopy can be a useful diagnostic test. Internal hemorrhoids can be visualized on anoscopy.
+- Colonoscopy is usually the initial imaging procedure in all patients with suspected lower GI bleeding in whom an upper GI or anorectal source has been excluded.
+- Radionuclide imaging — In patients with a normal colonoscopy and esophagogastroduodenoscopy and persistent bleeding, radionucleotide imaging may be useful to localize the source of even minimal bleeding (as little as 0.1 mL/minute).
+
+- Angiography — is performed in patients with persistent GI bleeding with negative colonoscopy or in whom endoscopy is not feasible.
+- CT scan of the abdomen — is useful in the diagnosis of ischemic colitis and aortoenteric fistula. CT scan of the abdomen is the first test done in evaluation of patients with suspected colonic ischemia.
+- Esophagogastroduodenoscopy (EGD) — is the diagnostic test of choice to rule out the upper GI tract as the source of the bleeding. It is also useful for the diagnosis of aortoenteric fistula.
+- Serologic markers (ANA, ANCA) — performed if the bleeding is suspected to be secondary to a vasculitic disease such as systemic lupus erythematosus.
+
+## Emergency Management Protocol
+Resuscitation
+- Two large-bore peripheral intravenous catheters or a central venous line are necessary.
+- Resuscitation with intravenous fluids and blood transfusions and correction of any underlying coagulopathy or thrombocytopenia is required.
+- Colonoscopy_(used for both diagnostic and therapeutic purpose)
+- Guidelines published by the American Society for Gastroenterology strongly recommend that a Colonoscopy should be the initial diagnostic procedure for nearly all patients presenting with acute LGIB.
+- In patients with high-risk clinical features and signs or symptoms of ongoing bleeding, a rapid bowel purge should be initiated following hemodynamic resuscitation and performed within 24 h of patient presentation.
+- During colonoscopy, it is possible to perform coagulation to stop the bleeding (thermal contact or epinephrine injection, haemoclips and band ligation).
+- it is vital to consider the risk of perforation when using this treatment modality.
+
+- Angiography
+- Angiography is recommended in patients with a massive lower GI haemorrhage or if a colonoscopy proves unsuccessful.
+- Superselective embolisation aims to decrease the arterial blood flow. This reduces pressure to the bleeding site so haemostasis occurs. There is a small risk of ischemia
+- Surgical-intervention-(segmental-resec.tion)
+- Surgery acutely for LGIB should be considered if massive bleed, and after other therapeutic options have failed.
+- Note: other Iow risk condition i-e anal fissure , hemorrhoid manage accordingly. previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Lower Gi Bleeding - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/lower-gi-bleeding/figure_01_p5.jpeg)
+*Lower Gi Bleeding — Clinical Figure 1 (Page 5 Reference)*$LEC_GAST_074$,
+      "position"   = 32,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'lower-gi-bleeding' OR "slug" = 'lower-gi-bleeding');
 
-  -- 2) Upsert Quiz Lesson (Position 33)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 33)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -9112,14 +15140,46 @@ $SBA_GAST_074$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 18/21: Mallory-Weiss Syndrome & Upper GI Bleeding
-  -- 1) Interleave Lecture (Position 34)
+  -- Pair 18/21: Mallory-Weiss Syndrome & Upper GI Bleeding
+  -- A) Update & Beautify Clinical Theory Lecture (Position 34)
   UPDATE "lessons"
-  SET "position" = 34, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Mallory-Weiss Syndrome & Upper GI Bleeding',
+      "body"       = $LEC_GAST_075$# Mallory-Weiss Syndrome & Upper GI Bleeding
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Definition Clinical features Investigations Mallory-Weiss Tear Mallory-Weiss tear, also known as Mallory-Weiss syndrome, is a longitudinal mucosal tear or laceration of the mucous membrane in the region of the gastroesophageal junction and gastric cardia. Vomiting Retching Hematemesis Epigastric pain Endoscopy confirm diagnosis Boerhaave syndrome It is due to the rupture of the esophagus due to forceful emesis after excessive food or alcohol consumptions. Esophageal transmural tear Sudden, severe chest pain. Nausea and vomiting. Pain or coughing when swallowing. Short, rapid breathing. Swelling in the tissues of the chest cavity with air or fluid. Hard, rigid abdomen. Signs of infection like fever and sweating. Esophagram CXR findings Pneumomediastinum Left sided pleural effusion Pneumothorax Subcutaneous emphysema
+
+## Emergency Management Protocol
+Resuscitation & supportive care. Consider anti-emetic Endoscopic intervention for continual bleed Iv fluid & antibiotics Surgical repair. Ideally, the rupture should be repaired directly within 24 hours.
+
+Esophageal rupture- yellow arrow indicates subcutaneous emphysema and the black arrows indicate pneumomediastinum
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Mallory-Weiss Syndrome & Upper GI Bleeding - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/mallory-weiss-syndrome-upper-gi-bleeding/figure_01_p2.jpeg)
+*Mallory-Weiss Syndrome & Upper GI Bleeding — Clinical Figure 1 (Page 2 Reference)*
+
+![Mallory-Weiss Syndrome & Upper GI Bleeding - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/mallory-weiss-syndrome-upper-gi-bleeding/figure_02_p3.jpeg)
+*Mallory-Weiss Syndrome & Upper GI Bleeding — Clinical Figure 2 (Page 3 Reference)*
+
+![Mallory-Weiss Syndrome & Upper GI Bleeding - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/mallory-weiss-syndrome-upper-gi-bleeding/figure_03_p4.jpeg)
+*Mallory-Weiss Syndrome & Upper GI Bleeding — Clinical Figure 3 (Page 4 Reference)*
+
+![Mallory-Weiss Syndrome & Upper GI Bleeding - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/mallory-weiss-syndrome-upper-gi-bleeding/figure_04_p5.jpeg)
+*Mallory-Weiss Syndrome & Upper GI Bleeding — Clinical Figure 4 (Page 5 Reference)*$LEC_GAST_075$,
+      "position"   = 34,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'mallory-weiss-syndrome-upper-gi-bleeding' OR "slug" = 'mallory-weiss-tear');
 
-  -- 2) Upsert Quiz Lesson (Position 35)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 35)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -9231,14 +15291,61 @@ $SBA_GAST_075$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 19/21: Peptic Ulcer Disease & Complications
-  -- 1) Interleave Lecture (Position 36)
+  -- Pair 19/21: Peptic Ulcer Disease & Complications
+  -- A) Update & Beautify Clinical Theory Lecture (Position 36)
   UPDATE "lessons"
-  SET "position" = 36, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Peptic Ulcer Disease & Complications',
+      "body"       = $LEC_GAST_076$# Peptic Ulcer Disease & Complications
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Test the person for H. pyloriinfection
+- A carbon-13 urea breath test or stool antigen test — ensure the person has not taken a PPI in the past 2 weeks, or antibiotics in the past 4 weeks, or
+- Laboratory serological testing if these options are not available, providing the test has been locally validated.
+
+## Emergency Management Protocol
+Confirmed H-pylori infection associated with NSAID use
+- PPI therapy- prescribe full-dose PPI therapy (Lansoprazole 30 mg, omeprazole 20— 40 mg, esomeprazole 20 mg, pantoprazole 40 mg) for 2 months
+- H-pylori eradication therapy — PPI twice daily and amoxicillin 1 g twice daily and eitherclarithromycin 500 mg twice-daily or metronidazole 400 mg twice-daily for 7 — IO days
+- Ifthe person is allergic to penicillin, BNF recommends, offer a 7-day triple therapy regimen inlcude PPI twice daily and clarithromycin 250 mg twice daily and metronidazole 400 mg twice-daily.
+- Confirmed H-pylori infection, Not associated with NSAID use
+- prescribe 7-day first-line IA-pylori eradication therapy only.
+- 'f the person tests negative for H. pylori infection with a proven gastric or duodenal ulcer
+- Prescribe full-dose PPI therapy for 4—8 weeks, depending on clinical judgement.
+- Prevention measures
+- Offer advice on lifestyle measures which may improve symptoms — Lose weight if they are overweight or obese
+
+Avoid any trigger foods, such as coffee, chocolate, tomatoes, fatty or spicy foods.
+- Eat smaller meals and eat their evening meal 3—4 hours before going to bed, if
+- possible. Smoking cessation
+- Reduce alcohol consumption
+- Assess for stress, anxiety, and depression which may worsen symptoms. Encourage
+- relaxation strategies, consider referral for psychological therapies, and manage depression symptoms if needed. Review the person's medication:
+- stop NSAID Consider stopping or reducing — Aspirin, bisphosphonates, corticosteroids,
+- potassium supplements, selective serotonin reuptake inhibitors (SSRIs), or recreational drugs such as crack cocaine. Advise that self-treatment with an antacid and/or alginate may be used for short- term symptom control, but long-term, continuous use is not recommended.
+- Advise a person with a proven gastric or duodenal ulcer to arrange a follow-up appointment if there are refractory or recurrent symptoms.
+- Complications Haemorrhage
+- Perforation
+- Gastric outlet obstruction — this may result from strictures and stenosis of
+- the pylorus and/or duodenum due to chronic inflammation and scarring, Gastric malignancy — there is an increased risk in Helicobacter pyloripositive
+- gastric ulcer disease.
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Peptic Ulcer - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/peptic-ulcer/figure_01_p4.jpeg)
+*Peptic Ulcer — Clinical Figure 1 (Page 4 Reference)*$LEC_GAST_076$,
+      "position"   = 36,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'peptic-ulcer' OR "slug" = 'peptic-ulcer');
 
-  -- 2) Upsert Quiz Lesson (Position 37)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 37)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -9341,14 +15448,51 @@ $SBA_GAST_076$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 20/21: Infantile Hypertrophic Pyloric Stenosis
-  -- 1) Interleave Lecture (Position 38)
+  -- Pair 20/21: Infantile Hypertrophic Pyloric Stenosis
+  -- A) Update & Beautify Clinical Theory Lecture (Position 38)
   UPDATE "lessons"
-  SET "position" = 38, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Infantile Hypertrophic Pyloric Stenosis',
+      "body"       = $LEC_GAST_077$# Infantile Hypertrophic Pyloric Stenosis
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- intravenous fluid and electrolyte replacement, followed by pyloromyotomy (open or laparoscopic).
+- Complications of pyloromyotomy_
+- wound infection, gastric or duodenal mucosal perforation, or incomplete myotomy.
+
+- Blood Gas Values ( 7350
+- 7450 350
+- 450 t pco, poa cBase(Ecf)c Oximetry Values ctHb FCOHb FHHb FMetHb Hctc Electrolyte Values 134
+- 146 cNa
+- 1 n
+- 132 ccaa
+- ccr Metabolite Values t cGlu t cLac 7.618 54.4 164 56.2 30.1 99.3 108 1.2 0.7 1.5 33.2 136 3.0 097 72 8.7 1.7 mmHg ntmHg mmobL mmol,L gfL mmobL r,nmobl_ nmol,L mmol,L mmol,L mmobL 210
+- 30 34 98
+- 280
+- 30
+- 60
+- 50
+- 108 Figure: Blood gas demonstrating hypochloraemic, hypokalaemic metabolic alkalosis.
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Pykoric Stenosis - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/pykoric-stenosis/figure_01_p3.jpeg)
+*Pykoric Stenosis — Clinical Figure 1 (Page 3 Reference)*
+
+![Pykoric Stenosis - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/pykoric-stenosis/figure_02_p4.jpeg)
+*Pykoric Stenosis — Clinical Figure 2 (Page 4 Reference)*$LEC_GAST_077$,
+      "position"   = 38,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'pykoric-stenosis' OR "slug" = 'pyloric-stenosis');
 
-  -- 2) Upsert Quiz Lesson (Position 39)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 39)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -9454,14 +15598,169 @@ $SBA_GAST_077$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 21/21: Upper Gastrointestinal Bleeding & Resuscitation
-  -- 1) Interleave Lecture (Position 40)
+  -- Pair 21/21: Upper Gastrointestinal Bleeding & Resuscitation
+  -- A) Update & Beautify Clinical Theory Lecture (Position 40)
   UPDATE "lessons"
-  SET "position" = 40, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Upper Gastrointestinal Bleeding & Resuscitation',
+      "body"       = $LEC_GAST_078$# Upper Gastrointestinal Bleeding & Resuscitation
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+with lower GI bleeding (LGIB), which is distal to the duodenojejunal junction at the ligament of Treitz.
+- Melena
+- overwhelmingly associated with UGIB.
+- Hematochezia — more common in LGIB then UGIB
+- Weakness & fatigue
+- hypotension or tachycardia
+- If bleed due to chronic liver disease, the following additional features can be seen:
+- Encephalopathy with or without asterixis
+- Scleral icterus Spider telangiectasias, also known as spider angioma, on the face, chest, or abdomen Gynecomastia
+- Hepatomegaly or splenomegaly
+- Ascites, caput medusae with or without Cruveilhier-Baumgarten bruit Hypogonadism
+- Terry's nails (white nails)
+- Palmar erythema
+
+## Risk Stratification
+Both the Glasgow-Blatchford and Rockall scores are useful tools to aid the clinician in identifying high-risk upper Cl bleeds.
+- Glasgow-Blatchford Score
+- The Glasgow-Blatchford score is the risk assessrnent tool of choice in the emergency department.
+
+It is calculated using FOUR component:
+- Medical history (hepatic disease, heart failure),
+- Symptoms (melaena, syncope),
+-
+- Signs (tachycardia, blood pressure), Blood tests (haemoglobin, urea).
+-
+
+- Risk marker Range 6.5-7.5 Urea 8.0-9.9 10.0
+- 24.9
+- 25.o Haemoglobin (g/dL) 12
+- 12.9 for men 10.0- 11 9 <IO.O Haemoglobin (g/dL ) 10.0- 11 9 for women 10.0 Systolic blood 100-109 pressure (mmHg) 90-99 Pulse
+- 100 Other markers Melaena Syncope Hepatic disease Cardiac failure Score 2 3 4 5 1 3 6 1 6 1 2 3 1 1 2 2 2
+
+The maximum score is
+
+#### Clinical Scenario 29:
+NICE recommends that patients with a Blatchford score of O can be considered for early discharge with outpatient endoscopy follow-up.
+- Rockall score
+- The score consists of three clinical parameters pre-endoscopic (age, presence of shock, and comorbidity) and two parameters that rely on endoscopic findings (blood and diagnosis). The maximum pre-endoscopy Rockall score is 7 and post-endoscopy is II.
+
+- Variable Age Shock (BP & Pulse) Comorbidity Endoscopy Diagnosis BP>IOO p<100 None No blood or dark spot only Mallory- Weiss tear 60-79 BP>IOO P>IOO All other diagnoses BP<IOO Cardiac failure or IHD Blood in upper GI tract, adherent clot or spurting vessel GI tract malignancy Renal failure, liver failure or disseminated malignancy
+
+## Risk Stratification
+key_points
+
+### Low-Risk Criteria
+Glasgow-Blatchford Score O — consider discharge with outpatient
+- endoscopy Moderate risk:admit to appropriate inpatient specialty for urgent endoscopy
+-
+
+### High-Risk Features (Red Flags)
+Rockall Score (pre-endoscopy) 23, haemodynamic instability, known varices — resuscitate, admit to critical care area for emergency endoscopy.
+
+## Investigations & Diagnostic Workup
+VBG- can help to assess haemoglobin level quickly.
+- FBC Coagulation screen (derangement of clotting in liver diseases)
+- Liver function tests (identifying liver disease)
+- Crossmatch (type specific or full cross-match depending on urgency)
+-
+- Chest x-ray, 12-lead ECG Biopsies of the gastric mucosa taken during endoscopy should be sent to the
+- laboratory for H pylori testing and histology. Endoscopy is highly effective in diagnosing and treating most causes of UGIB at
+- the same time.
+
+## Emergency Management Protocol
+Initial management UGIB causing hypotension, tachycardia, orthostasis, or other signs of hypovolemic shock must be managed swiftly, and patients should be considered for admission to the intensive care unit.
+
+- Resuscitation
+- Two large-bore intravenous lines should be placed immediately for adequate venous access.
+- Crystalloid fluids — should be infused to maintain adequate blood pressure.
+- Blood product transfusions
+- Transfuse patients with massive bleeding with blood, platelets and clotting factors in line with local protocols for managing massive bleeding.
+- Do not offer platelet transfusion to patients who are not actively bleeding and are haemodynamically stable.
+- Offer platelet transfusion to patients who are actively bleeding and have a platelet count of less than 50 x 109/1itre.
+- Offer fresh frozen plasma to patients who are actively bleeding and have a prothrombin time (or international normalised ratio) or activated partial thromboplastin time greater than 1.5 times normal. If a patient's fibrinogen level remains less than 1.5 g/litre despite fresh frozen plasma use, offer cryoprecipitate as well.
+- Offer prothrombin complex concentrate to patients who are taking warfarin and actively bleeding.
+- Timing-of-endoscopy-
+- Offer endoscopy to unstable patients with severe acute upper gastrointestinal bleeding immediately after resuscitation.
+- Offer endoscopy within 24 hours of admission to all other patients with upper gastrointestinal bleeding.
+
+## Emergency Management Protocol
+of non-variceal bleeding
+
+not use adrenaline as monotherapy for the endoscopic treatment of non-variceal upper gastrointestinal bleeding.
+- For the endoscopic treatment of non-variceal uppecgastrointestinaLbleedjng, use one-of-the-following;
+- a mechanical method (for example, clips) with or without adrenaline
+- thermal coagulation with adrenaline
+- fibrin or thrombin with adrenaline.
+- Offer a repeat endoscopy to patients who re-bleed with a view to further endoscopic treatment or emergency surgery.
+- Offer interventional radiology to unstable patients who re-bleed after endoscopic treatment. Refer urgently for surgery if interventional radiology is not promptly available.
+- Proton pump inhibitors (PPI therapy)=Offer proton pump inhibitors to patients with non-variceal upper gastrointestinal bleeding and stigmata of recent haemorrhage shown at endoscopy.
+- Do not offer acid-suppression drugs (proton pump inhibitors or H2-receptor antagonists) before endoscopy to patients with suspected non-variceal upper gastrointestinal bleeding.
+
+## Emergency Management Protocol
+of variceal bleeding
+- Offer—terlipressin-ocvasopressin, somatostatin to patients with suspected variceal bleeding at presentation. Stop treatment after definitive haemostasis has been achieved, or after 5 days, unless there is another indication for its use.
+
+- Offer prophylactic antibiotic therapy at presentation to patients with suspected or confirmed variceal bleeding.
+- In oesophageal varices
+- Use endoscopic band ligation in patients with upper gastrointestinal bleeding from oesophageal varices.
+- Non-selective beta blocker NSBB (propranolol or nadolol) +VBL (variceal band ligation) combination therapy are recommended as secondary prophylaxis.
+- VBL alone is used to eradicate varices if there are contraindications or intolerance to combined use with NSBB
+- Consider transjugular intrahepatic portosystemic shunts (TIPS) if bleeding from oesophageal varices is not controlled by band ligation alone or combined VBL and NSBB.
+- 'mgastric varices
+- Offer endoscopic injection of N-butyI-2-cyanoacryIate to patients with upper gastrointestinal bleeding from gastric varices.
+- Offer TIPS if bleeding from gastric varices is not controlled by endoscopic injection of N-butyl-2-cyanoacrylate.
+- A balloon tamponade device can be used to quell the bleeding until the shunt is placed (Sengstaken-BIakemore for esophageal varices, Linton-Nachlas for gastric varices).
+- Note: NSBB or variceal band ligation (VBL) also recommended in grade II and Ill oesophageal varices as primary prophylaxis of variceal haemorrhage in newly diagnosed cirrhosis.
+- Pharmacological treatrnent with propranolol as first line. VBI- is offered if there are contraindications to NSBB.
+- Some studies suggest NSBB and VBL decrease the mortality in variceal bleeding.
+
+- Prevention
+- Stop other non-steroidal anti-inflammatory drugs (including cyclooxygenase-2 [COX-2] inhibitors) during the acute phase in patients presenting with upper gastrointestinal bleeding.
+- Continue low-dose aspirin for secondary prevention of vascular events in patients with upper gastrointestinal bleeding in whom haemostasis has been achieved.
+- Acute variceal bleeding algorithm
+
+- Acute variceal bleeding in a cirrhotic patient RESUSCITATION Consider Intubation High flow 02 Intravenous access Blood Transfusion Antibiotics Terlipressin/somatostatin Gastroscopy as soon as possible but within 24 hours Oesophageal Variceal Bleeding Variceal Band Ligation Control of bleeding Secondary prophylaxis after day 5 with VBL+NSBB or NSBB/VBL Childs B with active bleeding or Childs C (IO- 13 points) and within 72h of Failure to control bleeding Resuscitation +/- balloon tamponade Gastric Variceal Bleeding Cyanoacrylate injection or thrombin. Secondary prophylaxis after day 5 with cyanoacrylate injection. Consider NSBB or thrombin. TIPSS is an option if large/multiple varices.
+
+alone (see text) Rebleeding index bleed* * Covered TIPSS if patent portal vein* Rebleeding
+- depending on local resources or consider referral to specialist centre.
+- consider shunt surgery in well compensated patients or if TIPSS not feasible. In segmental portal hypertension consider splenectomy or splenic artery embolization
+- GOV-2 and IGV. GOV-I to be treated as oesophageal varices.
+- TIPSS can be considered depending on local resources and clinical judgement. VBL — variceal band ligation. NSBB — non selective beta-blockers. GOV-I — gastro-oesophageal varices type
+
+#### Clinical Scenario 1:
+- GOV-2
+- gastro-oesophageal varices type
+
+#### Clinical Scenario 2:
+IGV — isolated gastric varices. previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Upper Gi Bleeding - Clinical Figure 1](/lessons/images/sba/gastroenterology-emergencies/upper-gi-bleeding/figure_01_p4.jpeg)
+*Upper Gi Bleeding — Clinical Figure 1 (Page 4 Reference)*
+
+![Upper Gi Bleeding - Clinical Figure 2](/lessons/images/sba/gastroenterology-emergencies/upper-gi-bleeding/figure_02_p6.jpeg)
+*Upper Gi Bleeding — Clinical Figure 2 (Page 6 Reference)*
+
+![Upper Gi Bleeding - Clinical Figure 3](/lessons/images/sba/gastroenterology-emergencies/upper-gi-bleeding/figure_03_p12.jpeg)
+*Upper Gi Bleeding — Clinical Figure 3 (Page 12 Reference)*
+
+![Upper Gi Bleeding - Clinical Figure 4](/lessons/images/sba/gastroenterology-emergencies/upper-gi-bleeding/figure_04_p13.jpeg)
+*Upper Gi Bleeding — Clinical Figure 4 (Page 13 Reference)*
+
+![Upper Gi Bleeding - Clinical Figure 5](/lessons/images/sba/gastroenterology-emergencies/upper-gi-bleeding/figure_05_p13.jpeg)
+*Upper Gi Bleeding — Clinical Figure 5 (Page 13 Reference)*$LEC_GAST_078$,
+      "position"   = 40,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'upper-gi-bleeding' OR "slug" = 'upper-gi-bleeding');
 
-  -- 2) Upsert Quiz Lesson (Position 41)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 41)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -9585,14 +15884,150 @@ $SBA_GAST_078$,
     RAISE EXCEPTION 'Module Nephrology & Acid-Base Disorders not found in mrcem-sba';
   END IF;
 
-  -- Topic 1/8: Acute Kidney Injury (AKI) & KDIGO Staging
-  -- 1) Interleave Lecture (Position 0)
+  -- Pair 1/8: Acute Kidney Injury (AKI) & KDIGO Staging
+  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
   UPDATE "lessons"
-  SET "position" = 0, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Kidney Injury (AKI) & KDIGO Staging',
+      "body"       = $LEC_NEPH_079$# Acute Kidney Injury (AKI) & KDIGO Staging
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Pre-renal Hypovolaemia (e.g. inability to maintain hydration without help from others, haemorrhage, gastrointestinal losses, renal losses, burns) Reduced cardiac output (e.g. cardiac failure, liver failure, sepsis, drug) Drugs that reduce blood pressure. circulating volume. or renal blood flow (e.g. ACE inhibitors
+- , NSAIDs, loop diuretics)
+
+## Key Clinical Features
+Symptoms and Renal Toxins and drugs (for example antibiotics, contrast, chemotherapy) Vascular (e.g. vasculitis, thrombosis, athero/thromboembolism, dissection) Glomerular (e.g. glomerulonephritis) Tubular(e.g. acute tubular necrosis, rhabdomyolysis, myeloma) Interstitial (e.g. interstitial nephritis, lymphoma infiltration) Post-renal Obstruction (e.g. renal stones, blocked catheter, enlarged prostate, genitourinary tract tumours/ masses, neurogenic bladder)
+- Nausea and vomiting, or diarrhoea, evidence of dehydration.
+- Reduced urine output or changes to urine colour.
+- Confusion, fatigue, and drowsiness.
+- An-acute-illness-and-any-of-the-fo."owing; Age of 65 years or over.
+- A history of acute kidney injury.
+
+- Chronic kidney disease (estimated glomerular filtration rate [eGFR] less than 60mL/min/1.73m2). Symptoms or history of urological obstruction or conditions which may lead to obstruction.
+- Chronic conditions such as heart failure and liver disease and diabetes mellitus.
+- Neurological or cognitive impairment or disability (which may limit fluid intake because of reliance on a carer).
+- Sepsis.
+- Nephrotoxic drug use within the last week (especially if hypovolaemic) — for example, nonsteroidal anti-inflammatory drugs (NSAIDs), angiotensin-converting enzyme (ACE) inhibitors, angiotensin II receptor antagonists (ARBs), and diuretics.
+- Exposure to iodinated contrast agents within the past week.
+- Cancer and cancer therapy (risk will depend on the type of cancer, proposed treatment and premorbid risk factors).
+- Immunocompromise (for example HIV infection).
+- Toxins (for example some herbal remedies, poisonous plants and animals).
+
+## Investigations & Diagnostic Workup
+Measure serum creatinine
+- To obtain a baseline value for the initial detection of acute kidney injury.
+- Use the lowest creatinine value within 7 days of the current value, or (if this is not available),
+- Look at older results and use the lowest or mean creatinine value from between 7 days and 1 year before the current value.
+- If no baseline creatinine value is available, it may be appropriate to repeat the creatinine measurement after 48—72 hours.
+
+- Use clinical judgement — monitor the person closely and do not let waiting for a second creatinine result delay treatrnent or referral if acute kidney injury is possible, particularly if the person is unwell or the serum creatinine level is high.
+- Take into consideration if the person-has;
+- Chronic kidney disease
+- Recently been treated with trimethoprim — this can cause a false positive result as trimethoprim may increase serum creatinine, butnotaffect glomerular filtration rate.
+- Recently completed a pregnancy — this can cause a false positive result due to an apparent rise in creatinine compared with naturally reduced creatinine values in pregnancy
+- serum potassium
+- FBC
+- Bicarbonate
+- LFTs
+- C-reactive protein
+- Urine culture Urine output monitoring
+- Fluid challenge
+- VBC
+- ECG
+- Staging system for AKI
+
+1 2 3 Serum creatinine (SCr) criteria Creatinine rise Of 50—99% from baseline within 7 days* (1.5—1.99 x baseline) 2 26.5 gmol/L increase 100—199% creatinine rise from baseline within 7 days* (2.00-2.99 x baseline) OR 2.0 to 2.9 times baseline 3.0 times baseline (200% or more OR increase in SCr 26.5 gmol/L* to? 354 gmol/L or initiation of renal support irrespective of stage OR in patients<18 years, decrease in eGFR to <35 ml/min/1.73 m2 Urine output criteria <0.5 mL/kg/h for 6 — 12 hours <0.5 mL/kg/h for 12 hours <0.3 mL/kg/h for 2 24 hours anuria for 212 hours
+
+## Emergency Management Protocol
+Management of AKI due to Hypovoleamic cause
+- fluid resuscitation (1st line)
+- Pre-kidney AKI (80% of all cases) is most often caused by hypovolaemia and/or hypotension.
+- A key principle is to improve the haemodynamic status of the patient.
+- Cive a 500 mL bolus of intravenous fluid over 15 minutes.
+- Use a wide bore cannula to allow adequate fluid resuscitation.
+- A crystalloid fluid (Hartmann's solution, Ringer's acetate, or Plasma-Lyte) is preferred
+
+A smaller bolus (e.g., 250 mL) may be more appropriate if the patient has a history
+- of cardiac failure. If no improvement is seen after two fluid challenges, escalate the patient for
+- senior review
+- If the patient has already had 22 L of fluid, or is in shock, seek immediate senior help so that critical care involvement for vasopressor support can be considered In AKI that is secondary to hypovolaemia, kidney function may improve rapidly in
+- response to administration of intravenous fluids. In the context of acute hypovolaemia, passive leg raising can improve the venous
+- return and the response in blood pressure can be recorded. Never prescribe intravenous fluid therapy for more than 24 hours at once due to
+- the risk of causing volume overload.
+- Review-medication-and-stop-nephrotoxicdrugs Common nephrotoxic drugs includes:
+- aminoglycoside antibiotics,
+- non-steroidal anti-inflammatory drugs (NSAIDs),
+- iodinated contrast agents
+- Diureticsor other antihypertensivesincrease the risk of hypovolaemia/hypotension.
+- Review and adjust doses of all other medications in line with the patient's degree of
+- kidney injury Vasoactive drugs
+- Vasopressor support is recommended if the patient remains severely hypotensive
+- despite adequate volume resuscitation (e.g., in septic/hypovolaemicshock). Vasopressors should only be used with continuous haemodynamic monitoringin
+- place. A reasonable goal is to maintain mean arterial pressure (MAP) 265 mmHg, but this
+- target may need adjusting according to the patient's baseline BP
+
+- Noradrenaline (norepinephrine) is the usual vasopressor of choice, with the addition of vasopressin if needed
+- Do not use low-dose dopamine to treat AKI-There is no evidence to support its use and it can worsen kidney perfusionin patients with AKI.
+- Consider the need for an inotrope (e.g., dobutamine) to optimise cardiac output if kidney hypoperfusion is caused by impaired cardiac function due to poor left ventricular systolic function.
+- Blood transfusion
+- Blood transfusion is indicated if hypovolaemia is secondary to significant blood loss. Specialist referral
+- Most patients with AKI do not need referral to nephrology
+- Refer immediately to critical care and/or nephrology_if;
+- Uncertainty about the cause of AKI or a poor responseto treatment A possible diagnosis that may need specialist treatment(e.g., vasculitis, glomerulonephritis, tubulointerstitial nephritis, myeloma)
+- Complications associated with AKI that are not responding to medical treatment
+- Stage 3 AKI
+- AKI in a patient with pre-existing chronic kidney disease (CKD) stage 4 or 5
+- The patient has a kidney transplant.
+- The patient remains haemodynamically unstable after appropriate supportive care and/or there are signs of multi-organ failure.
+- Look for the underlying cause of hyperkalaemia and treat it Hyperkalaemia is a common complication of AKI. It can lead to: . Muscle weakness
+- Cardiac arrhythmias (e.g., bradycardia, bundle branch block, ventricular tachycardia, ventricular fibrillation, asystole)
+
+- Review medications that might be responsible (e.g., ACE inhibitors, angiotensin-II receptor antagonists, potassium-sparing diuretics).
+
+## Emergency Management Protocol
+of AKI due to hypervolaemic
+- Volume overload in a patient with AKI can occur as a result of:
+- Overaggressive fluid resuscitationin a patient who initially presented with hypovolaemic pre-kidney AKI. This is most commonly seen in patients with sepsis.
+- Oliguriain intrinsic or post-kidney AKI.
+- First line-
+- loop diuretic (only under specialist supervision) and sodium restriction A loop diuretic such as furosemide may be useful in achieving euvolaemia in a patient with fluid overload(with or without pulmonary oedema)
+- There is no evidence to support the routine use of loop diureticsfor management of AKI in the absence of volume overload.
+- Sodium-restriction-rnay_ also be required.
+- Identify and treat the underlying cause of AKI:
+- Insert a bladder catheterin any case of AKI when bladder outlet obstruction is suspected clinically and cannot be quickly ruled out by ultrasound.
+- Refer to urology within 24 hours if urinary tract obstruction is confirmed on ultrasound.
+- Immediate RRT is indicated for refractory volume overload or volume overload associated with severe complications of AKI:
+- Refractory volume overload typically includes pulmonary oedema.
+- However, RRT may also be needed in a patient with gross peripheral oedema (without pulmonary oedema) that fails to respond to a loop diuretic. Such patients
+
+will usually have oliguric AKI.
+- Complications
+- Hyperkalaemia hyperphosphataemia,
+- Metabolic acidosis
+- Volume overload (peripheral and pulmonary oedema) Uraemia
+- Chronic kidney disease and end-stage renal disease previous  Next
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![AKI - Clinical Figure 1](/lessons/images/sba/nephrology-acid-base/aki/figure_01_p2.jpeg)
+*AKI — Clinical Figure 1 (Page 2 Reference)*
+
+![AKI - Clinical Figure 2](/lessons/images/sba/nephrology-acid-base/aki/figure_02_p5.jpeg)
+*AKI — Clinical Figure 2 (Page 5 Reference)*
+
+![AKI - Clinical Figure 3](/lessons/images/sba/nephrology-acid-base/aki/figure_03_p9.jpeg)
+*AKI — Clinical Figure 3 (Page 9 Reference)*$LEC_NEPH_079$,
+      "position"   = 0,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'aki' OR "slug" = 'acute-kidney-injury');
 
-  -- 2) Upsert Quiz Lesson (Position 1)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -9701,14 +16136,84 @@ $SBA_NEPH_079$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 2/8: Potassium Disorders: Hyperkalaemia & Hypokalaemia
-  -- 1) Interleave Lecture (Position 2)
+  -- Pair 2/8: Potassium Disorders: Hyperkalaemia & Hypokalaemia
+  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
   UPDATE "lessons"
-  SET "position" = 2, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Potassium Disorders: Hyperkalaemia & Hypokalaemia',
+      "body"       = $LEC_NEPH_080$# Potassium Disorders: Hyperkalaemia & Hypokalaemia
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+urine dipstick creatine kinase (if rhabdomyolysis is a possibility)
+-
+- Prolonged PR interval
+- Peaked T-waves
+-
+- Widening of the QRS Reduced or lost P wave
+- Sine wave pattern
+- AV dissociation
+- Asystole
+- Bradycardia
+- Example-I Example
+- 2
+
+## Emergency Management Protocol
+algorithm (July-2022 guideline)
+
+I Assess using ABCDE approach 12-lead ECG and monitor cardiac rhythm if serum potassium (K+) 6.0 mmol/l Exclude pseudohyperkalaemia Give empirical treatment tor arrhythmia if hyperkalaemia suspected MILD K+5.5-5.g m mol/L Consider cause and Hert into cells MODERATE K + 6.0-6.4 mmol/L guided by clinical cmditim. ECG and of ECG Changes? Peaked T waves Broad QRS Bradycardia Flat/ absent P waves No 6.5 mmol/L Calcium Chloride OR Calcium Gluconate IV Insulin—Glucose IV Infusion: Give IO units soluble insulin in 25 g glucose over 15-30 min REDUCE THE RISK OF HYPOGLYCAEMIA 'f pre-treatment blood glucose < 7.0mmol/', follow with glucose infusion: 10% glucose   50ml/hr for 5 hrs (25g) Salbutamol IO — 20 mg Nebulised Calcium resonium 15g tds orally OR 30g bd per rectum Life threatening Sodium zirconium cyclosilicate log tds for 72 hrs OR patiromer 8.4B once daily Consider Dialysis Seek expert help
+
+and medical therapy Monitor serum K + and blood glucose
+- Dose Regimen IV Calcium (6.8 mmol)
+- IO ml 10% Calcium Chloride IV OR 30 ml 10% Calcium Gluconate IV
+-
+- Should be given use large IV access and give over 5 min Repeat ECG then
+- Glucose Regimen (25ggIucose)
+- 50ml glucose OR 125ml 20% glucose QR 250ml glucose
+- Complications Cardiac arrest
+- Weakness
+-
+- Arrhythmias Pseudo-hyperkalaemia
+- You must exclude psudohyperkalaemia before treating patient for hyperkalaemia
+- Pseudo-hyperkalaemia can be excluded by performing simultaneous rneasurements of plasma K+ in a lithium heparin anti-coagulated specimen and in a clotted sampled
+
+-
+- The importance of recognition of pseudo-hyperkalaemia is the avoidance of unnecessary treatment which could cause harm
+- Causes of pseudohyperkalemia prolonged transit time to the laboratory or poor storage conditions (most common)
+- difficult venepuncture,
+- A high platelet count, haemolysis, erythrocytosis, prolonged storage time of clotted samples, or cold storage conditions sampling from the arm into which potassium-containing fluids are being infused.
+- Recognition of pseudohyperkalaemia Pseudo-hyperkalaemia is detected when the serum K+ level exceeds that of the plasma by more than 0.4 mmol/L. Consider pseudo-hyperkalaemia in the context of normal renal function, normal ECG and in patients with haematological disorders.
+- It pseudo-hyperkalaemia is suspected ,Send paired blood samples in a clotted tube (serum) and a lithium heparin tube (plasma). Send FBC to exclude a haematological disorder. Pseudo-hyperkalaemia is present if: [Serum K+ — [Plasma
+- 0.4 mmol/l.
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hyper and Hypokalemia - Clinical Figure 1](/lessons/images/sba/nephrology-acid-base/hyper-and-hypokalemia/figure_01_p2.jpeg)
+*Hyper and Hypokalemia — Clinical Figure 1 (Page 2 Reference)*
+
+![Hyper and Hypokalemia - Clinical Figure 2](/lessons/images/sba/nephrology-acid-base/hyper-and-hypokalemia/figure_02_p3.jpeg)
+*Hyper and Hypokalemia — Clinical Figure 2 (Page 3 Reference)*
+
+![Hyper and Hypokalemia - Clinical Figure 3](/lessons/images/sba/nephrology-acid-base/hyper-and-hypokalemia/figure_03_p4.jpeg)
+*Hyper and Hypokalemia — Clinical Figure 3 (Page 4 Reference)*
+
+![Hyper and Hypokalemia - Clinical Figure 4](/lessons/images/sba/nephrology-acid-base/hyper-and-hypokalemia/figure_04_p5.jpeg)
+*Hyper and Hypokalemia — Clinical Figure 4 (Page 5 Reference)*
+
+![Hyper and Hypokalemia - Clinical Figure 5](/lessons/images/sba/nephrology-acid-base/hyper-and-hypokalemia/figure_05_p6.jpeg)
+*Hyper and Hypokalemia — Clinical Figure 5 (Page 6 Reference)*
+
+![Hyper and Hypokalemia - Clinical Figure 6](/lessons/images/sba/nephrology-acid-base/hyper-and-hypokalemia/figure_06_p7.jpeg)
+*Hyper and Hypokalemia — Clinical Figure 6 (Page 7 Reference)*$LEC_NEPH_080$,
+      "position"   = 2,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hyper-and-hypokalemia' OR "slug" = 'hyper-hypokalemia');
 
-  -- 2) Upsert Quiz Lesson (Position 3)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -9826,14 +16331,77 @@ $SBA_NEPH_080$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 3/8: Hypercalcaemia Emergency Management
-  -- 1) Interleave Lecture (Position 4)
+  -- Pair 3/8: Hypercalcaemia Emergency Management
+  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
   UPDATE "lessons"
-  SET "position" = 4, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Hypercalcaemia Emergency Management',
+      "body"       = $LEC_NEPH_081$# Hypercalcaemia Emergency Management
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Non-parathyroid endocrine diseases (Thyrotoxicosis, Addison's disease,
+- Phaeochromocytoma) disease
+
+## Key Clinical Features
+- SkeletaLzBone pain, skeletal deformities, osteoporosis Neuromuscular and neuropsychiatric
+- Drowsiness, delirium, coma
+- Fatigue, lethargy, muscle weakness, insomnia
+- Depression, anxiety, irritability, psychosis
+- Neurological signs (for example upper rnotor neurone deficits, hypotonia,
+- hyporeflexia, and ataxia). Gastrointestinal — Nausea, vomiting, anorexia, weight loss, constipation, abdominal
+- pain Renal — Renal colic due to renal stones (nephrolithiasis), thirst, polyuria, polydipsia,
+- nocturia, and dehydration (due to nephrogenic diabetes insipidus) Cardiovascular — Hypertension
+- Shortened QT interval; prolonged PR interval on electrocardiogram (ECG)
+- Cardiac arrhythmias such as ventricular fibrillation (rare).
+-
+
+## Investigations & Diagnostic Workup
+Arrange a serum calcium blood test and interpret the result: Avoid prolonged application of a tourniquet during venepuncture.
+- Ensure the laboratory result shows the calcium concentration is adjusted
+- ('corrected') for the serum albumin concentration FBC
+- ESR Estimated glomerular filtration rate (eCFR) and creatinine — to assess hydration
+- status, for acute kidney injury (AKI) and chronic kidney disease (CKD)
+
+- Serum and urine protein electrophoresis, including testing for urine Bence-Jones protein — to exclude myeloma.
+- PTH level
+- Serum cortisol (morning sample at 8-9 am) — if Addison's disease is suspected
+- Vitamin D level
+- Chest X-ray — to exclude lung cancer or metastases, lymphoma, sarcoidosis, or tuberculosis.
+
+## Emergency Management Protocol
+If the person has severe hy_percalcaemia or severe symptoms:
+- Arrange emergency admission to hospital for further specialist assessment and management
+- Start intravenous fluids and intravenous bisphosphonate therapy (pamidronate or zoledronate).
+- Referral pathway.
+- If the person is asymptomatic or has minimal symptoms, with mild or moderate hypercalcaemia and
+-
+- A new diagnosis of malignancy_is suspected, arrange urgent referral (to be seen within 2 weeks) to an appropriate specialist, depending on clinical judgement.
+- A diagnosis of primary_hyperparathyroidism is suspected on the basis of serum parathyroid hormone (PTH) results, arrange referral to endocrinology for specialist assessrnent and management
+- A diagnosis of non-parathyroid endocrine disease is suspected, arrange referral to endocrinology for specialist assessment and management.
+- A diagnosis of familial hypocalciuric hypercalcaemia is suspected, arrange referral to endocrinology for specialist assessment and management, the urgency
+
+depending on clinical judgement.
+- A diagnosis of sarcoidosis or other granulomatous disease is suspected, refer the person to a respiratory or other specialist, depending on disease manifestation.
+- Encourage mobilization in patient with paget's disease if possible, and monitor the serum calcium concentration. See the Scenario on Follow-up in primary care for more information on follow-up monitoring.
+- If the drug is the cause, reduce or stop them if appropriate and recheck the serum calcium at least 3 weeks after stopping the drug. previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hypercalemia - Clinical Figure 1](/lessons/images/sba/nephrology-acid-base/hypercalemia/figure_01_p4.jpeg)
+*Hypercalemia — Clinical Figure 1 (Page 4 Reference)*
+
+![Hypercalemia - Clinical Figure 2](/lessons/images/sba/nephrology-acid-base/hypercalemia/figure_02_p4.jpeg)
+*Hypercalemia — Clinical Figure 2 (Page 4 Reference)*$LEC_NEPH_081$,
+      "position"   = 4,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hypercalemia' OR "slug" = 'hypercalcemia');
 
-  -- 2) Upsert Quiz Lesson (Position 5)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -9936,14 +16504,43 @@ $SBA_NEPH_081$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 4/8: Hyperkalaemic Cardiac Arrest Protocols
-  -- 1) Interleave Lecture (Position 6)
+  -- Pair 4/8: Hyperkalaemic Cardiac Arrest Protocols
+  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
   UPDATE "lessons"
-  SET "position" = 6, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Hyperkalaemic Cardiac Arrest Protocols',
+      "body"       = $LEC_NEPH_082$# Hyperkalaemic Cardiac Arrest Protocols
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Follow ALS Algorithm Identify and treat reversibl Hyperkalaemia (K+ 6.5 mmol/l) Seek expert help Calcium Chloride OR Calcium Gluconate IV bolus Consider repeating dose if ROSC not achieved within 5-10 min, or if resuscitation attempt is prolonged Insulin — Glucose IV bolus Follow with 10% glucose infusion if BM < 7.0 mmol/l Sodium Bicarbonate IV bolus ROSC achieved? Yes Monitor serum K+ and blood glucose 0 ow stan a postca arrest management Arrange for dialysis post arrest Seek expert help Consider Dialysis / ECMO
+
+a prevent recurrence Dose Regimen
+- NY-Calciurn-(6ß-mmoJ)
+- 10 ml 10% Calcium Chloride IV OR 30 ml 10% Calcium Gluconate IV
+- Glucose-Regimem(25g-glucose)
+- 50ml 50% glucose 125ml 20% glucose 250ml 10% glucose
+- Sodium Bicarbonate 50 ml 8.4% (50 mmol) previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hyperkalemic Cardiac Arest - Clinical Figure 1](/lessons/images/sba/nephrology-acid-base/hyperkalemic-cardiac-arest/figure_01_p2.jpeg)
+*Hyperkalemic Cardiac Arest — Clinical Figure 1 (Page 2 Reference)*
+
+![Hyperkalemic Cardiac Arest - Clinical Figure 2](/lessons/images/sba/nephrology-acid-base/hyperkalemic-cardiac-arest/figure_02_p3.jpeg)
+*Hyperkalemic Cardiac Arest — Clinical Figure 2 (Page 3 Reference)*
+
+![Hyperkalemic Cardiac Arest - Clinical Figure 3](/lessons/images/sba/nephrology-acid-base/hyperkalemic-cardiac-arest/figure_03_p3.jpeg)
+*Hyperkalemic Cardiac Arest — Clinical Figure 3 (Page 3 Reference)*$LEC_NEPH_082$,
+      "position"   = 6,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hyperkalemic-cardiac-arest' OR "slug" = 'hyperkalemic-cardiac-arrest');
 
-  -- 2) Upsert Quiz Lesson (Position 7)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -10052,14 +16649,98 @@ $SBA_NEPH_082$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 5/8: Hypernatraemia Emergency Management
-  -- 1) Interleave Lecture (Position 8)
+  -- Pair 5/8: Hypernatraemia Emergency Management
+  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
   UPDATE "lessons"
-  SET "position" = 8, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Hypernatraemia Emergency Management',
+      "body"       = $LEC_NEPH_083$# Hypernatraemia Emergency Management
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Hyperaldosteronism
+-
+- Primary (Conn's) Secondary (CCF, nephrotic syndrome, steroids)
+-
+
+## Key Clinical Features
+Signs of hypernatraemia usually involve central nervous system (CNS) manifestations and includes: irritability, restlessness,
+- muscle twitching,
+- spasticity, and hyperreflexia,
+- All above sign are due to a decreased water content in the brain.
+- in hypernatraemia (volume depletion) dry mucous membranes poor skin turgor
+- sunken eyes
+- irritability, tachycardia, hypotension or postural hypotension,
+- decreased urine output, and weight loss
+- severe diarrhoea, vomiting, and significant burns should be excluded.
+- Temperature rneasurement is essential because fever may be the cause.
+-
+- Sign-and-symptoms in patient-with-hypovolaemic hypernagraemia-(yolume overload) Usually due to exogenous sodium ingestion and mineralocorticoid
+- excess.Therefore, signs of Cushing's syndrome as well as primary aldosteronism should be sought. weight gain
+- peripheral oedema
+-
+
+hypertension irritating cough
+- dyspnoea Jugular vein distention, and crepitations on auscultation
+- hypertension, proximal muscle weakness.(due to Primary aldosteronism) Moon face, facial plethora, supraclavicular and/or dorsicocervical fat pad (due to
+- cushing's syndrome). Euvolaemic hypernatraemia
+- Signs of volume depletion and overload absent. Nephrogenic diabetes insipidus or central diabetes insipidus are usually the
+- underlying cause
+
+## Investigations & Diagnostic Workup
+U&Es, Mg, bicarbonate, LFTs, glucose Urine osmolality
+- Serum osmolality
+-
+- Urine electrolytes
+- Urine flow rate Consider desmopressin challenge test
+- Consider MRI or CT brain
+- Evaluation of hypernatraemia using_paired serum and urine osmolality
+-
+
+- Urine osmolality < serum osmolality Indicates urinary concentrating defect Causes: central DI, nephrogenic DI, renal disease, osmotic diuresis Urine osmolality
+- serum osmolality Indicates intact urinary concentration Causes: gastrointestinal losses, increased insensible losses eg burns, excess sodium intake Note: normal Serum osmolality between 275—295 mOsmoI/kg
+
+## Emergency Management Protocol
+First line
+- Severe-hypernatraemia may present with serious signs and symptoms, such as hyperthermia, delirium, seizures, and coma, prompting more urgent treatment of the condition.
+- Initial treatment relies on stabilising hypovolaemic patients using isotonic saline
+- Once the patient is stable, the free water deficit can be corrected orally or with intravenous fluids over 48 hours. (half in 24hr)
+- Free water deficit may be calculated using the following equation:
+- Free water deficit = body weight (kg) x percentage of total body weight (0.6 for men; 0.4 for women) x ([serum Na/140] — 1).
+- Euy.ola.emi.c-pa.ti.e.n.ts_can be treated with hypotonic fluids such as 5% dextrose water to correct the free water deficit.
+- Hypervolaemic patients may require diuretics (thiazide) in addition to hypotonic fluid correction.
+
+- To avoid cerebral oedema the serum sodium should not be corrected any faster than 0.5 mmol/L (0.5 mEq/L) every hour.
+- Hypernatraemia resulting from a hyperosmolar hyperglycaemic state (HHS) in people with diabetes requires urgent correction due to the serious nature of the disease state.
+- Breastfeeding-associated hypernatraemia is a medical emergency. Infants are predisposed to dehydration due to their small total body water stores and relatively large evaporative water loss potential. Lack of maternal breast-milk production without supplementation, or trouble with infant suckling, may quickly lead to severe dehydration and hypovolaemic hypernatraemia.
+- Both central and nephrogenic diabetes insipidus are associated with plasma sodium concentration of
+- 170mmoI/L (170 mEq/L), necessitating urgent correction with intravenous hypotonic fluids (e.g., 5% dextrose water, quarter or half isotonic saline) because of the serious risk of cerebrovascular damage and death.
+- Consider thiazide in nephrogenic diabetic insipidus
+- consider desmopressin in central diabetic insipidus
+- Exogenous sodium ingestion — Infusion of intravenous 5% dextrose water combined with diuretic administration, necessary to remove excess sodium, is the mainstay of treatrnent.
+- Second line
+- Renal replacement therapy — Haemodialysis and haemofiltration may correct the sodium level too quickly
+- Complications
+- Cerebral bleeding, subarachnoid haemorrhage, permanent brain damage and death secondary to brain shrinkage with acute hypernatraemia.
+
+- Cerebral oedema with overfast correction of chronic hypernatraemia. Also convulsions and permanent brain injury may occur. previous
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hypernatremia - Clinical Figure 1](/lessons/images/sba/nephrology-acid-base/hypernatremia/figure_01_p4.jpeg)
+*Hypernatremia — Clinical Figure 1 (Page 4 Reference)*
+
+![Hypernatremia - Clinical Figure 2](/lessons/images/sba/nephrology-acid-base/hypernatremia/figure_02_p6.jpeg)
+*Hypernatremia — Clinical Figure 2 (Page 6 Reference)*$LEC_NEPH_083$,
+      "position"   = 8,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hypernatremia' OR "slug" = 'hypernatremia');
 
-  -- 2) Upsert Quiz Lesson (Position 9)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -10165,14 +16846,67 @@ $SBA_NEPH_083$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 6/8: Hypocalcaemia & Tetany
-  -- 1) Interleave Lecture (Position 10)
+  -- Pair 6/8: Hypocalcaemia & Tetany
+  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
   UPDATE "lessons"
-  SET "position" = 10, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Hypocalcaemia & Tetany',
+      "body"       = $LEC_NEPH_084$# Hypocalcaemia & Tetany
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Paraesthesia (usually fingers, toes and around mouth).
+- Tetany.
+- Carpopedal spasm (wrist flexion and fingers drawn together).
+- Muscle cramps
+-
+- Hypocalcaemia-signs
+- Chvostek's sign (tapping over facial nerve causes facial muscles to twitch) Trousseau's signoccurs in patients with hypocalcaemia (or hypomagnesaemia)
+- To elicit this sign, inflate a blood pressure cuff to a pressure above the patient's
+- systolic level and maintain the pressure for several minutes. Look for carpopedal spasm which involves flexion at the wrist, flexion at the
+- metacarpophalangeal joints, extension of the interphalangeal joints and adduction of the thumbs and fingers. Seizures.
+- Prolonged QT interval which may progress to ventricular fibrillation (VF) or heart
+- block. Laryngospasm. Bronchospasm
+-
+
+## Investigations & Diagnostic Workup
+IJ&E — exclude chronic kidney disease check amylase — exclude acute pancreatitis
+- check serum creatine kinase — rhabdomyloysis
+- Estimate serum magnesium and phosphate.
+- Estimate serum PTH.
+- Evaluate vitamin D metabolism.
+- Perform an ECG to exclude dysrhythmias and prolonged QT intervals.
+-
+
+## Emergency Management Protocol
+risk of complications with a serum calcium <1.90 mmol/L
+- Give IO ml (2.25 mmol) of calcium gluconate 10% by slow intravenous (IV) injection. Repeat as necessary or follow with infusion of calcium gluconate 10% infusion — 40 ml (9 mmol)/24 hours.
+- Oral calcium preparations may need to be given as supplements to IV treatment or where IV access is difficult.
+- ECG monitoring is recommended especially in those at risk of arrhythmias or with cardiac disease
+- Any underlying cause of hypocalcaemia should be investigated and corrected.
+- Low magnesium levels should be corrected first. Without replenishing magnesium first any increase in calcium will be transient
+- If hypocalcaemia persist then initiate supplementary calcium (10-20 mmol calcium bd-qds) and vitamin D, however, calcium may be discontinued once stabilized.
+- Prevention
+- Ensure adequate dietary intake or consider supplementation where it necessary
+- Complications
+- Rapid administration of calcium gluconate may result in hot flushes, hypotension, bradycardia, arrhythmias and cardiac arrest.
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hypocalecemia - Clinical Figure 1](/lessons/images/sba/nephrology-acid-base/hypocalecemia/figure_01_p3.jpeg)
+*Hypocalecemia — Clinical Figure 1 (Page 3 Reference)*
+
+![Hypocalecemia - Clinical Figure 2](/lessons/images/sba/nephrology-acid-base/hypocalecemia/figure_02_p4.jpeg)
+*Hypocalecemia — Clinical Figure 2 (Page 4 Reference)*$LEC_NEPH_084$,
+      "position"   = 10,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hypocalecemia' OR "slug" = 'hypocalcemia');
 
-  -- 2) Upsert Quiz Lesson (Position 11)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -10278,14 +17012,86 @@ $SBA_NEPH_084$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 7/8: Hypokalaemia Emergency Management
-  -- 1) Interleave Lecture (Position 12)
+  -- Pair 7/8: Hypokalaemia Emergency Management
+  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
   UPDATE "lessons"
-  SET "position" = 12, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Hypokalaemia Emergency Management',
+      "body"       = $LEC_NEPH_085$# Hypokalaemia Emergency Management
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Increased availability of insulin: insulin promotes the entry of potassium into
+- skeletal muscle and hepatic cells by increasing the activity of the Na-K-ATPase pump Losses from the GI tract:
+- Loss of gastric or intestinal secretions from any cause (vomiting, diarrhoea,
+- laxatives, or tube drainage) can cause hypokalaemia: Increased loss of potassium in urine
+- Diuretics (e.g., acetazolamide, loop diuretics, and thiazide-type diuretics)
+-
+- Mineralocorticoid excess Salt-wasting nephropathie
+- Metabolic acidosis
+- Increased loss via sweating
+- Exercising in a hot climate can produce more than IO L of sweat daily, leading to
+- potassium depletion if losses are not replaced: Burns and other dermatological conditions (i.e., eczema or psoriasis involving a
+- large surface area of the skin, especially with the use of topical steroids) can cause increased loss of potassium through the skin.
+
+## Key Clinical Features
+Common acute manifestations are:
+- muscle weakness
+-
+- ECG changes asymmetric or focal weakness
+-
+- Other features: rhabdomyolysis, renal abnormalities, and cardiac arrhythmias
+
+## Investigations & Diagnostic Workup
+Basic metabolic panel (includes serum sodium, potassium, glucose, chloride,
+- bicarbonate, urea, and creatinine).
+- ECG.
+- Urine electrolytes (potassium and chloride): useful in differentiating renal from non- renal causes of hypokalaemia when the aetiology of the hypokalaemia is not readily apparent. Urine creatinine: should always be measured with urine electrolytes. Urine
+- creatinine measurement (in addition to serum potassium and serum creatinine) allows for calculation of fractional excretion of potassium (FEK, 24-hour urine sample preferable) and potassium/creatinine ratio for evaluation of hypokalaemia.
+- ABG Serum magnesium, calcium, and/or phosphorus levels to exclude associated
+- electrolyte abnormalities. ECG findings depression of the ST segment,
+- decrease in the amplitude of the T wave
+- increase in the amplitude of U waves (often seen in the lateral precordial leads V4 to
+- Example-I
+
+## Emergency Management Protocol
+potassium replacement — is required urgently in patients with severe hypokalaemia (serum potassium <2.5 mmol/L [<2.5 mEq/L]) or in patients who are symptomatic.
+- Patients able to tolerate oral intake:
+- Ifthe patient does not have diabetic ketoacidosis or HHS, potassium repletion is rnost easily done orally, even in people with severe hypokalaemia. The serum potassium concentration can rise acutely by as much as I to 1.5 mEq/L after an oral dose of 40 to 60 mEq of potassium.
+- Patients unable to tolerate oral intake:
+
+- intravenous potassium replacement is required
+- Patients with diabetic ketoacidosis or HHS:
+- intravenous potassium replacement is needed if hypokalaemia occurs, as there are usually marked potassium losses.
+- Follow local guideline for potassium administration and careful monitoring of the physiologic effects of severe hypokalaemia (ECG abnormalities with continuous cardiac monitoring, muscle weakness, or paralysis) is essential throughout repletion.
+- Hypomagnesaemia correction
+- It is important to determine whether there is hypomagnesaemia (<0.75 mmol/L [<1.5 mEq/L]) because hypokalaemia can often only be corrected once the magnesium deficit has been addressed.
+- Intravenous magnesium replacement therapy is indicated in cases of severe (<1 mEq/L) or symptomatic hypomagnesaemia.
+- Patients with mild magnesium depletion are usually asymptomatic and can be managed with oral magnesium replacement.
+- Complications
+- Severe muscle weakness or paralysis
+- Cardiac arrhythmias
+- Rahabdomyolysis
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hypokalemia - Clinical Figure 1](/lessons/images/sba/nephrology-acid-base/hypokalemia/figure_01_p4.jpeg)
+*Hypokalemia — Clinical Figure 1 (Page 4 Reference)*
+
+![Hypokalemia - Clinical Figure 2](/lessons/images/sba/nephrology-acid-base/hypokalemia/figure_02_p5.jpeg)
+*Hypokalemia — Clinical Figure 2 (Page 5 Reference)*
+
+![Hypokalemia - Clinical Figure 3](/lessons/images/sba/nephrology-acid-base/hypokalemia/figure_03_p6.jpeg)
+*Hypokalemia — Clinical Figure 3 (Page 6 Reference)*$LEC_NEPH_085$,
+      "position"   = 12,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hypokalemia' OR "slug" = 'hypokalemia');
 
-  -- 2) Upsert Quiz Lesson (Position 13)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -10394,14 +17200,87 @@ $SBA_NEPH_085$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 8/8: Hyponatraemia & Osmotic Demyelination
-  -- 1) Interleave Lecture (Position 14)
+  -- Pair 8/8: Hyponatraemia & Osmotic Demyelination
+  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
   UPDATE "lessons"
-  SET "position" = 14, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Hyponatraemia & Osmotic Demyelination',
+      "body"       = $LEC_NEPH_086$# Hyponatraemia & Osmotic Demyelination
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+## Key Clinical Features
+Hyponatraemia may:
+- be asymptomatic
+- cause subtle signs (cramps, altered gait, falls, mild cognitive impairment)
+- cause cerebral oedema, leading to headache, irritability, confusion, decreased consciousness, nausea, vomiting, convulsions, cerebellar herniation and death.
+- seizures and coma are more common as the sodium reaches 110 mmol/L.
+- Assessment
+- History taken
+- Fluid and/or salt loss through vomiting, diarrhoea, stoma or fistula
+- Drug effects: fluid &/or salt loss (diuretics), SIADH/TADH sensitivity (e.g. antidepressants [esp SSRIs]; antiepileptics [especially carbamazepine]; fluid retention [NSAIDS]
+- Administration of IV fluids: what type, in what quantity, over what timescale?
+- Missing relevant routine medications (thyroid hormones, steroid hormones)
+- Adrenal insufficiency/hypothyroidism
+- SIADH or its causes (e.g. small cell carcinoma)
+- Cardiac, lung, liver, or renal disease
+- Possible symptoms of hyponatraemia NB get collateral history from family and/or carers/nursing staff regarding new onset confusion not otherwise explained. Assess and record the volume status
+- Jugular venous pressure — will be elevated if intravascular volume is high.
+
+- Peripheral oedema +/- ascites generally occur when total body water is raised (e.g. right heart failure, oliguric renal failure, hypoalbuminaemia).
+- Skin turgor will be low if total body water is reduced.
+- Lying and sitting BP and pulse (or standing, if safe) — postural drop indicates intravascular volume depletion.
+
+## Investigations & Diagnostic Workup
+U&Es, Mg, bicarbonate, glucose
+- Paired serum & urine osmolality (but unhelpful if diuretics have been given)
+- Urine Spot Na+
+- T S H, FT4
+- Random Cortisol
+- LFTs
+- Measure serum or urine osmolality
+
+## Emergency Management Protocol
+Hyponatraemic patients should be referred for possible ICU admission if they. have:
+- Reduced level of consciousness Fits
+- Need for treatment with Hypertonic Saline
+- If sodium is <115 mmol/l, where it is not apparent that this is chronic. These patients may not have serious neurological symptoms as above but it may still be desirable to raise [Na] by initially by 0.5 mmol/hr, but no more than IO mmol/24 hours.
+
+- If the patient has a severe reduction in conscious level or is having seizures related to hyponatraemia cause), then this is an emergency±
+- Serum sodium must be raised urgently (but by no more than 1-2 mmol/L per hour in first 2-3 hours) until serious symptoms resolve.
+- Use 300 ml of 1.8% Hypertonic Saline over 30 mins. If water overload is also present, a loop diuretic (e.g. furosemide 20 mg IV) may be co-administered.
+- The aim is to increase serum [Na] by around 4-6 mmol/l over the first 2-3 hours which is usually adequate to terminate seizures.
+- Ensure a total rise of no more than 10-12 mmol/l over the first 24 hour period.
+- Once severe symptoms have resolved, and in all other situations, correcting [Na+] beyond 10-12 mMol/l (about 0.5mMol/hr) should be avoided in the first 24-hour period, and 18mMoI/I in the first 48 hours.
+- Rapid rises in serum sodium causes excessive cell shrinkage and osmotic demyelination. This can cause the syndrome of central pontine myelinolysis with possible irreversible debility or death.
+- Specific management
+
+Hypervolaemic Hyponatraemia Treat underlying cause. Stop offending drugs and fluids. Fluid restrict to below level Of urine (usually restricted to 750-1000 ml/day). Where water overload is severe, a loop diuretic may be co- administered.
+- The Patient with Cirrhosis and Hyponatraemia Water and salt restriction are the mainstay of treatment, with use of aldosterone antagonists as required. Diuretics should be withheld if severely hyponatraemic Euvolaemic Hyponatraemia Stop offending drugs and fluids. Fluid restrict to below level of urine (usually restricted to 750-1000 ml/day).
+- Syndrome of Inappropriate Antidiuretic Hormone Secretion (SADH) Find and treat the cause. Remove medications which may cause SIADH (e.g. thiazides, opiates, haloperidol, tricyclic antidepressants, carbamezepine). Seek and treat pneumonia, lung carcinoma, CNS disease. Fluid restriction is the mainstay for correction. Demeclocycline (150
+- 300 mg 6 hourly) may be indicated in cases Of SIADH resistant to fluid restriction   Hypovolaemic Hyponatraemia Ensure diuretic medications have been stopped. Consider administration Of appropriate crystalloids. Isotonic (0.9%) saline is generally sufficient. NB careful monitoring is needed to avoid overcorrection Treat underlying cause (i-e adrenal insufficiency)
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hyponatremia - Clinical Figure 1](/lessons/images/sba/nephrology-acid-base/hyponatremia/figure_01_p1.jpeg)
+*Hyponatremia — Clinical Figure 1 (Page 1 Reference)*
+
+![Hyponatremia - Clinical Figure 2](/lessons/images/sba/nephrology-acid-base/hyponatremia/figure_02_p5.jpeg)
+*Hyponatremia — Clinical Figure 2 (Page 5 Reference)*
+
+![Hyponatremia - Clinical Figure 3](/lessons/images/sba/nephrology-acid-base/hyponatremia/figure_03_p5.jpeg)
+*Hyponatremia — Clinical Figure 3 (Page 5 Reference)*$LEC_NEPH_086$,
+      "position"   = 14,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hyponatremia' OR "slug" = 'hyponatremia');
 
-  -- 2) Upsert Quiz Lesson (Position 15)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -10519,14 +17398,81 @@ $SBA_NEPH_086$,
     RAISE EXCEPTION 'Module Urological Emergencies not found in mrcem-sba';
   END IF;
 
-  -- Topic 1/11: Acute Pyelonephritis Management
-  -- 1) Interleave Lecture (Position 0)
+  -- Pair 1/11: Acute Pyelonephritis Management
+  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
   UPDATE "lessons"
-  SET "position" = 0, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Pyelonephritis Management',
+      "body"       = $LEC_UROL_087$# Acute Pyelonephritis Management
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Arrange collection of a mid-steam urine (MSU) or catheter specimen of urine
+- (CSU), to determine the infecting micro-organism.
+- Obtain a urine sample for culture before starting empirical drug treatment Dipstick testing of urine for nitrites and leukocytes is not necessary A definitive diagnosis of acute pyelonephritis is made in people with loin pain
+- and/or fever if a UTI is confirmed by culturing a urinary pathogen from the urine.
+
+## Emergency Management Protocol
+Referral pathway Consider referring or seeking specialist advice for people with acute
+- pyelonephritis if they; Are pregnant
+- Are significantly dehydrated and unable take oral fluid or medicine
+- Have a higher risk of developing complications — people with underlying disease
+- (such as DM, immunocompromise or genitourinary tract abnormalities) Have recurrent episodes of UTI (for example, two or more episodes in a 6-month
+- period). For all children presenting with an unexplained fever of 380C or higher, or
+- loin pain/tenderness suggesting pyelonephritis — send a urine sample for microscopy and culture within 24 hours, and consider referral to a paediatric specialist. Refer urgently using a suspected cancer pathway referral for an appointment
+- within 2 weeks for people: Aged 45 years and over who have unexplained visible haematuria without urinary tract infection, or visible haematuria that persists or recurs after successful treatnnent of urinary tract infection.
+
+- Aged 60 years and over who have unexplained non-visible haematuria and either dysuria or a raised white cell count on a blood test
+- Consider non-urgent referral for bladder cancer in men aged 60 years and over with recurrent or persistent UTI.
+- Admission pathway
+- Admit people with acute pyelonephritis to hospital if it is severe or patient developed sign and symptoms of sepsis include: Significant tachycardia, hypotension, or breathlessness.
+- Marked signs of illness (such as impaired level of consciousness, perfuse sweating, rigors, pallor, significantly reduced mobility).
+- A temperature greater than 380C or less than 360C
+- severity of symptoms
+- Previous urine culture and susceptibility results
+- previous antibiotic use
+- First line for women who are not pregnant, men,and people with indwelling catheters
+- Cefalexin500mg twice or three times a day (up to 1— 1.5g three or four times a day for severe infections) for 7-10 days.
+- Co-amoxiclav(only if appropriate in line with culture and sensitivity results)  mg three times a day for 7-10 days.
+- Trimethoprim(only if appropriate in line with culture and sensitivity results) 200mg twice a day for 14 days.
+- Ciprofloxacin500 mg twice a day for 7 days
+- First line IV (intravenous)
+
+- Co-amoxiclav (only in combination or if culture results available and susceptible), Cefuroxime, Ceftriaxone, ciprofloxacin, gentamicin, amikacin.
+- Second line— consult with microbiologist
+- Eicst-/ine;-Choice-of-antibioticzpregnant-women-aged-12years-and-oyer;
+- Cefalexin 500 mg twice or three times a day (up to I to 1.5 g three or four times a day for severe infections) for 7 to IO days.
+- First choice 'V: Cefuroxime 750 mg to 1.5 g three or four times a day
+- Second line: consult with microbiologists.
+- Choice of antibiotic: children and young_people under 16 years
+- Refer children under 3 months to paediatric specialist and treat with intravenous antibiotics in line with the NICE guideline on fever in under 5s
+- Cefalexin — 3months to 4 years 12.5 mg/kg or 125 mg twice a day for 7 to IO days (25 mg/kg two to four times a day [maximum 1 g per dose four times a day] for severe infections)
+- Sto 11 years, 12.5 mg/kg twice a day or 250 mg three times a day for 7 to 10 days (25 mg/kg two to four times a day [maximum I g per dose four times a day] for severe infections)
+- 12 to 15 years, 500 mg twice or three times a day (up to I to 1.5 g three or four times a day for severe infections) for 7 to 10 days
+- Co-amoxiclav (only if culture results available and susceptible)
+- First choice IV antibiotics : Co-amoxiclav (only in combination or if culture results available and susceptible), Cefuroxime, Ceftriaxone, ciprofloxacin, gentamicin, amikacin.
+- Complications
+- sepsis.
+- Parenchyma renal scarring.
+
+- Recurrent urinary tract infections. Renal abscess formation. Preterm labour in pregnancy. Emphysematous pyelonephritis previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Pyelonephritis Management - Clinical Figure 1](/lessons/images/sba/urological-emergencies/acute-pyelonephritis
+
+## Emergency Management Protocol
+/figure_01_p5.jpeg)
+*Acute Pyelonephritis Management — Clinical Figure 1 (Page 5 Reference)*$LEC_UROL_087$,
+      "position"   = 0,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-pyelonephritis-management' OR "slug" = 'acute-pyelonephritis');
 
-  -- 2) Upsert Quiz Lesson (Position 1)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -10629,14 +17575,159 @@ $SBA_UROL_087$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 2/11: Dysuria & Lower Urinary Tract Infections
-  -- 1) Interleave Lecture (Position 2)
+  -- Pair 2/11: Dysuria & Lower Urinary Tract Infections
+  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
   UPDATE "lessons"
-  SET "position" = 2, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Dysuria & Lower Urinary Tract Infections',
+      "body"       = $LEC_UROL_088$# Dysuria & Lower Urinary Tract Infections
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+urgent microscopy and culture.
+- If UTI is suspected in children aged 3 months or over — perform dipstick analysis:
+- If-both-leukocyte-esterase-gnd-nitcitegce-positiue then treat as UTI Start antibiotics
+- Send a urine sample for culture if the child is aged under 3 years, has a high or
+- intermediate risk of serious illness, (high or intermediate risk refer to sepsis risk stratification/traffic light under 5 years age Nice guideline). If leukocyte esterase is positive and nitrite is negative
+- send a urine sample for microscopy and culture.
+- For children aged under 3 years, start antibiotic treatrnent and reassess once
+- culture results are know For children aged 3 year or over, only start antibiotic treatrnent if there is good
+- clinical evidence of UTI (leucocytes may indicate infection outside the urinary tract) Start antibiotic treatment
+- Send urine for culture to confirm diagnosis and reassess once results are known.
+-
+- (f both leukocyte esterase and nitrite are negative, UTI is unlikely Do not start antibiotic treatrnent. Consider differential diagnoses
+- Antibiotic choice
+- First line
+-
+- Trimethoprim — 3 months to 5 years, 4 mg/kg (maximum 200 mg per dose) or 25-50
+- mg twice a day for 3 days 6 to II years, 4 mg/kg (maximum 200 mg per dose) or 100 mg twice a day for 3 days
+-
+- 12 to 15 years, 200 mg twice a day for 3 days
+
+Nitrofurantoin: if estimated glomerular filtration rate (eGFR) 245 ml/minute
+- 3 months to II years, 750 micrograms/kg four times a day for 3 days
+-
+- 12 to 15 years, 50 mg four times a day or 100 mg modified-release twice a day for 3 days Second line
+-
+- Nitrofurantoin: if eGFR 245 ml/minute6 and not first choice (dose same as above) Amoxicillin : (only if culture results available and susceptible)
+- 1 to 11 months, 125 mg three times a day for 3 days
+- I to 4 years, 250 mg three times a day for 3 days
+- 5 to 15 years, 500 mg three times a day for 3 days
+- Cefalexin: 3months to 4 years 12.5 mg/kg or 125 mg twice a day for 7 to IO days (25
+- mg/kg two to four times a day [maximum 1 g per dose four times a day] for severe infections)
+- 5 to 11 years, 12.5 mg/kg twice a day or 250 mg three times a day for 7 to 10 days (25 mg/kg two to four times a day [maximum I g per dose four times a day] for severe infections)
+- 12 to 15 years, 500 mg twice or three times a day (up to I to 1.5 g three or four times a day for severe infections) for 7 to IO days
+- Complication Renal scarring/damage
+-
+- Hypertension Renal insufficiency and failure
+- lower urinary tract infection (UT') in women
+- It is an infection of the bladder (also known as cystitis) usually caused by bacteria from the gastrointestinal tract.
+
+- Uncomplicated UTI — UTI caused by typical pathogens in people with a normal urinary tract and kidney function, and no predisposing co-morbidities.
+- Complicated UTI — UTI with an increased likelihood of complications such as persistent infection, treatment failure and recurrent infection
+- Causes
+- Most common E-COLI
+- Less-common:-staphy/ococcus saprophyticus, Klebsiella species, Streptococcus, and Proteus mirabilis (more common in males, associated with renal tract abnormalities.
+- Entry route
+- Retrograde bacteria ascend through the urethra into the bladder.
+- Via the blood strearn — more likely in people who are immunosuppressed.
+- Direct — for example with insertion of a catheter into the bladder, instrumentation, or surgery
+
+## Key Clinical Features
+Dysuria— discomfort, pain, burning, tingling or stinging associated with urination.
+- Frequency —passing urine more often than usual.
+- Urgency —a strong desire to empty the bladder, which may lead to urinary incontinence.
+- Nocturia— passing urine more often than usual at night.
+- Suprapubic discomfort/tenderness
+- Urine may appear cloudy to the naked eye, or change colour or odour.
+- Haematuria may present as red/brown discolouration of urine or as frank blood
+- Typical features may be absent, in particular in elderly women with underlying cognitive impairment (Alzheimer's disease, early onset dementia) — consider UTI if the woman presents with:
+
+- Generalized non-specific clinical features such as delirium, lethargy, reduced ability to carry out activities of daily living and anorexia.
+- Alternative sources of infection and causes of delirium other than UTI must be excluded before a working diagnosis of UTI is made
+
+## Emergency Management Protocol
+Pain relief: paracetamol or ibuprofen
+- Antibiotic-therapy:non-pregnant women aged 76 years and over, treat according to sensitivities from recent urine culture (if available), otherwise treat empirically taking account of local antimicrobial resistance patterns
+- First choice — Nitrofurantoin 100mg modified-release twice a day for 3 days (if eGFR 245ml/minute)
+- OR-Trimethoprim 200mg twice a day for 3 days (if Iow risk of resistance)
+- Second choice —Nitrofurantoin 100mg modified-release twice a day for 3 days (if eGFR 245mI/minute and not used as first-choice) or
+- Pivmecillinam (a penicillin) 400mg initial dose, then 200mg three times a day for a total of 3 days or
+- Fosfomycin 3g single dose sachet
+- Antibiotic-therapy-pregnant women aged 72 years and over
+- First choice: Nitrofurantoin (avoid at term): if estimated glomerular filtration rate (eGFR) 245 mi/minute IOOmg BD 7 days
+- Second choice: Amoxicillin (only if culture results available and susceptible) or Cefalexin 500 mg twice a day for 7 days
+- Advise
+- Encourage intake of enough fluids to avoid dehydration.
+- Do not recommend cranberry products or urine alkalinising agents
+
+- Complications Pyelonephritis
+- renal and peri-renal abscess
+- impaired renal function
+- renal failure
+- Urosepsis
+- Lower UTI in men Causes & definition same as UTI in women.
+-
+- Risk factors Age over 50 years.
+- Benign prostatic hypertrophy (BPH) and other causes of urine outflow obstruction
+- (for example, urinary tract stones, urethral stricture). Catheterisation — UTI is the rnost common hospital acquired infection, and the
+- majority of cases result from indwelling catheters. Previous urinary tract instrumentation or surgery.
+- Previous UTI
+-
+
+## Key Clinical Features
+(same as in UTI in women)
+- Other-specific features In men who are frail and elderly, and/or catheterized, and/or in institutional care, do
+- not rely on classical symptoms or signs to predict the likelihood of UTI — in these men, UTI may present with atypical symptoms. In men aged 65 years or over, UTI is likely if dysuria alone is present, or two or more
+- of the following: Temperature 1.50C above normal twice in 12 hours.
+- New frequency or urgency.
+-
+
+- New incontinence.
+- New or worsening delirium/debility.
+- New suprapubic pain.
+- Visible haematuria.
+
+## Investigations & Diagnostic Workup
+In men with symptoms suggestive of a UT', confirm the diagnosis by urine culture and sensitivity, by arranging collection of a mid-steam urine (MSU) or catheter specimen of urine (CSU).
+- Obtain a urine sample for culture before starting empirical drug treatment.
+- Do not use urine dipstick tests or microscopy to diagnose UTI in men:
+- who are not catheterized
+- If the dipstick test is negative for nitrites and leukocyte esterase, UTI is less likely, although positive nitrite makes UTI more likely (positive predictive value 96%).
+- Patient With an indwelling catheter — make a working diagnosis based on clinical judgement.
+- Aged over 65 years — dipsticks become more unreliable with increasing age over 65 years.
+
+## Emergency Management Protocol
+Refer-to-urology-men-who;
+- Have ongoing symptoms despite appropriate antibiotic treatment. May have an underlying cause or risk factor for the UTI (such as suspected bladder outlet obstruction, or have a history of pyelonephritis, urinary calculi, or previous genitourinary tract surgery).
+- Have recurrent episodes of IJTI (for example, two or more episodes in a 6-month period).
+
+- Arrange emergency admission to hospital if
+- Patient is severely unwell with symptoms or signs suggestive of urosepsis (for example, nausea and vomiting, confusion, tachypnoea, tachycardia, or hypotension).
+- Other-a/Lpatient-offer-antj_iotics;
+- Must-ta—e-ACCQ.un.t-Previous urine culture and susceptibility results and previous antibiotic use, which may have led to resistant bacteria.
+- First choice
+- Trimethoprim 200 mg twice daily for 7 days.
+- Nitrofurantoin 100 mg modified-release twice daily (or if unavailable 50 mg four times daily) for 7 days
+- Note: Nitrofurantoin is not recommended for men with prostate involvement as it is unlikely to reach therapeutic levels in the prostate. If acute prostatitis is suspected quinolones are the first-choice antibiotic.
+- Second choice —Nitrofurantoin 100mg modified-release twice a day for 3 days (if eGFR 245ml/minute and not used as first-choice) or
+- Pivmecillinam (a penicillin) 400mg initial dose, then 200mg three times a day for a total of 3 days or
+- Fosfomycin 3g single dose sachet
+- Arrange follow up, for example after 48 hours, depending on clinical judgement, to check the man's response to treatment and the urine culture results. previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Dysuria & Lower Urinary Tract Infections - Clinical Figure 1](/lessons/images/sba/urological-emergencies/dysuria-lower-urinary-tract-infections/figure_01_p8.jpeg)
+*Dysuria & Lower Urinary Tract Infections — Clinical Figure 1 (Page 8 Reference)*$LEC_UROL_088$,
+      "position"   = 2,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'dysuria-lower-urinary-tract-infections' OR "slug" = 'dysuria');
 
-  -- 2) Upsert Quiz Lesson (Position 3)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -10739,14 +17830,71 @@ $SBA_UROL_088$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 3/11: Epididymo-Orchitis Management
-  -- 1) Interleave Lecture (Position 4)
+  -- Pair 3/11: Epididymo-Orchitis Management
+  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
   UPDATE "lessons"
-  SET "position" = 4, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Epididymo-Orchitis Management',
+      "body"       = $LEC_UROL_089$# Epididymo-Orchitis Management
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+'Prehn sign' (relief of pain with elevation of the testes)
+- Presence of cremasteric reflex
+-
+
+## Investigations & Diagnostic Workup
+Diagnosis made clinically
+-
+- Urine dipstick test and mid-stream urine (MSU) for microscopy and culture, if acute epididymo-orchitisis suspected in a pre-pubertal child, or an adult aged over 35 years with a Iow-risk sexual history If any doubt for STI then a referral for GUM assessment. Don't be tempted to start
+- empirical therapy for STIS Management
+- Referral pathway. If an STI is the most likely cause of epididymo-orchitis
+- advise urgent referral to a local specialist sexual health clinicfor STI testing,
+- treatment, and possible contact tracing. if urgent referral to a sexual health specialist is not possible then:
+- Treat with ceftriaxone I g 1M plusoraldoxycycline 100 mg twice daily for 10—14 days.
+- If a cephalosporin and/or tetracycline antibiotic is contraindicated, treat with oral
+- ofloxacin 200 mg twice daily for 14 days. If epididymo-orchitis is most likely due to chlamydia or other non-gonococcal
+- organisms (if no risk factors for gonorrhoea) then: Treat with oral doxycycline 100 mg twice daily for 10-14 days, ororal ofloxacin 200
+- mg twice daily for 14 days If a quinolone antibiotic is contraindicated, treat with oral co-amoxiclav  mg
+- three times a day for IO days.
+
+- Admission pathway
+- If symptoms are severe, the person is systemically unwell, or there is a suspected serious complication, (sepsis, abecess formation, chronic scrotal pain) arrange emergency hospital admission.
+- Ensure a urine dipstick test and mid-stream urine (MSU) sample for microscopy and culture have been arranged.
+- Treat the patient oral ofloxacin 200 mg twice daily for 14 days, ororal levofloxacin 500 mg once daily for IO days.
+- If a quinolone antibiotic is contraindicated,_treat with oral co-amoxiclav  mg three times a day for 10 days.
+- If a pre-pubertal child has suspected epididymo-orchitis;
+- If symptoms are severe, the child is systemically unwell, or there is a suspected serious complication,arrange emergency hospital admission.
+- If a diagnosis of mumps orchitisis suspected, follow mumps management guideline
+- Arrange a urine dipstick test and mid-stream urine (MSU) sample for microscopy and culture,and manage depending on the result.
+- If a urinary tract infection (UT I) is confirmed, seek specialist advice on the choice of antibiotic, dose, and duration of treatment, and arrange onward referral to a paediatrician as appropriate.
+- If a UTI is not confirmed, do not start antibiotic treatment routinely in primary care.
+- Reassure parents/carers that epididymitis is usually a self-limiting condition which resolves with rest and analgesia such as paracetamol and/or nonsteroidal anti-inflammatory drugs (NSAIDs) as needed.
+- Give advice on self-mana ement measures and when to arrange follow upg
+
+- Advise on rest
+- scrotal support (such as with supportive underwear)
+- Paracetamol OR NSAID as per need.
+- Complications
+- Sepsis
+- Abscess formation and ischaemia/infarction of the testicle
+- Reactive hydrocele
+- Testicular atrophy and subfertility, for example due to mumps orchitis
+- Chronic scrotal pain  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Epididymo-Orchitis - Clinical Figure 1](/lessons/images/sba/urological-emergencies/epididymo-orchitis/figure_01_p4.jpeg)
+*Epididymo-Orchitis — Clinical Figure 1 (Page 4 Reference)*$LEC_UROL_089$,
+      "position"   = 4,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'epididymo-orchitis' OR "slug" = 'epididymo-orchitis');
 
-  -- 2) Upsert Quiz Lesson (Position 5)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -10849,14 +17997,116 @@ $SBA_UROL_089$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 4/11: Haematuria & Urological Malignancies
-  -- 1) Interleave Lecture (Position 6)
+  -- Pair 4/11: Haematuria & Urological Malignancies
+  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
   UPDATE "lessons"
-  SET "position" = 6, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Haematuria & Urological Malignancies',
+      "body"       = $LEC_UROL_090$# Haematuria & Urological Malignancies
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Visible haematuria. . Anorexia/weight loss.
+- Lower urinary tract symptoms (LUTS), such as nocturia, frequency, urgency, hesitancy, retention, terminal dribbling, and/or overactive bladder — these symptoms are common in older men and early prostate cancer will not usually produce these symptoms. However, locally advanced prostate cancer may cause obstructive LOTS.
+- Lower back pain, bone pain, weight loss (possible symptoms of advanced prostate cancer).
+
+## Investigations & Diagnostic Workup
+Offer a digital rectal examination (DRE).
+- DRE allows assessment of the prostate for signs of prostate cancer (a hard gland, sometimes with palpable nodules) or benign enlargement (smooth, firm, enlarged gland).
+- Note that a gland that feels normal does not exclude a tumour
+- Consider prostate-specific antigen (PSA) testing
+- Agespecific PSA thresholds for of prostate cancer (NICE guideline)
+
+Age (years) Below 40 40-49 50-59 60—69 70-79 Above 79 Prostate-specific antigen threshold (micrograms/L) Use clinical judgement More than 2.5 More than 3.5 More than 4.5 More than 6.5 Use clinical judgement Management Management depend on the man's prognostic risk.This is determined by taking
+- into account: The clinical staging of the disease.
+- Results of the prostate-specific antigen (PSA) test.
+-
+- The Gleason score.
+- The person's age, comorbidities, and preference. Treatments options include:
+- Watchful waiting.
+- Active surveillance.
+-
+
+- Radical treatments, such as radical prostatectomy, external beam radiotherapy, and brachytherapy. Adjunctive and palliative treatments, such as hormone therapy, chemotherapy, or bisphosphonates.
+- Complications
+- Local invasion
+- Prostate cancer can be locally invasive and spread to the seminal vesicles, base of the bladder, urethral sphincter, or side wall of the pelvis.
+- Distant metastases
+- Metastasizing prostate cancer most commonly spreads to the bones, where it can cause pain, pathological fractures, or spinal cord compression.
+- Lower urinary tract symptoms (LUTS Testicular cancer
+- Testicular tumours account for 1—2% of all paediatric solid tumours, the majority of which are benign
+- Testicular cancer accounts for 1% of adult cancers and 5% of adult urological turnours
+- It is the most common solid tumour detected in males aged 15—34 years.
+- The majority of pre-pubertal testicular tumours are yolk sac tumours (malignant germ cell tumours) and teratomas
+- Around 90—95% of post-pubertal tumours are germ cell tumours, mainly teratornas and seminomas
+- Risk factors
+- White ethnicity.
+- Family history of testicular cancer in a first-degree relative.
+
+- Undescended testis (cryptorchidism), even after orchidopexy surgery. Hypospadias.
+- Sub- or infertility.
+- Klinefelter's syndrome.
+- A contralateral tumour.
+- Testicular intraepithelial neoplasia
+
+## Key Clinical Features
+Usually unilateral testis enlargement, or change in shape or texture (often painless, may be dull ache or dragging sensation in the scrotum). Typically, solid firm mass involving all or part of testis, may be scrotal swelling.
+- May be associated supraclavicular lymphadenopathy or abdominal mass (retroperitoneal lymphadenopathy).
+- May present with hydrocele or epididymo-orchitis.
+
+## Emergency Management Protocol
+If a person has suspectedtesticular cancer on clinical examination (or incidentally following ultrasound of the scrotum):
+- Arrange an urgent urology referral (using a 2-week suspected cancer pathway)
+- Consider arranging blood tests for tumour markers (alpha-fetoprotein [AFP], human chorionic gonadotrophin [hC , and lactate dehydrogenase [LDHI levels) at the time of referral, depending on local referral guidelines and availability. Squamous cell carcinoma of the scrotum
+- Squamous cell carcinoma of the scroturn is extremely rare
+- Causes
+
+- occupational exposure to carcinogenic polycyclic aromatic hydrocarbons, for example in car mechanics, car and aeroplane manufacture, gas workers, engineers, steel manufacture, and aluminium workers.
+- It can also occur as a complication of human papillomavirus (HPV) infection.
+- UVA (psoralen plus ultraviolet
+- **A)** phototherapy for psoriasis.
+
+## Key Clinical Features
+Gradual onset, often painless raised papule, plaque, ulcer, or non-healing skin lesion on the scrotal wall. May be associated inguinal lymphadenopathy.
+
+## Emergency Management Protocol
+Arrange an urgent referral to a urologist or dermatologist (using a 2-week suspected cancer pathway),depending on clinical judgement. Bladder vs renal cell cancer
+
+- Diagnosis Renal cell Carcinoma Bladder carcinoma (transitional cells carcinoma or Urothelial carcinoma of the bladder) Clinical features & investigations Most common 10 renal malignancy Management Refer people using a suspected
+- Most common in males 50—70 years old
+- Increase incidence with tobacco smoking and cancer pathway referral (for an obesity.
+- Originate from PCT
+
+## Key Clinical Features
+pain, palpable mass, hematuria Other feature (fever, polycythemia, weight- loss) Inyes_igatiomMost renal cancers are visible on ultrasound of the kidneys. Definitive diagnosis of renal cancer requires histology Most common tumor of urinary tract system (can occur in renal calyces, renal pelvis, ureters and bladder)
+- Clinical feature Painless haematuria (no casts) Dysuria and urinary frequency (especially when persistent) Associated with Phenacetin, tobacco Smoking, Aromatic amines (found in dyes), Cyclophosphamide. Pneumonic (Pee SAC) Investigation cystoscopy with biopsy most haematuria clinics investigate with ultrasound before proceeding to cystoscopy
+- appointment within 2 weeks) for renal cancer if they are aged 45 years and over and have: Unexplained visible haematuria without urinary tract infection, or Visible haematuria that persists or recurs after successful treatment of urinary tract infection. Refer people using a suspected cancer pathway referral (for an appointment within 2 weeks) for bladder cancer if they are: Aged 45 years and over and have: Unexplained visible haematuria without urinary tract infection, or Visible haematuria that persists or recurs after successful treatment of urinary tract infection, or Aged 60 years and over and have unexplained non-visible haematuria and either dysuria or a raised white cell count on a blood test. Consider non-urgent referral for bladder cancer in people aged 60 years and over with recurrent
+
+previous  or persistem unexp
+- ameu urinary tract infection. Next 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Hematuria & Urological Malignancies - Clinical Figure 1](/lessons/images/sba/urological-emergencies/hematuria-urological-malignancies/figure_01_p3.jpeg)
+*Hematuria & Urological Malignancies — Clinical Figure 1 (Page 3 Reference)*
+
+![Hematuria & Urological Malignancies - Clinical Figure 2](/lessons/images/sba/urological-emergencies/hematuria-urological-malignancies/figure_02_p7.jpeg)
+*Hematuria & Urological Malignancies — Clinical Figure 2 (Page 7 Reference)*
+
+![Hematuria & Urological Malignancies - Clinical Figure 3](/lessons/images/sba/urological-emergencies/hematuria-urological-malignancies/figure_03_p8.jpeg)
+*Hematuria & Urological Malignancies — Clinical Figure 3 (Page 8 Reference)*
+
+![Hematuria & Urological Malignancies - Clinical Figure 4](/lessons/images/sba/urological-emergencies/hematuria-urological-malignancies/figure_04_p8.jpeg)
+*Hematuria & Urological Malignancies — Clinical Figure 4 (Page 8 Reference)*$LEC_UROL_090$,
+      "position"   = 6,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'hematuria-urological-malignancies' OR "slug" = 'hematuria-cancer');
 
-  -- 2) Upsert Quiz Lesson (Position 7)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -10968,14 +18218,38 @@ $SBA_UROL_090$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 5/11: Phimosis & Paraphimosis Emergencies
-  -- 1) Interleave Lecture (Position 8)
+  -- Pair 5/11: Phimosis & Paraphimosis Emergencies
+  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
   UPDATE "lessons"
-  SET "position" = 8, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Phimosis & Paraphimosis Emergencies',
+      "body"       = $LEC_UROL_091$# Phimosis & Paraphimosis Emergencies
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Step-I manipulation Step-2 Puncture technique Step-3 Surgical intervention
+-
+- Gentle compression with a saline-soaked swab followed by reduction of the prepuce over the glans Ice: apply ice to reduce swelling Manual compression is achieved by asking the patient to squeeze the glans for anything from 5 to 30 minutes or use gloved hand until swelling improve Osmotic reduction: involves application of a swab soaked in 50% dextrose to the swollen area for an hour. If above step failed Multiple punctures in the oedematous foreskin allow exudation of oedematous fluid and reduction in swelling OR injection of hyaluronidase prior to compression reduction. General/local anaesthesia may be required. Perform dorsal slit procedure-phimotic ring incised on the dorsal aspect of penis to relieve tightness prevent retraction Consider circumcision
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Phimosis & Paraphimosis Emergencies - Clinical Figure 1](/lessons/images/sba/urological-emergencies/phimosis-paraphimosis-emergencies/figure_01_p2.jpeg)
+*Phimosis & Paraphimosis Emergencies — Clinical Figure 1 (Page 2 Reference)*
+
+![Phimosis & Paraphimosis Emergencies - Clinical Figure 2](/lessons/images/sba/urological-emergencies/phimosis-paraphimosis-emergencies/figure_02_p2.jpeg)
+*Phimosis & Paraphimosis Emergencies — Clinical Figure 2 (Page 2 Reference)*
+
+![Phimosis & Paraphimosis Emergencies - Clinical Figure 3](/lessons/images/sba/urological-emergencies/phimosis-paraphimosis-emergencies/figure_03_p3.jpeg)
+*Phimosis & Paraphimosis Emergencies — Clinical Figure 3 (Page 3 Reference)*$LEC_UROL_091$,
+      "position"   = 8,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'phimosis-paraphimosis-emergencies' OR "slug" = 'phimosis-paraphimosis');
 
-  -- 2) Upsert Quiz Lesson (Position 9)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -11084,14 +18358,112 @@ $SBA_UROL_091$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 6/11: Priapism Emergency Management
-  -- 1) Interleave Lecture (Position 10)
+  -- Pair 6/11: Priapism Emergency Management
+  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
   UPDATE "lessons"
-  SET "position" = 10, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Priapism Emergency Management',
+      "body"       = $LEC_UROL_092$# Priapism Emergency Management
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Haematological: Sickle Cell Anaemia, Leukaemia, Thalassaemia, Myeloma,
+- Trauma — Spinal, Penile, Pelvic
+- Spider bites (watch out Spiderman!)
+- Medication: anticoagulants, antihypertensives, antidepressants (fluoxetine), cocaine, intracavernosal injections
+
+## Investigations & Diagnostic Workup
+FBC
+- HB electrophoresis
+- Analyse blood gas of blood aspirated from the penis (for the differentiation between ischaemic and arterial priapism)
+- Perform colour duplex ultrasound of the penis and perineum (for the differentiation between ischaemic and arterial priapism)
+- In cases of prolonged ischaemic priapism, use magnetic resonance imaging (MRI) of the penis to predict smooth muscle viability and confirm erectile function restoration.
+- Perform selected pudendal arteriogram when embolisation is planned for the management of arterial priapism.
+
+## Emergency Management Protocol
+Ischaemic priapism
+
+## Emergency Management Protocol
+algorithm
+
+- Initial conservative measures Local anaesthesia of the penis Insert wide bore butterfly through the glans into the corpora cavernosa Aspiration cavernosal blood until bright red arterial blood is obtained
+- Cavernosal irrigation Irrigate with 0.9% w/v saline solution
+- Intracavernosal therapy inject intracavernosal adrenoceptor agonist Current first-line therapy is phenylephrine with aliquots of 200 pg being injected every 3-5 minutes until detumescence is achieved (Maximum dose of phenylephrine is Img within 1 hour)
+- Surgical therapy Surgical shunting Consider primary penile prosthesis implantation if priapism has been present for more than 36 hours
+
+Arterial (High-Flow or Non-lschaemic) Priapism
+
+## Emergency Management Protocol
+algorithm
+
+- Manage conservatively Apply ice packs Bed rest External compression Use androgen deprivation therapy only in adults Failed
+- Perform selective artery embolisation
+- Surgical therapy Reserve selective surgical ligation of the fistula as a final treatment option when embolisation has failed
+
+Stuttering_(Recurrent or Intermittent) Priapism
+
+## Emergency Management Protocol
+algorithm
+
+- Manage each acute episode similar to that for ischaemic priapism
+- Prophylaxis/prevention of future episode Hormonal therapies (mainly gonadotropinreceptor hormone agonists or antagonists) and/or antiandrogens Initiate treatment with phosphodiesterase type 5 inhibitors (PDE51s) only when the penis is in its flaccid state Use digoxin, a-adrenergic agonists, baclofen, gabapentin or terbutaline only in patients with very frequent and uncontrolled relapses. Use intracavernous self-injections at home of sympathomimetic drugs for the treatment of acute episodes on an interim basis until ischaemic priapism has been alleviated.
+
+Key_points
+- Suspect-ischemicprjapism=patient has penile pain, fully rigid corpora cavernosa and abnormal penile blood gas.
+- has persistent erection that is not fully rigid and is not associated with pain.
+- Start management of ischaemic priapism as early as possible (within four to six hours)
+- The dose of phenylephrine should be reduced in children.
+- phenylephrine can result in significant hypertension and should be used with caution in men with cardiovascular disease and monitoring of pulse, blood pressure and electrocardiogram (ECG).
+- Phenylephrine use is contraindicated in men with a history of cerebro-vascular disease and significant hypertension.
+- Treat ischaemic priapism due to sickle cell anaemia same as idiopathic ischaemic priapism however other supportive measure should be taken (such as intravenous hydration, oxygen administration with alkalisation with bicarbonates, blood exchange transfusions).
+- Inject or aspirate at 3 or 9 0-clock position. previOUS  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Priapism Emergency Management - Clinical Figure 1](/lessons/images/sba/urological-emergencies/priapism-emergency
+
+## Emergency Management Protocol
+/figure_01_p3.jpeg)
+*Priapism Emergency Management — Clinical Figure 1 (Page 3 Reference)*
+
+![Priapism Emergency Management - Clinical Figure 2](/lessons/images/sba/urological-emergencies/priapism-emergency
+
+## Emergency Management Protocol
+/figure_02_p4.jpeg)
+*Priapism Emergency Management — Clinical Figure 2 (Page 4 Reference)*
+
+![Priapism Emergency Management - Clinical Figure 3](/lessons/images/sba/urological-emergencies/priapism-emergency
+
+## Emergency Management Protocol
+/figure_03_p5.jpeg)
+*Priapism Emergency Management — Clinical Figure 3 (Page 5 Reference)*
+
+![Priapism Emergency Management - Clinical Figure 4](/lessons/images/sba/urological-emergencies/priapism-emergency
+
+## Emergency Management Protocol
+/figure_04_p7.jpeg)
+*Priapism Emergency Management — Clinical Figure 4 (Page 7 Reference)*
+
+![Priapism Emergency Management - Clinical Figure 5](/lessons/images/sba/urological-emergencies/priapism-emergency
+
+## Emergency Management Protocol
+/figure_05_p8.jpeg)
+*Priapism Emergency Management — Clinical Figure 5 (Page 8 Reference)*
+
+![Priapism Emergency Management - Clinical Figure 6](/lessons/images/sba/urological-emergencies/priapism-emergency
+
+## Emergency Management Protocol
+/figure_06_p9.jpeg)
+*Priapism Emergency Management — Clinical Figure 6 (Page 9 Reference)*$LEC_UROL_092$,
+      "position"   = 10,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'priapism-emergency-management' OR "slug" = 'priapism');
 
-  -- 2) Upsert Quiz Lesson (Position 11)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -11209,14 +18581,104 @@ $SBA_UROL_092$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 7/11: Acute Bacterial Prostatitis
-  -- 1) Interleave Lecture (Position 12)
+  -- Pair 7/11: Acute Bacterial Prostatitis
+  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
   UPDATE "lessons"
-  SET "position" = 12, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Bacterial Prostatitis',
+      "body"       = $LEC_UROL_093$# Acute Bacterial Prostatitis
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+## Investigations & Diagnostic Workup
+collect mid-steam urine (MSU) sample to confirm urinary tract infection (UT I) by
+- dipstick, culture and sensitivity. Do not collect prostatic secretions as prostatic massage may lead to sepsis or
+- prostatic abscess Perform digital rectal examination (DRE):
+- In men with acute bacterial prostatitis, the prostate will be tender, enlarged, or
+- boggy.
+- A DRE should be performed gently because vigorous prostatic massage can lead to sepsis. Consider screening for sexually transmitted infections (STIs), particularly in men
+- considered to be at risk.
+
+## Emergency Management Protocol
+Admit to hospital if the man: Is unable to take oral antibiotics.
+- Has severe symptoms.
+- Has signs or symptoms of a more serious condition (for example sepsis, acute
+- urinary retention or prostatic abscess). Consider urgent referral for any man who:
+- Is immunocompromised or has diabetes mellitus.
+- Has a pre-existing urological condition (such as benign prostatic hypertrophy or an
+- indwelling catheter) — specialist urological management may be required. Start oral antibiotic treatment,
+-
+
+taking into account local antimicrobial resistance data. Prescribe an oral antibiotic
+- for 14 days:
+- Ciprofloxacin 500 mg twice daily or ofloxacin 200 mg twice daily first line, or if they are unsuitable trimethoprim 200 mg twice daily. Levofloxacin 500 mg once daily, or co-trimoxazole 960 mg twice daily (when there
+- is bacteriological evidence of sensitivity and good reasons to prefer this combination to a single antibiotic) second-line. Arrange follow up after 48 hours to check the man's response to treatrnent and the
+- urine culture results. Advise men:
+- To take paracetamol (with or without a Iow-dose weak opioid, such as codeine) for
+- pain, or ibuprofen if this is preferred and suitable. To drink enough fluids to avoid dehydration.
+-
+- Complication
+- Pyelonephritis
+- Epididymitis Acute urinary retention
+- Prostatic abscess — this is a rare complication which may require surgical
+- intervention. Risk factors include long-term urinary catheterization, recent urethral manipulation, and an immunocompromised state. Chronic prostatitis/chronic pelvic pain syndrome
+- It is defined as at least 3 months of urogenital pain, which may be perineal, suprapubic, inguinal, rectal, testicular, or penile and is often associated with lower
+
+urinary tract symptoms (such as dysuria, frequency, hesitancy, and urgency), and sexual dysfunction (erectile dysfunction, painful ejaculation, or postcoital pelvic discomfort).
+- Chronic prostatitis classification:
+- Chronic prostatitis/chronic pelvic pain syndrome (CP/CPPS) (sometimes also referred to as abacterial prostatitis or prostate pain syndrome) — accounts for over 90% of men with chronic prostatitis (there is no proven bacterial infection).
+- Chronic bacterial prostatitis (CBP) — less than 10% of men with chronic prostatitis.
+- Causes
+- The exact cause of chronic prostatitis is unknown but is thought to be multifactorial (infection, inflammation)
+- The chronic bacterial prostatitis (CBP) is thought to be caused by: An ascending urethral infection, or
+- Lymphogenous spread of rectal bacteria, or
+- Undertreated acute bacterial prostatitis, or
+- Recurrent urinary tract infection with prostatic reflux
+- Most common pathogen Escherichia coli (most
+- common), Klebsiella species, Proteus mirabilis, Enterococcus faecalis, and Pseudomonas aeruginosa.
+
+## Investigations & Diagnostic Workup
+Urine dipstick to exclude IJTI
+
+Perform a sexually transmitted infection (STI) screen (first pass urine for
+- gonorrhoea/chlamydia NAAT [Nucleic Acid Amplification Test]), and consider sending a urethral swab for trichomoniasis. Particularly in sexually active men younger than 35 years and men with multiple sexual partners or recent partner change.
+- Consider a prostate specific antigen (PSA) blood test to rule out prostate cancer
+- Assess renal function by measuring serum creatinine and estimated glomerular filtration rate (eGFR) if clinically indicated (for-example in patient with recurrent urinary tract infection, Chronic urinary retention, a history of renal stones.
+
+## Emergency Management Protocol
+Reassurance and counselling
+-
+- The cause is not always understood, but is thought to be multifactorial. The condition is chronic and treatment can be difficult, but most men notice improvement within six months. Treatment is often more about controlling symptoms rather than effecting an
+- immediate cure.
+- Paracetamol or NSAID for pain relief
+- Do not prescribe opioid
+- An alpha-blocker for 4—6 weeks if significant lower urinary tract symptoms (LUTS)
+- present. Antibiotics-Trimethoprim 200 mg twice a day for 4—6 weeks, or Doxycycline 100 mg
+- twice daily for 4—6 weeks
+- A stool softener such as lactulose or docusate if defecation is painful
+
+- Targeted cognitive behavioural therapy, counselling and antidepressants for men with psychosocial symptoms (for example, depression, stress and poor coping mechanisms).
+- Acupuncture
+- Referral pathway There is diagnostic uncertainty. Symptoms are severe (use clinical judgement to determine the urgency of referral). Symptoms persist after initial management.
+- For men with suspected chronic bacterial prostatitis (a history of urinary tract infection, or an episode of acute prostatitis within the last 12 months)
+- Complications
+- Anxiety, depression, panic disorder A greatly reduced quality of life — distress and difficulties in coping can be similar to that in people who have other long-term conditions such as, angina, or Crohn's disease previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Bacterial Prostatitis - Clinical Figure 1](/lessons/images/sba/urological-emergencies/acute-bacterial-prostatitis/figure_01_p6.jpeg)
+*Acute Bacterial Prostatitis — Clinical Figure 1 (Page 6 Reference)*$LEC_UROL_093$,
+      "position"   = 12,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-bacterial-prostatitis' OR "slug" = 'prostatitis');
 
-  -- 2) Upsert Quiz Lesson (Position 13)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -11319,14 +18781,81 @@ $SBA_UROL_093$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 8/11: Renal Colic & Nephrolithiasis
-  -- 1) Interleave Lecture (Position 14)
+  -- Pair 8/11: Renal Colic & Nephrolithiasis
+  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
   UPDATE "lessons"
-  SET "position" = 14, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Renal Colic & Nephrolithiasis',
+      "body"       = $LEC_UROL_094$# Renal Colic & Nephrolithiasis
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Age (40-60 years)
+- Ethnicity- common in white people
+- Diet- excessive with oxalate, urate, sodium
+- Chronic dehydration
+- Obesity
+- Family history
+- Drugs
+
+## Key Clinical Features
+severe unilateral abdominal pain originating in the loin or flank and radiating to the labia in women or to the groin or testicle in men. The pain typically lasts minutes to hours and occurs in spasms (with intervals of no pain or dull ache).
+- Pain associated with nausea, vomiting and hematuria
+- Many women describe it as being more intense than the pain of childbirth.
+- Patient may complain of dysuria, urinary frequency, and straining.
+- Patient may be restless and unable to lie still (which helps to differentiate renal colic from peritonitis).
+
+## Investigations & Diagnostic Workup
+Consider urine dipstick
+- Check for haematuria — the presence of haematuria can support the diagnosis of renal or ureteric colic.
+- Check for nitrite and leucocyte esterase — the presence of nitrite (with or without leucocyte esterase) in the urine suggests a urinary tract infection.
+- Offer urgent (within 24 hours of presentation) imaging to confirm the diagnosis
+
+- For most adults, offer low-dose non-contrast CT (computed tomography).
+- If a woman is pregnant, offer ultrasound instead of CT.
+- For children and young people, offer ultrasound first line. Low-dose non- contrast CT may be considered if there is still uncertainty about the diagnosis after an ultrasound scan
+
+## Emergency Management Protocol
+(NICE guideline)
+- Arrange immediate hospital admission if person has following features:
+- systemic infection (such as fever or sweats) or sepsis
+- The person is at increased risk of acute kidney injury
+- Chronic kidney disease or transplanted kidney disease
+- Bilateral stones are suspected
+- Person can't take oral intake due to nausea or vomiting
+- The diagnosis is doubtful
+- First line NSAID any route (PR, oral, 1\/)
+- IV Paracetamol if NSAID contraindicated or not giving sufficient pain relief
+- If both NSAIDs and IV paracetamol are contraindicated or are not giving sufficient pain relief, or IV paracetamol is unavailable, consider an opioid analgesic (such as tramadol).
+- Do not offer antispasmodics to people with suspected renal or ureteric colic
+
+## Emergency Management Protocol
+of renal or ureteric stones includes:
+- Watchful waiting — this is considered for asymptomatic renal stones in adults, children, and young people if the stone is:
+- Less than 5 mm.
+
+Larger than 5 mm and the person (or their family or carers, as appropriate) agrees to watchful waiting after an informed discussion of the possible risks and benefits.
+- Medical expulsive therapy — this involves the use of an alpha-blocker (tamsulosin, terazosin) to facilitate spontaneous stone passage during the observation period. It is considered for people with distal ureteric stones less than 10 mm
+- Surgical treatment —this is offered to adults with ureteric stones and renal colic within 48 hours of diagnosis or readmission if pain is ongoing and not tolerated or the stone is unlikely to pass
+- Shockwave lithotripsy (SWL) —a non-invasive outpatient treatrnent that focuses shock waves on the stone to break it up. Stone particles are passed spontaneously.
+- Percutaneous nephrolithotomy (PCNL) — a procedure in which a nephroscope is passed percutaneously into the collecting system and the stone is fragmented and extracted through the nephroscope.
+- Ureteroscopy (URS) — involves the use of various energy sources (such as lasers) to break up the stone.
+- Open surgery — required in rare cases in which SWL, PCNL, and URS fail or are unlikely to be successful. previous  Next
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Renal Colic & Nephrolithiasis - Clinical Figure 1](/lessons/images/sba/urological-emergencies/renal-colic-nephrolithiasis/figure_01_p4.jpeg)
+*Renal Colic & Nephrolithiasis — Clinical Figure 1 (Page 4 Reference)*$LEC_UROL_094$,
+      "position"   = 14,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'renal-colic-nephrolithiasis' OR "slug" = 'renal-stone');
 
-  -- 2) Upsert Quiz Lesson (Position 15)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -11429,14 +18958,64 @@ $SBA_UROL_094$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 9/11: Acute Scrotal & Testicular Pain Assessment
-  -- 1) Interleave Lecture (Position 16)
+  -- Pair 9/11: Acute Scrotal & Testicular Pain Assessment
+  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
   UPDATE "lessons"
-  SET "position" = 16, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Scrotal & Testicular Pain Assessment',
+      "body"       = $LEC_UROL_095$# Acute Scrotal & Testicular Pain Assessment
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Diagnosis Hydrocele Varicocele Haematocele E idid mal or spermatocele Clinical features
+- May be sudden or gradual onset.
+- Typically painless fluctuant, ovoid swelling enveloping the testis, or located above the testis along the spermatic cord.
+- Communicating hydroceles typically fluctuate in size, related to activity or raised intra-abdominal pressure.
+- Transilluminates with a pen torch.
+- May be associated witn a varicocele. testicular torsion, testicular cancer. or inguinal hernia.
+- Gradual onset, usually painless but may be a dull, dragging discomfort in the scrotum when standing. SThe dilated pampiniform veins have a 'bag of worms' consistency.
+- Disappears on lying down: worse on standing, straining, or testicular growth arrest.( in adolescents)
+- Offer semen analysis it tertility is a activlty_ concern Af it follows acute trauma arrange emergency hospital admission_
+- May be sudden or gradual onset, usually pain and it is atraumatic or chronic arrange tendemess following trauma. referral for an urgent ultrasound of the
+- May transilluminate with a pen torch (to a lesser scrotum and onward urology referral as extent than a hydrocele). appropriate
+- Small haematoceles manage conservatively The basic care for spermatoceles without
+- Gradual onset, painless, soft, fluctuant, smooth pain is observatiom Spermatocelectomy is the standard round nodule palpated in the spermatic cord. treatment for spermatoceles that cause
+- Usually small, but may enlarge. symptoms
+- May transilluminate with a pen torch If there is a suspected May be sudden or gradual onset, may present with dull dragging serious complication such as strangulation or intestinal obstruction, arrange ernergency discomfort in the scrotum
+
+## Emergency Management Protocol
+- Reassure the parents/carers that the congenital hydrocele is likely to resolve without treatment by 12 months of age persist atter 12 months of age then arrange referral to a paediatric surgeon
+- Hydrocele in adult-Arrange emergency hospital admission or specialist referral. dependng on the possible underlying cause the person is 1840 years of age, or the testis cannot be palpated, arrange an urgent ultrasound scan of the scrotum
+- Subclinical or grade I varicocele — no treatment is necessary.
+- Provide advice and reassurance.
+- Grade II or Ill varicocele and symmetrical testes — observe with annual examinations.
+- The primary indication tor surgery is
+
+- Inguinal hernia  may palmul, parucu.any uu;arcerdleu orsuanguldteu. Unilateral inguinal bulge: palpable separate to the testicle; cannot palpate the spermatic cord or inguinal ring above the swollen area. May enlarge with increased intra-abdominal pressure (positive cough impulse), and disappear on lying down (if reducible) previOUS For children and young people aged than 18 years: Arrange urgent referral to a paediatric surgeon, preferably to be seen within 2 weeks. For adults aged 48 years and above:
+- Arrange urgent referral to a general surgery to conszer surgical management if me hernia is irreducbk, or partiany reducible
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Scrotal & Testicular Pain - Clinical Figure 1](/lessons/images/sba/urological-emergencies/acute-scrotal-testicular-pain/figure_01_p1.jpeg)
+*Acute Scrotal & Testicular Pain — Clinical Figure 1 (Page 1 Reference)*
+
+![Acute Scrotal & Testicular Pain - Clinical Figure 2](/lessons/images/sba/urological-emergencies/acute-scrotal-testicular-pain/figure_02_p3.jpeg)
+*Acute Scrotal & Testicular Pain — Clinical Figure 2 (Page 3 Reference)*
+
+![Acute Scrotal & Testicular Pain - Clinical Figure 3](/lessons/images/sba/urological-emergencies/acute-scrotal-testicular-pain/figure_03_p4.jpeg)
+*Acute Scrotal & Testicular Pain — Clinical Figure 3 (Page 4 Reference)*
+
+![Acute Scrotal & Testicular Pain - Clinical Figure 4](/lessons/images/sba/urological-emergencies/acute-scrotal-testicular-pain/figure_04_p4.jpeg)
+*Acute Scrotal & Testicular Pain — Clinical Figure 4 (Page 4 Reference)*$LEC_UROL_095$,
+      "position"   = 16,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-scrotal-testicular-pain' OR "slug" = 'testicular-pain');
 
-  -- 2) Upsert Quiz Lesson (Position 17)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -11548,14 +19127,31 @@ $SBA_UROL_095$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 10/11: Testicular Torsion (Surgical Emergency)
-  -- 1) Interleave Lecture (Position 18)
+  -- Pair 10/11: Testicular Torsion (Surgical Emergency)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 18)
   UPDATE "lessons"
-  SET "position" = 18, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Testicular Torsion (Surgical Emergency)',
+      "body"       = $LEC_UROL_096$# Testicular Torsion (Surgical Emergency)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Testicular Torsion (Surgical Emergency) - Clinical Figure 1](/lessons/images/sba/urological-emergencies/testicular-torsion-surgical-emergency/figure_01_p1.jpeg)
+*Testicular Torsion (Surgical Emergency) — Clinical Figure 1 (Page 1 Reference)*
+
+![Testicular Torsion (Surgical Emergency) - Clinical Figure 2](/lessons/images/sba/urological-emergencies/testicular-torsion-surgical-emergency/figure_02_p1.jpeg)
+*Testicular Torsion (Surgical Emergency) — Clinical Figure 2 (Page 1 Reference)*$LEC_UROL_096$,
+      "position"   = 18,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'testicular-torsion-surgical-emergency' OR "slug" = 'testicular-torsion');
 
-  -- 2) Upsert Quiz Lesson (Position 19)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 19)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -11661,14 +19257,201 @@ $SBA_UROL_096$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 11/11: Urinary Retention & Lower UTI
-  -- 1) Interleave Lecture (Position 20)
+  -- Pair 11/11: Urinary Retention & Lower UTI
+  -- A) Update & Beautify Clinical Theory Lecture (Position 20)
   UPDATE "lessons"
-  SET "position" = 20, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Urinary Retention & Lower UTI',
+      "body"       = $LEC_UROL_097$# Urinary Retention & Lower UTI
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+nocturia. Both stress incontinence and overflow incontinence are excluded from the definition of overactive bladder. Overactive bladder symptoms are usually caused by bladder (detrusor) overactivity but can be due to other forms of voiding dysfu nction.
+- Detrusor overactivity —a urodynamic observation characterized by involuntary detrusor contractions during the bladder filling phase which may be spontaneous or provoked. Detrusor overactivity occurs in approximately 65% of men presenting with overactive bladder symptoms and 50% of men with bladder outlet obstruction.
+- Acute urinary retention —abrupt (over a period of hours) development of the inability to pass urine. It is associated with increasing pain and the presence of a distended bladder which can usually be palpated on examination.
+- Chronic urinary retention — gradual (over months or years) development of the inability to empty the bladder completely. It is associated with the presence of a distended bladder which can usually be palpated on examination.
+- Acute on chronic retention — abrupt development of acute urinary retention in a man who has previously had chronic urinary retention
+- Note: Terms such as 'prostatism', 'symptoms of benign prostatic hyperplasia', and 'clinical benign prostatic hyperplasia' have been used to describe LUTS in men. However, the National Institute for Health and Clinical Excellence (NICE) recommends that the term 'lower urinary tract symptoms' is used instead to dispel the popular perception that urinary symptoms in men invariably arise from the prostate.
+- Causes & clinical features
+- voiding lower urinary tract symptoms
+
+## Key Clinical Features
+Hesitancy
+
+poor urinary stream
+- Intermittency
+- incomplete emptying, and terminal dribbling.
+- Benign prostatic hyperplasia or benign prostatic enlargement — the most common
+- cause of voiding symptoms.
+- Drugs with an antimuscarinic action (such as tricyclic antidepressants, sedating antihistamines, antimuscarinic drugs for urinary incontinence, and disopyramide).
+- Diabetic autonomic neuropathy and neurogenic bladder. Urethral stricture and phimosis (constriction of the foreskin).
+- Cancer of the prostate, bladder, or rectum.
+-
+- Overactive bladder syndrome Clinical features
+- urgency, with or without urgency incontinence
+- sensation of needing to pass urine again just after urinating.
+- Causes
+- Benign prostatic hyperplasia and benign prostatic enlargement.
+- Neurological conditions (such as dementia, diabetic neuropathy, multiple sclerosis,
+- Parkinson's disease, and stroke). Lower urinary tract infection, sexually transmitted infections, and prostatitis.
+- Bladder stones.
+- Cancer of the bladder and prostate
+-
+- Nocturnal pglyuria
+
+It is the excessive production of urine during the night (more than 35% of the 24-
+- hour urine production) Causes
+- Medical conditions (such as diabetes mellitus, diabetes insipidus, adrenal
+- insufficiency, hypercalcaemia, liver failure, polyuric renal failure, chronic heart failure, pyelonephritis, and chronic venous stasis).
+- Drugs (such as calcium channel blockers, diuretics, and selective serotonin reuptake inhibitor [SSRI] antidepressants).
+- Stress urinary incontinence It is the involuntary leakage of urine caused by exertion (such as sneezing,
+- coughing, laughing, physical exercise, or sexual intercourse). Stress urinary incontinence in men is the result of malfunction of the urethral
+- sphincter. It can be caused by:Prostatectomy or other surgery in the pelvic area. Injury to the urethral area.
+- Drugs- that Increase urine production (for example alcohol, caffeine, and diuretics).
+- Relax the bladder outlet and urethra (for example alpha-blockers)
+- Can cause urinary retention, which may result in overflow incontinence (for
+- example sympathomimetics [such as pseudoephedrine], drugs with an antimuscarinic action [such as tricyclic antidepressants, sedative antihistamines, and some antipsychotics], and opioid analgesics).
+- Acute urinary retention causes
+-
+- Chronic outflow obstruction (for example due to benign prostatic enlargement [common] or prostate cancer [uncommon]). Stones or blood clots in the urethra.
+-
+
+Urethral stricture.
+- Severe constipation.
+- Pelvic tumour.
+- Perineal pain (for example due to genital herpes or postoperative pain).
+-
+- Drugs such as: Antimuscarinics (anticholinergics) used to treat overactive bladder.
+- Other drugs with a significant antimuscarinic action (such as tricyclic antidepressants, sedative antihistamines, some antipsychotic drugs, atropine, disopyramide, and ipratropium bromide}. Sympathomimetics (such as ephedrine and pseudoephedrine). Opioid analgesics. Anaesthetics.
+-
+- Risk factor
+- Age (most common) Increased serum dihydrotestosterone levels.
+-
+- Obesity. Elevated fasting glucose.
+-
+- Diabetes. Fat and red rneat intake.
+- Inflammation.
+- Increased size of the prostate gland and bladder decompensation
+-
+- Assessment Take a history
+-
+
+## Clinical Examination & Assessment
+Examine the abdomen for signs of a distended bladder, such as abdominal distention and suprapubic dullness on percussion.
+- Check the external genitalia to identify conditions that may cause or contribute to LUTS, for example phimosis, meatal stenosis, or penile cancer.
+- Perform a digital rectal examination to assess the prostate for size, consistency, nodules, and tenderness.
+- Examine the perineum and/or lower limbs to evaluate motor and sensory function.
+- The International Prostate Symptom Score ('PSS) is a tool for classifying the severity of lower urinary tract symptoms (LUTS) and assessing the impact of LUTS on quality of life.
+- The IPSS questionnaire is intended to be completed by the man. It contains seven questions relating to symptom severity (each question is scored from O [best] to 5 [worst]) and one question relating to quality of life due to urinary symptoms (scored from O [best] to 6 [worst]).
+- The IPSS severity score is interpreted as:
+- Score 20—35: severely symptomatic.
+- Score 8—19: moderately symptomatic.
+- Score 0—7: mildly symptomatic.
+
+## Investigations & Diagnostic Workup
+Investigations should be guided by the symptoms, history, and examination
+- Dipstick-test-the-urine-to check for blood, glucose, protein, leucocytes, and nitrites
+- Measure serum creatinine and estimated glomerular filtration rate (eGFR)jf clinically indicated, for example if the man has:
+- Chronic urinary retention — suggested by bedwetting or an enlarged bladder detected on abdominal palpation or percussion.
+- Recurrent urinary tract infection.
+
+- History of renal stones.
+- Consider the need for prostate specific antigen (PSA) testing.
+- PSA testing is indicated:
+- If symptoms suggest bladder outlet obstruction due to benign prostatic enlargement — the test result can guide drug treatment.
+- If the man is concerned about prostate cancer or if the prostate feels abnormal on digital rectal examination — the test result can guide assessment of the risk of prostate cancer.
+
+## Emergency Management Protocol
+manage a man with predominantly voiding symptoms
+- First line:
+- Reassurance and lifestyle advice without immediate treatment, with regular follow up
+- Lifestyle advice
+- avoiding constipation (or treating it if present)
+- maintaining a healthy lifestyle (with respect to body weight, exercise, diet, smoking, and alcohol consumption).
+- limiting intake of caffeine, artificial sweeteners, and fizzy drinks.
+- If the man has moderate-to-severe voiding symptoms (which would correspond to an International Prostate Symptom Score [IPSS] of 8 or more):
+- offer an alpha-blocker (alfuzosin, doxazosin, tamsulosin, or terazosin)
+- Review the man at 4—6 weeks, then every 6—12 months:
+- If the man has an enlarged prostate and is considered to be at high risk of progression, offer a 5-alpha reductase inhibitor (dutasteride or finasteride)
+
+- Review the man at 3—6 months, then every 6—12 months
+- If the man has a mixed picture with storage symptoms and voiding symptoms that persist after treatment with an alpha-blocker alone, consider adding an antimuscarinic (anticholinergic) drug.Oxybutynin (immediate release), tolterodine (immediate release), or darifenacin (once daily preparation) can be used first line.
+- Do not offer oxybutynin (immediate release) to frail older men due to the risk of impairment of daily functioning, chronic confusion, or acute delirium (less common).
+- Refer to urologist if above treatrnents fail
+
+## Emergency Management Protocol
+of Overactive bladder
+- Advise the man on fluid intake and lifestyle modification as above
+- If necessary, offer a choice of temporary urine containment products (such as sheath and leg bags, absorbent pads, and absorbent pants) to achieve social continence, and refer the man to the local continence service.
+- Offer referral for supervised bladder training — this may be available from the local continence nurse, continence physiotherapist, or urology clinic.
+- If symptoms persist, offer an antimuscarinic (anticholinergic) drug.Oxybutynin (immediate release), tolterodine (immediate release), or darifenacin (once daily preparation) can be used first line.
+- Do not offer oxybutynin (immediate release) to frail older men due to the risk of impairment of daily functioning, chronic confusion, or acute delirium (less common).
+- If first line contra-indicated or not tolerated then: offer mirabegron (depending on local prescribing policy).
+- Review at 4—6 weeks to assess tolerability and efficacy.
+- If above treatment fail then refer to urologist
+
+## Emergency Management Protocol
+of Nocturnal 2QJyuria Exclude or manage treatable causes of nocturnal polyuria
+-
+- his fluid intake in the late afternoon and evening. If above measure fail then:
+-
+- Offer-loop diuretic-to be taken in the late afternoon, for example furosemide 40 mg (off-label use) If nocturnal polyuria remains bothersome— Refer the man to a urologist for
+- assessment and further management. Seek specialist advice about switching to oral desmopressin to be taken at bedtime.
+-
+- Stress urinary incontinence management
+- Assess the severity of stress incontinence and its impact on quality of life by asking the following questions: How often do you need to pass urine?
+- How often do you leak urine?
+-
+- What protection do you need to cope with the leakage? When do accidents happen?
+- Are you taking any drugs or herbal remedies?
+- Do you manage your diet and fluid intake to try to control the leakage?
+- Do you have pain or discomfort when passing urine
+- If necessary, offer a choice of temporary urine containment products (such as
+- sheath and leg bags, absorbent pads, and absorbent pants) to achieve social continence. Consider referring the man to, or obtaining advice from, a continence nurse,
+- If stress urinary incontinence is not caused by prostatectomy, refer the man for
+- specialist assessment to confirm the cause.
+
+- If stress urinary incontinence is caused by prostatectomy, offer referral for supervised pelvic floor muscle training.
+- Acute urinary retention management
+- If this is the first episode of acute urinary retention,_
+- Arrange hospital admission.
+- If the expertise and facilities are available, catheterize before admission. Otherwise, admit the man urgently for catheterization and investigation of the cause.
+- If the man has recurrent acute retention or acute-on-chronic urinary retention,
+- admit the man, or insert a urethral catheter. Discuss and decide on treatment to prevent or manage recurrent urine retention. Options include:
+- An alpha-blocker (modified-release alfuzosin IO mg a day) — in men over 65 years of age.
+- Start at least 24 hours before attempting to remove the catheter. After removing the catheter, confirm over several hours that the man can void freely.
+- The licensed duration of use is for 2—3 days during catheterization, and for I day after removal (maximum 4 days). However, some experts recommend that the alpha-blocker should be continued until the man has been fully investigated to determine the cause and to assess renal function.
+- Intermittent urethral catheterization — refer the man or his carer to a continence nurse for training in catheterization.
+- A long-term indwelling catheter — only if intermittent catheterization is not appropriate or practical.
+
+## Emergency Management Protocol
+of chronic urinary_r.etention
+
+- Exclude non-obstructive causes of reduced urine flow (such as chronic heart failure).
+- Check serum creatinine to assess renal function.
+- Refer the man for specialist assessment
+
+## Emergency Management Protocol
+of post micturition dribble not due to urinary_ obstruction
+- Advise the man that he can reduce the post micturition dribbling by 'milking' his urethra after urinating:
+- To do this, the man should press his fingers behind the scrotum and gently massage the bulbar urethra, in a forwards and upwards motion!
+- Urethral milking is unlikely to help if the post-micturition dribble is caused by urinary obstruction:
+- If necessary, offer a choice of temporary urine containment products (such as sheath and leg bags, absorbent pads, and absorbent pants) to achieve social continence.
+- Consider referring the man to, or obtaining advice from, a continence nurse, continence physiotherapist, or urologist previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Urine Retention and Lower Uti - Clinical Figure 1](/lessons/images/sba/urological-emergencies/urine-retention-and-lower-uti/figure_01_p11.jpeg)
+*Urine Retention and Lower Uti — Clinical Figure 1 (Page 11 Reference)*$LEC_UROL_097$,
+      "position"   = 20,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'urine-retention-and-lower-uti' OR "slug" = 'urine-retention-lower-uti');
 
-  -- 2) Upsert Quiz Lesson (Position 21)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 21)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -11780,14 +19563,37 @@ $SBA_UROL_097$,
     RAISE EXCEPTION 'Module Ophthalmology Emergencies not found in mrcem-sba';
   END IF;
 
-  -- Topic 1/9: Acute Angle-Closure Glaucoma
-  -- 1) Interleave Lecture (Position 0)
+  -- Pair 1/9: Acute Angle-Closure Glaucoma
+  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
   UPDATE "lessons"
-  SET "position" = 0, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Acute Angle-Closure Glaucoma',
+      "body"       = $LEC_OPHT_098$# Acute Angle-Closure Glaucoma
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- acute closure glaucoma previous  Next
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Acute Glucoma - Clinical Figure 1](/lessons/images/sba/ophthalmology-emergencies/acute-glucoma/figure_01_p1.jpeg)
+*Acute Glucoma — Clinical Figure 1 (Page 1 Reference)*
+
+![Acute Glucoma - Clinical Figure 2](/lessons/images/sba/ophthalmology-emergencies/acute-glucoma/figure_02_p2.jpeg)
+*Acute Glucoma — Clinical Figure 2 (Page 2 Reference)*
+
+![Acute Glucoma - Clinical Figure 3](/lessons/images/sba/ophthalmology-emergencies/acute-glucoma/figure_03_p2.jpeg)
+*Acute Glucoma — Clinical Figure 3 (Page 2 Reference)*$LEC_OPHT_098$,
+      "position"   = 0,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'acute-glucoma' OR "slug" = 'acute-glaucoma');
 
-  -- 2) Upsert Quiz Lesson (Position 1)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -11893,14 +19699,171 @@ $SBA_OPHT_098$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 2/9: Ocular Trauma, Chemical Burns & Ruptured Globe
-  -- 1) Interleave Lecture (Position 2)
+  -- Pair 2/9: Ocular Trauma, Chemical Burns & Ruptured Globe
+  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
   UPDATE "lessons"
-  SET "position" = 2, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Ocular Trauma, Chemical Burns & Ruptured Globe',
+      "body"       = $LEC_OPHT_099$# Ocular Trauma, Chemical Burns & Ruptured Globe
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+## Key Clinical Features
+Pain or discomfort (onset is usually sudden)
+- Foreign body sensation (even when none is present)
+- Changes in vision.
+- Photophobia
+- Blepharospasm
+- Red flag symptoms such as: Significant changes in vision. Significant trauma.
+- Marked eye pain, headache or photophobia
+
+## Clinical Examination & Assessment
+and investigation
+- Systematically examine the eye — use topical anesthetic in patient with significant pain
+- Assess visual acuity with a Snellen chart
+- The conjunctiva — look for hyperaemia and foreign bodies
+- The cornea — look for foreign bodies, and clouding, opacity or infiltrates which may indicate chemical injury, corneal ulcer or infection
+- If there is no indication for immediate referral, fluorescein and the cobalt blue filter on an ophthalmoscope or Wood's lamp can be used to identify corneal epithelial defects — defects will fluoresce bright green.
+- The eyelids — look for oedema and erythema
+- Check pupillary shape and response using a penlight or ophthalmoscope and suspect penetrating trauma if the pupil is dilated, nonreactive or irregular, or the iris is protruding.
+- The anterior chamber — look for blood (hyphema) or pus (hypopyon)
+
+## Emergency Management Protocol
+(NICE guideline)
+- Refer the person immediately to the emergency eye service: All high:yeloci.ty-penetratingjnjuries (such as from drilling, lawn moving or hammering) or injuries caused by sharp objects (such as glass, knives, pencils or thorns) should be treated as penetrating injuries until proven otherwise.
+- Advise the person not to place pressure on the eye and to limit coughing or straining to prevent extrusion of intraocular contents. Do not remove foreign bodies that are visible and protruding out of the globe.
+- Significant orbital or peri-ocular trauma has occurred.
+-
+- A-chemical-injury—lmmediately irrigate the eye with copious irrigation fluid (such as lactated Ringer's solution, normal saline, or water if other irrigation solutions are not available) for 20—30 minutes and refer as an emergency to ophthalmology. Copious irrigation to neutralize (PH-7.0-7.5) the ocular surface is essential to limit
+- permanent damage and visual loss.
+- A retained foreign body_that cannot be removed safely-(such as seeds, soil, insect scales or caterpillar setae) should be referred to ophthalmology as these are associated with a higher risk of infection and complications. Foreign bodies in or near the center of the cornea are associated with an increased
+- risk of permanent visual loss Infection or corneal ulcer is suspected
+- Any-of-the-f.o."owing-red-flag
+
+## Key Clinical Features
+are present: Severe pain.
+- Irregular, dilated or non-reactive pupils.
+-
+- Significant reduction in visual acuity.
+
+- Hyphaema(blood in the anterior chamber) or hypopyon (pus in the anterior chamber). Large or deep abrasions.
+- Corneal opacity.
+- Discuss with ophthalmology or refer (with urgency depending on clinical judgement) if the person is suspected of having:
+- Recurrent erosion syndrome.
+- A superficial corneal injury associated with contact lens use
+- An abrasion that is not improving or worsening 24 hours after initiation of treatment in primary care.
+- A rust ring-rust rings should be removed within 1—2 days of appearance by ophthalmology
+- If referral to ophthalmology is not indicated
+- Remove loose superficial foreign bodies (FB), if the expertise and equipment are available
+- Ensure that visual acuity is checked before and after attempting foreign body removal.
+- Irrigate the eye with normal saline to wash out the foreign body.
+- If saline irrigation fails, apply a topical ocular anaesthetic, and sweep a sterile cotton-tipped applicator gently over the cornea
+- Ifthe FB is subtarsal, evert the eye lid to access it
+- If swabbing is unsuccessful, FB removal with other disposable instruments, such as a hypodermic needle, should only be carried out in primary care by appropriately trained and experienced clinicians.
+
+- Metallic foreign bodies may leave a rust ring which requires follow up and removal by ophthalmology within 1-2 days
+- Consider the need for analgesia or ocular lubricants
+- Consider prescription of topical antibiotics such as chloramphenicol (prescribed for at least 5 days) is appropriate
+- Arrange follow up in 24 hours. Globe Rupture it is a traumatic injury involving the breakdown in the integrity of the wall of the
+- eye, either the sclera or cornea. Suspect globe rupture based on mechanism (blunt trauma, projectile injury,
+- laceration of eyelid/periorbital area, metal on metal, high-speed machinery, explosions)
+
+## Key Clinical Features
+Protruding foreign body in eye
+- Eccentric/teardrop pupil
+- Decreased visual acuity
+-
+- Afferent pupillary defect Extrusion of vitreous
+- External prolapse of the iris or ciliary body
+- Tenting of the sclera or cornea at the site of globe puncture
+- Volume loss of eye
+-
+
+## Investigations & Diagnostic Workup
+Seidel test: apply fluorescein dye to eye, which binds damaged corneal epithelium
+- and turns green under light through a cobalt-blue filter or Wood lamp, and check
+
+for streaming of fluorescein-tinged aqueous humor; this indicates corneal laceration.
+- CT of orbit, sensitivity ranges from 56% to 70%, specificity 79% to 100%
+
+## Emergency Management Protocol
+give analgesis
+- Prevent increased intraocular pressure (IOP)
+- Head of bed at 30 degrees
+- Avoid eye manipulation (do not measure eye pressure, retract lid, or perform ocular ultrasound)
+- Cover with an eye shield (do not place eye patch as it exerts pressure on globe) —A paper cup can be used if an eye shield is not available
+- Administer topical and systemic broad-spectrum antibiotics
+- Update tetanus
+- Give antiemetics to prevent nausea (which increases IOP)
+- Refer to ophthalmologist Penetrating globe injury
+
+Hyphema It is defined as Blood in the anterior chamber of the eye occurring usually as a
+- result of a ruptured iris root vessel, if secondary to trauma.
+- Risk factors Sickle cell disease
+- Bleeding diatheses
+- Anticoagulant or antiplatelet medications
+-
+
+## Key Clinical Features
+pain Blurred vision, loss of vision
+- Pupils — direct response to light may be decreased in large hyphemas or the pupil
+- may be obscured by blood.
+
+## Investigations & Diagnostic Workup
+Slit lamp exam — measure extent (height) of hyphema, assess for clots. Check for microhyphema. Rule out penetrating injury and other eye injuries. fundoscopy and red reflex — blood may cause loss of red reflex, look for retinal
+- injury Management Interventions aimed preventing secondary hemorrhage
+-
+- Elevate head of bed
+- Dilate pupil
+- Control intraocular pressure with topical beta-blockers, topical alpha-adrenergic agonists, or topical carbonic anhydrase inhibitors
+
+- Although recommended, no solid evidence supports the use of cyclopegics, corticosteroids, bed rest, or patching to decrease secondary hemorrhage or affect visual acuity.
+- Limited studies supporting tranexamic acid and other antifibrinolytics to decrease secondary hemorrhage
+- consult Ophthalmologist Hyphema Retrobulbar hemorrhage/OrbitaI compartment syndrome
+- Retrobulbar hematoma is the phenomenon of blood collecting in the retrobulbar space behind the globe The development of a retrobulbar hematoma is most commonly associated with trauma, especially orbital floor fractures
+
+## Key Clinical Features
+Reduced visual acuity
+- proptosis
+- Intraocular pressure
+- 40 mmHg
+- Afferent pupillary defect
+- Resistance to retropulsion of the globe when pressure is applied through the eyelid.
+
+## Investigations & Diagnostic Workup
+CT scan (do not delay management for CT scan if orbital compartment syndrome highly suspected)
+
+## Emergency Management Protocol
+Performing lateral canthotomy is vision-saving. Do not delay.
+- Consult ophthalmology emergently Retrobulbar Hematoma
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Eye Trauma - Clinical Figure 1](/lessons/images/sba/ophthalmology-emergencies/eye-trauma/figure_01_p6.jpeg)
+*Eye Trauma — Clinical Figure 1 (Page 6 Reference)*
+
+![Eye Trauma - Clinical Figure 2](/lessons/images/sba/ophthalmology-emergencies/eye-trauma/figure_02_p8.jpeg)
+*Eye Trauma — Clinical Figure 2 (Page 8 Reference)*
+
+![Eye Trauma - Clinical Figure 3](/lessons/images/sba/ophthalmology-emergencies/eye-trauma/figure_03_p9.jpeg)
+*Eye Trauma — Clinical Figure 3 (Page 9 Reference)*
+
+![Eye Trauma - Clinical Figure 4](/lessons/images/sba/ophthalmology-emergencies/eye-trauma/figure_04_p9.jpeg)
+*Eye Trauma — Clinical Figure 4 (Page 9 Reference)*
+
+![Eye Trauma - Clinical Figure 5](/lessons/images/sba/ophthalmology-emergencies/eye-trauma/figure_05_p10.jpeg)
+*Eye Trauma — Clinical Figure 5 (Page 10 Reference)*$LEC_OPHT_099$,
+      "position"   = 2,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'eye-trauma' OR "slug" = 'eye-trauma');
 
-  -- 2) Upsert Quiz Lesson (Position 3)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -12015,14 +19978,76 @@ $SBA_OPHT_099$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 3/9: Inflammatory Eye Diseases (Uveitis, Scleritis, Episcleritis)
-  -- 1) Interleave Lecture (Position 4)
+  -- Pair 3/9: Inflammatory Eye Diseases (Uveitis, Scleritis, Episcleritis)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
   UPDATE "lessons"
-  SET "position" = 4, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Inflammatory Eye Diseases (Uveitis, Scleritis, Episcleritis)',
+      "body"       = $LEC_OPHT_100$# Inflammatory Eye Diseases (Uveitis, Scleritis, Episcleritis)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Trauma
+- Neoplasm
+- Having the genetic marker HLA (Human Leukocyte Antigen)
+- B27.
+
+## Key Clinical Features
+Pain or dull ache (pain may be worse when the person is contracting the ciliary muscle — for example, when reading)
+- Pain may extend from the eye to the surrounding orbit and may be tender to palpation through the eyelid
+- Posterior uveitis may be painless
+- Diminished or blurred vision
+- Red eye (this is not always present)
+- Watering of the eye.
+- Photophobia.
+- Flashes and floaters.
+- An unreactive or distorted pupil (due to the iris sticking to the lens)
+- Keratic precipitate sign — they are corneal endothelial deposits that are frequently observed in association with anterior segment inflammation. These precipitates are formed by the aggregation of polymorphonuclear cells, lymphocytes, and epitheloid cells.
+
+## Emergency Management Protocol
+Corticosteroid and referral to ophthalmologist
+- Complication
+- Visual loss
+- Cataract
+- Glaucoma
+
+- Band keratopathy (calcium deposits in the cornea)
+- Posterior synechiae (adhesions between the posterior iris and the anterior lens surface)
+- Optic neuropathy or optic atrophy
+- Retinal detachment/retinal scars
+- Cystoid macular oedema Scleritis Uveitis Episcleritis
+
+Scleritis Scleritis is a rare but potentially severe sight-threatening inflammatory disease of the sclera which is bilateral in 50% of cases. # Risk factors rheumatoid arthritis, ankylosing spondylitis, psoriatic arthritis Vasculitis SLE Sjögren's syndrome inflammatory bowel disease relapsing polychondritis Herpes zoster Syphilis, pseudomonas Clinical features Moderate or severe pain (eye 'ache' may be referred to brow or jaw) which is exacerbated by eye movement Tenderness of globe Photophobia Epiphora Visual loss tenderness of globe + managemen! Systemic analgesia (e.g. paracetamol, aspirin. ibuprofen) emergency (same day) referral to ophthalmologist May require referral to, or co
+
+## Emergency Management Protocol
+with, physician/rheu matologist   Episcleritis Inflammation of the vascular connective tissue layer that lies between the sclera and conjunctiva.
+- :
+- Risk factors Idiopathic (most common) rheumatoid arthritis, ankylosing spondylitis, psoriatic arthritis Vasculitis SLE Sjögren's syndrome relapsing polychondritis Clinical features Hyperaemia blanches with vasoconstrictors (e.g. gutte phenvlephrine 2.5%) Acute onset, mild ache or burning sensation Sometimes tender on palpation Occasionally watery Simple episcleritis (80%)-sectoral or diffuse redness and dilated episcleral vessels follow a regular radiating pattem and are largely immovable, unlike the finer overlying conjunctival vessels which move freely with the conjunctiva Nodular episcleritis (20%)- dilated episcleral vessels are moveable as the lesion is elevated + Manaqement Reassurance. Usually self-limiting in 7-10 days; nodular form rnay persist for longer
+
+Episcleritis previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Inflammetory Eye Disease - Clinical Figure 1](/lessons/images/sba/ophthalmology-emergencies/inflammetory-eye-disease/figure_01_p3.jpeg)
+*Inflammetory Eye Disease — Clinical Figure 1 (Page 3 Reference)*
+
+![Inflammetory Eye Disease - Clinical Figure 2](/lessons/images/sba/ophthalmology-emergencies/inflammetory-eye-disease/figure_02_p4.jpeg)
+*Inflammetory Eye Disease — Clinical Figure 2 (Page 4 Reference)*
+
+![Inflammetory Eye Disease - Clinical Figure 3](/lessons/images/sba/ophthalmology-emergencies/inflammetory-eye-disease/figure_03_p5.jpeg)
+*Inflammetory Eye Disease — Clinical Figure 3 (Page 5 Reference)*
+
+![Inflammetory Eye Disease - Clinical Figure 4](/lessons/images/sba/ophthalmology-emergencies/inflammetory-eye-disease/figure_04_p5.jpeg)
+*Inflammetory Eye Disease — Clinical Figure 4 (Page 5 Reference)*$LEC_OPHT_100$,
+      "position"   = 4,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'inflammetory-eye-disease' OR "slug" = 'inflammatory-eye-disease');
 
-  -- 2) Upsert Quiz Lesson (Position 5)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -12134,14 +20159,38 @@ $SBA_OPHT_100$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 4/9: Ophthalmia Neonatorum & Neonatal Eye Infections
-  -- 1) Interleave Lecture (Position 6)
+  -- Pair 4/9: Ophthalmia Neonatorum & Neonatal Eye Infections
+  -- A) Update & Beautify Clinical Theory Lecture (Position 6)
   UPDATE "lessons"
-  SET "position" = 6, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Ophthalmia Neonatorum & Neonatal Eye Infections',
+      "body"       = $LEC_OPHT_101$# Ophthalmia Neonatorum & Neonatal Eye Infections
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+
+
+- Azithromycin eye drops are licensed for the treatment of trachomatous conjunctivitis caused by Chlamydia trachomatis and purulent bacterial conjunctivitis in neonates. However due to higher risk of complication such as pneumonia caused by chlamydia, systemic treatment with oral erythromycin is required.
+- Complication Superficial corneal vascularization Conjunctival scarring Pneumonia Corneal ulceration Perforation of globe Trachoma (its due to recurrent infection with chlamydia trachomitis) ON
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Ophthalma Neonatorum - Clinical Figure 1](/lessons/images/sba/ophthalmology-emergencies/ophthalma-neonatorum/figure_01_p2.jpeg)
+*Ophthalma Neonatorum — Clinical Figure 1 (Page 2 Reference)*
+
+![Ophthalma Neonatorum - Clinical Figure 2](/lessons/images/sba/ophthalmology-emergencies/ophthalma-neonatorum/figure_02_p3.jpeg)
+*Ophthalma Neonatorum — Clinical Figure 2 (Page 3 Reference)*$LEC_OPHT_101$,
+      "position"   = 6,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'ophthalma-neonatorum' OR "slug" = 'ophthalmia-neonatorum');
 
-  -- 2) Upsert Quiz Lesson (Position 7)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 7)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -12247,14 +20296,36 @@ $SBA_OPHT_101$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 5/9: Orbital vs Preseptal Cellulitis
-  -- 1) Interleave Lecture (Position 8)
+  -- Pair 5/9: Orbital vs Preseptal Cellulitis
+  -- A) Update & Beautify Clinical Theory Lecture (Position 8)
   UPDATE "lessons"
-  SET "position" = 8, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Orbital vs Preseptal Cellulitis',
+      "body"       = $LEC_OPHT_102$# Orbital vs Preseptal Cellulitis
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Orbital cellulitis Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Orbital and Per Celiltits - Clinical Figure 1](/lessons/images/sba/ophthalmology-emergencies/orbital-and-per-celiltits/figure_01_p1.jpeg)
+*Orbital and Per Celiltits — Clinical Figure 1 (Page 1 Reference)*
+
+![Orbital and Per Celiltits - Clinical Figure 2](/lessons/images/sba/ophthalmology-emergencies/orbital-and-per-celiltits/figure_02_p2.jpeg)
+*Orbital and Per Celiltits — Clinical Figure 2 (Page 2 Reference)*
+
+![Orbital and Per Celiltits - Clinical Figure 3](/lessons/images/sba/ophthalmology-emergencies/orbital-and-per-celiltits/figure_03_p2.jpeg)
+*Orbital and Per Celiltits — Clinical Figure 3 (Page 2 Reference)*$LEC_OPHT_102$,
+      "position"   = 8,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'orbital-and-per-celiltits' OR "slug" = 'orbital-periorbital-cellulitis');
 
-  -- 2) Upsert Quiz Lesson (Position 9)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 9)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -12363,14 +20434,107 @@ $SBA_OPHT_102$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 6/9: Painful Eye Differential & Corneal Emergencies
-  -- 1) Interleave Lecture (Position 10)
+  -- Pair 6/9: Painful Eye Differential & Corneal Emergencies
+  -- A) Update & Beautify Clinical Theory Lecture (Position 10)
   UPDATE "lessons"
-  SET "position" = 10, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Painful Eye Differential & Corneal Emergencies',
+      "body"       = $LEC_OPHT_103$# Painful Eye Differential & Corneal Emergencies
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- C-reactive protein
+- B12 and folate
+
+## Emergency Management Protocol
+Acute treatment for idiopathic ON includes high-dose oral or intravenous corticosteroid treatrnent. Herpes simplex-Ocular infection
+- Herpes simplex virus (HSV) ocular infections can cause inflammation of the retina, iris, cornea, conjunctiva, eyelids, and surrounding skin.
+
+Infection is usually caused by HSV type 1 (HSV-I), and rarely by HSV type 2 (HSV-2),
+- typically in association with orogenital sex. Infection and inflammation of different parts of the eye causes:
+- Cornea — keratitis.
+- Iris and associated uveal tract — iritis or iridocyclitis; uveitis.
+- Retina — retinitis.
+- Conjunctiva — conjunctivitis.
+- Eyelids — blepharitis.
+- Surrounding skin — periocular dermatitis
+-
+
+## Key Clinical Features
+Symptoms Malaise and fever
+- Eye pain Eye irritation or photophobia Eye watering
+-
+- Blurred vision
+- Sign An acute red eye
+- Crops of vesicles and ulcers on an erythematous base, or pustules along the lid
+- margin or periocular skin A hazy cornea
+-
+- A fixed irregular pupil Reduced corneal sensitivity — suggests keratitis
+- Reduced visual acuity
+-
+
+## Emergency Management Protocol
+(NICE guideline)
+
+- Refer all cases of suspected ocular herpes simplex infection to eye casualty, or an emergency eye service for same-day assessrnent and specialist management.
+- if emergency same-day assessment is not possible or practical, seek specialist advice from an ophthalmologist regarding initiating drug treatment such as topical antivirals ( aciclovir ointment or ganciclovir gel)
+- Acute Herpes Simplex: in non-contact lens wearing adults and where HSK is confined to the epithelium with classic dendritic appearance, commence antiviral therapy with one of the following:
+- oc. aciclovir 3%, e.g. Aciclovir Agepha, ophthalmic preparation (unpreserved)
+- ganciclovir 0.15% ophthalmic gel
+
+herpes simplex keratitis/corneal ulcer/dendritic ulcer Sexually transmitted eye infection *Neisseria qonorrhoea Symptoms usually develops within 12-24 hours Patient will have copious mucopurulent discharge Eyelid swelling Tender peri-auricular lymphadenopathy Neisseria gonorrhoea conjunctivitis has a high risk of complications, including uveitis, severe keratitis and corneal perforation
+
+## Emergency Management Protocol
+Single dose of lg of 1M ceftriaxone, together with single episode of ocular lavage with saline. Behget's disease
+- :
+- Chlamvdia trachomatis often presents longer than 2 weeks Low grade irritation and mucous discharge in a sexually active person. Pre-auricular lymphadenopathy maybe present Most cases are unilateral but can be bilateral Manaqement Topical tetracycline ointment ODS for 6 weeks Oral doxycycline 100mg BD for 1-2 weeks Oral azithromycin lg dose, then 500mg orally fortwo days Oral azithromycin 500mg QDS for 1 week Note: examiner may give you traveling history in most of cases for-example Thailand trip etc
+- it is a complex multi-system disorder of unknown aetiology characteristically presenting with recurrent oral ulcers
+- It is presumed to be an autoimmune disease and includes involvement of the mucocutaneous, ocular, cardiovascular, renal, gastrointestinal, pulmonary, vascular, musculoskeletal, urological and central nervous systems.
+
+## Key Clinical Features
+Classic triad : oral ulceration, genital ulceration and eye disease
+- Other symptoms includes tiredness, malaise, muscle pains, and transient fevers. Headaches can be common
+- Eye-features;-uveitis, hypopyon, retinal vasculitis, retinal hemorrhage, blurred vision
+- Neurological: memory impairment is the most common CNS manifestation. Impairment of balance, speech and rnovement can also occur
+- Cardiovascular: vasculitis of large and small vessels
+- affects large joints
+- Gastrointestinal: cramping abdominal pain, vomiting, diarrhea
+
+## Investigations & Diagnostic Workup
+FBC, CRP, ESR
+- Anti-phospholipid antibodies positive in 25% pts
+- Patients positive for HLA-B51 or HLA-B5 are more likely to be male and also have higher prevalences of genital ulcers, ocular manifestations and skin manifestation.
+- Pathergy test: minor skin traurna induces an inflammatory papule or pustule after 24-48 hours. This is positive in up to 60% of patients
+
+## Emergency Management Protocol
+Topical corticosteroids (eg, triamcinolone paste) are effective for oral or genital ulcerations
+- Patients with eye involvement need early and more aggressive treatment, usually with a brief course of corticosteroid with a longer-term immunosuppressant (eg, azathioprine)
+- Patients with CNS involvement require the most aggressive treatment, usually with a corticosteroid plus either azathioprine, cyclophosphamide, or a TNF-aIpha
+
+inhibitor. previous
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Painful Eye - Clinical Figure 1](/lessons/images/sba/ophthalmology-emergencies/painful-eye/figure_01_p2.jpeg)
+*Painful Eye — Clinical Figure 1 (Page 2 Reference)*
+
+![Painful Eye - Clinical Figure 2](/lessons/images/sba/ophthalmology-emergencies/painful-eye/figure_02_p4.jpeg)
+*Painful Eye — Clinical Figure 2 (Page 4 Reference)*
+
+![Painful Eye - Clinical Figure 3](/lessons/images/sba/ophthalmology-emergencies/painful-eye/figure_03_p5.jpeg)
+*Painful Eye — Clinical Figure 3 (Page 5 Reference)*
+
+![Painful Eye - Clinical Figure 4](/lessons/images/sba/ophthalmology-emergencies/painful-eye/figure_04_p7.jpeg)
+*Painful Eye — Clinical Figure 4 (Page 7 Reference)*$LEC_OPHT_103$,
+      "position"   = 10,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'painful-eye' OR "slug" = 'painful-eye');
 
-  -- 2) Upsert Quiz Lesson (Position 11)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 11)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -12482,14 +20646,150 @@ $SBA_OPHT_103$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 7/9: Red Eye Assessment & Triage
-  -- 1) Interleave Lecture (Position 12)
+  -- Pair 7/9: Red Eye Assessment & Triage
+  -- A) Update & Beautify Clinical Theory Lecture (Position 12)
   UPDATE "lessons"
-  SET "position" = 12, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Red Eye Assessment & Triage',
+      "body"       = $LEC_OPHT_104$# Red Eye Assessment & Triage
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Causes Allergens bind to rnast cells in the conjunctiva causing them to degranulate, which
+- initiates an inflammatory cascade. Allergic conjunctivitis can be exacerbated by problems with the eyebrows, eyelids,
+- or eyelashes which act as barriers to allergens. A normal tear film also helps to remove allergens from the eye surface.
+
+## Key Clinical Features
+the
+- bilateral) — if itching is not present an alternative cause should be considered. Itching may also be described as 'burning or stinging
+-
+- Watery or mucoid discharge — sometimes referred to as 'tearing'. Discharge may be stringy or ropey due to the presence of a small arnount of mucous. Conjunctival redness (hyperaemia injection).
+- Conjunctival swelling (chemosis) — bulbar and tarsal conjunctiva may bulge over
+- lid margin or limbus. Conjunctival papillary reaction.
+-
+- Eyelid oedema (swelling) — periorbital oedema can occur in severe cases Allergic conjunctivitis may coexist with other atopic conditions including Rhinitis, rhinosinusitis, Asthma, Urticaria, Eczema.
+
+## Emergency Management Protocol
+Advise the person on non-pharmacological management including; Avoidance of allergens for example through dust mite, mould, and animal dander
+- control, avoidance of pets and proper ventilation of home and office environments. Washing the hair before going to bed may help reduce allergen exposure.
+- Avoidance of eye rubbing.
+-
+
+- Application of cold compresses to the eyes (for 5—10 minutes once or twice daily) to relieve symptoms.
+- Advise the person that a long loading period is required and mast cell stabilizers need to be applied routinely for at least 2 weeks to provide prophylactic benefit. (note: certain products are not licensed in young children)
+- Advise the person that after using eye drops or eye ointments, they should not drive or perform other skilled tasks until vision is clear.
+- If the person is a contact lens wearer, advise them that contact lens use should be avoided for the duration of topical treatrnent.
+- Arrange review in 1 week to assess therapeutic response — safety net in the interim and ensure the patient is aware of red flag symptoms that indicate the need for urgent review. Infective conjunctivitis
+- Infective conjunctivitis can be acute (persisting for less than 4 weeks), chronic (persisting for more than 4 weeks), or recurrent.
+- Acute onset conjunctival erythema.
+- Discomfort which may be described as 'grittiness', 'foreign body' or 'burning' sensation.
+- Watering and discharge which may cause transient blurring of vision.
+- Viral Conjunctivitis
+- The rnost common cause of viral conjunctivitis is adenovirus (65—90% of cases)
+
+## Key Clinical Features
+Mild to moderate erythema of the palpebral or bulbar conjunctiva, follicles on eyelid eversion and lid oedema
+- Petechial (pin-point) subconjunctival haemorrhages
+
+Pseudomembranes— Epidemic keratoconjunctivitis (due to adenovirus) can lead
+- to pseudomembrane formation along with severe pain, subconjunctival haemorrhage, visual changes, and photophobia. Less discharge (usually watery) than bacterial conjunctivitis.
+-
+- Mild to moderate pruritus.
+- Pharyngoconjunctival fever (due to adenovirus) can lead to fever, pharyngitis, periauricular lymphadenopathy, and bilateral conjunctivitis occasionally with corneal involvement.
+
+## Emergency Management Protocol
+of acute (non-herpetic) viral conjunctivitis (NICE güiidÄiöEj¯ Reassure the person that most cases of acute, infectious conjunctivitis are self-
+- limiting and do not require antimicrobial treatment — viral (non-herpetic) conjunctivitis usually resolves within one to two weeks without treatment.
+- Advise the person that symptoms may be eased with self-care measures such as: Bathing/cleaning the eyelids with cotton wool soaked in sterile saline or boiled and
+- cooled water to remove any discharge. Cool compresses applied gently around the eye area.
+- Use of lubricating agents or artificial tears.
+- Avoid antibiotic prescription
+- Inform the person that infective conjunctivitis is contagious and they should try to
+- prevent spread of infection to their other eye and other people by:
+- Washing hands frequently with soap and water. Using separate towels and flannels.
+- Avoiding close contact with others especially if they are a healthcare professional or
+- child care provider — they may be infectious for up to 14 days from onset.
+- The UK Health Security Agency (UKHSA) does not recommend an exclusion period from school, nursery or childminders unless an outbreak or cluster of cases occurs.
+
+- If the person re-attends with symptoms of conjunctivitis, consider sending swabs for viral PCR (for adenovirus and Herpes sirnplex virus [HSV]) and bacterial culture and if appropriate, offer empirical topical antibiotics. See the section on Prescribing for further information.
+- Consider discussion with/referral to ophthalmology if symptoms persist for more than 7—10 days after initiating treatment.
+- Bacterial conjunctivitis
+- The most common bacterial causes of conjunctivitis are Streptococcus pneumoniae, Staphylococcus aureus and Haemophilus influenzae.
+- Other bacterial causes include Moraxella catarrhalis, Chlamydia trachomatis, and Neisseria gonorrhoea.
+- In children, bacterial conjunctivitis is most often caused by Haemophilus influenzae, Streptococcus pneumoniae, and Moraxella catarrhalis.
+
+## Key Clinical Features
+Purulent or mucopurulent discharge with crusting of the lids which may be stuck together on waking.
+- If discharge is mucopurulent and copious, infection with Neisseria gonorrhoeae should be considered.
+- Mild or no pruritus.
+- Pre-auricular lymphadenopathy — often seen with hyperacute bacterial conjunctivitis (such as Neisseria gonorrhoea).
+
+## Emergency Management Protocol
+(NICE guideline)
+- Advise the person that most cases of bacterial conjunctivitis are self-limiting and resolve within 5—7 days without treatment.
+- Treat with topical antibiotics if severe or circumstances require rapid resolution. A delayed treatment strategy may be appropriate — advise the person to initiate
+
+topical antibiotics if symptoms have not resolved within 3 days. Options for topical antibiotics include:
+- Chloramphenicol 0.5% drops — apply 1 drop 2 hourly for 2 days, then reduce frequency depending on the severity of infection (3-4 times daily is usually sufficient for less severe infection). Continue use until 48 hours after infection has cleared.
+- Chloramphenicol 1% ointment — apply 3-4 times daily. Continue use until 48 hours after infection has cleared.
+- Fusidic acid 1% eye drops — apply 1 drop twice daily. Continue use until 48 hours after infection has cleared.
+- Advise the person that there is no recommended exclusion period from school, nursery, or childminders for isolated cases but that many nursery and primary schools may nevertheless have an exclusion policy.
+- If the person re-attends with symptoms of conjunctivitis, consider sending swabs for viral PCR (for adenovirus and Herpes simplex virus [HSV]) and bacterial culture and if appropriate, offer empirical topical antibiotics. See the section on Prescribing for further information.
+- Consider discussion with/referral to ophthalmology if symptoms persist for more than 7—10 days after initiating treatment.
+
+Mucopurulent discharge (bacterial conjunctivitis)
+- Contact lens associated conjunctivitis
+- Inflammation may be seen in the superior conjunctiva especially under the upper lid — topical fluorescein may identify corneal staining (epithelial defect).
+
+## Emergency Management Protocol
+(NICE guideline)
+- If topical fluorescein does not identify any corneal staining and the person does not require referral to ophthalmology:
+- Advise them to immediately stop contact lens use.
+
+Advise regular bathing/cleaning of the eyelids with cotton wool soaked in sterile
+- saline or boiled and cooled water to remove any discharge.
+- Advise that contact lens use should be avoided until all symptoms of the infection have gone. Treat the infection — consider use of a topical antibiotic effective against Gram —ve
+- organisms, such as an aminoglycoside (e.g. gentamycin) or a quinolone (e.g. levofloxacin or moxifloxacin).
+- Arrange follow-up as described above.
+- Sub-conjunctival haemorrhage this is due to a bleed into the subconjunctival space. There may or may not be a
+- history of a contributory factor, such as straining with coughing or constipation. It may be associated with hypertension
+-
+
+## Clinical Examination & Assessment
+revealed: an area of localized, well-demarcated haemorrhage in one eye
+- absence of pain
+- no reduction of visual acuity
+- normal pupil reactions, and no corneal staining
+-
+
+## Emergency Management Protocol
+(NICE guideline) Reassure the person that the haemorrhage will clear in 1—2 weeks
+- Measure the person's blood pressure, and if raised, manage appropriately
+-
+- Check the person's international normalized ratio (INR) if they are taking warfarin, and manage accordingly
+
+- Sub-conjunctival hemorrhage previous  Next
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Red Eye - Clinical Figure 1](/lessons/images/sba/ophthalmology-emergencies/red-eye/figure_01_p7.jpeg)
+*Red Eye — Clinical Figure 1 (Page 7 Reference)*
+
+![Red Eye - Clinical Figure 2](/lessons/images/sba/ophthalmology-emergencies/red-eye/figure_02_p9.jpeg)
+*Red Eye — Clinical Figure 2 (Page 9 Reference)*
+
+![Red Eye - Clinical Figure 3](/lessons/images/sba/ophthalmology-emergencies/red-eye/figure_03_p9.jpeg)
+*Red Eye — Clinical Figure 3 (Page 9 Reference)*$LEC_OPHT_104$,
+      "position"   = 12,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'red-eye' OR "slug" = 'red-eye');
 
-  -- 2) Upsert Quiz Lesson (Position 13)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 13)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -12598,14 +20898,103 @@ $SBA_OPHT_104$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 8/9: Sudden Vision Loss Differential
-  -- 1) Interleave Lecture (Position 14)
+  -- Pair 8/9: Sudden Vision Loss Differential
+  -- A) Update & Beautify Clinical Theory Lecture (Position 14)
   UPDATE "lessons"
-  SET "position" = 14, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Sudden Vision Loss Differential',
+      "body"       = $LEC_OPHT_105$# Sudden Vision Loss Differential
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+Attenuated blood vessels Cherry red spot Pale retina CRAO Central retinal vein occlusion
+- CRVO causes painless unilateral visual loss.
+- The retina has a characteristic appearance that has been likened a "pizza thrown against a wall".
+- There is engorgement of retinal veins, disc oedema, multiple flamed-shaped hemorrhages and cotton wool spots evident on fundoscopic examination.
+
+- Risk factors
+- Age 65 or more Hypertension
+- Elderly age group
+- Chronic glaucoma
+- Polycythaemia
+- Arteriosclerosis Management
+- Urgent referral to an ophthalmologist (the time to referral should not exceed 2—4 weeks from presentation) PLUS Urgent referral to GP for medical management and investigation
+- A number of treatments are available to reduce further impact on the eye (initiated by ophthalmologist) but currently there is no treatment available which will restore vision in the affected eye which is why prevention is so important.
+- intravitreal injection of anti-vascular endothelial growth factor (VEGF) drugs; These drugs target VEGF, which is an important growth factor that causes macular edema.
+- Intravitreal injection of corticosteroid drugs;_These drugs combat the inflammatory components which lead to edema.
+- Focal laser therapyg This treatment provides lasers to areas of swelling to cause a reduction in edema.
+- Pan-retinal photocoagulation therapy; This treatment is used when patients have new blood vessel formation following the retinal vein occlusion.
+
+CAVO Branch retinal vein occlusion (BRVO) This is where the obstruction is in one of the four branch retinal veins. Each vein drains approximately a quarter of the retina.
+- the fundoscopic appearance shown below are characteristics of branch retinal vein occlusion with vascular dilatation tortuosity of the affected vessel with an "arc of
+
+hemorrhages" in the affected area.
+
+## Emergency Management Protocol
+The patient should be referred within 24 hours for an Ophthalmology opinion for monitoring and consideration of photocoagulation therapy.
+
+BRVO Vitreous hemorrhage
+- the fundoscopic findings are consistent with that of vitreous hemorrhage on a background of proliferative diabetic retinopathy.
+
+## Emergency Management Protocol
+Urgent same-day referral to an ophthalmologist.
+
+vitreous hemorrhage Retinal detachment
+- It refers to the separation of the inner neurosensory retina from the underlying retinal pigment epithelium, which allows liquified vitreous fluid to accumulate in the subretinal space.
+
+- The separation results in progressive loss of vision leading to permanent visual loss in the affected eye, if the detachment extends across the macula.
+- Risk factors
+- Myopia (short sightedness)
+- Male sex
+- Family history of retinal detachment
+- Previous cataract surgery
+- Previous retinal detachment
+- Eye trauma
+- Diabetic mellitus
+- Glaucoma
+- Cataracts
+
+## Key Clinical Features
+New onset of floaters- These describe the perception of mobile dots, lines, or haze
+- New onset of flashes- These describe the perception of light often seen as recurrent, brief flashes, caused by traction on the retina as the vitreous pulls away.
+- Sudden-onset painless and usually progressive visual field loss- This may be described as a dark curtain or shadow, which usually starts in the periphery and progresses towards the center over hours, days, or weeks as the detachment extends
+- A reduction in visual acuity, blurred or distorted vision, causing persistent and progressive visual loss.
+- Reduced visual acuity using a Snellen chart
+- Peripheral visual field loss by performing confrontational fields testing
+- Fundoscopic findings of an asymmetric red reflex, vitreous opacities, or detached retinal folds which appear pale, opaque, and wrinkled, in larger detachments. Note
+
+that no fundoscopic abnormality may be seen if the detachment is small.
+- A white pupillary reflex (leukocoria) or squint (strabismus) in infants, which are typical presenting signs of retinal detachment in this age group.
+
+## Emergency Management Protocol
+An urgent same day ophthalmology referral should be arranged
+- Approximately 90% of retinal detachment can be repaired with one operation
+- A retina which remains fixed at six-months post-surgery is unlikely to become detached again. Visual field defect
+
+previous  Next 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Sudden Vision Loss - Clinical Figure 1](/lessons/images/sba/ophthalmology-emergencies/sudden-vision-loss/figure_01_p2.jpeg)
+*Sudden Vision Loss — Clinical Figure 1 (Page 2 Reference)*
+
+![Sudden Vision Loss - Clinical Figure 2](/lessons/images/sba/ophthalmology-emergencies/sudden-vision-loss/figure_02_p4.jpeg)
+*Sudden Vision Loss — Clinical Figure 2 (Page 4 Reference)*
+
+![Sudden Vision Loss - Clinical Figure 3](/lessons/images/sba/ophthalmology-emergencies/sudden-vision-loss/figure_03_p5.jpeg)
+*Sudden Vision Loss — Clinical Figure 3 (Page 5 Reference)*
+
+![Sudden Vision Loss - Clinical Figure 4](/lessons/images/sba/ophthalmology-emergencies/sudden-vision-loss/figure_04_p10.jpeg)
+*Sudden Vision Loss — Clinical Figure 4 (Page 10 Reference)*$LEC_OPHT_105$,
+      "position"   = 14,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'sudden-vision-loss' OR "slug" = 'sudden-vision-loss');
 
-  -- 2) Upsert Quiz Lesson (Position 15)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 15)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -12717,14 +21106,41 @@ $SBA_OPHT_105$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 9/9: Giant Cell Arteritis (Temporal Arteritis)
-  -- 1) Interleave Lecture (Position 16)
+  -- Pair 9/9: Giant Cell Arteritis (Temporal Arteritis)
+  -- A) Update & Beautify Clinical Theory Lecture (Position 16)
   UPDATE "lessons"
-  SET "position" = 16, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Giant Cell Arteritis (Temporal Arteritis)',
+      "body"       = $LEC_OPHT_106$# Giant Cell Arteritis (Temporal Arteritis)
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Features of PMR — (such as proximal muscle pain, stiffness, and tenderness) are present in about 40% of people with CCA
+
+## Investigations & Diagnostic Workup
+FBC, CRP, ESR Ultrasound and biopsy to confirm the diagnosis
+
+## Emergency Management Protocol
+Giant cell arteritis (CCA) is a medical emergency — Early treatrnent with effective doses of glucocorticoids may prevent serious complications such as vision loss
+- the standard initial dose for active CCA without visual symptoms is 40—60 mg oral prednisolone per day
+- Acute or intermittent visual loss due to GCA is usually treated with intravenous glucocorticoid therapy; if this is not possible, 60—100 mg oral prednisolone may be given for up to 3 consecutive days. Specialist assessment (usually a rheumatologist) should be on the same working day if possible, and in all cases within 3 working days.
+- If there is new visual loss (transient or permanent) or double vision
+- Arrange an urgent (same day) assessment by an ophthalmologist previous  Next
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Temporal Artitis - Clinical Figure 1](/lessons/images/sba/ophthalmology-emergencies/temporal-artitis/figure_01_p2.jpeg)
+*Temporal Artitis — Clinical Figure 1 (Page 2 Reference)*$LEC_OPHT_106$,
+      "position"   = 16,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'temporal-artitis' OR "slug" = 'temporal-arteritis');
 
-  -- 2) Upsert Quiz Lesson (Position 17)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 17)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -12836,14 +21252,97 @@ $SBA_OPHT_106$,
     RAISE EXCEPTION 'Module Vascular Emergencies not found in mrcem-sba';
   END IF;
 
-  -- Topic 1/3: Deep Vein Thrombosis (DVT) Guidelines
-  -- 1) Interleave Lecture (Position 0)
+  -- Pair 1/3: Deep Vein Thrombosis (DVT) Guidelines
+  -- A) Update & Beautify Clinical Theory Lecture (Position 0)
   UPDATE "lessons"
-  SET "position" = 0, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Deep Vein Thrombosis (DVT) Guidelines',
+      "body"       = $LEC_VASC_107$# Deep Vein Thrombosis (DVT) Guidelines
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Recent hospitilisation.
+- Recent traurna.
+- Chemotherapy.
+- Significant immobility (bedbound, unable to walk unaided or likely to spend a substantial portion of the day in bed or in a chair).
+- Prolonged travel (for more than 4 hours)
+- Pregnancy and the postpartum period.
+- Dehydration.
+
+## Key Clinical Features
+Unilateral localised pain (this is usually throbbing in nature) that occurs when walking or bearing weight, and calf swelling (or more rarely, swelling of the entire leg). . Tenderness.
+- Skin changes, which include oedema, redness, and warmth.
+- Vein distension.
+
+## Clinical Examination & Assessment
+s
+- Assess leg and thigh swelling — measure the circumference of the leg IO cm below the tibial tuberosity and compare with the asymptomatic leg. A difference of more than 3 cm between the extremities increases the probability of DVT.
+- Assess for oedema and dilated collateral superficial veins on the affected side.
+
+## Differential Diagnosis
+Cellulitis (commonly mistaken as DVT)
+- Dependent (stasis) oedema.
+
+Lymphatic obstruction.
+- Septic arthritis
+- Calf muscle tear/Achilles' tendon tear.
+- Calf muscle haematoma.
+- Fracture
+- Post-thrombotic syndrome
+- Venous obstruction or insufficiency,
+-
+- Arteriovenous fistula and congenital vascular abnormalities. Acute arterial ischaemia.
+- Vasculitis.
+
+## Emergency Management Protocol
+Refer immediately for same-day assessment and management if deep vein
+- thrombosis (DVT) is suspected in a woman who is pregnant or has given birth within the past 6 weeks. For all other people with suspected score to assess the probability of DVT
+
+## Key Clinical Features
+- Active cancer (treatment ongoing, within 6 months, or palliative) Paralysis, paresis or recent plaster immobilisation of lower extremities Recently bedridden for 3 days or more, or major surgery within 12 weeks requiring general or regional anaesthesia Localised tenderness along the distribution of the deep venous system Entire leg swollen Calf swelling at least 3 cm larger than asymptomatic side Pitting oedema confined to the symptomatic leg Collateral superficial veins (non-varicose) Previously documented DVT An alternative diagnosis is at least as likely as DVT DVT likely: 2 points or more DVT unlikely: 1 point or less Score 1 1 1 1 1 1 1 1 1
+- 2
+
+- For people who are likely to have DVT
+- o points or mor on two-level DVT Wells score: .1.
+- Offer a proximal leg vein ultrasound scan with the results available within 4 hours if possible. If a proximal leg vein ultrasound scan cannot be carried out within 4 hours of being requested, offer a D-dimer test, then Interim therapeutic anticoagulation (apixaban or rivaroxaban first line, and if these are not suitable, Iow molecular weight heparin (LMWH). and A proximal leg vein ultrasound scan with the results available within 24 hours. For people who are unlikelv to have ne point or es on two-level DVT Wells score: Offer a D-dimer test with the results available within 4 hours. If the results cannot be obtained within 4 hours Offer interim therapeutic anticoagulation while awaiting the result If the D-dimer test is positive. offer a proximal leg vein ultrasound scan with the results available within 4 hours if possible.
+- If the results cannot be obtained within 4 hours: Offer interim therapeutic anticoagulation and a proximal leg vein ultrasound scan with the result available within 24 hours. If the D-dimer test is neqative: Stop interim therapeutic anticoagulation. Consider an alternative diagnosis.
+
+- Ensure adequate monitoring. Specialists will make clinical decisions such as the choice of anticoagulant and the duration of treatment.
+- Treatment is usually continued for at least 3 months, but duration may be longer depending on whether the DVT was unprovoked(no obvious, transient risk factor identified) or provoked(caused by an identifiable, transient, major risk factor).
+- For warfarin, the usual strategy is to aim for an international normalized ratio (INR) target of 2.5, keeping within the range of 2.0—3.0. Key_points
+- Interim therapeutic anticoagulation choice;
+- Apixaban or rivaroxaban first line, and if these are not suitable, low molecular weight heparin (LMWH) for at least 5 days followed by dabigatran or edoxaban, OR
+- LMVVH concurrently with a vitamin K antagonist for at least 5 days.
+- Please note, Take into account comorbidities, contraindications, and the person's preferences when choosing anticoagulation treatrnent.
+- Carry out baseline blood tests including full blood count, renal and hepatic function, prothrombin time (PT), and activated partial thromboplastin time (APTT). However, do not wait for the results of baseline blood tests before starting anticoagulation treatrnent.
+- Complication
+
+- Pulmonary embolism (The most serious complication DVT) Post-thrombotic syndrome Bleeding associated with anticoagulation treatment Heparin-induced thrombocytopenia (HIT) Suspected DVT: diagnosis and initial management Determine 2-level DVT Wells score suspected Wells Score 2 2 points DVT likew Proximal leg vein ultrasound scan within 4 hours Quantitative D-dimer testif not already doneü, then Interim therapeutic anticoagulation»s and Scan within 24 hours Wells score s 1 point DVT unlikely Quantitative D-dimer test'with result in 4 hours Interim therapeutic anticoagulation3-S while awaiting result D — positive If D-dimer positive and DVT unlikely D-dimer negative Scan positive Diagnose DVT and Offer or continue treatment Scan negative Quantitative D-dimer test if not already done'; D-dimer positive D-dimer negative Stop any anticoagulation and think about other diagnoses Stop any anticoagulation and repeat scan 6 to 8 days later Second scan positive Second scan negative DVT algorithm
+
+previOUS
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Deep Vein Thrombosis (DVT) Guidelines - Clinical Figure 1](/lessons/images/sba/vascular-emergencies/deep-vein-thrombosis-dvt-guidelines/figure_01_p4.jpeg)
+*Deep Vein Thrombosis (DVT) Guidelines — Clinical Figure 1 (Page 4 Reference)*
+
+![Deep Vein Thrombosis (DVT) Guidelines - Clinical Figure 2](/lessons/images/sba/vascular-emergencies/deep-vein-thrombosis-dvt-guidelines/figure_02_p5.jpeg)
+*Deep Vein Thrombosis (DVT) Guidelines — Clinical Figure 2 (Page 5 Reference)*
+
+![Deep Vein Thrombosis (DVT) Guidelines - Clinical Figure 3](/lessons/images/sba/vascular-emergencies/deep-vein-thrombosis-dvt-guidelines/figure_03_p7.jpeg)
+*Deep Vein Thrombosis (DVT) Guidelines — Clinical Figure 3 (Page 7 Reference)*
+
+![Deep Vein Thrombosis (DVT) Guidelines - Clinical Figure 4](/lessons/images/sba/vascular-emergencies/deep-vein-thrombosis-dvt-guidelines/figure_04_p8.jpeg)
+*Deep Vein Thrombosis (DVT) Guidelines — Clinical Figure 4 (Page 8 Reference)*$LEC_VASC_107$,
+      "position"   = 0,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'deep-vein-thrombosis-dvt-guidelines' OR "slug" = 'deep-vein-thrombosis');
 
-  -- 2) Upsert Quiz Lesson (Position 1)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 1)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -12955,14 +21454,139 @@ $SBA_VASC_107$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 2/3: Peripheral Vascular Disease & Critical Limb Ischaemia
-  -- 1) Interleave Lecture (Position 2)
+  -- Pair 2/3: Peripheral Vascular Disease & Critical Limb Ischaemia
+  -- A) Update & Beautify Clinical Theory Lecture (Position 2)
   UPDATE "lessons"
-  SET "position" = 2, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Peripheral Vascular Disease & Critical Limb Ischaemia',
+      "body"       = $LEC_VASC_108$# Peripheral Vascular Disease & Critical Limb Ischaemia
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+- Causes
+- Peripheral arterial disease of the lower limbs is most commonly caused by atherosclerosis.
+- Vasculitis
+- Fibromuscular dysplasia Thromboembolism
+- Thromboembolism
+- Buerger's disease . Trauma
+- Dissection
+- Physiological entrapment syndromes, and cystic adventitial disease
+- Acute limb ischaemia
+- Most commonly due to thrombosis within a diseased artery when an atherosclerotic plaque ruptures (80—85%).
+- Cardiac embolization
+- Aortic dissection or embolization
+- Graft thrombosis; thrombosis of a popliteal aneurysm
+- Hypercoagulable states
+- Iatrogenic complications of vascular intervention
+- Risk factors
+- Smoking
+- Diabetes mellitus
+- Advanced age
+
+Hypertension
+- Hypercholesterolaemia Advanced age
+- Known atherosclerotic disease
+-
+- CKD High serum homocysteine
+
+## Key Clinical Features
+Features of acute limb ischaemia
+- Pain — constantly present and persistent.
+- Pulseless — ankle pulses are always absent.
+- Pallor (or cyanosis or mottling).
+- Power loss or paralysis.
+- Paraesthesia or reduced sensation or numbness.
+- Perishing with cold.
+-
+
+Ischaemia due to an embolus Onset is acute. The limb appears white (because there is no collateral circulation). Vascular examination in the other leg is usually normal. Ischaemia due to thrombosis Onset is more gradual. The leg may not be white and symptoms may be less severe (due to collateral circulation, which is often well-developed in people with chronic peripheral vascular disease). Presentation is usually with worsening claudication and rest pain. Pulses in the other leg may also be absent
+- Classical features of intermittent claudication
+- Cramp-like pain in a muscle group after walking a predictable distance that is relieved by rest and reproduced by walking the same distance again.
+- Pain is not present at rest or altered by position.
+- the calves are more commonly affected than the thigh or buttock areas. gjschaemia
+- Chronic rest pain, which may be worse at night
+- People may report sleeping with the leg hanging out of bed, or sleep in a chair to relieve symptoms in the affected foot.
+- Dependent rubor, pallor on elevation of the extremity, and reduced capillary refill.
+
+- Skin changes including ischaemic ulcers, non-healing foot wounds, and gangrene. Usually affects the toes.
+- Absent foot pulses.
+
+## Investigations & Diagnostic Workup
+Proper history and examination
+-
+- Examining;
+- The legs and feet for ulceration, temperature differences between the legs, muscle atrophy, and skin changes (for example thin, shiny skin, discolouration, dependent rubor and elevation pallor, tissue loss on the heel or between the toes, hair loss). Femoral, popliteal, and foot pulses.
+- Capillary refill time (although this may not be reliable).
+-
+- The cardiovascular system (including for arterial bruits — femoral, aortic, carotid). ankle-brachial index (ABI)
+- segmental pressure examination
+- duplex ultrasound
+- continuous wave Doppler ultrasound
+- catheter angiography
+-
+- CT angiogram Investigation to find sources of embolus
+-
+- ECG Echocardiography
+- Aortic, popliteal and femoral artery ultrasound
+-
+
+- An ABPI ratio Less than 0.5 Greater than 0.5 to less than 0.8 Between 0.8 and 1.3 Greater than 1.3
+- suggests severe arterial disease.
+- Refer the person urgently for specialist vascular assessment. suggests the presence of arterial disease or mixed arterial/venous disease. Refer the person for specialist vascular assessment Suggests no evidence Of significant arterial disease. May suggest the presence of arterial calcification, such as in some people with diabetes, rheumatoid arthritis, systemic vasculitis, atherosclerotic disease, and advanced chronic renal failure. Care must be taken in interpreting ABPI results in people with these conditions, as they may be misleadingly high.
+- Note: don't need to memorize for exam purposes.
+
+## Emergency Management Protocol
+Acute limb ischaemia management
+- Antiplatelet therapy_=Aspirin is recommended. Clopidogrel is recommended as an effective alternative antiplatelet therapy to aspirin.
+
+Analgesia Paracetamol and an opioid (weak or strong) are recommended,
+- depending on the severity of pain. Anticoagulation— In patients with acute limb ischaemia, systemic anticoagulation
+- with unfractionated heparin should be administered, unless contraindicated. Endovascular therapies
+- Percutaneous catheter-directed thrombolytic therapy.
+- Percutaneous mechanical thrombus extraction.
+-
+- Surgical-interventions Surgical thromboembolectomy.
+- Endarterectomy.
+-
+- Bypass surgery. Amputation if the limb is unsalvageable.
+-
+- Critical limb ischaemia (Chronic severe limb ischaemia) Urgently refer to a vascular multidisciplinary team
+-
+- Manage-pain
+- Offer paracetamol and either weak or strong opioids, depending on the severity of the pain.
+- Intermittent claudication management offers a supervised exercise programme to all people with intermittent
+- claudication. If supervised exercise is not available, consider suggesting unsupervised
+- exercise — For example advise exercise for approximately 30 minutes three to five times per week, walking until the onset of symptoms, then resting to recover.
+
+- Refer for consideration of angioplasty or bypass surgery when:
+- Advice on the benefits of modifying risk factors has been reinforced, and
+- A supervised exercise programme has not led to a satisfactory improvement in symptoms.
+- supervised exercise has not led to a satisfactory improvement, and the person prefers not to be referred for consideration of angioplasty or bypass surgery.
+- Offer all people with peripheral arterial disease information, advice, support, and treatment regarding the secondary_prevention of cardiovascular disease.
+- Diet, weight management, and exercise
+- Lipid modification and statin therapy The prevention, diagnosis, and management of diabetes
+- The prevention, diagnosis, and management of high blood pressure
+- Antiplatelet therapy previous  Next
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Peripheral Vascular Disease & Critical Limb Ischemia - Clinical Figure 1](/lessons/images/sba/vascular-emergencies/peripheral-vascular-disease-critical-limb-ischemia/figure_01_p4.jpeg)
+*Peripheral Vascular Disease & Critical Limb Ischemia — Clinical Figure 1 (Page 4 Reference)*
+
+![Peripheral Vascular Disease & Critical Limb Ischemia - Clinical Figure 2](/lessons/images/sba/vascular-emergencies/peripheral-vascular-disease-critical-limb-ischemia/figure_02_p6.jpeg)
+*Peripheral Vascular Disease & Critical Limb Ischemia — Clinical Figure 2 (Page 6 Reference)*
+
+![Peripheral Vascular Disease & Critical Limb Ischemia - Clinical Figure 3](/lessons/images/sba/vascular-emergencies/peripheral-vascular-disease-critical-limb-ischemia/figure_03_p8.jpeg)
+*Peripheral Vascular Disease & Critical Limb Ischemia — Clinical Figure 3 (Page 8 Reference)*$LEC_VASC_108$,
+      "position"   = 2,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'peripheral-vascular-disease-critical-limb-ischemia' OR "slug" = 'peripheral-vascular-disease');
 
-  -- 2) Upsert Quiz Lesson (Position 3)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 3)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -13071,14 +21695,122 @@ $SBA_VASC_108$,
     "deleted_at" = NULL,
     "updated_at" = now();
 
-  -- Topic 3/3: Pulmonary Embolism (PE) Diagnosis & Management
-  -- 1) Interleave Lecture (Position 4)
+  -- Pair 3/3: Pulmonary Embolism (PE) Diagnosis & Management
+  -- A) Update & Beautify Clinical Theory Lecture (Position 4)
   UPDATE "lessons"
-  SET "position" = 4, "deleted_at" = NULL, "updated_at" = now()
+  SET "title"      = 'Pulmonary Embolism (PE) Diagnosis & Management',
+      "body"       = $LEC_VASC_109$# Pulmonary Embolism (PE) Diagnosis & Management
+
+> [!NOTE]
+> **MRCEM SBA Curriculum Notes:** Clinical review aligned with UK RCEM, NICE, and Resuscitation Council guidelines.
+
+In severe cases, dizziness and/or syncope (due to right ventricular failure).
+-
+- Other signs that may be present include: Tachycardia (heart rate greater than 100 beats per minute).
+- Hypoxia. . pyrexia. Elevated jugular venous pressure.
+- Gallop rhythm, a widely split second heart sound, tricuspid regurgitant murmur.
+- pleural rub. Hypotension (systolic blood pressure less than 90 mmHg) and cardiogenic shock
+- (rare signs indicating central PE and/or a severely reduced.
+
+## Differential Diagnosis
+Pneumothorax.
+- Pneumonia.
+- Acute bronchitis.
+- Acute exacerbation of asthma
+-
+- ACS Acute coronary syndrome.
+- Acute congestive heart failure.
+- Dissecting or rupturing aortic aneurysm.
+-
+- Diagnosis and initial management (NICE G u i déiifiéj¯
+
+- Pulmonary embolism rule-out criteria (the PERC rule) No (0) No (0) No (0) No (0) No (0) No (0) No (0) Age 250 HR 2100 02 sat on room air Unilateral leg swelling Hemoptysis Recent surgery or trauma Prior PE or DVT Hormone use Yes Yes Yes Yes Yes Yes Yes Yes +1 +1 +1 +1 +1 +1 +1 +1
+- Note — If no criteria are positive and clinician's pre-test probability is <15%, PERC Rule criteria are satisfied.
+
+- If-PE-is-suspected, probability of PE Clinical feature Clinical signs and symptoms of DVT (minimum of leg swelling and pain with palpation of the deep veins)
+- An alternative diagnosis is less likely than 100 beat/min Immobilisation for more than 3 days or
+- surgery in the previous 4 weeks Previous DVT/PE
+- Haemoptysis
+- Malignancy (on treatment, treated in the last 6 months, or palliative) Clinical probability simplified score
+- PE likely
+- PE unlikely Points 3 3 1.5 1.5 1.5 1 1 Points
+-
+- More than 4 points 4 points or less
+
+- PE score more than 4 points)
+- Offer a computed tomography pulmonary angiogram (CTPA) immediately if possible OR
+- If patient allergic to contrast media or has renal impairment then assess the suitability of a ventilation/perfusion single photon emission computed tomography (WQ SPECT) scan or, if a V/Q SPECT scan is not available, a VIQ planar scan, as an alternative to CT PA.
+- If a CTPA, V/Q SPECT or V/Q planar scan cannot be done immediately, offer interim therapeutic anticoagulation (DOAC — apixaban or rivaroxaban. If neither suitable then LMWH followed by dabigatran or edoxaban or LMWH and a VKA).
+- Steps-after-CTPA,MQSPECTMMQ-planar scan
+- If PE is identified by CTPA, V/Q SPECT or V/Q planar scan:
+- offer or continue anticoagulation treatment at least 3 months to people with confirmed proximal DVT or PE.
+- if anticoagulation treatment is contraindicated, consider a mechanical intervention (Inferior vena caval filters, Elastic graduated compression stockings, Percutaneous mechanical thrombectomy)
+- take into account contraindications, comorbidities and the person's preferences
+- Measure baseline full blood count, renal and hepatic function, PT and APTT but start anticoagulation before results available.
+
+- For people with suspected/ confirmed PE and haemodynamic instability (unstable patient):
+- offer continuous LJFH infusion and consider thrombolytic therapy
+- Thrombolysis is indicated for patients with severe circulatory compromise or a picture of massive pulmonary embolism. Prior proof of PE is not needed if the patient is peri-arrest and thrombolysis should be administered immediately (50mg Alteplase as a bolus) in such patients.
+- If PE is not identified by CTPA, V/Q SPECT or V/Q planar scan:
+- consider a proximal leg vein ultrasound scan if DVT is suspected
+- If DVT not suspected — stop interim therapeutic anticoagulation, think about alternative diagnoses.
+- PE unlikely_(WelIs score 4 points or less) A D-dimer test with the result available within 4 hours if possible OR
+- if the D-dimer test result cannot be obtained within 4 hours (in any setting), offer interim therapeutic anticoagulation while awaiting the result.
+- If the D-dimer test result is positive
+- offer a computed tomography pulmonary angiogram (CT PA) and follow the pathway-as-mentioned-aboye±
+- If the D-dimer test result is negative
+- stop interim therapeutic anticoagulation (but do not stop long-term anticoagulation if being used for secondary prevention) Think about alternative diagnoses.
+
+- Long-term anticoagulation for secondary_ prevention
+- Assess and discuss the benefits and risks of continuing, stopping or changing the anticoagulant with people who have had anticoagulation treatment for 3 months (3 to 6 months for people with active cancer) after a proximal DVT or PE
+- Consider stopping anticoagulation treatrnent 3 months (3 to 6 months for people with active cancer) after a provoked DVT or PE if the provoking factor is no longer present and the clinical course has been uncomplicated
+- Consider continuing anticoagulation beyond 3 months (6 months for people with active cancer) after an unprovoked DVT or PE. Key_points
+- Any haemodynamically unstable patient with suspected/ confirmed should be immediately thrombolysed (alteplase 50mg bolus).
+- Anti-coagulant drugs — use DOAC (apixaban or rivaroxaban) as first choice. If neither suitable, offer one of:
+- LM\NH for at least 5 days followed by dabigatran or edoxaban OR
+- LMVVH and a VKA for at least 5 days, or until INR at least 2.0 on 2 consecutive readings, then a VKA alone.
+- Anticoagulation treatrnent for DVT or PE with triple positive antiphospholipid syndrome — Offer LMWH and a VKA for at least 5 days or until INR at least 2.0 on 2 consecutive readings, then a VKA alone.
+- Avoid DOACs in positive antiphospholipid syndrome.
+
+- Suspected PE: diagnosis and initial management Determine 2—1evel PE Wells Score suspected Wells score
+- 4 points PE likely Immediate CT PAZ (CT pulmonary angiogram) Interim therapeutic anticoagulation" while awaiting CTPA Wells score s 4 points PE unlikely Quantitative D—dimer test' and result in 4 hours Interim therapeutic anticoagulations
+- s while awaiting result D-dimer positive DVT not suspected D-dimer negative CTPA positive Diagnose PE and offer or continue treatment  CTPA negative DVT suspected Consider proximal leg vein ultrasound scan Stop any anticoagulation and think about other diagnoses Consider outpatient treatment for Iow-risk PE PE algorithm
+- 9
+
+### Clinical Figures & Diagnostic Algorithms
+
+![Pulmonary Embolism (PE) Diagnosis & Management - Clinical Figure 1](/lessons/images/sba/vascular-emergencies/pulmonary-embolism-pe-diagnosis
+
+## Emergency Management Protocol
+/figure_01_p3.jpeg)
+*Pulmonary Embolism (PE) Diagnosis & Management — Clinical Figure 1 (Page 3 Reference)*
+
+![Pulmonary Embolism (PE) Diagnosis & Management - Clinical Figure 2](/lessons/images/sba/vascular-emergencies/pulmonary-embolism-pe-diagnosis
+
+## Emergency Management Protocol
+/figure_02_p4.jpeg)
+*Pulmonary Embolism (PE) Diagnosis & Management — Clinical Figure 2 (Page 4 Reference)*
+
+![Pulmonary Embolism (PE) Diagnosis & Management - Clinical Figure 3](/lessons/images/sba/vascular-emergencies/pulmonary-embolism-pe-diagnosis
+
+## Emergency Management Protocol
+/figure_03_p8.jpeg)
+*Pulmonary Embolism (PE) Diagnosis & Management — Clinical Figure 3 (Page 8 Reference)*
+
+![Pulmonary Embolism (PE) Diagnosis & Management - Clinical Figure 4](/lessons/images/sba/vascular-emergencies/pulmonary-embolism-pe-diagnosis
+
+## Emergency Management Protocol
+/figure_04_p8.jpeg)
+*Pulmonary Embolism (PE) Diagnosis & Management — Clinical Figure 4 (Page 8 Reference)*$LEC_VASC_109$,
+      "position"   = 4,
+      "type"       = 'article',
+      "status"     = 'published',
+      "deleted_at" = NULL,
+      "updated_at" = now()
   WHERE "module_id" = v_mod_id
     AND ("slug" = 'pulmonary-embolism-pe-diagnosis-management' OR "slug" = 'pulmonary-embolism');
 
-  -- 2) Upsert Quiz Lesson (Position 5)
+  -- B) Upsert Paired SBA Interactive Quiz (Position 5)
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at", "deleted_at"
   ) VALUES (
@@ -13195,7 +21927,6 @@ $SBA_VASC_109$,
   -- ========================================================================
   SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_sba_id AND "title" = 'High-Yield Rapid Clinical Revision' AND "deleted_at" IS NULL LIMIT 1;
   IF v_mod_id IS NOT NULL THEN
-    -- Replace '?' with ':' in lesson titles
     UPDATE "lessons"
     SET "title" = REPLACE("title", ' ? ', ': '),
         "updated_at" = now()
@@ -13247,9 +21978,9 @@ $SBA_VASC_109$,
 
   -- Record curriculum version in meta
   INSERT INTO "app_system_meta" ("key", "value", "updated_at")
-  VALUES ('curriculum_version', '2026_11_02_v18_complete_curriculum_and_quizzes', now())
+  VALUES ('curriculum_version', '2026_11_02_v19_beautified_curriculum_and_quizzes', now())
   ON CONFLICT ("key") DO UPDATE SET "value" = EXCLUDED."value", "updated_at" = now();
 
-  RAISE NOTICE 'SUCCESS: Master migration completed! % quizzes created, % questions seeded, % images linked.',
-    109, 545, 400;
+  RAISE NOTICE 'SUCCESS: Master migration completed! % quizzes created, % lectures beautified, % questions seeded, % images linked.',
+    109, 109, 545, 400;
 END $$;

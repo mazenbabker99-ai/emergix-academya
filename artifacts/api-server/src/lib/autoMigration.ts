@@ -954,7 +954,7 @@ export async function runAutoMigrationsAndSeeds() {
     }
 
     // Track explicit curriculum content version so text additions and cleanups are always applied
-    const CURRENT_CURRICULUM_VERSION = "2026_11_02_v18_complete_curriculum_and_quizzes";
+    const CURRENT_CURRICULUM_VERSION = "2026_11_02_v19_beautified_curriculum_and_quizzes";
     let isCurriculumUpToDate = false;
 
     try {

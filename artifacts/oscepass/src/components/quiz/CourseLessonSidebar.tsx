@@ -55,7 +55,16 @@ export function CourseLessonSidebar({
   const [searchQuery, setSearchQuery] = useState('');
   const [openModuleIds, setOpenModuleIds] = useState<Record<string, boolean>>({});
 
-  const allLessons = useMemo(() => modules.flatMap((m) => m.lessons), [modules]);
+  const sortedModules = useMemo(() => {
+    return [...modules].sort((a, b) => (a.position ?? 0) - (b.position ?? 0));
+  }, [modules]);
+
+  const allLessons = useMemo(() => {
+    return sortedModules.flatMap((m) =>
+      [...m.lessons].sort((a, b) => (a.position ?? 0) - (b.position ?? 0))
+    );
+  }, [sortedModules]);
+
   const allQuizzes = useMemo(() => allLessons.filter(checkIsQuiz), [allLessons]);
   const allLectures = useMemo(() => allLessons.filter((l) => !checkIsQuiz(l)), [allLessons]);
 
@@ -75,12 +84,15 @@ export function CourseLessonSidebar({
     }
   }, [modules, currentLessonId]);
 
-  // Filter modules and lessons
+  // Filter modules and lessons with strict position sorting
   const filteredModules = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
-    return modules
+    return sortedModules
       .map((mod) => {
-        const filteredLessons = mod.lessons.filter((l) => {
+        const sortedLessons = [...mod.lessons].sort(
+          (a, b) => (a.position ?? 0) - (b.position ?? 0)
+        );
+        const filteredLessons = sortedLessons.filter((l) => {
           const isQ = checkIsQuiz(l);
           if (activeTab === 'quizzes' && !isQ) return false;
           if (activeTab === 'lectures' && isQ) return false;
@@ -93,7 +105,7 @@ export function CourseLessonSidebar({
         };
       })
       .filter((mod) => mod.lessons.length > 0);
-  }, [modules, activeTab, searchQuery]);
+  }, [sortedModules, activeTab, searchQuery]);
 
   const toggleModule = (modId: string) => {
     setOpenModuleIds((prev) => ({ ...prev, [modId]: !prev[modId] }));
@@ -360,7 +372,15 @@ export function CourseLessonSidebar({
                                   flexShrink: 0,
                                 }}
                               >
-                                {isQ && <span className="badge-quiz">Quiz</span>}
+                                {isQ ? (
+                                  <span className="badge-quiz" style={{ background: '#ecfdf5', color: '#059669', border: '1px solid #a7f3d0', fontSize: '.68rem', fontWeight: 800, padding: '2px 6px', borderRadius: 6 }}>
+                                    QUIZ
+                                  </span>
+                                ) : (
+                                  <span className="badge-notes" style={{ background: '#f8fafc', color: '#64748b', border: '1px solid #e2e8f0', fontSize: '.66rem', fontWeight: 700, padding: '2px 5px', borderRadius: 6 }}>
+                                    NOTES
+                                  </span>
+                                )}
                                 {item.isFreePreview && !hasAccess && (
                                   <span className="badge-free">Free</span>
                                 )}
