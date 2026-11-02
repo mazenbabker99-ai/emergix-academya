@@ -29,8 +29,8 @@ export const coursesMenu: NavLink[] = [
   },
   {
     label: 'MRCEM SBA',
-    href: '/question-bank',
-    description: 'Clinical SBA question bank (41 topic quizzes & 6 timed mock exams)',
+    href: '/courses/mrcem-sba',
+    description: 'Clinical SBA curriculum & quizzes (11 modules, 109 topics, 400 figures)',
   },
   {
     label: 'All Flagship Courses',

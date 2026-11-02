@@ -75,9 +75,9 @@ export default function ExamDetail() {
               </span>
             </div>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <Link className="btn btn-primary" href={exam.slug === 'mrcem-sba' ? '/question-bank' : `/courses/${exam.slug}`}>
+              <Link className="btn btn-primary" href={`/courses/${exam.slug}`}>
                 {exam.slug === 'mrcem-sba' ? (
-                  <><HelpCircle size={16} /> Open SBA Question Bank &amp; Mocks</>
+                  <><BookOpen size={16} /> Explore Curriculum &amp; Lessons</>
                 ) : hasAccess ? (
                   <><Play size={16} /> Open Course &amp; Continue Lessons</>
                 ) : (
