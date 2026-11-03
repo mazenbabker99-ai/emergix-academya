@@ -73,7 +73,7 @@ export default defineConfig({
   },
   server: {
     // Local dev/e2e: forward /api to the API server (on Replit the platform router does this).
-    proxy: { '/api': { target: process.env.API_PROXY_TARGET ?? 'http://localhost:5000' } },
+    proxy: { '/api': { target: process.env.API_PROXY_TARGET ?? 'http://localhost:5000', changeOrigin: true } },
     port,
     strictPort: true,
     host: '0.0.0.0',
@@ -83,7 +83,7 @@ export default defineConfig({
     },
   },
   preview: {
-    proxy: { '/api': { target: process.env.API_PROXY_TARGET ?? 'http://localhost:5000' } },
+    proxy: { '/api': { target: process.env.API_PROXY_TARGET ?? 'http://localhost:5000', changeOrigin: true } },
     port,
     host: '0.0.0.0',
     allowedHosts: true,
