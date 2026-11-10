@@ -954,7 +954,7 @@ export async function runAutoMigrationsAndSeeds() {
     }
 
     // Track explicit curriculum content version so text additions and cleanups are always applied
-    const CURRENT_CURRICULUM_VERSION = "2026_11_03_v23_test_accounts";
+    const CURRENT_CURRICULUM_VERSION = "2026_11_10_v24_pharmacology_lectures";
     let isCurriculumUpToDate = false;
 
     try {
@@ -994,6 +994,8 @@ export async function runAutoMigrationsAndSeeds() {
       { file: "fix_content_typos_and_garbled.sql", shouldRun: true },
       // Test accounts: Admin (superadmin) and Premium (full 5-year access)
       { file: "seed_test_accounts.sql", shouldRun: true },
+      // 19 SBA clinical lectures with extracted figures (Pharmacology, Pain, MSK, Safeguarding, ID)
+      { file: "append_sba_lectures_pharmacology_and_more.sql", shouldRun: true },
     ];
 
     for (const { file: seedFile, shouldRun } of masterSeeds) {
