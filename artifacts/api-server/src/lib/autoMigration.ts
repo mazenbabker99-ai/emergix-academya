@@ -996,6 +996,9 @@ export async function runAutoMigrationsAndSeeds() {
       { file: "seed_test_accounts.sql", shouldRun: true },
       // 19 SBA clinical lectures with extracted figures (Pharmacology, Pain, MSK, Safeguarding, ID)
       { file: "append_sba_lectures_pharmacology_and_more.sql", shouldRun: true },
+      // CRITICAL FIX: soft-delete the shadow mrcem-sba course (4c794261) created by autoMigration
+      // and migrate any unique modules to the real course (583e83a1) that has all user data.
+      { file: "fix_deduplicate_sba_course.sql", shouldRun: true },
     ];
 
     for (const { file: seedFile, shouldRun } of masterSeeds) {

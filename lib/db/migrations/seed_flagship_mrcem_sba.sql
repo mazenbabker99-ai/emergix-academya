@@ -1,4 +1,4 @@
-Ôªø-- ==========================================================================
+-- ==========================================================================
 -- FLAGSHIP COURSE: MRCEM SBA
 -- ==========================================================================
 DO $$
@@ -17,7 +17,16 @@ BEGIN
   END IF;
 
   -- 2. Upsert Course: mrcem-sba
-  SELECT id INTO v_course_id FROM "courses" WHERE "slug" = 'mrcem-sba' LIMIT 1;
+  -- IMPORTANT: Always prefer the canonical real course ID (583e83a1) that contains all user data.
+  -- This prevents autoMigration from picking a shadow/duplicate course created by prior runs.
+  SELECT id INTO v_course_id FROM "courses"
+    WHERE "id" = '583e83a1-b45d-463b-ad53-4e0e3af8cf3a' AND "deleted_at" IS NULL LIMIT 1;
+  IF v_course_id IS NULL THEN
+    -- Fallback: pick the oldest non-deleted mrcem-sba course (original user data)
+    SELECT id INTO v_course_id FROM "courses"
+      WHERE "slug" = 'mrcem-sba' AND "deleted_at" IS NULL
+      ORDER BY "created_at" ASC LIMIT 1;
+  END IF;
   IF v_course_id IS NULL THEN
     INSERT INTO "courses" (
       "id", "exam_id", "slug", "title", "summary", "description", "is_free", "position", "status", "created_at", "updated_at"
@@ -88,16 +97,16 @@ BEGIN
     UPDATE "modules" SET "position" = 4, "updated_at" = now() WHERE "id" = v_module_id;
   END IF;
 
-  -- Lesson: Mock ‚Äì I Paper ‚Äì Ii
+  -- Lesson: Mock ñ I Paper ñ Ii
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
     gen_random_uuid(),
     v_module_id,
     'mock-i-paper-ii',
-    'Mock ‚Äì I Paper ‚Äì Ii',
+    'Mock ñ I Paper ñ Ii',
     'article',
-    '# Mock ‚Äì I Paper ‚Äì Ii
+    '# Mock ñ I Paper ñ Ii
 
 > [!NOTE]
 > **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
@@ -126,8 +135,8 @@ Which tract is most likely injured?
 ## Question 1 of 70
 
 2. What is the normal right ventricular systolic pressure?
-Normal RV systolic pressure is 20‚Äì30 mmHg and
-normal diastolic pressure is 3‚Äì7 mmHg.
+Normal RV systolic pressure is 20ñ30 mmHg and
+normal diastolic pressure is 3ñ7 mmHg.
 
 ## Question 2 of 90
 
@@ -144,7 +153,7 @@ the following?
 - **A.** Posterior rami of C3 -C5
 - **B.** Anterior rami to C4 -C7
 - **C.** Posterior rami of C1 -C3
-- **D.** Anterior rami of C3 ‚Äì C5
+- **D.** Anterior rami of C3 ñ C5
 - **E.** Anterior rami of C1 -C3
 
 ## Question 2 of 70
@@ -371,13 +380,13 @@ paracentesis?
 ## Question 9 of 70
 
 Administer 1 unit (100ml) HAS 20% (Human
-Albumin Solution, 20% i.e., 20g albumin¬† per 100ml)
+Albumin Solution, 20% i.e., 20g albumin† per 100ml)
 (STAT) following every 3 liters of ascites drained.
 Note: Paracentesis without albumin replacement
 leads to a fall in pulmonary capillary wedge
 pressure, maximal at 6 hours, and can result in
 circulatory and renal dysfunction.
-Note:¬† Ascites results from high pressure in the
+Note:† Ascites results from high pressure in the
 blood vessels of the liver (portal hypertension
 Recall) and low levels of a albumin.
 - **C.** Ringer lactate
@@ -500,9 +509,9 @@ Physiological changes in pregnancy
 
 31. A 40-year-old male presents to the ED with headache.
 His BP was found to be 180/90. He is currently under
-investigation for suspected Cushing‚Äôs syndrome. What is
+investigation for suspected Cushingís syndrome. What is
 the most common cause of Cushing disease?
-Cushing‚Äôs disease refers to the specific condition of
+Cushingís disease refers to the specific condition of
 excessive corticosteroids as a result of ACTH-
 secreting pituitary adenoma.
 
@@ -541,7 +550,7 @@ ligament, which is formed by the external oblique
 aponeurosis (RECALL)
 Type of hernia that enters the deep inguinal
 ring=indirect inguinal hernia (RECALL)
-Type of hernia that protrudes through Hesselbach‚Äôs
+Type of hernia that protrudes through Hesselbachís
 triangle=Direct inguinal hernia (RECALL).
 33. A 40-year-old male presents to ER with a deep
 laceration to the proximal part of the forearm. On
@@ -551,7 +560,7 @@ interphalangeal joints of index and middle or thumb, ring
 and little fingers are intact but there is loss of sensation
 over the lateral palm and the Palmer surface of lateral three
 and a half fingers. Nerve has most likely been affected is?
-Nerve roots: C6 ‚Äì T1 (also contains fibers from C5 in
+Nerve roots: C6 ñ T1 (also contains fibers from C5 in
 some individuals).
 
 ## Question 33 of 90
@@ -637,7 +646,7 @@ following is treatment of choice?
 Trimethoprim and sulfamethoxazole is
 recommended first line treatment against
 pneumocystis jiroveci pneumonia.
-Note: Trimethoprim causes folate deficiency that‚Äôs
+Note: Trimethoprim causes folate deficiency thatís
 why teratogenic in early pregnancy.
 - **C.** Ceftriaxone
 - **D.** Gentamycin
@@ -863,7 +872,7 @@ to initiate drinking and ADH release
 ADH acts on kidney to promote water retention and
 on the vascular system cause vasoconstriction ADH
 also known as vasopressin.
-‚Ä¢ ADH and oxytocin are released from posterior
+ï ADH and oxytocin are released from posterior
 pituitary gland (RECALL).
 
 ## Question 49 of 90
@@ -900,7 +909,7 @@ Function: flexion and supination of forearm
 - **E.** Medial and posterior cord
 51. An 18-year-old boy presents to the ED with a
 nosebleed. On examination, you suspect the site of
-bleeding to be in little‚Äôs area which of the following blood
+bleeding to be in littleís area which of the following blood
 vessels are likely to be involved?
 
 ## Question 51 of 90
@@ -910,7 +919,7 @@ alveolar arteries
 
 ## Question 27 of 70
 
-Little‚Äôs area also known as Kieselbach''s plexus is
+Littleís area also known as Kieselbach''s plexus is
 formed by:
 Superior labial artery
 Sphenopalatine artery
@@ -992,7 +1001,7 @@ the liquid.
 ## Question 54 of 90
 
 - **A.** Ficks law
-- **B.** Boyle‚Äôs law
+- **B.** Boyleís law
 - **C.** Henry''s law
 - **D.** Charles law
 - **E.** Entropy
@@ -1035,8 +1044,8 @@ following function?
 
 The orbicularis Oris muscle act to close purse the
 lips. This muscle also helps in puckering the lips due
-to which it is sometimes known as the ‚Äúkissing
-muscle.‚Äù The musicians also use this muscle.
+to which it is sometimes known as the ìkissing
+muscle.î The musicians also use this muscle.
 - **A.** Blowing of the cheeks
 - **B.** Closing of eyes
 - **C.** Closing of the mouth
@@ -1487,7 +1496,7 @@ mature.
 medulla
 - **B.** It is mainly located within the anterior
 mediastinum
-- **C.** The medulla contains Hassall‚Äôs corpuscles
+- **C.** The medulla contains Hassallís corpuscles
 - **D.** The cortex is located centrally
 - **E.** It increases in size after puberty
 
@@ -1575,7 +1584,7 @@ Post-thyroid surgery most likely complication is
 parathyroid insufficiency leads to hypocalcemia
 Note: Parathyroid Harmone increases calcium
 reabsorption in the distal convoluted tubule of
-nephron (Recall)¬† and increases excretion of
+nephron (Recall)† and increases excretion of
 phosphate by inhibiting reabsorption in the
 proximal convoluted tubule of nephron
 
@@ -1846,7 +1855,7 @@ metabolic acidosis
 Aldosterone acts mainly at renal distal convoluted
 tubule to cause sodium retention and potassium
 loss (RECALL)
-Conn‚Äôs syndrome (hyperaldosteronism) cause
+Connís syndrome (hyperaldosteronism) cause
 hypernatremia and hypokalemia (RECALL).
 - **A.** Cortisol
 - **B.** Thyroxine
@@ -1855,7 +1864,7 @@ hypernatremia and hypokalemia (RECALL).
 - **E.** Aldosterone
 20. A 40-year-old male presents to the ED with headache.
 His BP was found to be 180/90. He is currently under
-investigation for suspected Cushing‚Äôs syndrome. What is
+investigation for suspected Cushingís syndrome. What is
 the most common cause of Cushing disease?
 
 ## Question 20 of 90
@@ -1868,10 +1877,10 @@ the most common cause of Cushing disease?
 
 ## Question 60 of 70
 
-Cushing‚Äôs disease refers to the specific condition of
+Cushingís disease refers to the specific condition of
 excessive corticosteroids as a result of ACTH
 secreting pituitary adenoma.
-Cushing‚Äôs syndrome is the name given to clinical
+Cushingís syndrome is the name given to clinical
 symptoms and signs induced by chronic
 glucocorticoid excess.
 Clinical findings:
@@ -1974,7 +1983,7 @@ from 0 to 15 degrees and then assists the deltoid
 with continued abduction. Supraspinatus muscle
 supplied by suprascapular nerve, "empty can test"
 use to examine this muscle.
-Teres minor muscle assessment test=Hornblower‚Äôs
+Teres minor muscle assessment test=Hornblowerís
 test) RECALL)
 Subscapularis muscle assessment test (lift-off Test)
 RECALL
@@ -2065,7 +2074,7 @@ parathyroid insufficiency leads to hypocalcemia
 
 Note: Parathyroid Harmone increases calcium
 reabsorption in the distal convoluted tubule of
-nephron (Recall)¬† and increases excretion of
+nephron (Recall)† and increases excretion of
 phosphate by inhibiting reabsorption in the
 proximal convoluted tubule of nephron
 48. A 54-year-old woman presents with acute back pain
@@ -2324,7 +2333,7 @@ and paralysis of adductor pollicis muscle (RECALL)
 
 > [!TIP]
 > **Clinical Pearls: (High Yield)**
-> Froment''s sign: Froment‚Äôs sign is a test for ulnar
+> Froment''s sign: Fromentís sign is a test for ulnar
 > nerve palsy specifically paralysis of the adductor
 > pollicis:
 > Patient is asked to hold a piece of paper between
@@ -2452,9 +2461,9 @@ meningococcal sepsis
 
 ## Question 13 of 90
 
-- **A.** Gram ‚ÄìVe diplococci
+- **A.** Gram ñVe diplococci
 - **B.** Gram +Ve rod
-- **C.** Gram ‚ÄìVe rod
+- **C.** Gram ñVe rod
 - **D.** Gram +Ve Cocco bacilli
 - **E.** Gram +Ve diplococci
 15. A 30-year-old diabetic patient presented to the
@@ -2514,10 +2523,10 @@ likely injured?
 ## Question 8 of 54
 
 Note: Skin of upper forehead, eye lid and
-conjunctiva are¬†innervated by supraorbital nerve
+conjunctiva are†innervated by supraorbital nerve
 (RECALL) branch of Opthalmic division of
 trigeminal nerve
-Supratrochlear nerve:¬† Innervate skin of lower
+Supratrochlear nerve:† Innervate skin of lower
 central forehead and conjunctiva.
 19. A 29 years old male presents to the ED with complaint
 of foot drop and loss of sensation on the dorsum of the
@@ -2747,14 +2756,14 @@ pyramidalis muscle (RECALL), inferior and
 superior epigastric vessels, and termination of
 intercostal nerves T7-T11.
 High Yield:
-Rectus¬†sheath:¬†The rectus sheath is formed by the
+Rectus†sheath:†The rectus sheath is formed by the
 aponeuroses of the three flat muscles and encloses
 the rectus abdominis and pyramidalis muscles. It
 has an anterior and posterior wall for most of its
 length.
 Anterior wall: Formed by the aponeuroses of the
 external oblique, and of half of the internal oblique.
-Posterior wall:¬† Half of the aponeuroses of the
+Posterior wall:† Half of the aponeuroses of the
 internal oblique and of the transversus abdominis.
 Approximately midway between the umbilicus and
 the pubic symphysis, all the aponeuroses move to
@@ -2841,11 +2850,11 @@ into three terminal branches:
 
 ## Question 16 of 54
 
-Anterior terminal branch:¬† winds around the
+Anterior terminal branch:† winds around the
 surgical neck of the humerus and provides motor
 innervation to the anterior aspect of the deltoid
 muscle.
-Posterior terminal branch:¬† Gives motor innervation
+Posterior terminal branch:† Gives motor innervation
 to the posterior aspect of the deltoid muscle and
 teres minor. It also innervates the skin over the
 inferior part of the deltoid as the upper lateral
@@ -2862,7 +2871,7 @@ Causes weak lateral rotation and abduction of the
 arm. (Supraspinatus can abduct the arm but not to
 a horizontal level).
 Loss of sensation over the inferior portion of the
-deltoid (the ‚Äòregimental badge area‚Äô).
+deltoid (the ëregimental badge areaí).
 Quadrangular space: Axillary nerve and posterior
 circumflex humeral artery and vein pass through it
 and can be compressed as a result of trauma,
@@ -2899,8 +2908,8 @@ true;
 
 In statistical hypothesis testing, a type1 error is the
 mistaken rejection of an actually true null
-hypothesis (also known as false positive‚Äù finding or
-conclusion; example: innocent person is convicted‚Äù).
+hypothesis (also known as false positiveî finding or
+conclusion; example: innocent person is convictedî).
 While type 2 error is the failure to reject the null
 hypothesis that is actually false (also known as false
 negative. Finding or conclusion example: guilty
@@ -3114,7 +3123,7 @@ pheochromocytoma
 - **E.** ADH
 44. which of the following muscle unlock the knee from the
 extended position?
-At full extension, the tibia and femur ‚Äúlock‚Äù into
+At full extension, the tibia and femur ìlockî into
 position, providing stability in the leg and improving
 load-bearing capacity. The popliteus muscle at the
 back of the leg unlocks the knee by rotating the
@@ -3149,16 +3158,16 @@ causing septic arthritis
 46. 70 years old male presents to the ED with complain of
 expressive Broca''s dysphasia. The brocas speech area is
 located in which of the following regions?
-Broca‚Äôs speech area is located in frontal lobe
-Broca‚Äôs aphasia or expressive aphasia is when
+Brocaís speech area is located in frontal lobe
+Brocaís aphasia or expressive aphasia is when
 people find it very difficult to find and say the right
 words. People with Broca''s aphasia may only be
 able to say single words or very short sentences,
-although it‚Äôs usually possible for other people to
+although itís usually possible for other people to
 understand what they mean
 Wernicke''s aphasia (fluent aphasia) in the
 temporal lobe.
-Wernicke‚Äôs aphasia or receptive aphasia is when
+Wernickeís aphasia or receptive aphasia is when
 someone is able to speak well and use long
 sentences, but what they say does not make any
 sense.
@@ -3257,10 +3266,10 @@ Innervations:
 
 ## Question 53 of 90
 
-- **A.** T6 ‚ÄìT10
+- **A.** T6 ñT10
 - **B.** L2-L4
 - **C.** T4-T8
-- **D.** T4 ‚ÄìT10
+- **D.** T4 ñT10
 - **E.** L1-L2
 
 ## Question 26 of 54
@@ -3373,7 +3382,7 @@ Which of the following dermatome is best localized on the
 supraclavicular region?
 High Yield:
 Dermatomes of Upper Limb:
-Dermatome: A dermatome is defined as ‚Äòa strip of
+Dermatome: A dermatome is defined as ëa strip of
 skin that is innervated by a single spinal nerve and
 clinically very important and help in diagnosis of
 spinal cord injury
@@ -3413,7 +3422,7 @@ Side Effects (High Yield)
 - **D.** TCA
 - **E.** Ibuprofen
 61. A 60 Years old male known case of Diabetes mellitus
-presents into the ED with complaint of eye pain that‚Äôs
+presents into the ED with complaint of eye pain thatís
 worsened by eye movement and loss of color vision. You
 suspect optic neuritis which one of the following conditions
 is strongly associated with it?
@@ -3465,7 +3474,7 @@ additional effect of blocking the peripheral
 conversion of inactive T4 to active form T3. They are
 highly effective for symptomatic relief (tachycardia,
 tremors)
-In hyperthyroidism (grave‚Äôs disease) =increased T3,
+In hyperthyroidism (graveís disease) =increased T3,
 T4 levels, decrease TSH levels (RECALLL)
 In hypothyroidism (Hashimoto''s thyroiditis)
 =Decrease T3, T4, increase TSH (RECALL)
@@ -3820,7 +3829,7 @@ toe. He has past medical history of gout and severe heart
 failure. Gout is diagnosed. Which of the following is the
 drug of choice for this patient?
 Colchicine mechanism of action: Colchicine
-has¬†anti-inflammatory properties. It disrupts
+has†anti-inflammatory properties. It disrupts
 cytoskeletal functions by inhibiting beta-tubulin
 polymerization into microtubules (Recall),
 preventing activation, degranulation, and migration
@@ -3903,7 +3912,7 @@ Yield)
 - **E.** Neisseria gonorrhoeae
 88. A 40 years old male presents to the ED with chest pain
 and the following ECG is taken. Which artery is most likely
-be occluded? Ôøº
+be occluded? ?
 ECG demonstrates Acute Inferior Myocardial
 Infarction due to occlusion of RCA
 St-elevation in inferior leads (II, III,aVF) with
@@ -3946,10 +3955,10 @@ diverticulum. The blood supply of Meckel''s diverticulum is
 from which of the following:
 Rich blood supply to Meckle''s diverticulum is from
 Superior mesenteric artery
-Proximal to the major duodenal papilla ‚Äì supplied
+Proximal to the major duodenal papilla ñ supplied
 by the gastroduodenal artery (branch of the
 common hepatic artery from the coeliac trunk
-Distal to the major duodenal papilla ‚Äì supplied by
+Distal to the major duodenal papilla ñ supplied by
 the inferior pancreaticoduodenal artery (branch of a
 superior mesenteric artery)
 Meckel''s Diverticulum: (High Yield)
@@ -3972,7 +3981,7 @@ Usually, asymptomatic
 
 Painless bleeding due to an ulcer caused by
 heterotopic gastric tissue most common
-presentation in¬†children.
+presentation in†children.
 Obstruction is caused by intussusception, volvulus,
 and hernia most common presentation in adults.
 1. A 26-Year-old girl presents to the ED with trauma to the
@@ -3997,7 +4006,7 @@ students, what is the method to calculate mean arterial
 pressure?
 Pulse pressure is difference between the Systolic
 and Diastolic pressure e.g., 120-80=40
-Mean arterial pressure:¬† Diastolic pressure + 1/3
+Mean arterial pressure:† Diastolic pressure + 1/3
 (pulse pressure) e.g., 80+ 1/3 (120-80) = 93.2
 Cerebral perfusion pressure= MAP- intracranial
 pressure (RECALL)
@@ -4143,7 +4152,7 @@ medial to the sternocleidomastoid muscle
 
 ## Question 47 of 54
 
-Rcem key:¬† soyabean is a rich source of calcium
+Rcem key:† soyabean is a rich source of calcium
 Note: Dairy products which include cheese, leafy
 vegetables, and Soybean is rich in calcium.
 Almond is also rich in calcium but if both almond
@@ -4159,17 +4168,17 @@ almond per 100gm.
 of loss of sensation in the medial half of palm. Regarding
 ulnar nerve receives its fibers from which of the following
 nerve roots?
-BRANCHES OF LATERAL CORD¬†¬† "LML"
+BRANCHES OF LATERAL CORD†† "LML"
 1.Lateral pectoral nerve
 2.Musculocutaneous nerve
 3.Lateral root of median nerve
-BRANCHES OF MEDIAL CORD¬†¬†¬†¬† "M4U"
+BRANCHES OF MEDIAL CORD†††† "M4U"
 1.Medial pectoral nerve
 2.Medial cutaneous nerve of arm
 3.Medial cutaneous nerve of forearm
 4.Medial root of median nerve
 5.Ulnar nerve
-BRANCHES OF POSTERIOR CORD¬†¬† "ULTRA"
+BRANCHES OF POSTERIOR CORD†† "ULTRA"
 1.Upper subscapular nerve
 2.Lower subscapular nerve
 
@@ -4363,10 +4372,10 @@ ECG demonstrates a normal QRS complex with absent P
 waves. Which part of the conducting system is most likely
 acting as pacemaker in this patient?
 Conductive Pathway of Heart:
-SA node initiates the cardiac muscle (pacemaker) ‚Üí
+SA node initiates the cardiac muscle (pacemaker) ?
 Internodal fibers and AV node (delay impulse
-from the atria to ventricle) ‚Üí  AV bundle branches
-‚Üí  Purkinje fibers (from apex to ventricles).
+from the atria to ventricle) ?  AV bundle branches
+?  Purkinje fibers (from apex to ventricles).
 
 ## Question 83 of 90
 
@@ -4495,13 +4504,13 @@ examination he has loss of sensation over inferior portion
 of deltoid. Which one of the following muscles is likely to be
 injured?
 Axillary nerve injury is commonly caused
-by¬†fracture of surgical neck of humerus¬†or inferior
+by†fracture of surgical neck of humerus†or inferior
 dislocation of humerus.
 Causes weak lateral rotation and abduction of the
 arm. (Supraspinatus can abduct the arm but not to
 a horizontal level).
 Loss of sensation over the inferior portion of the
-deltoid (the ‚Äòregimental badge area‚Äô).
+deltoid (the ëregimental badge areaí).
 Quadrangular space: Axillary nerve and posterior
 circumflex humeral artery and vein pass through it
 and can be compressed as a result of trauma,
@@ -4578,7 +4587,7 @@ Confusion (abbreviated mental test, AMT scores 8)
 Urea (>7 mmol/L)
 Respiratory rate (2 30/min)
 Blood pressure (< 90 systolic or $ 60 diastolic)
-65 (age ‚â•  65
+65 (age =  65
 Risk
 Score 0 to 1 low risk
 Score 2: Intermediate risk
@@ -4811,7 +4820,7 @@ than polymorphs in CSF. Predominant cells in viral
 and TB meningitis are Lymphocytes while
 predominant cells in bacterial meningitis are
 Neutrophils
-In bacterial meningitis CSF protein is raised to 0.5‚Äì
+In bacterial meningitis CSF protein is raised to 0.5ñ
 2.0 g/L.)
 CSF is clear in viral meningitis and CSF is turbid in
 bacterial meningitis
@@ -4927,7 +4936,7 @@ of which muscle?
 
 ## Question 12 of 58
 
-Anatomical¬†snuffbox
+Anatomical†snuffbox
 is a triangular depression found on the lateral
 aspect of the dorsum of the hand. It is best seen
 when the thumb is extended.
@@ -5040,7 +5049,7 @@ this oxygen-rich air replaces the air in the lungs and
 maximizes the oxygen reservoir available for the
 patient. Replacing the FRC with oxygen ensures
 that the patient has adequate oxygen reserves to
-prevent hypoxemia and allow for safe¬†intubation.
+prevent hypoxemia and allow for safe†intubation.
 Intubation in the supine position can lead to a
 decrease in functional residual capacity (Recall)
 - **A.** Functional residual capacity (FRC)
@@ -5111,7 +5120,7 @@ Acute hepatitis B
 HBsAg +Ve, HBeAg +Ve, anti-
 HBc IgM
 Chronic hepatitis B
-HBsAg +Ve,¬†HBeAg +Ve, anti-
+HBsAg +Ve,†HBeAg +Ve, anti-
 HBc IgG
 Immunity following
 infection
@@ -5166,12 +5175,12 @@ LCX
 Diltiazem and verapamil are non-dipyridamole
 calcium channel blocker
 FDA-approved Indications of diltiazem
-Atrial arrhythmia, including¬†atrial fibrillation with
+Atrial arrhythmia, including†atrial fibrillation with
 the rapid ventricular rate (RVR)
 Hypertension
 Paroxysmal supraventricular tachycardia
 Chronic stable angina
-Angina Due to Coronary Artery Spasm(¬†Prinzmetal''s
+Angina Due to Coronary Artery Spasm(†Prinzmetal''s
 angina)
 Dihydropyridine calcium channel blockers include
 amlodipine, felodipine and nifedipine
@@ -5210,7 +5219,7 @@ Generation of nerve signals.
 Sensation of needing to urinate.
 Follicular phase of menstrual cycle
 Negative feedback:
-Components:¬†Regulated variable, Sensor, Controller,
+Components:†Regulated variable, Sensor, Controller,
 and Effector.
 A regulated variable is sensed, information is fed
 back to the controller, and the effector acts to
@@ -5226,7 +5235,7 @@ wound is contaminated with manure. What would you
 advise him regarding tetanus prophylaxis?
 Wound contaminated with soil, manure is high risk
 wound. This patient is up to date with
-immunisation and¬†more than 10 years are passed
+immunisation and†more than 10 years are passed
 following last dose. He requires immediate
 reinforcing of both tetanus immunoglobulin and
 vaccine at different sites. Tetanus priming dose are
@@ -5236,10 +5245,10 @@ Tetanus prone wound
 Clean wounds are defined as: wounds less than 6
 hours old, non-penetrating with negligible tissue
 damage.
-Tetanus-prone wounds¬†include puncture-type
+Tetanus-prone wounds†include puncture-type
 injuries acquired in a contaminated environment
 and likely therefore to contain tetanus spores e.g.,
-gardening injuries, compound¬†fractures, wounds¬†or
+gardening injuries, compound†fractures, wounds†or
 
 ## Question 36 of 90
 
@@ -5408,7 +5417,7 @@ The A-a gradient is increased (>10 mm Hg) if O2
 does not equilibrate between alveolar gas and
 arterial blood (e.g., diffusion defect, V/Q defect,
 and right-to-left shunt) and PAo2 is greater than
-Pao ‚ÇÇ
+Pao 2
 
 ## Question 45 of 90
 
@@ -5487,7 +5496,7 @@ options is best given initially?
 A stepwise approach that is used for IBD
 management is outlined below.
 The first step in pharmacologic therapy for IBD is
-aminosalicylates (Mesalazine)¬† If the patient does
+aminosalicylates (Mesalazine)† If the patient does
 not respond to an appropriate dose of
 aminosalicylates, the second step is the addition of
 corticosteroids, which tend to result in a significant
@@ -5582,10 +5591,10 @@ circulation
 - **C.** Foramen Luska
 - **D.** Sub arachnoid cisterns
 - **E.** Aqueduct of Sylvius
-55. Œí-blocker was prescribed for hypertension in a female
+55. ?-blocker was prescribed for hypertension in a female
 asthma patient. After about a week of treatment, the
 asthma attacks got worse, and the patient was asked to
-stop taking the Œ≤-blocker. Which of the following Œ≤-blockers
+stop taking the ﬂ-blocker. Which of the following ﬂ-blockers
 would you suggest as an alternative in this patient that is
 less likely to worsen her asthma?
 
@@ -5602,9 +5611,9 @@ Beta-blockers antagonize catecholamine-induced
 increases in heart rate, reduce blood pressure and
 improve left ventricular function, producing proven
 clinical benefits in people with cardiovascular
-disease but blocking airway Œ≤ 2-receptors can cause
+disease but blocking airway ﬂ 2-receptors can cause
 severe and sometimes fatal bronchoconstriction in
-people with asthma, although cardio selective Œ≤ 1-
+people with asthma, although cardio selective ﬂ 1-
 blockers may be safer than non-selective
 The cardio-selective beta-blockers include atenolol,
 Bisoprolol, Esmolol, Acebutolol, Metoprolol, and
@@ -5715,12 +5724,12 @@ ml/hr
 ## Question 30 of 58
 
 In adults who are conscious, cooperative and can
-swallow:¬†Give 15 - 20 g quick acting carbohydrate of
+swallow:†Give 15 - 20 g quick acting carbohydrate of
 the patient''s choice where possible e.g., 90 - 120 mL
-of Lucozade or 5-7 Dextrosol tablets ‚Ä¢ Repeat
+of Lucozade or 5-7 Dextrosol tablets ï Repeat
 capillary blood glucose 10 - 15 minutes later. If blood
 glucose is still < 4.0 mmol/L, repeat step 1 (no more
-than 3 treatments in total) ‚Ä¢ If blood glucose remains
+than 3 treatments in total) ï If blood glucose remains
 < 4.0 mmol/L after 45 minutes or 3 cycles, consider 1
 mg glucagon IM OR IV 10% glucose infusion at
 100ml/hr
@@ -5738,7 +5747,7 @@ structures moving between the anterior thigh and
 posterior leg.
 It transmits the femoral artery, femoral vein
 (posterior to the artery), nerve to the vastus
-medialis and the saphenous nerve ‚Äì the largest
+medialis and the saphenous nerve ñ the largest
 cutaneous branch of the femoral nerve.
 
 ## Question 62 of 90
@@ -5813,7 +5822,7 @@ untrained patient?
 - **E.** Oxygen consumption
 67.  A 43-year-old overweight patient presents to ED
 complaining of fever and severe right upper quadrant pain.
-The pain radiates to her right shoulder tip. Murphy‚Äôs sign is
+The pain radiates to her right shoulder tip. Murphyís sign is
 positive and you diagnose acute cholecystitis. Which of the
 following nerves is responsible for the pain referred to as
 the shoulder tip?
@@ -5948,7 +5957,7 @@ what is the likely diagnosis?
 
 ## Question 36 of 58
 
-Note:¬† HSP can also present with similar symptoms.
+Note:† HSP can also present with similar symptoms.
 HSP is a systemic vasculitis that affects small blood
 vessels and is characterized by the deposition of
 immune complexes in the vessel walls. It primarily
@@ -5960,7 +5969,7 @@ hematuria. If in question stem mentioned
 abdominal pain, arthritis and renal involvement
 go with HSP.
 - **D.** Infectious mononucleosis (IM)
-- **E.** Henoch-Sch√∂nlein purpura (HSP)
+- **E.** Henoch-Schˆnlein purpura (HSP)
 74. A 26-year-old male brought into the ED by paramedics
 with lacerated wound on left upper quadrant. You suspect
 splenic injury. Which rib fracture is likely to be associated
@@ -5987,7 +5996,7 @@ Paralysis to which of the following muscles is most likely
 responsible for this deformity?
 Interossei and medial two lumbricals are innervated
 by ulnar nerve
-Claw hand:¬† Injury to the ulnar nerve is commonly
+Claw hand:† Injury to the ulnar nerve is commonly
 caused by a fracture of the medial epicondyle and
 results in a claw hand, in which the ring and little
 fingers are hyperextended at the
@@ -6195,9 +6204,9 @@ its origin. Which of the following muscles is paralyzed?
 
 Muscles in the Lateral
 compartment of leg:
-Consists of two muscles,¬†fibularis
-longus¬†and¬†brevis, also called peroneus longus
-and peroneus¬†brevis.
+Consists of two muscles,†fibularis
+longus†and†brevis, also called peroneus longus
+and peroneus†brevis.
 Note: Insertion of fibularis longus is Ist metatarsal
 and medial cuneiform (Recall)
 Insertion of fibularis brevis is 5th metatarsal
@@ -6239,8 +6248,8 @@ The three limb electrodes, I, II and III form a triangle
 (Einthoven''s Triangle), at the right arm (RA), left arm
 (LA) and left leg (LL).
 Lead 1= Left arm(+Ve) and right arm (-Ve)
-Lead2 = left¬†leg(+Ve) and Right arm (-Ve)
-Lead 3= Left leg(+Ve)¬†and left arm (-Ve)
+Lead2 = left†leg(+Ve) and Right arm (-Ve)
+Lead 3= Left leg(+Ve)†and left arm (-Ve)
 Lead 2 normally shows largest deflection during
 ventricular depolarization as the muscle mass is
 greatest and depolarization travels from apex to
@@ -6263,7 +6272,7 @@ Dorsum of nose
 High Yield:
 1: Supraorbital nerve: (Branch of Opthalmic division
 of trigeminal nerve) innervate Skin of upper eyelid,
-conjunctiva¬†and upper¬†forehead
+conjunctiva†and upper†forehead
 2: Infraorbital nerve (Branch of maxillary division of
 trigeminal nerve) innervating skin of lower eyelid,
 side of nose, cheek and upper lip
@@ -6278,7 +6287,7 @@ side of nose, cheek and upper lip
 
 ## Question 44 of 58
 
-2:¬† Supratrochlear nerve:(Branch of Opthalmic
+2:† Supratrochlear nerve:(Branch of Opthalmic
 division of trigeminal nerve) innervate Skin of
 lower forehead
 3: Naso ciliary nerve (Branch of Opthalmic division
@@ -6482,7 +6491,7 @@ Transverse humeral ligament: This ligament spans
 the distance between the two tubercles of the
 humerus. It holds the tendon of the long head of
 the biceps in the intertubercular groove
-Coraco‚Äìclavicular ligament: This ligament
+Coracoñclavicular ligament: This ligament
 composed of the trapezoid and conoid ligaments
 and runs from the clavicle to the coracoid process of
 the scapula. They work alongside the
@@ -6490,7 +6499,7 @@ acromioclavicular ligament to maintain the
 alignment of the clavicle in relation to the scapula.
 Coracoacromial ligament. This ligament runs
 between the acromion and coracoid process of the
-scapula it forms the coraco-acromial arch.¬† This
+scapula it forms the coraco-acromial arch.† This
 structure overlies the shoulder joint, preventing
 superior displacement of the humeral head.
 Stability of the joint
@@ -6499,7 +6508,7 @@ Glenoid labrum: A fibrocartilaginous ridge
 surrounding the glenoid cavity
 Ligaments: Extra Capsular ligaments form the
 coraco-acromial arch.
-Biceps tendon ‚Äì it acts as a minor humeral head
+Biceps tendon ñ it acts as a minor humeral head
 depressor, thereby contributing to stability.
 Movements of the shoulder joint: Shoulder joint is
 highly mobile ball and socket joint allows various
@@ -6512,7 +6521,7 @@ circumduction
 > Shoulder joint dislocations
 - **B.** Transverse humeral ligament
 - **C.** Coracoacromial ligament
-- **D.** Coraco‚Äìclavicular ligament
+- **D.** Coracoñclavicular ligament
 - **E.** Glenohumeral ligament
 
 ## Question 49 of 58
@@ -6529,7 +6538,7 @@ Complications of anterior shoulder dislocation:
 Injury to axillary nerve (Recall)
 Injury to axillary artery
 Injury to rotator cuff
-Posterior Shoulder dislocation:¬† occurs
+Posterior Shoulder dislocation:† occurs
 occasionally results from direct blow to the arm
 that produces forceful internal rotation and
 adduction.
@@ -6753,7 +6762,7 @@ there is numbness over lip and maxilla.
 Which part of skull bone is fractured?
 Mandibular branch of trigeminal: Passes through
 foramen ovale
-Maxillary branch of trigeminal:¬† Passes through
+Maxillary branch of trigeminal:† Passes through
 foramen rotundum
 Note: Maxillary division of trigeminal via its branch
 infraorbital nerve gives sensory innervation to
@@ -6871,16 +6880,16 @@ Fracture complications
     "status" = 'published',
     "updated_at" = now();
 
-  -- Lesson: Mock ‚Äì Ii Paper ‚Äì I
+  -- Lesson: Mock ñ Ii Paper ñ I
   INSERT INTO "lessons" (
     "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
   ) VALUES (
     gen_random_uuid(),
     v_module_id,
     'mock-ii-paper-i',
-    'Mock ‚Äì Ii Paper ‚Äì I',
+    'Mock ñ Ii Paper ñ I',
     'article',
-    '# Mock ‚Äì Ii Paper ‚Äì I
+    '# Mock ñ Ii Paper ñ I
 
 > [!NOTE]
 > **Instructions:** Single best answer scenario. Read carefully before reviewing the detailed rationale.
@@ -6983,7 +6992,7 @@ diverent from those who do not. This type of bias is
 minimised by appropriate analysis (for exam ple,
 intention to treat analysis, worst case scenario
 analysis).
-Recall bias occurs when the subjects‚Äô recall of
+Recall bias occurs when the subjectsí recall of
 past events is distorted by subsequent events.
 This type of bias occurs mainly in retrospective
 studies (for example, case control studies Recall)
@@ -7092,7 +7101,7 @@ st
 
 Mechanism of hypersensitivity reactions:
 Type I reactions (i.e., immediate hypersensitivity
-reactions) involve immunoglobulin E (IgE)‚Äì
+reactions) involve immunoglobulin E (IgE)ñ
 mediated release of histamine and other mediators
 from mast cells and basophils. (RECALL)
 Type II reactions (i.e., cytotoxic hypersensitivity
@@ -7166,14 +7175,14 @@ The joint between atlas and axis is Pivot joint
 which of the following clinical features?
 Broca''s aphasia: This is a non-fluent aphasia which
 causes individuals to speak slower. It occurs when
-the brain‚Äôs frontal lobe suffers damage. Individuals
-with Broca‚Äôs Aphasia often feel frustrated due to
+the brainís frontal lobe suffers damage. Individuals
+with Brocaís Aphasia often feel frustrated due to
 being able to comprehend what others are saying,
 but unable to express themselves. also called
 Expressive dysphasia. Individuals affected only can
 speak in very short phrases, or have trouble getting
 words out. (RECALL)
-Wernicke‚Äôs aphasia: This is a fluent aphasia as this
+Wernickeís aphasia: This is a fluent aphasia as this
 type of aphasia does not affect the speed of the
 individual''s speech. Individuals with this type of
 
@@ -7187,8 +7196,8 @@ individual''s speech. Individuals with this type of
 
 ## Question 11 of 81
 
-aphasia have damage to their brain‚Äôs temporal lobe.
-As a result, those of Wernicke‚Äôs aphasia are
+aphasia have damage to their brainís temporal lobe.
+As a result, those of Wernickeís aphasia are
 sometimes unable to comprehend what others are
 saying, but are able to speak in long sentences.
 However, their communication doesn''t follow
@@ -7280,7 +7289,7 @@ is an anterior relation of the thoracic oesophagus?
 
 ## Question 15 of 81
 
-¬∑Note: Larynx:¬† Innervation to the
+∑Note: Larynx:† Innervation to the
 intrinsic muscles of the larynx is
 achieved via the recurrent laryngeal
 nerve. Injury of recurrent laryngeal
@@ -7463,7 +7472,7 @@ discharge?
 
 ## Question 31 of 90
 
-- **A.** 88 ‚Äì 92%
+- **A.** 88 ñ 92%
 - **B.** Unless SaO2 becomes 100%
 - **C.** Unless SaO2 becomes 98%
 - **D.** Unless SaO2 becomes 94%
@@ -7475,7 +7484,7 @@ COPD and conditions associated with chronic
 respiratory failure. In the treatment of
 exacerbations of chronic obstructive pulmonary
 disease (COPD), oxygen should be titrated to
-achieve a target oxygen saturation range of 88‚Äì
+achieve a target oxygen saturation range of 88ñ
 92%.
 32. Whilst in your physiology lecture you ask medical
 students what is the physiological purpose of AV nodal
@@ -7529,7 +7538,7 @@ appropriate management?
 
 ## Question 23 of 81
 
-Diphtheria, tetanus, polio vaccine schedule:¬† 2, 3, 4
+Diphtheria, tetanus, polio vaccine schedule:† 2, 3, 4
 months, preschool and 14 years
 Child''s immunization status is up to date and his
 last vaccination schedule was in 14 years. Less than
@@ -7558,7 +7567,7 @@ does not return to resting levels as it would after a
 single twitch. The increased [Ca2+] allows more
 cross-bridges to form and, therefore, produces
 increased tension (tetanus)
-Note: In skeletal muscle, Ca¬≤ binds to troponin C
+Note: In skeletal muscle, Ca≤ binds to troponin C
 (Recall) initiating the cross-bridge cycle. In
 smooth muscle, Ca2+ binds to calmodulin.
 High Yield:
@@ -7584,7 +7593,7 @@ the following sites in renal nephron?
 
 Antidiuretic hormone (ADH), also known as
 vasopressin, is a small peptide hormone which
-regulates the body‚Äôs retention of water. The main
+regulates the bodyís retention of water. The main
 action of ADH in the kidney is to regulate the
 volume and osmolarity of the urine. Specifically, it
 acts in the distal convoluted tubule (DCT) and
@@ -7761,7 +7770,7 @@ ago. What is the most likely causative organism?
 
 Neisseria
 gonorrhoeae
-Gram ‚ÄìVe diplococci transmitted
+Gram ñVe diplococci transmitted
 through Sexual and peripartum
 causing Urethritis, epididymo-
 orchitis, PID, septic arthritis,
@@ -7942,8 +7951,8 @@ the femur.
 Extracapsular ligaments:
 Iliofemoral ligament: Strongest of all located
 anteriorly (Recall)
-Ischiofemoral:¬† Reinforcing the capsule posteriorly.
-Pubofemoral:¬† Reinforcing the capsule anteriorly
+Ischiofemoral:† Reinforcing the capsule posteriorly.
+Pubofemoral:† Reinforcing the capsule anteriorly
 and inferiorly
 
 ## Question 53 of 90
@@ -7963,7 +7972,7 @@ around her mouth and nose.
 What is the most likely method of spread?
 Impetigo is highly contagious skin infection caused
 by staph aureus
-Note: Fusidic acid is¬† used for staphylococcus skin
+Note: Fusidic acid is† used for staphylococcus skin
 infection (impetigo) Recall
 
 ## Question 55 of 90
@@ -7992,8 +8001,8 @@ of the anterior abdominal wall.
 - **A.** Aponeurosis of internal oblique
 - **B.** Rectus abdominis muscle
 - **C.** Transversalis fascia
-- **D.** Camper‚Äôs fascia
-- **E.** Scarpa‚Äôs fascia
+- **D.** Camperís fascia
+- **E.** Scarpaís fascia
 57. 22 years old young female came into ED with complain
 of sudden onset of lower limb weakness. She has history of
 Sore throat 10 days ago. On Examination her reflexes are
@@ -8209,8 +8218,8 @@ muscle cells, greater the stretch more forcefully
 heart will contract. when there is increased EDV/
 preload there is increased is Stroke volume this
 intrinsic relationship between EDV and stroke
-volume is known as frank starling law of heart‚Ä¶
-In HEART FAILURE, the Frank‚ÄìStarling curve is
+volume is known as frank starling law of heartÖ
+In HEART FAILURE, the FrankñStarling curve is
 moved down and flattened due to reduced
 inotropy, so that more venous return and hence
 preload is required to increase stroke volume. As
@@ -8334,7 +8343,7 @@ toxicity, what is the antidote of morphine toxicity?
 
 ## Question 67 of 90
 
-- **A.** N‚Äìacetyl cysteine
+- **A.** Nñacetyl cysteine
 - **B.** Naloxone
 
 ## Question 49 of 81
@@ -8610,7 +8619,7 @@ Central control of breathing
 High Yield)
 1. Medullary respiratory center
 (Recall)
-- **A.** Dorsal respiratory¬†group¬†is primarily responsible
+- **A.** Dorsal respiratory†group†is primarily responsible
 for inspiration and generates the basic rhythm for
 breathing
 Input to the dorsal respiratory group comes from
@@ -8635,7 +8644,7 @@ prolonged inspiratory gasp (apneusis).
 3. Pneumotaxic center is located in the upper
 pons. inhibits inspiration and, therefore, regulates
 inspiratory volume and respiratory rate.
-4.Cerebral¬†cortex: Breathing can be under
+4.Cerebral†cortex: Breathing can be under
 voluntary control; therefore, a person can
 voluntarily hyper ventilate or hypo ventilate.
 Note: Hypoventilation (breath-holding) is limited by
@@ -8669,7 +8678,7 @@ commonly involved lymph node is axillary
 (Recall).
 82. The greatest increase in physiological dead space
 would be expected with which of the following conditions?
-Dead Space:¬† Volume of ventilated air that does not
+Dead Space:† Volume of ventilated air that does not
 participate in gas exchange.
 Two types of Dead Space;
 1: Anatomical Dead Space
@@ -8737,7 +8746,7 @@ inflammation of Prepatellar bursa
 Infrapatellar bursa: split into deep and superficial.
 The deep bursa lies between the tibia and the
 patella ligament. The superficial lies between the
-patella ligament and the skin. Clergyman‚Äôs Knee is
+patella ligament and the skin. Clergymanís Knee is
 due to inflammation of infrapatellar bursa.
 
 ## Question 83 of 90
@@ -8815,7 +8824,7 @@ Deep inguinal ring is formed by transversalis fascia.
 
 Superficial inguinal ring is formed by External
 Oblique. (Recall)
-87. A 25 years old woman from sub‚ÄìSaharan Africa
+87. A 25 years old woman from subñSaharan Africa
 presents to the ED with complaint of fever and chills. Thick
 and thin films reveal malarial parasite. which organism
 would most likely be seen?
@@ -8938,8 +8947,8 @@ crusted over (Recall
 of the following clinical features?
 Broca''s aphasia: This is a non-fluent aphasia which
 causes individuals to speak slower. It occurs when
-the brain‚Äôs frontal lobe suffers damage. Individuals
-with Broca‚Äôs aphasia often feel frustrated due to
+the brainís frontal lobe suffers damage. Individuals
+with Brocaís aphasia often feel frustrated due to
 being able to comprehend what others are saying,
 but unable to express themselves also called
 Expressive dysphasia. Individuals affected only can
@@ -8959,7 +8968,7 @@ type of aphasia does not affect the speed of the
 ## Question 69 of 81
 
 individual''s speech. Individuals with this type of
-aphasia have damage to their brain‚Äôs temporal lobe.
+aphasia have damage to their brainís temporal lobe.
 As a result, those of Wernicke''s aphasia are
 sometimes unable to comprehend what others are
 saying, but are able to speak in long sentences.
@@ -9040,7 +9049,7 @@ Transverse humeral ligament: This ligament spans
 the distance between the two tubercles of the
 humerus. It holds the tendon of the long head of
 the biceps in the intertubercular groove
-Coraco‚Äìclavicular ligament: This ligament
+Coracoñclavicular ligament: This ligament
 composed of the trapezoid and conoid ligaments
 and runs from the clavicle to the coracoid process of
 the scapula. They work alongside the
@@ -9048,7 +9057,7 @@ acromioclavicular ligament to maintain the
 alignment of the clavicle in relation to the scapula.
 Coracoacromial ligament. This ligament runs
 between the acromion and coracoid process of the
-scapula it forms the coraco-acromial arch.¬† This
+scapula it forms the coraco-acromial arch.† This
 structure overlies the shoulder joint, preventing
 superior displacement of the humeral head.
 Stability of the joint
@@ -9060,7 +9069,7 @@ Glenoid labrum: A fibrocartilaginous ridge
 surrounding the glenoid cavity
 Ligaments: Extra Capsular ligaments form the
 coraco-acromial arch.
-Biceps tendon ‚Äì it acts as a minor humeral head
+Biceps tendon ñ it acts as a minor humeral head
 depressor, thereby contributing to stability.
 Movements of the shoulder joint: Shoulder joint is
 highly mobile ball and socket joint allows various
@@ -9086,7 +9095,7 @@ Complications of anterior shoulder dislocation:
 Injury to axillary nerve (Recall)
 Injury to axillary artery
 Injury to rotator cuff
-Posterior Shoulder dislocation:¬† occurs
+Posterior Shoulder dislocation:† occurs
 occasionally results from direct blow to the arm
 that produces forceful internal rotation and
 adduction.
@@ -9191,7 +9200,7 @@ due to?
 Fetal hemoglobin has a higher affinity for oxygen
 than adult hemoglobin. Maternal and Fetal blood
 never mix during pregnancy, but they come close
-to each other in the placenta.¬† Oxygen diffuses
+to each other in the placenta.† Oxygen diffuses
 easily to fetal hemoglobin here.
 The reason fetal hemoglobin has a higher affinity
 for 02. It is composed of two alpha and two gamma
@@ -9211,7 +9220,7 @@ with beta globulin chains, fetal hemoglobin (HbF)
 
 ## Question 77 of 81
 
-lack of beta globulin chains that‚Äôs why fetal
+lack of beta globulin chains thatís why fetal
 hemoglobin has higher affinity for O2(RECALL).
 77. A 48-year-old man is found to have a right lower limb
 weakness and sensory loss. He also has apraxia. You
@@ -9377,8 +9386,8 @@ is commonly used to refer to solutions that contain
 different electrolyte concentrations that more
 closely resemble the composition of plasma and
 minimally affect acid-base equilibrium. Examples
-of balanced solutions include Ringer‚Äôs lactate,
-Ringer‚Äôs acetate, Hartmann‚Äôs solution, and
+of balanced solutions include Ringerís lactate,
+Ringerís acetate, Hartmannís solution, and
 Plasma-Lyte. In contrast, unbalanced solutions do
 not have physiologic concentrations of electrolytes
 and can adversely affect acid-base equilibrium. The
@@ -9419,9 +9428,9 @@ IL-1: Fever
 
 - **A.** Interleukin-6 (IL-6)
 - **B.** Interleukin-1 (IL-1)
-- **C.** Tumor Necrosis Factor-alpha (TNF- Œ± )
+- **C.** Tumor Necrosis Factor-alpha (TNF- a )
 - **D.** Interleukin-10 (IL-10)
-- **E.** Interferon-gamma (IFN- Œ≥ )
+- **E.** Interferon-gamma (IFN- ? )
 
 ## Question 4 of 121
 
@@ -9504,7 +9513,7 @@ serotonin from the synaptic cleft, thereby
 
 - **A.** Histamine receptor blockade
 - **B.** Sodium channel blockade
-- **C.** Œ± -Receptor blockade
+- **C.** a -Receptor blockade
 - **D.** Muscarinic receptor blockade
 - **E.** Potassium channel blockade
 
@@ -9513,7 +9522,7 @@ serotonin from the synaptic cleft, thereby
 potentiating the effects of serotonin and
 norepinephrine on the postsynaptic receptors. The
 TCAs have also been shown to inhibit muscarinic,
-histamine, and Œ± -adrenergic receptors, thereby
+histamine, and a -adrenergic receptors, thereby
 leading to a host of undesirable side effects.
 Anticholinergic effects/parasympathetic blocking
 actions are due to muscarinic receptor blockade
@@ -9524,7 +9533,7 @@ mouth
 Note:
 Sedation (due to histamine receptor
 blockade)
-Postural hypotension (due to Œ±  adrenergic receptor
+Postural hypotension (due to a  adrenergic receptor
 blockade)
 cardiac arrhythmias (due to sodium channel
 blocker)
@@ -9771,8 +9780,8 @@ Glomerular filtration barrier
 A membrane that selectively allows the passage of
 molecules based on size and charge. Plasma is
 selectively filtered through glomerular capillary wall
-into the bowman‚Äôs capsule (Ultrafiltrate = fluid
-filtered into bowman‚Äô space)
+into the bowmanís capsule (Ultrafiltrate = fluid
+filtered into bowmaní space)
 This barrier has three major components.
 1: Glomerular capillary endothelium: It has
 fenestrations which allows plasma components
@@ -9802,7 +9811,7 @@ The basement membrane consists of 3 layers: These
 layers help to limit the filtration of intermediate and
 large sized solutes e.g., Albumin.
 3: Epithelial cell layer of podocytes: Next to the
-bowman‚Äôs space; the podocytes have foot processes
+bowmanís space; the podocytes have foot processes
 directly contacting the basement membrane.
 Regular gaps between foot processes (pedicles) are
 called filtration slits, across these slits a protein
@@ -9840,7 +9849,7 @@ headache, and diaphoresis. Therefore, the primary
 mechanism responsible for pheochromocytoma
 symptoms is the stimulation of alpha-1 receptors by
 increased catecholamines.
-Treatment of Pheochromocytoma ¬†(High Yield):
+Treatment of Pheochromocytoma †(High Yield):
 Definitive treatment is by surgical resection of the
 tumor.
 Prior to surgery, acute crises are treated medically to
@@ -9910,12 +9919,12 @@ the risk of infection.
 In the tarsal plates lie the Meibomian glands (also
 known as tarsal glands). These are a specialised type
 of sebaceous gland that secretes an oily substance
-onto the eye to slow the evaporation of the eye‚Äôs
+onto the eye to slow the evaporation of the eyeís
 tear film. The oily substance also prevents the
 eyelids from sticking together when closed.
 
 > [!TIP]
-> **Clinical pearls:¬†Dysfunction in these glands, often**
+> **Clinical pearls:†Dysfunction in these glands, often**
 > due to blockages or inflammation, can lead to
 > reduced tear stability and dry eye.
 
@@ -10030,7 +10039,7 @@ High yield:
 Anterolateral abdominal wall layers:
 Skin
 Subcutaneous tissues (further divided into the
-superficial Camper‚Äôs fascia and the deeper Scarpa‚Äôs
+superficial Camperís fascia and the deeper Scarpaís
 fascia)
 External oblique muscle
 Internal oblique muscle
@@ -10059,22 +10068,22 @@ azithromycin, and clarithromycin.
 Low-risk antibiotics include clindamycin and
 cephalexin.
 High Yield:
-Monitoring: Both PT and¬†aPTT¬†are prolonged after
+Monitoring: Both PT and†aPTT†are prolonged after
 warfarin administration but PT is more
-prolonged. Warfarin therapy is typically¬†monitored
+prolonged. Warfarin therapy is typically†monitored
 using the prothrombin time (PT) test along with
 the International Normalized Ratio (INR), rather
-than the activated partial¬†thromboplastin time
-(aPTT)¬†¬†test.
+than the activated partial†thromboplastin time
+(aPTT)††test.
 Patient on warfarin therapy
-Managing¬†the patients¬†with increased¬†INR
-and¬†bleeding
-If INR> 8 and no bleeding = Phytomenadione¬†orally
-If INR> 8 and minor bleeding = Phytomenadione¬†Iv
+Managing†the patients†with increased†INR
+and†bleeding
+If INR> 8 and no bleeding = Phytomenadione†orally
+If INR> 8 and minor bleeding = Phytomenadione†Iv
 If INR> 8 and major bleeding = Phytomenadione Iv
 and dried prothrombin complex (Recall)
-If INR 5-8 and no bleeding = Withhold¬†warfarin
-If INR 5-8 and minor bleeding = Phytomenadione¬†Iv
+If INR 5-8 and no bleeding = Withhold†warfarin
+If INR 5-8 and minor bleeding = Phytomenadione†Iv
 - **B.** Cefalexin
 - **C.** Clarithromycin
 - **D.** Doxycycline
@@ -10102,7 +10111,7 @@ cutaneous branches
 Anatomical course: Arises from the lumbar plexus
 formed within psoas major muscle and enters the
 thigh through obturator canal. (a small opening in
-the superior aspect of the obturator¬†foramen)
+the superior aspect of the obturator†foramen)
 Note: The obturator nerve innervates all of the
 muscles of the medial compartment of the thigh
 (except for the hamstring part of the adductor
@@ -10171,7 +10180,7 @@ Note: (High Yield)
 igA nephropathy also known as berger disease
 most common cause of nephritic syndrome occurs
 1-2 days after infection (Gastrointestinal, respiratory
-or UTI) typically associated with Henoch Sch√∂nlein
+or UTI) typically associated with Henoch Schˆnlein
 purpura, Celiac disease and liver disease.
 Compliment levels C3 are low.
 Goodpasture''s Syndrome is a type-II
@@ -10203,7 +10212,7 @@ patients are likely to be immunocompromised, e.g.
 transplant, oncology and HIV units.
 Hepatitis B vaccination is recommended for
 healthcare workers who may have direct contact
-with patients‚Äô blood or blood-stained body fluids.
+with patientsí blood or blood-stained body fluids.
 Influenza immunisation helps to prevent influenza
 in staff and may also reduce the transmission of
 influenza to vulnerable patients. Influenza
@@ -10233,7 +10242,7 @@ Which one of the following ligaments is torn in fracture of
 coronoid process of ulna?
 The ulnar collateral ligament referred as Medial
 collateral ligament (MCL) of the elbow originates
-from the medial¬†epicondyle and¬†attaches to the
+from the medial†epicondyle and†attaches to the
 coronoid process and olecranon of the ulna.
 Ligaments of the elbow joint: (High
 Yield)
@@ -10243,7 +10252,7 @@ epicondyle and blending with the annular
 ligament.
 The ulnar collateral ligament referred as Medial
 collateral ligament (MCL) of the elbow originates
-from the medial¬†epicondyle and¬†attaches to the
+from the medial†epicondyle and†attaches to the
 coronoid process and olecranon of the ulna.
 Annular ligament: Annular ligament stabilizes the
 elbow joint and is a strong band of fibers that
@@ -10307,7 +10316,7 @@ Lung volume and
 capacities (High Yield)
 Tidal Volume (TV): The volume of air that is inhaled
 and then exhaled with each normal breath.
-Normal tidal volume is¬†500ml or 7ml/kg.
+Normal tidal volume is†500ml or 7ml/kg.
 Inspiratory Reserve Volume (IRV): The maximum
 volume of air that can be inhaled following and
 above a normal tidal inspiration.
@@ -10344,9 +10353,9 @@ expiratory level or Volume remaining in the lungs
 after tidal volume is expired in air.
 FRC is sum of: FRC= ERV+ RV
 FRC include Residual volume so FRC cannot be
-measured using¬†spirometry.
+measured using†spirometry.
 Normal FRC is 3500ml.
-Factors affecting¬†FRC.
+Factors affecting†FRC.
 Factors increasing FRC: Emphysema, Air trapping
 in asthma, Ageing (due to loss of elastic properties)
 and Increasing height of patient.
@@ -10381,8 +10390,8 @@ FEV1/ FVC = 0.8
 In obstructive lung disease such as asthma and
 chronic obstructive pulmonary disease (COPD), both
 FEV1 and FVC are reduced, but FEV1 is reduced
-more than FVC. FEV1/FVC ratio is less than¬†0.7.
-In restrictive lung disease¬†such as fibrosis, both
+more than FVC. FEV1/FVC ratio is less than†0.7.
+In restrictive lung disease†such as fibrosis, both
 FEV1 and FVC are reduced, but FEV1 is reduced less
 than FVC is thus, Fev1 /FVC increased.
 Lung volume measurements
@@ -10393,7 +10402,7 @@ spirometry.
 Residual volume and thus (FRC and TLC) can be
 measured using helium dilution.
 Peak Expiratory flow rate:
-The easiest and quickest measurement is¬†the peak
+The easiest and quickest measurement is†the peak
 expiratory flow rate (PEFR)
 Airway resistance and lung compliance can be
 assessed indirectly by measuring the forced
@@ -10496,7 +10505,7 @@ soon as possible after exposure, ideally less than 24
 hours after identification of an index patient.
 Rifampin, ciprofloxacin, and ceftriaxone are
 90%-95% effective in reducing nasopharyngeal
-carriage of¬†N. meningitidis and are all acceptable
+carriage of†N. meningitidis and are all acceptable
 antimicrobial agents for chemoprophylaxis.
 The indications for chemoprophylaxis
 implementation are as follows.
@@ -10575,9 +10584,9 @@ inconvenience. (Creates trouble but actually the
 alarm is false is type 1 error.
 Missed fire alarm leading to disaster is type-2 error.
 Type I error (false positive): the test result says you
-have coronavirus, but you actually don‚Äôt.
+have coronavirus, but you actually donít.
 Type II error (false negative): the test result says you
-don‚Äôt have coronavirus, but you actually do.
+donít have coronavirus, but you actually do.
 - **E.** No-Error
 35. A new blood test to screen patients for heart failure is
 trialled on 500 patients. The test was positive in 40 of the
@@ -10600,7 +10609,7 @@ Positive predictive value can be calculated as: TP /
 (TP + FP) = 40 / (40 + 20) = 0.66
 Heart failure: (Disease present)
 Test positive or True positive (TP)= 40
-Test negative or False negative (FN)¬†10
+Test negative or False negative (FN)†10
 No heart failure (Disease absent)
 Test positive or False positive (FP)= 20
 Test negative or True negative (TN)= 430
@@ -10655,17 +10664,17 @@ Dermatomes of Lower extremity: Important to
 remeber all the landmarks of dermatomes
 L1: The inguinal region and the very top of the
 medial thigh, Upper anterior thigh
-L2:¬†The middle and lateral aspect of the anterior
+L2:†The middle and lateral aspect of the anterior
 thigh.
 L3: Medial knee (Medial femoral condyle)
 L4: Medial malleolus, Medial surface of big toe
 L5: Toes 2-3,4, lateral surface of big toe and Dorsal
 and plantar aspects of foot
-S1: Toe¬†5 (Little finger), lateral malleolus
-S2:¬†At the midpoint of the popliteal fossa.
-S3:¬†At the horizontal gluteal crease (fold of the
+S1: Toe†5 (Little finger), lateral malleolus
+S2:†At the midpoint of the popliteal fossa.
+S3:†At the horizontal gluteal crease (fold of the
 Buttocks), Ischial tuberosity
-S4/5:¬†The perianal area.
+S4/5:†The perianal area.
 - **D.** L1
 - **E.** L2
 38. When the Renin-angiotensin-aldosterone system is
@@ -10708,7 +10717,7 @@ the sensation of thirst, resulting in an increase in
 fluid consumption. This helps to raise the circulating
 volume and in turn, blood pressure.
 It also increases the secretion of ADH from
-the posterior pituitary gland ‚Äì resulting in the
+the posterior pituitary gland ñ resulting in the
 production of more concentrated urine to reduce
 the loss of fluid from urination.
 Angiotensin II acts on the adrenal cortex to
@@ -10822,7 +10831,7 @@ lung surfactant is reduced. Which one of the following lung
 volumes affected?
 lung collapse, atelectasis and restrictive pattern frc
 decreases.
-Factors affecting¬†FRC.
+Factors affecting†FRC.
 Factors increasing FRC: Emphysema, Air trapping
 in asthma, Ageing (due to loss of elastic properties)
 and Increasing height of patient.
@@ -10950,7 +10959,7 @@ Clinically, lipase levels are preferred for diagnosing
 and assessing the severity of pancreatitis.
 Note: In the context of pancreatitis, an
 intraluminal fluid collection occurs within the
-lumina of the pancreatic ducts (Recall).¬† When
+lumina of the pancreatic ducts (Recall).† When
 there is an intraluminal fluid collection in
 pancreatitis, it may contribute to the progression of
 the disease, exacerbate inflammation, and cause
@@ -11076,7 +11085,7 @@ humerus fracture in children. In Supracondylar
 fracture anterior interosseous nerve (branch of the
 median nerve), ulnar nerve or radial nerve can be
 damaged. The anterior interosseous nerve can be
-tested by asking the patient to make an ‚ÄòOK‚Äô sign,
+tested by asking the patient to make an ëOKí sign,
 testing for weakness of flexor pollicis longus.
 (Recall)
 
@@ -11103,17 +11112,17 @@ medial thigh, Upper anterior thigh
 
 ## Question 60 of 121
 
-L2:¬†The middle and lateral aspect of the anterior
+L2:†The middle and lateral aspect of the anterior
 thigh.
 L3: Medial knee (Medial femoral condyle)
 L4: Medial malleolus, Medial surface of big toe
 L5: Toes 2-3,4, lateral surface of big toe and Dorsal
 and plantar aspects of foot
-S1: Toe¬†5 (Little finger), lateral malleolus
-S2:¬†At the midpoint of the popliteal fossa.
-S3:¬†At the horizontal gluteal crease (fold of the
+S1: Toe†5 (Little finger), lateral malleolus
+S2:†At the midpoint of the popliteal fossa.
+S3:†At the horizontal gluteal crease (fold of the
 Buttocks), Ischial tuberosity
-S4/5:¬†The perianal area.
+S4/5:†The perianal area.
 53. A 30-year-old man sustains a pelvic injury in a road
 traffic accident that causes damage to the L1 Spinal nerves
 of lumbar plexus. Which one of the following muscles is
@@ -11188,7 +11197,7 @@ darkening in this patient due to Addison''s disease?
 
 ## Question 63 of 121
 
-In Addison disease the adrenal glands don‚Äôt make
+In Addison disease the adrenal glands donít make
 enough cortisol and aldosterone, a steroid hormone
 that regulates salt and water balance. The low level
 of cortisol triggers the release of another hormone
@@ -11314,7 +11323,7 @@ when the thumb is extended.
 > **Clinical Pearl:**
 > Fracture of scaphoid bone: Falling on outstretched
 > hand. The scaphoid bone of the hand is the most
-> commonly fractured carpal¬†bone.
+> commonly fractured carpal†bone.
 
 Clinical feature: Pain and tenderness in the
 anatomical snuffbox.
@@ -11382,7 +11391,7 @@ innervate muscles of larynx
 
 > [!TIP]
 > **Clinical pearls:**
-> Vasovagal syncope:¬† Causes heart rate and blood
+> Vasovagal syncope:† Causes heart rate and blood
 > pressure to drop suddenly during a period of
 > emotional stress caused by initial increase in
 > sympathetic outflow followed by a rebound
@@ -11461,7 +11470,7 @@ tetanus immunoglobulin in the same site in his left arm
 - **C.** He should have his tetanus antibodies checked
 before deciding on a booster
 - **D.** He should have a tetanus booster in his left arm
-and human tetanus immunoglobulin¬†in his right arm
+and human tetanus immunoglobulin†in his right arm
 - **E.** He should have a tetanus booster
 
 ## Question 73 of 121
@@ -11517,14 +11526,14 @@ effects of the vagus nerve on both the SA node and
 the AV node, increasing sinus automaticity and
 facilitating AV node conduction.
 Side effects: (Anti-muscarinic effects)
-‚Ä¢Dry mouth
-‚Ä¢ Nausea and vomiting
-‚Ä¢ Blurred vision
-‚Ä¢ Urinary retention
-‚Ä¢ Tachyarrhythmias
+ïDry mouth
+ï Nausea and vomiting
+ï Blurred vision
+ï Urinary retention
+ï Tachyarrhythmias
 Note: Anti-muscarinic should be avoided in
 Myasthenia gravis, paralytic ileus, GI obstruction,
-Urinary retention and prostatic¬†enlargement
+Urinary retention and prostatic†enlargement
 - **A.** Pralidoxime
 - **B.** Atropine
 - **C.** Physostigmine
@@ -11557,13 +11566,13 @@ BCG vaccine against TB
 Live travel vaccines used in the UK:
 Yellow fever vaccine
 Oral typhoid vaccine (not the injected vaccine)
-Whole killed‚Äô vaccines used in the UK schedule:
+Whole killedí vaccines used in the UK schedule:
 Inactivated polio vaccine or IPV
 Pertussis vaccine in pregnancy
 Some inactivated flu vaccines which are described
-as ‚Äòsplit virion‚Äô
+as ësplit virioní
 Hepatitis A vaccine (special groups only)
-Examples of ‚Äòwhole killed‚Äô travel vaccines used in
+Examples of ëwhole killedí travel vaccines used in
 the UK:
 Rabies vaccine
 Japanese encephalitis vaccine
@@ -11585,7 +11594,7 @@ The Skin of central part of the forehead, Skin of
 lower part of forehead and conjunctiva is
 innervated by the supratrochlear nerve, which is a
 sensory branch of the ophthalmic division (V1) of
-the trigeminal nerve (cranial nerve V).¬† While Skin of
+the trigeminal nerve (cranial nerve V).† While Skin of
 upper forehead, Upper eyelid and conjunctiva
 innervated by7 supraorbital nerve.
 
@@ -11644,7 +11653,7 @@ held in place by the transverse humeral ligament.
 
 ## Question 71 of 90
 
-- **A.** Coraco‚Äìclavicular ligament
+- **A.** Coracoñclavicular ligament
 - **B.** Transverse humeral ligament
 - **C.** Glenohumeral ligament
 - **D.** Coracoacromial ligament
@@ -11672,7 +11681,7 @@ the distance between the two tubercles of the
 humerus. It holds the tendon of the long head of
 the biceps in the intertubercular groove or bicipital
 groove.
-Coraco‚Äìclavicular ligament:¬† This ligament
+Coracoñclavicular ligament:† This ligament
 composed of the trapezoid and conoid ligaments
 and runs from the clavicle to the coracoid process of
 the scapula. They work alongside the
@@ -11683,7 +11692,7 @@ acromioclavicular ligament to maintain the
 alignment of the clavicle in relation to the scapula.
 Coracoacromial ligament. This ligament runs
 between the acromion and coracoid process of the
-scapula it forms the coraco-acromial arch.¬† This
+scapula it forms the coraco-acromial arch.† This
 structure overlies the shoulder joint, preventing
 superior displacement of the humeral head.
 72. Which of the following statements about case-control
@@ -11704,7 +11713,7 @@ aetiological factor. They can look at multiple risk-
 - **A.** They are a type of experimental study
 - **B.** They provide more evidence for causal inference
 than a randomised controlled trial
-- **C.** They are usually shorter¬†in duration than
+- **C.** They are usually shorter†in duration than
 prospective cohort studies
 - **D.** They are usually more expensive to run than a
 randomised controlled trial
@@ -11752,7 +11761,7 @@ The buccal branch: innervating muscles in the
 cheek and upper lip
 The marginal mandibular branch: innervating
 muscles of the lower lip and chin
-Facial nerve:¬† (High Yield)
+Facial nerve:† (High Yield)
 The facial nerve exits the cranial cavity through the
 internal acoustic meatus and enters the facial canal
 of the temporal bone. The nerve then exits the skull
@@ -11761,10 +11770,10 @@ the styloid and mastoid processes of the temporal
 bone) to enter the parotid gland, ultimately
 branching into five terminal branches to supply the
 face.
-Cause of injury: Bell‚Äôs palsy, Ramsay-Hunt
+Cause of injury: Bellís palsy, Ramsay-Hunt
 syndrome, Guillain-Barre syndrome, mumps,
 parotid tumor, and injury to the middle ear.
-Clinical effects of injury:¬† impaired sense of taste to
+Clinical effects of injury:† impaired sense of taste to
 anterior two-thirds of tongue, loss of efferent
 
 ## Question 85 of 121
@@ -11777,7 +11786,7 @@ muscle.
 The greater petrosal nerve: parasympathetic
 innervation to the lacrimal gland and the mucous
 glands of the oral cavity, nose and pharynx
-The chorda¬†tympani: supply taste to the anterior
+The chorda†tympani: supply taste to the anterior
 two-thirds of the tongue
 Facial nerve branches between the stylomastoid
 foramen and parotid gland:3 motor branches
@@ -11827,7 +11836,7 @@ digoxin. Which one of the following ecg changes
 demonstrating the digoxin effect?
 Digoxin effect refers to the presence on the ECG of:
 Down sloping ST depression with a characteristic
-‚Äúreverse tick‚Äù appearance
+ìreverse tickî appearance
 Flattened, inverted, or biphasic T waves.
 Shortened QT interval.
 PR Prolongation
@@ -11843,32 +11852,32 @@ PR Prolongation
 ## Question 87 of 121
 
 High Yield:
-Monitoring: Digoxin has narrow¬†therapeutic index.
-Narrow¬†therapeutic index means difference
-between the effective¬†therapeutic dose and the
+Monitoring: Digoxin has narrow†therapeutic index.
+Narrow†therapeutic index means difference
+between the effective†therapeutic dose and the
 potentially toxic dose is relatively small. This narrow
-window makes proper dosing and¬†monitoring
+window makes proper dosing and†monitoring
 critically important to ensure the medication''s
-safety, effectiveness and to prevent toxicity.¬†The
-therapeutic¬†plasma levels of digoxin are usually
-between¬†1.0-1.5 nmol/l.¬†The likelihood of toxicity
-rises dramatically at levels above 2¬†nmol/l.
+safety, effectiveness and to prevent toxicity.†The
+therapeutic†plasma levels of digoxin are usually
+between†1.0-1.5 nmol/l.†The likelihood of toxicity
+rises dramatically at levels above 2†nmol/l.
 Dose adjustments in renal failure and liver failure:
 Renal failure: Digoxin is excreted renally, and
 impaired renal function can cause increased
 digoxin levels and leads to digoxin toxicity. In this
-case the patient should¬†have their digoxin dose
+case the patient should†have their digoxin dose
 reduced and their digoxin level and electrolytes
 should be carefully monitored.
 Liver failure: Liver failure has little influence on
 digoxin metabolism or clearance; therefore, no
 dose adjustment is necessary.
-Digoxin toxicity:¬†Precipitated by hypokalemia or
-drugs causing hypokalemia,¬†hypercalcemia,
+Digoxin toxicity:†Precipitated by hypokalemia or
+drugs causing hypokalemia,†hypercalcemia,
 acidosis and renal failure.
 The features of digoxin toxicity include:
 Hyperkaliemia
-Nausea, vomiting¬†and¬†diarrhea .
+Nausea, vomiting†and†diarrhea .
 Abdominal pain
 Confusion, dizziness and psychosis
 Tachyarrhythmias or bradyarrhythmia''s
@@ -11922,7 +11931,7 @@ smokers, and by alcohol
 consumption.
 Note: The plasma theophylline concentration is
 increased in heart failure, hepatic impairment,
-infections, fever and in the¬†elderly, reduction¬†in
+infections, fever and in the†elderly, reduction†in
 dosage may be necessary to avoid toxic
 accumulation.
 Bronchodilator therapy:
@@ -12062,7 +12071,7 @@ peritoneum is appropriate
 Anterolateral abdominal wall layers: (High Yield)
 Skin
 Subcutaneous tissues (further divided into the
-superficial Camper‚Äôs fascia and the deeper Scarpa‚Äôs
+superficial Camperís fascia and the deeper Scarpaís
 fascia)
 External oblique muscle
 Internal oblique muscle
@@ -12137,7 +12146,7 @@ gives rise to following branches in hand.
 
 ## Question 97 of 121
 
-Froment''s sign: Froment‚Äôs sign is a test for ulnar
+Froment''s sign: Fromentís sign is a test for ulnar
 nerve palsy specifically paralysis of the adductor
 pollicis:
 Patient is asked to hold a piece of paper between
@@ -12185,7 +12194,7 @@ those who:
 Are receiving high-dose immunosuppressive
 therapy, including biologic or targeted synthetic
 disease-modifying anti-rheumatic drugs (bDMARDs
-or tsDMARDs) or oral corticosteroids ( ‚â• 20 mg per
+or tsDMARDs) or oral corticosteroids ( = 20 mg per
 day of prednisolone equivalent dose)
 Are receiving chemotherapy or radiation.
 have malignancies related to the immune system
@@ -12221,7 +12230,7 @@ rebound tenderness and when present is quite
 helpful in supporting the diagnosis.
 Psoas sign: This test is performed by having the
 patient lie on his left side. The examiner then slowly
-extends the patient‚Äôs right thigh, thus stretching the
+extends the patientís right thigh, thus stretching the
 iliopsoas muscle. This will produce pain to make the
 sign positive. This indicates presence of irritative
 inflamed appendix in close proximity to the psoas
@@ -12303,24 +12312,24 @@ Anti-psychotics (High Yield)
 
 ## Question 102 of 121
 
-Anti-psychotics¬†acts by blocking dopamine D2
-receptors in the¬†brain .
+Anti-psychotics†acts by blocking dopamine D2
+receptors in the†brain .
 Side effects:
 Extrapyramidal side effects occur most commonly
 associated with antiemetic (metoclopramide,
 prochlorperazine) and anti-psychotics
-(haloperidol).¬†Haloperidol is¬†the most
-common¬†causative¬†antipsychotic¬†drug.
+(haloperidol).†Haloperidol is†the most
+common†causative†antipsychotic†drug.
 Dystonia (abnormal face and body movements)
-most commonly occur in young female and¬†children
-treated with Procyclidine or¬†benztropine .
+most commonly occur in young female and†children
+treated with Procyclidine or†benztropine .
 Tardive dyskinesia (rhythmic, involuntary movements
 of tongue, face and jaw)
 Other side effects:
-Parkinsonian symptoms (Tremor,¬†Rigidity,
+Parkinsonian symptoms (Tremor,†Rigidity,
 bradykinesia and postural instability)
-Hyperprolactinemia (Dopamine inhibits¬†release
-of¬†prolactin)
+Hyperprolactinemia (Dopamine inhibits†release
+of†prolactin)
 QT-interval prolongation
 8. A child with a forearm fracture requires a general
 anaesthetic for open reduction and internal fixation. The
@@ -12390,7 +12399,7 @@ through regeneration or repair.
 The regenerative capacity of cells can be
 categorized in three main ways:
 Labile cells are constantly dividing and have a good
-capacity for¬†regeneration, this allows the
+capacity for†regeneration, this allows the
 replacement of ageing tissue such as the surface
 epithelia of the skin, gastrointestinal tract and
 uterus; blood cells are derived from labile cells of the
@@ -12444,7 +12453,7 @@ Note: Regarding the neat surgical scar after 2
 months of surgery fibroblasts have predominant
 role
 Most important for delayed wound healing is due
-to¬†infection.
+to†infection.
 Factors affecting wound healing:
 Local factors affecting wound healing
 Mechanical injury
@@ -12589,7 +12598,7 @@ Admission bloods show the following:
 Na 131 mmol/l
 K: 2.2 mmol/l
 Urea 3.1 mmol/l
-Creatinine56 Œºmol/l
+Creatinine56 µmol/l
 Glucose:4.3 mmol/l
 Which one of the following ECG features is most likely to
 be seen?
@@ -12840,15 +12849,15 @@ tubule detected by macula densa cells.
 Reduced perfusion pressure in the kidney detected
 by baroreceptors in the afferent arteriole.
 Sympathetic stimulation of the JGA via
-Œ≤ 1 adrenoreceptors.
+ﬂ 1 adrenoreceptors.
 Decreased GFR
 Decreased ECF volume, arterial blood pressure or
 CVP.
-Note: The¬†release of renin is inhibited by atrial
+Note: The†release of renin is inhibited by atrial
 natriuretic peptide (ANP), which is released by
 stretched atria in response to increases in blood
 pressure.
-Angiotensin¬†II production
+Angiotensin†II production
 Angiotensinogen is a precursor protein produced in
 the liver and cleaved by renin to form angiotensin I.
 Angiotensin I is then converted to angiotensin II
@@ -12868,7 +12877,7 @@ the sensation of thirst, resulting in an increase in
 fluid consumption. This helps to raise the circulating
 volume and in turn, blood pressure.
 It also increases the secretion of ADH from
-the posterior pituitary gland ‚Äì resulting in the
+the posterior pituitary gland ñ resulting in the
 production of more concentrated urine to reduce
 the loss of fluid from urination.
 
@@ -12935,7 +12944,7 @@ muscle is affected and frontalis muscle is spared. Which of
 the following terminal branch of the facial nerve is most
 likely injured?
 Note: Skin of upper forehead, eye lid and
-conjunctiva are¬†innervated by supraorbital nerve
+conjunctiva are†innervated by supraorbital nerve
 (RECALL) branch of Opthalmic division of
 trigeminal nerve
 
@@ -12949,7 +12958,7 @@ trigeminal nerve
 
 ## Question 1 of 58
 
-Supratrochlear nerve:¬† Innervate skin of lower
+Supratrochlear nerve:† Innervate skin of lower
 central forehead and conjunctiva.
 2. A 20 Years old girl presents to the ED with complaint of
 headache, Palpitations and diaphoresis. After initial
@@ -12996,7 +13005,7 @@ arteries
 
 6. A 40 years old male presents to the ED with chest pain
 and the following ECG is taken. Which artery is most likely
-be occluded? Ôøº
+be occluded? ?
 ECG demonstrates Acute Inferior Myocardial
 Infarction due to occlusion of RCA
 St-elevation in inferior leads (II, III,aVF) with
@@ -13026,8 +13035,8 @@ mistaken rejection of an actually true null
 
 ## Question 3 of 58
 
-hypothesis (also known as false positive‚Äù finding or
-conclusion; example: innocent person is convicted‚Äù).
+hypothesis (also known as false positiveî finding or
+conclusion; example: innocent person is convictedî).
 While type 2 error is the failure to reject the null
 hypothesis that is actually false (also known as false
 negative. Finding or conclusion example: guilty
@@ -13087,8 +13096,8 @@ of the anterior abdominal wall.
 
 ## Question 10 of 90
 
-- **A.** Camper‚Äôs fascia
-- **B.** Scarpa‚Äôs fascia
+- **A.** Camperís fascia
+- **B.** Scarpaís fascia
 - **C.** Aponeurosis of internal oblique
 - **D.** Rectus abdominis muscle
 - **E.** Transversalis fascia
@@ -13101,8 +13110,8 @@ Neisseria meningitis?
 
 - **A.** Gram +Ve diplococci
 - **B.** Gram +Ve rod
-- **C.** Gram ‚ÄìVe rod
-- **D.** Gram ‚ÄìVe diplococci
+- **C.** Gram ñVe rod
+- **D.** Gram ñVe diplococci
 - **E.** Gram +Ve Cocco bacilli
 
 ## Question 5 of 58
@@ -13646,18 +13655,18 @@ The joint between atlas and axis is Pivot joint
 which of the following clinical features?
 Broca''s aphasia: This is a non-fluent aphasia which
 causes individuals to speak slower. It occurs when
-the brain‚Äôs frontal lobe suffers damage. Individuals
-with Broca‚Äôs Aphasia often feel frustrated due to
+the brainís frontal lobe suffers damage. Individuals
+with Brocaís Aphasia often feel frustrated due to
 being able to comprehend what others are saying,
 but unable to express themselves. also called
 Expressive dysphasia. Individuals affected only can
 speak in very short phrases, or have trouble getting
 words out. (RECALL)
-Wernicke‚Äôs aphasia: This is a fluent aphasia as this
+Wernickeís aphasia: This is a fluent aphasia as this
 type of aphasia does not affect the speed of the
 individual''s speech. Individuals with this type of
-aphasia have damage to their brain‚Äôs temporal lobe.
-As a result, those of Wernicke‚Äôs aphasia are
+aphasia have damage to their brainís temporal lobe.
+As a result, those of Wernickeís aphasia are
 sometimes unable to comprehend what others are
 saying, but are able to speak in long sentences.
 However, their communication doesn''t follow
@@ -13905,7 +13914,7 @@ wound is contaminated with manure. What would you
 advise him regarding tetanus prophylaxis?
 Wound contaminated with soil, manure is high risk
 wound. This patient is up to date with
-immunisation and¬†more than 10 years are passed
+immunisation and†more than 10 years are passed
 following last dose. He requires immediate
 reinforcing of both tetanus immunoglobulin and
 vaccine at different sites. Tetanus priming dose are
@@ -13915,10 +13924,10 @@ Tetanus prone wound
 Clean wounds are defined as: wounds less than 6
 hours old, non-penetrating with negligible tissue
 damage.
-Tetanus-prone wounds¬†include puncture-type
+Tetanus-prone wounds†include puncture-type
 injuries acquired in a contaminated environment
 and likely therefore to contain tetanus spores e.g.,
-gardening injuries, compound¬†fractures, wounds¬†or
+gardening injuries, compound†fractures, wounds†or
 burns with systemic sepsis and certain animal bites
 and scratches.
 
@@ -14044,7 +14053,7 @@ due to?
 Fetal hemoglobin has a higher affinity for oxygen
 than adult hemoglobin. Maternal and Fetal blood
 never mix during pregnancy, but they come close
-to each other in the placenta.¬† Oxygen diffuses
+to each other in the placenta.† Oxygen diffuses
 easily to fetal hemoglobin here.
 The reason fetal hemoglobin has a higher affinity
 for 02. It is composed of two alpha and two gamma
@@ -14053,7 +14062,7 @@ two alpha and two beta subunits.
 2,3DPG present in RBCs enhance the ability of RBCs
 to release o2 near tissue and 2,3DPG only binds
 with beta globulin chains, fetal hemoglobin (HbF)
-lack of beta globulin chains that‚Äôs why fetal
+lack of beta globulin chains thatís why fetal
 hemoglobin has higher affinity for O2(RECALL).
 
 ## Question 49 of 90
@@ -14152,7 +14161,7 @@ sheath.
 the following sites in renal nephron?
 Antidiuretic hormone (ADH), also known as
 vasopressin, is a small peptide hormone which
-regulates the body‚Äôs retention of water. The main
+regulates the bodyís retention of water. The main
 action of ADH in the kidney is to regulate the
 
 ## Question 52 of 90
@@ -14211,10 +14220,10 @@ parasympathetic supply to =S2-S4 sensory ganglia.
 
 ## Question 54 of 90
 
-- **A.** T6 ‚ÄìT10
+- **A.** T6 ñT10
 - **B.** L1-L2
 - **C.** T4-T8
-- **D.** T4 ‚ÄìT10
+- **D.** T4 ñT10
 - **E.** L2-L4
 
 ## Question 30 of 58
@@ -14607,7 +14616,7 @@ from 0 to 15 degrees and then assists the deltoid
 with continued abduction. Supraspinatus muscle
 supplied by suprascapular nerve, "empty can test"
 use to examine this muscle.
-Teres minor muscle assessment test=Hornblower‚Äôs
+Teres minor muscle assessment test=Hornblowerís
 test) RECALL)
 Subscapularis muscle assessment test (lift-off Test)
 RECALL
@@ -14636,7 +14645,7 @@ Subscapular is innervated by subscapular nerve
 
 ## Question 39 of 58
 
-Rcem key:¬† soyabean is a rich source of calcium
+Rcem key:† soyabean is a rich source of calcium
 Note: Dairy products which include cheese, leafy
 vegetables, and Soybean is rich in calcium.
 Almond is also rich in calcium but if both almond
@@ -14685,16 +14694,16 @@ located in which of the following regions?
 
 ## Question 40 of 58
 
-Broca‚Äôs speech area is located in frontal lobe
-Broca‚Äôs aphasia or expressive aphasia is when
+Brocaís speech area is located in frontal lobe
+Brocaís aphasia or expressive aphasia is when
 people find it very difficult to find and say the right
 words. People with Broca''s aphasia may only be
 able to say single words or very short sentences,
-although it‚Äôs usually possible for other people to
+although itís usually possible for other people to
 understand what they mean
 Wernicke''s aphasia (fluent aphasia) in the
 temporal lobe.
-Wernicke‚Äôs aphasia or receptive aphasia is when
+Wernickeís aphasia or receptive aphasia is when
 someone is able to speak well and use long
 sentences, but what they say does not make any
 sense.
@@ -14890,7 +14899,7 @@ MOI: Direct blow to the globe of the eye (commonly
 from a squash ball or a shuttlecock), resulting in a
 fracture of the orbital floor and prolapse of contents
 into the maxillary sinus.
-Clinical features: Pt may have diplopia and can‚Äôt
+Clinical features: Pt may have diplopia and canít
 look up and medially due to inferior rectus
 entrapment.
 Test infra-orbital nerve function as infra-orbital
@@ -14939,11 +14948,11 @@ Anatomical course: (High Yield)
 Axillary nerve arises in the axilla passes medially to
 the surgical neck of the humerus, where it divides
 into three terminal branches:
-Anterior terminal branch:¬† winds around the
+Anterior terminal branch:† winds around the
 surgical neck of the humerus and provides motor
 innervation to the anterior aspect of the deltoid
 muscle.
-Posterior terminal branch:¬† Gives motor innervation
+Posterior terminal branch:† Gives motor innervation
 to the posterior aspect of the deltoid muscle and
 teres minor. It also innervates the skin over the
 inferior part of the deltoid as the upper lateral
@@ -14960,7 +14969,7 @@ Causes weak lateral rotation and abduction of the
 arm. (Supraspinatus can abduct the arm but not to
 a horizontal level).
 Loss of sensation over the inferior portion of the
-deltoid (the ‚Äòregimental badge area‚Äô).
+deltoid (the ëregimental badge areaí).
 Quadrangular space: Axillary nerve and posterior
 circumflex humeral artery and vein pass through it
 and can be compressed as a result of trauma,
@@ -15166,17 +15175,17 @@ latissimus dorsi, and teres minor muscles are
 innervated by nerves originating from the posterior
 cord of the brachial plexus
 High yield:
-BRANCHES OF LATERAL CORD¬†¬† "LML"
+BRANCHES OF LATERAL CORD†† "LML"
 Lateral pectoral nerve
 Musculocutaneous nerve
 Lateral root of median nerve
-BRANCHES OF MEDIAL CORD¬†¬†¬†¬† "M4U"
+BRANCHES OF MEDIAL CORD†††† "M4U"
 Medial pectoral nerve
 Medial cutaneous nerve of arm
 Medial cutaneous nerve of forearm
 Medial root of median nerve
 Ulnar nerve
-BRANCHES OF POSTERIOR CORD¬†¬† "ULTRA"
+BRANCHES OF POSTERIOR CORD†† "ULTRA"
 Upper subscapular nerve
 Lower subscapular nerve
 
@@ -15210,12 +15219,12 @@ hypoventilation and hypokalemia (Recall).
 Diltiazem and verapamil are non-dipyridamole
 calcium channel blocker
 FDA-approved Indications of diltiazem
-Atrial arrhythmia, including¬†atrial fibrillation with
+Atrial arrhythmia, including†atrial fibrillation with
 the rapid ventricular rate (RVR)
 Hypertension
 Paroxysmal supraventricular tachycardia
 Chronic stable angina
-Angina Due to Coronary Artery Spasm(¬†Prinzmetal''s
+Angina Due to Coronary Artery Spasm(†Prinzmetal''s
 angina)
 Dihydropyridine calcium channel blockers include
 amlodipine, felodipine and nifedipine
