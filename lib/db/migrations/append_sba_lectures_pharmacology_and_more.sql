@@ -1,54 +1,47 @@
 -- ============================================================================
 -- Emergix Academy: Append 19 SBA Clinical Masterclass Lectures
 -- Generated: 2026-11-10
--- Safety: NON-DESTRUCTIVE. Appends to existing mrcem-sba course.
+-- Safety: NON-DESTRUCTIVE. Loops through all SBA course instances.
 -- ============================================================================
 DO $$
 DECLARE
+  r_course RECORD;
   v_course_id uuid;
   v_mod_id uuid;
   v_max_pos integer;
 BEGIN
-  -- 1. Locate Course: exact live published mrcem-sba course
-  SELECT id INTO v_course_id FROM "courses" WHERE "id" = '4c794261-4f8e-4de7-8f77-b1bf8592154d' LIMIT 1;
-  IF v_course_id IS NULL THEN
-    SELECT id INTO v_course_id FROM "courses" WHERE "slug" = 'mrcem-sba' AND "status" = 'published' AND "deleted_at" IS NULL ORDER BY "created_at" DESC LIMIT 1;
-  END IF;
-  IF v_course_id IS NULL THEN
-    SELECT id INTO v_course_id FROM "courses" WHERE "slug" = 'mrcem-sba' LIMIT 1;
-  END IF;
-  IF v_course_id IS NULL THEN
-    RAISE EXCEPTION 'Course mrcem-sba not found. Ensure courses are initialized.';
-  END IF;
-  RAISE NOTICE 'Targeting course ID: %', v_course_id;
+  FOR r_course IN 
+    SELECT DISTINCT id, title FROM "courses" 
+    WHERE "slug" = 'mrcem-sba' 
+       OR "id" IN ('4c794261-4f8e-4de7-8f77-b1bf8592154d'::uuid, '583e83a1-b45d-463b-ad53-4e0e3af8cf3a'::uuid)
+  LOOP
+    v_course_id := r_course.id;
+    RAISE NOTICE '>>> Updating SBA Course ID: % (%)', v_course_id, r_course.title;
 
-  -- ───────────────────────────────────────────────────────────────────
-  -- Module: Pharmacology and poisoning
-  -- ───────────────────────────────────────────────────────────────────
-  SELECT id INTO v_mod_id FROM "modules" WHERE "id" = 'c8decf06-d3e2-470b-8ab7-3194981bce5b' LIMIT 1;
-  IF v_mod_id IS NULL THEN
+    -- ───────────────────────────────────────────────────────────────────
+    -- Module: Pharmacology and poisoning
+    -- ───────────────────────────────────────────────────────────────────
     SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND (LOWER(TRIM("title")) = LOWER(TRIM('Pharmacology and poisoning')) OR "title" = 'Pharmacology and poisoning') AND "deleted_at" IS NULL LIMIT 1;
-  END IF;
-  IF v_mod_id IS NULL THEN
-    SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
-    INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_course_id, 'Pharmacology and poisoning', v_max_pos, now(), now())
-    RETURNING "id" INTO v_mod_id;
-    RAISE NOTICE 'Created new module: Pharmacology and poisoning (position %)', v_max_pos;
-  ELSE
-    RAISE NOTICE 'Found existing module: Pharmacology and poisoning (id %)', v_mod_id;
-  END IF;
+    IF v_mod_id IS NULL THEN
+      SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
+      INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
+      VALUES (gen_random_uuid(), v_course_id, 'Pharmacology and poisoning', v_max_pos, now(), now())
+      RETURNING "id" INTO v_mod_id;
+      RAISE NOTICE 'Created module: Pharmacology and poisoning in course % (position %)', v_course_id, v_max_pos;
+    ELSE
+      RAISE NOTICE 'Found existing module: Pharmacology and poisoning in course % (id %)', v_course_id, v_mod_id;
+    END IF;
 
-  -- Lesson: Paracetamol Overdose & Acetylcysteine Management
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'paracetamol-overdose',
-    'Paracetamol Overdose & Acetylcysteine Management',
-    'article',
-    $L_PARACETAMOL_OVERDOSE$# Paracetamol Overdose & Acetylcysteine Management
+    -- Lesson: Paracetamol Overdose & Acetylcysteine Management
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'paracetamol-overdose',
+      'Paracetamol Overdose & Acetylcysteine Management',
+      'article',
+      $L_PARACETAMOL_OVERDOSE$# Paracetamol Overdose & Acetylcysteine Management
 
 
 > [!NOTE]
@@ -319,27 +312,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Paracetamol Overdose & Acetylcysteine Management**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_PARACETAMOL_OVERDOSE$,
-    false,
-    0,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      0,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Clinical Toxidromes & Poisoning Approach
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'poisoning-overdose-and-toxidromes',
-    'Clinical Toxidromes & Poisoning Approach',
-    'article',
-    $L_POISONING_OVERDOSE_AND_TOXIDROMES$# Clinical Toxidromes & Poisoning Approach
+    -- Lesson: Clinical Toxidromes & Poisoning Approach
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'poisoning-overdose-and-toxidromes',
+      'Clinical Toxidromes & Poisoning Approach',
+      'article',
+      $L_POISONING_OVERDOSE_AND_TOXIDROMES$# Clinical Toxidromes & Poisoning Approach
 
 
 > [!NOTE]
@@ -409,27 +402,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Clinical Toxidromes & Poisoning Approach**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_POISONING_OVERDOSE_AND_TOXIDROMES$,
-    false,
-    1,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      1,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Tricyclic Antidepressant (TCA) Toxicity
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'tricyclic-antidepressant-tca-toxicity',
-    'Tricyclic Antidepressant (TCA) Toxicity',
-    'article',
-    $L_TRICYCLIC_ANTIDEPRESSANT_TCA_TOXICITY$# Tricyclic Antidepressant (TCA) Toxicity
+    -- Lesson: Tricyclic Antidepressant (TCA) Toxicity
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'tricyclic-antidepressant-tca-toxicity',
+      'Tricyclic Antidepressant (TCA) Toxicity',
+      'article',
+      $L_TRICYCLIC_ANTIDEPRESSANT_TCA_TOXICITY$# Tricyclic Antidepressant (TCA) Toxicity
 
 
 > [!NOTE]
@@ -581,44 +574,41 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Tricyclic Antidepressant (TCA) Toxicity**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_TRICYCLIC_ANTIDEPRESSANT_TCA_TOXICITY$,
-    false,
-    2,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      2,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- ───────────────────────────────────────────────────────────────────
-  -- Module: Pain & Sedation
-  -- ───────────────────────────────────────────────────────────────────
-  SELECT id INTO v_mod_id FROM "modules" WHERE "id" = '1bd76de2-9fc8-4c9e-89a2-d85cc6f44af8' LIMIT 1;
-  IF v_mod_id IS NULL THEN
+    -- ───────────────────────────────────────────────────────────────────
+    -- Module: Pain & Sedation
+    -- ───────────────────────────────────────────────────────────────────
     SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND (LOWER(TRIM("title")) = LOWER(TRIM('Pain & Sedation')) OR "title" = 'Pain & Sedation') AND "deleted_at" IS NULL LIMIT 1;
-  END IF;
-  IF v_mod_id IS NULL THEN
-    SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
-    INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_course_id, 'Pain & Sedation', v_max_pos, now(), now())
-    RETURNING "id" INTO v_mod_id;
-    RAISE NOTICE 'Created new module: Pain & Sedation (position %)', v_max_pos;
-  ELSE
-    RAISE NOTICE 'Found existing module: Pain & Sedation (id %)', v_mod_id;
-  END IF;
+    IF v_mod_id IS NULL THEN
+      SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
+      INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
+      VALUES (gen_random_uuid(), v_course_id, 'Pain & Sedation', v_max_pos, now(), now())
+      RETURNING "id" INTO v_mod_id;
+      RAISE NOTICE 'Created module: Pain & Sedation in course % (position %)', v_course_id, v_max_pos;
+    ELSE
+      RAISE NOTICE 'Found existing module: Pain & Sedation in course % (id %)', v_course_id, v_mod_id;
+    END IF;
 
-  -- Lesson: Management of Acute Pain in Children
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'management-of-pain-in-children',
-    'Management of Acute Pain in Children',
-    'article',
-    $L_MANAGEMENT_OF_PAIN_IN_CHILDREN$# Management of Acute Pain in Children
+    -- Lesson: Management of Acute Pain in Children
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'management-of-pain-in-children',
+      'Management of Acute Pain in Children',
+      'article',
+      $L_MANAGEMENT_OF_PAIN_IN_CHILDREN$# Management of Acute Pain in Children
 
 
 > [!NOTE]
@@ -714,27 +704,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Management of Acute Pain in Children**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_MANAGEMENT_OF_PAIN_IN_CHILDREN$,
-    false,
-    0,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      0,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Management of Acute Pain in Adults
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'management-of-pain-in-adults',
-    'Management of Acute Pain in Adults',
-    'article',
-    $L_MANAGEMENT_OF_PAIN_IN_ADULTS$# Management of Acute Pain in Adults
+    -- Lesson: Management of Acute Pain in Adults
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'management-of-pain-in-adults',
+      'Management of Acute Pain in Adults',
+      'article',
+      $L_MANAGEMENT_OF_PAIN_IN_ADULTS$# Management of Acute Pain in Adults
 
 
 > [!NOTE]
@@ -892,27 +882,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Management of Acute Pain in Adults**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_MANAGEMENT_OF_PAIN_IN_ADULTS$,
-    false,
-    1,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      1,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Procedural Sedation & Analgesia (PSA)
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'procedural-sedation-analgesia',
-    'Procedural Sedation & Analgesia (PSA)',
-    'article',
-    $L_PROCEDURAL_SEDATION_ANALGESIA$# Procedural Sedation & Analgesia (PSA)
+    -- Lesson: Procedural Sedation & Analgesia (PSA)
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'procedural-sedation-analgesia',
+      'Procedural Sedation & Analgesia (PSA)',
+      'article',
+      $L_PROCEDURAL_SEDATION_ANALGESIA$# Procedural Sedation & Analgesia (PSA)
 
 
 > [!NOTE]
@@ -1094,27 +1084,27 @@ Mark as Complete
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Procedural Sedation & Analgesia (PSA)**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_PROCEDURAL_SEDATION_ANALGESIA$,
-    false,
-    2,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      2,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Ketamine Procedural Sedation in Children
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'ketamine-procedural-sedation-in-children',
-    'Ketamine Procedural Sedation in Children',
-    'article',
-    $L_KETAMINE_PROCEDURAL_SEDATION_IN_CHILDREN$# Ketamine Procedural Sedation in Children
+    -- Lesson: Ketamine Procedural Sedation in Children
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'ketamine-procedural-sedation-in-children',
+      'Ketamine Procedural Sedation in Children',
+      'article',
+      $L_KETAMINE_PROCEDURAL_SEDATION_IN_CHILDREN$# Ketamine Procedural Sedation in Children
 
 
 > [!NOTE]
@@ -1267,27 +1257,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Ketamine Procedural Sedation in Children**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_KETAMINE_PROCEDURAL_SEDATION_IN_CHILDREN$,
-    false,
-    3,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      3,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Bier's Block (Intravenous Regional Anaesthesia)
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'biers-block-ivra',
-    'Bier''s Block (Intravenous Regional Anaesthesia)',
-    'article',
-    $L_BIERS_BLOCK_IVRA$# Bier's Block (Intravenous Regional Anaesthesia)
+    -- Lesson: Bier's Block (Intravenous Regional Anaesthesia)
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'biers-block-ivra',
+      'Bier''s Block (Intravenous Regional Anaesthesia)',
+      'article',
+      $L_BIERS_BLOCK_IVRA$# Bier's Block (Intravenous Regional Anaesthesia)
 
 
 > [!NOTE]
@@ -1398,27 +1388,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Bier's Block (Intravenous Regional Anaesthesia)**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_BIERS_BLOCK_IVRA$,
-    false,
-    4,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      4,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Digital Nerve Block Technique & Anaesthesia
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'digital-nerve-block',
-    'Digital Nerve Block Technique & Anaesthesia',
-    'article',
-    $L_DIGITAL_NERVE_BLOCK$# Digital Nerve Block Technique & Anaesthesia
+    -- Lesson: Digital Nerve Block Technique & Anaesthesia
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'digital-nerve-block',
+      'Digital Nerve Block Technique & Anaesthesia',
+      'article',
+      $L_DIGITAL_NERVE_BLOCK$# Digital Nerve Block Technique & Anaesthesia
 
 
 > [!NOTE]
@@ -1480,27 +1470,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Digital Nerve Block Technique & Anaesthesia**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_DIGITAL_NERVE_BLOCK$,
-    false,
-    5,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      5,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Fascia Iliaca Compartment Block (FICB)
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'fascia-iliaca-block',
-    'Fascia Iliaca Compartment Block (FICB)',
-    'article',
-    $L_FASCIA_ILIACA_BLOCK$# Fascia Iliaca Compartment Block (FICB)
+    -- Lesson: Fascia Iliaca Compartment Block (FICB)
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'fascia-iliaca-block',
+      'Fascia Iliaca Compartment Block (FICB)',
+      'article',
+      $L_FASCIA_ILIACA_BLOCK$# Fascia Iliaca Compartment Block (FICB)
 
 
 > [!NOTE]
@@ -1578,44 +1568,41 @@ Mark as Complete
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Fascia Iliaca Compartment Block (FICB)**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_FASCIA_ILIACA_BLOCK$,
-    false,
-    6,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      6,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- ───────────────────────────────────────────────────────────────────
-  -- Module: Musculoskeletal (non-traumatic)
-  -- ───────────────────────────────────────────────────────────────────
-  SELECT id INTO v_mod_id FROM "modules" WHERE "id" = '496e18d9-e293-471f-88eb-3d5f683fdc87' LIMIT 1;
-  IF v_mod_id IS NULL THEN
+    -- ───────────────────────────────────────────────────────────────────
+    -- Module: Musculoskeletal (non-traumatic)
+    -- ───────────────────────────────────────────────────────────────────
     SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND (LOWER(TRIM("title")) = LOWER(TRIM('Musculoskeletal (non-traumatic)')) OR "title" = 'Musculoskeletal (non-traumatic)') AND "deleted_at" IS NULL LIMIT 1;
-  END IF;
-  IF v_mod_id IS NULL THEN
-    SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
-    INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_course_id, 'Musculoskeletal (non-traumatic)', v_max_pos, now(), now())
-    RETURNING "id" INTO v_mod_id;
-    RAISE NOTICE 'Created new module: Musculoskeletal (non-traumatic) (position %)', v_max_pos;
-  ELSE
-    RAISE NOTICE 'Found existing module: Musculoskeletal (non-traumatic) (id %)', v_mod_id;
-  END IF;
+    IF v_mod_id IS NULL THEN
+      SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
+      INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
+      VALUES (gen_random_uuid(), v_course_id, 'Musculoskeletal (non-traumatic)', v_max_pos, now(), now())
+      RETURNING "id" INTO v_mod_id;
+      RAISE NOTICE 'Created module: Musculoskeletal (non-traumatic) in course % (position %)', v_course_id, v_max_pos;
+    ELSE
+      RAISE NOTICE 'Found existing module: Musculoskeletal (non-traumatic) in course % (id %)', v_course_id, v_mod_id;
+    END IF;
 
-  -- Lesson: Acute Limping Child Differential & Kocher Criteria
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'acute-limping-child',
-    'Acute Limping Child Differential & Kocher Criteria',
-    'article',
-    $L_ACUTE_LIMPING_CHILD$# Acute Limping Child Differential & Kocher Criteria
+    -- Lesson: Acute Limping Child Differential & Kocher Criteria
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'acute-limping-child',
+      'Acute Limping Child Differential & Kocher Criteria',
+      'article',
+      $L_ACUTE_LIMPING_CHILD$# Acute Limping Child Differential & Kocher Criteria
 
 
 > [!NOTE]
@@ -1833,27 +1820,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Acute Limping Child Differential & Kocher Criteria**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_ACUTE_LIMPING_CHILD$,
-    false,
-    0,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      0,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Knee Injuries, Ottawa Knee Rules & Ligamentous Assessment
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'knee-injuries',
-    'Knee Injuries, Ottawa Knee Rules & Ligamentous Assessment',
-    'article',
-    $L_KNEE_INJURIES$# Knee Injuries, Ottawa Knee Rules & Ligamentous Assessment
+    -- Lesson: Knee Injuries, Ottawa Knee Rules & Ligamentous Assessment
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'knee-injuries',
+      'Knee Injuries, Ottawa Knee Rules & Ligamentous Assessment',
+      'article',
+      $L_KNEE_INJURIES$# Knee Injuries, Ottawa Knee Rules & Ligamentous Assessment
 
 
 > [!NOTE]
@@ -2153,27 +2140,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Knee Injuries, Ottawa Knee Rules & Ligamentous Assessment**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_KNEE_INJURIES$,
-    false,
-    1,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      1,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Ankle & Foot Injuries, Ottawa Ankle Rules & Fractures
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'ankle-foot-injuries',
-    'Ankle & Foot Injuries, Ottawa Ankle Rules & Fractures',
-    'article',
-    $L_ANKLE_FOOT_INJURIES$# Ankle & Foot Injuries, Ottawa Ankle Rules & Fractures
+    -- Lesson: Ankle & Foot Injuries, Ottawa Ankle Rules & Fractures
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'ankle-foot-injuries',
+      'Ankle & Foot Injuries, Ottawa Ankle Rules & Fractures',
+      'article',
+      $L_ANKLE_FOOT_INJURIES$# Ankle & Foot Injuries, Ottawa Ankle Rules & Fractures
 
 
 > [!NOTE]
@@ -2390,27 +2377,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Ankle & Foot Injuries, Ottawa Ankle Rules & Fractures**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_ANKLE_FOOT_INJURIES$,
-    false,
-    2,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      2,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Forearm & Wrist Injuries (Colles, Smith, Galeazzi & Monteggia)
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'forearm-injuries',
-    'Forearm & Wrist Injuries (Colles, Smith, Galeazzi & Monteggia)',
-    'article',
-    $L_FOREARM_INJURIES$# Forearm & Wrist Injuries (Colles, Smith, Galeazzi & Monteggia)
+    -- Lesson: Forearm & Wrist Injuries (Colles, Smith, Galeazzi & Monteggia)
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'forearm-injuries',
+      'Forearm & Wrist Injuries (Colles, Smith, Galeazzi & Monteggia)',
+      'article',
+      $L_FOREARM_INJURIES$# Forearm & Wrist Injuries (Colles, Smith, Galeazzi & Monteggia)
 
 
 > [!NOTE]
@@ -2515,27 +2502,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Forearm & Wrist Injuries (Colles, Smith, Galeazzi & Monteggia)**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_FOREARM_INJURIES$,
-    false,
-    3,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      3,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Bone Malignancies & Pathological Fractures in Emergency Care
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'bone-malignancy',
-    'Bone Malignancies & Pathological Fractures in Emergency Care',
-    'article',
-    $L_BONE_MALIGNANCY$# Bone Malignancies & Pathological Fractures in Emergency Care
+    -- Lesson: Bone Malignancies & Pathological Fractures in Emergency Care
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'bone-malignancy',
+      'Bone Malignancies & Pathological Fractures in Emergency Care',
+      'article',
+      $L_BONE_MALIGNANCY$# Bone Malignancies & Pathological Fractures in Emergency Care
 
 
 > [!NOTE]
@@ -2618,44 +2605,41 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Bone Malignancies & Pathological Fractures in Emergency Care**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_BONE_MALIGNANCY$,
-    false,
-    4,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      4,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- ───────────────────────────────────────────────────────────────────
-  -- Module: Safeguarding & Psycho-social emergencies in children
-  -- ───────────────────────────────────────────────────────────────────
-  SELECT id INTO v_mod_id FROM "modules" WHERE "id" = 'b8baaab5-0fb6-4aa4-ac9b-304e25b52427' LIMIT 1;
-  IF v_mod_id IS NULL THEN
+    -- ───────────────────────────────────────────────────────────────────
+    -- Module: Safeguarding & Psycho-social emergencies in children
+    -- ───────────────────────────────────────────────────────────────────
     SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND (LOWER(TRIM("title")) = LOWER(TRIM('Safeguarding & Psycho-social emergencies in children')) OR "title" = 'Safeguarding & Psycho-social emergencies in children') AND "deleted_at" IS NULL LIMIT 1;
-  END IF;
-  IF v_mod_id IS NULL THEN
-    SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
-    INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_course_id, 'Safeguarding & Psycho-social emergencies in children', v_max_pos, now(), now())
-    RETURNING "id" INTO v_mod_id;
-    RAISE NOTICE 'Created new module: Safeguarding & Psycho-social emergencies in children (position %)', v_max_pos;
-  ELSE
-    RAISE NOTICE 'Found existing module: Safeguarding & Psycho-social emergencies in children (id %)', v_mod_id;
-  END IF;
+    IF v_mod_id IS NULL THEN
+      SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
+      INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
+      VALUES (gen_random_uuid(), v_course_id, 'Safeguarding & Psycho-social emergencies in children', v_max_pos, now(), now())
+      RETURNING "id" INTO v_mod_id;
+      RAISE NOTICE 'Created module: Safeguarding & Psycho-social emergencies in children in course % (position %)', v_course_id, v_max_pos;
+    ELSE
+      RAISE NOTICE 'Found existing module: Safeguarding & Psycho-social emergencies in children in course % (id %)', v_course_id, v_mod_id;
+    END IF;
 
-  -- Lesson: Child Abuse & Non-Accidental Injury (NAI) Recognition
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'child-abuse-non-accidental-injuries',
-    'Child Abuse & Non-Accidental Injury (NAI) Recognition',
-    'article',
-    $L_CHILD_ABUSE_NON_ACCIDENTAL_INJURIES$# Child Abuse & Non-Accidental Injury (NAI) Recognition
+    -- Lesson: Child Abuse & Non-Accidental Injury (NAI) Recognition
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'child-abuse-non-accidental-injuries',
+      'Child Abuse & Non-Accidental Injury (NAI) Recognition',
+      'article',
+      $L_CHILD_ABUSE_NON_ACCIDENTAL_INJURIES$# Child Abuse & Non-Accidental Injury (NAI) Recognition
 
 
 > [!NOTE]
@@ -2801,27 +2785,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Child Abuse & Non-Accidental Injury (NAI) Recognition**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_CHILD_ABUSE_NON_ACCIDENTAL_INJURIES$,
-    false,
-    0,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      0,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: Female Genital Mutilation (FGM) Management & Legal Duty
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'female-genital-mutilation-fgm',
-    'Female Genital Mutilation (FGM) Management & Legal Duty',
-    'article',
-    $L_FEMALE_GENITAL_MUTILATION_FGM$# Female Genital Mutilation (FGM) Management & Legal Duty
+    -- Lesson: Female Genital Mutilation (FGM) Management & Legal Duty
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'female-genital-mutilation-fgm',
+      'Female Genital Mutilation (FGM) Management & Legal Duty',
+      'article',
+      $L_FEMALE_GENITAL_MUTILATION_FGM$# Female Genital Mutilation (FGM) Management & Legal Duty
 
 
 > [!NOTE]
@@ -2885,41 +2869,41 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Female Genital Mutilation (FGM) Management & Legal Duty**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_FEMALE_GENITAL_MUTILATION_FGM$,
-    false,
-    1,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      1,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- ───────────────────────────────────────────────────────────────────
-  -- Module: Infectious Diseases & Global Health
-  -- ───────────────────────────────────────────────────────────────────
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND (LOWER(TRIM("title")) = LOWER(TRIM('Infectious Diseases & Global Health')) OR "title" = 'Infectious Diseases & Global Health') AND "deleted_at" IS NULL LIMIT 1;
-  IF v_mod_id IS NULL THEN
-    SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
-    INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
-    VALUES (gen_random_uuid(), v_course_id, 'Infectious Diseases & Global Health', v_max_pos, now(), now())
-    RETURNING "id" INTO v_mod_id;
-    RAISE NOTICE 'Created new module: Infectious Diseases & Global Health (position %)', v_max_pos;
-  ELSE
-    RAISE NOTICE 'Found existing module: Infectious Diseases & Global Health (id %)', v_mod_id;
-  END IF;
+    -- ───────────────────────────────────────────────────────────────────
+    -- Module: Infectious Diseases & Global Health
+    -- ───────────────────────────────────────────────────────────────────
+    SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND (LOWER(TRIM("title")) = LOWER(TRIM('Infectious Diseases & Global Health')) OR "title" = 'Infectious Diseases & Global Health') AND "deleted_at" IS NULL LIMIT 1;
+    IF v_mod_id IS NULL THEN
+      SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
+      INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
+      VALUES (gen_random_uuid(), v_course_id, 'Infectious Diseases & Global Health', v_max_pos, now(), now())
+      RETURNING "id" INTO v_mod_id;
+      RAISE NOTICE 'Created module: Infectious Diseases & Global Health in course % (position %)', v_course_id, v_max_pos;
+    ELSE
+      RAISE NOTICE 'Found existing module: Infectious Diseases & Global Health in course % (id %)', v_course_id, v_mod_id;
+    END IF;
 
-  -- Lesson: Kawasaki Disease Diagnosis & Emergency Management
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'kawasaki-disease',
-    'Kawasaki Disease Diagnosis & Emergency Management',
-    'article',
-    $L_KAWASAKI_DISEASE$# Kawasaki Disease Diagnosis & Emergency Management
+    -- Lesson: Kawasaki Disease Diagnosis & Emergency Management
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'kawasaki-disease',
+      'Kawasaki Disease Diagnosis & Emergency Management',
+      'article',
+      $L_KAWASAKI_DISEASE$# Kawasaki Disease Diagnosis & Emergency Management
 
 
 > [!NOTE]
@@ -2982,27 +2966,27 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **Kawasaki Disease Diagnosis & Emergency Management**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_KAWASAKI_DISEASE$,
-    false,
-    0,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      0,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Lesson: UK Statutory Notifiable Diseases & Reporting Guidelines
-  INSERT INTO "lessons" (
-    "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
-  ) VALUES (
-    gen_random_uuid(),
-    v_mod_id,
-    'notifiable-diseases-reporting',
-    'UK Statutory Notifiable Diseases & Reporting Guidelines',
-    'article',
-    $L_NOTIFIABLE_DISEASES_REPORTING$# UK Statutory Notifiable Diseases & Reporting Guidelines
+    -- Lesson: UK Statutory Notifiable Diseases & Reporting Guidelines
+    INSERT INTO "lessons" (
+      "id", "module_id", "slug", "title", "type", "body", "is_free_preview", "position", "status", "created_at", "updated_at"
+    ) VALUES (
+      gen_random_uuid(),
+      v_mod_id,
+      'notifiable-diseases-reporting',
+      'UK Statutory Notifiable Diseases & Reporting Guidelines',
+      'article',
+      $L_NOTIFIABLE_DISEASES_REPORTING$# UK Statutory Notifiable Diseases & Reporting Guidelines
 
 
 > [!NOTE]
@@ -3068,19 +3052,18 @@ Previous Next
 - **Core Syllabus Alignment:** Master the evidence-based diagnostic criteria, dosages, and contraindications for **UK Statutory Notifiable Diseases & Reporting Guidelines**.
 - **Emergency Disposition:** Always document clear clinical justification when discharging or admitting patients under UK emergency guidelines.
 - **SBA Decision Making:** In Single Best Answer questions, select the safest, first-line evidence-backed management step before secondary investigations.$L_NOTIFIABLE_DISEASES_REPORTING$,
-    false,
-    1,
-    'published',
-    now(),
-    now()
-  ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
-    "title" = EXCLUDED."title",
-    "body" = EXCLUDED."body",
-    "status" = 'published',
-    "updated_at" = now();
+      false,
+      1,
+      'published',
+      now(),
+      now()
+    ) ON CONFLICT ("module_id", "slug") DO UPDATE SET
+      "title" = EXCLUDED."title",
+      "body" = EXCLUDED."body",
+      "status" = 'published',
+      "updated_at" = now();
 
-  -- Refresh course update timestamp
-  UPDATE "courses" SET "updated_at" = now() WHERE "id" = v_course_id;
-
-  RAISE NOTICE 'Successfully appended 19 SBA lectures across 5 modules with 38 figures.';
+    UPDATE "courses" SET "updated_at" = now() WHERE "id" = v_course_id;
+  END LOOP;
+  RAISE NOTICE 'Successfully appended 19 SBA lectures across 5 modules with 38 figures to all SBA courses.';
 END $$;
