@@ -1001,6 +1001,8 @@ export async function runAutoMigrationsAndSeeds() {
       { file: "fix_deduplicate_sba_course.sql", shouldRun: true },
       // Quality fixes: Infectious Diseases position, Child Abuse capitalisation, duplicate lessons
       { file: "fix_sba_quality_issues.sql", shouldRun: true },
+      // Structural fixes: remove duplicate Vascular/MockSim modules, correct ID position to 19
+      { file: "fix_sba_duplicates.sql", shouldRun: true },
     ];
 
     for (const { file: seedFile, shouldRun } of masterSeeds) {
