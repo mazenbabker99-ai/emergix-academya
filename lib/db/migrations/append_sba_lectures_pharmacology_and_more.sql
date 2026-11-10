@@ -9,16 +9,26 @@ DECLARE
   v_mod_id uuid;
   v_max_pos integer;
 BEGIN
-  -- 1. Locate Course: mrcem-sba
-  SELECT id INTO v_course_id FROM "courses" WHERE "slug" = 'mrcem-sba' LIMIT 1;
+  -- 1. Locate Course: exact live published mrcem-sba course
+  SELECT id INTO v_course_id FROM "courses" WHERE "id" = '4c794261-4f8e-4de7-8f77-b1bf8592154d' LIMIT 1;
+  IF v_course_id IS NULL THEN
+    SELECT id INTO v_course_id FROM "courses" WHERE "slug" = 'mrcem-sba' AND "status" = 'published' AND "deleted_at" IS NULL ORDER BY "created_at" DESC LIMIT 1;
+  END IF;
+  IF v_course_id IS NULL THEN
+    SELECT id INTO v_course_id FROM "courses" WHERE "slug" = 'mrcem-sba' LIMIT 1;
+  END IF;
   IF v_course_id IS NULL THEN
     RAISE EXCEPTION 'Course mrcem-sba not found. Ensure courses are initialized.';
   END IF;
+  RAISE NOTICE 'Targeting course ID: %', v_course_id;
 
   -- ───────────────────────────────────────────────────────────────────
   -- Module: Pharmacology and poisoning
   -- ───────────────────────────────────────────────────────────────────
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Pharmacology and poisoning' AND "deleted_at" IS NULL LIMIT 1;
+  SELECT id INTO v_mod_id FROM "modules" WHERE "id" = 'c8decf06-d3e2-470b-8ab7-3194981bce5b' LIMIT 1;
+  IF v_mod_id IS NULL THEN
+    SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND (LOWER(TRIM("title")) = LOWER(TRIM('Pharmacology and poisoning')) OR "title" = 'Pharmacology and poisoning') AND "deleted_at" IS NULL LIMIT 1;
+  END IF;
   IF v_mod_id IS NULL THEN
     SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -585,7 +595,10 @@ Previous Next
   -- ───────────────────────────────────────────────────────────────────
   -- Module: Pain & Sedation
   -- ───────────────────────────────────────────────────────────────────
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Pain & Sedation' AND "deleted_at" IS NULL LIMIT 1;
+  SELECT id INTO v_mod_id FROM "modules" WHERE "id" = '1bd76de2-9fc8-4c9e-89a2-d85cc6f44af8' LIMIT 1;
+  IF v_mod_id IS NULL THEN
+    SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND (LOWER(TRIM("title")) = LOWER(TRIM('Pain & Sedation')) OR "title" = 'Pain & Sedation') AND "deleted_at" IS NULL LIMIT 1;
+  END IF;
   IF v_mod_id IS NULL THEN
     SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -1579,7 +1592,10 @@ Mark as Complete
   -- ───────────────────────────────────────────────────────────────────
   -- Module: Musculoskeletal (non-traumatic)
   -- ───────────────────────────────────────────────────────────────────
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Musculoskeletal (non-traumatic)' AND "deleted_at" IS NULL LIMIT 1;
+  SELECT id INTO v_mod_id FROM "modules" WHERE "id" = '496e18d9-e293-471f-88eb-3d5f683fdc87' LIMIT 1;
+  IF v_mod_id IS NULL THEN
+    SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND (LOWER(TRIM("title")) = LOWER(TRIM('Musculoskeletal (non-traumatic)')) OR "title" = 'Musculoskeletal (non-traumatic)') AND "deleted_at" IS NULL LIMIT 1;
+  END IF;
   IF v_mod_id IS NULL THEN
     SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -2616,7 +2632,10 @@ Previous Next
   -- ───────────────────────────────────────────────────────────────────
   -- Module: Safeguarding & Psycho-social emergencies in children
   -- ───────────────────────────────────────────────────────────────────
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Safeguarding & Psycho-social emergencies in children' AND "deleted_at" IS NULL LIMIT 1;
+  SELECT id INTO v_mod_id FROM "modules" WHERE "id" = 'b8baaab5-0fb6-4aa4-ac9b-304e25b52427' LIMIT 1;
+  IF v_mod_id IS NULL THEN
+    SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND (LOWER(TRIM("title")) = LOWER(TRIM('Safeguarding & Psycho-social emergencies in children')) OR "title" = 'Safeguarding & Psycho-social emergencies in children') AND "deleted_at" IS NULL LIMIT 1;
+  END IF;
   IF v_mod_id IS NULL THEN
     SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
@@ -2880,7 +2899,7 @@ Previous Next
   -- ───────────────────────────────────────────────────────────────────
   -- Module: Infectious Diseases & Global Health
   -- ───────────────────────────────────────────────────────────────────
-  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND "title" = 'Infectious Diseases & Global Health' AND "deleted_at" IS NULL LIMIT 1;
+  SELECT id INTO v_mod_id FROM "modules" WHERE "course_id" = v_course_id AND (LOWER(TRIM("title")) = LOWER(TRIM('Infectious Diseases & Global Health')) OR "title" = 'Infectious Diseases & Global Health') AND "deleted_at" IS NULL LIMIT 1;
   IF v_mod_id IS NULL THEN
     SELECT COALESCE(MAX("position"), 0) + 1 INTO v_max_pos FROM "modules" WHERE "course_id" = v_course_id;
     INSERT INTO "modules" ("id", "course_id", "title", "position", "created_at", "updated_at")
