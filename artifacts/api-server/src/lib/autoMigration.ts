@@ -999,6 +999,8 @@ export async function runAutoMigrationsAndSeeds() {
       // CRITICAL FIX: soft-delete the shadow mrcem-sba course (4c794261) created by autoMigration
       // and migrate any unique modules to the real course (583e83a1) that has all user data.
       { file: "fix_deduplicate_sba_course.sql", shouldRun: true },
+      // Quality fixes: Infectious Diseases position, Child Abuse capitalisation, duplicate lessons
+      { file: "fix_sba_quality_issues.sql", shouldRun: true },
     ];
 
     for (const { file: seedFile, shouldRun } of masterSeeds) {
