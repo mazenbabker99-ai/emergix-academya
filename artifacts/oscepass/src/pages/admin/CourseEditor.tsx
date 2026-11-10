@@ -411,7 +411,7 @@ export default function CourseEditor() {
           <Form {...courseForm}><form className="editor-card course-details-card" onSubmit={courseForm.handleSubmit(saveCourse)}>
             <div className="editor-section-head"><div><span className="admin-kicker">01 · COURSE DETAILS</span><h2>Course identity</h2></div><span className="small-caption">Changes are not public until published</span></div>
             <label className="admin-field">Course title<input required {...courseForm.register('title', { required: true })} data-testid="input-edit-course-title" /></label>
-            <div className="field-pair"><label className="admin-field">Slug<input required pattern="[a-z0-9-]+" {...courseForm.register('slug', { required: true, pattern: /^[a-z0-9-]+$/ })} data-testid="input-edit-course-slug" /></label>
+            <div className="field-pair"><label className="admin-field">Slug<input required pattern="[a-z0-9\\-]+" {...courseForm.register('slug', { required: true, pattern: /^[a-z0-9-]+$/ })} data-testid="input-edit-course-slug" /></label>
               <label className="admin-field">Exam association<select {...courseForm.register('examId')} data-testid="select-course-exam"><option value="">No exam association</option>{examsQuery.data?.items.map((exam) => <option key={exam.id} value={exam.id}>{exam.shortName || exam.name}</option>)}</select></label></div>
             <label className="admin-field">Short summary<textarea rows={2} {...courseForm.register('summary')} placeholder="A concise introduction for the course catalogue" data-testid="input-edit-course-summary" /></label>
             <label className="admin-field">Full description<textarea rows={5} {...courseForm.register('description')} placeholder="What learners will cover and how this course supports their preparation" data-testid="input-edit-course-description" /></label>
@@ -725,7 +725,7 @@ export default function CourseEditor() {
               <div className="field-pair">
                 <label className="admin-field">
                   Lesson slug
-                  <input required pattern="[a-z0-9-]+" {...lessonForm.register('slug', { required: true, pattern: /^[a-z0-9-]+$/ })} data-testid="input-lesson-slug" />
+                  <input required pattern="[a-z0-9\\-]+" {...lessonForm.register('slug', { required: true, pattern: /^[a-z0-9-]+$/ })} data-testid="input-lesson-slug" />
                 </label>
                 <label className="admin-field">
                   Content type
