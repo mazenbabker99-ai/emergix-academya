@@ -66,6 +66,9 @@ export const env = {
   appOrigin: new URL(raw.APP_URL).origin,
   allowedOrigins: [
     new URL(raw.APP_URL).origin,
+    'https://emerjixacademy.netlify.app',
+    'https://emergixacademy.netlify.app',
+    'https://*.netlify.app',
     ...(raw.EXTRA_ALLOWED_ORIGINS ?? '')
       .split(',')
       .map((s) => s.trim())
@@ -73,3 +76,18 @@ export const env = {
   ],
   testHooksEnabled: raw.E2E_TEST_HOOKS && !isProd,
 } as const;
+
+/**
+ * Validates if an Origin is trusted (Netlify, Replit, localhost, or explicitly configured in allowedOrigins).
+ */
+export function isOriginAllowed(origin: string | undefined | null): boolean {
+  if (!origin) return true;
+  if (env.allowedOrigins.includes(origin)) return true;
+  // Netlify domains (*.netlify.app)
+  if (/^https:\/\/[a-z0-9-]+(?:\.[a-z0-9-]+)*\.netlify\.app$/i.test(origin)) return true;
+  // Replit domains (*.replit.app, *.repl.co)
+  if (/^https:\/\/[a-z0-9-]+\.(?:replit\.app|repl\.co)$/i.test(origin)) return true;
+  // Local development
+  if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(origin)) return true;
+  return false;
+}

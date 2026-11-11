@@ -25,7 +25,16 @@ export const auth = betterAuth({
   baseURL: env.APP_URL,
   basePath: '/api/auth',
   secret: env.SESSION_SECRET,
-  trustedOrigins: [...env.allowedOrigins],
+  trustedOrigins: [
+    ...env.allowedOrigins,
+    'https://*.netlify.app',
+    'https://emerjixacademy.netlify.app',
+    'https://emergixacademy.netlify.app',
+    'https://*.replit.app',
+    'https://*.repl.co',
+    'http://localhost:5173',
+    'http://localhost:3000',
+  ],
 
   database: drizzleAdapter(db, {
     provider: 'pg',

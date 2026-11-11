@@ -5,7 +5,7 @@ import { rateLimit } from "express-rate-limit";
 import { toNodeHandler } from "better-auth/node";
 import pinoHttp from "pino-http";
 import router from "./routes";
-import { env } from "./config/env";
+import { env, isOriginAllowed } from "./config/env";
 import { auth } from "./lib/auth";
 import { logger } from "./lib/logger";
 import { originGuard } from "./middlewares/csrf";
@@ -40,7 +40,7 @@ app.use(
 app.use(helmet());
 app.use(
   cors({
-    origin: (origin, callback) => callback(null, !origin || env.allowedOrigins.includes(origin)),
+    origin: (origin, callback) => callback(null, isOriginAllowed(origin)),
     credentials: true,
   }),
 );

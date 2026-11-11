@@ -1,4 +1,5 @@
 import type { RequestHandler } from 'express';
+import { isOriginAllowed } from '../config/env';
 import { sendError } from '../lib/errors';
 
 const SAFE_METHODS = new Set(['GET', 'HEAD', 'OPTIONS']);
@@ -15,7 +16,7 @@ export const originGuard =
     if (SAFE_METHODS.has(req.method)) return next();
     const origin = req.get('origin');
     if (origin) {
-      if (allowedOrigins.includes(origin)) return next();
+      if (isOriginAllowed(origin) || allowedOrigins.includes(origin)) return next();
       return void sendError(res, 403, 'csrf_origin_rejected', 'Request origin is not allowed.');
     }
     if (req.get('cookie')) return void sendError(res, 403, 'csrf_origin_missing', 'Request origin is required.');
