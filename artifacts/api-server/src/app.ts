@@ -75,6 +75,7 @@ app.use(
 );
 app.all("/api/auth/*splat", toNodeHandler(auth));
 
+app.use("/api/admin/images/upload", express.json({ limit: "15mb" }));
 app.use(express.json({ limit: "100kb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(attachSession);

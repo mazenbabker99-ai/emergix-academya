@@ -47,6 +47,7 @@ import { EmptyState, ErrorState, PageSkeleton } from '@/components/shared/DataSt
 import { Form } from '@/components/ui/form';
 import { parseSbaQuestions, serializeQuestionsToMarkdown, type ParsedQuestion } from '@/components/quiz/parseQuestions';
 import { VERIFIED_QUIZ_1_QUESTIONS } from '@/components/quiz/verifiedQuizData';
+import { ClinicalImageManager } from '@/components/admin/ClinicalImageManager';
 import { usePageMeta } from '@/lib/usePageMeta';
 
 type EditorKind = 'module' | 'lesson';
@@ -582,6 +583,12 @@ export default function CourseEditor() {
                           placeholder="Enter the clinical scenario and question stem here..."
                           onChange={(e) => updateQuestionStem(qIndex, e.target.value)}
                         />
+                        <ClinicalImageManager
+                          text={q.stem}
+                          onChange={(newStem) => updateQuestionStem(qIndex, newStem)}
+                          label="Question Stem Figures"
+                          compact
+                        />
                       </div>
 
                       {/* Options A to E */}
@@ -634,6 +641,12 @@ export default function CourseEditor() {
                           rows={4}
                           placeholder="Enter detailed clinical rationale, explanation of why this answer is correct, and exam pearls..."
                           onChange={(e) => updateQuestionExplanation(qIndex, e.target.value)}
+                        />
+                        <ClinicalImageManager
+                          text={q.explanation}
+                          onChange={(newExpl) => updateQuestionExplanation(qIndex, newExpl)}
+                          label="Explanation Figures"
+                          compact
                         />
                       </div>
                     </div>
@@ -738,6 +751,12 @@ export default function CourseEditor() {
                   </select>
                 </label>
               </div>
+
+              <ClinicalImageManager
+                text={watchedBody}
+                onChange={(newBody) => lessonForm.setValue('body', newBody, { shouldDirty: true })}
+                label="Lesson Figures &amp; Clinical Diagrams"
+              />
 
               <label className="admin-field">
                 Raw Markdown Body:

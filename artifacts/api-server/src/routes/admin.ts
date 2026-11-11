@@ -10,6 +10,7 @@ import { requirePermission } from "../middlewares/rbac";
 import adminCoursesRouter from "./admin-courses";
 import adminMediaRouter from "./admin-media";
 import adminQuestionsRouter from "./admin-questions";
+import adminImagesRouter from "./admin-images";
 
 import { runAutoMigrationsAndSeeds } from "../lib/autoMigration";
 
@@ -150,5 +151,6 @@ router.put(
 router.use(adminCoursesRouter);
 router.use(adminMediaRouter);
 router.use(adminQuestionsRouter);
+router.use(adminImagesRouter);
 
 export default router;

@@ -64,6 +64,18 @@ CREATE TABLE IF NOT EXISTS "course_entitlements" (
 );
 CREATE INDEX IF NOT EXISTS "course_entitlements_user_course_idx" ON "course_entitlements"("user_id","course_id");
 CREATE INDEX IF NOT EXISTS "course_entitlements_course_user_idx" ON "course_entitlements"("course_id","user_id");
+
+CREATE TABLE IF NOT EXISTS "lesson_images" (
+  "id"          uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  "filename"    text NOT NULL,
+  "mime_type"   text NOT NULL,
+  "size_bytes"  integer NOT NULL,
+  "data"        bytea NOT NULL,
+  "caption"     text,
+  "uploaded_by" text,
+  "created_at"  timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS "idx_lesson_images_created_at" ON "lesson_images" ("created_at" DESC);
 `;
 
 const UPPER_LIMB_SEED_SQL = `

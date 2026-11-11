@@ -22,6 +22,7 @@ export function safeHref(url: string): string | null {
   const value = url.trim();
   if (/^https?:\/\//i.test(value) || /^mailto:/i.test(value)) return value;
   if (value.startsWith('/') && !value.startsWith('//')) return value;
+  if (/^data:image\/(?:png|jpe?g|webp|gif|svg\+xml);base64,/i.test(value)) return value;
   return null;
 }
 
