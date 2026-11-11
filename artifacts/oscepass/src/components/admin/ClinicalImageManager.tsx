@@ -11,7 +11,11 @@ import {
   Check,
   AlertCircle,
   Loader2,
-  ExternalLink,
+  ArrowUp,
+  ArrowDown,
+  ChevronsUp,
+  ChevronsDown,
+  Layers,
 } from 'lucide-react';
 
 export interface ExtractedImage {
@@ -22,9 +26,10 @@ export interface ExtractedImage {
   rawMatch: string;
 }
 
+export type InsertPlacement = 'auto' | 'before-question' | 'top' | 'bottom';
+
 export function parseImagesFromMarkdown(text: string): ExtractedImage[] {
   if (!text) return [];
-  // Matches ![alt](url) or ![alt](url "title") followed by optional *caption* on next line
   const regex = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)(?:\s*(?:\r?\n)+\s*\*([^*]+)\*)?/g;
   const results: ExtractedImage[] = [];
   let match: RegExpExecArray | null;
@@ -47,11 +52,97 @@ export function removeImageFromMarkdown(text: string, rawMatch: string): string 
   return cleaned.replace(/\n{3,}/g, '\n\n').trim();
 }
 
-export function appendImageToMarkdown(text: string, src: string, alt: string): string {
+export function insertImageWithPlacement(
+  text: string,
+  src: string,
+  alt: string,
+  placement: InsertPlacement = 'auto',
+): string {
   const cleanAlt = alt.trim() || 'Clinical Figure';
-  const tag = `\n\n![${cleanAlt}](${src.trim()})\n*${cleanAlt}*\n`;
-  if (!text || !text.trim()) return tag.trim();
-  return `${text.trimEnd()}${tag}`;
+  const tag = `![${cleanAlt}](${src.trim()})\n*${cleanAlt}*`;
+
+  if (!text || !text.trim()) return tag;
+
+  if (placement === 'top') {
+    return `${tag}\n\n${text.trimStart()}`;
+  }
+
+  if (placement === 'before-question' || placement === 'auto') {
+    const qMatch = text.match(/(?:(?:\r?\n)+\s*|\.\s+)(Which|What|How|Who|Why|Where|Select|Identify|Choose)[^?]*\?/i);
+    if (qMatch && qMatch.index !== undefined) {
+      const idx = qMatch.index + (qMatch[0].startsWith('.') ? 1 : 0);
+      return `${text.slice(0, idx).trimEnd()}\n\n${tag}\n\n${text.slice(idx).trimStart()}`;
+    }
+  }
+
+  // Default: Bottom
+  return `${text.trimEnd()}\n\n${tag}\n`;
+}
+
+export function moveImageInText(
+  text: string,
+  rawMatch: string,
+  direction: 'up' | 'down' | 'top' | 'bottom',
+): string {
+  const cleanRaw = rawMatch.trim();
+  const paragraphs = text.replace(/\r\n/g, '\n').split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+  const imgIdx = paragraphs.findIndex((p) => p.includes(cleanRaw));
+  if (imgIdx === -1) return text;
+
+  const isolatedList: string[] = [];
+  paragraphs.forEach((p, i) => {
+    if (i === imgIdx) {
+      const parts = p.split(cleanRaw).map((s) => s.trim()).filter(Boolean);
+      if (parts.length === 0) {
+        isolatedList.push(cleanRaw);
+      } else if (p.startsWith(cleanRaw)) {
+        isolatedList.push(cleanRaw);
+        isolatedList.push(parts[0]);
+      } else {
+        isolatedList.push(parts[0]);
+        isolatedList.push(cleanRaw);
+        if (parts[1]) isolatedList.push(parts[1]);
+      }
+    } else {
+      isolatedList.push(p);
+    }
+  });
+
+  const tagIdx = isolatedList.findIndex((item) => item === cleanRaw);
+  if (tagIdx === -1) return text;
+
+  if (direction === 'top') {
+    const [item] = isolatedList.splice(tagIdx, 1);
+    isolatedList.unshift(item);
+  } else if (direction === 'bottom') {
+    const [item] = isolatedList.splice(tagIdx, 1);
+    isolatedList.push(item);
+  } else if (direction === 'up' && tagIdx > 0) {
+    [isolatedList[tagIdx - 1], isolatedList[tagIdx]] = [isolatedList[tagIdx], isolatedList[tagIdx - 1]];
+  } else if (direction === 'down' && tagIdx < isolatedList.length - 1) {
+    [isolatedList[tagIdx + 1], isolatedList[tagIdx]] = [isolatedList[tagIdx], isolatedList[tagIdx + 1]];
+  }
+
+  return isolatedList.join('\n\n');
+}
+
+export function getImagePositionInfo(text: string, rawMatch: string): { current: number; total: number; label: string; isTop: boolean; isBottom: boolean } {
+  const cleanRaw = rawMatch.trim();
+  const paragraphs = text.replace(/\r\n/g, '\n').split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+  const idx = paragraphs.findIndex((p) => p.includes(cleanRaw));
+  if (idx === -1) return { current: 1, total: 1, label: 'Single position', isTop: true, isBottom: true };
+
+  const total = paragraphs.length;
+  const current = idx + 1;
+  const isTop = current === 1;
+  const isBottom = current === total;
+
+  let label = `Position: Paragraph ${current} of ${total}`;
+  if (isTop) label = 'Position: Top (البداية)';
+  else if (isBottom) label = 'Position: End (النهاية)';
+  else label = `Position: Middle (${current}/${total})`;
+
+  return { current, total, label, isTop, isBottom };
 }
 
 interface LibraryItem {
@@ -78,6 +169,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [zoomImage, setZoomImage] = useState<ExtractedImage | null>(null);
   const [activeTab, setActiveTab] = useState<'url' | 'upload' | 'library'>('url');
+  const [selectedPlacement, setSelectedPlacement] = useState<InsertPlacement>('auto');
 
   // Form states for adding image
   const [inputUrl, setInputUrl] = useState('');
@@ -145,6 +237,12 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
     }
   }, [activeTab, libraryItems.length, libraryLoading]);
 
+  // Handle position movement
+  const handleMoveImage = (img: ExtractedImage, direction: 'up' | 'down' | 'top' | 'bottom') => {
+    const updated = moveImageInText(text, img.rawMatch, direction);
+    onChange(updated);
+  };
+
   // Handle image removal
   const handleDeleteImage = (img: ExtractedImage) => {
     if (window.confirm(`Are you sure you want to remove "${img.alt || 'this image'}" from the lesson?`)) {
@@ -157,7 +255,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
   const handleInsertUrl = () => {
     if (!inputUrl.trim()) return;
     const caption = inputCaption.trim() || 'Clinical Figure';
-    const updated = appendImageToMarkdown(text, inputUrl.trim(), caption);
+    const updated = insertImageWithPlacement(text, inputUrl.trim(), caption, selectedPlacement);
     onChange(updated);
     setIsAddModalOpen(false);
     resetModal();
@@ -208,7 +306,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
       const data = await response.json();
       const serverUrl = data.image?.url || filePreview;
       const caption = inputCaption.trim() || selectedFile.name;
-      const updated = appendImageToMarkdown(text, serverUrl, caption);
+      const updated = insertImageWithPlacement(text, serverUrl, caption, selectedPlacement);
       onChange(updated);
       setIsAddModalOpen(false);
       resetModal();
@@ -223,7 +321,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
   const handleInsertFromLibrary = () => {
     if (!selectedLibraryItem) return;
     const caption = inputCaption.trim() || selectedLibraryItem.title;
-    const updated = appendImageToMarkdown(text, selectedLibraryItem.webPath, caption);
+    const updated = insertImageWithPlacement(text, selectedLibraryItem.webPath, caption, selectedPlacement);
     onChange(updated);
     setIsAddModalOpen(false);
     resetModal();
@@ -237,6 +335,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
     setFilePreview(null);
     setUploadError('');
     setSelectedLibraryItem(null);
+    setSelectedPlacement('auto');
   };
 
   // Categories from library
@@ -329,129 +428,203 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
         </button>
       </div>
 
-      {/* ─── Current Images List (with One-Click Delete) ─── */}
+      {/* ─── Current Images List with Position Controller & 1-Click Delete ─── */}
       {extractedImages.length > 0 && (
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
             gap: 8,
             marginBottom: 6,
           }}
         >
-          {extractedImages.map((img, i) => (
-            <div
-              key={img.id || i}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
-                padding: '6px 8px',
-                background: '#ffffff',
-                border: '1px solid #cbd5e1',
-                borderRadius: 6,
-                boxShadow: '0 1px 2px rgba(0,0,0,0.04)',
-                position: 'relative',
-              }}
-            >
-              {/* Thumbnail with Zoom Click */}
+          {extractedImages.map((img, i) => {
+            const posInfo = getImagePositionInfo(text, img.rawMatch);
+            return (
               <div
-                onClick={() => setZoomImage(img)}
-                title="Click to zoom in"
+                key={img.id || i}
                 style={{
-                  width: 52,
-                  height: 44,
-                  borderRadius: 4,
-                  overflow: 'hidden',
-                  background: '#f1f5f9',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'zoom-in',
-                  flexShrink: 0,
-                  border: '1px solid #e2e8f0',
+                  gap: 8,
+                  padding: '6px 10px',
+                  background: '#ffffff',
+                  border: '1px solid #cbd5e1',
+                  borderRadius: 6,
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.04)',
+                  position: 'relative',
                 }}
               >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  onError={(e) => {
-                    // Fallback placeholder on error
-                    (e.target as HTMLElement).style.display = 'none';
-                  }}
-                />
-              </div>
-
-              {/* Caption & Info */}
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: '0.74rem',
-                    fontWeight: 700,
-                    color: '#1e293b',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                  }}
-                  title={img.alt}
-                >
-                  {img.alt}
-                </p>
-                <span
-                  style={{
-                    display: 'inline-block',
-                    fontSize: '0.66rem',
-                    color: '#64748b',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    maxWidth: '140px',
-                  }}
-                  title={img.src}
-                >
-                  {img.src.startsWith('/lessons/') ? 'Academy Archive' : img.src.startsWith('/api/') ? 'Uploaded Image' : 'Web URL'}
-                </span>
-              </div>
-
-              {/* Action Buttons: Zoom & Delete */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 2, flexShrink: 0 }}>
-                <button
-                  type="button"
+                {/* Thumbnail with Zoom Click */}
+                <div
                   onClick={() => setZoomImage(img)}
-                  title="View full image"
+                  title="Click to zoom in"
                   style={{
-                    background: 'none',
-                    border: 'none',
-                    padding: 4,
-                    color: '#64748b',
-                    cursor: 'pointer',
+                    width: 52,
+                    height: 48,
                     borderRadius: 4,
-                  }}
-                >
-                  <ZoomIn size={14} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleDeleteImage(img)}
-                  title="Delete image from lesson"
-                  style={{
-                    background: '#fee2e2',
-                    border: '1px solid #fecaca',
-                    padding: '3px 5px',
-                    color: '#dc2626',
-                    cursor: 'pointer',
-                    borderRadius: 4,
+                    overflow: 'hidden',
+                    background: '#f1f5f9',
                     display: 'flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'zoom-in',
+                    flexShrink: 0,
+                    border: '1px solid #e2e8f0',
                   }}
                 >
-                  <Trash2 size={13} />
-                </button>
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    onError={(e) => {
+                      (e.target as HTMLElement).style.display = 'none';
+                    }}
+                  />
+                </div>
+
+                {/* Caption & Position Badge */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: '0.74rem',
+                      fontWeight: 700,
+                      color: '#1e293b',
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                    title={img.alt}
+                  >
+                    {img.alt}
+                  </p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginTop: 2 }}>
+                    <span
+                      style={{
+                        fontSize: '0.66rem',
+                        fontWeight: 700,
+                        color: posInfo.isTop ? '#0284c7' : posInfo.isBottom ? '#64748b' : '#059669',
+                        background: posInfo.isTop ? '#e0f2fe' : posInfo.isBottom ? '#f1f5f9' : '#ecfdf5',
+                        padding: '1px 5px',
+                        borderRadius: 4,
+                      }}
+                    >
+                      {posInfo.label}
+                    </span>
+                  </div>
+                </div>
+
+                {/* ─── Position Controls Toolbar (Move Up / Down / Top / Bottom) ─── */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 2, background: '#f8fafc', padding: '2px 4px', borderRadius: 5, border: '1px solid #e2e8f0' }}>
+                  <button
+                    type="button"
+                    onClick={() => handleMoveImage(img, 'up')}
+                    disabled={posInfo.isTop}
+                    title="Move Up one paragraph (نقل للأعلى فقرة)"
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      padding: '3px 4px',
+                      color: posInfo.isTop ? '#cbd5e1' : '#0f766e',
+                      cursor: posInfo.isTop ? 'not-allowed' : 'pointer',
+                      borderRadius: 3,
+                      display: 'flex',
+                    }}
+                  >
+                    <ArrowUp size={13} strokeWidth={2.5} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleMoveImage(img, 'down')}
+                    disabled={posInfo.isBottom}
+                    title="Move Down one paragraph (نقل للأسفل فقرة)"
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      padding: '3px 4px',
+                      color: posInfo.isBottom ? '#cbd5e1' : '#0f766e',
+                      cursor: posInfo.isBottom ? 'not-allowed' : 'pointer',
+                      borderRadius: 3,
+                      display: 'flex',
+                    }}
+                  >
+                    <ArrowDown size={13} strokeWidth={2.5} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleMoveImage(img, 'top')}
+                    disabled={posInfo.isTop}
+                    title="Move to Top of text (نقل لأعلى النص)"
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      padding: '3px 4px',
+                      color: posInfo.isTop ? '#cbd5e1' : '#334155',
+                      cursor: posInfo.isTop ? 'not-allowed' : 'pointer',
+                      borderRadius: 3,
+                      display: 'flex',
+                    }}
+                  >
+                    <ChevronsUp size={13} strokeWidth={2.5} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleMoveImage(img, 'bottom')}
+                    disabled={posInfo.isBottom}
+                    title="Move to Bottom of text (نقل لأسفل النص)"
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      padding: '3px 4px',
+                      color: posInfo.isBottom ? '#cbd5e1' : '#334155',
+                      cursor: posInfo.isBottom ? 'not-allowed' : 'pointer',
+                      borderRadius: 3,
+                      display: 'flex',
+                    }}
+                  >
+                    <ChevronsDown size={13} strokeWidth={2.5} />
+                  </button>
+                </div>
+
+                {/* Zoom & Delete Buttons */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 2, flexShrink: 0 }}>
+                  <button
+                    type="button"
+                    onClick={() => setZoomImage(img)}
+                    title="View full image"
+                    style={{
+                      background: 'none',
+                      border: 'none',
+                      padding: 4,
+                      color: '#64748b',
+                      cursor: 'pointer',
+                      borderRadius: 4,
+                    }}
+                  >
+                    <ZoomIn size={14} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteImage(img)}
+                    title="Delete image from lesson (حذف الصورة بنقرة واحدة)"
+                    style={{
+                      background: '#fee2e2',
+                      border: '1px solid #fecaca',
+                      padding: '3px 5px',
+                      color: '#dc2626',
+                      cursor: 'pointer',
+                      borderRadius: 4,
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Trash2 size={13} />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
 
@@ -526,7 +699,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
               </button>
             </div>
 
-            {/* Modal Tabs */}
+            {/* Modal Source Tabs */}
             <div
               style={{
                 display: 'flex',
@@ -652,7 +825,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
                       border: '1px dashed #cbd5e1',
                       borderRadius: 8,
                       padding: 12,
-                      minHeight: 120,
+                      minHeight: 110,
                       background: '#f8fafc',
                       display: 'flex',
                       flexDirection: 'column',
@@ -674,7 +847,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
                         <img
                           src={inputUrl}
                           alt="Preview"
-                          style={{ maxHeight: 180, maxWidth: '100%', borderRadius: 6, objectFit: 'contain', margin: '0 auto' }}
+                          style={{ maxHeight: 160, maxWidth: '100%', borderRadius: 6, objectFit: 'contain', margin: '0 auto' }}
                         />
                       </div>
                     )}
@@ -719,7 +892,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
                       {selectedFile ? selectedFile.name : 'Click or tap to choose an image from your device'}
                     </strong>
                     <span style={{ fontSize: '0.72rem', color: '#0f766e' }}>
-                      Supports JPEG, PNG, WebP up to 10 MB. Saved permanently to Emergix Cloud Storage.
+                      Supports JPEG, PNG, WebP up to 10 MB. Saved permanently to Emergix Neon DB.
                     </span>
                   </div>
 
@@ -728,7 +901,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
                       <img
                         src={filePreview}
                         alt="Preview"
-                        style={{ maxHeight: 160, maxWidth: '100%', borderRadius: 6, objectFit: 'contain', border: '1px solid #e2e8f0' }}
+                        style={{ maxHeight: 150, maxWidth: '100%', borderRadius: 6, objectFit: 'contain', border: '1px solid #e2e8f0' }}
                       />
                     </div>
                   )}
@@ -764,7 +937,6 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
               {/* ─── TAB 3: ACADEMY LIBRARY ─── */}
               {activeTab === 'library' && (
                 <div>
-                  {/* Category Pills & Search */}
                   <div style={{ display: 'flex', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
                     <input
                       type="text"
@@ -799,7 +971,6 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
                     </select>
                   </div>
 
-                  {/* Figures Grid */}
                   {libraryLoading ? (
                     <div style={{ textAlign: 'center', padding: 30, color: '#64748b', fontSize: '0.8rem' }}>
                       <Loader2 size={20} className="animate-spin" style={{ margin: '0 auto 8px' }} />
@@ -815,7 +986,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
                         gap: 8,
-                        maxHeight: 250,
+                        maxHeight: 220,
                         overflowY: 'auto',
                         padding: '4px 2px',
                       }}
@@ -869,7 +1040,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
                   )}
 
                   {selectedLibraryItem && (
-                    <div style={{ marginTop: 12, padding: 8, background: '#f8fafc', borderRadius: 6, border: '1px solid #e2e8f0' }}>
+                    <div style={{ marginTop: 10, padding: 8, background: '#f8fafc', borderRadius: 6, border: '1px solid #e2e8f0' }}>
                       <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Selected Figure:</span>
                       <strong style={{ display: 'block', fontSize: '0.8rem', color: '#0f766e' }}>
                         {selectedLibraryItem.title}
@@ -878,6 +1049,101 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
                   )}
                 </div>
               )}
+
+              {/* ─── SMART PLACEMENT SELECTOR ─── */}
+              <div
+                style={{
+                  marginTop: 14,
+                  padding: '10px 12px',
+                  background: '#f1f5f9',
+                  borderRadius: 6,
+                  border: '1px solid #e2e8f0',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginBottom: 6 }}>
+                  <Layers size={14} style={{ color: '#0d9488' }} />
+                  <label style={{ fontSize: '0.76rem', fontWeight: 700, color: '#334155' }}>
+                    Placement in Text (موضع ظهور الصورة في النص):
+                  </label>
+                </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                  <label
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 4,
+                      fontSize: '0.74rem',
+                      cursor: 'pointer',
+                      background: selectedPlacement === 'auto' ? '#ccfbf1' : '#ffffff',
+                      border: selectedPlacement === 'auto' ? '1px solid #0d9488' : '1px solid #cbd5e1',
+                      padding: '4px 8px',
+                      borderRadius: 4,
+                      fontWeight: selectedPlacement === 'auto' ? 700 : 500,
+                      color: selectedPlacement === 'auto' ? '#0f766e' : '#334155',
+                    }}
+                  >
+                    <input
+                      type="radio"
+                      name="placement"
+                      value="auto"
+                      checked={selectedPlacement === 'auto'}
+                      onChange={() => setSelectedPlacement('auto')}
+                      style={{ display: 'none' }}
+                    />
+                    🩺 Before Question (بين السيناريو والسؤال)
+                  </label>
+                  <label
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 4,
+                      fontSize: '0.74rem',
+                      cursor: 'pointer',
+                      background: selectedPlacement === 'bottom' ? '#ccfbf1' : '#ffffff',
+                      border: selectedPlacement === 'bottom' ? '1px solid #0d9488' : '1px solid #cbd5e1',
+                      padding: '4px 8px',
+                      borderRadius: 4,
+                      fontWeight: selectedPlacement === 'bottom' ? 700 : 500,
+                      color: selectedPlacement === 'bottom' ? '#0f766e' : '#334155',
+                    }}
+                  >
+                    <input
+                      type="radio"
+                      name="placement"
+                      value="bottom"
+                      checked={selectedPlacement === 'bottom'}
+                      onChange={() => setSelectedPlacement('bottom')}
+                      style={{ display: 'none' }}
+                    />
+                    ⬇️ End of Text (نهاية النص)
+                  </label>
+                  <label
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 4,
+                      fontSize: '0.74rem',
+                      cursor: 'pointer',
+                      background: selectedPlacement === 'top' ? '#ccfbf1' : '#ffffff',
+                      border: selectedPlacement === 'top' ? '1px solid #0d9488' : '1px solid #cbd5e1',
+                      padding: '4px 8px',
+                      borderRadius: 4,
+                      fontWeight: selectedPlacement === 'top' ? 700 : 500,
+                      color: selectedPlacement === 'top' ? '#0f766e' : '#334155',
+                    }}
+                  >
+                    <input
+                      type="radio"
+                      name="placement"
+                      value="top"
+                      checked={selectedPlacement === 'top'}
+                      onChange={() => setSelectedPlacement('top')}
+                      style={{ display: 'none' }}
+                    />
+                    ⬆️ Top of Text (بداية النص)
+                  </label>
+                </div>
+              </div>
             </div>
 
             {/* Modal Footer */}
@@ -1046,7 +1312,7 @@ export const ClinicalImageManager: React.FC<ClinicalImageManagerProps> = ({
                   margin: '12px 0 0',
                   color: '#ffffff',
                   fontSize: '0.88rem',
-                  fontWeight: 600,
+                  fontWeight: 650,
                   textAlign: 'center',
                   background: 'rgba(0,0,0,0.6)',
                   padding: '6px 14px',
