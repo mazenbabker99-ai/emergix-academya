@@ -4,13 +4,25 @@ import * as schema from "./schema";
 
 const { Pool } = pg;
 
-if (!process.env.DATABASE_URL) {
+const connectionString =
+  process.env.DATABASE_URL_POOLED ||
+  process.env.NEON_DATABASE_URL ||
+  process.env.DATABASE_URL;
+
+if (!connectionString) {
   throw new Error(
     "DATABASE_URL must be set. Did you forget to provision a database?",
   );
 }
 
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+try {
+  const host = new URL(connectionString).host;
+  console.log(`[db] Connecting to database host: ${host}`);
+} catch {
+  // invalid URL format, ignore
+}
+
+export const pool = new Pool({ connectionString });
 export const db = drizzle(pool, { schema });
 
 export * from "./schema";
