@@ -1,0 +1,21 @@
+[build]
+  command = "pnpm --filter @workspace/oscepass run build"
+  publish = "artifacts/oscepass/dist/public"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--version"
+
+# Proxy /api requests to the live backend server
+# (Update this URL if moving the backend to Render or another dedicated host)
+[[redirects]]
+  from = "/api/*"
+  to = "https://emergix-academy--keshomid89.replit.app/api/:splat"
+  status = 200
+  force = true
+
+# SPA client-side routing fallback for React / Wouter
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
