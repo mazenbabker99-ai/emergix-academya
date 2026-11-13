@@ -10,7 +10,7 @@
 # (Update this URL if moving the backend to Render or another dedicated host)
 [[redirects]]
   from = "/api/*"
-  to = "https://emergix-academy--keshomid89.replit.app/api/:splat"
+  to = "https://emergix-api.onrender.com/api/:splat"
   status = 200
   force = true
 
